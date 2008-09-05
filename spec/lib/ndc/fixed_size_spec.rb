@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../../../spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper'
 
 describe E164::NDC::FixedSize do
 
@@ -11,7 +11,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '1 2345678901234'
+        splitter.formatted('12345678901234').should == '1 2345678901234'
       end
     end
   end
@@ -22,7 +22,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '12 345678901234'
+        splitter.formatted('12345678901234').should == '12 345678901234'
       end
     end
   end
@@ -33,7 +33,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '123 45678901234'
+        splitter.formatted('12345678901234').should == '123 45678901234'
       end
     end
   end
@@ -44,7 +44,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '1234 5678901234'
+        splitter.formatted('12345678901234').should == '1234 5678901234'
       end
     end
   end

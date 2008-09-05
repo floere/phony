@@ -7,8 +7,7 @@ module E164
       length 1..4
       format '%s %s'
       
-      ndcs [
-        '1',   # Wien
+      ndcs '1',# Wien
         '57',  # -
         '59',  # -
         '67',  # Mobile Services
@@ -64,7 +63,6 @@ module E164
         '930', # Service Number
         '931', # Service Number
         '939'  # Service Number
-      ]
       
     end
   end

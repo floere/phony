@@ -10,8 +10,7 @@ module E164
       format '%s %s'
       
       # prefix length => [ndcs]
-      ndcs [
-        '10',  # Call-By-Call
+      ndcs '10',  # Call-By-Call
         '11',  # formerly Value Added Services
         '12',  # Innovative Services
         '13',  # Voting and Lottery Numbers
@@ -151,8 +150,7 @@ module E164
         '961', # Weiden
         '971', # Bad Kissingen
         '981', # Ansbach
-        '991', # Deggendorf
-      ]
+        '991' # Deggendorf
       
     end
   end

@@ -24,16 +24,16 @@ describe E164::NDC::Austria do
 
   describe "formatted" do
     it "should format Vienna" do
-      splitter.formatted('198110').should == '1 98110'
+      splitter.formatted('198110').should == '1 98110'
     end
     it "should format some mobile services" do
-      splitter.formatted('6712345678912').should == '67 12345678912'
+      splitter.formatted('6712345678912').should == '67 12345678912'
     end
     it "should format Graz" do
-      splitter.formatted('3161234567891').should == '316 1234567891'
+      splitter.formatted('3161234567891').should == '316 1234567891'
     end
     it "should format Rohrau" do
-      splitter.formatted('2164123456789').should == '2164 123456789'
+      splitter.formatted('2164123456789').should == '2164 123456789'
     end
   end
 

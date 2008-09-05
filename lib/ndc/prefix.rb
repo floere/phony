@@ -7,18 +7,10 @@
 #
 module E164
   module NDC
-    class Prefix
+    class Prefix < Splitter
       
-      def self.length(range)
-        @min_ndc_length, @max_ndc_length = range.min, range.max
-      end
-      def self.format(format)
-        @format = format
-      end
-      def self.ndcs(ndcs_ary)
-        @ndcs = optimize(ndcs_ary)
-      end
-      
+      # Splits the number into ndc and rest.
+      #
       def self.split(number)
         number = number.dup
         presumed_code = ''
@@ -31,12 +23,36 @@ module E164
         return [presumed_code, number]
       end
       
-      def self.formatted(number)
-        (@format || '%s %s %s %s') % split(number)
-      end
-      
+      protected
+        
+        # Define the length range for the country's ndcs.
+        #
+        def self.length(range)
+          @min_ndc_length, @max_ndc_length = range.min, range.max
+        end
+        
+        # Define the list of NDCs.
+        #
+        # Note: For optimization, if the country has a max ndc length of 4,
+        #       only enter ndcs up to the length of 3 letters.
+        #       If the algorithm fails to match an ndc, it will assume it is a 4 digit ndc.
+        #
+        # e.g. We have NDCs '1', '22', '333', and '4444'.
+        #      Only set
+        #        ndcs '1', '22', '333'
+        #      and
+        #        length 1..4
+        #      '4444' will be "recognized" because the algorithm does not find a shorter ndc (assuming it
+        #      is a correct prefix code) and stop at the max ndc length of 4, given by the length method.
+        #
+        def self.ndcs(*ndcs_ary)
+          @ndcs = optimize(ndcs_ary)
+        end
+        
       private
         
+        # Optimizes and restructures the given ndcs array.
+        #
         def self.optimize(ndcs_ary)
           ndcs = {}
           ndcs_ary.each do |ndc|
