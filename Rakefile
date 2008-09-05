@@ -1,7 +1,7 @@
 require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s| 
-  s.name = 'E164'
+  s.name = 'e164'
   s.version = '0.0.2'
   s.author = 'Florian Hanke'
   s.email = 'florian.hanke+e164@gmail.com'
