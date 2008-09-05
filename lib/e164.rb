@@ -372,13 +372,18 @@ module E164
   end
 
   def self.formatted(phone_number, options = {})
-    format = case options[:format]
-    when nil, :international
-      '+%s %s %s'
-    when :relative
-      '00%s %s %s'
+    split_phone_number = split(phone_number)
+    format, split_phone_number = case options[:format]
+    when nil
+      ['+%s %s %s', split_phone_number]
+    when :international_absolute, :international
+      ['+%s %s %s', split_phone_number]
+    when :international_relative
+      ['00%s %s %s', split_phone_number]
+    when :national
+      ['0%s %s', split_phone_number[1..-1]]
     end
-    format % split(phone_number)
+    format % split_phone_number
   end
 
 end

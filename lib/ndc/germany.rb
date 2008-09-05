@@ -5,15 +5,13 @@
 module E164
   module NDC
     class Germany < Prefix
-
+      
+      self.starting_ndc_size = 2
       self.max_ndc_size = 4
       self.format = '%s %s'
 
       # prefix length => [ndcs]
       self.ndcs = {
-        1 => [
-
-        ],
         2 => [
           '10',  # Call-By-Call
           '11',  # formerly Value Added Services
@@ -33,6 +31,39 @@ module E164
           '156', # Mobilcom
           '157', # E-Plus
           '159', # O2
+          '160', # T-Mobile
+          '161', # C-Netz
+          '162', # Vodafone
+          '163', # E-Plus
+          '164', # Cityruf
+          '165', # Quix
+          '166', # Telmi
+          '168', # Scall
+          '169', # Cityruf, Scall, Skyper (e*cityruf, e*message, e*skyper)
+          '170', # T-Mobile
+          '171', # T-Mobile
+          '172', # Vodafone
+          '173', # Vodafone
+          '174', # Vodafone
+          '175', # T-Mobile
+          '176', # O2 Germany
+          '177', # E-Plus
+          '178', # E-Plus
+          '179', # O2 Germany
+          '181', # IVPNs
+          '182', # Closed User Group
+          '183', # Closed User Group
+          '184', # Closed User Group
+          '185', # Closed User Group
+          '186', # Closed User Group
+          '187', # Closed User Group
+          '189', # Closed User Group
+          '190', # former Premium Rate Services
+          '191', # Online Services
+          '192', # Online Services
+          '193', # Online Services
+          '194', # Online Services
+          '199', # Network-Internal Traffic Control
           '201', # Essen
           '202', # Wuppertal
           '203', # Duisburg
@@ -127,7 +158,7 @@ module E164
           '991', # Deggendorf
         ]
       }
-
+      
     end
   end
 end

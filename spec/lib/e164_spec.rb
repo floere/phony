@@ -10,7 +10,7 @@ describe E164 do
       E164.split('33112345678').should == ['33', '1', '12345678']
     end
     it "should handle german numbers" do
-      E164.split('49123412345').should == ['49', '1234', '12345']
+      E164.split('4976112345').should == ['49', '761', '12345']
     end
     it "should handle italian numbers opinionatedly" do
       E164.split('39123123456').should == ['39', '123', '123456']
@@ -35,6 +35,17 @@ describe E164 do
     describe "international" do
       it "should format austrian numbers" do
         E164.formatted('43198110', :format => :international).should == '+43 1 98110'
+      end
+      it "should format austrian numbers" do
+        E164.formatted('43198110', :format => :international_absolute).should == '+43 1 98110'
+      end
+      it "should format austrian numbers" do
+        E164.formatted('43198110', :format => :international_relative).should == '0043 1 98110'
+      end
+    end
+    describe "national" do
+      it "should format austrian numbers" do
+        E164.formatted('43198110', :format => :national).should == '01 98110'
       end
     end
   end
