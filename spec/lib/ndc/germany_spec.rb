@@ -24,16 +24,16 @@ describe E164::NDC::Germany do
 
   describe "formatted" do
     it "should format Berlin" do
-      splitter.formatted('3038625454').should == '30 386 25454'
+      splitter.formatted('3038625454').should == '30 386 25454'
     end
     it "should format Cologne" do
-      splitter.formatted('22137683323').should == '221 376 83323'
+      splitter.formatted('22137683323').should == '221 376 83323'
     end
     it "should format Freiburg im Breisgau" do
-      splitter.formatted('7614767676').should == '761 476 7676'
+      splitter.formatted('7614767676').should == '761 476 7676'
     end
     it "should format Nettetal-Lobberich" do
-      splitter.formatted('21535100').should == '2153 510 0'
+      splitter.formatted('21535100').should == '2153 510 0'
     end
   end
 

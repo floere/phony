@@ -1,3 +1,18 @@
+require 'rubygems'
+require 'active_support'
+
+$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'ndc/splitter'
+require 'ndc/fixed_size'
+require 'ndc/prefix'
+
+# Prefix code countries
+require 'ndc/austria'
+require 'ndc/germany'
+
+require 'e164'
+
 module E164
   
   include NDC
@@ -373,13 +388,13 @@ module E164
     
     format, split_phone_number = case options[:format]
       when nil
-        ['+%s %s ', [cc, ndc]]
+        ['+%s %s ', [cc, ndc]]
       when :international_absolute, :international, :+
-        ['+%s %s ', [cc, ndc]]
+        ['+%s %s ', [cc, ndc]]
       when :international_relative
-        ['00%s %s ', [cc, ndc]]
+        ['00%s %s ', [cc, ndc]]
       when :national
-        ['0%s ', [ndc]]
+        ['0%s ', [ndc]]
       when :local
         ['', []]
       end

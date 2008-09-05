@@ -11,7 +11,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678').should == '1 234 56 78'
+        splitter.formatted('12345678').should == '1 234 56 78'
       end
     end
   end
@@ -22,7 +22,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('123456789').should == '12 345 67 89'
+        splitter.formatted('123456789').should == '12 345 67 89'
       end
     end
   end
@@ -33,7 +33,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('1234567890').should == '123 456 78 90'
+        splitter.formatted('1234567890').should == '123 456 78 90'
       end
     end
   end
@@ -44,7 +44,7 @@ describe E164::NDC::FixedSize do
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901').should == '1234 567 89 01'
+        splitter.formatted('12345678901').should == '1234 567 89 01'
       end
     end
   end

@@ -29,43 +29,43 @@ describe E164 do
   describe "formatted" do
     describe "default" do
       it "should format swiss numbers" do
-        E164.formatted('41443643532').should == '+41 44 364 35 32'
+        E164.formatted('41443643532').should == '+41 44 364 35 32'
       end
       it "should format austrian numbers" do
-        E164.formatted('43198110').should == '+43 1 98110'
+        E164.formatted('43198110').should == '+43 1 98110'
       end
     end
     describe "international" do
       it "should format north american numbers" do
-        E164.formatted('18091231234', :format => :international).should == '+1 809 123 1234'
+        E164.formatted('18091231234', :format => :international).should == '+1 809 123 1234'
       end
       it "should format austrian numbers" do
-        E164.formatted('43198110', :format => :international).should == '+43 1 98110'
+        E164.formatted('43198110', :format => :international).should == '+43 1 98110'
       end
       it "should format austrian numbers" do
-        E164.formatted('43198110', :format => :international_absolute).should == '+43 1 98110'
+        E164.formatted('43198110', :format => :international_absolute).should == '+43 1 98110'
       end
       it "should format french numbers" do
-        E164.formatted('33142278186', :format => :+).should == '+33 1 42 27 81 86'
+        E164.formatted('33142278186', :format => :+).should == '+33 1 42 27 81 86'
       end
       it "should format austrian numbers" do
-        E164.formatted('43198110', :format => :international_relative).should == '0043 1 98110'
+        E164.formatted('43198110', :format => :international_relative).should == '0043 1 98110'
       end
     end
     describe "national" do
       it "should format swiss numbers" do
-        E164.formatted('41443643532', :format => :national).should == '044 364 35 32'
+        E164.formatted('41443643532', :format => :national).should == '044 364 35 32'
       end
       it "should format austrian numbers" do
-        E164.formatted('43198110', :format => :national).should == '01 98110'
+        E164.formatted('43198110', :format => :national).should == '01 98110'
       end
     end
     describe "local" do
       it "should format swiss numbers" do
-        E164.formatted('41443643532', :format => :local).should == '364 35 32'
+        E164.formatted('41443643532', :format => :local).should == '364 35 32'
       end
       it "should format german numbers" do
-        E164.formatted('493038625454', :format => :local).should == '386 25454'
+        E164.formatted('493038625454', :format => :local).should == '386 25454'
       end
     end
   end

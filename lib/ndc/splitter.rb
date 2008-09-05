@@ -6,14 +6,14 @@ module E164
       
       def self.local(*split_sizes)
         @split_sizes = split_sizes.flatten
-        format((['%s']*@split_sizes.size).join(' '))
+        format((['%s']*@split_sizes.size).join(' '))
       end
       
       # Define a format for the country's local format, converting spaces to non breaking spaces
       #
       def self.format(format)
-        @format ||= format.gsub(/ /, ' ')
-        @format_with_ndc = '%s ' + @format
+        @format ||= format.gsub(/ /, ' ')
+        @format_with_ndc = '%s ' + @format
       end
       
       def self.split(number)

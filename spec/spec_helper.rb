@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '../init')
+require File.join(File.dirname(__FILE__), '../lib/e164')
 
 require 'spec'
 
