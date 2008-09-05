@@ -6,45 +6,45 @@ describe E164::NDC::FixedSize do
 
   describe "size 1" do
     before(:each) do
-      @splitter = E164::NDC::FixedSize.new 1
+      @splitter = E164::NDC.fixed 1
     end
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '1 2345678901234'
+        splitter.formatted('12345678').should == '1 234 56 78'
       end
     end
   end
   describe "size 2" do
     before(:each) do
-      @splitter = E164::NDC::FixedSize.new 2
+      @splitter = E164::NDC.fixed 2
     end
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '12 345678901234'
+        splitter.formatted('123456789').should == '12 345 67 89'
       end
     end
   end
   describe "size 3" do
     before(:each) do
-      @splitter = E164::NDC::FixedSize.new 3
+      @splitter = E164::NDC.fixed 3
     end
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '123 45678901234'
+        splitter.formatted('1234567890').should == '123 456 78 90'
       end
     end
   end
   describe "size 4" do
     before(:each) do
-      @splitter = E164::NDC::FixedSize.new 4
+      @splitter = E164::NDC.fixed 4
     end
 
     describe "formatted" do
       it "should format correctly" do
-        splitter.formatted('12345678901234').should == '1234 5678901234'
+        splitter.formatted('12345678901').should == '1234 567 89 01'
       end
     end
   end

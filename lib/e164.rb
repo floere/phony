@@ -13,7 +13,7 @@ module E164
   @@country_codes = {
     1 => {
       '0' => fixed(0), # reserved
-      '1' => fixed(3), # USA, Canada, etc.
+      '1' => fixed(3, :local => [3, 4]), # USA, Canada, etc.
       '7' => fixed(3), # Kazakhstan (Republic of) & Russian Federation
     },
     2 => {
@@ -365,6 +365,8 @@ module E164
     [country_code, ndc, splitter_or_number.split_local(local)].flatten
   end
   
+  # Formats a E164 number according to local customs.
+  #
   def self.formatted(phone_number, options = {})
     splitter_or_number, cc, ndc, local = internal_split phone_number
     return splitter_or_number if local.nil?

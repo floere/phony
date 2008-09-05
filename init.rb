@@ -7,7 +7,7 @@ require 'ndc/splitter'
 require 'ndc/fixed_size'
 require 'ndc/prefix'
 
-require 'ndc/france'
+# Prefix code countries
 require 'ndc/austria'
 require 'ndc/germany'
 

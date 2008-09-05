@@ -2,7 +2,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s| 
   s.name = 'E164'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.author = 'Florian Hanke'
   s.email = 'florian.hanke+e164@gmail.com'
   s.homepage = 'florianhanke.blogspot.com'

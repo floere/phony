@@ -9,10 +9,10 @@ describe E164::NDC::Austria do
 
   describe "split" do
     it "should handle Vienna" do
-      splitter.split('1123456789123').should == ['1', '123456789123']
+      splitter.split('198110').should == ['1', '98110']
     end
     it "should handle some mobile services" do
-      splitter.split('6712345678912').should == ['67', '12345678912']
+      splitter.split('66914093902').should == ['669', '14093902']
     end
     it "should handle Graz" do
       splitter.split('3161234567891').should == ['316', '1234567891']
@@ -27,13 +27,13 @@ describe E164::NDC::Austria do
       splitter.formatted('198110').should == '1 98110'
     end
     it "should format some mobile services" do
-      splitter.formatted('6712345678912').should == '67 12345678912'
+      splitter.formatted('671234567891').should == '67 1234567891'
     end
     it "should format Graz" do
-      splitter.formatted('3161234567891').should == '316 1234567891'
+      splitter.formatted('316123456789').should == '316 123456789'
     end
     it "should format Rohrau" do
-      splitter.formatted('2164123456789').should == '2164 123456789'
+      splitter.formatted('216412345678').should == '2164 12345678'
     end
   end
 

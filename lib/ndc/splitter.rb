@@ -18,13 +18,13 @@ module E164
       
       def self.split(number)
         ndc_part = split_ndc(number)
-        ndc_part + split_local(ndc_part.pop)
+        [ndc_part, split_local(ndc_part.pop)].flatten
       end
       
       # Formats the given E164 Number according to the country specific format / ndcs splitting.
       #
       def self.formatted(number)
-        @format % split(number)
+        @format_with_ndc % split(number)
       end
       
       def self.locally_formatted(local_number)
