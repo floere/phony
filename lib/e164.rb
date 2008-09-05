@@ -2,7 +2,7 @@ module E164
   
   include NDC
 
-  # Returns a memoized fixed ndc splitter.
+  # Memoizes and returns a fixed ndc splitter.
   #
   @@fixed = {}
   def self.fixed(national_code_length)

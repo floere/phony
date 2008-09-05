@@ -1,5 +1,10 @@
 # Splits a national number using a prefix code.
 #
+# DSL:
+#   length: the length range of the dcs. For austria it is 1..4.
+#   format: the format of the dcs and rest. For austria it is '%s %s', default is '%s %s %s %s'.
+#   ndcs:   an array of the prefix codes. For germany it starts with ['10', '11', '12', '13', '30'…
+#
 module E164
   module NDC
     class Prefix
