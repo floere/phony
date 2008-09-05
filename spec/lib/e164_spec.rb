@@ -9,8 +9,8 @@ describe E164 do
     it "should handle french numbers" do
       E164.split('33112345678').should == ['33', '1', '12345678']
     end
-    it "should handle german numbers opinionatedly" do
-      E164.split('49123123456').should == ['49', '123', '123456']
+    it "should handle german numbers" do
+      E164.split('49123412345').should == ['49', '1234', '12345']
     end
     it "should handle italian numbers opinionatedly" do
       E164.split('39123123456').should == ['39', '123', '123456']
