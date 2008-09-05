@@ -4,8 +4,21 @@ module E164
   module NDC
     class Splitter
       
-      def initialize(national_code_length)
-        @national_code_length = national_code_length
+      def self.local(*split_sizes)
+        @split_sizes = split_sizes.flatten
+        format((['%s']*@split_sizes.size).join(' '))
+      end
+      
+      # Define a format for the country's local format, converting spaces to non breaking spaces
+      #
+      def self.format(format)
+        @format ||= format.gsub(/ /, ' ')
+        @format_with_ndc = '%s ' + @format
+      end
+      
+      def self.split(number)
+        ndc_part = split_ndc(number)
+        ndc_part + split_local(ndc_part.pop)
       end
       
       # Formats the given E164 Number according to the country specific format / ndcs splitting.
@@ -14,21 +27,17 @@ module E164
         @format % split(number)
       end
       
-      # Define a format for the country's ndc-rest format, converting spaces to non breaking spaces
-      #
-      # e.g. ITU-T E.123 recommends using
-      # format '%s %s'
-      #
-      def self.format(format)
-        @format = format.gsub(/ /, ' ')
+      def self.locally_formatted(local_number)
+        @format % split_local(local_number)
       end
-      format '%s %s %s %s'
       
-      #
-      #
-      def self.split(number)
-        number = number.dup
-        [number.slice!(0..@national_code_length-1), number]
+      def self.split_local(number)
+        local = []
+        @split_sizes.each do |size|
+          local << number.slice!(0..size-1)
+          break if number.empty?
+        end
+        local
       end
       
     end

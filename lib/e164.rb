@@ -2,11 +2,10 @@ module E164
   
   include NDC
 
-  # Memoizes and returns a fixed ndc splitter.
+  # Returns a fixed ndc splitter.
   #
-  @@fixed = {}
-  def self.fixed(national_code_length)
-    @@fixed[national_code_length] || @@fixed[national_code_length] = E164::NDC::FixedSize.new(national_code_length)
+  def self.fixed(national_code_length = 2, options = {})
+    NDC.fixed(national_code_length, options)
   end
 
   # prefix length =>
@@ -23,8 +22,8 @@ module E164
 
       '30' => fixed(2), # Greece
       '31' => fixed(2), # Netherlands
-      '32' => fixed(2), # Belgium
-      '33' => fixed(1), # France
+      '32' => fixed,    # Belgium
+      '33' => fixed(1, :local => [2, 2, 2, 2]), # France
       '34' => fixed(2), # Spain
       '36' => fixed(2), # Hungary
       '39' => fixed(3), # Italy
@@ -52,7 +51,7 @@ module E164
       '61' => fixed(2), # Australia
       '62' => fixed(2), # Indonesia (Republic of)
       '63' => fixed(2), # Philippines (Republic of the)
-      '64' => fixed(1), # New Zealand
+      '64' => fixed(1, :local => [3, 4]), # New Zealand
       '65' => fixed(2), # Singapore (Republic of)
       '66' => fixed(2), # Thailand
 
@@ -357,35 +356,45 @@ module E164
       '999' => fixed(2), # Reserved for possible future use within the Telecommunications for Disaster Relief (TDR) concept
     }
   }
-
+  
   # Splits the phone number into pieces according to the country codes above.
   #
   def self.split(phone_number)
-    number = phone_number.dup
-    presumed_code = ''
-    1.upto(3) do |i|
-      presumed_code << number.slice!(0..0)
-      national_code_splitter = @@country_codes[i][presumed_code]
-      return [presumed_code, national_code_splitter.split(number)].flatten if national_code_splitter
-    end
-    return number
+    splitter_or_number, country_code, ndc, local = internal_split phone_number
+    return splitter_or_number if local.nil?
+    [country_code, ndc, splitter_or_number.split_local(local)].flatten
   end
-
+  
   def self.formatted(phone_number, options = {})
-    split_phone_number = split(phone_number)
+    splitter_or_number, cc, ndc, local = internal_split phone_number
+    return splitter_or_number if local.nil?
+    
     format, split_phone_number = case options[:format]
-    when nil
-      ['+%s %s %s', split_phone_number]
-    when :international_absolute, :international, :+
-      ['+%s %s %s', split_phone_number]
-    when :international_relative
-      ['00%s %s %s', split_phone_number]
-    when :national
-      ['0%s %s', split_phone_number[1..-1]]
-    when :local
-      ['%s', split_phone_number[2..-1]]
-    end
-    format % split_phone_number
+      when nil
+        ['+%s %s ', [cc, ndc]]
+      when :international_absolute, :international, :+
+        ['+%s %s ', [cc, ndc]]
+      when :international_relative
+        ['00%s %s ', [cc, ndc]]
+      when :national
+        ['0%s ', [ndc]]
+      when :local
+        ['', []]
+      end
+    format % split_phone_number + splitter_or_number.locally_formatted(local)
   end
+  
+  private
+    
+    def self.internal_split(phone_number)
+      number = phone_number.dup
+      presumed_code = ''
+      1.upto(3) do |i|
+        presumed_code << number.slice!(0..0)
+        splitter = @@country_codes[i][presumed_code]
+        return [splitter, presumed_code, splitter.split_ndc(number)].flatten if splitter
+      end
+      return number
+    end
 
 end

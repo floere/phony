@@ -7,7 +7,7 @@ module E164
     class Germany < Prefix
       
       length 2..4
-      format '%s %s'
+      local 3, 4
       
       # prefix length => [ndcs]
       ndcs '10',  # Call-By-Call

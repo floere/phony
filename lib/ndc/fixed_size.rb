@@ -2,21 +2,26 @@
 #
 module E164
   module NDC
+    
+    def self.fixed(national_code_length = 2, options = {})
+      klass = Class.new(FixedSize)
+      klass.national_code_length national_code_length
+      klass.local options[:local] || [3, 2, 2]
+      klass.format options[:format] || '%s %s %s'
+      klass
+    end
+    
     class FixedSize < Splitter
       
-      class_inheritable_accessor :format
-      
-      def initialize(national_code_length)
-        @national_code_length = national_code_length
+      def self.national_code_length(length)
+        @national_code_length = length
       end
       
-      def split(number)
+      # A faster split method than the prefix splitter offers.
+      #
+      def self.split_ndc(number)
         number = number.dup
         [number.slice!(0..@national_code_length-1), number]
-      end
-      
-      def formatted(number)
-        '%s %s' % split(number)
       end
       
     end

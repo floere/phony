@@ -5,7 +5,7 @@ module E164
     class Austria < Prefix
       
       length 1..4
-      format '%s %s'
+      local 3, 4
       
       ndcs '1',# Wien
         '57',  # -

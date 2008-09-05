@@ -11,7 +11,7 @@ module E164
       
       # Splits the number into ndc and rest.
       #
-      def self.split(number)
+      def self.split_ndc(number)
         number = number.dup
         presumed_code = ''
         presumed_code << number.slice!(0..@min_ndc_length-2) if @min_ndc_length && @min_ndc_length > 1
