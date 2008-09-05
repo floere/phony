@@ -15,12 +15,24 @@ module E164
 
         ],
         2 => [
+          '10',  # Call-By-Call
+          '11',  # formerly Value Added Services
+          '12',  # Innovative Services
+          '13',  # Voting and Lottery Numbers
           '30',  # Berlin
           '32',  # Non Geographical Numbers
           '40',  # Hamburg
-          '',  #
+          '69',  # Frankfurt am Main
+          '89',  # München
         ],
         3 => [
+          '150', # Group3G/Quam
+          '151', # T-Mobile
+          '152', # Vodafone
+          '155', # E-Plus
+          '156', # Mobilcom
+          '157', # E-Plus
+          '159', # O2
           '201', # Essen
           '202', # Wuppertal
           '203', # Duisburg
@@ -71,14 +83,48 @@ module E164
           '571', # Minden
           '581', # Uelzen
           '591', # Lingen (Ems)
-          '', #
-          '', #
-          '', #
-          '', #
-          '', #
-          '', #
-          '', #
-          '', #
+          '611', # Wiesbaden
+          '621', # Mannheim / Ludwigshafen
+          '631', # Kaiserslautern
+          '641', # Gießen
+          '651', # Trier
+          '661', # Fulda
+          '671', # Bad Kreuznach
+          '681', # Saarbrücken
+          '700', # Personal Numbers
+          '701', # Personal Numbers, reserved
+          '711', # Stuttgart
+          '721', # Karlsruhe
+          '731', # Ulm
+          '741', # Rottweil
+          '751', # Ravensburg
+          '761', # Freiburg im Breisgau
+          '771', # Donaueschingen
+          '781', # Offenburg
+          '791', # Schwäbisch Hall
+          '800', # Toll-Free Numbers
+          '801', # Toll-Free Numbers, reserved
+          '811', # Hallbergmoos
+          '821', # Augsburg
+          '831', # Kempten
+          '841', # Ingolstadt
+          '851', # Passau
+          '861', # Traunstein
+          '871', # Landshut
+          '881', # Weilheim in Oberbayern
+          '900', # Premium Rate Numbers
+          '901', # Premium Rate Numbers, reserved
+          '902', # Replacement for 0137/0138
+          '906', # Donauwörth
+          '911', # Nürnberg
+          '921', # Bayreuth
+          '931', # Würzburg
+          '941', # Regensburg
+          '951', # Bamberg
+          '961', # Weiden
+          '971', # Bad Kissingen
+          '981', # Ansbach
+          '991', # Deggendorf
         ]
       }
 

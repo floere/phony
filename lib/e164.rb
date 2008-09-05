@@ -1,4 +1,6 @@
 module E164
+  
+  include NDC
 
   # Returns a memoized fixed ndc splitter.
   #
@@ -29,13 +31,13 @@ module E164
 
       '40' => fixed(2), # Romania
       '41' => fixed(2), # Switzerland (Confederation of)
-      '43' => E164::NDC::Austria, # Austria
+      '43' => Austria,
       '44' => fixed(2), # United Kingdom of Great Britain and Northern Ireland
       '45' => fixed(2), # Denmark
       '46' => fixed(2), # Sweden
       '47' => fixed(2), # Norway
       '48' => fixed(2), # Poland (Republic of)
-      '49' => E164::NDC::Germany, # Germany (Federal Republic of)
+      '49' => Germany,
 
       '51' => fixed(2), # Peru
       '52' => fixed(2), # Mexico
