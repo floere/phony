@@ -54,6 +54,11 @@ describe E164 do
         E164.formatted('43198110', :format => :national).should == '01 98110'
       end
     end
+    describe "local" do
+      it "should format swiss numbers" do
+        E164.formatted('41443643532', :format => :local).should == '3643532'
+      end
+    end
   end
 
 end

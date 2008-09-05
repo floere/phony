@@ -6,12 +6,11 @@ module E164
   module NDC
     class Germany < Prefix
       
-      self.starting_ndc_size = 2
-      self.max_ndc_size = 4
-      self.format = '%s %s'
+      length 2..4
+      format '%s %s'
 
       # prefix length => [ndcs]
-      self.ndcs = {
+      ndcs({
         2 => [
           '10',  # Call-By-Call
           '11',  # formerly Value Added Services
@@ -157,7 +156,7 @@ module E164
           '981', # Ansbach
           '991', # Deggendorf
         ]
-      }
+      })
       
     end
   end

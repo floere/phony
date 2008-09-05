@@ -3,12 +3,11 @@
 module E164
   module NDC
     class Austria < Prefix
-
-      self.max_ndc_size = 4
-      self.format = '%s %s'
-
-      # prefix length => [ndcs]
-      self.ndcs = {
+      
+      length 1..4
+      format '%s %s'
+      
+      ndcs({
         1 => [
           '1'    # Wien
         ],
@@ -71,7 +70,7 @@ module E164
           '931', # Service Number
           '939'  # Service Number
         ]
-      }
+      })
 
     end
   end

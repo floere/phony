@@ -376,12 +376,14 @@ module E164
     format, split_phone_number = case options[:format]
     when nil
       ['+%s %s %s', split_phone_number]
-    when :international_absolute, :international
+    when :international_absolute, :international, :+
       ['+%s %s %s', split_phone_number]
     when :international_relative
       ['00%s %s %s', split_phone_number]
     when :national
       ['0%s %s', split_phone_number[1..-1]]
+    when :local
+      ['%s', split_phone_number[2..-1]]
     end
     format % split_phone_number
   end
