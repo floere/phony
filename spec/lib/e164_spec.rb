@@ -28,6 +28,9 @@ describe E164 do
 
   describe "formatted" do
     describe "default" do
+      it "should format swiss numbers" do
+        E164.formatted('41443643532').should == '+41 44 3643532'
+      end
       it "should format austrian numbers" do
         E164.formatted('43198110').should == '+43 1 98110'
       end
@@ -44,6 +47,9 @@ describe E164 do
       end
     end
     describe "national" do
+      it "should format swiss numbers" do
+        E164.formatted('41443643532', :format => :national).should == '044 3643532'
+      end
       it "should format austrian numbers" do
         E164.formatted('43198110', :format => :national).should == '01 98110'
       end
