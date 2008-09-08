@@ -28,7 +28,7 @@ module E164
   @@country_codes = {
     1 => {
       '0' => fixed(0), # reserved
-      '1' => fixed(3, :local => [3, 4]), # USA, Canada, etc.
+      '1' => fixed(3, :local => [3, 10]), # USA, Canada, etc.
       '7' => fixed(3), # Kazakhstan (Republic of) & Russian Federation
     },
     2 => {

@@ -115,6 +115,9 @@ describe E164 do
       it "should format austrian numbers" do
         E164.formatted('43198110').should == '+43 1 98110'
       end
+      it "should format american numbers" do
+        E164.formatted('18705551122').should == '+1 870 555 1122'
+      end
     end
     describe "international" do
       it "should format north american numbers" do
