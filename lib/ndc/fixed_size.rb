@@ -6,8 +6,8 @@ module E164
     def self.fixed(national_code_length = 2, options = {})
       klass = Class.new(FixedSize)
       klass.national_code_length national_code_length
-      klass.local options[:local] || [3, 2, 2]
       klass.format options[:format] || '%s %s %s'
+      klass.local options[:local] || [3, 2, 2]
       klass
     end
     
