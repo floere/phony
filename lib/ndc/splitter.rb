@@ -4,33 +4,43 @@ module E164
   module NDC
     class Splitter
       
+      # Sets the local grouping format.
+      #
+      # Examples
+      # * local 3, 2, 2    # Switzerland, 364 35 33, thus: 3-2-2.
+      # * local 2, 2, 2, 2 # France, 12 34 56 78, thus: 2-2-2-2
+      #
       def self.local(*split_sizes)
         @split_sizes = split_sizes.flatten
         format((['%s']*@split_sizes.size).join(' '))
       end
       
-      # Define a format for the country's local format, converting spaces to non breaking spaces
+      # Define a format for the country's local format, converting spaces to non breaking spaces.
+      #
+      # Examples
+      # * format '%s %s %s' # Switzerland, spaces between the groups, e.g. 364˽35˽32
+      # * format '%s-%s-%s' # Hyphens between the groups, e.g. 555-12-34
       #
       def self.format(format)
-        @format ||= format.gsub(/ /, ' ')
+        @format = format
         @format_with_ndc = '%s ' + @format
       end
       
+      # Split an E164 number without country code into its NDC-Local parts.
+      #
+      # Examples
+      # * split '443643533' # => ['44', '364', '35', '33'] # (Switzerland)
+      #
       def self.split(number)
         ndc_part = split_ndc(number)
         [ndc_part, split_local(ndc_part.pop)].flatten
       end
       
-      # Formats the given E164 Number according to the country specific format / ndcs splitting.
+      # Split a local number according to an assumed country specific format.
       #
-      def self.formatted(number)
-        @format_with_ndc % split(number)
-      end
-      
-      def self.locally_formatted(local_number)
-        @format % split_local(local_number)
-      end
-      
+      # Examples
+      # * split '3643533' # => ['364', '35', '33'] # (Switzerland)
+      #
       def self.split_local(number)
         local = []
         @split_sizes.each do |size|
@@ -38,6 +48,18 @@ module E164
           break if number.empty?
         end
         local
+      end
+      
+      # Formats the given E164 Number (NDC-Local without CC) according to the country specific format / ndcs splitting.
+      #
+      def self.formatted(number)
+        @format_with_ndc % split(number)
+      end
+      
+      # Formats the given local number according to the country specific format.
+      #
+      def self.locally_formatted(local_number)
+        @format % split_local(local_number)
       end
       
     end

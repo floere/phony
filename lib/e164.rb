@@ -377,6 +377,7 @@ module E164
   def self.split(phone_number)
     splitter_or_number, country_code, ndc, local = split_cc_ndc phone_number
     return splitter_or_number if local.nil?
+    
     [country_code, ndc, splitter_or_number.split_local(local)].flatten
   end
   
