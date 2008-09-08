@@ -1,6 +1,50 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe E164 do
+  
+  describe "formatted_cc_ndc" do
+    describe "international" do
+      it "should return an internationally formatted cc-ndc combo" do
+        in_the E164 do
+          formatted_cc_ndc('41', '44', nil).should == '+41 44 '
+        end
+      end
+      it "should return an internationally formatted cc-ndc combo" do
+        in_the E164 do
+          formatted_cc_ndc('41', '44', :international_absolute).should == '+41 44 '
+        end
+      end
+      it "should return an internationally formatted cc-ndc combo" do
+        in_the E164 do
+          formatted_cc_ndc('41', '44', :international).should == '+41 44 '
+        end
+      end
+      it "should return an internationally formatted cc-ndc combo" do
+        in_the E164 do
+          formatted_cc_ndc('41', '44', :+).should == '+41 44 '
+        end
+      end
+      it "should return an relative internationally formatted cc-ndc combo" do
+        in_the E164 do
+          formatted_cc_ndc('41', '44', :international_relative).should == '0041 44 '
+        end
+      end
+    end
+    describe "national" do
+      it "should return a nationally formatted cc-ndc combo" do
+        in_the E164 do
+          formatted_cc_ndc('41', '44', :national).should == '044 '
+        end
+      end
+    end
+    describe "local" do
+      it "should return a locally formatted cc-ndc combo" do
+        in_the E164 do
+          formatted_cc_ndc('41', '44', :local).should == ''
+        end
+      end
+    end
+  end
 
   describe "split" do
     it "should handle austrian numbers" do

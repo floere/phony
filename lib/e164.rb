@@ -386,7 +386,15 @@ module E164
     splitter_or_number, cc, ndc, local = internal_split phone_number
     return splitter_or_number if local.nil?
     
-    format, split_phone_number = case options[:format]
+    formatted_cc_ndc(cc, ndc, options[:format]) + splitter_or_number.locally_formatted(local)
+  end
+  
+  private
+    
+    # Formats country code and national destination code.
+    #
+    def self.formatted_cc_ndc(cc, ndc, format)
+      format, split_phone_number = case format
       when nil
         ['+%s %s ', [cc, ndc]]
       when :international_absolute, :international, :+
@@ -398,10 +406,8 @@ module E164
       when :local
         ['', []]
       end
-    format % split_phone_number + splitter_or_number.locally_formatted(local)
-  end
-  
-  private
+      format % split_phone_number
+    end
     
     def self.internal_split(phone_number)
       number = phone_number.dup
