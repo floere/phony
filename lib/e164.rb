@@ -446,7 +446,7 @@ module E164
       1.upto(3) do |i|
         presumed_code << number.slice!(0..0)
         splitter = @@country_codes[i][presumed_code]
-        return yield splitter, presumed_code, number if splitter
+        return yield(splitter, presumed_code, number) if splitter
       end
     end
 
