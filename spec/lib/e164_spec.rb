@@ -2,6 +2,43 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe E164 do
   
+  describe "normalize" do
+    describe "some examples" do
+      it "should normalize an already normalized number" do
+        E164.normalize('41443643533').should == '41443643533'
+      end
+      it "should normalize a formatted number" do
+        E164.normalize('+41 44 364 35 33').should == '41443643533'
+      end
+      it "should normalize a formatted number" do
+        E164.normalize('+41 44 364 35 33').should == '41443643533'
+      end
+      it "should remove characters from the number" do
+        E164.normalize('John: +41 44 364 35 33').should == '41443643533'
+      end
+      it "should normalize one of these crazy american numbers" do
+        E164.normalize('1 (703) 451-5115').should == '17034515115'
+      end
+      it "should normalize another one of these crazy american numbers" do
+        E164.normalize('1-888-407-4747').should == '18884074747'
+      end
+      it "should normalize a number with colons" do
+        E164.normalize('1.906.387.1698').should == '19063871698'
+      end
+      it "should normalize a number with optional ndc" do
+        E164.normalize('+41 (044) 364 35 33').should == '41443643533'
+      end
+    end
+  end
+  
+  describe "remove_relative_zeros" do
+    it "should remove an ndc zero from an almost normalized number and return it" do
+      in_the E164 do
+        remove_relative_zeros!('410443643533').should == '41443643533'
+      end
+    end
+  end
+  
   describe "formatted_cc_ndc" do
     describe "international" do
       it "should return an internationally formatted cc-ndc combo" do

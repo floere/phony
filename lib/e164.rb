@@ -375,7 +375,7 @@ module E164
   # Splits the phone number into pieces according to the country codes above.
   #
   def self.split(phone_number)
-    splitter_or_number, country_code, ndc, local = internal_split phone_number
+    splitter_or_number, country_code, ndc, local = split_cc_ndc phone_number
     return splitter_or_number if local.nil?
     [country_code, ndc, splitter_or_number.split_local(local)].flatten
   end
@@ -383,13 +383,31 @@ module E164
   # Formats a E164 number according to local customs.
   #
   def self.formatted(phone_number, options = {})
-    splitter_or_number, cc, ndc, local = internal_split phone_number
+    splitter_or_number, cc, ndc, local = split_cc_ndc phone_number
     return splitter_or_number if local.nil?
     
     formatted_cc_ndc(cc, ndc, options[:format]) + splitter_or_number.locally_formatted(local)
   end
   
+  # Normalizes
+  #
+  def self.normalize(phone_number)
+    phone_number = phone_number.dup
+    phone_number.gsub!(/\D*/, '').gsub!(/^0+/, '') # Remove zeros at the beginning and non-digit chars
+    remove_relative_zeros! phone_number
+  end
+  
   private
+    
+    # Removes 0s from partially normalized numbers such as:
+    # 410443643533
+    # 
+    # Example:
+    #   410443643533 -> 41443643533
+    def self.remove_relative_zeros!(phone_number, format = nil)
+      # split_number = (format && format == :national) ? [phone_number] : split_cc(phone_number)
+      '%s%s' % split_cc(phone_number).collect! { |code| code.gsub(/^0+/, '') }
+    end
     
     # Formats country code and national destination code.
     #
@@ -409,15 +427,26 @@ module E164
       format % split_phone_number
     end
     
-    def self.internal_split(phone_number)
+    def self.split_cc(phone_number)
+      split_internal(phone_number) do |splitter, cc, ndc_local|
+        [cc, ndc_local]
+      end
+    end
+    
+    def self.split_cc_ndc(phone_number)
+      split_internal(phone_number) do |splitter, cc, ndc_local|
+        [splitter, cc, splitter.split_ndc(ndc_local)].flatten
+      end
+    end
+    
+    def self.split_internal(phone_number)
       number = phone_number.dup
       presumed_code = ''
       1.upto(3) do |i|
         presumed_code << number.slice!(0..0)
         splitter = @@country_codes[i][presumed_code]
-        return [splitter, presumed_code, splitter.split_ndc(number)].flatten if splitter
+        return yield splitter, presumed_code, number if splitter
       end
-      return number
     end
 
 end
