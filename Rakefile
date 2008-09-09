@@ -1,3 +1,5 @@
+# Gemmin'
+
 require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s| 
@@ -17,3 +19,11 @@ end
 Rake::GemPackageTask.new(spec) do |pkg| 
   pkg.need_tar = true 
 end 
+
+# Speccin'
+
+desc 'Run all specs'
+task :spec do
+  specs = Dir['spec/lib/**/*_spec.rb']
+  system "ruby #{specs.join(' ')}"
+end
