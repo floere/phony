@@ -106,7 +106,99 @@ describe E164 do
       E164.split('6491234567').should == ['64', '9', '123', '4567']
     end
   end
-
+  
+  describe "split_cc" do
+    it "should handle partial numbers" do
+      E164.split_cc('4').should == ['', '']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc('43').should == ['43', '']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc('431').should == ['43', '1']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc('4319').should == ['43', '19']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc('43198').should == ['43', '198']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc('431981').should == ['43', '1981']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc('4319811').should == ['43', '19811']
+    end
+    
+    it "should handle austrian numbers" do
+      E164.split_cc('43198110').should == ['43', '198110']
+    end
+    it "should handle french numbers" do
+      E164.split_cc('33112345678').should == ['33', '112345678']
+    end
+    it "should handle german numbers" do
+      E164.split_cc('4976112345').should == ['49', '76112345']
+    end
+    it "should handle italian numbers opinionatedly" do
+      E164.split_cc('3928061371').should == ['39', '28061371']
+    end
+    it "should handle swiss numbers" do
+      E164.split_cc('41443643532').should == ['41', '443643532']
+    end
+    it "should handle US numbers" do
+      E164.split_cc('15551115511').should == ['1', '5551115511']
+    end
+    it "should handle new zealand numbers" do
+      E164.split_cc('6491234567').should == ['64', '91234567']
+    end
+  end
+  
+  describe "split_cc_ndc" do
+    it "should handle partial numbers" do
+      E164.split_cc_ndc('4').should == ['', '', '']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc_ndc('43').should == ['43', '', '']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc_ndc('431').should == ['43', '1', '']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc_ndc('4319').should == ['43', '1', '9']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc_ndc('43198').should == ['43', '1', '98']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc_ndc('431981').should == ['43', '1', '981']
+    end
+    it "should handle partial numbers" do
+      E164.split_cc_ndc('4319811').should == ['43', '1', '9811']
+    end
+    
+    it "should handle austrian numbers" do
+      E164.split_cc_ndc('43198110').should == ['43', '1', '98110']
+    end
+    it "should handle french numbers" do
+      E164.split_cc_ndc('33112345678').should == ['33', '1', '12345678']
+    end
+    it "should handle german numbers" do
+      E164.split_cc_ndc('4976112345').should == ['49', '761', '12345']
+    end
+    it "should handle italian numbers opinionatedly" do
+      E164.split_cc_ndc('3928061371').should == ['39', '280', '61371']
+    end
+    it "should handle swiss numbers" do
+      E164.split_cc_ndc('41443643532').should == ['41', '44', '3643532']
+    end
+    it "should handle US numbers" do
+      E164.split_cc_ndc('15551115511').should == ['1', '555', '1115511']
+    end
+    it "should handle new zealand numbers" do
+      E164.split_cc_ndc('6491234567').should == ['64', '9', '1234567']
+    end
+  end
+  
   describe "formatted" do
     describe "default" do
       it "should format swiss numbers" do

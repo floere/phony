@@ -375,7 +375,9 @@ module E164
   # Splits the phone number into pieces according to the country codes above.
   #
   def self.split(phone_number)
-    splitter_or_number, country_code, ndc, local = split_cc_ndc phone_number
+    splitter_or_number, country_code, ndc, local = split_internal(phone_number) do |splitter, cc, ndc_local|
+      [splitter, cc, splitter.split_ndc(ndc_local)].flatten
+    end
     return splitter_or_number if local.nil?
     
     [country_code, ndc, splitter_or_number.split_local(local)].flatten
@@ -384,7 +386,9 @@ module E164
   # Formats a E164 number according to local customs.
   #
   def self.formatted(phone_number, options = {})
-    splitter_or_number, cc, ndc, local = split_cc_ndc phone_number
+    splitter_or_number, cc, ndc, local = split_internal(phone_number) do |splitter, cc, ndc_local|
+      [splitter, cc, splitter.split_ndc(ndc_local)].flatten
+    end
     return splitter_or_number if local.nil?
     
     formatted_cc_ndc(cc, ndc, options[:format]) + splitter_or_number.locally_formatted(local)
@@ -406,7 +410,6 @@ module E164
     # Example:
     #   410443643533 -> 41443643533
     def self.remove_relative_zeros!(phone_number, format = nil)
-      # split_number = (format && format == :national) ? [phone_number] : split_cc(phone_number)
       '%s%s' % split_cc(phone_number).collect! { |code| code.gsub(/^0+/, '') }
     end
     
@@ -436,7 +439,7 @@ module E164
     
     def self.split_cc_ndc(phone_number)
       split_internal(phone_number) do |splitter, cc, ndc_local|
-        [splitter, cc, splitter.split_ndc(ndc_local)].flatten
+        splitter ? [cc, splitter.split_ndc(ndc_local)].flatten : [cc, ndc_local, '']
       end
     end
     
@@ -448,6 +451,7 @@ module E164
         splitter = @@country_codes[i][presumed_code]
         return yield(splitter, presumed_code, number) if splitter
       end
+      return yield(nil, '', '')
     end
 
 end

@@ -2,24 +2,24 @@ module SpecHelperExtensions
 
   # Allows the definition of "describe-wide" examples and describes.
   # 
-  # Case for "it". Use in the describe block:
-  # shared :it_should_behave_like_having_a_labels_class do
-  #   response.should have_tag('.labels')
-  # end
-  # Then, call it in the describe block or nested describe blocks as such:
-  # it_should_behave_like_having_a_labels_class
-  #
-  # Case for "describe". Use in the describe block:
-  # shared :describe_an_update_stream_item do
-  #   before(:each) do
-  #     # …
-  #   end
-  #   it "bla" do
+  # Case for "it". Use in the describe block
+  #   shared :it_should_behave_like_having_a_labels_class do
   #     response.should have_tag('.labels')
   #   end
-  # end
-  # Then, call it in the describe block or nested describe blocks as such:
-  # describe_an_update_stream_item
+  # Then, call it in the describe block or nested describe blocks as such
+  #   it_should_behave_like_having_a_labels_class
+  #
+  # Case for "describe". Use in the describe block
+  #   shared :describe_an_update_stream_item do
+  #     before(:each) do
+  #       # ...
+  #     end
+  #     it "bla" do
+  #       response.should have_tag('.labels')
+  #     end
+  #   end
+  # Then, call it in the describe block or nested describe blocks as such
+  #   describe_an_update_stream_item
   #
   def shared(name, &block)
     self.class.class_eval do
@@ -38,9 +38,14 @@ module SpecHelperExtensions
 
   # Used to test private methods.
   #
-  # The idea is to replace instance.send :private_method.
-  # Now it is rather like:
-  # We have the scenario we are in the given instance.
+  # The idea is to replace
+  #   instance.send :private_method.
+  # with
+  #   in_the instance do
+  #     private_method
+  #   end
+  #
+  # Note: Now it is rather like "We have the scenario that we are in the given instance."
   #
   def in_the(instance, &block)
     instance.instance_eval(&block)
