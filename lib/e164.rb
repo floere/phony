@@ -1,5 +1,9 @@
 require 'rubygems'
-require 'active_support'
+begin
+  require 'active_support'
+rescue LoadError
+  require 'activesupport'
+end
 
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
