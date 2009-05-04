@@ -227,6 +227,9 @@ describe E164 do
       it "should format austrian numbers" do
         E164.formatted('43198110', :format => :international_relative).should == '0043 1 98110'
       end
+      it 'should format liechtensteiner numbers' do
+        E164.formatted('4233841148', :format => :international_relative).should == '00423  384 11 48'
+      end
     end
     describe "national" do
       it "should format swiss numbers" do

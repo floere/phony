@@ -23,8 +23,8 @@ module E164
 
   # Returns a fixed ndc splitter.
   #
-  def self.fixed(national_code_length = 2, options = {})
-    NDC.fixed(national_code_length, options)
+  def self.fixed national_code_length = 2, options = {}
+    NDC.fixed national_code_length, options
   end
 
   # prefix length =>
@@ -41,7 +41,7 @@ module E164
 
       '30' => fixed(2), # Greece
       '31' => fixed(2), # Netherlands
-      '32' => fixed,    # Belgium
+      '32' => fixed(2),    # Belgium
       '33' => fixed(1, :local => [2, 2, 2, 2]), # France
       '34' => fixed(2), # Spain
       '36' => fixed(2), # Hungary
@@ -212,7 +212,7 @@ module E164
       '420' => fixed(2), # Czech Republic
       '421' => fixed(2), # Slovak Republic
       '422' => fixed(2), # Spare code
-      '423' => fixed(2), # Liechtenstein (Principality of)
+      '423' => fixed(0), # Liechtenstein (Principality of)
       '424' => fixed(2), # -
       '425' => fixed(2), # -
       '426' => fixed(2), # -

@@ -3,7 +3,19 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 describe E164::NDC::FixedSize do
 
   attr_reader :splitter
-
+  
+  describe 'size 0' do
+    before(:each) do
+      @splitter = E164::NDC.fixed 0
+    end
+    
+    describe "formatted" do
+      it "should format correctly" do
+        splitter.formatted('1234567').should == '123 45 67'
+      end
+    end
+  end
+  
   describe "size 1" do
     before(:each) do
       @splitter = E164::NDC.fixed 1
