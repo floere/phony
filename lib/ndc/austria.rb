@@ -7,7 +7,7 @@ module E164
       length 1..4
       local 10
       
-      ndcs '1',# Wien
+      ndcs '1',# Wient
         '57',  # -
         '59',  # -
         '67',  # Mobile Services

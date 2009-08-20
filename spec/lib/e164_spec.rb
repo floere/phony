@@ -13,6 +13,9 @@ describe E164 do
       it "should normalize a formatted number" do
         E164.normalize('+41 44 364 35 33').should == '41443643533'
       end
+      it "should normalize a special service number" do
+        E164.normalize('+41 800 11 22 33').should == '41800112233'
+      end
       it "should remove characters from the number" do
         E164.normalize('John: +41 44 364 35 33').should == '41443643533'
       end
@@ -66,11 +69,21 @@ describe E164 do
           formatted_cc_ndc('41', '44', :international_relative).should == '0041 44 '
         end
       end
+      it "should return an internationally formatted cc-ndc combo (for special service number)" do
+        in_the E164 do
+          formatted_cc_ndc('41', '800', :international_absolute).should == '+41 800 '
+        end
+      end
     end
     describe "national" do
       it "should return a nationally formatted cc-ndc combo" do
         in_the E164 do
           formatted_cc_ndc('41', '44', :national).should == '044 '
+        end
+      end
+      it "should return a nationally formatted cc-ndc combo (for special service number)" do
+        in_the E164 do
+          formatted_cc_ndc('41', '800', :national).should == '0800 '
         end
       end
     end
@@ -104,6 +117,9 @@ describe E164 do
     end
     it "should handle new zealand numbers" do
       E164.split('6491234567').should == ['64', '9', '123', '4567']
+    end
+    it "should handle swiss special services numbers" do
+      E164.split('41800334455').should == ['41', '800', '33', '44', '55']
     end
   end
   
@@ -144,6 +160,9 @@ describe E164 do
     end
     it "should handle swiss numbers" do
       E164.split_cc('41443643532').should == ['41', '443643532']
+    end
+    it "should handle swiss special services numbers" do
+      E164.split_cc('41800223344').should == ['41', '800223344']
     end
     it "should handle US numbers" do
       E164.split_cc('15551115511').should == ['1', '5551115511']
@@ -191,6 +210,9 @@ describe E164 do
     it "should handle swiss numbers" do
       E164.split_cc_ndc('41443643532').should == ['41', '44', '3643532']
     end
+    it "should handle swiss special services numbers" do
+      E164.split_cc_ndc('41800112233').should == ['41', '800', '112233']
+    end
     it "should handle US numbers" do
       E164.split_cc_ndc('15551115511').should == ['1', '555', '1115511']
     end
@@ -203,6 +225,9 @@ describe E164 do
     describe "default" do
       it "should format swiss numbers" do
         E164.formatted('41443643532').should == '+41 44 364 35 32'
+      end
+      it "should format swiss special services numbers" do
+        E164.formatted('41800112233').should == '+41 800 11 22 33'
       end
       it "should format austrian numbers" do
         E164.formatted('43198110').should == '+43 1 98110'
@@ -234,6 +259,9 @@ describe E164 do
     describe "national" do
       it "should format swiss numbers" do
         E164.formatted('41443643532', :format => :national).should == '044 364 35 32'
+      end
+      it "should format swiss special services numbers" do
+        E164.formatted('41800112233', :format => :national).should == '0800 11 22 33'
       end
       it "should format austrian numbers" do
         E164.formatted('43198110', :format => :national).should == '01 98110'

@@ -3,7 +3,7 @@
 module E164
   module NDC
     class Splitter
-      
+            
       # Sets the local grouping format.
       #
       # Examples
@@ -71,5 +71,6 @@ module E164
       end
       
     end
+    
   end
 end
