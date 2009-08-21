@@ -74,6 +74,24 @@ describe E164 do
           formatted_cc_ndc('41', '800', :international_absolute).should == '+41 800 '
         end
       end
+      context 'if the ndc is blank' do
+        it "should have only one space at the end (not two) / international" do
+          in_the E164 do
+            formatted_cc_ndc('423', '', :international).should == '+423 '
+          end
+        end
+        it "should have only one space at the end (not two) / international relative" do
+          in_the E164 do
+            formatted_cc_ndc('423', '', :international_relative).should == '00423 '
+          end
+        end
+        it "should have only one space at the end (not two) / national" do
+          in_the E164 do
+            formatted_cc_ndc('423', '', :national).should == ''
+          end
+        end
+        
+      end
     end
     describe "national" do
       it "should return a nationally formatted cc-ndc combo" do
@@ -253,7 +271,7 @@ describe E164 do
         E164.formatted('43198110', :format => :international_relative).should == '0043 1 98110'
       end
       it 'should format liechtensteiner numbers' do
-        E164.formatted('4233841148', :format => :international_relative).should == '00423  384 11 48'
+        E164.formatted('4233841148', :format => :international_relative).should == '00423 384 11 48'
       end
     end
     describe "national" do

@@ -421,14 +421,12 @@ module E164
     #
     def self.formatted_cc_ndc(cc, ndc, format)
       format, split_phone_number = case format
-      when nil
-        ['+%s %s ', [cc, ndc]]
-      when :international_absolute, :international, :+
-        ['+%s %s ', [cc, ndc]]
+      when nil, :international_absolute, :international, :+
+        [ndc.blank? ? '+%s ' : '+%s %s ', [cc, ndc]]
       when :international_relative
-        ['00%s %s ', [cc, ndc]]
+        [ndc.blank? ? '00%s ' : '00%s %s ', [cc, ndc]]
       when :national
-        ['0%s ', [ndc]]
+        [ndc.blank? ? '' : '0%s ', [ndc]]
       when :local
         ['', []]
       end
