@@ -74,6 +74,13 @@ describe E164 do
           formatted_cc_ndc('41', '800', :international_absolute).should == '+41 800 '
         end
       end
+      context 'with a different space character' do
+        it "should return an internationally formatted cc-ndc combo (for special service number), with special space" do
+          in_the E164 do
+            formatted_cc_ndc('41', '800', :international_absolute, :-).should == '+41-800-'
+          end
+        end
+      end
       context 'if the ndc is blank' do
         it "should have only one space at the end (not two) / international" do
           in_the E164 do

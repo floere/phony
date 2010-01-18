@@ -419,14 +419,15 @@ module E164
     
     # Formats country code and national destination code.
     #
-    def self.formatted_cc_ndc(cc, ndc, format)
+    def self.formatted_cc_ndc(cc, ndc, format, space = nil)
+      space ||= ' ' 
       format, split_phone_number = case format
       when nil, :international_absolute, :international, :+
-        [ndc.blank? ? '+%s ' : '+%s %s ', [cc, ndc]]
+        [ndc.blank? ? '+%s%s' : '+%s%s%s%s', [cc, space, ndc, space]]
       when :international_relative
-        [ndc.blank? ? '00%s ' : '00%s %s ', [cc, ndc]]
+        [ndc.blank? ? '00%s%s' : '00%s%s%s%s', [cc, space, ndc, space]]
       when :national
-        [ndc.blank? ? '' : '0%s ', [ndc]]
+        [ndc.blank? ? '' : '0%s%s', [ndc, space]]
       when :local
         ['', []]
       end
