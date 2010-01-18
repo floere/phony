@@ -1,9 +1,9 @@
 GEMSPEC = Gem::Specification.new do |s| 
   s.name = 'e164'
-  s.version = '0.0.8'
+  s.version = '1.0.0'
   s.author = 'Florian Hanke'
   s.email = 'florian.hanke+e164@gmail.com'
-  s.homepage = 'github.com/floere'
+  s.homepage = 'http://github.com/floere'
   s.platform = Gem::Platform::RUBY
   s.summary = 'E164 Number Splitting and Formatting'
   s.files = Dir["lib/**/*.rb"]
