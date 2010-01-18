@@ -8,7 +8,7 @@ module E164
       split_sizes, special_ndcs = klass.extract options
       klass.special_ndc_strategy E164::NDC::SpecialNdcStrategy.new(national_code_length, special_ndcs)
       klass.fixed_ndc_strategy E164::NDC::FixedNdcStrategy.new(national_code_length, split_sizes)
-      klass.format options[:format] || '%s %s %s'
+      klass.format options[:format] || '%s%s%s%s%s'
       klass.local split_sizes
       klass
     end
@@ -80,7 +80,7 @@ module E164
       end
 
       def ndc_format
-        '%s' + (@national_code_length == 0 ? '' : ' ')
+        '%s' + (@national_code_length == 0 ? '' : '%s')
       end
       
     end

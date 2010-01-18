@@ -280,6 +280,46 @@ describe E164 do
       it 'should format liechtensteiner numbers' do
         E164.formatted('4233841148', :format => :international_relative).should == '00423 384 11 48'
       end
+      context 'with no spaces' do
+        it "should format north american numbers" do
+          E164.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'
+        end
+        it "should format austrian numbers" do
+          E164.formatted('43198110', :format => :international, :spaces => '').should == '+43198110'
+        end
+        it "should format austrian numbers" do
+          E164.formatted('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'
+        end
+        it "should format french numbers" do
+          E164.formatted('33142278186', :format => :+, :spaces => '').should == '+33142278186'
+        end
+        it "should format austrian numbers" do
+          E164.formatted('43198110', :format => :international_relative, :spaces => '').should == '0043198110'
+        end
+        it 'should format liechtensteiner numbers' do
+          E164.formatted('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'
+        end
+      end
+      context 'with special spaces' do
+        it "should format north american numbers" do
+          E164.formatted('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'
+        end
+        it "should format austrian numbers" do
+          E164.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
+        end
+        it "should format austrian numbers" do
+          E164.formatted('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'
+        end
+        it "should format french numbers" do
+          E164.formatted('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'
+        end
+        it "should format austrian numbers" do
+          E164.formatted('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'
+        end
+        it 'should format liechtensteiner numbers' do
+          E164.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
+        end
+      end
     end
     describe "national" do
       it "should format swiss numbers" do

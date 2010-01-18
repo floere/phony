@@ -12,14 +12,13 @@ module E164
       #
       def self.local *split_sizes
         @split_sizes = split_sizes.flatten
-        format((['%s']*@split_sizes.size).join(' '))
+        format((['%s']*@split_sizes.size).join('%s'))
       end
       
-      # Define a format for the country's local format, converting spaces to non breaking spaces.
+      # Define a format for the country's local format.
       #
       # Examples
-      # * format '%s %s %s' # Switzerland, spaces between the groups, e.g. 364˽35˽32
-      # * format '%s-%s-%s' # Hyphens between the groups, e.g. 555-12-34
+      # * format '%s%s%s%s%s' # Switzerland, spaces between the groups, e.g. 364˽35˽32
       #
       def self.format format
         @format = format
@@ -28,10 +27,10 @@ module E164
       
       # Define a format for the country's national format.
       #
-      # Default is NN followed by a space.
+      # Default is NN followed by a space character.
       #
       def self.ndc_format
-        '%s '
+        '%s%s'
       end
       
       # Split an E164 number without country code into its NDC-Local parts.
@@ -60,14 +59,20 @@ module E164
       
       # Formats the given E164 Number (NDC-Local without CC) according to the country specific format / ndcs splitting.
       #
-      def self.formatted number
-        @format_with_ndc % split(number)
+      def self.formatted number, space = ' '
+        formatted_with_spaces @format_with_ndc, split(number), space
       end
       
       # Formats the given local number according to the country specific format.
       #
-      def self.locally_formatted number
-        @format % split_local(number)
+      def self.locally_formatted number, space = ' '
+        formatted_with_spaces @format, split_local(number), space
+      end
+      
+      def self.formatted_with_spaces format, split_number, space
+        space ||= ' '
+        number_and_spaces = (split_number).zip([space]*split_number.size).flatten
+        format % number_and_spaces
       end
       
     end

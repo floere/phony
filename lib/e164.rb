@@ -395,7 +395,8 @@ module E164
     end
     return splitter_or_number if local.nil?
     
-    formatted_cc_ndc(cc, ndc, options[:format]) + splitter_or_number.locally_formatted(local)
+    space = options[:spaces] || ' '
+    formatted_cc_ndc(cc, ndc, options[:format], space) + splitter_or_number.locally_formatted(local, space)
   end
   
   # Normalizes
