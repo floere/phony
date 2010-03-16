@@ -41,7 +41,7 @@ module E164
 
       '30' => fixed(2), # Greece
       '31' => fixed(2), # Netherlands
-      '32' => fixed(2),    # Belgium
+      '32' => fixed(2), # Belgium
       '33' => fixed(1, :local => [2, 2, 2, 2]), # France
       '34' => fixed(2), # Spain
       '36' => fixed(2), # Hungary
