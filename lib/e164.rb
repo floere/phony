@@ -212,7 +212,7 @@ module E164
       '420' => fixed(2), # Czech Republic
       '421' => fixed(2), # Slovak Republic
       '422' => fixed(2), # Spare code
-      '423' => fixed(0), # Liechtenstein (Principality of)
+      '423' => fixed(0, :local => [3, 2, 2]), # Liechtenstein (Principality of)
       '424' => fixed(2), # -
       '425' => fixed(2), # -
       '426' => fixed(2), # -
