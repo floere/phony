@@ -301,6 +301,9 @@ describe E164 do
         end
       end
       context 'with special spaces' do
+        it "should format swiss numbers" do
+          E164.formatted('41443643532', :format => :international).should == '+41 44 364 35 32'
+        end
         it "should format north american numbers" do
           E164.formatted('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'
         end
