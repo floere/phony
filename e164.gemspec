@@ -9,5 +9,5 @@ GEMSPEC = Gem::Specification.new do |s|
   s.files = Dir["lib/**/*.rb"]
   s.test_files = Dir["spec/**/*spec.rb"]
   s.has_rdoc = false
-  s.extra_rdoc_files = ["README"]
+  s.extra_rdoc_files = ["README.textile"]
 end
