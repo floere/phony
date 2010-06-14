@@ -374,19 +374,6 @@ describe E164 do
       it {E164::Vanity.replace('0800SUCCESSMATCH').should == '0800782237762824'}
       it {E164::Vanity.replace('080BLA').should == '080252'} #replace_vanity does not check for validity of number
     end
-    
-    describe 'char_to_number' do
-      context 'param is a valid vanity character' do
-        it {E164::Vanity.char_to_number('A').should == '2'}
-        it {E164::Vanity.char_to_number('d').should == '3'}
-        it {E164::Vanity.char_to_number(:q).should == '7'}
-        it {E164::Vanity.char_to_number(:Z).should == '9'}
-      end
-      context 'param is not a valid vanity character' do
-        it {E164::Vanity.char_to_number('1').should == '1'}
-        it {E164::Vanity.char_to_number('ü').should == 'ü'}
-      end
-    end
   end
 
 end

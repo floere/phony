@@ -423,29 +423,19 @@ module E164
   end
   
   module Vanity
-    mattr_accessor :mapping
-    @@mapping = { :a => 2, :b => 2, :c => 2,
-                :d => 3, :e => 3, :f => 3,
-                :g => 4, :h => 4, :i => 4,
-                :j => 5, :k => 5, :l => 5,
-                :m => 6, :n => 6, :o => 6,
-                :p => 7, :q => 7, :r => 7, :s => 7,
-                :t => 8, :u => 8, :v => 8,
-                :w => 9, :x => 9, :y => 9, :z => 9
-    }
-  
-    def self.char_to_number(char)
-      key = char.to_s.downcase.to_sym
-      mapping.key?(key) ? mapping[key].to_s : char
-    end
     
+    mattr_accessor :mapping
+    @@mapping = [
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+      '2223334445556667777888999922233344455566677778889999'
+    ]
     # Replaces vanity characters of passed number with correct digits.
     # Does not check for validity of vanity_number. Simply replaces all characters in the number
     #
-    def self.replace(number)
-      number.split('').inject([]) {|result, char| result << char_to_number(char)}.join
+    def self.replace number
+      number.tr *mapping
     end
-        
+    
   end
   
   
