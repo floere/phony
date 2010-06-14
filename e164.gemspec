@@ -1,6 +1,6 @@
 GEMSPEC = Gem::Specification.new do |s| 
   s.name = 'e164'
-  s.version = '1.0.1'
+  s.version = '1.1.0'
   s.author = 'Florian Hanke'
   s.email = 'florian.hanke+e164@gmail.com'
   s.homepage = 'http://github.com/floere'
