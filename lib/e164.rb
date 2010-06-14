@@ -1,6 +1,6 @@
 require 'rubygems'
 
-gem 'activesupport', '2.3.2'
+gem 'activesupport', '~> 2.3'
 begin
   require 'active_support'
 rescue LoadError
