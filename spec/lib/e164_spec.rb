@@ -195,7 +195,7 @@ describe E164 do
     it "should handle new zealand numbers" do
       E164.split_cc('6491234567').should == ['64', '91234567']
     end
-    it 'should description' do
+    it 'should handle Liechtenstein' do
       E164.split_cc('4233841148').should == ['423', '3841148']
     end
   end
