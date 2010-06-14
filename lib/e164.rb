@@ -1,4 +1,6 @@
 require 'rubygems'
+
+gem 'activesupport', '2.3.2'
 begin
   require 'active_support'
 rescue LoadError
@@ -406,6 +408,46 @@ module E164
     phone_number.gsub!(/\D*/, '').gsub!(/^0+/, '') # Remove zeros at the beginning and non-digit chars
     remove_relative_zeros! phone_number
   end
+    
+  # Returns true if the number starts with 4 digits and ends with 6-12 characters.
+  #
+  def self.vanity_number?(number)
+    (number.gsub(' ', '') =~ /^\d{4}\w{6,12}$/) ? true : false
+  end
+  
+  # Converts any character in the vanity_number to it's numeric representation.
+  # Does not check if the passed number is a valid vanity_number, simply does replacement.
+  #
+  def self.vanity_to_number(vanity_number)
+    Vanity.replace(vanity_number)
+  end
+  
+  module Vanity
+    mattr_accessor :mapping
+    @@mapping = { :a => 2, :b => 2, :c => 2,
+                :d => 3, :e => 3, :f => 3,
+                :g => 4, :h => 4, :i => 4,
+                :j => 5, :k => 5, :l => 5,
+                :m => 6, :n => 6, :o => 6,
+                :p => 7, :q => 7, :r => 7, :s => 7,
+                :t => 8, :u => 8, :v => 8,
+                :w => 9, :x => 9, :y => 9, :z => 9
+    }
+  
+    def self.char_to_number(char)
+      key = char.to_s.downcase.to_sym
+      mapping.key?(key) ? mapping[key].to_s : char
+    end
+    
+    # Replaces vanity characters of passed number with correct digits.
+    # Does not check for validity of vanity_number. Simply replaces all characters in the number
+    #
+    def self.replace(number)
+      number.split('').inject([]) {|result, char| result << char_to_number(char)}.join
+    end
+        
+  end
+  
   
   private
     
@@ -457,5 +499,5 @@ module E164
       end
       return yield(nil, '', '')
     end
-
+    
 end

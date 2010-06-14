@@ -1,3 +1,4 @@
+#encoding: utf-8
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe E164 do
@@ -344,6 +345,46 @@ describe E164 do
       end
       it "should format german numbers" do
         E164.formatted('493038625454', :format => :local).should == '386 25454'
+      end
+    end
+  end
+  
+  describe 'regarding vanity' do
+    describe 'vanity_number?' do
+      it {E164.vanity_number?('0800 WEGGLI').should be_true}
+      it {E164.vanity_number?('0800WEGGLI').should be_true}
+      it {E164.vanity_number?('0848 SUCCESSMATCH').should be_true}
+      it {E164.vanity_number?('080 NO NO NO').should be_false}
+      it {E164.vanity_number?('0900 KURZ').should be_false}
+    end
+    
+    describe 'vanity_to_number' do
+      before(:each) do
+        @number = stub(:number)
+      end
+      it "should delegate to E164::Vanity.replace" do
+        E164::Vanity.should_receive(:replace).with(@number)
+        E164.vanity_to_number @number
+      end
+    end
+    
+    describe 'replace_vanity' do
+      it {E164::Vanity.replace('0800 WEGGLI').should == '0800 934454'}
+      it {E164::Vanity.replace('0800weggli').should == '0800934454'}
+      it {E164::Vanity.replace('0800SUCCESSMATCH').should == '0800782237762824'}
+      it {E164::Vanity.replace('080BLA').should == '080252'} #replace_vanity does not check for validity of number
+    end
+    
+    describe 'char_to_number' do
+      context 'param is a valid vanity character' do
+        it {E164::Vanity.char_to_number('A').should == '2'}
+        it {E164::Vanity.char_to_number('d').should == '3'}
+        it {E164::Vanity.char_to_number(:q).should == '7'}
+        it {E164::Vanity.char_to_number(:Z).should == '9'}
+      end
+      context 'param is not a valid vanity character' do
+        it {E164::Vanity.char_to_number('1').should == '1'}
+        it {E164::Vanity.char_to_number('ü').should == 'ü'}
       end
     end
   end
