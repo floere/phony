@@ -1,4 +1,4 @@
-GEMSPEC = Gem::Specification.new do |s| 
+Gem::Specification.new do |s|
   s.name = 'phony'
   s.version = '1.0.0'
   s.authors = ['Florian Hanke', 'Andreas Schacke']
