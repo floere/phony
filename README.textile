@@ -2,7 +2,7 @@ h1. Phony
 
 h2. Description
 
-This gem can normalize, format and split Phony numbers.
+This gem can normalize, format and split E164 numbers.
 
 h2. Some examples
 

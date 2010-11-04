@@ -392,7 +392,7 @@ module Phony
     [country_code, ndc, splitter_or_number.split_local(local)].flatten
   end
   
-  # Formats a Phony number according to local customs.
+  # Formats a E164 number according to local customs.
   #
   def self.formatted(phone_number, options = {})
     splitter_or_number, cc, ndc, local = split_internal(phone_number) do |splitter, cc, ndc_local|

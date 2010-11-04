@@ -33,7 +33,7 @@ module Phony
         '%s%s'
       end
       
-      # Split an Phony number without country code into its NDC-Local parts.
+      # Split an E164 number without country code into its NDC-Local parts.
       #
       # Examples
       # * split '443643533' # => ['44', '364', '35', '33'] # (Switzerland)
@@ -57,7 +57,7 @@ module Phony
         local
       end
       
-      # Formats the given Phony Number (NDC-Local without CC) according to the country specific format / ndcs splitting.
+      # Formats the given E164 Number (NDC-Local without CC) according to the country specific format / ndcs splitting.
       #
       def self.formatted number, space = ' '
         formatted_with_spaces @format_with_ndc, split(number), space
