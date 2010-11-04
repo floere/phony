@@ -1,19 +1,12 @@
-# Gemmin'
-require 'rubygems'
-require 'rake/gempackagetask'
-require 'spec/rake/spectask'
+# Spec.
+#
+require 'rake'
 
+require 'rspec'
+require 'rspec/core/rake_task'
 
-load 'e164.gemspec'
+spec_root = File.join File.dirname(__FILE__), 'spec'
+desc "Run specs"
+RSpec::Core::RakeTask.new :spec
 
-spec = GEMSPEC
-
-Rake::GemPackageTask.new(spec) do |pkg|
-  pkg.need_tar = true 
-end
-
-# Speccin'
-desc "Run all specs in spec directory (excluding plugin specs)"
-Spec::Rake::SpecTask.new() do |t|
-  t.spec_files = FileList['spec/**/*_spec.rb']
-end
+task :default => :spec
