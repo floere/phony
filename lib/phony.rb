@@ -7,19 +7,22 @@ end
 Bundler.setup
 Bundler.require
 
-$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+# $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require 'ndc/splitter'
-require 'ndc/fixed_size'
-require 'ndc/prefix'
+# Framework.
+#
+require File.expand_path '../ndc/splitter', __FILE__
+require File.expand_path '../ndc/fixed_size', __FILE__
+require File.expand_path '../ndc/prefix', __FILE__
 
 # Prefix code countries
-require 'ndc/austria'
-require 'ndc/germany'
+#
+require File.expand_path '../ndc/austria', __FILE__
+require File.expand_path '../ndc/germany', __FILE__
 
-require 'e164'
+# require 'Phony'
 
-module E164
+module Phony
   
   include NDC
 
@@ -389,7 +392,7 @@ module E164
     [country_code, ndc, splitter_or_number.split_local(local)].flatten
   end
   
-  # Formats a E164 number according to local customs.
+  # Formats a Phony number according to local customs.
   #
   def self.formatted(phone_number, options = {})
     splitter_or_number, cc, ndc, local = split_internal(phone_number) do |splitter, cc, ndc_local|

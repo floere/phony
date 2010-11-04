@@ -2,7 +2,7 @@
 #
 # Note: We do ignore places with 5 numbers as NDC, like Groß Glienicke (33201)
 #
-module E164
+module Phony
   module NDC
     class Germany < Prefix
       

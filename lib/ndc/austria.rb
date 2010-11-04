@@ -1,6 +1,6 @@
 # Splits a national number into a fixed size NDC and rest.
 #
-module E164
+module Phony
   module NDC
     class Austria < Prefix
       

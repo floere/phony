@@ -5,12 +5,12 @@
 
 <html>
 <head>
-  <title>formatted (E164)</title>
+  <title>formatted (Phony)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/e164.rb, line 386</span>
+  <pre><span class="ruby-comment cmt"># File lib/Phony.rb, line 386</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">formatted</span>(<span class="ruby-identifier">phone_number</span>, <span class="ruby-identifier">options</span> = {})
     <span class="ruby-identifier">splitter_or_number</span>, <span class="ruby-identifier">cc</span>, <span class="ruby-identifier">ndc</span>, <span class="ruby-identifier">local</span> = <span class="ruby-identifier">split_cc_ndc</span> <span class="ruby-identifier">phone_number</span>
     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">splitter_or_number</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">local</span>.<span class="ruby-identifier">nil?</span>

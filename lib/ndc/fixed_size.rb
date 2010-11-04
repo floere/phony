@@ -1,13 +1,13 @@
 # Splits a national number into a fixed size NDC and rest.
 #
-module E164
+module Phony
   module NDC
     
     def self.fixed(national_code_length = 2, options = {})
       klass = Class.new FixedSize
       split_sizes, special_ndcs = klass.extract options
-      klass.special_ndc_strategy E164::NDC::SpecialNdcStrategy.new(national_code_length, special_ndcs)
-      klass.fixed_ndc_strategy E164::NDC::FixedNdcStrategy.new(national_code_length, split_sizes)
+      klass.special_ndc_strategy Phony::NDC::SpecialNdcStrategy.new(national_code_length, special_ndcs)
+      klass.fixed_ndc_strategy Phony::NDC::FixedNdcStrategy.new(national_code_length, split_sizes)
       klass.format options[:format] || '%s%s%s%s%s'
       klass.local split_sizes
       klass

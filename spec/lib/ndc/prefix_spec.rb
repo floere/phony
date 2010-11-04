@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe E164::NDC::Prefix do
+describe Phony::NDC::Prefix do
   
   attr_reader :prefix
   before(:each) do
-    @prefix = E164::NDC::Prefix
+    @prefix = Phony::NDC::Prefix
   end
   
   describe "optimize" do

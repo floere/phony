@@ -5,7 +5,7 @@
 #   format: the format of the dcs and rest. For austria it is '%s %s', default is '%s %s %s %s'.
 #   ndcs:   an array of the prefix codes. For germany it starts with ['10', '11', '12', '13', '30'…
 #
-module E164
+module Phony
   module NDC
     class Prefix < Splitter
       

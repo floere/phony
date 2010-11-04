@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe E164::NDC::Splitter do
+describe Phony::NDC::Splitter do
   
   attr_reader :splitter
   
   describe "DSL" do
     before(:each) do
-      @splitter = E164::NDC::Splitter
+      @splitter = Phony::NDC::Splitter
     end
     describe "local" do
       it "should set @split_sizes" do
@@ -33,7 +33,7 @@ describe E164::NDC::Splitter do
   describe "split_local" do
     describe "with local" do
       before(:each) do
-        @splitter = E164::NDC.fixed(2, :local => [3, 2, 2])
+        @splitter = Phony::NDC.fixed(2, :local => [3, 2, 2])
       end
       it "should split it according to the local format" do
         splitter.split_local('3643533').should == ['364', '35', '33']
@@ -43,7 +43,7 @@ describe E164::NDC::Splitter do
   
   describe 'formatted_with_spaces' do
     before(:each) do
-      @splitter = E164::NDC.fixed(2, :local => [3, 2, 2])
+      @splitter = Phony::NDC.fixed(2, :local => [3, 2, 2])
     end
     it 'should format with spaces' do
       splitter.formatted_with_spaces('%s%s%s%s%s', ['364', '35', '33'], ' ').should == '364 35 33'

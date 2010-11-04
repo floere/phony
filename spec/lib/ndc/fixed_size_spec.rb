@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe E164::NDC::FixedSize do
+describe Phony::NDC::FixedSize do
 
   attr_reader :splitter
   
   # describe 'size 0' do
   #   before(:each) do
-  #     @splitter = E164::NDC.fixed 0
+  #     @splitter = Phony::NDC.fixed 0
   #   end
   #   
   #   describe "formatted" do
@@ -19,7 +19,7 @@ describe E164::NDC::FixedSize do
   
   describe "size 1" do
     before(:each) do
-      @splitter = E164::NDC.fixed 1
+      @splitter = Phony::NDC.fixed 1
     end
 
     describe "formatted" do
@@ -30,7 +30,7 @@ describe E164::NDC::FixedSize do
   end
   describe "size 2" do
     before(:each) do
-      @splitter = E164::NDC.fixed 2
+      @splitter = Phony::NDC.fixed 2
     end
 
     describe "formatted" do
@@ -41,7 +41,7 @@ describe E164::NDC::FixedSize do
   end
   describe "size 3" do
     before(:each) do
-      @splitter = E164::NDC.fixed 3
+      @splitter = Phony::NDC.fixed 3
     end
 
     describe "formatted" do
@@ -52,7 +52,7 @@ describe E164::NDC::FixedSize do
   end
   describe "size 4" do
     before(:each) do
-      @splitter = E164::NDC.fixed 4
+      @splitter = Phony::NDC.fixed 4
     end
 
     describe "formatted" do

@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe E164::NDC::Austria do
+describe Phony::NDC::Austria do
 
   attr_reader :splitter
   before(:each) do
-    @splitter = E164::NDC::Austria
+    @splitter = Phony::NDC::Austria
   end
 
   describe "split" do
