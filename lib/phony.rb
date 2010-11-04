@@ -1,13 +1,10 @@
 begin
-  require 'bundler'
-rescue LoadError => e
-  require 'rubygems'
-  require 'bundler'
+  gem 'activesupport', '~> 3.0'
+rescue LoadError
+  puts "phony requires activesupport ~> 3.0"
 end
-Bundler.setup
-Bundler.require
 
-# $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'active_support/core_ext/object/blank'
 
 # Framework.
 #
