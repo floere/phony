@@ -1,11 +1,4 @@
-require 'rubygems'
 
-gem 'activesupport', '~> 2.3'
-begin
-  require 'active_support'
-rescue LoadError
-  require 'activesupport'
-end
 
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
