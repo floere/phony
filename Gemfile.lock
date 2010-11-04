@@ -2,10 +2,24 @@ GEM
   remote: http://rubygems.org/
   remote: http://rubygems.org/
   specs:
-    activesupport (2.3.10)
+    activesupport (3.0.1)
+    diff-lcs (1.1.2)
+    rake (0.8.7)
+    rspec (2.0.1)
+      rspec-core (~> 2.0.1)
+      rspec-expectations (~> 2.0.1)
+      rspec-mocks (~> 2.0.1)
+    rspec-core (2.0.1)
+    rspec-expectations (2.0.1)
+      diff-lcs (>= 1.1.2)
+    rspec-mocks (2.0.1)
+      rspec-core (~> 2.0.1)
+      rspec-expectations (~> 2.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 2.3)
+  activesupport (~> 3.0)
+  rake
+  rspec (~> 2.0.0)
