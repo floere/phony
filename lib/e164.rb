@@ -1,4 +1,11 @@
-
+begin
+  require 'bundler'
+rescue LoadError => e
+  require 'rubygems'
+  require 'bundler'
+end
+Bundler.setup
+Bundler.require
 
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
@@ -417,11 +424,14 @@ module E164
   
   module Vanity
     
-    mattr_accessor :mapping
     @@mapping = [
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
       '2223334445556667777888999922233344455566677778889999'
     ]
+    def self.mapping
+      @@mapping
+    end
+    
     # Replaces vanity characters of passed number with correct digits.
     # Does not check for validity of vanity_number. Simply replaces all characters in the number
     #
