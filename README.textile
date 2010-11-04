@@ -1,0 +1,111 @@
+h1. E164
+
+h2. Description
+
+This gem can normalize, format and split e164 numbers.
+
+h2. Some examples
+
+h3. Normalizing
+
+@E164.normalize('41443643533').should == '41443643533'@
+
+@E164.normalize('+41 44 364 35 33').should == '41443643533'@
+
+@E164.normalize('+41 44 364 35 33').should == '41443643533'@
+
+@E164.normalize('+41 800 11 22 33').should == '41800112233'@
+
+@E164.normalize('John: +41 44 364 35 33').should == '41443643533'@
+
+@E164.normalize('1 (703) 451-5115').should == '17034515115'@
+
+@E164.normalize('1-888-407-4747').should == '18884074747'@
+
+@E164.normalize('1.906.387.1698').should == '19063871698'@
+
+@E164.normalize('+41 (044) 364 35 33').should == '41443643533'@
+
+h3. Formatting
+
+@E164.formatted('41443643532').should == '+41 44 364 35 32'@
+
+@E164.formatted('41800112233').should == '+41 800 11 22 33'@
+
+@E164.formatted('43198110').should == '+43 1 98110'@
+
+@E164.formatted('18705551122').should == '+1 870 555 1122'@
+
+h4. International
+
+@E164.formatted('18091231234', :format => :international).should == '+1 809 123 1234'@
+
+@E164.formatted('43198110', :format => :international).should == '+43 1 98110'@
+
+@E164.formatted('43198110', :format => :international_absolute).should == '+43 1 98110'@
+
+@E164.formatted('33142278186', :format => :+).should == '+33 1 42 27 81 86'@
+
+@E164.formatted('43198110', :format => :international_relative).should == '0043 1 98110'@
+
+@E164.formatted('4233841148', :format => :international_relative).should == '00423 384 11 48'@
+
+h4. With spaces
+
+@E164.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'@
+
+@E164.formatted('43198110', :format => :international, :spaces => '').should == '+43198110'@
+
+@E164.formatted('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'@
+
+@E164.formatted('33142278186', :format => :+, :spaces => '').should == '+33142278186'@
+
+@E164.formatted('43198110', :format => :international_relative, :spaces => '').should == '0043198110'@
+
+@E164.formatted('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'@
+
+h4. With special spaces
+
+@E164.formatted('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'@
+
+@E164.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'@
+
+@E164.formatted('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'@
+
+@E164.formatted('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'@
+
+@E164.formatted('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'@
+
+@E164.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'@
+
+h4. National
+
+@E164.formatted('41443643532', :format => :national).should == '044 364 35 32'@
+
+@E164.formatted('41800112233', :format => :national).should == '0800 11 22 33'@
+
+@E164.formatted('43198110', :format => :national).should == '01 98110'@
+
+h4. Local
+
+@E164.formatted('41443643532', :format => :local).should == '364 35 32'@
+
+@E164.formatted('493038625454', :format => :local).should == '386 25454'@
+
+h3. Splitting
+
+@E164.split('43198110').should == ['43', '1', '98110']@
+
+@E164.split('33112345678').should == ['33', '1', '12','34','56','78']@
+
+@E164.split('4976112345').should == ['49', '761', '123', '45']@
+
+@E164.split('3928061371').should == ['39', '280', '613', '71']@
+
+@E164.split('41443643532').should == ['41', '44', '364', '35', '32']@
+
+@E164.split('15551115511').should == ['1', '555', '111', '5511']@
+
+@E164.split('6491234567').should == ['64', '9', '123', '4567']@
+
+@E164.split('41800334455').should == ['41', '800', '33', '44', '55']@
