@@ -1,9 +1,13 @@
-require File.join(File.dirname(__FILE__), '../lib/e164')
+begin
+  require 'bundler'
+rescue LoadError => e
+  require 'rubygems'
+  require 'bundler'
+end
+Bundler.setup :test
+Bundler.require
 
-require 'spec'
-
-$:.unshift File.dirname(__FILE__)
-$:.unshift File.join(File.dirname(__FILE__), '../lib')
+require File.expand_path '../../lib/e164', __FILE__
 
 require 'spec_helper_extensions'
 include SpecHelperExtensions
