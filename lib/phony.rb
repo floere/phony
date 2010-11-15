@@ -14,7 +14,7 @@ require File.expand_path '../phony/national_codes/fixed_splitter', __FILE__
 require File.expand_path '../phony/national_codes/variable_splitter', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
 
-# Countries
+# Countries.
 #
 # Note: See country_codes.rb for a complete mapping.
 #
@@ -22,19 +22,10 @@ require File.expand_path '../phony/countries/austria', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
 require File.expand_path '../phony/country_codes', __FILE__
 
-# require File.expand_path '../phony/ndc/splitter', __FILE__
-# require File.expand_path '../phony/ndc/fixed_size', __FILE__
-# require File.expand_path '../phony/ndc/prefix', __FILE__
-
-# # Prefix code countries
-# #
-# require File.expand_path '../phony/ndc/austria', __FILE__
-# require File.expand_path '../phony/ndc/germany', __FILE__
-
-# require 'Phony'
-
 module Phony
   
+  # Phony uses a single country codes instance.
+  #
   @codes = CountryCodes.new
   
   # Normalizes the given number.
@@ -42,17 +33,13 @@ module Phony
   # Useful before inserting the number into a database.
   #
   def self.normalize phone_number
-    # Remove zeros at the beginning and non-digit chars
-    #
-    phone_number = phone_number.gsub(/\D*/, '').gsub!(/^0+/, '') # Is the 0 replacing necessary?
-    remove_relative_zeros! phone_number
+    @codes.normalize phone_number.dup
   end
   
   # Splits the phone number into pieces according to the country codes.
   #
   def self.split phone_number
-    phone_number = phone_number.dup
-    @codes.split phone_number
+    @codes.split phone_number.dup
     # splitter_or_number, country_code, ndc, local = split_internal(phone_number) do |splitter, cc, ndc_local|
     #   [splitter, cc, splitter.split_ndc(ndc_local)].flatten
     # end
@@ -64,8 +51,7 @@ module Phony
   # Formats a E164 number according to local customs.
   #
   def self.formatted phone_number, options = {}
-    phone_number = phone_number.dup
-    @codes.formatted phone_number
+    @codes.formatted phone_number.dup
     # splitter_or_number, cc, ndc, local = split_internal(phone_number) do |splitter, cc, ndc_local|
     #   [splitter, cc, splitter.split_ndc(ndc_local)].flatten
     # end
@@ -79,8 +65,7 @@ module Phony
   # after the first four numbers.
   #
   def self.vanity? phone_number
-    phone_number = phone_number.dup
-    @codes.vanity? phone_number
+    @codes.vanity? phone_number.dup
     # # TODO Split into cc/noncc parts and test noncc.
     # Vanity.vanity? phone_number.gsub(' ', '')
   end
@@ -89,20 +74,10 @@ module Phony
   # Does not check if the passed number is a valid vanity_number, simply does replacement.
   #
   def self.vanity_to_number vanity_number
-    phone_number = phone_number.dup
-    @codes.vanity_to_number phone_number
+    @codes.vanity_to_number vanity_number.dup
   end
   
   private
-    
-    # Removes 0s from partially normalized numbers such as:
-    # 410443643533
-    # 
-    # Example:
-    #   410443643533 -> 41443643533
-    def self.remove_relative_zeros!(phone_number, format = nil)
-      '%s%s' % split_cc(phone_number).collect! { |code| code.gsub(/^0+/, '') }
-    end
     
     # Formats country code and national destination code.
     #

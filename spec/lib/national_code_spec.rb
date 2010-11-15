@@ -5,10 +5,10 @@ describe Phony::NationalCode do
   describe 'split' do
     context 'with fixed ndc (Swiss)' do
       before(:each) do
-        national_splitter = Phony::FixedNationalCodeSplitter.instance_for 2
+        national_splitter = Phony::NationalCodes::FixedSplitter.instance_for 2
         local_splitter    = Phony::LocalSplitter.instance_for [3, 2, 2]
         
-        @national          = Phony::NationalCode.new national_splitter, local_splitter
+        @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
         @national.split('443643532').should == ['44', '364', '35', '32']
@@ -19,10 +19,10 @@ describe Phony::NationalCode do
     end
     context 'with fixed ndc (French)' do
       before(:each) do
-        national_splitter = Phony::FixedNationalCodeSplitter.instance_for 1
+        national_splitter = Phony::NationalCodes::FixedSplitter.instance_for 1
         local_splitter    = Phony::LocalSplitter.instance_for [2, 2, 2, 2]
         
-        @national          = Phony::NationalCode.new national_splitter, local_splitter
+        @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
         @national.split('142278186').should == ['1', '42', '27', '81', '86']

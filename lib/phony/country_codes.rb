@@ -4,6 +4,13 @@ module Phony
   #
   class CountryCodes
     
+    def normalize phone_number
+      # Remove non-digit chars.
+      #
+      phone_number.gsub! /\D*/, ''
+      remove_relative_zeros! phone_number
+    end
+    
     # Splits this nu
     #
     def split number
@@ -24,7 +31,7 @@ module Phony
     # Converts a vanity number into a normalized E164 number.
     #
     def vanity_to_number vanity_number
-      national_handler, cc, rest = split_cc number
+      national_handler, cc, rest = split_cc vanity_number
       "#{cc}#{national_handler.vanity_to_number(rest)}"
     end
     
@@ -49,6 +56,16 @@ module Phony
       # TODO raise
     end
     
+    # Removes 0s from partially normalized numbers such as:
+    # 410443643533
+    # 
+    # Example:
+    #   410443643533 -> 41443643533
+    def remove_relative_zeros! phone_number
+      _, cc, rest = split_cc(phone_number)
+      '%s%s' % [cc, rest].collect! { |code| code.gsub(/^0+/, '') }
+    end
+    
     # Returns an anonymous fixed size ndc / format country handler.
     #
     def fixed size, options = {}
@@ -58,7 +75,7 @@ module Phony
       #
       
       national_splitter = if service_ndcs = options[:service_ndcs]
-          NationalCodes::VariableSplitter.new 0..size, :service => service_ndcs
+          NationalCodes::VariableSplitter.new size, :service => service_ndcs
         else
           NationalCodes::FixedSplitter.instance_for size
         end
@@ -69,7 +86,7 @@ module Phony
     def mapping
       @mapping ||= {
         1 => {
-          '0' => fixed(0), # reserved
+          '0' => fixed(1), # reserved
           '1' => fixed(3, :local_format => [3, 10]), # USA, Canada, etc.
           '7' => fixed(3), # Kazakhstan (Republic of) & Russian Federation
         },

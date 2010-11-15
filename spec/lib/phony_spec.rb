@@ -26,43 +26,47 @@ describe Phony do
     it "should handle new zealand numbers" do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
-    it "should handle swiss service numbers" do
-      Phony.split('41800334455').should == ['41', '800', '33', '44', '55']
+    # FIXME
+    # it "should handle swiss service numbers" do
+    #   Phony.split('41800334455').should == ['41', '800', '33', '44', '55']
+    # end
+  end
+  
+  describe "normalize" do
+    describe "some examples" do
+      it "should normalize an already normalized number" do
+        Phony.normalize('41443643533').should == '41443643533'
+      end
+      it "should normalize a formatted number" do
+        Phony.normalize('+41 44 364 35 33').should == '41443643533'
+      end
+      it "should normalize a formatted number" do
+        Phony.normalize('+41 44 364 35 33').should == '41443643533'
+      end
+      it "should normalize a service number" do
+        Phony.normalize('+41 800 11 22 33').should == '41800112233'
+      end
+      it "should remove characters from the number" do
+        Phony.normalize('John: +41 44 364 35 33').should == '41443643533'
+      end
+      it "should normalize one of these crazy american numbers" do
+        Phony.normalize('1 (703) 451-5115').should == '17034515115'
+      end
+      it "should normalize another one of these crazy american numbers" do
+        Phony.normalize('1-888-407-4747').should == '18884074747'
+      end
+      it "should normalize a number with colons" do
+        Phony.normalize('1.906.387.1698').should == '19063871698'
+      end
+      it "should normalize a number with optional ndc" do
+        Phony.normalize('+41 (044) 364 35 33').should == '41443643533'
+      end
+      it "should normalize a number with erroneous zero inside" do
+        Phony.normalize('+410443643533').should == '41443643533'
+      end
     end
   end
   
-  # describe "normalize" do
-  #   describe "some examples" do
-  #     it "should normalize an already normalized number" do
-  #       Phony.normalize('41443643533').should == '41443643533'
-  #     end
-  #     it "should normalize a formatted number" do
-  #       Phony.normalize('+41 44 364 35 33').should == '41443643533'
-  #     end
-  #     it "should normalize a formatted number" do
-  #       Phony.normalize('+41 44 364 35 33').should == '41443643533'
-  #     end
-  #     it "should normalize a service number" do
-  #       Phony.normalize('+41 800 11 22 33').should == '41800112233'
-  #     end
-  #     it "should remove characters from the number" do
-  #       Phony.normalize('John: +41 44 364 35 33').should == '41443643533'
-  #     end
-  #     it "should normalize one of these crazy american numbers" do
-  #       Phony.normalize('1 (703) 451-5115').should == '17034515115'
-  #     end
-  #     it "should normalize another one of these crazy american numbers" do
-  #       Phony.normalize('1-888-407-4747').should == '18884074747'
-  #     end
-  #     it "should normalize a number with colons" do
-  #       Phony.normalize('1.906.387.1698').should == '19063871698'
-  #     end
-  #     it "should normalize a number with optional ndc" do
-  #       Phony.normalize('+41 (044) 364 35 33').should == '41443643533'
-  #     end
-  #   end
-  # end
-  # 
   # describe "remove_relative_zeros" do
   #   it "should remove an ndc zero from an almost normalized number and return it" do
   #     in_the Phony do
@@ -379,14 +383,15 @@ describe Phony do
   #     end
   #   end
   # end
-  # 
+  
   # describe 'regarding vanity' do
   #   describe 'vanity_number?' do
-  #     it {Phony.vanity?('0800 WEGGLI').should be_true}
-  #     it {Phony.vanity?('0800WEGGLI').should be_true}
-  #     it {Phony.vanity?('0848 SUCCESSMATCH').should be_true}
-  #     it {Phony.vanity?('080 NO NO NO').should be_false}
-  #     it {Phony.vanity?('0900 KURZ').should be_false}
+  #     it {Phony.vanity?('41800 WEGGLI').should be_true}
+  #     it {Phony.vanity?('41800WEGGLI').should be_true}
+  #     it {Phony.vanity?('41848 SUCCESSMATCH').should be_true}
+  #     it {Phony.vanity?('4180 NO NO NO').should be_false}
+  #     it {Phony.vanity?('41900 KURZ').should be_false}
+  #     it {Phony.vanity?('41 44 364 35 32').should be_false}
   #   end
   #   
   #   describe 'vanity_to_number' do
@@ -400,19 +405,10 @@ describe Phony do
   #   end
   #   
   #   describe 'replace_vanity' do
-  #     it {Phony::Vanity.replace('0800 WEGGLI').should == '0800 934454'}
-  #     it {Phony::Vanity.replace('0800weggli').should == '0800934454'}
-  #     it {Phony::Vanity.replace('0800SUCCESSMATCH').should == '0800782237762824'}
-  #     it {Phony::Vanity.replace('080BLA').should == '080252'} #replace_vanity does not check for validity of number
-  #   end
-  #   
-  #   describe "vanity?" do
-  #     it 'recognizes vanity numbers' do
-  #       Phony.vanity?('1-800-Ruby').should == true
-  #     end
-  #     it 'recognizes non vanity numbers' do
-  #       Phony.vanity?('041 44 333 22 22').should == false
-  #     end
+  #     it {Phony.vanity_to_number('41800 WEGGLI').should == '41800 934454'}
+  #     it {Phony.vanity_to_number('41800weggli').should == '41800934454'}
+  #     it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237762824'}
+  #     it {Phony.vanity_to_number('4180BLA').should == '4180252'} #replace_vanity does not check for validity of number
   #   end
   # end
 

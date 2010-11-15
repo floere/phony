@@ -6,10 +6,10 @@ describe Phony::Vanity do
   
   describe "vanity?" do
     it 'recognizes a vanity number' do
-      Phony::Vanity.vanity?('4144HELLOWORLD').should == true
+      Phony::Vanity.vanity?('800HELLOWORLD').should == true
     end
     it 'recognizes a non vanity number' do
-      Phony::Vanity.vanity?('41444443322').should == false
+      Phony::Vanity.vanity?('444443322').should == false
     end
   end
   
