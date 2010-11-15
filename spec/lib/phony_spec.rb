@@ -15,7 +15,7 @@ describe Phony do
       it "should normalize a formatted number" do
         Phony.normalize('+41 44 364 35 33').should == '41443643533'
       end
-      it "should normalize a special service number" do
+      it "should normalize a service number" do
         Phony.normalize('+41 800 11 22 33').should == '41800112233'
       end
       it "should remove characters from the number" do
@@ -71,13 +71,13 @@ describe Phony do
           formatted_cc_ndc('41', '44', :international_relative).should == '0041 44 '
         end
       end
-      it "should return an internationally formatted cc-ndc combo (for special service number)" do
+      it "should return an internationally formatted cc-ndc combo (for service number)" do
         in_the Phony do
           formatted_cc_ndc('41', '800', :international_absolute).should == '+41 800 '
         end
       end
       context 'with a different space character' do
-        it "should return an internationally formatted cc-ndc combo (for special service number), with special space" do
+        it "should return an internationally formatted cc-ndc combo (for service number), with special space" do
           in_the Phony do
             formatted_cc_ndc('41', '800', :international_absolute, :-).should == '+41-800-'
           end
@@ -145,7 +145,7 @@ describe Phony do
     it "should handle new zealand numbers" do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
-    it "should handle swiss special services numbers" do
+    it "should handle swiss service numbers" do
       Phony.split('41800334455').should == ['41', '800', '33', '44', '55']
     end
   end
@@ -188,7 +188,7 @@ describe Phony do
     it "should handle swiss numbers" do
       Phony.split_cc('41443643532').should == ['41', '443643532']
     end
-    it "should handle swiss special services numbers" do
+    it "should handle swiss service numbers" do
       Phony.split_cc('41800223344').should == ['41', '800223344']
     end
     it "should handle US numbers" do
@@ -240,7 +240,7 @@ describe Phony do
     it "should handle swiss numbers" do
       Phony.split_cc_ndc('41443643532').should == ['41', '44', '3643532']
     end
-    it "should handle swiss special services numbers" do
+    it "should handle swiss service numbers" do
       Phony.split_cc_ndc('41800112233').should == ['41', '800', '112233']
     end
     it "should handle US numbers" do
@@ -256,7 +256,7 @@ describe Phony do
       it "should format swiss numbers" do
         Phony.formatted('41443643532').should == '+41 44 364 35 32'
       end
-      it "should format swiss special services numbers" do
+      it "should format swiss service numbers" do
         Phony.formatted('41800112233').should == '+41 800 11 22 33'
       end
       it "should format austrian numbers" do
@@ -333,7 +333,7 @@ describe Phony do
       it "should format swiss numbers" do
         Phony.formatted('41443643532', :format => :national).should == '044 364 35 32'
       end
-      it "should format swiss special services numbers" do
+      it "should format swiss service numbers" do
         Phony.formatted('41800112233', :format => :national).should == '0800 11 22 33'
       end
       it "should format austrian numbers" do

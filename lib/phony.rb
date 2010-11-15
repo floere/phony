@@ -50,7 +50,7 @@ module Phony
       '39' => fixed(3), # Italy
 
       '40' => fixed(2), # Romania
-      '41' => fixed(2, :local => [3, 2, 2], :special_ndcs => ['800', '840', '842', '844', '848']), # Switzerland (Confederation of)
+      '41' => fixed(2, :local => [3, 2, 2], :service_ndcs => ['800', '840', '842', '844', '848']), # Switzerland (Confederation of)
       '43' => Austria,
       '44' => fixed(2), # United Kingdom of Great Britain and Northern Ireland
       '45' => fixed(2), # Denmark

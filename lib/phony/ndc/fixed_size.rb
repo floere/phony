@@ -5,8 +5,8 @@ module Phony
     
     def self.fixed(national_code_length = 2, options = {})
       klass = Class.new FixedSize
-      split_sizes, special_ndcs = klass.extract options
-      klass.special_ndc_strategy Phony::NDC::SpecialNdcStrategy.new(national_code_length, special_ndcs)
+      split_sizes, service_ndcs = klass.extract options
+      klass.service_ndc_strategy Phony::NDC::ServiceNdcStrategy.new(national_code_length, service_ndcs)
       klass.fixed_ndc_strategy Phony::NDC::FixedNdcStrategy.new(national_code_length, split_sizes)
       klass.format options[:format] || '%s%s%s%s%s'
       klass.local split_sizes
@@ -16,23 +16,23 @@ module Phony
     class FixedSize < Splitter
       
       def self.extract options
-        [options[:local] || [3, 2, 2], options[:special_ndcs] || []]
+        [options[:local] || [3, 2, 2], options[:service_ndcs] || []]
       end
       
-      # Sets the strategy object to handle special services numbers
-      def self.special_ndc_strategy strategy 
-        @special_ndc_strategy = strategy
+      # Sets the strategy object to handle service numbers
+      def self.service_ndc_strategy strategy 
+        @service_ndc_strategy = strategy
       end
       
-      # Sets the strategy object to handle normal numbers (non special services)
+      # Sets the strategy object to handle normal numbers (non service)
       def self.fixed_ndc_strategy strategy
         @fixed_ndc_strategy = strategy
         @ndc_strategy = @fixed_ndc_strategy
       end
         
-      # Returns true if the number is a special services number
-      def self.special_ndc? number
-        @special_ndc_strategy.special_ndc? number
+      # Returns true if the number is a service number
+      def self.service_ndc? number
+        @service_ndc_strategy.service_ndc? number
       end
       
       # Define a format for the country's national format.
@@ -47,8 +47,8 @@ module Phony
       #
       def self.split_ndc number
         number = number.dup
-        if special_ndc? number
-          @ndc_strategy = @special_ndc_strategy
+        if service_ndc? number
+          @ndc_strategy = @service_ndc_strategy
         else
           @ndc_strategy = @fixed_ndc_strategy
         end
@@ -85,15 +85,15 @@ module Phony
       
     end
     
-    class SpecialNdcStrategy < NdcStrategy
-      def initialize national_code_length, special_ndcs
+    class ServiceNdcStrategy < NdcStrategy
+      def initialize national_code_length, service_ndcs
         super national_code_length, [2, 2, 2]
-        @special_ndcs = special_ndcs.flatten
-        @special_ndc_regexp = Regexp.compile "^(#{@special_ndcs.join('|')})"
+        @service_ndcs = service_ndcs.flatten
+        @service_ndc_regexp = Regexp.compile "^(#{@service_ndcs.join('|')})"
       end
       
-      def special_ndc? number
-        @special_ndcs && !@special_ndcs.empty? && @match = @special_ndc_regexp.match(number)
+      def service_ndc? number
+        @service_ndcs && !@service_ndcs.empty? && @match = @service_ndc_regexp.match(number)
       end
       
       def split_ndc number
