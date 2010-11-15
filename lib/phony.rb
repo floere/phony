@@ -10,8 +10,8 @@ require 'active_support/core_ext/object/blank'
 #
 require File.expand_path '../phony/vanity', __FILE__
 require File.expand_path '../phony/local_splitter', __FILE__
-require File.expand_path '../phony/national_codes/fixed_splitter', __FILE__
-require File.expand_path '../phony/national_codes/variable_splitter', __FILE__
+require File.expand_path '../phony/national_splitters/fixed', __FILE__
+require File.expand_path '../phony/national_splitters/variable', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
 
 # Countries.

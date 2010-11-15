@@ -1,8 +1,8 @@
 module Phony
   
-  module NationalCodes
+  module NationalSplitters
     
-    class VariableSplitter < FixedSplitter
+    class Variable < Fixed
       
       #
       #

@@ -14,11 +14,11 @@ module Phony
         service_ndcs = options[:service_ndcs]
         mobile_ndcs  = options[:mobile_ndcs]
         national_splitter = if service_ndcs || mobile_ndcs
-            NationalCodes::VariableSplitter.new size,
+            NationalSplitters::Variable.new size,
               :service => [*service_ndcs],
               :mobile  => [*mobile_ndcs]
           else
-            NationalCodes::FixedSplitter.instance_for size
+            NationalSplitters::Fixed.instance_for size
           end
         local_splitter = LocalSplitter.instance_for local_format
 

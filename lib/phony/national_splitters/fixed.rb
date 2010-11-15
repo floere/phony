@@ -1,8 +1,8 @@
 module Phony
   
-  module NationalCodes
+  module NationalSplitters
     
-    class FixedSplitter
+    class Fixed
       
       attr_writer :service_ndcs, :mobile_ndcs
       

@@ -5,7 +5,7 @@ module Phony
     class Germany < Phony::NationalCode
       
       def initialize
-        national_splitter = NationalCodes::VariableSplitter.new 4, @@ndc_mapping
+        national_splitter = NationalSplitters::Variable.new 4, @@ndc_mapping
         local_splitter    = LocalSplitter.instance_for [3, 10]
         
         super national_splitter, local_splitter
