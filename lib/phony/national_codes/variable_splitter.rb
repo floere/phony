@@ -4,10 +4,6 @@ module Phony
     
     class VariableSplitter < FixedSplitter
       
-      # ndc_range 1..4
-      # local_format 10
-      # ndcs :normal => ['1',# Vienna
-      
       #
       #
       def initialize fallback, ndc_map

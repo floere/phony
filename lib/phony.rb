@@ -33,13 +33,19 @@ module Phony
   # Useful before inserting the number into a database.
   #
   def self.normalize phone_number
-    @codes.normalize phone_number.dup
+    normalize! phone_number.dup
+  end
+  def self.normalize! phone_number
+    @codes.normalize phone_number
   end
   
   # Splits the phone number into pieces according to the country codes.
   #
   def self.split phone_number
-    @codes.split phone_number.dup
+    split! phone_number.dup
+  end
+  def self.split! phone_number
+    @codes.split phone_number
   end
   
   # Formats a E164 number according to local customs.
@@ -48,7 +54,17 @@ module Phony
     formatted! phone_number.dup, options
   end
   def self.formatted! phone_number, options = {}
-    @codes.formatted phone_number
+    @codes.formatted phone_number, options
+  end
+  
+  def self.service? number
+    
+  end
+  def self.mobile? number
+    
+  end
+  def self.landline? number
+    
   end
   
   # Returns true if there is a character in the number

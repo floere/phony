@@ -11,7 +11,7 @@ module Phony
       remove_relative_zeros! number
     end
     
-    # Splits this nu
+    # Splits this number into cc, ndc and locally split number parts.
     #
     def split number
       national_handler, cc, rest = split_cc number
