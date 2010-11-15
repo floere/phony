@@ -67,14 +67,6 @@ describe Phony do
     end
   end
   
-  # describe "remove_relative_zeros" do
-  #   it "should remove an ndc zero from an almost normalized number and return it" do
-  #     in_the Phony do
-  #       remove_relative_zeros!('410443643533').should == '41443643533'
-  #     end
-  #   end
-  # end
-  # 
   # describe "formatted_cc_ndc" do
   #   describe "international" do
   #     it "should return an internationally formatted cc-ndc combo" do
