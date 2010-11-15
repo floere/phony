@@ -17,5 +17,13 @@ module Phony
       number.tr *mapping
     end
     
+    # Returns true if there is a character in the number
+    # after the first four numbers.
+    #
+    def self.vanity? number
+      # (number =~ /^\d{4}\w{6,12}$/).zero?
+      number !~ /\A\d{4,}\w\d*\Z/
+    end
+    
   end
 end

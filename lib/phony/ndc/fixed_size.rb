@@ -9,7 +9,7 @@ module Phony
       klass.service_ndc_strategy Phony::NDC::ServiceNdcStrategy.new(national_code_length, service_ndcs)
       klass.fixed_ndc_strategy Phony::NDC::FixedNdcStrategy.new(national_code_length, split_sizes)
       klass.format options[:format] || '%s%s%s%s%s'
-      klass.local split_sizes
+      klass.local_format split_sizes
       klass
     end
     
@@ -47,10 +47,10 @@ module Phony
       #
       def self.split_ndc number
         number = number.dup
-        if service_ndc? number
-          @ndc_strategy = @service_ndc_strategy
+        @ndc_strategy = if service_ndc? number
+          @service_ndc_strategy
         else
-          @ndc_strategy = @fixed_ndc_strategy
+          @fixed_ndc_strategy
         end
         @ndc_strategy.split_ndc number
       end

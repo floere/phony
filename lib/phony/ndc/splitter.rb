@@ -7,10 +7,10 @@ module Phony
       # Sets the local grouping format.
       #
       # Examples
-      # * local 3, 2, 2     # Switzerland, 364 35 33, thus: 3-2-2.
-      # * local 2, 2, 2, 2  # France, 12 34 56 78, thus: 2-2-2-2.
+      # * local_format 3, 2, 2     # Switzerland, 364 35 33, thus: 3-2-2.
+      # * local_format 2, 2, 2, 2  # France, 12 34 56 78, thus: 2-2-2-2.
       #
-      def self.local *split_sizes
+      def self.local_format *split_sizes
         @split_sizes = split_sizes.flatten
         format((['%s']*@split_sizes.size).join('%s'))
       end
@@ -39,8 +39,8 @@ module Phony
       # * split '443643533' # => ['44', '364', '35', '33'] # (Switzerland)
       #
       def self.split number
-        ndc_part = split_ndc(number)
-        [ndc_part, split_local(ndc_part.pop)].flatten
+        ndc_part = split_ndc number
+        [ndc_part, split_local(ndc_part.pop)].flatten # TODO ndc_part + split_local(ndc_part.pop)
       end
       
       # Split a local number according to an assumed country specific format.

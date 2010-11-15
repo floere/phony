@@ -17,6 +17,18 @@ describe Phony::NDC::FixedSize do
   #   end
   # end
   
+  # describe "service numbers" do
+  #   before(:each) do
+  #     @ndc = Phony::NDC.fixed(1, :local => [2, 2, 2, 2], :service_ndcs => ['8']) # france
+  #   end
+  #   it "recognizes a number as a service" do
+  #     @ndc.service_ndc?('33812345678').should == true
+  #   end
+  #   it "does recognize a number as a non service" do
+  #     @ndc.service_ndc?('33112345678').should == false
+  #   end
+  # end
+  
   describe "size 1" do
     before(:each) do
       @splitter = Phony::NDC.fixed 1

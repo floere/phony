@@ -8,7 +8,9 @@ require 'active_support/core_ext/object/blank'
 
 # Framework.
 #
+
 require File.expand_path '../phony/vanity', __FILE__
+require File.expand_path '../phony/local_splitter', __FILE__
 require File.expand_path '../phony/ndc/splitter', __FILE__
 require File.expand_path '../phony/ndc/fixed_size', __FILE__
 require File.expand_path '../phony/ndc/prefix', __FILE__
@@ -381,7 +383,7 @@ module Phony
   
   # Splits the phone number into pieces according to the country codes above.
   #
-  def self.split(phone_number)
+  def self.split phone_number
     splitter_or_number, country_code, ndc, local = split_internal(phone_number) do |splitter, cc, ndc_local|
       [splitter, cc, splitter.split_ndc(ndc_local)].flatten
     end
@@ -404,16 +406,18 @@ module Phony
   
   # Normalizes
   #
-  def self.normalize(phone_number)
+  def self.normalize phone_number
     phone_number = phone_number.dup
     phone_number.gsub!(/\D*/, '').gsub!(/^0+/, '') # Remove zeros at the beginning and non-digit chars
     remove_relative_zeros! phone_number
   end
     
-  # Returns true if the number starts with 4 digits and ends with 6-12 characters.
+  # Returns true if there is a character in the number
+  # after the first four numbers.
   #
-  def self.vanity_number?(number)
-    (number.gsub(' ', '') =~ /^\d{4}\w{6,12}$/) ? true : false
+  def self.vanity? phone_number
+    # TODO Split into cc/noncc parts and test noncc.
+    Vanity.vanity? phone_number.gsub(' ', '')
   end
   
   # Converts any character in the vanity_number to it's numeric representation.

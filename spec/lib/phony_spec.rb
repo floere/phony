@@ -229,6 +229,9 @@ describe Phony do
       Phony.split_cc_ndc('43198110').should == ['43', '1', '98110']
     end
     it "should handle french numbers" do
+      Phony.split_cc_ndc('33812345678').should == ['33', '8', '12345678']
+    end
+    it "should handle french service numbers" do
       Phony.split_cc_ndc('33112345678').should == ['33', '1', '12345678']
     end
     it "should handle german numbers" do
@@ -352,11 +355,11 @@ describe Phony do
   
   describe 'regarding vanity' do
     describe 'vanity_number?' do
-      it {Phony.vanity_number?('0800 WEGGLI').should be_true}
-      it {Phony.vanity_number?('0800WEGGLI').should be_true}
-      it {Phony.vanity_number?('0848 SUCCESSMATCH').should be_true}
-      it {Phony.vanity_number?('080 NO NO NO').should be_false}
-      it {Phony.vanity_number?('0900 KURZ').should be_false}
+      it {Phony.vanity?('0800 WEGGLI').should be_true}
+      it {Phony.vanity?('0800WEGGLI').should be_true}
+      it {Phony.vanity?('0848 SUCCESSMATCH').should be_true}
+      it {Phony.vanity?('080 NO NO NO').should be_false}
+      it {Phony.vanity?('0900 KURZ').should be_false}
     end
     
     describe 'vanity_to_number' do
@@ -374,6 +377,15 @@ describe Phony do
       it {Phony::Vanity.replace('0800weggli').should == '0800934454'}
       it {Phony::Vanity.replace('0800SUCCESSMATCH').should == '0800782237762824'}
       it {Phony::Vanity.replace('080BLA').should == '080252'} #replace_vanity does not check for validity of number
+    end
+    
+    describe "vanity?" do
+      it 'recognizes vanity numbers' do
+        Phony.vanity?('1-800-Ruby').should == true
+      end
+      it 'recognizes non vanity numbers' do
+        Phony.vanity?('041 44 333 22 22').should == false
+      end
     end
   end
 

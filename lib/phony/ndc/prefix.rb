@@ -1,7 +1,7 @@
 # Splits a national number using a prefix code.
 #
 # DSL:
-#   length: the length range of the dcs. For austria it is 1..4.
+#   ndc_length: the length range of the ndcs. For austria it is 1..4.
 #   format: the format of the dcs and rest. For austria it is '%s %s', default is '%s %s %s %s'.
 #   ndcs:   an array of the prefix codes. For germany it starts with ['10', '11', '12', '13', '30'…
 #
@@ -27,7 +27,7 @@ module Phony
         
         # Define the length range for the country's ndcs.
         #
-        def self.length(range)
+        def self.ndc_length(range)
           @min_ndc_length, @max_ndc_length = range.min, range.max
         end
         

@@ -4,6 +4,15 @@ require 'spec_helper'
 
 describe Phony::Vanity do
   
+  describe "vanity?" do
+    it 'recognizes a vanity number' do
+      Phony::Vanity.vanity?('4144HELLOWORLD').should == true
+    end
+    it 'recognizes a non vanity number' do
+      Phony::Vanity.vanity?('41444443322').should == false
+    end
+  end
+  
   describe "replace" do
     it 'replaces all characters' do
       Phony::Vanity.replace('0123456789abcdefghijklmnopqrstuvwxyz').should == '012345678922233344455566677778889999'
