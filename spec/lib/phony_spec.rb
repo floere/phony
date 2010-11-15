@@ -171,6 +171,20 @@ describe Phony do
     end
   end
   
+  describe "service?" do
+
+  end
+  describe "mobile?" do
+    # TODO Test dirty numbers.
+    #
+    it 'is correct' do
+      Phony.mobile?('49172123456').should == true
+    end
+    it 'is correct' do
+      Phony.mobile?('12172123456').should == false
+    end
+  end
+  
   # describe 'regarding vanity' do
   #   describe 'vanity_number?' do
   #     it {Phony.vanity?('41800 WEGGLI').should be_true}

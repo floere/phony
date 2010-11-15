@@ -1,7 +1,8 @@
-# Splits a national number into a fixed size NDC and rest.
-#
 module Phony
   module Countries
+    
+    # Numbers for Austria.
+    #
     class Austria < Phony::NationalCode
       
       def initialize

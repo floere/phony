@@ -21,6 +21,16 @@ module Phony
       [ndc, *@local_splitter.split(rest)]
     end
     
+    def service? national_number
+      @national_splitter.service? national_number
+    end
+    def mobile? national_number
+      @national_splitter.mobile? national_number
+    end
+    def landline? national_number
+      !mobile?(ndc) && !service?(ndc)
+    end
+    
     # Is this national number a vanity number?
     #
     def vanity? national_number

@@ -20,6 +20,8 @@ require File.expand_path '../phony/national_code', __FILE__
 #
 require File.expand_path '../phony/countries/austria', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
+require File.expand_path '../phony/countries/all', __FILE__
+
 require File.expand_path '../phony/country_codes', __FILE__
 
 module Phony
@@ -58,13 +60,13 @@ module Phony
   end
   
   def self.service? number
-    
+    @codes.service? number.dup
   end
   def self.mobile? number
-    
+    @codes.mobile? number.dup
   end
   def self.landline? number
-    
+    @codes.landline? number.dup
   end
   
   # Returns true if there is a character in the number
