@@ -4,11 +4,11 @@ module Phony
   #
   class CountryCodes
     
-    def normalize phone_number
+    def normalize number
       # Remove non-digit chars.
       #
-      phone_number.gsub! /\D*/, ''
-      remove_relative_zeros! phone_number
+      number.gsub! /\D*/, ''
+      remove_relative_zeros! number
     end
     
     # Splits this nu
@@ -19,7 +19,28 @@ module Phony
     end
     
     def formatted number, options = {}
-      
+      format_cc_ndc_local options[:format], options[:spaces] || ' ', *split(number)
+    end
+    # Formats country code and national destination code.
+    #
+    def format_cc_ndc_local format, space, cc, ndc, *parts
+      "#{format_cc_ndc(format, space, cc, ndc)}#{format_local(space, parts)}"
+    end
+    def format_cc_ndc format, space, cc, ndc
+      format, split_phone_number = case format
+      when nil, :international_absolute, :international, :+
+        [ndc.blank? ? '+%s%s' : '+%s%s%s%s', [cc, space, ndc, space]]
+      when :international_relative
+        [ndc.blank? ? '00%s%s' : '00%s%s%s%s', [cc, space, ndc, space]]
+      when :national
+        [ndc.blank? ? '' : '0%s%s', [ndc, space]]
+      when :local
+        ['', []]
+      end
+      format % split_phone_number
+    end
+    def format_local space, parts_ary
+      parts_ary.join space.to_s
     end
     
     # Is the given number a vanity number?
