@@ -11,6 +11,7 @@ require 'active_support/core_ext/object/blank'
 
 require File.expand_path '../phony/vanity', __FILE__
 require File.expand_path '../phony/local_splitter', __FILE__
+require File.expand_path '../phony/fixed_national_code_splitter', __FILE__
 require File.expand_path '../phony/ndc/splitter', __FILE__
 require File.expand_path '../phony/ndc/fixed_size', __FILE__
 require File.expand_path '../phony/ndc/prefix', __FILE__

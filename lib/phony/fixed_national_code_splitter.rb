@@ -18,8 +18,8 @@ module Phony
     
     # Takes a national number and
     #
-    def split number
-      [number.slice!(0...number.length-1), number]
+    def split national_number
+      [national_number.slice!(0...@size), national_number]
     end
     
   end

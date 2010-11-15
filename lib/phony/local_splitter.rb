@@ -5,7 +5,8 @@ module Phony
   #
   # Countries can create new instances according to their needs.
   #
-  # Note: Countries should use instance_for to avoid getting new
+  # Note: Countries should use instance_for
+  #       to avoid getting new local splitter instances.
   #
   class LocalSplitter
     
