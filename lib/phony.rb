@@ -8,6 +8,7 @@ require 'active_support/core_ext/object/blank'
 
 # Framework.
 #
+require File.expand_path '../phony/vanity', __FILE__
 require File.expand_path '../phony/ndc/splitter', __FILE__
 require File.expand_path '../phony/ndc/fixed_size', __FILE__
 require File.expand_path '../phony/ndc/prefix', __FILE__
@@ -34,7 +35,7 @@ module Phony
   @@country_codes = {
     1 => {
       '0' => fixed(0), # reserved
-      '1' => fixed(3, :local => [3, 10]), # USA, Canada, etc.
+      '1' => fixed(3, :local_format => [3, 10]), # USA, Canada, etc.
       '7' => fixed(3), # Kazakhstan (Republic of) & Russian Federation
     },
     2 => {
@@ -44,13 +45,13 @@ module Phony
       '30' => fixed(2), # Greece
       '31' => fixed(2), # Netherlands
       '32' => fixed(2), # Belgium
-      '33' => fixed(1, :local => [2, 2, 2, 2]), # France
+      '33' => fixed(1, :local_format => [2, 2, 2, 2], :service_ndcs => ['8']), # France
       '34' => fixed(2), # Spain
       '36' => fixed(2), # Hungary
       '39' => fixed(3), # Italy
 
       '40' => fixed(2), # Romania
-      '41' => fixed(2, :local => [3, 2, 2], :service_ndcs => ['800', '840', '842', '844', '848']), # Switzerland (Confederation of)
+      '41' => fixed(2, :local_format => [3, 2, 2], :service_ndcs => ['800', '840', '842', '844', '848']), # Switzerland (Confederation of)
       '43' => Austria,
       '44' => fixed(2), # United Kingdom of Great Britain and Northern Ireland
       '45' => fixed(2), # Denmark
@@ -214,7 +215,7 @@ module Phony
       '420' => fixed(2), # Czech Republic
       '421' => fixed(2), # Slovak Republic
       '422' => fixed(2), # Spare code
-      '423' => fixed(0, :local => [3, 2, 2]), # Liechtenstein (Principality of)
+      '423' => fixed(0, :local_format => [3, 2, 2]), # Liechtenstein (Principality of)
       '424' => fixed(2), # -
       '425' => fixed(2), # -
       '426' => fixed(2), # -
@@ -418,29 +419,9 @@ module Phony
   # Converts any character in the vanity_number to it's numeric representation.
   # Does not check if the passed number is a valid vanity_number, simply does replacement.
   #
-  def self.vanity_to_number(vanity_number)
-    Vanity.replace(vanity_number)
+  def self.vanity_to_number vanity_number
+    Vanity.replace vanity_number
   end
-  
-  module Vanity
-    
-    @@mapping = [
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-      '2223334445556667777888999922233344455566677778889999'
-    ]
-    def self.mapping
-      @@mapping
-    end
-    
-    # Replaces vanity characters of passed number with correct digits.
-    # Does not check for validity of vanity_number. Simply replaces all characters in the number
-    #
-    def self.replace number
-      number.tr *mapping
-    end
-    
-  end
-  
   
   private
     
