@@ -8,14 +8,14 @@ require 'active_support/core_ext/object/blank'
 
 # Framework.
 #
-require File.expand_path '../ndc/splitter', __FILE__
-require File.expand_path '../ndc/fixed_size', __FILE__
-require File.expand_path '../ndc/prefix', __FILE__
+require File.expand_path '../phony/ndc/splitter', __FILE__
+require File.expand_path '../phony/ndc/fixed_size', __FILE__
+require File.expand_path '../phony/ndc/prefix', __FILE__
 
 # Prefix code countries
 #
-require File.expand_path '../ndc/austria', __FILE__
-require File.expand_path '../ndc/germany', __FILE__
+require File.expand_path '../phony/ndc/austria', __FILE__
+require File.expand_path '../phony/ndc/germany', __FILE__
 
 # require 'Phony'
 
