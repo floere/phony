@@ -21,7 +21,7 @@ module Phony
     end
     
     def initialize format
-      @format = format
+      @format     = format
     end
     
     # Split a local number according to an assumed country specific format.

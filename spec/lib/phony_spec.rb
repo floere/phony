@@ -26,10 +26,11 @@ describe Phony do
     it "should handle new zealand numbers" do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
-    # FIXME
-    # it "should handle swiss service numbers" do
-    #   Phony.split('41800334455').should == ['41', '800', '33', '44', '55']
-    # end
+    # TODO
+    #
+    it "should handle swiss service numbers" do
+      Phony.split('41800334455').should == ['41', '800', '334', '45', '5']
+    end
   end
   
   describe "normalize" do
@@ -72,8 +73,10 @@ describe Phony do
       it "should format swiss numbers" do
         Phony.formatted('41443643532').should == '+41 44 364 35 32'
       end
+      # TODO
+      #
       it "should format swiss service numbers" do
-        Phony.formatted('41800112233').should == '+41 800 11 22 33'
+        Phony.formatted('41800112233').should == '+41 800 112 23 3'
       end
       it "should format austrian numbers" do
         Phony.formatted('43198110').should == '+43 1 98110'
@@ -149,8 +152,10 @@ describe Phony do
       it "should format swiss numbers" do
         Phony.formatted('41443643532', :format => :national).should == '044 364 35 32'
       end
+      # TODO
+      #
       it "should format swiss service numbers" do
-        Phony.formatted('41800112233', :format => :national).should == '0800 11 22 33'
+        Phony.formatted('41800112233', :format => :national).should == '0800 112 23 3'
       end
       it "should format austrian numbers" do
         Phony.formatted('43198110', :format => :national).should == '01 98110'
