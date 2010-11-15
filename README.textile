@@ -109,3 +109,7 @@ h3. Splitting
 @Phony.split('6491234567').should == ['64', '9', '123', '4567']@
 
 @Phony.split('41800334455').should == ['41', '800', '33', '44', '55']@
+
+Note: There is also a ! version of each of these methods which
+      will destroy the original string and return a new (or old) one.
+      Just work only with the returned value, and you will be fine.
