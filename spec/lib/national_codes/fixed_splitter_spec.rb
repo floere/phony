@@ -1,19 +1,19 @@
 require 'spec_helper'
 
-describe Phony::FixedNationalCodeSplitter do
+describe Phony::NationalCodes::FixedSplitter do
   
   describe 'instance_for' do
     it 'caches' do
-      Phony::FixedNationalCodeSplitter.instance_for(3).should equal(Phony::FixedNationalCodeSplitter.instance_for(3))
+      Phony::NationalCodes::FixedSplitter.instance_for(3).should equal(Phony::NationalCodes::FixedSplitter.instance_for(3))
     end
     it 'caches correctly' do
-      Phony::FixedNationalCodeSplitter.instance_for(1).should_not equal(Phony::FixedNationalCodeSplitter.instance_for(2))
+      Phony::NationalCodes::FixedSplitter.instance_for(1).should_not equal(Phony::NationalCodes::FixedSplitter.instance_for(2))
     end
   end
   
   describe 'split' do
     before(:each) do
-      @splitter = Phony::FixedNationalCodeSplitter.new 2
+      @splitter = Phony::NationalCodes::FixedSplitter.new 2
     end
     it 'splits correctly' do
       @splitter.split('443643532').should == ['44', '3643532']

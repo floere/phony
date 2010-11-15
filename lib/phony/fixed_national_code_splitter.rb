@@ -16,7 +16,7 @@ module Phony
       @size = size
     end
     
-    # Takes a national number and
+    # Takes a national number and splits it into ndc and rest.
     #
     def split national_number
       [national_number.slice!(0...@size), national_number]

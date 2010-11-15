@@ -2,23 +2,31 @@ module Phony
   
   # This is the superclass of all special national number handlers.
   #
-  # NationalCodes have a LocalSplitter and a Formatter.
+  # NationalCodes have a NationalCodeSplitter and a LocalCodeSplitter.
   #
-  class NationalCodeSplitter
+  class NationalCode
     
-    def initialize splitter, formatter # ndcs = {}, local_format = [], service_ndcs = []
-      @splitter  = splitter
-      @formatter = formatter
+    # ndcs = {}, local_format = [], service_ndcs = []
+    #
+    def initialize national_splitter, local_splitter
+      @national_splitter = national_splitter
+      @local_splitter    = local_splitter
     end
     
     # Split gets a number without country code and splits it into
-    # .
+    # its parts.
     #
-    def split number
-      
+    def split national_number
+      ndc, rest = @national_splitter.split national_number
+      [ndc, *@local_splitter.split(rest)]
     end
     
-    def vanity? number
+    # Is this national number a vanity number?
+    #
+    def vanity? national_number
+      Vanity.vanity? national_number
+    end
+    def vanity_to_number vanity_number
       
     end
     
