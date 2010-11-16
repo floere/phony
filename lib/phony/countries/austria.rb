@@ -13,27 +13,27 @@ module Phony
       end
       
       @@ndc_mapping = {
-        :normal => [
-                      '1', # Vienna
-                     '57',  # -
-                     '59',  # -
-                     '89',  # Routing Number
-                     '316', # Graz
-                     '501', # -
-                     '502', # -
-                     '503', # -
-                     '504', # -
-                     '505', # -
-                     '506', # -
-                     '507', # -
-                     '508', # -
-                     '509', # -
-                     '512', # Innsbruck
-                     '517', # -
-                     '662', # Salzburg
-                     '720', #
-                     '732', # Linz
-                    ],
+        :landline => [
+                       '1', # Vienna
+                      '57',  # -
+                      '59',  # -
+                      '89',  # Routing Number
+                      '316', # Graz
+                      '501', # -
+                      '502', # -
+                      '503', # -
+                      '504', # -
+                      '505', # -
+                      '506', # -
+                      '507', # -
+                      '508', # -
+                      '509', # -
+                      '512', # Innsbruck
+                      '517', # -
+                      '662', # Salzburg
+                      '720', #
+                      '732', # Linz
+                      ],
          :mobile => [
                      '67',  # Mobile Services
                      '68',  # Mobile Services
