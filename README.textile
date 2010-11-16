@@ -3,13 +3,14 @@ h1. Phony
 h2. Description
 
 This gem can normalize, format and split E164 numbers.
+"More about E164 numbers in this Wiki":http://en.wikipedia.org/wiki/E.164.
 
 Currently handles AT, CH, DE, FR, LI, US numbers.
 And to some extend, all others. Just try if it works for you.
 
 h2. Installation
 
-  gem install phony
+<pre><code>gem install phony</code></pre>
 
 h2. Some examples
 
