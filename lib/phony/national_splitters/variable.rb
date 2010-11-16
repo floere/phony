@@ -16,11 +16,13 @@ module Phony
       def split national_number
         fallback_number = national_number.dup
         
-        presumed_code = ''
-        
         # Extract a starting point.
         #
-        presumed_code << national_number.slice!(0..@mapped_ndc_min_length-2) if @mapped_ndc_min_length > 1
+        presumed_code = if @mapped_ndc_min_length > 1
+          national_number.slice!(0..@mapped_ndc_min_length-2)
+        else
+          ''
+        end
         
         # Try for all possible mapped.
         #
