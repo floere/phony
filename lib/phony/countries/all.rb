@@ -34,7 +34,7 @@ module Phony
         {
           1 => {
             '0' => fixed(1), # reserved
-            '1' => fixed(3, :local_format => [3, 10]), # USA, Canada, etc.
+            '1' => fixed(3, :local_format => [3, 11]), # USA, Canada, etc.
             '7' => fixed(3), # Kazakhstan (Republic of) & Russian Federation
           },
           2 => {
