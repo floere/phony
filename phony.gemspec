@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'phony'
   s.version = '1.1.0'
-  s.authors = ['Florian Hanke', 'Andreas Schacke']
+  s.authors = ['Florian Hanke']
   s.email = 'florian.hanke+phony@gmail.com'
   s.homepage = 'http://github.com/floere/phony'
   s.platform = Gem::Platform::RUBY
