@@ -23,8 +23,11 @@ describe Phony do
     it "should handle hungarian numbers" do
       Phony.split('3612345678').should == ['36', '1', '234', '5678']
     end
-    it "should handle italian numbers opinionatedly" do
+    it "should handle italian numbers" do
       Phony.split('3928061371').should == ['39', '2', '806', '1371']
+    end
+    it "should handle polish numbers" do
+      Phony.split('48121123123').should == ['48', '12', '1', '123', '123']
     end
     it "should handle swiss numbers" do
       Phony.split('41443643532').should == ['41', '44', '364', '35', '32']

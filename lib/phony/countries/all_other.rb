@@ -80,7 +80,9 @@ module Phony
           '47' => fixed(4,  # Norway
                     :local_format => [4]
                   ),
-          '48' => fixed(2), # Poland (Republic of)
+          '48' => fixed(2, # Poland (Republic of)
+                        :local_format => [1, 3, 3] # Approximation. Correct would be 48-xxx-xxx-xxx
+                  ),
           '49' => Countries::Germany,
 
           '51' => fixed(2), # Peru
