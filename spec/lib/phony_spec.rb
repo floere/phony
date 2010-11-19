@@ -171,6 +171,21 @@ describe Phony do
     end
   end
   
+  describe "speed" do
+    before(:each) do
+      @phone_numbers = [
+        '41443643532',
+        '18091231234',
+        '43198110',
+        '33142278186',
+        '4233841148'
+      ]
+    end
+    it 'is fast' do
+      performance_of { @phone_numbers.each { |number| Phony.split(number) } }.should < 0.0002
+    end
+  end
+  
   # describe "service?" do
   # 
   # end

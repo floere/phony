@@ -1,5 +1,12 @@
 module SpecHelperExtensions
-
+  
+  # performance_of { do something here }.should < 0.0001
+  #
+  def performance_of &block
+    require 'benchmark'
+    Benchmark.realtime &block
+  end
+  
   # Allows the definition of "describe-wide" examples and describes.
   # 
   # Case for "it". Use in the describe block
