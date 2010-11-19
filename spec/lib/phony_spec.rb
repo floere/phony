@@ -15,7 +15,7 @@ describe Phony do
       Phony.split('4976112345').should == ['49', '761', '123', '45']
     end
     it "should handle italian numbers opinionatedly" do
-      Phony.split('3928061371').should == ['39', '280', '613', '71']
+      Phony.split('3928061371').should == ['39', '2', '806', '1371']
     end
     it "should handle swiss numbers" do
       Phony.split('41443643532').should == ['41', '44', '364', '35', '32']

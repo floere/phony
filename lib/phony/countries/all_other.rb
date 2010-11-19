@@ -15,21 +15,35 @@ module Phony
     # Note: The above fixed helper is used.
     #       In some cases, we have explicit countries defined.
     #
+    # Note: Many taken from http://en.wikipedia.org/wiki/Telephone_numbering_plan.
+    #
     def self.mapping
       {
         1 => {
           '0' => fixed(1), # reserved
-          '1' => fixed(3, :local_format => [3, 11]), # USA, Canada, etc.
-          '7' => fixed(3), # Kazakhstan (Republic of) & Russian Federation
+          '1' => fixed(3,  # USA, Canada, etc.
+                       :local_format => [3, 4]
+                 ),
+          
+          # Kazakhstan (Republic of) & Russian Federation
+          # http://en.wikipedia.org/wiki/Telephone_numbers_in_Russia
+          #
+          '7' => fixed(3,
+                       :local_format => [3, 2, 2]
+                 ),
         },
         2 => {
           '20' => fixed(2), # Egypt
-          '27' => fixed(2), # South Africa
-
+          '27' => fixed(2,  # South Africa
+                        :local_format => [3, 4]
+                  ),
+                  
           '30' => fixed(2), # Greece
           '31' => fixed(2), # Netherlands
-          '32' => fixed(2), # Belgium
-          '33' => fixed(1,
+          '32' => fixed(1,  # Belgium
+                        :local_format => [3, 4]
+                  ),
+          '33' => fixed(1,  # France
                         :local_format         => [2, 2, 2, 2],
                         :service_local_format => [2, 2, 2, 2],
                         :service_ndcs         => %w{8}
@@ -37,13 +51,13 @@ module Phony
                         #   :service => %w{8},
                         #   :mobile  => %w{6 7}
                         # }
-                  ), # France
+                  ),
           '34' => fixed(2), # Spain
           '36' => fixed(2), # Hungary
-          '39' => fixed(3), # Italy
+          '39' => Countries::Italy,
 
           '40' => fixed(2), # Romania
-          '41' => fixed(2,
+          '41' => fixed(2,  # Switzerland (Confederation of)
                         :local_format         => [3, 2, 2],
                         :service_local_format => [3, 3],
                         :service_ndcs         => %w{800 840 842 844 848}
@@ -51,12 +65,14 @@ module Phony
                         #   :service => %w{800 840 842 844 848},
                         #   :mobile  => %w{74 76 77 78 79}
                         # }
-                  ), # Switzerland (Confederation of)
+                  ),
           '43' => Countries::Austria,
           '44' => fixed(2), # United Kingdom of Great Britain and Northern Ireland
           '45' => fixed(2), # Denmark
           '46' => fixed(2), # Sweden
-          '47' => fixed(2), # Norway
+          '47' => fixed(4,  # Norway
+                    :local_format => [4]
+                  ),
           '48' => fixed(2), # Poland (Republic of)
           '49' => Countries::Germany,
 
@@ -70,10 +86,14 @@ module Phony
           '58' => fixed(2), # Venezuela (Bolivarian Republic of)
 
           '60' => fixed(2), # Malaysia
-          '61' => fixed(2), # Australia
+          '61' => fixed(1,  # Australia
+                        :local_format => [4, 4]
+                  ),
           '62' => fixed(2), # Indonesia (Republic of)
           '63' => fixed(2), # Philippines (Republic of the)
-          '64' => fixed(1, :local_format => [3, 4]), # New Zealand
+          '64' => fixed(1,  # New Zealand
+                        :local_format => [3, 4]
+                  ),
           '65' => fixed(2), # Singapore (Republic of)
           '66' => fixed(2), # Thailand
 
@@ -212,10 +232,14 @@ module Phony
           '388' => fixed(2), # Group of countries, shared code
           '389' => fixed(2), # The Former Yugoslav Republic of Macedonia
 
-          '420' => fixed(2), # Czech Republic
+          '420' => fixed(3,  # Czech Republic
+                         :local_format => [3, 3]
+                   ),
           '421' => fixed(2), # Slovak Republic
           '422' => fixed(2), # Spare code
-          '423' => fixed(0, :local_format => [3, 2, 2]), # Liechtenstein (Principality of)
+          '423' => fixed(0,  # Liechtenstein (Principality of)
+                         :local_format => [3, 2, 2]
+                   ),
           '424' => fixed(2), # -
           '425' => fixed(2), # -
           '426' => fixed(2), # -
