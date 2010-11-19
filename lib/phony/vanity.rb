@@ -22,8 +22,6 @@ module Phony
     #
     @@vanity_regexp = /\A\d{3}[a-zA-Z]{6,12}\Z/
     def self.vanity? number
-      # TODO Normalize before this and use /\A\d{4,}\w\d*\Z/.
-      # number !~ /\A[\d\s]{4,}\w\d*\Z/
       !(normalized(number) =~ @@vanity_regexp).nil?
     end
     
