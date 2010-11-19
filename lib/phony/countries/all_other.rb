@@ -39,7 +39,7 @@ module Phony
                  ),
         },
         2 => {
-          '20' => fixed(2), # Egypt
+          '20' => Countries::Egypt,
           '27' => fixed(2,  # South Africa
                         :local_format => [3, 4]
                   ),

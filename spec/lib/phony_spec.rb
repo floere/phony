@@ -8,6 +8,9 @@ describe Phony do
     it "should handle austrian numbers" do
       Phony.split('43198110').should == ['43', '1', '98110']
     end
+    it "should handle egyptian numbers" do
+      Phony.split('20233453756').should == ['20', '2', '33453756']
+    end
     it "should handle french numbers" do
       Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
     end
