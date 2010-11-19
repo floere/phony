@@ -2,9 +2,12 @@ module SpecHelperExtensions
   
   # performance_of { do something here }.should < 0.0001
   #
+  require 'benchmark'
   def performance_of &block
-    require 'benchmark'
-    Benchmark.realtime &block
+    GC.disable
+    result = Benchmark.realtime &block
+    GC.enable
+    result
   end
   
   # Allows the definition of "describe-wide" examples and describes.

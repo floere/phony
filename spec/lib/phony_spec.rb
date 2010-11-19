@@ -183,15 +183,27 @@ describe Phony do
     end
     describe 'split' do
       it 'is fast' do
+        number = @phone_numbers.first
+        performance_of { Phony.split(number) }.should < 0.00005
+      end
+      it 'is fast' do
         performance_of { @phone_numbers.each { |number| Phony.split(number) } }.should < 0.00015
       end
     end
     describe 'normalize' do
       it 'is fast' do
+        number = @phone_numbers.first
+        performance_of { Phony.normalize(number) }.should < 0.000075
+      end
+      it 'is fast' do
         performance_of { @phone_numbers.each { |number| Phony.normalize(number) } }.should < 0.00015
       end
     end
     describe 'formatted' do
+      it 'is fast' do
+        number = @phone_numbers.first
+        performance_of { Phony.formatted(number) }.should < 0.000075
+      end
       it 'is fast' do
         performance_of { @phone_numbers.each { |number| Phony.formatted(number) } }.should < 0.00015
       end
