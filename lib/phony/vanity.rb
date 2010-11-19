@@ -10,8 +10,7 @@ module Phony
       ]
     end
     
-    # Replaces vanity characters of passed number with correct digits.
-    # Does not check for validity of vanity_number. Simply replaces all characters in the number
+    # Replaces (and normalizes) vanity characters of passed number with correct digits.
     #
     def self.replace number
       number.tr *mapping

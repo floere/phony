@@ -22,15 +22,6 @@ module Phony
       [ndc, *@local_splitter.split(rest)]
     end
     
-    # Is this national number a vanity number?
-    #
-    def vanity? national_number
-      Vanity.vanity? national_number
-    end
-    def vanity_to_number vanity_number
-      
-    end
-    
   end
   
 end

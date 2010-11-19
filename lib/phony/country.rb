@@ -17,6 +17,19 @@ module Phony
       [ndc, *rest]
     end
     
+    # Is this national number a vanity number?
+    #
+    def vanity? national_number
+      Vanity.vanity? national_number
+    end
+    #
+    #
+    def vanity_to_number vanity_number
+      ndc, *rest = split vanity_number
+      "#{ndc}#{Vanity.replace(rest.join)}"
+    end
+    
+    
     # Get a configured country instance.
     #
     # Define your countries like this:

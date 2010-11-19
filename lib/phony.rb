@@ -60,15 +60,15 @@ module Phony
     @codes.formatted phone_number, options
   end
   
-  def self.service? number
-    @codes.service? number.dup
-  end
-  def self.mobile? number
-    @codes.mobile? number.dup
-  end
-  def self.landline? number
-    @codes.landline? number.dup
-  end
+  # def self.service? number
+  #   @codes.service? number.dup
+  # end
+  # def self.mobile? number
+  #   @codes.mobile? number.dup
+  # end
+  # def self.landline? number
+  #   @codes.landline? number.dup
+  # end
   
   # Returns true if there is a character in the number
   # after the first four numbers.

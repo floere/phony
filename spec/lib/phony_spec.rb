@@ -224,32 +224,22 @@ describe Phony do
   #   end
   # end
   
-  # describe 'regarding vanity' do
-  #   describe 'vanity_number?' do
-  #     it {Phony.vanity?('41800 WEGGLI').should be_true}
-  #     it {Phony.vanity?('41800WEGGLI').should be_true}
-  #     it {Phony.vanity?('41848 SUCCESSMATCH').should be_true}
-  #     it {Phony.vanity?('4180 NO NO NO').should be_false}
-  #     it {Phony.vanity?('41900 KURZ').should be_false}
-  #     it {Phony.vanity?('41 44 364 35 32').should be_false}
-  #   end
-  #   
-  #   describe 'vanity_to_number' do
-  #     before(:each) do
-  #       @number = stub(:number)
-  #     end
-  #     it "should delegate to Phony::Vanity.replace" do
-  #       Phony::Vanity.should_receive(:replace).with(@number)
-  #       Phony.vanity_to_number @number
-  #     end
-  #   end
-  #   
-  #   describe 'replace_vanity' do
-  #     it {Phony.vanity_to_number('41800 WEGGLI').should == '41800 934454'}
-  #     it {Phony.vanity_to_number('41800weggli').should == '41800934454'}
-  #     it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237762824'}
-  #     it {Phony.vanity_to_number('4180BLA').should == '4180252'} #replace_vanity does not check for validity of number
-  #   end
-  # end
+  describe 'vanity' do
+    describe 'vanity_number?' do
+      it {Phony.vanity?('41800 WEGGLI').should be_true}
+      it {Phony.vanity?('41800WEGGLI').should be_true}
+      it {Phony.vanity?('41848 SUCCESSMATCH').should be_true}
+      it {Phony.vanity?('4180 NO NO NO').should be_false}
+      it {Phony.vanity?('41900 KURZ').should be_false}
+      it {Phony.vanity?('41 44 364 35 32').should be_false}
+    end
+    
+    describe 'vanity_to_number' do
+      it {Phony.vanity_to_number('41800WEGGLI').should == '41800934454'}
+      it {Phony.vanity_to_number('41800weggli').should == '41800934454'}
+      it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237'} # Cut off according to the swiss norms.
+      it {Phony.vanity_to_number('4180BLA').should == '4180252'} # Does not check for validity of number.
+    end
+  end
 
 end
