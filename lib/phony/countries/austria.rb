@@ -23,7 +23,7 @@ Phony::Countries::Austria = Phony::Country.configured :local_format => [10],
                                                                        '517', # -
                                                                        '662', # Salzburg
                                                                        '720', #
-                                                                       '732', # Linz
+                                                                       '732'  # Linz
                                                                       ],
                                                          :mobile => [
                                                                      '67', 
@@ -44,7 +44,7 @@ Phony::Countries::Austria = Phony::Country.configured :local_format => [10],
                                                                      '666',
                                                                      '667',
                                                                      '668',
-                                                                     '669',
+                                                                     '669'
                                                                     ],
                                                          :service => [
                                                                       '710',

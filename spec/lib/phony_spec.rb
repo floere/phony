@@ -14,6 +14,9 @@ describe Phony do
     it "should handle german numbers" do
       Phony.split('4976112345').should == ['49', '761', '123', '45']
     end
+    it "should handle hungarian numbers" do
+      Phony.split('3612345678').should == ['36', '1', '234', '5678']
+    end
     it "should handle italian numbers opinionatedly" do
       Phony.split('3928061371').should == ['39', '2', '806', '1371']
     end
@@ -26,8 +29,7 @@ describe Phony do
     it "should handle new zealand numbers" do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
-    # TODO
-    #
+    
     it "should handle swiss service numbers" do
       Phony.split('41800334455').should == ['41', '800', '334', '455']
     end

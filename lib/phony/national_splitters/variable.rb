@@ -52,7 +52,7 @@ module Phony
             ndcs[ndc.length] << ndc
           end
           keys = ndcs.keys
-          @mapped_ndc_min_length = keys.min
+          @mapped_ndc_min_length = keys.min # || 1
           @mapped_ndc_max_length = keys.max
           ndcs
         end

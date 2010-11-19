@@ -10,6 +10,12 @@ module Phony
       Phony::Country.fixed options
     end
     
+    # TODO
+    #
+    def self.with_cc cc
+      mapping[cc.size][cc.to_s]
+    end
+    
     # Defines a mapping of country code to all splitters/formatters.
     #
     # Note: The above fixed helper is used.
@@ -52,8 +58,10 @@ module Phony
                         #   :mobile  => %w{6 7}
                         # }
                   ),
-          '34' => fixed(2), # Spain
-          '36' => fixed(2), # Hungary
+          '34' => fixed(2, # Spain
+                    :local_format => [3, 4]
+                  ),
+          '36' => Countries::Hungary,
           '39' => Countries::Italy,
 
           '40' => fixed(2), # Romania
