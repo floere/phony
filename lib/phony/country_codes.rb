@@ -94,7 +94,7 @@ module Phony
     # Cached mapping of all countries.
     #
     def mapping
-      @mapping ||= Phony::Countries::All.mapping
+      @mapping ||= Phony::Countries.mapping
     end
     
   end

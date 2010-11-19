@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Phony::Countries::Austria do
   
   before(:each) do
-    @austria = Phony::Countries::Austria.new
+    @austria = Phony::Countries::Austria
   end
   
   describe "split" do

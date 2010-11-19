@@ -24,7 +24,7 @@ module Phony
     #
     # Example:
     #  Phony::Country.configured :local_format         => [3, 2, 2],
-    #                            :special_local_format => [3, 3],
+    #                            :service_local_format => [3, 3],
     #                            :ndc_fallback_length  => 4,
     #                            :ndc_mapping => {
     #                              :normal  => ['44'],
@@ -32,22 +32,23 @@ module Phony
     #                              :mobile  => ['76']
     #                            }
     #
+    # Service numbers can have a special formatting.
+    # Cellphones usually use the same as the landline.
+    # If that is not the case, I will expand the framework.
+    #
     def self.configured options = {}
       ndc_fallback_length  = options[:ndc_fallback_length]
-      ndc_mapping          = options[:ndc_mapping]
-      
-      # TODO Extract ndcs.
-      #
+      ndc_mapping          = options[:ndc_mapping] || raise("No ndc_mapping given!")
       
       national_splitter = Phony::NationalSplitters::Variable.new ndc_fallback_length, ndc_mapping
       local_splitter    = Phony::LocalSplitter.instance_for options[:local_format] || [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
       
-      special_national_splitter = Phony::NationalSplitters::Variable.new nil, ndc_mapping
-      special_local_splitter    = Phony::LocalSplitter.instance_for local_special_format || [3, 3]
-      special_code              = Phony::SpecialCode.new special_national_splitter, special_local_splitter
+      service_national_splitter = Phony::NationalSplitters::Variable.new nil, :service => ndc_mapping[:service]
+      service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 3]
+      service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter
       
-      new national_code, special_code
+      new national_code, service_code
     end
     
     # Gets a configured country instance with fixed length ndc code.
@@ -55,22 +56,25 @@ module Phony
     # Define your countries like this:
     # Phony::Countries::Switzerland = Phony::Country.fixed <options>
     #
-    def self.configured options = {}
-      ndc_fallback_length  = options[:ndc_fallback_length]
-      ndc_mapping          = options[:ndc_mapping]
+    # Example:
+    #  Phony::Country.fixed :ndc_length           => 4,
+    #                       :local_format         => [3, 2, 2],
+    #                       :service_local_format => [3, 3],
+    #                       :service_ndcs         => ['800']
+    #
+    def self.fixed options = {}
+      ndc_length   = options[:ndc_length]
+      service_ndcs = options[:service_ndcs]
       
-      # TODO Extract ndcs.
-      #
-      
-      national_splitter = Phony::NationalSplitters::Variable.new ndc_fallback_length, ndc_mapping
+      national_splitter = Phony::NationalSplitters::Fixed.new ndc_length
       local_splitter    = Phony::LocalSplitter.instance_for options[:local_format] || [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
       
-      special_national_splitter = Phony::NationalSplitters::Variable.new nil, ndc_mapping
-      special_local_splitter    = Phony::LocalSplitter.instance_for local_special_format || [3, 3]
-      special_code              = Phony::SpecialCode.new special_national_splitter, special_local_splitter
+      service_national_splitter = Phony::NationalSplitters::Variable.new nil, :service => service_ndcs
+      service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 3]
+      service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter
       
-      new national_code, special_code
+      new national_code, service_code
     end
     
   end

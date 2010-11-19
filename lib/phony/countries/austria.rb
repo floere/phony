@@ -1,97 +1,67 @@
-# Phony::Countries::Austria = Phony::Country.configured :local_format => [10],
-#                                                       :local_special_format => [10],
-#                                                       :ndc_fallback_length => 4,
-#                                                       :ndc_mapping => {
-#                                                         :normal => [
-#                                                                       '1'
-#                                                                    ] # etc.
-#                                                                   }
-#                                                       # :ndc_length
-
-module Phony
-  module Countries
-    
-    # Numbers for Austria.
-    #
-    class Austria < Phony::Country
-      
-      def initialize
-        national_splitter = NationalSplitters::Variable.new 4, @@ndc_mapping
-        local_splitter    = LocalSplitter.instance_for [10]
-        national_code     = NationalCode.new national_splitter, local_splitter
-        
-        national_special_splitter = NationalSplitters::Variable.new 4, @@ndc_mapping
-        local_special_splitter    = LocalSplitter.instance_for [10]
-        national_special_code     = SpecialCode.new national_special_splitter, local_special_splitter
-        
-        super national_code, national_special_code
-      end
-      
-      @@ndc_mapping = {
-        :normal => [
-                       '1', # Vienna
-                      '57',  # -
-                      '59',  # -
-                      '89',  # Routing Number
-                      '316', # Graz
-                      '501', # -
-                      '502', # -
-                      '503', # -
-                      '504', # -
-                      '505', # -
-                      '506', # -
-                      '507', # -
-                      '508', # -
-                      '509', # -
-                      '512', # Innsbruck
-                      '517', # -
-                      '662', # Salzburg
-                      '720', #
-                      '732', # Linz
-                      ],
-         :mobile => [
-                     '67',  # Mobile Services
-                     '68',  # Mobile Services
-                     '644', # Mobile Services
-                     '650', # Mobile Services
-                     '651', # Mobile Services
-                     '652', # Mobile Services
-                     '653', # Mobile Services
-                     '655', # Mobile Services
-                     '657', # Mobile Services
-                     '659', # Mobile Services
-                     '660', # Mobile Services
-                     '661', # Mobile Services
-                     '663', # Mobile Services
-                     '664', # Mobile Services
-                     '665', # Mobile Services
-                     '666', # Mobile Services
-                     '667', # Mobile Services
-                     '668', # Mobile Services
-                     '669', # Mobile Services
-                    ],
-         :service => [
-                      '710', # Service Number
-                      '711', # Service Number
-                      '718', # Service Number
-                      '730', # Service Number
-                      '740', # Service Number
-                      '780', # Service Number
-                      '800', # Service Number
-                      '802', # Service Number
-                      '804', # Service Number
-                      '810', # Service Number
-                      '820', # Service Number
-                      '821', # Service Number
-                      '828', # Service Number
-                      '900', # Service Number
-                      '901', # Service Number
-                      '930', # Service Number
-                      '931', # Service Number
-                      '939'  # Service Number
-                     ]
-      }
-      
-    end
-  end
-end
+Phony::Countries::Austria = Phony::Country.configured :local_format => [10],
+                                                      :local_special_format => [10],
+                                                      :ndc_fallback_length => 4,
+                                                      :ndc_mapping => {
+                                                        :landline => [
+                                                                        '1', # Vienna
+                                                                       '57',  # -
+                                                                       '59',  # -
+                                                                       '89',  # Routing Number
+                                                                       '316', # Graz
+                                                                       '501', # -
+                                                                       '502', # -
+                                                                       '503', # -
+                                                                       '504', # -
+                                                                       '505', # -
+                                                                       '506', # -
+                                                                       '507', # -
+                                                                       '508', # -
+                                                                       '509', # -
+                                                                       '512', # Innsbruck
+                                                                       '517', # -
+                                                                       '662', # Salzburg
+                                                                       '720', #
+                                                                       '732', # Linz
+                                                                      ],
+                                                         :mobile => [
+                                                                     '67', 
+                                                                     '68', 
+                                                                     '644',
+                                                                     '650',
+                                                                     '651',
+                                                                     '652',
+                                                                     '653',
+                                                                     '655',
+                                                                     '657',
+                                                                     '659',
+                                                                     '660',
+                                                                     '661',
+                                                                     '663',
+                                                                     '664',
+                                                                     '665',
+                                                                     '666',
+                                                                     '667',
+                                                                     '668',
+                                                                     '669',
+                                                                    ],
+                                                         :service => [
+                                                                      '710',
+                                                                      '711',
+                                                                      '718',
+                                                                      '730',
+                                                                      '740',
+                                                                      '780',
+                                                                      '800',
+                                                                      '802',
+                                                                      '804',
+                                                                      '810',
+                                                                      '820',
+                                                                      '821',
+                                                                      '828',
+                                                                      '900',
+                                                                      '901',
+                                                                      '930',
+                                                                      '931',
+                                                                      '939' 
+                                                                     ]
+                                                      }
