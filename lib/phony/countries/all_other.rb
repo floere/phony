@@ -44,7 +44,7 @@ module Phony
                         :local_format => [3, 4]
                   ),
                   
-          '30' => fixed(2), # Greece
+          '30' => Countries::Greece,
           '31' => fixed(2), # Netherlands
           '32' => fixed(1,  # Belgium
                         :local_format => [3, 4]

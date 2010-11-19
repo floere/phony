@@ -17,6 +17,9 @@ describe Phony do
     it "should handle german numbers" do
       Phony.split('4976112345').should == ['49', '761', '123', '45']
     end
+    it "should handle greek numbers" do
+      Phony.split('3022631234').should == ['30', '2263', '1234']
+    end
     it "should handle hungarian numbers" do
       Phony.split('3612345678').should == ['36', '1', '234', '5678']
     end

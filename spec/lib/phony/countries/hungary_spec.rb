@@ -7,10 +7,10 @@ describe Phony::Countries::Hungary do
   end
   
   describe "split" do
-    it "should handle Budapest" do
+    it 'handles Budapest' do
       @hungary.split('12345678').should == ['1', '234', '5678']
     end
-    it "should handle Cologne" do
+    it 'works' do
       @hungary.split('22123456').should == ['22', '123', '456']
     end
   end
