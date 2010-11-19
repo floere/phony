@@ -30,6 +30,9 @@ describe Phony do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
     
+    it "should handle french service numbers" do
+      Phony.split('33812345678').should == ['33', '8', '12','34','56','78']
+    end
     it "should handle swiss service numbers" do
       Phony.split('41800334455').should == ['41', '800', '334', '455']
     end

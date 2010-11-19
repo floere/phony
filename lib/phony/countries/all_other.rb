@@ -51,7 +51,6 @@ module Phony
                   ),
           '33' => fixed(1,  # France
                         :local_format         => [2, 2, 2, 2],
-                        :service_local_format => [2, 2, 2, 2],
                         :service_ndcs         => %w{8}
                         # :special_ndcs => {
                         #   :service => %w{8},

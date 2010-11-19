@@ -80,15 +80,17 @@ module Phony
     def self.fixed options = {}
       ndc_length   = options[:ndc_length]
       service_ndcs = options[:service_ndcs]
+      local_format = options[:local_format]
       
       national_splitter = Phony::NationalSplitters::Fixed.new ndc_length
-      local_splitter    = Phony::LocalSplitter.instance_for options[:local_format] || [3, 2, 2]
+      local_splitter    = Phony::LocalSplitter.instance_for local_format || [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
       
       service_code = nil
       if service_ndcs
+        service_local_format      = options[:service_local_format] || local_format
         service_national_splitter = Phony::NationalSplitters::Variable.new nil, :service => service_ndcs
-        service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 3]
+        service_local_splitter    = Phony::LocalSplitter.instance_for service_local_format || [3, 3]
         service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter
       end
       
