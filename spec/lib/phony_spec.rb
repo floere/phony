@@ -171,7 +171,7 @@ describe Phony do
     end
   end
   
-  describe "speed" do
+  context "speed" do
     before(:each) do
       @phone_numbers = [
         '41443643532',
@@ -181,8 +181,20 @@ describe Phony do
         '4233841148'
       ]
     end
-    it 'is fast' do
-      performance_of { @phone_numbers.each { |number| Phony.split(number) } }.should < 0.0002
+    describe 'split' do
+      it 'is fast' do
+        performance_of { @phone_numbers.each { |number| Phony.split(number) } }.should < 0.00015
+      end
+    end
+    describe 'normalize' do
+      it 'is fast' do
+        performance_of { @phone_numbers.each { |number| Phony.normalize(number) } }.should < 0.00015
+      end
+    end
+    describe 'formatted' do
+      it 'is fast' do
+        performance_of { @phone_numbers.each { |number| Phony.formatted(number) } }.should < 0.00015
+      end
     end
   end
   
