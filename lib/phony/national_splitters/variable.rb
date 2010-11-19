@@ -8,7 +8,7 @@ module Phony
       #
       def initialize fallback, ndc_map
         super fallback
-        @ndcs, @special_ndcs = restructure ndc_map
+        @ndcs = restructure ndc_map
       end
       
       # Takes a national number and splits it into ndc and rest.
@@ -18,8 +18,8 @@ module Phony
         
         # Extract a starting point.
         #
-        presumed_code = if @mapped_ndc_min_length > 1
-          national_number.slice!(0..@mapped_ndc_min_length-2)
+        presumed_code = if @mapped_ndc_min_length > 0
+          national_number.slice!(0..@mapped_ndc_min_length-1)
         else
           ''
         end
@@ -27,9 +27,9 @@ module Phony
         # Try for all possible mapped.
         #
         @mapped_ndc_min_length.upto(@mapped_ndc_max_length) do |i|
-          presumed_code << national_number.slice!(0..0)
           sized_ndcs = @ndcs[i]
           return [presumed_code, national_number] unless sized_ndcs && !sized_ndcs.include?(presumed_code)
+          presumed_code << national_number.slice!(0..0)
         end
         
         # Not found.
@@ -37,29 +37,10 @@ module Phony
         return super(fallback_number)
       end
       
-      def service? number
-        ndc, _ = split number
-        @special_ndcs[:service].include? ndc
-      end
-      def mobile? number
-        ndc, _ = split number
-        @special_ndcs[:mobile].include? ndc
-      end
-      def landline? number
-        ndc, _ = split number
-        !mobile?(ndc) && !service?(ndc)
-      end
-      
       private
         
         def restructure ndc_map
-          [optimize(ndc_map.values.flatten), extract_special(ndc_map)] # TODO extract_services ndc_map
-        end
-        
-        def extract_special ndc_map
-          ndc_map.each_pair do |type, ndc|
-            
-          end
+          optimize ndc_map.values.flatten
         end
         
         # Optimizes and restructures the given ndcs array.

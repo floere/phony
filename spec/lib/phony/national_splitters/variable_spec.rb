@@ -6,8 +6,8 @@ describe Phony::NationalSplitters::Variable do
     context 'normal' do
       before(:each) do
         @splitter = Phony::NationalSplitters::Variable.new 4, :normal  => ['1', '316'],
-                                                                  :mobile  => ['67', '68',],
-                                                                  :service => ['669', '711']
+                                                              :mobile  => ['67', '68',],
+                                                              :service => ['669', '711']
       end
       it "handles Vienna" do
         @splitter.split('198110').should == ['1', '98110']

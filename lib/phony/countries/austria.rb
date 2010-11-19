@@ -1,19 +1,34 @@
+# Phony::Countries::Austria = Phony::Country.configured :local_format => [10],
+#                                                       :local_special_format => [10],
+#                                                       :ndc_fallback_length => 4,
+#                                                       :ndc_mapping => {
+#                                                         :normal => [
+#                                                                       '1'
+#                                                                    ] # etc.
+#                                                                   }
+#                                                       # :ndc_length
+
 module Phony
   module Countries
     
     # Numbers for Austria.
     #
-    class Austria < Phony::NationalCode
+    class Austria < Phony::Country
       
       def initialize
         national_splitter = NationalSplitters::Variable.new 4, @@ndc_mapping
         local_splitter    = LocalSplitter.instance_for [10]
+        national_code     = NationalCode.new national_splitter, local_splitter
         
-        super national_splitter, local_splitter
+        national_special_splitter = NationalSplitters::Variable.new 4, @@ndc_mapping
+        local_special_splitter    = LocalSplitter.instance_for [10]
+        national_special_code     = SpecialCode.new national_special_splitter, local_special_splitter
+        
+        super national_code, national_special_code
       end
       
       @@ndc_mapping = {
-        :landline => [
+        :normal => [
                        '1', # Vienna
                       '57',  # -
                       '59',  # -

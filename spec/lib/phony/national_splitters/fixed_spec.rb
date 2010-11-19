@@ -25,5 +25,19 @@ describe Phony::NationalSplitters::Fixed do
       @splitter.split('443').should == ['44','3']
     end
   end
+  describe 'split' do
+    before(:each) do
+      @splitter = Phony::NationalSplitters::Fixed.new nil
+    end
+    it 'splits correctly' do
+      @splitter.split('443643532').should == ['443643532']
+    end
+    it 'splits correctly even when the number is too long' do
+      @splitter.split('44364353211').should == ['44364353211']
+    end
+    it 'splits correctly even when the number is too short' do
+      @splitter.split('443').should == ['443']
+    end
+  end
   
 end

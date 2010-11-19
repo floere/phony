@@ -2,9 +2,11 @@ module Phony
   
   module NationalSplitters
     
+    # TODO
+    #
     class Fixed
       
-      attr_writer :service_ndcs, :mobile_ndcs
+      attr_writer :special_splitter
       
       @mapping = {}
       
@@ -18,28 +20,13 @@ module Phony
       
       def initialize size
         @size = size
-        @service_ndcs = []
-        @mobile_ndcs  = []
       end
       
       # Takes a national number and splits it into ndc and rest.
       #
       def split national_number
+        return national_number unless @size
         [national_number.slice!(0...@size), national_number]
-      end
-      
-      
-      def service? number
-        ndc, _ = split number
-        @service_ndcs.include? ndc
-      end
-      def mobile? number
-        ndc, _ = split number
-        @mobile_ndcs.include? ndc
-      end
-      def landline? number
-        ndc, _ = split number
-        !mobile?(ndc) && !service?(ndc)
       end
       
     end

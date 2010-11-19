@@ -16,12 +16,16 @@ module Phony
     #
     # Caches the created splitter for the given format.
     #
-    def self.instance_for format
+    def self.instance_for format = nil
       @mapping[format] ||= new(format)
     end
     
-    def initialize format
-      @format     = format
+    # Initialize with a local format, like [3, 2, 2] (also the default).
+    #
+    # The format [3, 2, 2] splits a number like '3332222' into ['333', '22', '22'].
+    #
+    def initialize format = nil
+      @format = format || [3, 2, 2]
     end
     
     # Split a local number according to an assumed country specific format.

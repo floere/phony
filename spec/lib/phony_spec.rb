@@ -155,7 +155,7 @@ describe Phony do
       # TODO
       #
       it "should format swiss service numbers" do
-        Phony.formatted('41800112233', :format => :national).should == '0800 112 23 3'
+        Phony.formatted('41800112233', :format => :national).should == '0800 112 233'
       end
       it "should format austrian numbers" do
         Phony.formatted('43198110', :format => :national).should == '01 98110'

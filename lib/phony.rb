@@ -13,6 +13,8 @@ require File.expand_path '../phony/local_splitter', __FILE__
 require File.expand_path '../phony/national_splitters/fixed', __FILE__
 require File.expand_path '../phony/national_splitters/variable', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
+require File.expand_path '../phony/special_code', __FILE__
+require File.expand_path '../phony/country', __FILE__
 
 # Countries.
 #
