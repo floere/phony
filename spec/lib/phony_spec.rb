@@ -193,7 +193,7 @@ describe Phony do
     describe 'normalize' do
       it 'is fast' do
         number = @phone_numbers.first
-        performance_of { Phony.normalize(number) }.should < 0.000075
+        performance_of { Phony.normalize(number) }.should < 0.0001
       end
       it 'is fast' do
         performance_of { @phone_numbers.each { |number| Phony.normalize(number) } }.should < 0.00015
