@@ -29,7 +29,7 @@ describe Phony do
     # TODO
     #
     it "should handle swiss service numbers" do
-      Phony.split('41800334455').should == ['41', '800', '334', '45', '5']
+      Phony.split('41800334455').should == ['41', '800', '334', '455']
     end
   end
   
@@ -76,7 +76,7 @@ describe Phony do
       # TODO
       #
       it "should format swiss service numbers" do
-        Phony.formatted('41800112233').should == '+41 800 112 23 3'
+        Phony.formatted('41800112233').should == '+41 800 112 233'
       end
       it "should format austrian numbers" do
         Phony.formatted('43198110').should == '+43 1 98110'
@@ -171,19 +171,19 @@ describe Phony do
     end
   end
   
-  describe "service?" do
-
-  end
-  describe "mobile?" do
-    # TODO Test dirty numbers.
-    #
-    it 'is correct' do
-      Phony.mobile?('49172123456').should == true
-    end
-    it 'is correct' do
-      Phony.mobile?('12172123456').should == false
-    end
-  end
+  # describe "service?" do
+  # 
+  # end
+  # describe "mobile?" do
+  #   # TODO Test dirty numbers.
+  #   #
+  #   it 'is correct' do
+  #     Phony.mobile?('49172123456').should == true
+  #   end
+  #   it 'is correct' do
+  #     Phony.mobile?('12172123456').should == false
+  #   end
+  # end
   
   # describe 'regarding vanity' do
   #   describe 'vanity_number?' do

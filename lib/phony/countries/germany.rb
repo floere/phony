@@ -1,3 +1,5 @@
+# Germany uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
+#
 Phony::Countries::Germany = Phony::Country.configured :local_format => [3, 10],
                                                       :local_special_format => [3, 10],
                                                       :ndc_fallback_length => 4,

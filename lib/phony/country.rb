@@ -70,9 +70,12 @@ module Phony
       local_splitter    = Phony::LocalSplitter.instance_for options[:local_format] || [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
       
-      service_national_splitter = Phony::NationalSplitters::Variable.new nil, :service => service_ndcs
-      service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 3]
-      service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter
+      service_code = nil
+      if service_ndcs
+        service_national_splitter = Phony::NationalSplitters::Variable.new nil, :service => service_ndcs
+        service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 3]
+        service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter
+      end
       
       new national_code, service_code
     end

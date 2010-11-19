@@ -32,11 +32,9 @@ describe Phony::CountryCodes do
       it "should format swiss numbers" do
         @countries.formatted('41443643532').should == '+41 44 364 35 32'
       end
-      # FIXME
-      #
-      # it "should format swiss service numbers" do
-      #   @countries.formatted('41800112233').should == '+41 800 11 22 33'
-      # end
+      it "should format swiss service numbers" do
+        @countries.formatted('41800112233').should == '+41 800 112 233'
+      end
       it "should format austrian numbers" do
         @countries.formatted('43198110').should == '+43 1 98110'
       end

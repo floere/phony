@@ -6,10 +6,8 @@ module Phony
     # Returns an anonymous fixed size ndc / format country handler.
     #
     def self.fixed size, options = {}
-      national_splitter = NationalSplitters::Fixed.instance_for size
-      local_splitter = LocalSplitter.instance_for options[:local_format] # Default is the 3-2-2 format.
-
-      NationalCode.new national_splitter, local_splitter
+      options.merge! :ndc_length => size
+      Phony::Country.fixed options
     end
     
     # Defines a mapping of country code to all splitters/formatters.
@@ -32,11 +30,13 @@ module Phony
           '31' => fixed(2), # Netherlands
           '32' => fixed(2), # Belgium
           '33' => fixed(1,
-                        :local_format => [2, 2, 2, 2],
-                        :special_ndcs => {
-                          :service => %w{8},
-                          :mobile  => %w{6 7}
-                        }
+                        :local_format         => [2, 2, 2, 2],
+                        :service_local_format => [2, 2, 2, 2],
+                        :service_ndcs         => %w{8}
+                        # :special_ndcs => {
+                        #   :service => %w{8},
+                        #   :mobile  => %w{6 7}
+                        # }
                   ), # France
           '34' => fixed(2), # Spain
           '36' => fixed(2), # Hungary
@@ -44,11 +44,13 @@ module Phony
 
           '40' => fixed(2), # Romania
           '41' => fixed(2,
-                        :local_format => [3, 2, 2],
-                        :special_ndcs => {
-                          :service => %w{800 840 842 844 848},
-                          :mobile  => %w{74 76 77 78 79}
-                        }
+                        :local_format         => [3, 2, 2],
+                        :service_local_format => [3, 3],
+                        :service_ndcs         => %w{800 840 842 844 848}
+                        # :special_ndcs => {
+                        #   :service => %w{800 840 842 844 848},
+                        #   :mobile  => %w{74 76 77 78 79}
+                        # }
                   ), # Switzerland (Confederation of)
           '43' => Countries::Austria,
           '44' => fixed(2), # United Kingdom of Great Britain and Northern Ireland

@@ -25,7 +25,7 @@ module Phony
       # Takes a national number and splits it into ndc and rest.
       #
       def split national_number
-        return national_number unless @size
+        return [national_number] unless @size
         [national_number.slice!(0...@size), national_number]
       end
       
