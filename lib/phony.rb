@@ -21,6 +21,7 @@ require File.expand_path '../phony/country', __FILE__
 #
 require File.expand_path '../phony/countries/all_other', __FILE__
 require File.expand_path '../phony/countries/austria', __FILE__
+require File.expand_path '../phony/countries/egypt', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
 require File.expand_path '../phony/countries/hungary', __FILE__
 require File.expand_path '../phony/countries/italy', __FILE__
