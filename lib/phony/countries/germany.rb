@@ -107,7 +107,7 @@ Phony::Countries::Germany = Phony::Country.configured :local_format => [3, 10],
                                                                       '961', # Weiden
                                                                       '971', # Bad Kissingen
                                                                       '981', # Ansbach
-                                                                      '991' # Deggendorf
+                                                                      '991', # Deggendorf
                                                                       ],
                                                         :mobile => [
                                                                      '150', # Group3G/Quam
@@ -136,9 +136,9 @@ Phony::Countries::Germany = Phony::Country.configured :local_format => [3, 10],
                                                                      '177', # E-Plus
                                                                      '178', # E-Plus
                                                                      '179', # O2 Germany
-                                                                     '181', # IVPNs
                                                                    ],
                                                         :service => [
+                                                                     '181', # IVPNs
                                                                      '182', # Closed User Group
                                                                      '183', # Closed User Group
                                                                      '184', # Closed User Group
