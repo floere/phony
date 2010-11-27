@@ -1,0 +1,29 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :'xml:lang' => "en", :lang => "en" }
+  %head
+    %meta{ :'http-equiv' => "Content-type", :content => "text/html; charset=utf-8" }
+    %link{ :rel => 'stylesheet', :href => 'basic.css', :type => 'text/css' }
+    %link{ :rel => 'stylesheet', :href => 'specific.css', :type => 'text/css' }
+    %link{ :rel => 'stylesheet', :href => 'grid.css', :type => 'text/css' }
+    %title
+      Phony:
+      = h page.title
+  %body
+    .header
+      %a{ :href => 'http://github.com/floere/phony' }
+        %img{ :style => 'position: fixed; top: -10px; right: 0; border: 0;', :src => 'http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png', :alt => 'Fork me on GitHub' }
+    .phony
+    .container_2
+      %h1 Phony
+      .navigation
+        - def class_for(url, klass = ''); if page.url == url then "current #{klass}" else klass end end
+        %a{ :href => 'index.html', :class => class_for('/index.html') } about
+        %a{ :href => 'e164.html', :class => class_for('/e164.html') } E164
+        %a{ :href => 'examples.html', :class => class_for('/examples.html') } examples
+        %a{ :href => 'status.html', :class => class_for('/status.html') } status and contributions
+        
+    = content
+    .container_2
+      .grid_2
+        .decoration
+    .footer

@@ -1,0 +1,119 @@
+---
+title: Getting Started
+layout: default
+---
+
+.container_2
+  %h2= h page.title
+  .grid_1
+    %h2 You go here
+    %p This takes about 5 minutes. After that, you'll have a running Picky server and a web frontend to play with.
+    %h3 Overview
+    %p Before we start, the big picture:
+    %img{ :src => 'diagrams/basic-overview.png', :width => '480px' }
+    %p
+      That's the basic setup. The things to remember are:
+      %ul
+        %li The Picky server calculates IDs for a query.
+        %li Your app server renders results for the IDs.
+    %p
+      Together they are like a small A-Team, something like "Action Search Squad Alpha"! «We've got the results and are heading back to base now, Sir!» Bam!
+    %p
+      Note that you don't need a Picky client. You could just as well use the results in your Python/Java/PHP app server (If you happen to write a client for one of these, please let me know).
+    %h3 Installation
+    %p
+      Note that Picky only runs on Ruby 1.9. I recommend
+      %a{ :href => 'http://rvm.beginrescueend.com/' } RVM
+      for installing and managing Ruby versions.
+    %code
+      %pre
+        gem install picky picky-client
+    %h3 The server
+    %p The server generates a library example, which you can run right away.
+    %code
+      %pre
+        :preserve
+          # Generates a directory "app_name"
+          # with a new Picky project.
+          
+          picky project app_name
+      %pre
+        :preserve
+          cd app_name
+          bundle install
+    %h4 Index the data
+    %code
+      %pre
+        rake index
+    %h4 Start the Picky server
+    %code
+      %pre
+        rake start
+    %h4 Try a query!
+    %code
+      %pre
+        curl localhost:8080/books/full?query=test
+    %p
+      Don't worry about the strange looking results!
+      The next part (client) will take care of them.
+    %p
+      If you're interested anyway:
+      %a{ :href => 'http://github.com/floere/picky/wiki/results-format-and-structure' } Results (Format & Structure)
+    %h3 The client
+    %p The client generates an example app for the "library" example backend, using Sinatra.
+    %code
+    %pre
+      :preserve
+        # Generates a directory "app_name"
+        # with a new Picky Client Webapp project.
+        
+        picky-client sinatra app_name
+    %pre
+      :preserve
+        cd app_name
+        bundle install
+    %h4 Start the app server
+    %code
+      %pre
+        unicorn -p 3000
+    %h4 Admire your work
+    %p
+      Go to
+      %a{ :href => 'http://localhost:3000/' } http://localhost:3000/
+      and try the examples.
+    %h3 Your own search
+    %p
+      You're probably itching to change the example for
+      your own data. How do you do this?
+    %h4 The server
+    %p In the server directory, just type
+    %code
+      %pre
+        rake
+    %p and it will tell you where to change the server configuration.
+    %h4 The client
+    %p
+      Go to
+      %a{ :href => 'http://localhost:3000/configure' } http://localhost:3000/configure
+      and the page will show you how to configure your app server.
+    %p
+      That's it, congratulations! :)
+  .grid_1
+    %h2 Need assistance?
+    %p
+      Right here. I'm happy to help!
+      If something doesn't work, send/gist me your app/application.rb
+      and I'll look into it.
+    %p
+      = succeed(', ') do
+        %a{ :href => 'http://github.com/inbox/new/floere' } github (floere)
+      = succeed(', ') do
+        %a{ :href => 'http://twitter.com/hanke' } twitter (hanke)
+      %a{ :href => 'mailto:florian.hanke@gmail.com' } mail (gmail)
+    %p
+      There's a Wiki as well:
+      %a{ :href => 'http://github.com/floere/picky/wiki' } Picky Wiki
+    %h3 Accompanying Video
+    %p
+      If you don't have the time or leisure to do it yourself, watch this:
+    %iframe{ :src => "http://player.vimeo.com/video/17161012", :width => "460", :height => "365", :frameborder => "0" }

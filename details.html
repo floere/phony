@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-type" />
+    <link href="basic.css" rel="stylesheet" type="text/css" />
+    <link href="specific.css" rel="stylesheet" type="text/css" />
+    <link href="grid.css" rel="stylesheet" type="text/css" />
+    <title>
+      Picky:
+      In Detail
+    </title>
+  </head>
+  <body>
+    <div class="header">
+      <a href="http://github.com/floere/picky">
+        <img alt="Fork me on GitHub" src="images/forkme.png" style="position: fixed; top: -10px; right: 0; border: 0;" />
+      </a>
+    </div>
+    <div class="picky" title="Happy Picky (drawn on iPhone)"></div>
+    <div class="container_2">
+      <h1>Picky</h1>
+      <div class="navigation">
+        <a class="" href="index.html">about</a>
+        <a class="current " href="details.html">in detail</a>
+        <a class="" href="getting_started.html">getting started</a>
+        <a class="right" href="status.html">status and contributions</a>
+        <a class="right" href="videos.html">videos</a>
+        <a class="right" href="examples.html">examples</a>
+      </div>
+    </div>
+    <div class="container_2">
+      <h2>In Detail</h2>
+      <div class="grid_1">
+        <h3>Huh? What's a small-text search engine?</h3>
+        <p>
+          A small-text search engine does not operate on huge blobs of text, but instead on smaller, highly categorized text amounts. For example, on varchar database fields.
+        </p>
+        <p>
+          If your data isn't categorized well (like text from a book), then you should instead choose a full-text search engine, like
+          <a href="http://sphinxsearch.com/">Sphinx</a>
+          or
+          <a href="http://lucene.apache.org/solr/">Solr (Lucene)</a>.
+        </p>
+        <h3>Then why use it?</h3>
+        <p>
+          Picky helps your user find data which in a full-text search engine would be buried in a heap of results. Also, it lets him do so with a Google-y single search field.
+        </p>
+        <p>
+          Sure the word "peter" is found most often in document #7, but he actually just wants documents by someone with surname "Peter", and not everything related to peters.
+        </p>
+        <p>
+          Picky helps him refine his search by way of a comfortable interface to get exactly what he wants.
+        </p>
+        <h3>But why not just use a full-text search engine?</h3>
+        <p>
+          Full-Text search engines do one thing especially well: Making full (i.e. uncategorized heaps of) text searchable.
+        </p>
+        <p>
+          For small, highly categorized text, we simply need new ideas. Picky is one of them.
+        </p>
+        <p>
+          Ok, that was my elevator pitch ;)
+        </p>
+        <h3>How it works</h3>
+        <p>Hoo boy.</p>
+        <h3>See me show (it) off</h3>
+        <p>
+          Using a real
+          <a href="http://twixtel.ch">telephone search</a>
+          as an example.
+        </p>
+        <iframe frameborder="0" height="365" src="http://player.vimeo.com/video/12614970" width="460"></iframe>
+        <p>
+          This was at the fantastic
+          <a href="http://euruko2010.org/">EuRuKo 2010</a>
+          Conference in
+          <a href="http://www.google.ch/images?q=krakow+poland">beautiful</a>
+          Krakow.
+        </p>
+        <h3>Why would one write a search engine in Ruby?</h3>
+        <p>
+          It's fast enough and the high level really helped understanding it as it evolved. There are some parts that have been written in pedal-to-the-metal C code.
+        </p>
+        <h3>How does it perform?</h3>
+        <p>
+          This depends on many factors, but generally we recommend using Picky with a maximum of 120 million data points (we used it there).
+          The area under 20 millions is probably best. Your mileage may vary, of course, depending on how many partial indexes you use etc.
+        </p>
+        <p>
+          Indexing is not too fast, and I'd be glad if it were faster. However, you get the full power of Ruby and fully customizable indexing.
+        </p>
+      </div>
+      <div class="grid_1">
+        <h3>Where it is</h3>
+        <p>
+          Picky lives in a little cave called
+          <a href="http://github.com/floere/picky">The Github Repo</a>.
+          He usually pays his rent on time.
+        </p>
+        <h3>Why the octopus?</h3>
+        <p>
+          Glad you asked. But first, read this
+          <a href="http://en.wikipedia.org/wiki/Octopus">Wikipedia entry about octopuses</a>.
+          Also,
+          <a href="http://www.youtube.com/watch?v=badHUNl2HXU">a movie</a>.
+          Finished? I think that sums it up pretty well. And it's cuuute, don't you think? :)
+        </p>
+        <p>
+          But don't call him that. He likes to be called "Octor the Destroyer".
+        </p>
+        <h3>Why the LGPL license?</h3>
+        <p>
+          My former employer and I met halfway, so to speak. I'd have preferred a MIT license.
+        </p>
+        <h3>Examples in the wild</h3>
+        <p>
+          <a href="http://www.twixtel.ch">TwixTel</a>
+          Telephone Book Search Engine
+        </p>
+        <h3>Feedback?</h3>
+        <p>Glad to hear it!</p>
+        <p>
+          <a href="http://github.com/inbox/new/floere">github (floere)</a>,
+          <a href="http://twitter.com/hanke">twitter (hanke)</a>,
+          <a href="mailto:florian.hanke@gmail.com">mail (gmail)</a>
+        </p>
+        <h2>Roadmap</h2>
+        <p>
+          <a href="http://github.com/floere/picky/wiki/Roadmap">Wiki Roadmap</a>
+        </p>
+      </div>
+      <div class="grid_1"></div>
+    </div>
+    <div class="container_2">
+      <div class="grid_2">
+        <div class="decoration"></div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </body>
+</html>

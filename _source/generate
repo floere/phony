@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+#
+ruby -e 'loop do; %x("./hamlr"); %x("./sassr"); sleep 1; end'

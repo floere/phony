@@ -1,0 +1,4 @@
+sass: true
+haml: true
+
+pygments: false
