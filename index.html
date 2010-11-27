@@ -28,8 +28,36 @@
     </div>
     <div class="container_2">
       <h2>E164 International Phone Number Handling</h2>
-      <div class="grid_1"></div>
-      <div class="grid_1"></div>
+      <div class="grid_2">
+        <h3>What is it?</h3>
+        <p>
+          This baby handles the
+          <strong>world's phone numbers</strong>
+          for you, in a
+          <strong>nice and easy</strong>
+          to use way.
+        </p>
+        <p>
+          Read more on the
+          <a href="e164.html">E164</a>
+          recommendation.
+        </p>
+        <h3>What it does.</h3>
+        <h4>Formatting</h4>
+        <p>An austrian number, internationally formatted.</p>
+        <code><pre>Phony.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'</pre></code>
+        <h4>Splitting</h4>
+        <p>The french split number like that:</p>
+        <code><pre>Phony.split('33112345678').should == ['33', '1', '12','34','56','78']</pre></code>
+        <h4>Normalizing</h4>
+        <p>American formatting -> E164 normalized format.</p>
+        <code><pre>Phony.normalize('1 (703) 451-5115').should == '17034515115'</pre></code>
+        <p>
+          Interested? There are more
+          <a href="examples.html">examples</a>
+          in the examples tab.
+        </p>
+      </div>
     </div>
     <div class="container_2">
       <div class="grid_2">

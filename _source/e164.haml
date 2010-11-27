@@ -5,6 +5,40 @@ layout: default
 
 .container_2
   %h2= h page.title
-  .grid_1
+  .grid_2
     %h3 What is E164?
-  .grid_1
+    %p
+      It's basically a numbering scheme for international phone numbers.
+    %p
+      A phone number is a prefix code, divided into:
+      %ol
+        %li
+          %strong Country Code
+          (1-3 digits)
+        %li
+          %strong National Number
+          (15 minus Country Code digits)
+    %p
+      A national number may be split into a
+      %ol
+        %li
+          %strong National Destination Code
+          (Optional, any number of digits)
+        %li
+          %strong Local Destination Code
+          (Rest of the digits, up to 15 digits total)
+    %p
+      Countries have
+      %strong lots of different formats and parsing schemes.
+      This is
+      %strong what Phony handles for you
+      and where it shines.
+    
+    %p
+      The
+      %a{ :href => 'http://en.wikipedia.org/wiki/E.164' } Wikipedia entry
+      has much more information.
+    %p
+      Check out
+      %a{ :href => 'examples.html' } all the examples
+      to see what it does.
