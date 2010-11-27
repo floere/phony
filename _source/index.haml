@@ -24,7 +24,7 @@ layout: default
       %pre
         Phony.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
     %h4 Splitting
-    %p The french split number like that:
+    %p The french split numbers like that:
     %code
       %pre
         Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
