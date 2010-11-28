@@ -1,5 +1,0 @@
-echo "hamling"
-haml index.haml index.html
-haml examples.haml examples.html
-haml videos.haml videos.html
-haml status.haml status.html
