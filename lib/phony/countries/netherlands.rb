@@ -1,6 +1,6 @@
 # The Netherlands use a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
-# Note: Greece uses a variable ndc format from length 2 to 3.
+# Note: The netherlands use a variable ndc format from length 2 to 3.
 #       To save space, we only use ndcs of length 2 (and use the fallback of 3 to handle the rest).
 #
 Phony::Countries::Netherlands = Phony::Country.configured :local_format => [8], # 8 is for mobile numbers, other numbers will work as well (they use 7).
