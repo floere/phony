@@ -29,6 +29,8 @@
     <div class="container_2">
       <h2>E164 International Phone Number Handling</h2>
       <div class="grid_2">
+        <h3>Installation</h3>
+        <pre><code>gem install phony</code></pre>
         <h3>What is it?</h3>
         <p>
           This baby handles the
@@ -42,7 +44,7 @@
           <a href="e164.html">E164</a>
           recommendation which describes international phone number structure and functionality.
         </p>
-        <h3>What it does.</h3>
+        <h3>What it does</h3>
         <h4>Formatting</h4>
         <p>An austrian number, internationally formatted.</p>
         <code><pre>Phony.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'</pre></code>
