@@ -5,7 +5,7 @@ h2. Description
 This gem can normalize, format and split E164 numbers.
 "More about E164 numbers in this Wiki":http://en.wikipedia.org/wiki/E.164.
 
-Currently handles Austrian, Australian, Belgian, Czech, Egyptian, French, German, Greek, Hungarian, Italian, New Zealand, Norwegian, Polish, Russian, South African, Spanish, Swiss, Liechtenstein, US numbers.
+Currently handles Austrian, Australian, Belgian, Czech, Egyptian, French, German, Greek, Hungarian, Italian, (The) Netherlands, New Zealand, Norwegian, Polish, Russian, South African, Spanish, Swiss, Liechtenstein, US numbers.
 And to some extend, all others. Just try if it works for you.
 
 h2. Installation
