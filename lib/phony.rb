@@ -26,6 +26,7 @@ require File.expand_path '../phony/countries/germany', __FILE__
 require File.expand_path '../phony/countries/greece', __FILE__
 require File.expand_path '../phony/countries/hungary', __FILE__
 require File.expand_path '../phony/countries/italy', __FILE__
+require File.expand_path '../phony/countries/netherlands', __FILE__
 
 require File.expand_path '../phony/country_codes', __FILE__
 

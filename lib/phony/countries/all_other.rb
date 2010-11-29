@@ -45,7 +45,7 @@ module Phony
                   ),
                   
           '30' => Countries::Greece,
-          '31' => fixed(2), # Netherlands
+          '31' => Countries::Netherlands,
           '32' => fixed(1,  # Belgium
                         :local_format => [3, 4]
                   ),
