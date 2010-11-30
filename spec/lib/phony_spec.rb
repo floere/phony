@@ -14,7 +14,8 @@ describe Phony do
       Phony.split('31222123456').should == ['31', '222', '123456']
     end
     it "should handle egyptian numbers" do
-      Phony.split('20233453756').should == ['20', '2', '33453756']
+      Phony.split('20212345678').should == ['20', '2', '12345678']
+      Phony.split('20951234567').should == ['20', '95', '1234567']
     end
     it "should handle french numbers" do
       Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
