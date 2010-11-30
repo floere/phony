@@ -63,7 +63,7 @@ module Phony
           '36' => Countries::Hungary,
           '39' => Countries::Italy,
 
-          '40' => fixed(2), # Romania
+          '40' => fixed(2), # TODO Romania
           '41' => fixed(2,  # Switzerland (Confederation of)
                         :local_format         => [3, 2, 2],
                         :service_local_format => [3, 3],
@@ -74,8 +74,8 @@ module Phony
                         # }
                   ),
           '43' => Countries::Austria,
-          '44' => fixed(2), # United Kingdom of Great Britain and Northern Ireland
-          '45' => fixed(2), # Denmark
+          '44' => fixed(2), # TODO United Kingdom of Great Britain and Northern Ireland
+          '45' => fixed(2), # TODO Denmark
           '46' => Countries::Sweden,
           '47' => fixed(4,  # Norway
                     :local_format => [4]
@@ -84,7 +84,9 @@ module Phony
                         :local_format => [1, 3, 3] # Approximation. Correct would be 48-xxx-xxx-xxx
                   ),
           '49' => Countries::Germany,
-
+          
+          # TODO From here on.
+          #
           '51' => fixed(2), # Peru
           '52' => fixed(2), # Mexico
           '53' => fixed(2), # Cuba
