@@ -36,6 +36,11 @@ describe Phony do
     it "should handle polish numbers" do
       Phony.split('48121123123').should == ['48', '12', '1', '123', '123']
     end
+    it 'handles romanian numbers' do
+      Phony.split('40211231234').should == ['40', '21', '123', '1234']
+      Phony.split('40721231234').should == ['40', '72', '123', '1234']
+      Phony.split('40249123123').should == ['40', '249', '123', '123']
+    end
     it "should handle swedish numbers" do
       Phony.split('46812345678').should == ['46', '8', '12345678']
       Phony.split('46111234567').should == ['46', '11', '1234567']

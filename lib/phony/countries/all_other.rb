@@ -63,7 +63,7 @@ module Phony
           '36' => Countries::Hungary,
           '39' => Countries::Italy,
 
-          '40' => fixed(2), # TODO Romania
+          '40' => Countries::Romania,
           '41' => fixed(2,  # Switzerland (Confederation of)
                         :local_format         => [3, 2, 2],
                         :service_local_format => [3, 3],
