@@ -8,6 +8,9 @@ describe Phony do
     it "should handle austrian numbers" do
       Phony.split('43198110').should == ['43', '1', '98110']
     end
+    it 'handles danish numbers' do
+      Phony.split('4532121212').should == ['45', '32', '12', '12', '12']
+    end
     it "should handle dutch numbers" do
       Phony.split('31612345678').should == ['31', '6', '12345678'] # mobile
       Phony.split('31201234567').should == ['31', '20', '1234567']

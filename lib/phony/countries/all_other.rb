@@ -75,7 +75,9 @@ module Phony
                   ),
           '43' => Countries::Austria,
           '44' => fixed(2), # TODO United Kingdom of Great Britain and Northern Ireland
-          '45' => fixed(2), # TODO Denmark
+          '45' => fixed(2,  # Denmark
+                        :local_format => [2, 2, 2]
+                  ),
           '46' => Countries::Sweden,
           '47' => fixed(4,  # Norway
                     :local_format => [4]
