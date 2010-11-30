@@ -9,11 +9,10 @@ describe Phony do
       Phony.split('43198110').should == ['43', '1', '98110']
     end
     it "should handle dutch numbers" do
+      Phony.split('31612345678').should == ['31', '6', '12345678'] # mobile
       Phony.split('31201234567').should == ['31', '20', '1234567']
+      Phony.split('31222123456').should == ['31', '222', '123456']
     end
-      it "should handle dutch mobile numbers" do
-        Phony.split('31612345678').should == ['31', '6', '12345678']
-      end
     it "should handle egyptian numbers" do
       Phony.split('20233453756').should == ['20', '2', '33453756']
     end
@@ -34,6 +33,14 @@ describe Phony do
     end
     it "should handle polish numbers" do
       Phony.split('48121123123').should == ['48', '12', '1', '123', '123']
+    end
+    it "should handle swedish numbers" do
+      Phony.split('46812345678').should == ['46', '8', '12345678']
+      Phony.split('46111234567').should == ['46', '11', '1234567']
+      Phony.split('46125123456').should == ['46', '125', '123456']
+    end
+    it 'handles russian numbers' do
+      Phony.split('78122345678').should == ['7', '812', '234', '56', '78']
     end
     it "should handle swiss numbers" do
       Phony.split('41443643532').should == ['41', '44', '364', '35', '32']
