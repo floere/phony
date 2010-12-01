@@ -95,7 +95,7 @@ module Phony
                         :local_format => [4, 4],
                         :service_ndcs => %w{100 128 190 191 192 193 194 197 198 199}
           ), # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
-          '56' => fixed(2), # TODO Chile
+          '56' => Countries::Chile,
           '57' => fixed(2), # TODO Colombia (Republic of)
           '58' => fixed(2), # TODO Venezuela (Bolivarian Republic of)
 

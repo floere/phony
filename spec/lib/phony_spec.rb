@@ -11,6 +11,11 @@ describe Phony do
     it 'handles brazilian numbers' do
       Phony.split('551112341234').should == ['55', '11', '1234', '1234']
     end
+    it 'handles chilean numbers' do
+      Phony.split('5621234567').should == ['56', '2', '1234567']   # Santiago
+      Phony.split('5675123456').should == ['56', '75', '123456']    # Curico
+      Phony.split('56912345678').should == ['56', '9', '12345678'] # mobile
+    end
     it 'handles danish numbers' do
       Phony.split('4532121212').should == ['45', '32', '12', '12', '12']
     end
