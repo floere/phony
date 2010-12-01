@@ -87,26 +87,26 @@ module Phony
                   ),
           '49' => Countries::Germany,
           
-          # TODO From here on.
-          #
-          '51' => fixed(2), # Peru
-          '52' => fixed(2), # Mexico
-          '53' => fixed(2), # Cuba
-          '54' => fixed(2), # Argentine Republic
-          '55' => fixed(2), # Brazil (Federative Republic of)
-          '56' => fixed(2), # Chile
-          '57' => fixed(2), # Colombia (Republic of)
-          '58' => fixed(2), # Venezuela (Bolivarian Republic of)
+          '51' => Countries::Peru,
+          '52' => fixed(2), # TODO Mexico
+          '53' => fixed(2), # TODO Cuba
+          '54' => fixed(2), # TODO Argentine Republic
+          '55' => fixed(2), # TODO Brazil (Federative Republic of)
+          '56' => fixed(2), # TODO Chile
+          '57' => fixed(2), # TODO Colombia (Republic of)
+          '58' => fixed(2), # TODO Venezuela (Bolivarian Republic of)
 
-          '60' => fixed(2), # Malaysia
+          '60' => fixed(2), # TODO Malaysia
           '61' => fixed(1,  # Australia
                         :local_format => [4, 4]
                   ),
-          '62' => fixed(2), # Indonesia (Republic of)
-          '63' => fixed(2), # Philippines (Republic of the)
+          '62' => fixed(2), # TODO Indonesia (Republic of)
+          '63' => fixed(2), # TODO Philippines (Republic of the)
           '64' => fixed(1,  # New Zealand
                         :local_format => [3, 4]
                   ),
+          # TODO From here on.
+          #
           '65' => fixed(2), # Singapore (Republic of)
           '66' => fixed(2), # Thailand
 

@@ -36,21 +36,26 @@ describe Phony do
     it "should handle italian numbers" do
       Phony.split('3928061371').should == ['39', '2', '806', '1371']
     end
+    it 'handles peruvian numbers' do
+      Phony.split('51112341234').should == ['51', '1', '1234', '1234'] # Lima
+      Phony.split('51912341234').should == ['51', '9', '1234', '1234'] # mobile
+      Phony.split('51841234123').should == ['51', '84', '1234', '123'] # Cuzco, best effort
+    end
     it "should handle polish numbers" do
       Phony.split('48121123123').should == ['48', '12', '1', '123', '123']
     end
     it 'handles romanian numbers' do
-      Phony.split('40211231234').should == ['40', '21', '123', '1234']
-      Phony.split('40721231234').should == ['40', '72', '123', '1234']
-      Phony.split('40249123123').should == ['40', '249', '123', '123']
+      Phony.split('40211231234').should == ['40', '21', '123', '1234'] # Bucureşti
+      Phony.split('40721231234').should == ['40', '72', '123', '1234'] # mobile
+      Phony.split('40249123123').should == ['40', '249', '123', '123'] # Olt
+    end
+    it 'handles russian numbers' do
+      Phony.split('78122345678').should == ['7', '812', '234', '56', '78']
     end
     it "should handle swedish numbers" do
       Phony.split('46812345678').should == ['46', '8', '12345678']
       Phony.split('46111234567').should == ['46', '11', '1234567']
       Phony.split('46125123456').should == ['46', '125', '123456']
-    end
-    it 'handles russian numbers' do
-      Phony.split('78122345678').should == ['7', '812', '234', '56', '78']
     end
     it "should handle swiss numbers" do
       Phony.split('41443643532').should == ['41', '44', '364', '35', '32']
