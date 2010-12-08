@@ -19,6 +19,9 @@ describe Phony::Countries::Germany do
     it "should handle Nettetal-Lobberich" do
       @germany.split('21535100').should == ['2153', '510', '0']
     end
+    it "should handle service numbers with 180 [regression]" do
+      @germany.split('1805878323').should == ['180', '587', '8323']
+    end
   end
   
 end

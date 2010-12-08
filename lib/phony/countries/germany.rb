@@ -138,6 +138,7 @@ Phony::Countries::Germany = Phony::Country.configured :local_format => [3, 10],
                                                                      '179', # O2 Germany
                                                                    ],
                                                         :service => [
+                                                                     '180', #
                                                                      '181', # IVPNs
                                                                      '182', # Closed User Group
                                                                      '183', # Closed User Group

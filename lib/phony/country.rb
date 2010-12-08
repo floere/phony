@@ -59,7 +59,7 @@ module Phony
       
       if ndc_mapping[:service]
         service_national_splitter = Phony::NationalSplitters::Variable.new nil, :service => ndc_mapping[:service]
-        service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 3]
+        service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 6]
         service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter
       end
       
