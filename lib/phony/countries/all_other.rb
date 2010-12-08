@@ -97,8 +97,10 @@ module Phony
           ), # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
           '56' => Countries::Chile,
           '57' => fixed(2), # TODO Colombia (Republic of)
-          '58' => fixed(2), # TODO Venezuela (Bolivarian Republic of)
-
+          '58' => fixed(3,  # Venezuela (Bolivarian Republic of)
+                        :local_format => [7]
+          ),
+          
           '60' => fixed(2), # TODO Malaysia
           '61' => fixed(1,  # Australia
                         :local_format => [4, 4]
@@ -108,25 +110,25 @@ module Phony
           '64' => fixed(1,  # New Zealand
                         :local_format => [3, 4]
                   ),
-          # TODO From here on.
-          #
-          '65' => fixed(2), # Singapore (Republic of)
-          '66' => fixed(2), # Thailand
+          '65' => fixed(2), # TODO Singapore (Republic of)
+          '66' => fixed(2), # TODO Thailand
 
-          '81' => fixed(2), # Japan
-          '82' => fixed(2), # Korea (Republic of)
-          '84' => fixed(2), # Viet Nam (Socialist Republic of)
-          '86' => fixed(2), # China (People's Republic of)
+          '81' => fixed(2), # TODO Japan
+          '82' => fixed(2), # TODO Korea (Republic of)
+          '84' => fixed(2), # TODO Viet Nam (Socialist Republic of)
+          '86' => fixed(2), # TODO China (People's Republic of)
 
-          '90' => fixed(2), # Turkey
-          '91' => fixed(2), # India (Republic of)
-          '92' => fixed(2), # Pakistan (Islamic Republic of)
-          '93' => fixed(2), # Afghanistan
-          '94' => fixed(2), # Sri Lanka (Democratic Socialist Republic of)
-          '95' => fixed(2), # Myanmar (Union of)
-          '98' => fixed(2), #Iran (Islamic Republic of)
+          '90' => fixed(2), # TODO Turkey
+          '91' => fixed(2), # TODO India (Republic of)
+          '92' => fixed(2), # TODO Pakistan (Islamic Republic of)
+          '93' => fixed(2), # TODO Afghanistan
+          '94' => fixed(2), # TODO Sri Lanka (Democratic Socialist Republic of)
+          '95' => fixed(2), # TODO Myanmar (Union of)
+          '98' => fixed(2), # TODO Iran (Islamic Republic of)
         },
         3 => {
+          # TODO From here on.
+          #
           '210' => fixed(2), # -
           '211' => fixed(2), # -
           '212' => fixed(2), # Morocco

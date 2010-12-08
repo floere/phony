@@ -71,6 +71,9 @@ describe Phony do
     it "should handle US numbers" do
       Phony.split('15551115511').should == ['1', '555', '111', '5511']
     end
+    it "should handle venezuelan numbers" do
+      Phony.split('582121234567').should == ["58", "212", "1234567"]
+    end
     it "should handle new zealand numbers" do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
