@@ -5,6 +5,9 @@ require 'spec_helper'
 describe Phony do
   
   describe "split" do
+    it 'handles afghan numbers' do
+      Phony.split('93201234567').should == ['93', '20', '1234567'] # Kabul
+    end
     it "should handle austrian numbers" do
       Phony.split('43198110').should == ['43', '1', '98110']
     end
@@ -13,7 +16,7 @@ describe Phony do
     end
     it 'handles chilean numbers' do
       Phony.split('5621234567').should == ['56', '2', '1234567']   # Santiago
-      Phony.split('5675123456').should == ['56', '75', '123456']    # Curico
+      Phony.split('5675123456').should == ['56', '75', '123456']   # Curico
       Phony.split('56912345678').should == ['56', '9', '12345678'] # mobile
     end
     it 'handles danish numbers' do
