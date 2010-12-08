@@ -22,6 +22,9 @@ describe Phony::Countries::Germany do
     it "should handle service numbers with 180 [regression]" do
       @germany.split('1805878323').should == ['180', '587', '8323']
     end
+    it "should handle service numbers with 181 [regression]" do
+      @germany.split('1815878323').should == ['181', '587', '8323']
+    end
   end
   
 end
