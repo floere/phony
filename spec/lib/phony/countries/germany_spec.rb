@@ -6,6 +6,8 @@ describe Phony::Countries::Germany do
     @germany = Phony::Countries::Germany
   end
   
+  # Note: Many Specs
+  #
   describe "split" do
     it "should handle Berlin" do
       @germany.split('3038625454').should == ['30', '386', '25454']
@@ -18,6 +20,9 @@ describe Phony::Countries::Germany do
     end
     it "should handle Nettetal-Lobberich" do
       @germany.split('21535100').should == ['2153', '510', '0']
+    end
+    it "should handle Geithain" do
+      @germany.split('3434144602').should == ['34341', '446', '02']
     end
     it "should handle service numbers with 180 [regression]" do
       @germany.split('1805878323').should == ['180', '587', '8323']

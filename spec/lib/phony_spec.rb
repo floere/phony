@@ -35,8 +35,10 @@ describe Phony do
       Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
     end
     it "should handle german numbers" do
-      Phony.split('4930123456').should == ['49', '30', '123', '456']
-      Phony.split('4976112345').should == ['49', '761', '123', '45']
+      Phony.split('4930123456').should ==   ['49', '30', '123', '456']
+      Phony.split('4976112345').should ==   ['49', '761', '123', '45']
+      Phony.split('492041123456').should == ['49', '2041', '123', '456']
+      Phony.split('493434112345').should == ['49', '34341', '123', '45'] # Geithain
     end
     it "should handle greek numbers" do
       Phony.split('3022631234').should == ['30', '2263', '1234']
