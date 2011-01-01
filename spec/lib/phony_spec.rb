@@ -53,6 +53,10 @@ describe Phony do
     it "should handle italian numbers" do
       Phony.split('3928061371').should == ['39', '2', '806', '1371']
     end
+    it 'handles malay numbers' do
+      Phony.split('6082123456').should == ['60', '82', '123456'] # Kuching
+      Phony.split('60312345678').should == ['60', '3', '12345678'] # Kuala Lumpur
+    end
     it 'handles peruvian numbers' do
       Phony.split('51112341234').should == ['51', '1', '1234', '1234'] # Lima
       Phony.split('51912341234').should == ['51', '9', '1234', '1234'] # mobile

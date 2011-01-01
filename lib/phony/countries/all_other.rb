@@ -101,7 +101,7 @@ module Phony
                         :local_format => [7]
           ),
           
-          '60' => fixed(2), # TODO Malaysia, http://en.wikipedia.org/wiki/Telephone_numbers_in_Malaysia
+          '60' => Countries::Malaysia, # Malaysia, http://en.wikipedia.org/wiki/Telephone_numbers_in_Malaysia
           '61' => fixed(1,  # Australia
                         :local_format => [4, 4]
                   ),

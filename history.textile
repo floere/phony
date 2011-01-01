@@ -1,3 +1,7 @@
+h2. Version 1.2.4
+
+* hanke: Malaysia.
+
 h2. Version 1.2.3
 
 * hanke: South Korea.
