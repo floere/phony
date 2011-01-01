@@ -3,7 +3,7 @@
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Chile
 # http://www.wtng.info/wtng-56-cl.html
 #
-# TODO Totally unsure about this one, as I get contradicting infos.
+# Note: Totally unsure about this one, as I get contradicting infos (see links above).
 #      As usual, best effort.
 #
 Phony::Countries::Chile = Phony::Country.configured :local_format => [8],
