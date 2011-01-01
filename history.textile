@@ -1,3 +1,7 @@
+h2. Version 1.2.1 (forthcoming)
+
+* hanke: Internal cleanup.
+
 h2. Version 1.2.0
 
 * hanke: Removed dependency on active support.
