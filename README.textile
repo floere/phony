@@ -5,8 +5,10 @@ h2. Description
 This gem can normalize, format and split E164 numbers.
 "More about E164 numbers in this Wiki":http://en.wikipedia.org/wiki/E.164.
 
-Currently handles Afghan, Austrian, Australian, Belgian, Brazilian, Chilean, Czech, Danish, Dutch, Egyptian, French, German, Greek, Hungarian, Italian, (The) Netherlands, New Zealand, Norwegian, Peruvian, Polish, Russian, Romanian, South African, Spanish, Swedish, Swiss, Liechtenstein, US, Venezuelan numbers.
+Currently handles Afghan, Austrian, Australian, Belgian, Brazilian, Chilean, Chinese, Czech, Danish, Dutch, Egyptian, French, German, Greek, Hungarian, Italian, (The) Netherlands, New Zealand, Norwegian, Peruvian, Polish, Russian, Romanian, South African, South Korean, Spanish, Swedish, Swiss, Turkish, Liechtenstein, US, Venezuelan numbers.
 And to some extend, all others. Just try if it works for you.
+
+If it doesn't, please "enter an issue":http://github.com/floere/phony/issues.
 
 h2. Installation
 
