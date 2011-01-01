@@ -43,8 +43,6 @@ module Phony
       parts_ary.join space.to_s
     end
     
-    # TODO Speed these methods up.
-    #
     def service? number
       national_handler, cc, rest = split_cc number
       national_handler.service? rest
@@ -78,7 +76,7 @@ module Phony
         national_code_handler = mapping[i][presumed_cc]
         return [national_code_handler, presumed_cc, rest] if national_code_handler
       end
-      # TODO raise
+      # This line is never reached as CCs are in prefix code.
     end
     
     # Removes 0s from partially normalized numbers
@@ -86,6 +84,7 @@ module Phony
     # 
     # Example:
     #   410443643533 -> 41443643533
+    #
     def remove_relative_zeros! phone_number
       _, cc, rest = split_cc phone_number
       '%s%s' % [cc, rest].collect! { |code| code.gsub(/^0+/, '') }
