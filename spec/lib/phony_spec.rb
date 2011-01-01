@@ -300,7 +300,7 @@ describe Phony do
         performance_of { Phony.normalize(number) }.should < 0.0001
       end
       it 'is fast' do
-        performance_of { @phone_numbers.each { |number| Phony.normalize(number) } }.should < 0.00015
+        performance_of { @phone_numbers.each { |number| Phony.normalize(number) } }.should < 0.00016
       end
     end
     describe 'formatted' do
@@ -309,7 +309,7 @@ describe Phony do
         performance_of { Phony.formatted(number) }.should < 0.000075
       end
       it 'is fast' do
-        performance_of { @phone_numbers.each { |number| Phony.formatted(number) } }.should < 0.00015
+        performance_of { @phone_numbers.each { |number| Phony.formatted(number) } }.should < 0.00016
       end
     end
   end
