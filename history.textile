@@ -1,6 +1,6 @@
 h2. Version 1.2.1 (forthcoming)
 
-* hanke: Internal cleanup.
+* hanke: Turkey.
 
 h2. Version 1.2.0
 

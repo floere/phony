@@ -73,6 +73,9 @@ describe Phony do
     it "should handle swiss numbers" do
       Phony.split('41443643532').should == ['41', '44', '364', '35', '32']
     end
+    it 'handles turkish numbers' do
+      Phony.split('903121234567').should == ['90', '312', '123', '4567'] # Ankara
+    end
     it "should handle US numbers" do
       Phony.split('15551115511').should == ['1', '555', '111', '5511']
     end

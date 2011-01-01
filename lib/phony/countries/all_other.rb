@@ -118,7 +118,9 @@ module Phony
           '84' => fixed(2), # TODO Viet Nam (Socialist Republic of)
           '86' => fixed(2), # TODO China (People's Republic of)
 
-          '90' => fixed(2), # TODO Turkey
+          '90' => fixed(3,  # Turkey, http://en.wikipedia.org/wiki/Telephone_numbers_in_Turkey
+                        :local_format => [3, 4] # Wiki says 7, but the examples say 3, 4.
+          ),
           '91' => fixed(2), # TODO India (Republic of)
           '92' => fixed(2), # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
           '93' => fixed(2,  # Afghanistan
