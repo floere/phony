@@ -39,10 +39,10 @@ Phony::Countries::Netherlands = Phony::Country.configured :local_format => [8], 
                                                                           '78', # Dordrecht
                                                                           '79', # Zoetermeer
                                                                          ],
-                                                            :mobile => [ # TODO Check.
+                                                            :mobile => [
                                                                         '6' # Mobiele nummers en Semafoondiensten
                                                                        ],
-                                                            :service => [ # TODO Check.
+                                                            :service => [
                                                                          '84',  # Persoonlijke-assistentdiensten, zoals voicemail en faxmail
                                                                          '85',  # Plaatsonafhankelijk netnummer
                                                                          '87',  # Both of the above.
