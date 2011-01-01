@@ -22,5 +22,5 @@ Phony::Countries::China = Phony::Country.configured :local_format => [4, 4],
       '29', # Xi'an
     ],
     :mobile => %w{ 130 131 132 133 135 136 137 138 139 145 150 151 152 153 155 156 157 158 159 185 186 187 188 189 1340 1341 1342 1343 1344 1345 1346 1347 1348 1349 },
-    :service => %w{ 110 114 119 120 122 999 12117 12121 } # Possibly not exhaustive. TODO Look at http://www.eoc.com.cn/?action-viewnews-itemid-11493.
+    :service => %w{ 110 114 119 120 122 999 } # Probably not exhaustive. TODO Look at http://www.eoc.com.cn/?action-viewnews-itemid-11493.
   }
