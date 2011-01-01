@@ -1,0 +1,47 @@
+h2. Version 1.2.0
+
+* hanke: Removed dependency on active support.
+
+h2. Version 1.1.9
+
+* hanke: Made the gem substantially smaller.
+
+h2. Version 1.1.8
+
+* hanke: Adds german 5-digits code formatting (Thanks ledermann!).
+
+h2. Version 1.1.7
+
+* hanke: Afghanistan. Venezuela.
+
+h2. Version 1.1.6
+
+* hanke: German 180, 181 numbers (Thanks kbingman and jcfischer!).
+
+h2. Version 1.1.5
+
+* hanke: Peru. Brasil. Chile. 
+
+h2. Version 1.1.3
+
+* hanke: Romania.
+
+h2. Version 1.1.2
+
+* hanke: Sweden. Russia.
+
+h2. Version 1.1.1
+
+* hanke: The Netherlands.
+
+h2. Version 1.1.0
+
+* hanke: German IVPNs. Poland. Greece. Egypt. Italy. Vanity number handling. Austria. Lots of code structure.
+
+h2. Version 1.0.1
+
+* hanke: Descriptions and dependencies changed.
+
+h2. Version 1.0.0
+
+* hanke: First release! Lots of countries.
