@@ -116,7 +116,7 @@ module Phony
           '81' => fixed(2), # TODO Japan
           '82' => fixed(2), # TODO Korea (Republic of)
           '84' => fixed(2), # TODO Viet Nam (Socialist Republic of)
-          '86' => fixed(2), # TODO China (People's Republic of)
+          '86' => Countries::China, # China (People's Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_China
 
           '90' => fixed(3,  # Turkey, http://en.wikipedia.org/wiki/Telephone_numbers_in_Turkey
                         :local_format => [3, 4] # Wiki says 7, but the examples say 3, 4.

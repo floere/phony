@@ -19,6 +19,9 @@ describe Phony do
       Phony.split('5675123456').should == ['56', '75', '123456']   # Curico
       Phony.split('56912345678').should == ['56', '9', '12345678'] # mobile
     end
+    it 'handles chinese numbers' do
+      Phony.split('862112345678').should == ['86', '21', '1234', '5678'] # Shanghai
+    end
     it 'handles danish numbers' do
       Phony.split('4532121212').should == ['45', '32', '12', '12', '12']
     end

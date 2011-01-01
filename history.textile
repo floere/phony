@@ -1,4 +1,8 @@
-h2. Version 1.2.1 (forthcoming)
+h2. Version 1.2.2 (forthcoming)
+
+* hanke: China.
+
+h2. Version 1.2.1
 
 * hanke: Turkey.
 
