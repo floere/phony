@@ -6,7 +6,7 @@
 #
 Phony::Countries::China = Phony::Country.configured :local_format => [4, 4],
   :local_special_format => [8],
-  :ndc_fallback_length => 2,
+  :ndc_fallback_length => 3,
   :ndc_mapping => {
     :landline => [
       '10', # Beijing, TODO Confirm – is it 10 or 1?

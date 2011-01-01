@@ -21,6 +21,7 @@ describe Phony do
     end
     it 'handles chinese numbers' do
       Phony.split('862112345678').should == ['86', '21', '1234', '5678'] # Shanghai
+      Phony.split('8675582193447').should == ['86', '755', '8219', '3447'] # Shenzhen
     end
     it 'handles danish numbers' do
       Phony.split('4532121212').should == ['45', '32', '12', '12', '12']
