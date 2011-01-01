@@ -26,14 +26,16 @@ module Phony
     def format_cc_ndc_local format, space, cc, ndc, *parts
       "#{format_cc_ndc(format, space, cc, ndc)}#{format_local(space, parts)}"
     end
-    def format_cc_ndc format, space, cc, ndc
+    # TODO = '' needed? Specs say no.
+    #
+    def format_cc_ndc format, space, cc, ndc = ''
       format, split_phone_number = case format
       when nil, :international_absolute, :international, :+
-        [ndc.blank? ? '+%s%s' : '+%s%s%s%s', [cc, space, ndc, space]]
+        [ndc.empty? ? '+%s%s' : '+%s%s%s%s', [cc, space, ndc, space]]
       when :international_relative
-        [ndc.blank? ? '00%s%s' : '00%s%s%s%s', [cc, space, ndc, space]]
+        [ndc.empty? ? '00%s%s' : '00%s%s%s%s', [cc, space, ndc, space]]
       when :national
-        [ndc.blank? ? '' : '0%s%s', [ndc, space]]
+        [ndc.empty? ? '' : '0%s%s', [ndc, space]]
       when :local
         ['', []]
       end
