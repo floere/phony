@@ -26,9 +26,7 @@ module Phony
     def format_cc_ndc_local format, space, cc, ndc, *parts
       "#{format_cc_ndc(format, space, cc, ndc)}#{format_local(space, parts)}"
     end
-    # TODO = '' needed? Specs say no.
-    #
-    def format_cc_ndc format, space, cc, ndc = ''
+    def format_cc_ndc format, space, cc, ndc
       format, split_phone_number = case format
       when nil, :international_absolute, :international, :+
         [ndc.empty? ? '+%s%s' : '+%s%s%s%s', [cc, space, ndc, space]]
