@@ -7,7 +7,7 @@ end
 Bundler.setup :test
 Bundler.require
 
-require File.expand_path '../../lib/Phony', __FILE__
+require File.expand_path '../../lib/phony', __FILE__
 
 require 'spec_helper_extensions'
 include SpecHelperExtensions
