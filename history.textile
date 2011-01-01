@@ -32,7 +32,7 @@ h2. Version 1.1.2
 
 h2. Version 1.1.1
 
-* hanke: The Netherlands.
+* hanke: The Netherlands (Thanks alloy and manfred!).
 
 h2. Version 1.1.0
 
