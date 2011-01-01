@@ -229,6 +229,36 @@ describe Phony do
     end
   end
   
+  context 'minimal cases' do
+    context 'normalizing' do
+      it 'handles completely crazy "numbers"' do
+        Phony.normalize('Hello, I am Cora, the 41th parrot, and 044 is my 364 times 35 funky number. 32.').should == '41443643532'
+      end
+    end
+    context 'splitting' do
+      it 'handles completely missing numbers well enough' do
+        Phony.split('4144').should == ['41', '44', '']
+      end
+      it 'handles a missing number part' do
+        Phony.split('4144364').should == ['41', '44', '364']
+      end
+      it 'handles a missing number part' do
+        Phony.split('414436435').should == ['41', '44', '364', '35']
+      end
+    end
+    context 'formatting' do
+      it 'handles completely missing numbers well enough' do
+        Phony.formatted('4144').should == '+41 44 '
+      end
+      it 'handles a missing number part' do
+        Phony.formatted('4144364').should == '+41 44 364'
+      end
+      it 'handles a missing number part' do
+        Phony.formatted('414436435').should == '+41 44 364 35'
+      end
+    end
+  end
+  
   context "speed" do
     before(:each) do
       @phone_numbers = [
