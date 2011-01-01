@@ -101,7 +101,7 @@ module Phony
                         :local_format => [7]
           ),
           
-          '60' => fixed(2), # TODO Malaysia
+          '60' => fixed(2), # TODO Malaysia, http://en.wikipedia.org/wiki/Telephone_numbers_in_Malaysia
           '61' => fixed(1,  # Australia
                         :local_format => [4, 4]
                   ),
@@ -114,7 +114,7 @@ module Phony
           '66' => fixed(2), # TODO Thailand
 
           '81' => fixed(2), # TODO Japan
-          '82' => fixed(2), # TODO Korea (Republic of)
+          '82' => Countries::SouthKorea, # Korea (Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_South_Korea
           '84' => fixed(2), # TODO Viet Nam (Socialist Republic of)
           '86' => Countries::China, # China (People's Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_China
 
