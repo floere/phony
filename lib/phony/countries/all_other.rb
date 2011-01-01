@@ -120,7 +120,7 @@ module Phony
 
           '90' => fixed(2), # TODO Turkey
           '91' => fixed(2), # TODO India (Republic of)
-          '92' => fixed(2), # TODO Pakistan (Islamic Republic of)
+          '92' => fixed(2), # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
           '93' => fixed(2,  # Afghanistan
                         :local_format => [7] # Actually, the document says 6, but the examples use 7.
           ), # http://www.wtng.info/wtng-93-af.html
