@@ -1,11 +1,3 @@
-begin
-  gem 'activesupport', '~> 3.0'
-rescue LoadError
-  puts "phony requires activesupport ~> 3.0"
-end
-
-require 'active_support/core_ext/object/blank'
-
 # Framework.
 #
 require File.expand_path '../phony/vanity', __FILE__
