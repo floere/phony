@@ -56,6 +56,7 @@ describe Phony do
     it 'handles malay numbers' do
       Phony.split('6082123456').should == ['60', '82', '123456'] # Kuching
       Phony.split('60312345678').should == ['60', '3', '12345678'] # Kuala Lumpur
+      Phony.split('60212345678').should == ['60', '2', '12345678'] # Singapore
     end
     it 'handles peruvian numbers' do
       Phony.split('51112341234').should == ['51', '1', '1234', '1234'] # Lima
