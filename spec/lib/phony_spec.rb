@@ -8,8 +8,16 @@ describe Phony do
     it 'handles afghan numbers' do
       Phony.split('93201234567').should == ['93', '20', '1234567'] # Kabul
     end
-    it "should handle austrian numbers" do
+    it "handles austrian numbers" do
       Phony.split('43198110').should == ['43', '1', '98110']
+    end
+    it 'handles belgian numbers' do
+      Phony.split('3235551212').should == ['32', '3', '555', '1212']   # Antwerpen
+      Phony.split('32505551212').should == ['32', '50', '555', '1212'] # Brugge
+      Phony.split('3225551212').should == ['32', '2', '555', '1212']   # Brussels
+      Phony.split('3295551914').should == ['32', '9', '555', '1914']   # Gent
+      Phony.split('3245551414').should == ['32', '4', '555', '1414']   # Liège
+      Phony.split('32475279584').should == ['32', '475', '279584']     # mobile
     end
     it 'handles brazilian numbers' do
       Phony.split('551112341234').should == ['55', '11', '1234', '1234']
@@ -31,14 +39,14 @@ describe Phony do
       Phony.split('31201234567').should == ['31', '20', '1234567']
       Phony.split('31222123456').should == ['31', '222', '123456']
     end
-    it "should handle egyptian numbers" do
+    it "handles egyptian numbers" do
       Phony.split('20212345678').should == ['20', '2', '12345678']
       Phony.split('20951234567').should == ['20', '95', '1234567']
     end
-    it "should handle french numbers" do
+    it "handles french numbers" do
       Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
     end
-    it "should handle german numbers" do
+    it "handles german numbers" do
       Phony.split('4930123456').should ==   ['49', '30', '123', '456']
       Phony.split('4976112345').should ==   ['49', '761', '123', '45']
       Phony.split('492041123456').should == ['49', '2041', '123', '456']
