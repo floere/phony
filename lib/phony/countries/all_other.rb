@@ -82,7 +82,7 @@ module Phony
                   ),
           '48' => fixed(3, # Poland (Republic of)
                         :local_format => [3, 3] # Although the NDCs are 2 digits, the representation is 3 digits.
-                  ),
+                  ), # Note: http://wapedia.mobi/en/Telephone_numbers_in_Poland, mobile not yet correct
           '49' => Countries::Germany,
           
           '51' => Countries::Peru,
