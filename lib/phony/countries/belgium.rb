@@ -2,8 +2,8 @@
 #
 # Taken from: http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
 #
-Phony::Countries::Belgium = Phony::Country.configured :local_format => [8],
- :ndc_fallback_length => 3,
+Phony::Countries::Belgium = Phony::Country.configured :local_format => [3, 5],
+ :ndc_fallback_length => 2,
  :ndc_mapping => {
    :landline => [
                  '2', # Brussels (Bruxelles/Brussel)
