@@ -1,3 +1,7 @@
+h2. Version 1.2.5
+
+* hanke: Portugal. Polish landline (not mobile).
+
 h2. Version 1.2.4
 
 * hanke: Malaysia.
