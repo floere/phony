@@ -67,9 +67,9 @@ describe Phony do
       Phony.split('48123123123').should == ['48', '123', '123', '123']
     end
     it 'handles portuguese numbers' do
-      Phony.split('351211231234').should == ['351', '21', '123', '1234']
-      Phony.split('351241123123').should == ['351', '241', '123', '123']
-      Phony.split('351931231234').should == ['351', '93', '123', '1234']
+      Phony.split('351211231234').should == ['351', '21', '123', '1234'] # Lisboa
+      Phony.split('351241123123').should == ['351', '241', '123', '123'] # Abrantes
+      Phony.split('351931231234').should == ['351', '93', '123', '1234'] # mobile
     end
     it 'handles romanian numbers' do
       Phony.split('40211231234').should == ['40', '21', '123', '1234'] # Bucureşti
