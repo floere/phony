@@ -220,7 +220,7 @@ module Phony
           '299' => fixed(2), # Greenland
 
           '350' => fixed(2), # Gibraltar
-          '351' => fixed(2), # Portugal
+          '351' => Countries::Portugal, # Portugal
           '352' => fixed(2), # Luxembourg
           '353' => fixed(2), # Ireland
           '354' => fixed(2), # Iceland
