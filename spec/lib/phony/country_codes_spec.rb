@@ -12,12 +12,6 @@ describe Phony::CountryCodes do
     end
   end
   
-  describe 'remove_relative_zeros' do
-    it "should remove an ndc zero from an almost normalized number and return it" do
-      @countries.remove_relative_zeros!('410443643533').should == '41443643533'
-    end
-  end
-  
   describe 'formatted' do
     it 'formats correctly' do
       @countries.formatted('41443643532', :format => :international, :spaces => :-).should == '+41-44-364-35-32'

@@ -155,6 +155,9 @@ describe Phony do
       it "should normalize a number with erroneous zero inside" do
         Phony.normalize('+410443643533').should == '41443643533'
       end
+      it "should not normalize a number with a correct zero inside" do
+        Phony.normalize('+390909709511').should == '390909709511'
+      end
     end
   end
   

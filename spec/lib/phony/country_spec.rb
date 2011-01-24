@@ -63,6 +63,11 @@ describe Phony::Country do
         @switzerland.split('443643532').should == ['44', '364', '35', '32']
       end
     end
+    describe 'normalize' do
+      it "should handle ZH" do
+        @switzerland.normalize('0443643532').should == '443643532'
+      end
+    end
   end
   
   context "without special cases" do
