@@ -59,7 +59,9 @@ describe Phony do
       Phony.split('3612345678').should == ['36', '1', '234', '5678']
     end
     it "should handle italian numbers" do
-      Phony.split('3928061371').should == ['39', '2', '806', '1371']
+      Phony.split('3934869528').should == ['39', '3486', '952', '8']   # Mobile
+      Phony.split('39068546705').should == ['39', '06', '854', '6705']   # Roma
+      Phony.split('390909709511').should == ['39', '090', '970', '9511'] # Barcellona
     end
     it 'handles malay numbers' do
       Phony.split('6082123456').should == ['60', '82', '123456'] # Kuching
