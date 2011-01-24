@@ -1,6 +1,11 @@
+h2. Version 1.2.7
+
+* hanke: Italian numbers are correctly normalized: Phony.normalize('+390909709511').should == '390909709511' (Zero in front of area code is not removed, closes "issue 12":https://github.com/floere/phony/issues#issue/12)
+
 h2. Version 1.2.6
 
 * hanke: Italy.
+
 h2. Version 1.2.5
 
 * hanke: Portugal. Polish landline (not mobile).
