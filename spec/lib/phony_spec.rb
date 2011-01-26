@@ -64,6 +64,7 @@ describe Phony do
       Phony.split('51841234123').should == ['51', '84', '1234', '123'] # Cuzco, best effort
     end
     it "should handle polish numbers" do
+      Phony.split('48501224455').should == ['48', '50', '1', '224', '455'] # Mobile
       Phony.split('48121123123').should == ['48', '12', '1', '123', '123']
     end
     it 'handles romanian numbers' do

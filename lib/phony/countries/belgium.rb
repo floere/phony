@@ -8,7 +8,7 @@ Phony::Countries::Belgium = Phony::Country.configured :local_format => [3, 5],
    :landline => [
                  '2', # Brussels (Bruxelles/Brussel)
                  '3', # Antwerpen (Antwerp), Sint-Niklaas
-                 '4', # Liège (Luik), Voeren (Fourons)
+                 # '4', # Liège (Luik), Voeren (Fourons)
                  '9', # Gent (Ghent/Gand)
                 ],
    :mobile => [
