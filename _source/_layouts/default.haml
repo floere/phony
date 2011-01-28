@@ -2,12 +2,29 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", :'xml:lang' => "en", :lang => "en" }
   %head
     %meta{ :'http-equiv' => "Content-type", :content => "text/html; charset=utf-8" }
+    %meta{ :'http-equiv' => 'Content-Language', :content => 'EN' }
+    %meta{ :name => 'author', :content => 'Florian Hanke, florianhanke.com' }
+    %meta{ :name => 'keywords', :content => 'phony, ruby, e164, telephone, phone, normalizing, formatting, splitting' }
+    %meta{ :name => 'abstract', :content => 'Phony: Formatting, Splitting, Normalizing international E164 phone numbers with Ruby.' }
+    %meta{ :name => 'description', :content => 'Phony: Formatting, Splitting, Normalizing international E164 phone numbers with Ruby.' }
+    %meta{ :name => 'robots', :content => 'index, follow' }
+    %meta{ :name => 'revisit-after', :content => '3 days' }
     %link{ :rel => 'stylesheet', :href => 'basic.css', :type => 'text/css' }
     %link{ :rel => 'stylesheet', :href => 'specific.css', :type => 'text/css' }
     %link{ :rel => 'stylesheet', :href => 'grid.css', :type => 'text/css' }
     %title
       Phony:
       = h page.title
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20991642-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
   %body
     .header
       %a{ :href => 'http://github.com/floere/phony' }
