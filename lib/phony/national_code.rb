@@ -23,7 +23,7 @@ module Phony
       [ndc, *@local_splitter.split(rest)]
     end
     
-    # Split gets a number withou country code and removes a relative zero.
+    # Split gets a number without country code and removes a relative zero.
     #
     # Note: Some cases, like Italy, don't remove the relative zero.
     #
