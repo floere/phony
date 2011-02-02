@@ -1,3 +1,7 @@
+h2. Version 1.2.8
+
+* hanke: Fix by glebm, thanks! Italian number handling did produce errors in Ruby 1.8. Closes "issue 13":https://github.com/floere/phony/issues#issue/13.
+
 h2. Version 1.2.7
 
 * hanke: Italian numbers are correctly normalized: Phony.normalize('+390909709511').should == '390909709511' (Zero in front of area code is not removed, closes "issue 12":https://github.com/floere/phony/issues#issue/12)
