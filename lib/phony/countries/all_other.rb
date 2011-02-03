@@ -75,7 +75,7 @@ module Phony
           '44' => fixed(2), # TODO United Kingdom of Great Britain and Northern Ireland
           '45' => fixed(2,  # Denmark
                         :local_format => [2, 2, 2]
-                  ),
+                  ), # Denmark has no NDC, but 4 groups of 2 digits. I'm faking it here.
           '46' => Countries::Sweden,
           '47' => fixed(4,  # Norway
                     :local_format => [4]
