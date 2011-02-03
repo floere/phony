@@ -7,8 +7,8 @@ This gem can normalize, format and split E164 numbers.
 
 The (admittedly crazy) *goal* of this Gem is to be able to format/split all phone numbers in the world.
 
-Currently handles Afghan, Austrian, Australian, Belgian, Brazilian, Chilean, Chinese, Czech, Danish, Dutch, Egyptian, French, German, Greek, Hungarian, Italian, Malaysian, (The) Netherlands, New Zealand, Norwegian, Peruvian, Polish, Russian, Romanian, South African, South Korean, Spanish, Swedish, Swiss, Turkish, Liechtenstein, US, Venezuelan numbers.
-And to some extend, all others. Just try if it works for you.
+Currently handles Afghan, Austrian, Australian, Belgian, Brazilian, Chilean, Chinese, Czech, Danish, Dutch, Egyptian, French, German, Greek, Hungarian, Italian, Malaysian, (The) Netherlands, New Zealand, Norwegian, Peruvian, Polish, Russian, Romanian, South African, South Korean, Spanish, Swedish, Swiss, Turkish, Liechtenstein, US, and Venezuelan numbers.
+And to some extent, all others. Just try if it works for you.
 
 If it doesn't, please "enter an issue":http://github.com/floere/phony/issues.
 
