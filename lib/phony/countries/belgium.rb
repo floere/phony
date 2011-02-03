@@ -3,6 +3,7 @@
 # Taken from: http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
 #
 Phony::Countries::Belgium = Phony::Country.configured :local_format => [3, 5],
+ :mobile_local_format => [6],
  :ndc_fallback_length => 2,
  :ndc_mapping => {
    :landline => [

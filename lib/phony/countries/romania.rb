@@ -4,6 +4,7 @@
 #
 Phony::Countries::Romania = Phony::Country.configured :local_format => [3, 4], # Also captures 3, 3 on a fallback.
   :local_special_format => [3, 3],
+  :local_mobile_format => [3, 4],
   :ndc_fallback_length => 3,
   :ndc_mapping => {
     :landline => [

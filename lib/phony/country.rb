@@ -4,16 +4,20 @@ module Phony
   #
   class Country
     
-    def initialize national_code, special_code = nil
+    def initialize national_code, special_code = nil, mobile_code = nil
       @national_code = national_code
       @special_code  = special_code
+      @mobile_code   = mobile_code
     end
     
     #
     #
     def split national_number
       ndc, *rest = @special_code.split national_number if @special_code
-      ndc, *rest = @national_code.split national_number unless rest && !rest.empty?
+      return [ndc, *rest] if rest && !rest.empty?
+      ndc, *rest = @mobile_code.split national_number if @mobile_code
+      return [ndc, *rest] if rest && !rest.empty?
+      ndc, *rest = @national_code.split national_number
       [ndc, *rest]
     end
     
@@ -27,8 +31,10 @@ module Phony
     #
     def normalize national_number
       normalized = @special_code.normalize national_number if @special_code
-      normalized = @national_code.normalize national_number unless normalized && !normalized.empty?
-      normalized
+      return normalized if normalized && !normalized.empty?
+      normalized = @mobile_code.normalize national_number if @mobile_code
+      return normalized if normalized && !normalized.empty?
+      @national_code.normalize national_number
     end
     
     # Is this national number a vanity number?
@@ -77,8 +83,14 @@ module Phony
         service_local_splitter    = Phony::LocalSplitter.instance_for options[:service_local_format] || [3, 6]
         service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter, normalize
       end
+      if ndc_mapping[:mobile]
+        mobile_local_format      = options[:mobile_local_format] || options[:local_format] || [9]
+        mobile_national_splitter = Phony::NationalSplitters::Variable.new nil, :mobile => ndc_mapping[:mobile]
+        mobile_local_splitter    = Phony::LocalSplitter.instance_for mobile_local_format
+        mobile_code              = Phony::NationalCode.new mobile_national_splitter, mobile_local_splitter, normalize
+      end
       
-      new national_code, service_code
+      new national_code, service_code, mobile_code
     end
     
     # Gets a configured country instance with fixed length ndc code.
@@ -104,9 +116,9 @@ module Phony
       
       service_code = nil
       if service_ndcs
-        service_local_format      = options[:service_local_format] || local_format
+        service_local_format      = options[:service_local_format] || local_format || [3, 3]
         service_national_splitter = Phony::NationalSplitters::Variable.new nil, :service => service_ndcs
-        service_local_splitter    = Phony::LocalSplitter.instance_for service_local_format || [3, 3]
+        service_local_splitter    = Phony::LocalSplitter.instance_for service_local_format
         service_code              = Phony::NationalCode.new service_national_splitter, service_local_splitter, normalize
       end
       

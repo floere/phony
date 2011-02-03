@@ -4,6 +4,7 @@
 #
 Phony::Countries::Portugal = Phony::Country.configured :local_format => [3, 4],
   :local_special_format => [3, 3],
+  :local_mobile_format => [3, 3],
   :ndc_fallback_length => 3,
   :ndc_mapping => {
     :landline => [
