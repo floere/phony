@@ -1,3 +1,7 @@
+h2. Version 1.2.9
+
+* hanke: Clashing mobile numbers with Liège in Belgium fixed. 
+
 h2. Version 1.2.8
 
 * hanke: Fix by glebm, thanks! Italian number handling did produce errors in Ruby 1.8. Closes "issue 13":https://github.com/floere/phony/issues#issue/13.
