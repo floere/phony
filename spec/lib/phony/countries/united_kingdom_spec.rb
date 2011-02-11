@@ -25,10 +25,13 @@ describe Phony::Countries::UnitedKingdom do
       @uk.split('120499532').should == ['1204', '99532']
     end
     it "should handle Sedbergh" do
-      @uk.split('1539618756 ').should ==['15396', '18756']
+      @uk.split('1539618756').should ==['15396', '18756']
     end
     it "should handle Mobile Numbers" do
       @uk.split('7780605207').should == ['7780', '605207']
+    end
+    it "should handle Mobile Numbers" do
+      @uk.split('7480605207').should == ['7480', '605207']
     end
     it "should handle service numbers with 800 [regression]" do
       @uk.split('8005878323').should == ['800', '587', '8323']
