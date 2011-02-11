@@ -3,12 +3,13 @@
 # Taken from: http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
 #
 Phony::Countries::Belgium = Phony::Country.configured :local_format => [3, 5],
+ :mobile_local_format => [6],
  :ndc_fallback_length => 2,
  :ndc_mapping => {
    :landline => [
                  '2', # Brussels (Bruxelles/Brussel)
                  '3', # Antwerpen (Antwerp), Sint-Niklaas
-                 # '4', # Liège (Luik), Voeren (Fourons)
+                 '4', # Liège (Luik), Voeren (Fourons)
                  '9', # Gent (Ghent/Gand)
                 ],
    :mobile => [

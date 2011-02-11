@@ -1,3 +1,6 @@
+# encoding: utf-8
+#
+
 require 'spec_helper'
 
 describe Phony::Countries::Belgium do
@@ -20,11 +23,10 @@ describe Phony::Countries::Belgium do
       @belgium.split('95551914').should == ['9', '555', '1914']
     end
     it "should handle Liège" do
-      pending 'left out for now, as it messes up the mobile numbers'
       @belgium.split('45551414').should == ['4', '555', '1414']
     end
     it "should handle some mobile services" do
-      @belgium.split('475279584').should == ['475', '279', '584']
+      @belgium.split('475279584').should == ['475', '279584']
     end
 
   end

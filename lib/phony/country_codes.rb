@@ -8,7 +8,8 @@ module Phony
       # Remove non-digit chars.
       #
       number.gsub! /\D*/, ''
-      remove_relative_zeros! number
+      national_handler, cc, rest = split_cc number
+      '%s%s' % [cc, national_handler.normalize(rest)]
     end
     
     # Splits this number into cc, ndc and locally split number parts.
@@ -77,17 +78,6 @@ module Phony
         return [national_code_handler, presumed_cc, rest] if national_code_handler
       end
       # This line is never reached as CCs are in prefix code.
-    end
-    
-    # Removes 0s from partially normalized numbers
-    # such as 410443643533.
-    # 
-    # Example:
-    #   410443643533 -> 41443643533
-    #
-    def remove_relative_zeros! phone_number
-      _, cc, rest = split_cc phone_number
-      '%s%s' % [cc, rest].collect! { |code| code.gsub(/^0+/, '') }
     end
     
     # Cached mapping of all countries.

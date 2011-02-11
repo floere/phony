@@ -72,17 +72,18 @@ module Phony
                         # }
                   ),
           '43' => Countries::Austria,
-          '44' => fixed(2), # TODO United Kingdom of Great Britain and Northern Ireland
+          '44' => Countries::UnitedKingdom, # TODO United Kingdom of Great Britain and Northern Ireland
           '45' => fixed(2,  # Denmark
-                        :local_format => [2, 2, 2]
-                  ),
+                        :local_format => [2, 2, 2],
+                        :service_ndcs => %w{112 114}
+                  ), # Denmark has no NDC, but 4 groups of 2 digits. I'm faking it here.
           '46' => Countries::Sweden,
           '47' => fixed(4,  # Norway
                     :local_format => [4]
                   ),
-          '48' => fixed(2, # Poland (Republic of)
-                        :local_format => [1, 3, 3] # Approximation. Correct would be 48-xxx-xxx-xxx
-                  ),
+          '48' => fixed(3, # Poland (Republic of)
+                        :local_format => [3, 3] # Although the NDCs are 2 digits, the representation is 3 digits.
+                  ), # Note: http://wapedia.mobi/en/Telephone_numbers_in_Poland, mobile not yet correct
           '49' => Countries::Germany,
           
           '51' => Countries::Peru,
@@ -220,7 +221,7 @@ module Phony
           '299' => fixed(2), # Greenland
 
           '350' => fixed(2), # Gibraltar
-          '351' => fixed(2), # Portugal
+          '351' => Countries::Portugal, # Portugal
           '352' => fixed(2), # Luxembourg
           '353' => fixed(2), # Ireland
           '354' => fixed(2), # Iceland

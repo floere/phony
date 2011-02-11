@@ -7,6 +7,7 @@ describe Phony::Country do
       before(:each) do
         @country = Phony::Country.configured :local_format         => [3, 2, 2],
                                              :service_local_format => [3, 3],
+                                             :mobile_local_format  => [1, 2, 4],
                                              :ndc_fallback_length  => 4,
                                              :ndc_mapping => {
                                                :normal  => ['44'],
@@ -21,7 +22,7 @@ describe Phony::Country do
         @country.split('800333666').should == ['800', '333', '666']
       end
       it 'works with mobile numbers' do
-        @country.split('764333532').should == ['76', '433', '35', '32']
+        @country.split('764333532').should == ['76', '4', '33', '3532']
       end
       it 'uses the fallback if it is not in the mapping' do
         @country.split('123456789').should == ['1234', '567', '89']
@@ -61,6 +62,11 @@ describe Phony::Country do
     describe "split" do
       it "should handle ZH" do
         @switzerland.split('443643532').should == ['44', '364', '35', '32']
+      end
+    end
+    describe 'normalize' do
+      it "should handle ZH" do
+        @switzerland.normalize('0443643532').should == '443643532'
       end
     end
   end

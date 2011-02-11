@@ -8,9 +8,10 @@ module Phony
     
     #
     #
-    def initialize national_splitter, local_splitter
+    def initialize national_splitter, local_splitter, normalize = nil
       @national_splitter = national_splitter
       @local_splitter    = local_splitter
+      @normalize         = !(normalize == false) # if nil, true (default), if false, false, if true, true.
     end
     
     # Split gets a number without country code and splits it into
@@ -20,6 +21,15 @@ module Phony
       ndc, rest = @national_splitter.split national_number.dup
       return ndc unless rest
       [ndc, *@local_splitter.split(rest)]
+    end
+    
+    # Split gets a number without country code and removes a relative zero.
+    #
+    # Note: Some cases, like Italy, don't remove the relative zero.
+    #
+    def normalize national_number
+      return national_number unless @normalize
+      national_number.gsub(/^0+/, '')
     end
     
   end

@@ -3,7 +3,7 @@
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Peru
 #
 Phony::Countries::Peru = Phony::Country.configured :local_format => [4, 4],
-  :local_special_format => [3, 3],
+  :service_local_format => [3, 3],
   :ndc_fallback_length => 2,
   :ndc_mapping => {
     :landline => [

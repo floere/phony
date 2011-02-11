@@ -13,7 +13,7 @@ Phony::Countries::Hungary = Phony::Country.configured :local_format => [3, 4], #
     :landline => [
                    '1'
                   ],
-    :mobile   => [], # TODO
+    # TODO :mobile   => [],
     :service  => [
                    '104',
                    '105',

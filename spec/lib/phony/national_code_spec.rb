@@ -16,6 +16,12 @@ describe Phony::NationalCode do
       it 'splits correctly' do
         @national.split('44364353').should == ['44', '364', '35', '3']
       end
+      it 'normalizes correctly' do
+        @national.normalize('044364353').should == '44364353'
+      end
+      it 'normalizes correctly' do
+        @national.normalize('44364353').should == '44364353'
+      end
     end
     context 'with fixed ndc (French)' do
       before(:each) do
@@ -29,6 +35,42 @@ describe Phony::NationalCode do
       end
       it 'splits correctly' do
         @national.split('14227818').should == ['1', '42', '27', '81', '8']
+      end
+      it 'normalizes correctly' do
+        @national.normalize('0142278186').should == '142278186'
+      end
+      it 'normalizes correctly' do
+        @national.normalize('142278186').should == '142278186'
+      end
+    end
+    context 'normalizing' do
+      context 'false' do
+        before(:each) do
+          @national = Phony::NationalCode.new nil, nil, false
+        end
+        it 'normalizes an italian case correctly' do
+          @national.normalize('0909709511').should == '0909709511'
+        end
+      end
+      context 'true' do
+        before(:each) do
+          national_splitter = Phony::NationalSplitters::Fixed.instance_for 2
+          local_splitter    = Phony::LocalSplitter.instance_for [3, 2, 2]
+          @national = Phony::NationalCode.new national_splitter, local_splitter, true
+        end
+        it 'normalizes a swiss case correctly' do
+          @national.normalize('044364353').should == '44364353'
+        end
+      end
+      context 'nil (true)' do
+        before(:each) do
+          national_splitter = Phony::NationalSplitters::Fixed.instance_for 2
+          local_splitter    = Phony::LocalSplitter.instance_for [3, 2, 2]
+          @national = Phony::NationalCode.new national_splitter, local_splitter, nil
+        end
+        it 'normalizes a swiss case correctly' do
+          @national.normalize('044364353').should == '44364353'
+        end
       end
     end
   end

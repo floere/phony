@@ -2,6 +2,8 @@
 #
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Egypt
 #
+# TODO If the fallback length is 2, why do I list length 2 landlines?
+#
 Phony::Countries::Egypt = Phony::Country.configured :local_format => [8],
   :local_special_format => [7],
   :ndc_fallback_length => 2,
