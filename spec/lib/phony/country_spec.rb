@@ -73,15 +73,15 @@ describe Phony::Country do
   
   context "without special cases" do
     before(:each) do
-      national_splitter         = Phony::NationalSplitters::Variable.new 4, { :normal => ['44'] }
-      local_splitter            = Phony::LocalSplitter.instance_for [3, 2, 2]
-      national_code             = Phony::NationalCode.new national_splitter, local_splitter
-      
       special_national_splitter = Phony::NationalSplitters::Variable.new nil, { :service => ['800'] }
       special_local_splitter    = Phony::LocalSplitter.instance_for [3, 3]
       special_code              = Phony::NationalCode.new special_national_splitter, special_local_splitter
       
-      @switzerland              = Phony::Country.new national_code, special_code
+      national_splitter         = Phony::NationalSplitters::Variable.new 4, { :normal => ['44'] }
+      local_splitter            = Phony::LocalSplitter.instance_for [3, 2, 2]
+      national_code             = Phony::NationalCode.new national_splitter, local_splitter
+      
+      @switzerland              = Phony::Country.new special_code, national_code
     end
     
     describe "split" do
