@@ -8,6 +8,8 @@
 # To reflect this different formatting, we need to install all handlers in a row.
 # First, the area codes of length 2, without a fallback length (since this captures all), but with a nil fallback length.
 #
+# TODO Implement and use length-based splitter.
+#
 handlers = []
 
 area_code_2_national = Phony::NationalSplitters::Variable.new nil, :landline => [
