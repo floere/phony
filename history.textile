@@ -1,3 +1,7 @@
+h2. Version 1.2.11
+
+* hanke: Denmark, Norway. Skøl!
+
 h2. Version 1.2.10
 
 * hanke: The UK. Thanks yet again to kbingman! (Closes "pull request 16":https://github.com/floere/phony/pull/16)
