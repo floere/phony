@@ -18,14 +18,14 @@ module Phony
       #
       # Note: Not cached.
       #
-      def self.instance_for fallback, mapping
-        new fallback, mapping
+      def self.instance_for mapping
+        new mapping
       end
     
       # Initialize with a regex => format mapping.
       #
-      def initialize fallback, mapping
-        @fallback = fallback
+      def initialize mapping
+        @fallback = mapping.delete(:fallback) || [12]
         @mapping  = mapping
       end
     

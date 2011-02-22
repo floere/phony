@@ -4,15 +4,15 @@ describe Phony::LocalSplitters::Regex do
   
   describe 'instance_for' do
     it 'does not cache' do
-      described_class.instance_for([],{}).should_not equal(described_class.instance_for([],{}))
+      described_class.instance_for({}).should_not equal(described_class.instance_for({}))
     end
   end
   
   describe 'split' do
     before(:each) do
-      # Norway.
+      # Norway as example.
       #
-      @splitter = described_class.instance_for [2,2,2,2], /^[489].*$/ => [3,2,3]
+      @splitter = described_class.instance_for /^[489].*$/ => [3,2,3], :fallback => [2,2,2,2]
     end
     it 'splits a number correctly' do
       @splitter.split('21234567').should == ['21','23','45','67']
