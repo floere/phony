@@ -19,7 +19,7 @@ area_code_2_national = Phony::NationalSplitters::Variable.new nil, :landline => 
   '28',   # Northern Ireland
   '29',   # Cardiff 
 ]
-area_code_2_local    = Phony::LocalSplitter.instance_for [4, 4]
+area_code_2_local    = Phony::LocalSplitters::Fixed.instance_for [4, 4]
 handlers            << Phony::NationalCode.new(area_code_2_national, area_code_2_local)
 
 area_code_3_national = Phony::NationalSplitters::Variable.new nil, :landline => [
@@ -56,7 +56,7 @@ area_code_3_national = Phony::NationalSplitters::Variable.new nil, :landline => 
   '909', # Sexual entertainment services
   '982', # Sexual entertainment services
 ]
-area_code_3_local    = Phony::LocalSplitter.instance_for [3, 4]
+area_code_3_local    = Phony::LocalSplitters::Fixed.instance_for [3, 4]
 handlers            << Phony::NationalCode.new(area_code_3_national, area_code_3_local)
 
 # 6 is the fallback length.
@@ -101,7 +101,7 @@ area_code_45_national = Phony::NationalSplitters::Variable.new 6, :landline => [
   '17687', # Keswick
   '19467', # Gosforth
 ]
-area_code_45_local    = Phony::LocalSplitter.instance_for [6]
+area_code_45_local    = Phony::LocalSplitters::Fixed.instance_for [6]
 handlers             << Phony::NationalCode.new(area_code_45_national, area_code_45_local)
 
 Phony::Countries::UnitedKingdom = Phony::Country.new *handlers

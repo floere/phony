@@ -1,9 +1,11 @@
 # Framework.
 #
 require File.expand_path '../phony/vanity', __FILE__
-require File.expand_path '../phony/local_splitter', __FILE__
+require File.expand_path '../phony/local_splitters/fixed', __FILE__
+require File.expand_path '../phony/local_splitters/regex', __FILE__
 require File.expand_path '../phony/national_splitters/fixed', __FILE__
 require File.expand_path '../phony/national_splitters/variable', __FILE__
+require File.expand_path '../phony/national_splitters/none', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
 require File.expand_path '../phony/country', __FILE__
 
@@ -22,6 +24,7 @@ require File.expand_path '../phony/countries/greece', __FILE__
 require File.expand_path '../phony/countries/hungary', __FILE__
 require File.expand_path '../phony/countries/italy', __FILE__
 require File.expand_path '../phony/countries/malaysia', __FILE__
+require File.expand_path '../phony/countries/norway', __FILE__
 require File.expand_path '../phony/countries/netherlands', __FILE__
 require File.expand_path '../phony/countries/peru', __FILE__
 require File.expand_path '../phony/countries/portugal', __FILE__

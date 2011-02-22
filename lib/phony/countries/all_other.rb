@@ -78,9 +78,7 @@ module Phony
                         :service_ndcs => %w{112 114}
                   ), # Denmark has no NDC, but 4 groups of 2 digits. I'm faking it here.
           '46' => Countries::Sweden,
-          '47' => fixed(4,  # Norway
-                    :local_format => [4]
-                  ),
+          '47' => Countries::Norway,
           '48' => fixed(3, # Poland (Republic of)
                         :local_format => [3, 3] # Although the NDCs are 2 digits, the representation is 3 digits.
                   ), # Note: http://wapedia.mobi/en/Telephone_numbers_in_Poland, mobile not yet correct

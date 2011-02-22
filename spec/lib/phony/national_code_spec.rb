@@ -6,7 +6,7 @@ describe Phony::NationalCode do
     context 'with fixed ndc (Swiss)' do
       before(:each) do
         national_splitter = Phony::NationalSplitters::Fixed.instance_for 2
-        local_splitter    = Phony::LocalSplitter.instance_for [3, 2, 2]
+        local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
         
         @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
@@ -26,7 +26,7 @@ describe Phony::NationalCode do
     context 'with fixed ndc (French)' do
       before(:each) do
         national_splitter = Phony::NationalSplitters::Fixed.instance_for 1
-        local_splitter    = Phony::LocalSplitter.instance_for [2, 2, 2, 2]
+        local_splitter    = Phony::LocalSplitters::Fixed.instance_for [2, 2, 2, 2]
         
         @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
@@ -55,7 +55,7 @@ describe Phony::NationalCode do
       context 'true' do
         before(:each) do
           national_splitter = Phony::NationalSplitters::Fixed.instance_for 2
-          local_splitter    = Phony::LocalSplitter.instance_for [3, 2, 2]
+          local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
           @national = Phony::NationalCode.new national_splitter, local_splitter, true
         end
         it 'normalizes a swiss case correctly' do
@@ -65,7 +65,7 @@ describe Phony::NationalCode do
       context 'nil (true)' do
         before(:each) do
           national_splitter = Phony::NationalSplitters::Fixed.instance_for 2
-          local_splitter    = Phony::LocalSplitter.instance_for [3, 2, 2]
+          local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
           @national = Phony::NationalCode.new national_splitter, local_splitter, nil
         end
         it 'normalizes a swiss case correctly' do

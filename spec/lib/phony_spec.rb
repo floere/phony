@@ -68,6 +68,16 @@ describe Phony do
       Phony.split('60312345678').should == ['60', '3', '12345678'] # Kuala Lumpur
       Phony.split('60212345678').should == ['60', '2', '12345678'] # Singapore
     end
+    it 'handles norwegian numbers' do
+      Phony.split('4721234567').should == ['47','21','23','45','67']
+      Phony.split('4731234567').should == ['47','31','23','45','67']
+      Phony.split('4741234567').should == ['47','412','34','567']
+      Phony.split('4751234567').should == ['47','51','23','45','67']
+      Phony.split('4761234567').should == ['47','61','23','45','67']
+      Phony.split('4771234567').should == ['47','71','23','45','67']
+      Phony.split('4781234567').should == ['47','812','34','567']
+      Phony.split('4791234567').should == ['47','912','34','567']
+    end
     it 'handles peruvian numbers' do
       Phony.split('51112341234').should == ['51', '1', '1234', '1234'] # Lima
       Phony.split('51912341234').should == ['51', '9', '1234', '1234'] # mobile
