@@ -4,7 +4,7 @@ module Phony
     
     # TODO
     #
-    class Fixed
+    class Fixed < Experimental
       
       attr_writer :special_splitter
       

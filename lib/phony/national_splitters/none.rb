@@ -5,7 +5,7 @@ module Phony
     # This is a national splitter for countries
     # which have no NDC / Area Code.
     #
-    class None
+    class None < Experimental
       
       # Get a splitter. Caches.
       #

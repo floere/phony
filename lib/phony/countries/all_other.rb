@@ -3,11 +3,42 @@
 module Phony
   module Countries
     
+    # Ideas for a DSL:
+    #
+    # country(fixed(2) >> local([3,2,2]))
+    # country(none >> local([2,2,2,2]))
+    #
+    
     # Returns an anonymous fixed size ndc / format country handler.
     #
     def self.fixed size, options = {}
       options.merge! :ndc_length => size
       Phony::Country.fixed options
+    end
+    
+    # 
+    #
+    def self.custom *splitters
+      codes = []
+      splitters.flatten!
+      until splitters.empty?
+        codes << Phony::NationalCode.new(splitters.shift, splitters.shift)
+      end
+      Phony::Country.new *codes
+    end
+    
+    # Experimental.
+    #
+    def self.fix size
+      NationalSplitters::Fixed.instance_for size
+    end
+    def self.none
+      NationalSplitters::None.instance_for
+    end
+    #
+    #
+    def self.format local
+      LocalSplitters::Fixed.instance_for local
     end
     
     # TODO
@@ -73,12 +104,9 @@ module Phony
                   ),
           '43' => Countries::Austria,
           '44' => Countries::UnitedKingdom, # TODO United Kingdom of Great Britain and Northern Ireland
-          '45' => fixed(2,  # Denmark
-                        :local_format => [2, 2, 2],
-                        :service_ndcs => %w{112 114}
-                  ), # Denmark has no NDC, but 4 groups of 2 digits. I'm faking it here.
+          '45' => custom(none >> format([2,2,2,2])), # Denmark
           '46' => Countries::Sweden,
-          '47' => Countries::Norway,
+          '47' => Countries::Norway, # custom(none >> regexp(/^[1].*$/ => [3], /^[489].*$/ => [3,2,3], :fallback => [2,2,2,2]))
           '48' => fixed(3, # Poland (Republic of)
                         :local_format => [3, 3] # Although the NDCs are 2 digits, the representation is 3 digits.
                   ), # Note: http://wapedia.mobi/en/Telephone_numbers_in_Poland, mobile not yet correct
@@ -221,7 +249,7 @@ module Phony
           '350' => fixed(2), # Gibraltar
           '351' => Countries::Portugal, # Portugal
           '352' => fixed(2), # Luxembourg
-          '353' => fixed(2), # Ireland
+          '353' => fixed(2), # Ireland (0-3-4)
           '354' => fixed(2), # Iceland
           '355' => fixed(2), # Albania
           '356' => fixed(2), # Malta

@@ -3,6 +3,7 @@
 require File.expand_path '../phony/vanity', __FILE__
 require File.expand_path '../phony/local_splitters/fixed', __FILE__
 require File.expand_path '../phony/local_splitters/regex', __FILE__
+require File.expand_path '../phony/national_splitters/experimental', __FILE__
 require File.expand_path '../phony/national_splitters/fixed', __FILE__
 require File.expand_path '../phony/national_splitters/variable', __FILE__
 require File.expand_path '../phony/national_splitters/none', __FILE__
