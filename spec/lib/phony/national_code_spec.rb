@@ -3,6 +3,19 @@ require 'spec_helper'
 describe Phony::NationalCode do
   
   describe 'split' do
+    context 'regression' do
+      describe 'iceland' do
+        before(:each) do
+          national_splitter = Phony::NationalSplitters::None.instance_for
+          local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 4]
+
+          @national         = Phony::NationalCode.new national_splitter, local_splitter
+        end
+        it 'splits correctly' do
+          @national.split('112').should == [nil, '112']
+        end
+      end
+    end
     context 'with fixed ndc (Swiss)' do
       before(:each) do
         national_splitter = Phony::NationalSplitters::Fixed.instance_for 2

@@ -43,6 +43,14 @@ describe Phony::LocalSplitters::Fixed do
         @splitter.split('364353').should == ['364','35','3']
       end
     end
+    context "with hard number (iceland regression)" do
+      before(:each) do
+        @splitter = described_class.new [3, 4]
+      end
+      it 'splits correctly' do
+        @splitter.split('112').should == ['112']
+      end
+    end
   end
   
 end

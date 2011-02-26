@@ -167,7 +167,7 @@ country '351', one_of('700', '800')                 >> format(3,3) | # Portugal
                one_of('21', '22', :max_length => 3) >> format(3,4)   # Lisboa & Porto
 country '352', fixed(2) >> format(3,2,2) # Luxembourg
 country '353', fixed(2) >> format(3,2,2) # Ireland (0-3-4)
-country '354', none >> format(3,4)       # Iceland
+country '354', none     >> format(3,4)   # Iceland
 country '355', fixed(2) >> format(3,2,2) # Albania
 country '356', fixed(2) >> format(3,2,2) # Malta
 country '357', fixed(2) >> format(3,2,2) # Cyprus

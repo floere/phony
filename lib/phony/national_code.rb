@@ -20,8 +20,7 @@ module Phony
     def split national_number
       ndc, rest = @national_splitter.split national_number.dup
       return ndc unless rest
-      local = @local_splitter.split rest
-      ndc ? [ndc, *local] : local
+      [ndc, *@local_splitter.split(rest)]
     end
     
     # Split gets a number without country code and removes a relative zero.

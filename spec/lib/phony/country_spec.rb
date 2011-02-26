@@ -1,7 +1,22 @@
 require 'spec_helper'
 
 describe Phony::Country do
+  
+  context 'regression' do
+    describe 'iceland' do
+      before(:each) do
+        national_splitter = Phony::NationalSplitters::None.instance_for
+        local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 4]
 
+        national_code     = Phony::NationalCode.new national_splitter, local_splitter
+        @iceland          = described_class.new national_code
+      end
+      it 'splits correctly' do
+        @iceland.split('112').should == ['112']
+      end
+    end
+  end
+  
   context "without special cases" do
     before(:each) do
       national_splitter = Phony::NationalSplitters::Variable.new 4, ['44']

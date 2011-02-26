@@ -23,10 +23,12 @@ module Phony
     
     # A number is split with the code handlers as given in the initializer.
     #
+    # Note: If the ndc is nil, it will not return it.
+    #
     def split national_number
       @codes.each do |code|
         ndc, *rest = code.split national_number
-        return [ndc, *rest] if rest && !rest.empty?
+        return ndc ? [ndc, *rest] : rest if rest && !rest.empty?
       end
     end
     

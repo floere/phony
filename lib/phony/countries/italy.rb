@@ -155,8 +155,24 @@ service = [ # Not exhaustive.
 
 # TODO Normalize!
 #
-Phony::Countries::Italy = one_of(*service)                >> format(3,3) | 
-
-                         one_of(*mobile)                 >> format(3,4) | 
-
-                         one_of(*ndcs, :max_length => 3) >> format(3,4)
+# Phony::Countries::Italy = one_of(*service)                >> format(3,3) | 
+#                           one_of(*mobile)                 >> format(3,4) | 
+#                           one_of(*ndcs, :max_length => 3) >> format(3,4)
+                          
+handlers = []
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, service),
+  Phony::LocalSplitters::Fixed.instance_for([4, 4]),
+  false
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, mobile),
+  Phony::LocalSplitters::Fixed.instance_for([3, 4]),
+  false
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(3, ndcs),
+  Phony::LocalSplitters::Fixed.instance_for([3, 4]),
+  false
+)
+Phony::Countries::Italy = Phony::Country.new *handlers
