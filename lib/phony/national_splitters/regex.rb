@@ -11,21 +11,20 @@ module Phony
     #
     class Regex < Fixed
       
-      attr_reader :max_length, :regex
+      attr_reader :on_fail_take, :regex
       
       # Get a splitter for the given format.
       #
       # Note: Not cached.
       #
-      def self.instance_for regex, max_length = nil
-        new regex, max_length
+      def self.instance_for regex, on_fail_take = nil
+        new regex, on_fail_take
       end
-    
-      # Initialize with a regex => format mapping.
-      #
-      def initialize regex, max_length = nil
-        @max_length = max_length
-        @regex      = regex
+
+      def initialize regex, on_fail_take = nil
+        super on_fail_take
+
+        @regex = regex
       end
     
       # Split a local number according to an assumed country specific format.
@@ -34,11 +33,13 @@ module Phony
       # * split '3643533' # => ['364', '35', '33'] # (Switzerland)
       #
       def split number
-        return [number.slice!(0..max_length-1), number] if number =~ regex
+        # Improve matching.
+        #
+        return [number.slice!(0..$1.size-1), number] if number =~ regex
         
         # Not found.
         #
-        super max_length
+        super number
       end
       
     end

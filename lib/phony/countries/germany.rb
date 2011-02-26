@@ -4068,5 +4068,5 @@ service = [
 ]
 
 Phony::Countries::Germany = one_of(*service)                >> format(3,10) | 
-                            match(/^1[567]\d.*$/, 3)        >> format(3,10) | # Mobile
+                            match(/^(1[567]\d)\d*$/)        >> format(3,10) | # Mobile
                             one_of(*ndcs, :max_length => 5) >> format(3,10)

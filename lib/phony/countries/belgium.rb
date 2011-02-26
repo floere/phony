@@ -11,7 +11,7 @@ ndcs = [
  '9', # Gent (Ghent/Gand)
 ]
 
-mobile_regex = /^4[789]\d{7}$/ # Mobistar, Base, Proximus
+mobile_regex = /^(4[789]\d)\d{6}$/ # Mobistar, Base, Proximus
 
 service = [
   '70', # Specialty numbers, i.e. bus information or bank information
@@ -29,5 +29,5 @@ service = [
 ]
 
 Phony::Countries::Belgium = one_of(*service)                >> format(3,3) |
-                            match(mobile_regex, 3)          >> format(6)   |
+                            match(mobile_regex)             >> format(6)   |
                             one_of(*ndcs, :max_length => 2) >> format(3,5)

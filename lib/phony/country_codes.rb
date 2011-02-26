@@ -50,6 +50,8 @@ module Phony
       parts_ary.join space.to_s
     end
     
+    #
+    #
     def service? number
       national_handler, cc, rest = split_cc number
       national_handler.service? rest

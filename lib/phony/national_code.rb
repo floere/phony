@@ -1,7 +1,5 @@
 module Phony
   
-  # This is the superclass of all special national number handlers.
-  #
   # NationalCodes have a special numbers splitter, a national code splitter and a local code splitter.
   #
   class NationalCode
@@ -11,7 +9,7 @@ module Phony
     def initialize national_splitter, local_splitter, normalize = nil
       @national_splitter = national_splitter
       @local_splitter    = local_splitter
-      @normalize         = !(normalize == false) # if nil, true (default), if false, false, if true, true.
+      @normalize         = normalize != false
     end
     
     # Split gets a number without country code and splits it into

@@ -53,8 +53,8 @@ module Phony
       
       NationalSplitters::Variable.new options[:max_length], ndcs
     end
-    def match regex, max_length
-      NationalSplitters::Regex.instance_for regex, max_length
+    def match regex, options = {}
+      NationalSplitters::Regex.instance_for regex, options[:on_fail_take]
     end
     
     # Local splitters.

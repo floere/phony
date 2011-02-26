@@ -1,11 +1,25 @@
 include Phony::DSL
 
+# All countries, ordered by country code.
+#
+# Available matching/formatting methods:
+# * fixed:  Always splits off a fixed length ndc. (Always use last in a | chain)
+# * none:   Does not have a national destination code, e.g. Denmark, Iceland.
+# * one_of: Matches one of the following numbers. Splits if it does.
+#           Options:
+#           * max_length: Will try to match up to length max_length, then stop.
+#                         (Always use one_of with this option last in a | chain)
+# * match: Try to match the regex, and if it matches, splits it off.
+#           Options:
+#           * max_length: If it does not match, split of max_length, then stop.
+#                         (Always use one_of with this option last in a | chain)
+#
+
 country '0', fixed(1) >> format(10) # Reserved.
 country '1', fixed(3) >> format(3,4) # USA, Canada, etc.
 country '7', fixed(3) >> format(3,2,2) # Kazakhstan (Republic of) & Russian Federation
 
-country '20', one_of('800') >> format(7) | 
-
+country '20', one_of('800') >> format(7) | # Egypt
               one_of('2', '3', :max_length => 2) >> format(8) # Cairo/Giza, Alexandria
               # :mobile? => /^10|11|12|14|16|17|18|19*$/, :service? => /^800.*$/
 country '27', fixed(2) >> format(3,4) # South Africa
@@ -21,9 +35,9 @@ country '39', Phony::Countries::Italy
 country '40', Phony::Countries::Romania
 
 # :service => %w{800 840 842 844 848}, :mobile  => %w{74 76 77 78 79
-swiss_service_regex = /^800|840|842|844|848.*$/
-country '41', match(swiss_service_regex, 3) >> format(3,3) |
-              fixed(2)                      >> format(3,2,2)
+swiss_service_regex = /^(800|840|842|844|848)\d+$/
+country '41', match(swiss_service_regex) >> format(3,3) | # Switzerland
+              fixed(2)                   >> format(3,2,2)
 country '43', Phony::Countries::Austria
 country '44', Phony::Countries::UnitedKingdom
 country '45', none >> format(2,2,2,2) # Denmark
@@ -42,8 +56,8 @@ country '51', one_of('103', '105')               >> format(3,3) | # Peru
 country '52', fixed(2) >> format(3,2,2) # TODO Mexico
 country '53', fixed(2) >> format(3,2,2) # TODO Cuba
 country '54', fixed(2) >> format(3,2,2) # TODO Argentine Republic
-brazilian_service = /^100|128|190|191|192|193|194|197|198|199.*$/
-country '55', match(brazilian_service, 3) >> format(3,3) | # Brazil (Federative Republic of)
+brazilian_service = /^(100|128|190|191|192|193|194|197|198|199)\d+$/
+country '55', match(brazilian_service) >> format(3,3) | # Brazil (Federative Republic of)
               fixed(2) >> format(4,4)
               # :service? => brazilian_service, :mobile? => ?
               # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil

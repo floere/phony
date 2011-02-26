@@ -1,4 +1,7 @@
 module Phony
+  
+  # Helper module that maps vanity numbers to digit numbers.
+  #
   module Vanity
     
     # Returns a char to number mapping string for the String#tr method.
