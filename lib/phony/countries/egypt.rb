@@ -9,41 +9,9 @@ include Phony::DSL
 ndcs = [
   '2', # Cairo/Giza
   '3', # Alexandria
- # '10', # Mobile
- # '11', # Mobile
- # '12', # Mobile
- # '13', # Banha
- # '14', # Mobile
- # '15', # 10th of Ramadan
- # '16', # Mobile
- # '17', # Mobile
- # '18', # Mobile
- # '19', # Mobile
- # '45', # Damanhur
- # '46', # Marsa Matruh
- # '47', # Kafer El Sheik
- # '48', # Monufia
- # '50', # Mansoura
- # '55', # Zazazig
- # '56', # Spare
- # '57', # Damiette
- # '62', # Suez
- # '64', # Ismailia
- # '65', # Red Sea
- # '66', # Port Said
- # '68', # El Arish
- # '69', # El-Tor
- # '82', # Beni Suef
- # '84', # Fayoum
- # '86', # Minia
- # '88', # Assiout
- # '92', # Wadi El Gehid
- # '93', # Sohag
- # '95', # Luxor
- # '96', # Qunea
- # '97', # Aswan
 ]
 
 # TODO Change how one_of works. max_length should be optional.
 #
-Phony::Countries::Egypt = one_of('800') >> format(7) | one_of(*ndcs, :max_length => 2) >> format(8)
+Phony::Countries::Egypt = one_of('800') >> format(7) or 
+                          one_of(*ndcs, :max_length => 2) >> format(8)

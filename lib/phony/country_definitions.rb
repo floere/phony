@@ -2,28 +2,27 @@ include Phony::DSL
 
 country '0', fixed(1) >> format(10) # Reserved.
 country '1', fixed(3) >> format(3,4) # USA, Canada, etc.
-# Kazakhstan (Republic of) & Russian Federation
-# http://en.wikipedia.org/wiki/Telephone_numbers_in_Russia
-#
-country '7', fixed(3) >> format(3,2,2)
+country '7', fixed(3) >> format(3,2,2) # Kazakhstan (Republic of) & Russian Federation
 
-country '20', Phony::Countries::Egypt # :mobile? => /^10|11|12|14|16|17|18|19*$/, :service? => /^800.*$/
+country '20', one_of('800') >> format(7) or 
+              one_of('2', '3', :max_length => 2) >> format(8) # Cairo/Giza, Alexandria
+              # :mobile? => /^10|11|12|14|16|17|18|19*$/, :service? => /^800.*$/
 country '27', fixed(2) >> format(3,4) # South Africa
 
 country '30', Phony::Countries::Greece
-# country '31', Phony::Countries::Netherlands
-# country '32', Phony::Countries::Belgium
+country '31', Phony::Countries::Netherlands
+country '32', Phony::Countries::Belgium
 country '33', fixed(1) >> format(2,2,2,2) # :service? => /^8.*$/, :mobile? => /^[67].*$/ # France
 country '34', fixed(2) >> format(3,4)
-# country '36', Phony::Countries::Hungary
-# country '39', Phony::Countries::Italy
+country '36', Phony::Countries::Hungary
+country '39', Phony::Countries::Italy
 
 # country '40', Phony::Countries::Romania
 
 # :service => %w{800 840 842 844 848}, :mobile  => %w{74 76 77 78 79
-country '41',
-        match(/^800|840|842|844|848.*$/, 3) >> format(3,3) |
-        fixed(2) >> format(3,2,2)
+swiss_service_regex = /^800|840|842|844|848.*$/
+country '41', match(swiss_service_regex, 3) >> format(3,3) or 
+              fixed(2)                      >> format(3,2,2)
 # country '43', Phony::Countries::Austria
 # country '44', Phony::Countries::UnitedKingdom
 country '45', none >> format(2,2,2,2) # Denmark
@@ -35,14 +34,15 @@ country '47', # Norway
 # Note: http://wapedia.mobi/en/Telephone_numbers_in_Poland, mobile not yet correct
 # 
 country '48', fixed(3) >> format(3,3)
-# country '49', Phony::Countries::Germany
+country '49', Phony::Countries::Germany
 
-# country '51', Phony::Countries::Peru
+country '51', one_of('103', '105')               >> format(3,3) or # Peru
+              one_of('1', '9', :max_length => 2) >> format(4,4) # Lima and mobile.
 country '52', fixed(2) >> format(3,2,2) # TODO Mexico
 country '53', fixed(2) >> format(3,2,2) # TODO Cuba
 country '54', fixed(2) >> format(3,2,2) # TODO Argentine Republic
 brazilian_service = /^100|128|190|191|192|193|194|197|198|199.*$/
-country '55', match(brazilian_service, 3) >> format(3,3) | # Brazil (Federative Republic of)
+country '55', match(brazilian_service, 3) >> format(3,3) or # Brazil (Federative Republic of)
               fixed(2) >> format(4,4)
               # :service? => brazilian_service, :mobile? => ?
               # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
@@ -161,7 +161,9 @@ country '298', fixed(2) >> format(3,2,2) # Faroe Islands
 country '299', fixed(2) >> format(3,2,2) # Greenland
 
 country '350', fixed(2) >> format(3,2,2) # Gibraltar
-country '351', Phony::Countries::Portugal # Portugal
+country '351', one_of('700', '800')                 >> format(3,3) or # Portugal
+               one_of(*('90'..'99').to_a)           >> format(3,3) or # mobile
+               one_of('21', '22', :max_length => 3) >> format(3,4)    # Lisboa & Porto
 country '352', fixed(2) >> format(3,2,2) # Luxembourg
 country '353', fixed(2) >> format(3,2,2) # Ireland (0-3-4)
 country '354', none >> format(3,4)       # Iceland

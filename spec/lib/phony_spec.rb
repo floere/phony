@@ -9,7 +9,10 @@ describe Phony do
       Phony.split('93201234567').should == ['93', '20', '1234567'] # Kabul
     end
     it "handles austrian numbers" do
-      Phony.split('43198110').should == ['43', '1', '98110']
+      Phony.split('43198110').should == ['43', '1', '98110'] # Vienna
+      Phony.split('4366914093902').should == ['43', '669', '14093902'] # Mobile
+      Phony.split('433161234567891').should == ['43', '316', '1234567891'] # Graz
+      Phony.split('432164123456789').should == ['43', '2164', '123456789'] # Rohrau
     end
     it 'handles belgian numbers' do
       Phony.split('3235551212').should == ['32', '3', '555', '1212']   # Antwerpen

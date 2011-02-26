@@ -1,12 +1,12 @@
+include Phony::DSL
+
 # Germany uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 # Note: Germany uses a variable ndc format from length 2 to 5.
 #
-Phony::Countries::Germany = Phony::Country.configured :local_format => [3, 10],
-                                                      :local_special_format => [3, 10],
-                                                      :ndc_fallback_length => 5,
-                                                      :ndc_mapping => {
-                                                        :landline => ['10',  # Call-By-Call
+
+ndcs = [
+'10',  # Call-By-Call
 '11',  # formerly Value Added Services
 '13',  # Voting and Lottery Numbers
 '30',  # Berlin
@@ -3990,36 +3990,36 @@ Phony::Countries::Germany = Phony::Country.configured :local_format => [3, 10],
 '9976',
 '9977',
 '9978',
-],
-:mobile => [
-'150', # Group3G/Quam
-'151', # T-Mobile
-'152', # Vodafone
-'155', # E-Plus
-'156', # Mobilcom
-'157', # E-Plus
-'159', # O2
-'160', # T-Mobile
-'161', # C-Netz
-'162', # Vodafone
-'163', # E-Plus
-'164', # Cityruf
-'165', # Quix
-'166', # Telmi
-'168', # Scall
-'169', # Cityruf, Scall, Skyper (e*cityruf, e*message, e*skyper)
-'170', # T-Mobile
-'171', # T-Mobile
-'172', # Vodafone
-'173', # Vodafone
-'174', # Vodafone
-'175', # T-Mobile
-'176', # O2 Germany
-'177', # E-Plus
-'178', # E-Plus
-'179', # O2 Germany
-],
-:service => [
+]
+# mobile = [
+# '150', # Group3G/Quam
+# '151', # T-Mobile
+# '152', # Vodafone
+# '155', # E-Plus
+# '156', # Mobilcom
+# '157', # E-Plus
+# '159', # O2
+# '160', # T-Mobile
+# '161', # C-Netz
+# '162', # Vodafone
+# '163', # E-Plus
+# '164', # Cityruf
+# '165', # Quix
+# '166', # Telmi
+# '168', # Scall
+# '169', # Cityruf, Scall, Skyper (e*cityruf, e*message, e*skyper)
+# '170', # T-Mobile
+# '171', # T-Mobile
+# '172', # Vodafone
+# '173', # Vodafone
+# '174', # Vodafone
+# '175', # T-Mobile
+# '176', # O2 Germany
+# '177', # E-Plus
+# '178', # E-Plus
+# '179', # O2 Germany
+# ]
+service = [
 '12',  # Innovative Services
 '130',
 '180', #
@@ -4066,4 +4066,7 @@ Phony::Countries::Germany = Phony::Country.configured :local_format => [3, 10],
 '9005',
 '9009',
 ]
-}
+
+Phony::Countries::Germany = one_of(*service)      >> format(3,10) or
+                            match(/^1[567]\d.*$/) >> format(3,10) or # Mobile
+                            one_of(*ndcs, :max_length => 5)

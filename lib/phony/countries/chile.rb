@@ -6,15 +6,7 @@
 # Note: Totally unsure about this one, as I get contradicting infos (see links above).
 #      As usual, best effort.
 #
-Phony::Countries::Chile = Phony::Country.configured :local_format => [8],
-  :local_special_format => [3, 3],
-  :ndc_fallback_length => 2,
-  :ndc_mapping => {
-    :landline => [
-                  '2', # Santiago
-                 ],
-    :mobile   => [
-                  '9',
-                 ],
-    :service  => %w{130 131 132 133 134 135 136 137 139 147 149}
-  }
+service = %w{130 131 132 133 134 135 136 137 139 147 149}
+
+Phony::Countries::Chile = one_of(*service)                   >> format(3,3) or 
+                          one_of('2', '9', :max_length => 2) >> format(8) # Santiago (2) and mobile.

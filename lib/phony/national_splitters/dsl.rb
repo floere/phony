@@ -2,22 +2,15 @@ module Phony
   
   module NationalSplitters
     
-    # This is simply for experiments.
-    #
-    # TODO Rename.
+    # TODO
     #
     class DSL
       
-      # TODO Or call it or?
+      # TODO normalize option!
       #
       def >> local_splitter
-        ary = [self, local_splitter]
-        class << ary
-          def |(other)
-            self + other
-          end
-        end
-        ary
+        national_code = Phony::NationalCode.new self, local_splitter
+        Phony::Country.new national_code
       end
       
     end
