@@ -127,7 +127,18 @@ describe Phony do
     it 'handles turkish numbers' do
       Phony.split('903121234567').should == ['90', '312', '123', '4567'] # Ankara
     end
-    it "should handle US numbers" do
+    it 'handles UK numbers' do
+      Phony.split('442045671113').should == ['44', '20', '4567', '1113'] # London
+      Phony.split('442076229901').should == ['44', '20', '7622', '9901'] # Cardiff
+      Phony.split('441136770011').should == ['44', '113', '677', '0011'] # Leeds
+      Phony.split('441382229845').should == ['44', '1382', '229845'] # Dundee
+      Phony.split('44120499532').should  == ['44', '1204', '99532'] # Bolten
+      Phony.split('441539618756').should == ['44', '15396', '18756'] # Sedbergh
+      Phony.split('447780605207').should == ['44', '7780', '605207'] # Mobile
+      Phony.split('447480605207').should == ['44', '7480', '605207'] # Mobile
+      Phony.split('448005878323').should == ['44', '800', '587', '8323'] # Service, regression
+    end
+    it "handles US numbers" do
       Phony.split('15551115511').should == ['1', '555', '111', '5511']
     end
     it "should handle venezuelan numbers" do

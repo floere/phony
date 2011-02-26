@@ -53,5 +53,6 @@ service = [
  '11414', # Police
 ]
 
-Phony::Countries::Sweden = one_of(*service)                           >> format(3,3) or 
+Phony::Countries::Sweden = one_of(*service)                           >> format(3,3) | 
+
                           one_of(*(ndcs + mobile), :max_length => 3) >> format(8)

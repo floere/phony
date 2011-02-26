@@ -12,7 +12,7 @@
 #
 handlers = []
 
-area_code_2_national = Phony::NationalSplitters::Variable.new nil, :landline => [
+area_code_2_national = Phony::NationalSplitters::Variable.new nil, [
   '20',   # London
   '23',   # Southampton, Portsmith
   '24',   # Coventry
@@ -22,7 +22,7 @@ area_code_2_national = Phony::NationalSplitters::Variable.new nil, :landline => 
 area_code_2_local    = Phony::LocalSplitters::Fixed.instance_for [4, 4]
 handlers            << Phony::NationalCode.new(area_code_2_national, area_code_2_local)
 
-area_code_3_national = Phony::NationalSplitters::Variable.new nil, :landline => [
+area_code_3_national = Phony::NationalSplitters::Variable.new nil, [
   # Geographical.
   #
   '113',  # Leeds
@@ -61,7 +61,7 @@ handlers            << Phony::NationalCode.new(area_code_3_national, area_code_3
 
 # 6 is the fallback length.
 #
-area_code_45_national = Phony::NationalSplitters::Variable.new 6, :landline => [
+area_code_45_national = Phony::NationalSplitters::Variable.new 6, [
   # Geographical.
   #
   '1204', # Bolton
@@ -100,7 +100,7 @@ area_code_45_national = Phony::NationalSplitters::Variable.new 6, :landline => [
   '17684', # Pooley Bridge
   '17687', # Keswick
   '19467', # Gosforth
-]
+].flatten
 area_code_45_local    = Phony::LocalSplitters::Fixed.instance_for [6]
 handlers             << Phony::NationalCode.new(area_code_45_national, area_code_45_local)
 

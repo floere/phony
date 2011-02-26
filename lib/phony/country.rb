@@ -16,7 +16,7 @@ module Phony
     #
     # TODO
     #
-    def or(other)
+    def |(other)
       self.codes = self.codes + other.codes
       self
     end

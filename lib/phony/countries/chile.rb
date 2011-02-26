@@ -8,5 +8,6 @@
 #
 service = %w{130 131 132 133 134 135 136 137 139 147 149}
 
-Phony::Countries::Chile = one_of(*service)                   >> format(3,3) or 
+Phony::Countries::Chile = one_of(*service)                   >> format(3,3) | 
+
                           one_of('2', '9', :max_length => 2) >> format(8) # Santiago (2) and mobile.

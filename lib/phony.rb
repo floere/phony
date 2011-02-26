@@ -10,7 +10,7 @@ require File.expand_path '../phony/national_splitters/regex', __FILE__
 require File.expand_path '../phony/national_splitters/none', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
 require File.expand_path '../phony/country', __FILE__
-
+require File.expand_path '../phony/country_codes', __FILE__
 require File.expand_path '../phony/dsl', __FILE__
 
 # Countries.
@@ -36,13 +36,11 @@ require File.expand_path '../phony/countries/sweden', __FILE__
 require File.expand_path '../phony/countries/united_kingdom', __FILE__
 require File.expand_path '../phony/country_definitions', __FILE__
 
-require File.expand_path '../phony/country_codes', __FILE__
-
 module Phony
   
   # Phony uses a single country codes instance.
   #
-  @codes = CountryCodes.new
+  @codes = CountryCodes.instance
   
   # Normalizes the given number.
   #

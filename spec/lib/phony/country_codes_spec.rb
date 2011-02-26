@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Phony::CountryCodes do
   
   before(:all) do
-    @countries = Phony::CountryCodes.new
+    @countries = Phony::CountryCodes.instance
   end
   
   describe 'split' do

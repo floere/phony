@@ -28,6 +28,6 @@ service = [
  '909'  # Premium
 ]
 
-Phony::Countries::Belgium = one_of(*service)                >> format(3,3) or 
-                            match(mobile_regex, 3)          >> format(6)   or
+Phony::Countries::Belgium = one_of(*service)                >> format(3,3) |
+                            match(mobile_regex, 3)          >> format(6)   |
                             one_of(*ndcs, :max_length => 2) >> format(3,5)

@@ -33,14 +33,8 @@ module Phony
 
     # 
     #
-    def country country_code, *splitters
-      codes = []
-      splitters.flatten!
-      until splitters.empty?
-        codes << Phony::NationalCode.new(splitters.shift, splitters.shift)
-      end
-      country = Phony::Country.new *codes
-      Phony::Countries.add country_code, country
+    def country country_code, country
+      Phony::CountryCodes.instance.add country_code, country
     end
 
     # National matcher & splitters.

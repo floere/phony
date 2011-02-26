@@ -16,8 +16,8 @@ ndcs = [
 mobile = %w{ 10 11 12 13 14 153 154 156 158 16 17 18 19 }
 service = %w{ 100 101 102 103 104 108 112 991 994 995 999 }
 
-Phony::Countries::Malaysia = one_of(*service)                >> format(3,3)
-                             one_of(*mobile)                 >> format(8)
+Phony::Countries::Malaysia = one_of(*service)                >> format(3,3) |
+                             one_of(*mobile)                 >> format(8)   |
                              one_of(*ndcs, :max_length => 2) >> format(8)
   
   # :mobile   => %w{ 10 11 12 13 14 153 154 156 158 16 17 18 19 },

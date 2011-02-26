@@ -155,6 +155,8 @@ service = [ # Not exhaustive.
 
 # TODO Normalize!
 #
-Phony::Countries::Italy = one_of(*service)                >> format(3,3) or 
-                         one_of(*mobile)                 >> format(3,4) or 
+Phony::Countries::Italy = one_of(*service)                >> format(3,3) | 
+
+                         one_of(*mobile)                 >> format(3,4) | 
+
                          one_of(*ndcs, :max_length => 3) >> format(3,4)

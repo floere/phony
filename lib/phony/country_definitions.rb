@@ -4,7 +4,8 @@ country '0', fixed(1) >> format(10) # Reserved.
 country '1', fixed(3) >> format(3,4) # USA, Canada, etc.
 country '7', fixed(3) >> format(3,2,2) # Kazakhstan (Republic of) & Russian Federation
 
-country '20', one_of('800') >> format(7) or 
+country '20', one_of('800') >> format(7) | 
+
               one_of('2', '3', :max_length => 2) >> format(8) # Cairo/Giza, Alexandria
               # :mobile? => /^10|11|12|14|16|17|18|19*$/, :service? => /^800.*$/
 country '27', fixed(2) >> format(3,4) # South Africa
@@ -17,16 +18,16 @@ country '34', fixed(2) >> format(3,4)
 country '36', Phony::Countries::Hungary
 country '39', Phony::Countries::Italy
 
-# country '40', Phony::Countries::Romania
+country '40', Phony::Countries::Romania
 
 # :service => %w{800 840 842 844 848}, :mobile  => %w{74 76 77 78 79
 swiss_service_regex = /^800|840|842|844|848.*$/
-country '41', match(swiss_service_regex, 3) >> format(3,3) or 
+country '41', match(swiss_service_regex, 3) >> format(3,3) |
               fixed(2)                      >> format(3,2,2)
-# country '43', Phony::Countries::Austria
-# country '44', Phony::Countries::UnitedKingdom
+country '43', Phony::Countries::Austria
+country '44', Phony::Countries::UnitedKingdom
 country '45', none >> format(2,2,2,2) # Denmark
-# country '46', Phony::Countries::Sweden
+country '46', Phony::Countries::Sweden
 country '47', # Norway
         none >> matched_format(/^[1].*$/ => [3], /^[489].*$/ => [3,2,3], :fallback => [2,2,2,2])
 # Poland (Republic of)
@@ -36,17 +37,17 @@ country '47', # Norway
 country '48', fixed(3) >> format(3,3)
 country '49', Phony::Countries::Germany
 
-country '51', one_of('103', '105')               >> format(3,3) or # Peru
+country '51', one_of('103', '105')               >> format(3,3) | # Peru
               one_of('1', '9', :max_length => 2) >> format(4,4) # Lima and mobile.
 country '52', fixed(2) >> format(3,2,2) # TODO Mexico
 country '53', fixed(2) >> format(3,2,2) # TODO Cuba
 country '54', fixed(2) >> format(3,2,2) # TODO Argentine Republic
 brazilian_service = /^100|128|190|191|192|193|194|197|198|199.*$/
-country '55', match(brazilian_service, 3) >> format(3,3) or # Brazil (Federative Republic of)
+country '55', match(brazilian_service, 3) >> format(3,3) | # Brazil (Federative Republic of)
               fixed(2) >> format(4,4)
               # :service? => brazilian_service, :mobile? => ?
               # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
-# country '56', Phony::Countries::Chile
+country '56', Phony::Countries::Chile
 country '57', fixed(2) >> format(3,2,2)
 country '58', fixed(3) >> format(7) # Venezuela (Bolivarian Republic of)
 
@@ -161,9 +162,9 @@ country '298', fixed(2) >> format(3,2,2) # Faroe Islands
 country '299', fixed(2) >> format(3,2,2) # Greenland
 
 country '350', fixed(2) >> format(3,2,2) # Gibraltar
-country '351', one_of('700', '800')                 >> format(3,3) or # Portugal
-               one_of(*('90'..'99').to_a)           >> format(3,3) or # mobile
-               one_of('21', '22', :max_length => 3) >> format(3,4)    # Lisboa & Porto
+country '351', one_of('700', '800')                 >> format(3,3) | # Portugal
+               one_of(*('90'..'99').to_a)           >> format(3,4) | # mobile
+               one_of('21', '22', :max_length => 3) >> format(3,4)   # Lisboa & Porto
 country '352', fixed(2) >> format(3,2,2) # Luxembourg
 country '353', fixed(2) >> format(3,2,2) # Ireland (0-3-4)
 country '354', none >> format(3,4)       # Iceland

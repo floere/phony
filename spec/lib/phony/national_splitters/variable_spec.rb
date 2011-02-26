@@ -5,9 +5,7 @@ describe Phony::NationalSplitters::Variable do
   describe 'split' do
     context 'normal' do
       before(:each) do
-        @splitter = Phony::NationalSplitters::Variable.new 4, :normal  => ['1', '316'],
-                                                              :mobile  => ['67', '68',],
-                                                              :service => ['669', '711']
+        @splitter = Phony::NationalSplitters::Variable.new 4, ['1', '316', '67', '68', '669', '711']
       end
       it "handles Vienna" do
         @splitter.split('198110').should == ['1', '98110']
@@ -24,7 +22,7 @@ describe Phony::NationalSplitters::Variable do
     end
     context 'special handling for using the variable size splitter for Swiss service numbers' do
       before(:each) do
-        @splitter = Phony::NationalSplitters::Variable.new 2, :service => ['800']
+        @splitter = Phony::NationalSplitters::Variable.new 2, ['800']
       end
       it "should handle swiss service numbers" do
         @splitter.split('800223344').should == ['800', '223344']

@@ -4,6 +4,12 @@ module Phony
   #
   class CountryCodes
     
+    attr_reader :mapping
+    
+    def self.instance
+      @instance ||= new
+    end
+    
     def normalize number
       # Remove non-digit chars.
       #
@@ -80,12 +86,22 @@ module Phony
       # This line is never reached as CCs are in prefix code.
     end
     
-    # Cached mapping of all countries.
+    # # TODO
+    # #
+    # def self.with_cc cc
+    #   mapping[cc.size][cc.to_s]
+    # end
+    
+    # Add the given country to the mapping under the
+    # given country code.
     #
-    # TODO Ugh.
-    #
-    def mapping
-      @mapping ||= Phony::Countries.mapping
+    def add country_code, country
+      country_code = country_code.to_s
+      optimized_country_code_access = country_code.size
+      
+      @mapping ||= {}
+      @mapping[optimized_country_code_access] ||= {}
+      @mapping[optimized_country_code_access][country_code] = country
     end
     
   end
