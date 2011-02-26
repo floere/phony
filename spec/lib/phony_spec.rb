@@ -34,6 +34,11 @@ describe Phony do
       Phony.split('862112345678').should == ['86', '21', '1234', '5678'] # Shanghai
       Phony.split('8675582193447').should == ['86', '755', '8219', '3447'] # Shenzhen
     end
+    it 'handles cuban numbers' do
+      Phony.split('5351231234').should == ['53', '5123', '1234'] # Mobile
+      Phony.split('5371234567').should == ['53', '7', '1234567'] # Havana
+      Phony.split('5342123456').should == ['53', '42', '123456'] # Villa Clara
+    end
     it 'handles danish numbers' do
       Phony.split('4532121212').should == ['45', '32', '12', '12', '12']
     end

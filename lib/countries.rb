@@ -60,7 +60,8 @@ country '51', one_of('103', '105')               >> split(3,3) | # Peru
 country '52', match(/^(0\d{2})\d+$/)   >> split(2,2,2,2) | # Mexico
               match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
               match(/^(\d{3})\d+$/)    >> split(3,2,2)
-country '53', fixed(2) >> split(3,2,2) # TODO Cuba
+country '53', match(/^(5\d{3})\d+$/)                                   >> split(4) | # Cuba. Mobile.
+              match(/^(7|21|22|23|4[1-8]|3[1-3])/, :on_fail_take => 3) >> split(7)
 country '54', fixed(2) >> split(3,2,2) # TODO Argentine Republic
 brazilian_service = /^(100|128|190|191|192|193|194|197|198|199)\d+$/
 country '55', match(brazilian_service) >> split(3,3) | # Brazil (Federative Republic of)
