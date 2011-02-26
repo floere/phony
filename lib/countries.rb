@@ -69,7 +69,7 @@ country '55', match(brazilian_service) >> split(3,3) | # Brazil (Federative Repu
               # :service? => brazilian_service, :mobile? => ?
               # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
 country '56', Phony::Countries::Chile
-country '57', fixed(2) >> split(3,2,2)
+country '57', fixed(2) >> split(3,2,2) # TODO Colombia
 country '58', fixed(3) >> split(7) # Venezuela (Bolivarian Republic of)
 
 country '60', Phony::Countries::Malaysia
@@ -97,7 +97,7 @@ country '98', fixed(2) >> split(3,2,2) # TODO Iran (Islamic Republic of)
 country '210', fixed(2) >> split(3,2,2) # -
 country '211', fixed(2) >> split(3,2,2) # -
 country '212', fixed(2) >> split(3,2,2) # Morocco
-country '213', fixed(2) >> split(3,2,2) # Algeria
+country '213', fixed(2) >> split(3,4)   # Algeria
 country '214', fixed(2) >> split(3,2,2) # -
 country '215', fixed(2) >> split(3,2,2) # -
 country '216', fixed(2) >> split(3,2,2) # Tunisia

@@ -8,6 +8,10 @@ describe Phony do
     it 'handles afghan numbers' do
       Phony.split('93201234567').should == ['93', '20', '1234567'] # Kabul
     end
+    it 'handles algerian numbers' do
+      Phony.split('213211231234').should == ['213', '21', '123', '1234'] # Algiers
+      Phony.split('213331231234').should == ['213', '33', '123', '1234'] # Batna
+    end
     it "handles austrian numbers" do
       Phony.split('43198110').should == ['43', '1', '98110'] # Vienna
       Phony.split('4366914093902').should == ['43', '669', '14093902'] # Mobile
