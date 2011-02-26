@@ -105,6 +105,8 @@ country '217', fixed(2) >> split(3,2,2) # -
 country '218', fixed(2) >> split(3,2,2) # Lybia
 country '219', fixed(2) >> split(3,2,2) # -
 
+# TODO From here on.
+
 country '220', fixed(2) >> split(3,2,2) # Gambia
 country '221', fixed(2) >> split(3,2,2) # Senegal
 country '222', fixed(2) >> split(3,2,2) # Mauritania
