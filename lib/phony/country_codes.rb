@@ -82,6 +82,8 @@ module Phony
     
     # Cached mapping of all countries.
     #
+    # TODO Ugh.
+    #
     def mapping
       @mapping ||= Phony::Countries.mapping
     end

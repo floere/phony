@@ -6,9 +6,9 @@ module Phony
       
       #
       #
-      def initialize fallback, ndc_map
+      def initialize fallback, ndcs
         super fallback
-        @ndcs = restructure ndc_map
+        @ndcs = optimize ndcs
       end
       
       # Takes a national number and splits it into ndc and rest.
@@ -34,14 +34,14 @@ module Phony
         
         # Not found.
         #
-        return super(fallback_number)
+        super fallback_number
       end
       
       private
         
-        def restructure ndc_map
-          optimize ndc_map.values.flatten
-        end
+        # def restructure ndc_map
+        #   optimize ndc_map.values.flatten
+        # end
         
         # Optimizes and restructures the given ndcs array.
         #

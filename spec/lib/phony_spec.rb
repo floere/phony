@@ -41,6 +41,7 @@ describe Phony do
     end
     it "handles egyptian numbers" do
       Phony.split('20212345678').should == ['20', '2', '12345678']
+      Phony.split('20921234567').should == ['20', '92', '1234567']
       Phony.split('20951234567').should == ['20', '95', '1234567']
     end
     it "handles french numbers" do
@@ -53,11 +54,19 @@ describe Phony do
       Phony.split('493434112345').should == ['49', '34341', '123', '45'] # Geithain
     end
     it "should handle greek numbers" do
+      Phony.split('3021123456').should == ['30', '21', '123456']
+      Phony.split('3025941234').should == ['30', '2594', '1234']
       Phony.split('3022631234').should == ['30', '2263', '1234']
     end
     it "should handle hungarian numbers" do
       Phony.split('3612345678').should == ['36', '1', '234', '5678']
     end
+    it "should handle icelandic numbers" do
+      Phony.split('354112').should == ['354', '112'] # Emergency TODO
+      Phony.split('3544211234').should == ['354', '421', '1234'] # Keflavík
+      Phony.split('3544621234').should == ['354', '462', '1234'] # Akureyri
+      Phony.split('3545511234').should == ['354', '551', '1234'] # Reykjavík
+    end    
     it "should handle italian numbers" do
       Phony.split('3934869528').should == ['39', '3486', '952', '8']   # Mobile
       Phony.split('39068546705').should == ['39', '06', '854', '6705']   # Roma

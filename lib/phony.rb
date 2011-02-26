@@ -3,18 +3,21 @@
 require File.expand_path '../phony/vanity', __FILE__
 require File.expand_path '../phony/local_splitters/fixed', __FILE__
 require File.expand_path '../phony/local_splitters/regex', __FILE__
-require File.expand_path '../phony/national_splitters/experimental', __FILE__
+require File.expand_path '../phony/national_splitters/dsl', __FILE__
 require File.expand_path '../phony/national_splitters/fixed', __FILE__
 require File.expand_path '../phony/national_splitters/variable', __FILE__
+require File.expand_path '../phony/national_splitters/regex', __FILE__
 require File.expand_path '../phony/national_splitters/none', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
 require File.expand_path '../phony/country', __FILE__
+
+require File.expand_path '../phony/dsl', __FILE__
 
 # Countries.
 #
 # Note: See country_codes.rb for a complete mapping.
 #
-require File.expand_path '../phony/countries/all_other', __FILE__
+require File.expand_path '../phony/countries', __FILE__
 require File.expand_path '../phony/countries/austria', __FILE__
 require File.expand_path '../phony/countries/belgium', __FILE__
 require File.expand_path '../phony/countries/chile', __FILE__
@@ -33,6 +36,7 @@ require File.expand_path '../phony/countries/romania', __FILE__
 require File.expand_path '../phony/countries/south_korea', __FILE__
 require File.expand_path '../phony/countries/sweden', __FILE__
 require File.expand_path '../phony/countries/united_kingdom', __FILE__
+require File.expand_path '../phony/country_definitions', __FILE__
 
 require File.expand_path '../phony/country_codes', __FILE__
 
