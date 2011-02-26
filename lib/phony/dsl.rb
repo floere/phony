@@ -51,6 +51,10 @@ module Phony
     def one_of *ndcs
       options = Hash === ndcs.last ? ndcs.pop : {}
       
+      # Ruby 1.8 compatibility mode.
+      #
+      ndcs = ndcs.first if Array === ndcs.first
+      
       NationalSplitters::Variable.new options[:max_length], ndcs
     end
     def match regex, options = {}

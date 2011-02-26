@@ -50,7 +50,6 @@ service = [
   '909', # Betaalde informatienummers
  ]
 
-Phony::Countries::Netherlands = one_of(*service)                     >> split(3,3) | 
-
-                               one_of('6', *ndcs, :max_length => 3) >> split(8) # mobile + landline
+Phony::Countries::Netherlands = one_of(service)                        >> split(3,3) |
+                                one_of(['6'] + ndcs, :max_length => 3) >> split(8) # mobile + landline
                                 # 8 is for mobile numbers, other numbers will work as well (they use 7).

@@ -4067,6 +4067,6 @@ service = [
 '9009',
 ]
 
-Phony::Countries::Germany = one_of(*service)                >> split(3,10) | 
-                            match(/^(1[567]\d)\d*$/)        >> split(3,10) | # Mobile
-                            one_of(*ndcs, :max_length => 5) >> split(3,10)
+Phony::Countries::Germany = one_of(service)                >> split(3,10) | 
+                            match(/^(1[567]\d)\d*$/)       >> split(3,10) | # Mobile
+                            one_of(ndcs, :max_length => 5) >> split(3,10)

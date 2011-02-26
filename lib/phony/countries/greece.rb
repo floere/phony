@@ -23,30 +23,4 @@ ndcs = [
   '800'  # Service
 ]
 
-Phony::Countries::Greece = one_of(*ndcs, :max_length => 4) >> split(6)
-
-# Phony::Countries::Greece = Phony::Country.configured :local_format => [6],
-#   :ndc_fallback_length => 4,
-#   :ndc_mapping => {
-#     :landline => [
-#                   '21',  # Athens
-#                   '231', # Thessaloniki
-#                   '241', # Larissa
-#                   '251', # Kavala
-#                   '261', # Patras
-#                   '271', # Tripoli
-#                   '281', # Heraklion
-#                   ],
-#     :mobile => [
-#                 '690',
-#                 '693',
-#                 '694',
-#                 '695',
-#                 '697',
-#                 '698',
-#                 '699'
-#                ],
-#     :service => [ # TODO
-#                  '800'
-#                 ]
-#   }
+Phony::Countries::Greece = one_of(ndcs, :max_length => 4) >> split(6)
