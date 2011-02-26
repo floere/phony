@@ -1,6 +1,6 @@
 h2. Version 1.3.0
 
-* hanke: Easy DSL for defining countries.
+* hanke: Easy DSL for defining countries (easier for you to improve phony :) ).
 * hanke: Mexico.
 * hanke: Cuba.
 * hanke: Tunisia.
