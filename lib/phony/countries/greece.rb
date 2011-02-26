@@ -23,7 +23,7 @@ ndcs = [
   '800'  # Service
 ]
 
-Phony::Countries::Greece = one_of(*ndcs, :max_length => 4) >> format(6)
+Phony::Countries::Greece = one_of(*ndcs, :max_length => 4) >> split(6)
 
 # Phony::Countries::Greece = Phony::Country.configured :local_format => [6],
 #   :ndc_fallback_length => 4,

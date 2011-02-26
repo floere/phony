@@ -13,5 +13,5 @@ ndcs = [
 
 # TODO Change how one_of works. max_length should be optional.
 #
-Phony::Countries::Egypt = one_of('800') >> format(7) |
-                          one_of(*ndcs, :max_length => 2) >> format(8)
+Phony::Countries::Egypt = one_of('800') >> split(7) |
+                          one_of(*ndcs, :max_length => 2) >> split(8)

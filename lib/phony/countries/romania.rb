@@ -27,6 +27,6 @@ service = [
  '906',
 ]
 
-Phony::Countries::Romania = one_of(*service)                     >> format(3,3) | 
-                            match(/^(7[1-8])\d*$/)               >> format(3,4) | 
-                            one_of('21', '31', :max_length => 3) >> format(3,4) # Bucureşti
+Phony::Countries::Romania = one_of(*service)                     >> split(3,3) | 
+                            match(/^(7[1-8])\d*$/)               >> split(3,4) | 
+                            one_of('21', '31', :max_length => 3) >> split(3,4) # Bucureşti

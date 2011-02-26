@@ -80,6 +80,10 @@ describe Phony do
       Phony.split('60312345678').should == ['60', '3', '12345678'] # Kuala Lumpur
       Phony.split('60212345678').should == ['60', '2', '12345678'] # Singapore
     end
+    it 'handles mexican numbers' do
+      Phony.split('525512121212').should == ['52', '55', '12', '12', '12', '12'] # Mexico City
+      Phony.split('526641231212').should == ['52', '664', '123', '12', '12'] # Tijuana
+    end
     it 'handles norwegian numbers' do
       Phony.split('4721234567').should == ['47','21','23','45','67']
       Phony.split('4731234567').should == ['47','31','23','45','67']

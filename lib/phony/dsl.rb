@@ -13,18 +13,18 @@
 # # … and in Germany:
 # #
 # include Phony::DSL
-# Countries::Germany = match(...) >> format([...]) ||
-#                      one_of([...], :max_length => 5) >> format([...])
+# Countries::Germany = match(...) >> split([...]) ||
+#                      one_of([...], :max_length => 5) >> split([...])
 # 
 # # Denmark.
 # #
-# country('45', none >> format([2,2,2,2])) # Denmark.
+# country('45', none >> split([2,2,2,2])) # Denmark.
 # 
 # # Hungary.
 # # 
 # country('36',
-#         match(/^104|105|107|112/) >> format([3,3]) ||
-#         one_of([1], :max_length => 2) >> format([3,4])
+#         match(/^104|105|107|112/) >> split([3,3]) ||
+#         one_of([1], :max_length => 2) >> split([3,4])
 # )
 
 module Phony
@@ -62,10 +62,10 @@ module Phony
     
     #
     #
-    def format *local
+    def split *local
       LocalSplitters::Fixed.instance_for local
     end
-    def matched_format options = {}
+    def matched_split options = {}
       Phony::LocalSplitters::Regex.instance_for options
     end
     

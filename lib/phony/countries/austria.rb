@@ -67,4 +67,4 @@ service = [
  '939'  
 ]
 
-Phony::Countries::Austria = one_of(*(service + mobile + ndcs), :max_length => 4) >> format(10)
+Phony::Countries::Austria = one_of(*(service + mobile + ndcs), :max_length => 4) >> split(10)
