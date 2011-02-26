@@ -129,6 +129,10 @@ describe Phony do
       Phony.split('825112345678').should == ['82', '51', '1234', '5678'] # Busan
       Phony.split('821027975588').should == ['82', '10', '2797', '5588'] # mobile
     end
+    it 'handles tunisian numbers' do
+      Phony.split('21611231234').should == ['216', '1', '123', '1234'] # Ariana
+      Phony.split('21621231234').should == ['216', '2', '123', '1234'] # Bizerte
+    end
     it "should handle swedish numbers" do
       Phony.split('46812345678').should == ['46', '8', '12345678']
       Phony.split('46111234567').should == ['46', '11', '1234567']

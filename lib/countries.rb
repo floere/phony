@@ -100,7 +100,7 @@ country '212', fixed(2) >> split(3,2,2) # Morocco
 country '213', fixed(2) >> split(3,4)   # Algeria
 country '214', fixed(2) >> split(3,2,2) # -
 country '215', fixed(2) >> split(3,2,2) # -
-country '216', fixed(2) >> split(3,2,2) # Tunisia
+country '216', fixed(1) >> split(3,4)   # Tunisia
 country '217', fixed(2) >> split(3,2,2) # -
 country '218', fixed(2) >> split(3,2,2) # Lybia
 country '219', fixed(2) >> split(3,2,2) # -
