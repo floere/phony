@@ -194,7 +194,9 @@ country '354', none     >> split(3,4)   # Iceland
 country '355', fixed(2) >> split(3,2,2) # Albania
 country '356', fixed(2) >> split(3,2,2) # Malta
 country '357', fixed(2) >> split(3,2,2) # Cyprus
-country '358', fixed(2) >> split(3,2,2) # Finland
+country '358', match(/^([6-8]00)\d+$/)                           >> split(3,3)   | # Finland
+               match(/^(4\d|50)\d+$/)                            >> split(3,2,2) |
+               one_of('2','3','5','6','8','9', :max_length => 2) >> split(3,3)
 country '359', fixed(2) >> split(3,2,2) # Bulgaria
 
 country '370', fixed(2) >> split(3,2,2) # Lithuania
