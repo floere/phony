@@ -1,5 +1,3 @@
-include Phony::DSL
-
 # Austria uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 ndcs = [
@@ -25,8 +23,8 @@ ndcs = [
 ]
 
 mobile = [
- '67', 
- '68', 
+ '67',
+ '68',
  '644',
  '650',
  '651',
@@ -64,7 +62,9 @@ service = [
  '901',
  '930',
  '931',
- '939'  
+ '939'
 ]
 
-Phony::Countries::Austria = one_of(service + mobile + ndcs, :max_length => 4) >> split(10)
+Phony.define do
+  country '43', one_of(service + mobile + ndcs, :max_length => 4) >> split(10)
+end

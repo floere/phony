@@ -1,5 +1,3 @@
-include Phony::DSL
-
 # Germany uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 # Note: Germany uses a variable ndc format from length 2 to 5.
@@ -4067,6 +4065,8 @@ service = [
 '9009',
 ]
 
-Phony::Countries::Germany = one_of(service)                >> split(3,10) | 
-                            match(/^(1[567]\d)\d*$/)       >> split(3,10) | # Mobile
-                            one_of(ndcs, :max_length => 5) >> split(3,10)
+Phony.define do
+   country '49', one_of(service)                >> split(3,10) |
+                 match(/^(1[567]\d)\d*$/)       >> split(3,10) | # Mobile
+                 one_of(ndcs, :max_length => 5) >> split(3,10)
+end

@@ -8,6 +8,7 @@
 #
 service = %w{130 131 132 133 134 135 136 137 139 147 149}
 
-Phony::Countries::Chile = one_of(*service)                   >> split(3,3) | 
-
-                          one_of('2', '9', :max_length => 2) >> split(8) # Santiago (2) and mobile.
+Phony.define do
+  country '56', one_of(*service)                   >> split(3,3) |
+                one_of('2', '9', :max_length => 2) >> split(8) # Santiago (2) and mobile.
+end

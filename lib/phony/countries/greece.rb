@@ -1,5 +1,3 @@
-include Phony::DSL
-
 # Greece uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 # Note: Greece uses a variable ndc format from length 2 to 4.
@@ -23,4 +21,6 @@ ndcs = [
   '800'  # Service
 ]
 
-Phony::Countries::Greece = one_of(ndcs, :max_length => 4) >> split(6)
+Phony.define do
+  country '30', one_of(ndcs, :max_length => 4) >> split(6)
+end

@@ -1,5 +1,3 @@
-include Phony::DSL
-
 # Italian phone numbers.
 #
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Italy
@@ -15,7 +13,7 @@ ndcs = [
  '0161', # Vercelli
  '0165', # Aosta, Courmayeur
  '0166', # Cervinia
- '0171', # Cuneo 
+ '0171', # Cuneo
  '0185', # Tigullio
  '0187', # La Spezia and Cinque Terre
   '019', # Savona
@@ -63,27 +61,27 @@ ndcs = [
  '0771', # Fondi
  '0773', # Latina
  '0775', # Frosinone
- '0789', # Olbia and Costa Smeralda 
+ '0789', # Olbia and Costa Smeralda
   '079', # Sassari
   '080', # Bari
   '081', # Naples
  '0823', # Caserta
  '0824', # Benevento
- '0825', # Avellino 
+ '0825', # Avellino
   '085', # Pescara
- '0865', # Isernia 
+ '0865', # Isernia
  '0871', # Chieti
  '0872', # Lanciano
  '0873', # Vasto
- '0874', # Campobasso 
+ '0874', # Campobasso
  '0875', # Termoli
  '0881', # Foggia
-  '089', # Salerno 
+  '089', # Salerno
   '090', # Messina
   '091', # Palermo
   '092', # Agrigento
   '095', # Catania
- '0961', # Catanzaro 
+ '0961', # Catanzaro
  '0965', # Reggio di Calabria
  '0971', # Potenza
   '099', # Taranto
@@ -155,10 +153,10 @@ service = [ # Not exhaustive.
 
 # TODO Normalize!
 #
-# Phony::Countries::Italy = one_of(*service)                >> split(3,3) | 
-#                           one_of(*mobile)                 >> split(3,4) | 
+# Phony::Countries::Italy = one_of(*service)                >> split(3,3) |
+#                           one_of(*mobile)                 >> split(3,4) |
 #                           one_of(*ndcs, :max_length => 3) >> split(3,4)
-                          
+
 handlers = []
 handlers << Phony::NationalCode.new(
   Phony::NationalSplitters::Variable.new(nil, service),
@@ -175,4 +173,7 @@ handlers << Phony::NationalCode.new(
   Phony::LocalSplitters::Fixed.instance_for([3, 4]),
   false
 )
-Phony::Countries::Italy = Phony::Country.new *handlers
+
+Phony.define do
+  country '39', Phony::Country.new(*handlers)
+end

@@ -66,10 +66,13 @@ describe 'country descriptions' do
       Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
     end
     it "handles german numbers" do
-      Phony.split('4930123456').should ==   ['49', '30', '123', '456']
-      Phony.split('4976112345').should ==   ['49', '761', '123', '45']
-      Phony.split('492041123456').should == ['49', '2041', '123', '456']
-      Phony.split('493434112345').should == ['49', '34341', '123', '45'] # Geithain
+      Phony.split('493038625454').should  == ['49', '30', '386', '25454'] # Berlin
+      Phony.split('4922137683323').should == ['49', '221', '376', '83323'] # Cologne
+      Phony.split('497614767676').should  == ['49', '761', '476', '7676'] # Freiburg im Breisgau
+      Phony.split('4921535100').should    == ['49', '2153', '510', '0'] # Nettetal-Lobberich
+      Phony.split('493434144602').should  == ['49', '34341', '446', '02'] # Geithain
+      Phony.split('491805878323').should  == ['49', '180', '587', '8323'] # Service numbers
+      Phony.split('491815878323').should  == ['49', '181', '587', '8323'] # Service numbers
     end
     it "handles greek numbers" do
       Phony.split('3021123456').should == ['30', '21', '123456']
@@ -78,6 +81,7 @@ describe 'country descriptions' do
     end
     it "handles hungarian numbers" do
       Phony.split('3612345678').should == ['36', '1', '234', '5678']
+      Phony.split('3622123456').should == ['36', '22', '123', '456']
     end
     it "handles icelandic numbers" do
       Phony.split('354112').should == ['354', '112'] # Emergency TODO

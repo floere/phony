@@ -53,5 +53,7 @@ service = [
  '11414', # Police
 ]
 
-Phony::Countries::Sweden = one_of(service)                            >> split(3,3) | 
-                           one_of(ndcs + mobile, :max_length => 3) >> split(8)
+Phony.define do
+  country '46', one_of(service)                         >> split(3,3) |
+                one_of(ndcs + mobile, :max_length => 3) >> split(8)
+end

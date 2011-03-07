@@ -1,5 +1,3 @@
-include Phony::DSL
-
 # Belgium uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 # Taken from: http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
@@ -28,6 +26,8 @@ service = [
  '909'  # Premium
 ]
 
-Phony::Countries::Belgium = one_of(service)                >> split(3,3) |
-                            match(mobile_regex)            >> split(6)   |
-                            one_of(ndcs, :max_length => 2) >> split(3,5)
+Phony.define do
+  country '32', one_of(service)                >> split(3,3) |
+                match(mobile_regex)            >> split(6)   |
+                one_of(ndcs, :max_length => 2) >> split(3,5)
+end

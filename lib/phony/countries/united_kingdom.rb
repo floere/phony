@@ -17,7 +17,7 @@ area_code_2_national = Phony::NationalSplitters::Variable.new nil, [
   '23',   # Southampton, Portsmith
   '24',   # Coventry
   '28',   # Northern Ireland
-  '29',   # Cardiff 
+  '29',   # Cardiff
 ]
 area_code_2_local    = Phony::LocalSplitters::Fixed.instance_for [4, 4]
 handlers            << Phony::NationalCode.new(area_code_2_national, area_code_2_local)
@@ -26,10 +26,10 @@ area_code_3_national = Phony::NationalSplitters::Variable.new nil, [
   # Geographical.
   #
   '113',  # Leeds
-  '114',  # Sheffield	
-  '115',  # Nottingham	
-  '116',  # Leicester	
-  '117',  # Bristol	
+  '114',  # Sheffield
+  '115',  # Nottingham
+  '116',  # Leicester
+  '117',  # Bristol
   '118',  # Reading
   '121',  # Birmingham
   '131',  # Edinburgh
@@ -46,7 +46,7 @@ area_code_3_national = Phony::NationalSplitters::Variable.new nil, [
   '842',
   '843',
   '844',
-  '845', 
+  '845',
   '870',
   '871',
   '872',
@@ -70,7 +70,7 @@ area_code_45_national = Phony::NationalSplitters::Variable.new 6, [
   '1382', # Dundee
   '1429', # Hartlepool
   '1482', # Hull
-  '1527', # Redditch	
+  '1527', # Redditch
   '1582', # Luton
   '1670', # Morpeth
   '1730', # Petersfield
@@ -104,4 +104,6 @@ area_code_45_national = Phony::NationalSplitters::Variable.new 6, [
 area_code_45_local    = Phony::LocalSplitters::Fixed.instance_for [6]
 handlers             << Phony::NationalCode.new(area_code_45_national, area_code_45_local)
 
-Phony::Countries::UnitedKingdom = Phony::Country.new *handlers
+Phony.define do
+  country '44', Phony::Country.new(*handlers)
+end

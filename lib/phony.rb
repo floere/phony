@@ -39,11 +39,11 @@ require File.expand_path '../phony/countries/united_kingdom', __FILE__
 require File.expand_path '../countries', __FILE__
 
 module Phony
-  
+
   # Phony uses a single country codes instance.
   #
   @codes = CountryCodes.instance
-  
+
   # Normalizes the given number.
   #
   # Useful before inserting the number into a database.
@@ -54,7 +54,7 @@ module Phony
   def self.normalize! phone_number
     @codes.normalize phone_number
   end
-  
+
   # Splits the phone number into pieces according to the country codes.
   #
   def self.split phone_number
@@ -63,7 +63,7 @@ module Phony
   def self.split! phone_number
     @codes.split phone_number
   end
-  
+
   # Formats a E164 number according to local customs.
   #
   def self.formatted phone_number, options = {}
@@ -72,7 +72,7 @@ module Phony
   def self.formatted! phone_number, options = {}
     @codes.formatted phone_number, options
   end
-  
+
   # def self.service? number
   #   @codes.service? number.dup
   # end
@@ -82,19 +82,19 @@ module Phony
   # def self.landline? number
   #   @codes.landline? number.dup
   # end
-  
+
   # Returns true if there is a character in the number
   # after the first four numbers.
   #
   def self.vanity? phone_number
     @codes.vanity? phone_number.dup
   end
-  
+
   # Converts any character in the vanity_number to its numeric representation.
   # Does not check if the passed number is a valid vanity_number, simply does replacement.
   #
   def self.vanity_to_number vanity_number
     @codes.vanity_to_number vanity_number.dup
   end
-  
+
 end

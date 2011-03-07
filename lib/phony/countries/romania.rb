@@ -1,5 +1,3 @@
-include Phony::DSL
-
 # Romanian phone numbers.
 #
 # http://en.wikipedia.org/wiki/Romania_telephone_area_codes
@@ -27,6 +25,8 @@ service = [
  '906',
 ]
 
-Phony::Countries::Romania = one_of(*service)                     >> split(3,3) | 
-                            match(/^(7[1-8])\d*$/)               >> split(3,4) | 
-                            one_of('21', '31', :max_length => 3) >> split(3,4) # Bucureşti
+Phony.define do
+  country '40', one_of(*service)                     >> split(3,3) |
+                match(/^(7[1-8])\d*$/)               >> split(3,4) |
+                one_of('21', '31', :max_length => 3) >> split(3,4) # Bucureşti
+end
