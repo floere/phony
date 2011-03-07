@@ -18,7 +18,9 @@
 #         match(/^104|105|107|112/) >> split([3,3]) ||
 #         one_of([1], :max_length => 2) >> split([3,4])
 # )
-
+#
+# Note: Perhaps the DSL should operate directly on country codes.
+#
 module Phony
 
   # For country definitions.
