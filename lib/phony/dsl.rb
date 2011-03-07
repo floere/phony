@@ -4,9 +4,10 @@
 #
 # # Germany. Too big, we use a separate file:
 # #
-# include Phony::DSL
-# country '49', match(...) >> split([...]) ||
-#               one_of([...], :max_length => 5) >> split([...])
+# Phony.define do
+#   country '49', match(...) >> split([...]) ||
+#                 one_of([...], :max_length => 5) >> split([...])
+# end
 #
 # # Denmark:
 # #
