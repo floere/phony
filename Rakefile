@@ -1,4 +1,4 @@
-# Spec.
+# Specs.
 #
 require 'rake'
 
