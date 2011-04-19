@@ -73,7 +73,8 @@ Phony.define do
   country '58', fixed(3) >> split(7) # Venezuela (Bolivarian Republic of)
 
   # country '60', Phony::Countries::Malaysia
-  country '61', fixed(1) >> split(4,4)   # Australia
+  country '61', match(/^(4\d\d)\d+$/) >> split(3,3) | # Australia
+                fixed(1)              >> split(4,4)
   country '62', fixed(2) >> split(3,2,2) # TODO Indonesia (Republic of)
   country '63', fixed(2) >> split(3,2,2) # TODO Philippines (Republic of the)
   country '64', fixed(1) >> split(3,4)   # New Zealand

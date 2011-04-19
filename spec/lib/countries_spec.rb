@@ -18,6 +18,10 @@ describe 'country descriptions' do
       Phony.split('433161234567891').should == ['43', '316', '1234567891'] # Graz
       Phony.split('432164123456789').should == ['43', '2164', '123456789'] # Rohrau
     end
+    it "handles australian numbers" do
+      Phony.split('61512341234').should == ['61', '5', '1234', '1234'] # Landline
+      Phony.split('61423123123').should == ['61', '423', '123', '123'] # Mobile
+    end
     it 'handles belgian numbers' do
       Phony.split('3235551212').should == ['32', '3', '555', '1212']   # Antwerpen
       Phony.split('32505551212').should == ['32', '50', '555', '1212'] # Brugge
