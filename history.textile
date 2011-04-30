@@ -1,6 +1,6 @@
 h2. Version 1.3.5
 
-* hanke: Lithuania.
+* hanke: Lithuania. Croatia.
 
 h2. Version 1.3.4
 

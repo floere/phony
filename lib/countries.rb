@@ -220,7 +220,7 @@ Phony.define do
   country '382', fixed(2) >> split(3,2,2) # -
   country '383', fixed(2) >> split(3,2,2) # -
   country '384', fixed(2) >> split(3,2,2) # -
-  country '385', fixed(2) >> split(3,2,2) # Croatia
+  country '385', one_of('1', :max_length => 2) >> split(3,5) # Croatia
   country '386', fixed(2) >> split(3,2,2) # Slovenia
   country '387', fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
   country '388', fixed(2) >> split(3,2,2) # Group of countries, shared code

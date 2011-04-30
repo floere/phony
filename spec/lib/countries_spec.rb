@@ -42,6 +42,10 @@ describe 'country descriptions' do
       Phony.split('862112345678').should == ['86', '21', '1234', '5678'] # Shanghai
       Phony.split('8675582193447').should == ['86', '755', '8219', '3447'] # Shenzhen
     end
+    it 'handles croatian numbers' do
+      Phony.split('385112312345').should == ['385', '1', '123', '12345'] # Zagreb
+      Phony.split('385491231234').should == ['385', '49', '123', '1234'] # Krapina
+    end
     it 'handles cuban numbers' do
       Phony.split('5351231234').should == ['53', '5123', '1234'] # Mobile
       Phony.split('5371234567').should == ['53', '7', '1234567'] # Havana
