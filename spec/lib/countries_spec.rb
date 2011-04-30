@@ -94,9 +94,16 @@ describe 'country descriptions' do
       Phony.split('3545511234').should == ['354', '551', '1234'] # Reykjavík
     end    
     it "handles italian numbers" do
-      Phony.split('3934869528').should == ['39', '3486', '952', '8']   # Mobile
+      Phony.split('3934869528').should == ['39', '3486', '952', '8']     # Mobile
       Phony.split('39068546705').should == ['39', '06', '854', '6705']   # Roma
       Phony.split('390909709511').should == ['39', '090', '970', '9511'] # Barcellona
+    end
+    it "handles lithuanian numbers" do
+      Phony.split('37070012123').should == ['370', '700', '12', '123']     # Service
+      Phony.split('37061212123').should == ['370', '612', '12', '123']     # Mobile
+      Phony.split('37051231212').should == ['370', '5', '123', '12', '12'] # Vilnius
+      Phony.split('37037121212').should == ['370', '37', '12', '12', '12'] # Kaunas
+      Phony.split('37044011212').should == ['370', '440', '1', '12', '12'] # Skuodas
     end
     it 'handles malay numbers' do
       Phony.split('6082123456').should == ['60', '82', '123456'] # Kuching

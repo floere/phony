@@ -200,7 +200,11 @@ Phony.define do
                  one_of('2','3','5','6','8','9', :max_length => 2) >> split(3,3)
   country '359', fixed(2) >> split(3,2,2) # Bulgaria
 
-  country '370', fixed(2) >> split(3,2,2) # Lithuania
+  country '370', one_of('700', '800')  >> split(2,3)   | # Lithuania
+                 match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
+                 one_of('5')           >> split(3,2,2) | # Vilnius
+                 one_of('37','41')     >> split(2,2,2) | #
+                 fixed(3)              >> split(1,2,2)
   country '371', fixed(2) >> split(3,2,2) # Latvia
   country '372', fixed(2) >> split(3,2,2) # Estonia
   country '373', fixed(2) >> split(3,2,2) # Moldova
