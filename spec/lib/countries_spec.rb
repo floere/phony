@@ -147,6 +147,11 @@ describe 'country descriptions' do
       Phony.split('21611231234').should == ['216', '1', '123', '1234'] # Ariana
       Phony.split('21621231234').should == ['216', '2', '123', '1234'] # Bizerte
     end
+    it "handles slovakian numbers" do
+      Phony.split('421912123456').should == ['421', '912', '123456'] # Mobile
+      Phony.split('421212345678').should == ['421', '2', '12345678'] # Bratislava
+      Phony.split('421371234567').should == ['421', '37', '1234567'] # Nitra / Other
+    end
     it "handles swedish numbers" do
       Phony.split('46812345678').should == ['46', '8', '12345678'] # Stockholm
       Phony.split('46111234567').should == ['46', '11', '1234567']

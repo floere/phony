@@ -223,7 +223,8 @@ Phony.define do
   country '389', fixed(2) >> split(3,2,2) # The Former Yugoslav Republic of Macedonia
 
   country '420', fixed(3) >> split(3,3)   # Czech Republic
-  country '421', fixed(2) >> split(3,2,2) # Slovak Republic
+  country '421', match(/^(9\d\d).+$/) >> split(7) |        # Slovak Republic
+                 one_of('2', :max_length => 2) >> split(8) # Bratislava
   country '422', fixed(2) >> split(3,2,2) # Spare code
   country '423', none     >> split(3,2,2) # Liechtenstein (Principality of)
   country '424', fixed(2) >> split(3,2,2) # -
