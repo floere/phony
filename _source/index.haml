@@ -30,7 +30,7 @@ layout: default
     %p An austrian number, internationally formatted.
     %code
       %pre
-        Phony.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
+        Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
     %h4 Splitting
     %p The french split numbers like that:
     %code

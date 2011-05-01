@@ -22,7 +22,7 @@
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-20991642-1']);
         _gaq.push(['_trackPageview']);
-        
+
         (function() {
           var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -73,7 +73,7 @@
         <h3>What it does</h3>
         <h4>Formatting</h4>
         <p>An austrian number, internationally formatted.</p>
-        <code><pre>Phony.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'</pre></code>
+        <code><pre>Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'</pre></code>
         <h4>Splitting</h4>
         <p>The french split numbers like that:</p>
         <code><pre>Phony.split('33112345678').should == ['33', '1', '12','34','56','78']</pre></code>
