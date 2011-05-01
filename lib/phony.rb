@@ -44,57 +44,63 @@ module Phony
   #
   @codes = CountryCodes.instance
 
-  # Normalizes the given number.
-  #
-  # Useful before inserting the number into a database.
-  #
-  def self.normalize phone_number
-    normalize! phone_number.dup
-  end
-  def self.normalize! phone_number
-    @codes.normalize phone_number
-  end
+  class << self
 
-  # Splits the phone number into pieces according to the country codes.
-  #
-  def self.split phone_number
-    split! phone_number.dup
-  end
-  def self.split! phone_number
-    @codes.split phone_number
-  end
+    # Normalizes the given number.
+    #
+    # Useful before inserting the number into a database.
+    #
+    def normalize phone_number
+      normalize! phone_number.dup
+    end
+    def normalize! phone_number
+      @codes.normalize phone_number
+    end
 
-  # Formats a E164 number according to local customs.
-  #
-  def self.formatted phone_number, options = {}
-    formatted! phone_number.dup, options
-  end
-  def self.formatted! phone_number, options = {}
-    @codes.formatted phone_number, options
-  end
+    # Splits the phone number into pieces according to the country codes.
+    #
+    def split phone_number
+      split! phone_number.dup
+    end
+    def split! phone_number
+      @codes.split phone_number
+    end
 
-  # def self.service? number
-  #   @codes.service? number.dup
-  # end
-  # def self.mobile? number
-  #   @codes.mobile? number.dup
-  # end
-  # def self.landline? number
-  #   @codes.landline? number.dup
-  # end
+    # Formats a E164 number according to local customs.
+    #
+    def format phone_number, options = {}
+      formatted! phone_number.dup, options
+    end
+    def format! phone_number, options = {}
+      @codes.formatted phone_number, options
+    end
+    alias formatted  format
+    alias formatted! format!
 
-  # Returns true if there is a character in the number
-  # after the first four numbers.
-  #
-  def self.vanity? phone_number
-    @codes.vanity? phone_number.dup
-  end
+    # def service? number
+    #   @codes.service? number.dup
+    # end
+    # def mobile? number
+    #   @codes.mobile? number.dup
+    # end
+    # def landline? number
+    #   @codes.landline? number.dup
+    # end
 
-  # Converts any character in the vanity_number to its numeric representation.
-  # Does not check if the passed number is a valid vanity_number, simply does replacement.
-  #
-  def self.vanity_to_number vanity_number
-    @codes.vanity_to_number vanity_number.dup
+    # Returns true if there is a character in the number
+    # after the first four numbers.
+    #
+    def vanity? phone_number
+      @codes.vanity? phone_number.dup
+    end
+
+    # Converts any character in the vanity_number to its numeric representation.
+    # Does not check if the passed number is a valid vanity_number, simply does replacement.
+    #
+    def vanity_to_number vanity_number
+      @codes.vanity_to_number vanity_number.dup
+    end
+
   end
 
 end

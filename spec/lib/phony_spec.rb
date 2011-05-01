@@ -9,10 +9,10 @@ describe Phony do
       it "should normalize an already normalized number" do
         Phony.normalize('41443643533').should == '41443643533'
       end
-      it "should normalize a formatted number" do
+      it "should normalize a format number" do
         Phony.normalize('+41 44 364 35 33').should == '41443643533'
       end
-      it "should normalize a formatted number" do
+      it "should normalize a format number" do
         Phony.normalize('+41 44 364 35 33').should == '41443643533'
       end
       it "should normalize a service number" do
@@ -42,105 +42,111 @@ describe Phony do
     end
   end
   
-  describe "formatted" do
+  describe 'formatted' do
+    it 'is an alias of format' do
+      Phony.formatted('41443643532').should == '+41 44 364 35 32'
+    end
+  end
+  
+  describe "format" do
     describe "default" do
       it "should format swiss numbers" do
-        Phony.formatted('41443643532').should == '+41 44 364 35 32'
+        Phony.format('41443643532').should == '+41 44 364 35 32'
       end
       # TODO
       #
       it "should format swiss service numbers" do
-        Phony.formatted('41800112233').should == '+41 800 112 233'
+        Phony.format('41800112233').should == '+41 800 112 233'
       end
       it "should format austrian numbers" do
-        Phony.formatted('43198110').should == '+43 1 98110'
+        Phony.format('43198110').should == '+43 1 98110'
       end
       it "should format american numbers" do
-        Phony.formatted('18705551122').should == '+1 870 555 1122'
+        Phony.format('18705551122').should == '+1 870 555 1122'
       end
     end
     describe "international" do
       it "should format north american numbers" do
-        Phony.formatted('18091231234', :format => :international).should == '+1 809 123 1234'
+        Phony.format('18091231234', :format => :international).should == '+1 809 123 1234'
       end
       it "should format austrian numbers" do
-        Phony.formatted('43198110', :format => :international).should == '+43 1 98110'
+        Phony.format('43198110', :format => :international).should == '+43 1 98110'
       end
       it "should format austrian numbers" do
-        Phony.formatted('43198110', :format => :international_absolute).should == '+43 1 98110'
+        Phony.format('43198110', :format => :international_absolute).should == '+43 1 98110'
       end
       it "should format french numbers" do
-        Phony.formatted('33142278186', :format => :+).should == '+33 1 42 27 81 86'
+        Phony.format('33142278186', :format => :+).should == '+33 1 42 27 81 86'
       end
       it "should format austrian numbers" do
-        Phony.formatted('43198110', :format => :international_relative).should == '0043 1 98110'
+        Phony.format('43198110', :format => :international_relative).should == '0043 1 98110'
       end
       it 'should format liechtensteiner numbers' do
-        Phony.formatted('4233841148', :format => :international_relative).should == '00423 384 11 48'
+        Phony.format('4233841148', :format => :international_relative).should == '00423 384 11 48'
       end
       context 'with no spaces' do
         it "should format north american numbers" do
-          Phony.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'
+          Phony.format('18091231234', :format => :international, :spaces => '').should == '+18091231234'
         end
         it "should format austrian numbers" do
-          Phony.formatted('43198110', :format => :international, :spaces => '').should == '+43198110'
+          Phony.format('43198110', :format => :international, :spaces => '').should == '+43198110'
         end
         it "should format austrian numbers" do
-          Phony.formatted('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'
+          Phony.format('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'
         end
         it "should format french numbers" do
-          Phony.formatted('33142278186', :format => :+, :spaces => '').should == '+33142278186'
+          Phony.format('33142278186', :format => :+, :spaces => '').should == '+33142278186'
         end
         it "should format austrian numbers" do
-          Phony.formatted('43198110', :format => :international_relative, :spaces => '').should == '0043198110'
+          Phony.format('43198110', :format => :international_relative, :spaces => '').should == '0043198110'
         end
         it 'should format liechtensteiner numbers' do
-          Phony.formatted('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'
+          Phony.format('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'
         end
       end
       context 'with special spaces' do
         it "should format swiss numbers" do
-          Phony.formatted('41443643532', :format => :international).should == '+41 44 364 35 32'
+          Phony.format('41443643532', :format => :international).should == '+41 44 364 35 32'
         end
         it "should format north american numbers" do
-          Phony.formatted('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'
+          Phony.format('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'
         end
         it "should format austrian numbers" do
-          Phony.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
+          Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
         end
         it "should format austrian numbers" do
-          Phony.formatted('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'
+          Phony.format('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'
         end
         it "should format french numbers" do
-          Phony.formatted('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'
+          Phony.format('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'
         end
         it "should format austrian numbers" do
-          Phony.formatted('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'
+          Phony.format('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'
         end
         it 'should format liechtensteiner numbers' do
-          Phony.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
+          Phony.format('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
         end
       end
     end
     describe "national" do
       it "should format swiss numbers" do
-        Phony.formatted('41443643532', :format => :national).should == '044 364 35 32'
+        Phony.format('41443643532', :format => :national).should == '044 364 35 32'
       end
       # TODO
       #
       it "should format swiss service numbers" do
-        Phony.formatted('41800112233', :format => :national).should == '0800 112 233'
+        Phony.format('41800112233', :format => :national).should == '0800 112 233'
       end
       it "should format austrian numbers" do
-        Phony.formatted('43198110', :format => :national).should == '01 98110'
+        Phony.format('43198110', :format => :national).should == '01 98110'
       end
     end
     describe "local" do
       it "should format swiss numbers" do
-        Phony.formatted('41443643532', :format => :local).should == '364 35 32'
+        Phony.format('41443643532', :format => :local).should == '364 35 32'
       end
       it "should format german numbers" do
-        Phony.formatted('493038625454', :format => :local).should == '386 25454'
+        Phony.format('493038625454', :format => :local).should == '386 25454'
       end
     end
   end
@@ -164,13 +170,13 @@ describe Phony do
     end
     context 'formatting' do
       it 'handles completely missing numbers well enough' do
-        Phony.formatted('4144').should == '+41 44 '
+        Phony.format('4144').should == '+41 44 '
       end
       it 'handles a missing number part' do
-        Phony.formatted('4144364').should == '+41 44 364'
+        Phony.format('4144364').should == '+41 44 364'
       end
       it 'handles a missing number part' do
-        Phony.formatted('414436435').should == '+41 44 364 35'
+        Phony.format('414436435').should == '+41 44 364 35'
       end
     end
   end
@@ -203,13 +209,13 @@ describe Phony do
         performance_of { @phone_numbers.each { |number| Phony.normalize(number) } }.should < 0.00016
       end
     end
-    describe 'formatted' do
+    describe 'format' do
       it 'is fast' do
         number = @phone_numbers.first
-        performance_of { Phony.formatted(number) }.should < 0.000075
+        performance_of { Phony.format(number) }.should < 0.000075
       end
       it 'is fast' do
-        performance_of { @phone_numbers.each { |number| Phony.formatted(number) } }.should < 0.00016
+        performance_of { @phone_numbers.each { |number| Phony.format(number) } }.should < 0.00016
       end
     end
   end

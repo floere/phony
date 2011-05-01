@@ -1,3 +1,7 @@
+h2. Version 1.4.0
+
+* hanke: Changed @Phony.formatted@ to @Phony.format@. The old method can still be used. (Thanks trans!)
+
 h2. Version 1.3.5
 
 * hanke: Lithuania. Croatia.
