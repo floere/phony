@@ -1,16 +1,16 @@
 # All countries, ordered by country code.
 #
+# Definitions are in the format:
+#   NDC >> National | NDC >> National | # ...
+#
+# As soon as a NDC matches, it goes on to the National part. Then breaks off.
+# If the NDC does not match, it go on to the next (|, or "or") NDC.
+#
 # Available matching/splitting methods:
-# * fixed:  Always splits off a fixed length ndc. (Always use last in a | chain)
 # * none:   Does not have a national destination code, e.g. Denmark, Iceland.
 # * one_of: Matches one of the following numbers. Splits if it does.
-#           Options:
-#           * max_length: Will try to match up to length max_length, then stop.
-#                         (Only use one_of with this option when last in a | chain)
 # * match: Try to match the regex, and if it matches, splits it off.
-#           Options:
-#           * on_fail_take: If it does not match, take n digits, then stop.
-#                           (When you use this option, match must be last in a | chain)
+# * fixed:  Always splits off a fixed length ndc. (Always use last in a | chain)
 #
 # For the national number part, there are two:
 # * split:         Use this number group splitting.
@@ -24,8 +24,9 @@ Phony.define do
   country '1', fixed(3) >> split(3,4) # USA, Canada, etc.
   country '7', fixed(3) >> split(3,2,2) # Kazakhstan (Republic of) & Russian Federation
 
-  country '20', one_of('800') >> split(7) | # Egypt
-                one_of('2', '3', :max_length => 2) >> split(8) # Cairo/Giza, Alexandria
+  country '20', one_of('800')    >> split(7) | # Egypt
+                one_of('2', '3') >> split(8) | # Cairo/Giza, Alexandria
+                fixed(2)         >> split(8)
                 # :mobile? => /^10|11|12|14|16|17|18|19*$/, :service? => /^800.*$/
   country '27', fixed(2) >> split(3,4) # South Africa
 
@@ -55,13 +56,15 @@ Phony.define do
   country '48', fixed(3) >> split(3,3) # Poland
   # country '49', Phony::Countries::Germany
 
-  country '51', one_of('103', '105')               >> split(3,3) | # Peru
-                one_of('1', '9', :max_length => 2) >> split(4,4)   # Lima and mobile.
+  country '51', one_of('103', '105') >> split(3,3) | # Peru
+                one_of('1', '9')     >> split(4,4) | # Lima and mobile.
+                fixed(2)             >> split(4,4)
   country '52', match(/^(0\d{2})\d+$/)   >> split(2,2,2,2) | # Mexico
                 match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
                 match(/^(\d{3})\d+$/)    >> split(3,2,2)
-  country '53', match(/^(5\d{3})\d+$/)                                   >> split(4) | # Cuba. Mobile.
-                match(/^(7|21|22|23|4[1-8]|3[1-3])/, :on_fail_take => 3) >> split(7)
+  country '53', match(/^(5\d{3})\d+$/)               >> split(4) | # Cuba. Mobile.
+                match(/^(7|21|22|23|4[1-8]|3[1-3])/) >> split(7) | #
+                fixed(3)                             >> split(7)
   country '54', fixed(2) >> split(3,2,2) # TODO Argentine Republic
   brazilian_service = /^(100|128|190|191|192|193|194|197|198|199)\d+$/
   country '55', match(brazilian_service) >> split(3,3) | # Brazil (Federative Republic of)
@@ -186,18 +189,20 @@ Phony.define do
   country '299', fixed(2) >> split(3,2,2) # Greenland
 
   country '350', fixed(2) >> split(3,2,2) # Gibraltar
-  country '351', one_of('700', '800')                 >> split(3,3) | # Portugal
-                 match(/^(9\d)\d+$/)                  >> split(3,4) | # mobile
-                 one_of('21', '22', :max_length => 3) >> split(3,4)   # Lisboa & Porto
+  country '351', one_of('700', '800') >> split(3,3) | # Portugal
+                 match(/^(9\d)\d+$/)  >> split(3,4) | # mobile
+                 one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
+                 fixed(3)             >> split(3,4)
   country '352', fixed(2) >> split(3,2,2) # Luxembourg
   country '353', fixed(2) >> split(3,2,2) # Ireland (0-3-4)
   country '354', none     >> split(3,4)   # Iceland
   country '355', fixed(2) >> split(3,2,2) # Albania
   country '356', fixed(2) >> split(3,2,2) # Malta
   country '357', fixed(2) >> split(3,2,2) # Cyprus
-  country '358', match(/^([6-8]00)\d+$/)                           >> split(3,3)   | # Finland
-                 match(/^(4\d|50)\d+$/)                            >> split(3,2,2) |
-                 one_of('2','3','5','6','8','9', :max_length => 2) >> split(3,3)
+  country '358', match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Finland
+                 match(/^(4\d|50)\d+$/)          >> split(3,2,2) |
+                 one_of('2','3','5','6','8','9') >> split(3,3)   |
+                 fixed(2)                        >> split(3,3)
   country '359', fixed(2) >> split(3,2,2) # Bulgaria
 
   country '370', one_of('700', '800')  >> split(2,3)   | # Lithuania
@@ -220,7 +225,8 @@ Phony.define do
   country '382', fixed(2) >> split(3,2,2) # -
   country '383', fixed(2) >> split(3,2,2) # -
   country '384', fixed(2) >> split(3,2,2) # -
-  country '385', one_of('1', :max_length => 2) >> split(3,5) # Croatia
+  country '385', one_of('1') >> split(3,5) | # Croatia
+                 fixed(2)    >> split(3,5)
   country '386', fixed(2) >> split(3,2,2) # Slovenia
   country '387', fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
   country '388', fixed(2) >> split(3,2,2) # Group of countries, shared code
