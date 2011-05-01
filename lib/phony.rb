@@ -17,12 +17,10 @@ require File.expand_path '../phony/dsl', __FILE__
 #
 # The ones that need more space to define.
 #
-require File.expand_path '../phony/countries', __FILE__
 require File.expand_path '../phony/countries/austria', __FILE__
 require File.expand_path '../phony/countries/belgium', __FILE__
 require File.expand_path '../phony/countries/chile', __FILE__
 require File.expand_path '../phony/countries/china', __FILE__
-require File.expand_path '../phony/countries/egypt', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
 require File.expand_path '../phony/countries/greece', __FILE__
 require File.expand_path '../phony/countries/hungary', __FILE__
@@ -36,7 +34,7 @@ require File.expand_path '../phony/countries/united_kingdom', __FILE__
 #
 # All other countries.
 #
-require File.expand_path '../countries', __FILE__
+require File.expand_path '../phony/countries', __FILE__
 
 module Phony
 
