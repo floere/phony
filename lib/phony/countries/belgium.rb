@@ -7,44 +7,7 @@ ndcs = [
  '3', # Antwerpen (Antwerp), Sint-Niklaas
  '4', # Liège (Luik), Voeren (Fourons)
  '9', # Gent (Ghent/Gand)
- '15',# Mechelen
- '16',# Leuven
- '67',# Ath
- '53',# Aalst
- '63',# Arlon
- '50',# Brugge
- '71',# Charleroi
- '60',# Chimay
- '83',# Ciney
- '52',# Dendermonde
- '13',# Diest
- '82',# Dinant
- '86',# Durbuy
- '89',# Genk
- '11',# Hasselt
- '14',# Herentals
- '85',# Huy (Hoei)
- '57',# Ieper
- '56',# Kortrijk
- '64',# La Louvière
- '61',# Libramont
- '65',# Mons (Bergen)
- '81',# Namur (Namen)
- '58',# Nieuwpoort
- '54',# Ninove
- '67',# Nivelles (Nijvel)
- '59',# Oostende
- '51',# Roeselare
- '55',# Ronse
- '80',# Stavelot
- '12',# Tongeren
- '69',# Tounai
- '14',# Turnhout
- '87',# Verviers
- '58',# Veurne
- '19',# Wareme
- '10',# Wavre (Waver)
- '50',# Zeebrugge
+ # Note: The fixed(2) handles the 2-digit NDCs.
 ]
 
 mobile_regex = /^(4[789]\d)\d{6}$/ # Mobistar, Base, Proximus
@@ -65,7 +28,8 @@ service = [
 ]
 
 Phony.define do
-  country '32', one_of(service)                >> split(3,3) |
-                match(mobile_regex)            >> split(6)   |
-                one_of(ndcs, :max_length => 2) >> split(3,5)
+  country '32', one_of(service)     >> split(3,3) |
+                match(mobile_regex) >> split(6)   |
+                one_of(ndcs)        >> split(3,5) |
+                fixed(2)            >> split(3,5)
 end
