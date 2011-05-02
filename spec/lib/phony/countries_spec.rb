@@ -28,8 +28,9 @@ describe 'country descriptions' do
       Phony.split('3225551212').should == ['32', '2', '555', '1212']   # Brussels
       Phony.split('3295551914').should == ['32', '9', '555', '1914']   # Gent
       Phony.split('3245551414').should == ['32', '4', '555', '1414']   # Liège
-      Phony.split('32475279584').should == ['32', '475', '279584']     # mobile
       Phony.split('3216473200').should == ['32', '16', '473', '200']   # Leuven
+      Phony.split('32475279584').should == ['32', '475', '279584']     # mobile
+      Phony.split('3270123123').should == ['32', '70', '123', '123']   # Bus Service?
     end
     it 'handles brazilian numbers' do
       Phony.split('551112341234').should == ['55', '11', '1234', '1234']

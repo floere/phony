@@ -20,23 +20,50 @@
 # Note: The ones that are commented are defined in their special files.
 #
 Phony.define do
-  country '0', fixed(1) >> split(10) # Reserved.
-  country '1', fixed(3) >> split(3,4) # USA, Canada, etc.
-  country '7', fixed(3) >> split(3,2,2) # Kazakhstan (Republic of) & Russian Federation
 
+  # Reserved.
+  #
+  country '0', fixed(1) >> split(10) # Reserved.
+
+  # USA, Canada, etc.
+  #
+  country '1', fixed(3) >> split(3,4)
+
+  # Kazakhstan (Republic of) & Russian Federation.
+  #
+  country '7', fixed(3) >> split(3,2,2)
+
+  # Egypt.
+  #
   country '20', one_of('800')    >> split(7) | # Egypt
                 one_of('2', '3') >> split(8) | # Cairo/Giza, Alexandria
                 fixed(2)         >> split(8)
                 # :mobile? => /^10|11|12|14|16|17|18|19*$/, :service? => /^800.*$/
-  country '27', fixed(2) >> split(3,4) # South Africa
 
-  # country '30', Phony::Countries::Greece
-  # country '31', Phony::Countries::Netherlands
-  # country '32', Phony::Countries::Belgium
-  country '33', fixed(1) >> split(2,2,2,2)    # :service? => /^8.*$/, :mobile? => /^[67].*$/ # France
-  country '34', fixed(2) >> split(3,4)        # Spain
-  # country '36', Phony::Countries::Hungary
-  # country '39', Phony::Countries::Italy
+  # South Africa.
+  #
+  country '27', fixed(2) >> split(3,4)
+
+  # country '30' # Greece, see special file.
+  # country '31' # Netherlands, see special file.
+
+  # Belgium.
+  #
+  country '32', match(/^(70|800|90\d)\d+$/) >> split(3,3) | # Service
+                match(/^(4[789]\d)\d{6}$/)  >> split(6)   | # Mobile
+                one_of('2','3','4','9')     >> split(3,5) | # Short NDCs
+                fixed(2)                    >> split(3,5)   # 2-digit NDCs
+
+  # France.
+  #
+  country '33', fixed(1) >> split(2,2,2,2)    # :service? => /^8.*$/, :mobile? => /^[67].*$/
+
+  # Spain.
+  #
+  country '34', fixed(2) >> split(3,4)
+
+  # country '36' # Hungary, see special file.
+  # country '39' # Italy, see special file.
 
   # country '40', Phony::Countries::Romania
   # :service => %w{800 840 842 844 848}, :mobile  => %w{74 76 77 78 79}
