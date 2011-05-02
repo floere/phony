@@ -2,7 +2,7 @@
 #
 # Taken from: http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
 #
-ndcs = [
+short_ndcs = [
  '2', # Brussels (Bruxelles/Brussel)
  '3', # Antwerpen (Antwerp), Sint-Niklaas
  '4', # Liège (Luik), Voeren (Fourons)
@@ -30,6 +30,6 @@ service = [
 Phony.define do
   country '32', one_of(service)     >> split(3,3) |
                 match(mobile_regex) >> split(6)   |
-                one_of(ndcs)        >> split(3,5) |
+                one_of(short_ndcs)  >> split(3,5) |
                 fixed(2)            >> split(3,5)
 end
