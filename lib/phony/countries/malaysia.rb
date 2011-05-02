@@ -15,7 +15,8 @@ mobile = %w{ 10 11 12 13 14 153 154 156 158 16 17 18 19 }
 service = %w{ 100 101 102 103 104 108 112 991 994 995 999 }
 
 Phony.define do
-  country '60', one_of(service)                >> split(3,3) |
-                one_of(mobile)                 >> split(8)   |
-                one_of(ndcs, :max_length => 2) >> split(8)
+  country '60', one_of(service) >> split(3,3) | # Service
+                one_of(mobile)  >> split(8)   | # Mobile
+                one_of(ndcs)    >> split(8)   | # 1-digit NDCs
+                fixed(2)        >> split(8)     # 2-digit NDCs
 end
