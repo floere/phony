@@ -65,7 +65,12 @@ Phony.define do
   # country '36' # Hungary, see special file.
   # country '39' # Italy, see special file.
 
-  # country '40' # Romania, see special file.
+  # Romania.
+  #
+  country '40', match(/^(112|800|90[036])\d+$/) >> split(3,3) | # Service
+                match(/^(7[1-8])\d+$/)          >> split(3,4) | # Mobile
+                one_of('21', '31')              >> split(3,4) | # Bucureşti
+                fixed(3)                        >> split(3,4)   # 3-digit NDCs
 
   # Switzerland.
   #
