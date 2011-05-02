@@ -135,7 +135,11 @@ Phony.define do
                 # :service? => brazilian_service, :mobile? => ?
                 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
 
-  # country '56' # Chile, see special file.
+  # Chile.
+  #
+  country '56', match(/^(13[0-79]|14[79])\d+$/) >> split(3,3) | # Service
+                one_of('2', '9')                >> split(8)   | # Santiago, Mobile
+                fixed(2)                        >> split(8)     # 2-digit NDCs
 
   # TODO Colombia.
   #
