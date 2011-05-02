@@ -85,7 +85,8 @@ describe 'country descriptions' do
       Phony.split('491815878323').should  == ['49', '181', '587', '8323'] # Service numbers
     end
     it "handles greek numbers" do
-      Phony.split('3021123456').should == ['30', '21', '123456']
+      Phony.split('3021123456').should == ['30', '21', '123456'] # Athens
+      Phony.split('3069512345').should == ['30', '695', '12345'] # Mobile
       Phony.split('3025941234').should == ['30', '2594', '1234']
       Phony.split('3022631234').should == ['30', '2263', '1234']
     end
