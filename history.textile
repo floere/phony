@@ -1,3 +1,7 @@
+h2. Version 1.4.2
+
+* hanke: Exposing @Phony::CountryCodes.instance.international_absolute_format@, @Phony::CountryCodes.instance.international_relative_format@, @Phony::CountryCodes.instance.national_format@ (writer & reader) so people can set their special ndc formats. Especially if they use Phony for just one country. (Thanks sarwagya for the inspiration!)
+
 h2. Version 1.4.1
 
 * hanke: Moved @lib/countries.rb@ -> @lib/phony/countries.rb@ (Thanks trans!).
