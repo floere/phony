@@ -127,6 +127,17 @@ describe Phony do
           Phony.format('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
         end
       end
+      describe '"unsupported" countries' do
+        it 'should format as a single block' do
+          Phony.format('88032155605220').should == '+880 32155605220'
+        end
+        it 'should format as a single block, regardless of format' do
+          Phony.format('8801819372205', :format => :international).should == '+880 1819372205'
+        end
+        it 'should format as a single block, respecting custom spaces' do
+          Phony.format('8801819372205', :spaces => :-).should == '+880-1819372205'
+        end
+      end
     end
     describe "national" do
       it "should format swiss numbers" do

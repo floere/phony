@@ -461,7 +461,7 @@ Phony.define do
   country '878', fixed(2) >> split(3,2,2) # Universal Personal Telecommunication Service (UPT)
   country '879', fixed(2) >> split(3,2,2) # Reserved for national non-commercial purposes
 
-  country '880', fixed(2) >> split(3,2,2) # Bangladesh (People's Republic of)
+  country '880', default                  # Bangladesh (People's Republic of)
   country '881', fixed(2) >> split(3,2,2) # International Mobile, shared code
   country '882', fixed(2) >> split(3,2,2) # International Networks, shared code
   country '883', fixed(2) >> split(3,2,2) # -

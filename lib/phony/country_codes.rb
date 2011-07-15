@@ -43,7 +43,15 @@ module Phony
     # Formats country code and national destination code.
     #
     def format_cc_ndc_local format, space, cc, ndc, *parts
-      "#{format_cc_ndc(format, space, cc, ndc)}#{format_local(space, parts)}"
+      cc_ndc = format_cc_ndc(format, space, cc, ndc)
+      local  = \
+        if parts.empty?
+          cc_ndc = cc_ndc.slice(0...cc_ndc.size-1)
+          EMPTY_STRING
+        else
+          format_local(space, parts) unless parts.empty?
+        end
+      "#{cc_ndc}#{local}"
     end
     def format_cc_ndc format, space, cc, ndc
       case format
