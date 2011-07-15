@@ -193,6 +193,11 @@ describe Phony do
         Phony.format('414436435').should == '+41 44 364 35'
       end
     end
+    context '"unsupported" countries' do
+      it 'handles normalizing, then formatting' do
+        Phony.format(Phony.normalize('+880-321 5560 5220')).should == '+880 32155605220'
+      end
+    end
   end
   
   context "speed" do

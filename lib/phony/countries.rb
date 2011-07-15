@@ -496,7 +496,7 @@ Phony.define do
 
   country '970', fixed(2) >> split(3,2,2) # Reserved
   country '971', fixed(2) >> split(3,2,2) # United Arab Emirates
-  country '972', fixed(2) >> split(3,2,2) # Israel (State of)
+  country '972', default                  # Israel (State of)
   country '973', fixed(2) >> split(3,2,2) # Bahrain (Kingdom of)
   country '974', fixed(2) >> split(3,2,2) # Qatar (State of)
   country '975', fixed(2) >> split(3,2,2) # Bhutan (Kingdom of)
