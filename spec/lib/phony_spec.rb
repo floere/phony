@@ -137,6 +137,9 @@ describe Phony do
         it 'should format as a single block, respecting custom spaces' do
           Phony.format('8801819372205', :spaces => :-).should == '+880-1819372205'
         end
+        it 'should format as a single block, even without spaces' do
+          Phony.format('8801819372205', :spaces => '').should == '+8801819372205'
+        end
       end
     end
     describe "national" do
