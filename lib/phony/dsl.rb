@@ -73,6 +73,9 @@ module Phony
     def match regex, options = {}
       NationalSplitters::Regex.instance_for regex, options[:on_fail_take]
     end
+    def default
+      none >> NationalSplitters::Default.instance_for
+    end
 
     # Local splitters.
     #
