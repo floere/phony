@@ -5,7 +5,7 @@ module Phony
     class Default < DSL
 
       def self.instance_for
-        new
+        @instance ||= new
       end
 
       def split number
