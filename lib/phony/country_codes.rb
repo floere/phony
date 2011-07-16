@@ -46,7 +46,7 @@ module Phony
       cc_ndc = format_cc_ndc(format, space, cc, ndc)
       local  = \
         if parts.empty?
-          cc_ndc = cc_ndc.slice(0...cc_ndc.rindex(space.to_s))
+          cc_ndc = cc_ndc.slice 0...cc_ndc.rindex(space.to_s)
           EMPTY_STRING
         else
           format_local(space, parts) unless parts.empty?
