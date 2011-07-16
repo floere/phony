@@ -150,7 +150,7 @@ Phony.define do
 
   # TODO Colombia.
   #
-  country '57', fixed(2) >> split(3,2,2)
+  country '57', default
 
   # Venezuela (Bolivarian Republic of)
   #
@@ -162,8 +162,8 @@ Phony.define do
   #
   country '61', match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
                 fixed(1)              >> split(4,4)   # Rest
-  country '62', fixed(2) >> split(3,2,2) # TODO Indonesia (Republic of)
-  country '63', fixed(2) >> split(3,2,2) # TODO Philippines (Republic of the)
+  country '62', default # TODO Indonesia (Republic of)
+  country '63', default # TODO Philippines (Republic of the)
 
   # New Zealand.
   #
@@ -171,14 +171,14 @@ Phony.define do
   #
   country '64', fixed(1) >> split(3,4)
 
-  country '65', fixed(2) >> split(3,2,2) # TODO Singapore (Republic of)
-  country '66', fixed(2) >> split(3,2,2) # TODO Thailand
+  country '65', default # TODO Singapore (Republic of)
+  country '66', default # TODO Thailand
 
-  country '81', fixed(2) >> split(3,2,2) # TODO Japan
+  country '81', default # TODO Japan
 
   # country '82' # SouthKorea, see special file.
 
-  country '84', fixed(2) >> split(3,2,2) # TODO Viet Nam (Socialist Republic of)
+  country '84', default # TODO Viet Nam (Socialist Republic of)
 
   # country '86' # China, see special file.
 
@@ -186,8 +186,8 @@ Phony.define do
   #
   country '90', fixed(3) >> split(3,4)   # Wiki says 7, but the examples say 3, 4.
 
-  country '91', fixed(2) >> split(3,2,2) # TODO India (Republic of)
-  country '92', fixed(2) >> split(3,2,2) # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
+  country '91', default # TODO India (Republic of)
+  country '92', default # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
 
   # Afghanistan.
   #
@@ -199,95 +199,95 @@ Phony.define do
   country '95', fixed(2) >> split(3,2,2) # TODO Myanmar (Union of)
   country '98', fixed(2) >> split(3,2,2) # TODO Iran (Islamic Republic of)
 
-  country '210', fixed(2) >> split(3,2,2) # -
-  country '211', fixed(2) >> split(3,2,2) # -
-  country '212', fixed(2) >> split(3,2,2) # Morocco
+  country '210', default # -
+  country '211', default # -
+  country '212', default # Morocco
   country '213', fixed(2) >> split(3,4)   # Algeria
-  country '214', fixed(2) >> split(3,2,2) # -
-  country '215', fixed(2) >> split(3,2,2) # -
+  country '214', default # -
+  country '215', default # -
   country '216', fixed(1) >> split(3,4)   # Tunisia
-  country '217', fixed(2) >> split(3,2,2) # -
-  country '218', fixed(2) >> split(3,2,2) # Lybia
-  country '219', fixed(2) >> split(3,2,2) # -
+  country '217', default # -
+  country '218', default # Lybia
+  country '219', default # -
 
-  country '220', fixed(2) >> split(3,2,2) # Gambia
-  country '221', fixed(2) >> split(3,2,2) # Senegal
-  country '222', fixed(2) >> split(3,2,2) # Mauritania
-  country '223', fixed(2) >> split(3,2,2) # Mali
-  country '224', fixed(2) >> split(3,2,2) # Guinea
-  country '225', fixed(2) >> split(3,2,2) # Côte d'Ivoire
-  country '226', fixed(2) >> split(3,2,2) # Burkina Faso
-  country '227', fixed(2) >> split(3,2,2) # Niger
-  country '228', fixed(2) >> split(3,2,2) # Togolese Republic
-  country '229', fixed(2) >> split(3,2,2) # Benin
+  country '220', default # Gambia
+  country '221', default # Senegal
+  country '222', default # Mauritania
+  country '223', default # Mali
+  country '224', default # Guinea
+  country '225', default # Côte d'Ivoire
+  country '226', default # Burkina Faso
+  country '227', default # Niger
+  country '228', default # Togolese Republic
+  country '229', default # Benin
 
-  country '230', fixed(2) >> split(3,2,2) # Mauritius
-  country '231', fixed(2) >> split(3,2,2) # Liberia
-  country '232', fixed(2) >> split(3,2,2) # Sierra Leone
-  country '233', fixed(2) >> split(3,2,2) # Ghana
-  country '234', fixed(2) >> split(3,2,2) # Nigeria
-  country '235', fixed(2) >> split(3,2,2) # Chad
-  country '236', fixed(2) >> split(3,2,2) # Central African Republic
-  country '237', fixed(2) >> split(3,2,2) # Cameroon
-  country '238', fixed(2) >> split(3,2,2) # Cape Verde
-  country '239', fixed(2) >> split(3,2,2) # Sao Tome and Principe
+  country '230', default # Mauritius
+  country '231', default # Liberia
+  country '232', default # Sierra Leone
+  country '233', default # Ghana
+  country '234', default # Nigeria
+  country '235', default # Chad
+  country '236', default # Central African Republic
+  country '237', default # Cameroon
+  country '238', default # Cape Verde
+  country '239', default # Sao Tome and Principe
 
-  country '240', fixed(2) >> split(3,2,2) # Equatorial Guinea
-  country '241', fixed(2) >> split(3,2,2) # Gabonese Republic
-  country '242', fixed(2) >> split(3,2,2) # Congo
-  country '243', fixed(2) >> split(3,2,2) # Democratic Republic of the Congo
-  country '244', fixed(2) >> split(3,2,2) # Angola
-  country '245', fixed(2) >> split(3,2,2) # Guinea-Bissau
-  country '246', fixed(2) >> split(3,2,2) # Diego Garcia
-  country '247', fixed(2) >> split(3,2,2) # Ascension
-  country '248', fixed(2) >> split(3,2,2) # Seychelles
-  country '249', fixed(2) >> split(3,2,2) # Sudan
+  country '240', default # Equatorial Guinea
+  country '241', default # Gabonese Republic
+  country '242', default # Congo
+  country '243', default # Democratic Republic of the Congo
+  country '244', default # Angola
+  country '245', default # Guinea-Bissau
+  country '246', default # Diego Garcia
+  country '247', default # Ascension
+  country '248', default # Seychelles
+  country '249', default # Sudan
 
-  country '250', fixed(2) >> split(3,2,2) # Rwanda
-  country '251', fixed(2) >> split(3,2,2) # Ethiopia
-  country '252', fixed(2) >> split(3,2,2) # Somali Democratic Republic
-  country '253', fixed(2) >> split(3,2,2) # Djibouti
-  country '254', fixed(2) >> split(3,2,2) # Kenya
-  country '255', fixed(2) >> split(3,2,2) # Tanzania
-  country '256', fixed(2) >> split(3,2,2) # Uganda
-  country '257', fixed(2) >> split(3,2,2) # Burundi
-  country '258', fixed(2) >> split(3,2,2) # Mozambique
-  country '259', fixed(2) >> split(3,2,2) # -
+  country '250', default # Rwanda
+  country '251', default # Ethiopia
+  country '252', default # Somali Democratic Republic
+  country '253', default # Djibouti
+  country '254', default # Kenya
+  country '255', default # Tanzania
+  country '256', default # Uganda
+  country '257', default # Burundi
+  country '258', default # Mozambique
+  country '259', default # -
 
-  country '260', fixed(2) >> split(3,2,2) # Zambia
-  country '261', fixed(2) >> split(3,2,2) # Madagascar
-  country '262', fixed(3) >> split(3,2,2) # Reunion / Mayotte (new)
-  country '263', fixed(2) >> split(3,2,2) # Zimbabwe
-  country '264', fixed(2) >> split(3,2,2) # Namibia
-  country '265', fixed(2) >> split(3,2,2) # Malawi
-  country '266', fixed(2) >> split(3,2,2) # Lesotho
-  country '267', fixed(2) >> split(3,2,2) # Botswana
-  country '268', fixed(2) >> split(3,2,2) # Swaziland
-  country '269', fixed(2) >> split(3,2,2) # Comoros
+  country '260', default # Zambia
+  country '261', default # Madagascar
+  country '262', default # Reunion / Mayotte (new)
+  country '263', default # Zimbabwe
+  country '264', default # Namibia
+  country '265', default # Malawi
+  country '266', default # Lesotho
+  country '267', default # Botswana
+  country '268', default # Swaziland
+  country '269', default # Comoros
 
-  country '280', fixed(2) >> split(3,2,2) # -
-  country '281', fixed(2) >> split(3,2,2) # -
-  country '282', fixed(2) >> split(3,2,2) # -
-  country '283', fixed(2) >> split(3,2,2) # -
-  country '284', fixed(2) >> split(3,2,2) # -
-  country '285', fixed(2) >> split(3,2,2) # -
-  country '286', fixed(2) >> split(3,2,2) # -
-  country '287', fixed(2) >> split(3,2,2) # -
-  country '288', fixed(2) >> split(3,2,2) # -
-  country '289', fixed(2) >> split(3,2,2) # -
-  country '290', fixed(2) >> split(3,2,2) # Saint Helena
+  country '280', default # -
+  country '281', default # -
+  country '282', default # -
+  country '283', default # -
+  country '284', default # -
+  country '285', default # -
+  country '286', default # -
+  country '287', default # -
+  country '288', default # -
+  country '289', default # -
+  country '290', default # Saint Helena
 
-  country '291', fixed(2) >> split(3,2,2) # Eritrea
-  country '292', fixed(2) >> split(3,2,2) # -
-  country '293', fixed(2) >> split(3,2,2) # -
-  country '294', fixed(2) >> split(3,2,2) # -
-  country '295', fixed(2) >> split(3,2,2) # -
-  country '296', fixed(2) >> split(3,2,2) # -
-  country '297', fixed(2) >> split(3,2,2) # Aruba
-  country '298', fixed(2) >> split(3,2,2) # Faroe Islands
-  country '299', fixed(2) >> split(3,2,2) # Greenland
+  country '291', default # Eritrea
+  country '292', default # -
+  country '293', default # -
+  country '294', default # -
+  country '295', default # -
+  country '296', default # -
+  country '297', default # Aruba
+  country '298', default # Faroe Islands
+  country '299', default # Greenland
 
-  country '350', fixed(2) >> split(3,2,2) # Gibraltar
+  country '350', default # Gibraltar
 
   # Portugal.
   #
@@ -296,12 +296,12 @@ Phony.define do
                  one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
                  fixed(3)             >> split(3,4)   # 3-digit NDCs
 
-  country '352', fixed(2) >> split(3,2,2) # Luxembourg
-  country '353', fixed(2) >> split(3,2,2) # Ireland (0-3-4)
-  country '354', none     >> split(3,4)   # Iceland
-  country '355', fixed(2) >> split(3,2,2) # Albania
-  country '356', fixed(2) >> split(3,2,2) # Malta
-  country '357', fixed(2) >> split(3,2,2) # Cyprus
+  country '352', default # Luxembourg
+  country '353', default # Ireland (0-3-4)
+  country '354', none >> split(3,4) # Iceland
+  country '355', default # Albania
+  country '356', default # Malta
+  country '357', default # Cyprus
 
   # Finland.
   #
@@ -319,21 +319,21 @@ Phony.define do
                  one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
                  fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
 
-  country '371', fixed(2) >> split(3,2,2) # Latvia
-  country '372', fixed(2) >> split(3,2,2) # Estonia
-  country '373', fixed(2) >> split(3,2,2) # Moldova
-  country '374', fixed(2) >> split(3,2,2) # Armenia
-  country '375', fixed(2) >> split(3,2,2) # Belarus
-  country '376', fixed(2) >> split(3,2,2) # Andorra
-  country '377', fixed(2) >> split(3,2,2) # Monaco
-  country '378', fixed(2) >> split(3,2,2) # San Marino
-  country '379', fixed(2) >> split(3,2,2) # Vatican City State
+  country '371', default # Latvia
+  country '372', default # Estonia
+  country '373', default # Moldova
+  country '374', default # Armenia
+  country '375', default # Belarus
+  country '376', default # Andorra
+  country '377', default # Monaco
+  country '378', default # San Marino
+  country '379', default # Vatican City State
 
-  country '380', fixed(2) >> split(3,2,2) # Ukraine
-  country '381', fixed(2) >> split(3,2,2) # Serbia and Montenegro
-  country '382', fixed(2) >> split(3,2,2) # -
-  country '383', fixed(2) >> split(3,2,2) # -
-  country '384', fixed(2) >> split(3,2,2) # -
+  country '380', default # Ukraine
+  country '381', default # Serbia and Montenegro
+  country '382', default # -
+  country '383', default # -
+  country '384', default # -
 
   # Croatia.
   #
@@ -353,166 +353,166 @@ Phony.define do
                  one_of('2')          >> split(8) | # Bratislava
                  fixed(2)             >> split(7)   # 2-digit NDCs
 
-  country '422', fixed(2) >> split(3,2,2) # Spare code
-  country '423', none     >> split(3,2,2) # Liechtenstein (Principality of)
-  country '424', fixed(2) >> split(3,2,2) # -
-  country '425', fixed(2) >> split(3,2,2) # -
-  country '426', fixed(2) >> split(3,2,2) # -
-  country '427', fixed(2) >> split(3,2,2) # -
-  country '428', fixed(2) >> split(3,2,2) # -
-  country '429', fixed(2) >> split(3,2,2) # -
+  country '422', default # Spare code
+  country '423', none >> split(3,2,2) # Liechtenstein (Principality of)
+  country '424', default # -
+  country '425', default # -
+  country '426', default # -
+  country '427', default # -
+  country '428', default # -
+  country '429', default # -
 
-  country '500', fixed(2) >> split(3,2,2) # Falkland Islands (Malvinas)
-  country '501', fixed(2) >> split(3,2,2) # Belize
-  country '502', fixed(2) >> split(3,2,2) # Guatemala (Republic of)
-  country '503', fixed(2) >> split(3,2,2) # El Salvador (Republic of)
-  country '504', fixed(2) >> split(3,2,2) # Honduras (Republic of)
-  country '505', fixed(2) >> split(3,2,2) # Nicaragua
-  country '506', fixed(2) >> split(3,2,2) # Costa Rica
-  country '507', fixed(2) >> split(3,2,2) # Panama (Republic of)
-  country '508', fixed(2) >> split(3,2,2) # Saint Pierre and Miquelon (Collectivité territoriale de la République française)
-  country '509', fixed(2) >> split(3,2,2) # Haiti (Republic of)
+  country '500', default # Falkland Islands (Malvinas)
+  country '501', default # Belize
+  country '502', default # Guatemala (Republic of)
+  country '503', default # El Salvador (Republic of)
+  country '504', default # Honduras (Republic of)
+  country '505', default # Nicaragua
+  country '506', default # Costa Rica
+  country '507', default # Panama (Republic of)
+  country '508', default # Saint Pierre and Miquelon (Collectivité territoriale de la République française)
+  country '509', default # Haiti (Republic of)
 
-  country '590', fixed(3) >> split(3,2,2) # Guadeloupe (French Department of)
-  country '591', fixed(2) >> split(3,2,2) # Bolivia (Republic of)
-  country '592', fixed(2) >> split(3,2,2) # Guyana
-  country '593', fixed(2) >> split(3,2,2) # Ecuador
-  country '594', fixed(3) >> split(3,2,2) # French Guiana (French Department of)
-  country '595', fixed(2) >> split(3,2,2) # Paraguay (Republic of)
-  country '596', fixed(3) >> split(3,2,2) # Martinique (French Department of)
-  country '597', fixed(2) >> split(3,2,2) # Suriname (Republic of)
-  country '598', fixed(2) >> split(3,2,2) # Uruguay (Eastern Republic of)
-  country '599', fixed(2) >> split(3,2,2) # Netherlands Antilles
+  country '590', default # Guadeloupe (French Department of)
+  country '591', default # Bolivia (Republic of)
+  country '592', default # Guyana
+  country '593', default # Ecuador
+  country '594', default # French Guiana (French Department of)
+  country '595', default # Paraguay (Republic of)
+  country '596', default # Martinique (French Department of)
+  country '597', default # Suriname (Republic of)
+  country '598', default # Uruguay (Eastern Republic of)
+  country '599', default # Netherlands Antilles
 
-  country '670', fixed(2) >> split(3,2,2) # Democratic Republic of Timor-Leste
-  country '671', fixed(2) >> split(3,2,2) # Spare code
-  country '672', fixed(2) >> split(3,2,2) # Australian External Territories
-  country '673', fixed(2) >> split(3,2,2) # Brunei Darussalam
-  country '674', fixed(2) >> split(3,2,2) # Nauru (Republic of)
-  country '675', fixed(2) >> split(3,2,2) # Papua New Guinea
-  country '676', fixed(2) >> split(3,2,2) # Tonga (Kingdom of)
-  country '677', fixed(2) >> split(3,2,2) # Solomon Islands
-  country '678', fixed(2) >> split(3,2,2) # Vanuatu (Republic of)
-  country '679', fixed(2) >> split(3,2,2) # Fiji (Republic of)
+  country '670', default # Democratic Republic of Timor-Leste
+  country '671', default # Spare code
+  country '672', default # Australian External Territories
+  country '673', default # Brunei Darussalam
+  country '674', default # Nauru (Republic of)
+  country '675', default # Papua New Guinea
+  country '676', default # Tonga (Kingdom of)
+  country '677', default # Solomon Islands
+  country '678', default # Vanuatu (Republic of)
+  country '679', default # Fiji (Republic of)
 
-  country '680', fixed(2) >> split(3,2,2) # Palau (Republic of)
-  country '681', fixed(2) >> split(3,2,2) # Wallis and Futuna (Territoire français d'outre-mer)
-  country '682', fixed(2) >> split(3,2,2) # Cook Islands
-  country '683', fixed(2) >> split(3,2,2) # Niue
-  country '684', fixed(2) >> split(3,2,2) # -
-  country '685', fixed(2) >> split(3,2,2) # Samoa (Independent State of)
-  country '686', fixed(2) >> split(3,2,2) # Kiribati (Republic of)
-  country '687', fixed(2) >> split(3,2,2) # New Caledonia (Territoire français d'outre-mer)
-  country '688', fixed(2) >> split(3,2,2) # Tuvalu
-  country '689', fixed(2) >> split(3,2,2) # French Polynesia (Territoire français d'outre-mer)
+  country '680', default # Palau (Republic of)
+  country '681', default # Wallis and Futuna (Territoire français d'outre-mer)
+  country '682', default # Cook Islands
+  country '683', default # Niue
+  country '684', default # -
+  country '685', default # Samoa (Independent State of)
+  country '686', default # Kiribati (Republic of)
+  country '687', default # New Caledonia (Territoire français d'outre-mer)
+  country '688', default # Tuvalu
+  country '689', default # French Polynesia (Territoire français d'outre-mer)
 
-  country '690', fixed(2) >> split(3,2,2) # Tokelau
-  country '691', fixed(2) >> split(3,2,2) # Micronesia (Federated States of)
-  country '692', fixed(2) >> split(3,2,2) # Marshall Islands (Republic of the)
-  country '693', fixed(2) >> split(3,2,2) # -
-  country '694', fixed(2) >> split(3,2,2) # -
-  country '695', fixed(2) >> split(3,2,2) # -
-  country '696', fixed(2) >> split(3,2,2) # -
-  country '697', fixed(2) >> split(3,2,2) # -
-  country '698', fixed(2) >> split(3,2,2) # -
-  country '699', fixed(2) >> split(3,2,2) # -
+  country '690', default # Tokelau
+  country '691', default # Micronesia (Federated States of)
+  country '692', default # Marshall Islands (Republic of the)
+  country '693', default # -
+  country '694', default # -
+  country '695', default # -
+  country '696', default # -
+  country '697', default # -
+  country '698', default # -
+  country '699', default # -
 
-  country '800', fixed(2) >> split(3,2,2) # International Freephone Service
-  country '801', fixed(2) >> split(3,2,2) # -
-  country '802', fixed(2) >> split(3,2,2) # -
-  country '803', fixed(2) >> split(3,2,2) # -
-  country '804', fixed(2) >> split(3,2,2) # -
-  country '805', fixed(2) >> split(3,2,2) # -
-  country '806', fixed(2) >> split(3,2,2) # -
-  country '807', fixed(2) >> split(3,2,2) # -
-  country '808', fixed(2) >> split(3,2,2) # International Shared Cost Service (ISCS)
-  country '809', fixed(2) >> split(3,2,2) # -
+  country '800', default # International Freephone Service
+  country '801', default # -
+  country '802', default # -
+  country '803', default # -
+  country '804', default # -
+  country '805', default # -
+  country '806', default # -
+  country '807', default # -
+  country '808', default # International Shared Cost Service (ISCS)
+  country '809', default # -
 
-  country '830', fixed(2) >> split(3,2,2) # -
-  country '831', fixed(2) >> split(3,2,2) # -
-  country '832', fixed(2) >> split(3,2,2) # -
-  country '833', fixed(2) >> split(3,2,2) # -
-  country '834', fixed(2) >> split(3,2,2) # -
-  country '835', fixed(2) >> split(3,2,2) # -
-  country '836', fixed(2) >> split(3,2,2) # -
-  country '837', fixed(2) >> split(3,2,2) # -
-  country '838', fixed(2) >> split(3,2,2) # -
-  country '839', fixed(2) >> split(3,2,2) # -
+  country '830', default # -
+  country '831', default # -
+  country '832', default # -
+  country '833', default # -
+  country '834', default # -
+  country '835', default # -
+  country '836', default # -
+  country '837', default # -
+  country '838', default # -
+  country '839', default # -
 
-  country '850', fixed(2) >> split(3,2,2) # Democratic People's Republic of Korea
-  country '851', fixed(2) >> split(3,2,2) # Spare code
-  country '852', fixed(2) >> split(3,2,2) # Hong Kong, China
-  country '853', fixed(2) >> split(3,2,2) # Macao, China
-  country '854', fixed(2) >> split(3,2,2) # Spare code
-  country '855', fixed(2) >> split(3,2,2) # Cambodia (Kingdom of)
-  country '856', fixed(2) >> split(3,2,2) # Lao People's Democratic Republic
-  country '857', fixed(2) >> split(3,2,2) # Spare code
-  country '858', fixed(2) >> split(3,2,2) # Spare code
-  country '859', fixed(2) >> split(3,2,2) # Spare code
+  country '850', default # Democratic People's Republic of Korea
+  country '851', default # Spare code
+  country '852', default # Hong Kong, China
+  country '853', default # Macao, China
+  country '854', default # Spare code
+  country '855', default # Cambodia (Kingdom of)
+  country '856', default # Lao People's Democratic Republic
+  country '857', default # Spare code
+  country '858', default # Spare code
+  country '859', default # Spare code
 
-  country '870', fixed(2) >> split(3,2,2) # Inmarsat SNAC
-  country '871', fixed(2) >> split(3,2,2) # Inmarsat (Atlantic Ocean-East)
-  country '872', fixed(2) >> split(3,2,2) # Inmarsat (Pacific Ocean)
-  country '873', fixed(2) >> split(3,2,2) # Inmarsat (Indian Ocean)
-  country '874', fixed(2) >> split(3,2,2) # Inmarsat (Atlantic Ocean-West)
-  country '875', fixed(2) >> split(3,2,2) # Reserved - Maritime Mobile Service Applications
-  country '876', fixed(2) >> split(3,2,2) # Reserved - Maritime Mobile Service Applications
-  country '877', fixed(2) >> split(3,2,2) # Reserved - Maritime Mobile Service Applications
-  country '878', fixed(2) >> split(3,2,2) # Universal Personal Telecommunication Service (UPT)
-  country '879', fixed(2) >> split(3,2,2) # Reserved for national non-commercial purposes
+  country '870', default # Inmarsat SNAC
+  country '871', default # Inmarsat (Atlantic Ocean-East)
+  country '872', default # Inmarsat (Pacific Ocean)
+  country '873', default # Inmarsat (Indian Ocean)
+  country '874', default # Inmarsat (Atlantic Ocean-West)
+  country '875', default # Reserved - Maritime Mobile Service Applications
+  country '876', default # Reserved - Maritime Mobile Service Applications
+  country '877', default # Reserved - Maritime Mobile Service Applications
+  country '878', default # Universal Personal Telecommunication Service (UPT)
+  country '879', default # Reserved for national non-commercial purposes
 
   country '880', default                  # Bangladesh (People's Republic of)
-  country '881', fixed(2) >> split(3,2,2) # International Mobile, shared code
-  country '882', fixed(2) >> split(3,2,2) # International Networks, shared code
-  country '883', fixed(2) >> split(3,2,2) # -
-  country '884', fixed(2) >> split(3,2,2) # -
-  country '885', fixed(2) >> split(3,2,2) # -
-  country '886', fixed(2) >> split(3,2,2) # Reserved
-  country '887', fixed(2) >> split(3,2,2) # -
-  country '888', fixed(2) >> split(3,2,2) # Reserved for future global service
-  country '889', fixed(2) >> split(3,2,2) # -
+  country '881', default # International Mobile, shared code
+  country '882', default # International Networks, shared code
+  country '883', default # -
+  country '884', default # -
+  country '885', default # -
+  country '886', default # Reserved
+  country '887', default # -
+  country '888', default # Reserved for future global service
+  country '889', default # -
 
-  country '890', fixed(2) >> split(3,2,2) # -
-  country '891', fixed(2) >> split(3,2,2) # -
-  country '892', fixed(2) >> split(3,2,2) # -
-  country '893', fixed(2) >> split(3,2,2) # -
-  country '894', fixed(2) >> split(3,2,2) # -
-  country '895', fixed(2) >> split(3,2,2) # -
-  country '896', fixed(2) >> split(3,2,2) # -
-  country '897', fixed(2) >> split(3,2,2) # -
-  country '898', fixed(2) >> split(3,2,2) # -
-  country '899', fixed(2) >> split(3,2,2) # -
+  country '890', default # -
+  country '891', default # -
+  country '892', default # -
+  country '893', default # -
+  country '894', default # -
+  country '895', default # -
+  country '896', default # -
+  country '897', default # -
+  country '898', default # -
+  country '899', default # -
 
-  country '960', fixed(2) >> split(3,2,2) # Maldives (Republic of)
-  country '961', fixed(2) >> split(3,2,2) # Lebanon
-  country '962', fixed(2) >> split(3,2,2) # Jordan (Hashemite Kingdom of)
-  country '963', fixed(2) >> split(3,2,2) # Syrian Arab Republic
-  country '964', fixed(2) >> split(3,2,2) # Iraq (Republic of)
-  country '965', fixed(2) >> split(3,2,2) # Kuwait (State of)
-  country '966', fixed(2) >> split(3,2,2) # Saudi Arabia (Kingdom of)
-  country '967', fixed(2) >> split(3,2,2) # Yemen (Republic of)
-  country '968', fixed(2) >> split(3,2,2) # Oman (Sultanate of)
-  country '969', fixed(2) >> split(3,2,2) # Reserved - reservation currently under investigation
+  country '960', default # Maldives (Republic of)
+  country '961', default # Lebanon
+  country '962', default # Jordan (Hashemite Kingdom of)
+  country '963', default # Syrian Arab Republic
+  country '964', default # Iraq (Republic of)
+  country '965', default # Kuwait (State of)
+  country '966', default # Saudi Arabia (Kingdom of)
+  country '967', default # Yemen (Republic of)
+  country '968', default # Oman (Sultanate of)
+  country '969', default # Reserved - reservation currently under investigation
 
-  country '970', fixed(2) >> split(3,2,2) # Reserved
-  country '971', fixed(2) >> split(3,2,2) # United Arab Emirates
-  country '972', default                  # Israel (State of)
-  country '973', fixed(2) >> split(3,2,2) # Bahrain (Kingdom of)
-  country '974', fixed(2) >> split(3,2,2) # Qatar (State of)
-  country '975', fixed(2) >> split(3,2,2) # Bhutan (Kingdom of)
-  country '976', fixed(2) >> split(3,2,2) # Mongolia
-  country '977', fixed(2) >> split(3,2,2) # Nepal
-  country '978', fixed(2) >> split(3,2,2) # -
-  country '979', fixed(2) >> split(3,2,2) # International Premium Rate Service (IPRS)
+  country '970', default # Reserved
+  country '971', default # United Arab Emirates
+  country '972', default # Israel (State of)
+  country '973', default # Bahrain (Kingdom of)
+  country '974', default # Qatar (State of)
+  country '975', default # Bhutan (Kingdom of)
+  country '976', default # Mongolia
+  country '977', default # Nepal
+  country '978', default # -
+  country '979', default # International Premium Rate Service (IPRS)
 
-  country '990', fixed(2) >> split(3,2,2) # Spare code
-  country '991', fixed(2) >> split(3,2,2) # Trial of a proposed new international telecommunication public correspondence service, shared code
-  country '992', fixed(2) >> split(3,2,2) # Tajikistan (Republic of)
-  country '993', fixed(2) >> split(3,2,2) # Turkmenistan
-  country '994', fixed(2) >> split(3,2,2) # Azerbaijani Republic
-  country '995', fixed(2) >> split(3,2,2) # Georgia
-  country '996', fixed(2) >> split(3,2,2) # Kyrgyz Republic
-  country '997', fixed(2) >> split(3,2,2) # Spare code
-  country '998', fixed(2) >> split(3,2,2) # Uzbekistan (Republic of)
-  country '999', fixed(2) >> split(3,2,2) # Reserved for possible future use within the Telecommunications for Disaster Relief (TDR) concept
+  country '990', default # Spare code
+  country '991', default # Trial of a proposed new international telecommunication public correspondence service, shared code
+  country '992', default # Tajikistan (Republic of)
+  country '993', default # Turkmenistan
+  country '994', default # Azerbaijani Republic
+  country '995', default # Georgia
+  country '996', default # Kyrgyz Republic
+  country '997', default # Spare code
+  country '998', default # Uzbekistan (Republic of)
+  country '999', default # Reserved for possible future use within the Telecommunications for Disaster Relief (TDR) concept
 end
