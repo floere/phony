@@ -1,3 +1,7 @@
+h2. Version 1.4.3
+
+* hanke: Fix for digits being cut off at the end of a number (by mrchucho, thanks!).
+
 h2. Version 1.4.2
 
 * hanke: Exposing @Phony::CountryCodes.instance.international_absolute_format@, @Phony::CountryCodes.instance.international_relative_format@, @Phony::CountryCodes.instance.national_format@ (writer & reader) so people can set their special ndc formats. Especially if they use Phony for just one country. (Thanks sarwagya for the inspiration!)
