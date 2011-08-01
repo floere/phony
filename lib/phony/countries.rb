@@ -171,8 +171,14 @@ Phony.define do
   #
   country '64', fixed(1) >> split(3,4)
 
-  country '65', todo # TODO Singapore (Republic of)
-  country '66', todo # TODO Thailand
+  # Singapore (Republic of).
+  #
+  country '65', none >> split(4,4) # TODO Short Codes.
+
+  # Thailand.
+  #
+  country '66', one_of('2') >> split(3,4) | # Bangkok
+                fixed(2)    >> split(3,3)   # Rest
 
   country '81', todo # TODO Japan
 

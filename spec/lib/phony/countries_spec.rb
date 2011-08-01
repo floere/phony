@@ -158,9 +158,16 @@ describe 'country descriptions' do
       Phony.split('825112345678').should == ['82', '51', '1234', '5678'] # Busan
       Phony.split('821027975588').should == ['82', '10', '2797', '5588'] # mobile
     end
+    it 'handles thai numbers' do
+      Phony.split('6621231234').should == ['66', '2', '123', '1234'] # Bangkok
+      Phony.split('6636123123').should == ['66', '36', '123', '123'] # Lop Buri
+    end
     it 'handles tunisian numbers' do
       Phony.split('21611231234').should == ['216', '1', '123', '1234'] # Ariana
       Phony.split('21621231234').should == ['216', '2', '123', '1234'] # Bizerte
+    end
+    it "handles singaporean numbers" do
+      Phony.split('6561231234').should == ['65', '6123', '1234'] # Fixed line
     end
     it "handles slovakian numbers" do
       Phony.split('421912123456').should == ['421', '912', '123456'] # Mobile
