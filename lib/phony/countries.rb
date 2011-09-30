@@ -46,7 +46,7 @@ Phony.define do
 
   # Greece.
   #
-  country '30', match(/^(2[3-8]?1|69[0345789]|800)\d+$/) >> split(6) | # Geo/Mobile
+  country '30', match(/^(2[3-8]?1|69[0345789]|800)\d+$/) >> split(8) | # Geo/Mobile
                 fixed(4)                                 >> split(6)   # 3-digit NDCs
 
   # country '31' # Netherlands, see special file.
