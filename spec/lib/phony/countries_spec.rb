@@ -88,6 +88,7 @@ describe 'country descriptions' do
     it "handles greek numbers" do
       Phony.split('3021123456').should == ['30', '21', '123456'] # Athens
       Phony.split('3069512345').should == ['30', '695', '12345'] # Mobile
+      Phony.split('302108131234').should == ['30', '21', '08131234'] # Long mobile, noted by vilcsak in pull request #26.
       Phony.split('3025941234').should == ['30', '2594', '1234']
       Phony.split('3022631234').should == ['30', '2263', '1234']
     end
@@ -100,7 +101,7 @@ describe 'country descriptions' do
       Phony.split('3544211234').should == ['354', '421', '1234'] # Keflavík
       Phony.split('3544621234').should == ['354', '462', '1234'] # Akureyri
       Phony.split('3545511234').should == ['354', '551', '1234'] # Reykjavík
-    end    
+    end
     it "handles italian numbers" do
       Phony.split('3934869528').should == ['39', '3486', '952', '8']     # Mobile
       Phony.split('39068546705').should == ['39', '06', '854', '6705']   # Roma
@@ -205,7 +206,7 @@ describe 'country descriptions' do
     it "handles new zealand numbers" do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
-  
+
     it "handles french service numbers" do
       Phony.split('33812345678').should == ['33', '8', '12','34','56','78']
     end
@@ -213,5 +214,5 @@ describe 'country descriptions' do
       Phony.split('41800334455').should == ['41', '800', '334', '455']
     end
   end
-  
+
 end
