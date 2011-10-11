@@ -253,7 +253,7 @@ Phony.define do
   country '251', todo # Ethiopia
   country '252', todo # Somali Democratic Republic
   country '253', todo # Djibouti
-  country '254', todo # Kenya
+  country '254', fixed(2) >> split(7) # Kenya
   country '255', todo # Tanzania
   country '256', todo # Uganda
   country '257', todo # Burundi

@@ -107,6 +107,10 @@ describe 'country descriptions' do
       Phony.split('39068546705').should == ['39', '06', '854', '6705']   # Roma
       Phony.split('390909709511').should == ['39', '090', '970', '9511'] # Barcellona
     end
+    it 'handles kenyan numbers' do
+      Phony.split('254201234567').should == ['254', '20', '1234567'] # Nairobi
+      Phony.split('254111234567').should == ['254', '11', '1234567'] # Mombasa
+    end
     it "handles lithuanian numbers" do
       Phony.split('37070012123').should == ['370', '700', '12', '123']     # Service
       Phony.split('37061212123').should == ['370', '612', '12', '123']     # Mobile
