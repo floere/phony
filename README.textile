@@ -1,5 +1,7 @@
 h1. Phony
 
+Used in e.g.: "airbnb.com":airbnb.com, "restorm.com":restorm.com
+
 h2. Description
 
 This gem can normalize, format and split E164 numbers.
