@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'country descriptions' do
 
-  describe "splitting" do
+  describe 'splitting' do
     it 'handles afghan numbers' do
       Phony.split('93201234567').should == ['93', '20', '1234567'] # Kabul
     end
@@ -12,13 +12,13 @@ describe 'country descriptions' do
       Phony.split('213211231234').should == ['213', '21', '123', '1234'] # Algiers
       Phony.split('213331231234').should == ['213', '33', '123', '1234'] # Batna
     end
-    it "handles austrian numbers" do
+    it 'handles austrian numbers' do
       Phony.split('43198110').should == ['43', '1', '98110'] # Vienna
       Phony.split('4366914093902').should == ['43', '669', '14093902'] # Mobile
       Phony.split('433161234567891').should == ['43', '316', '1234567891'] # Graz
       Phony.split('432164123456789').should == ['43', '2164', '123456789'] # Rohrau
     end
-    it "handles australian numbers" do
+    it 'handles australian numbers' do
       Phony.split('61512341234').should == ['61', '5', '1234', '1234'] # Landline
       Phony.split('61423123123').should == ['61', '423', '123', '123'] # Mobile
     end
@@ -62,7 +62,7 @@ describe 'country descriptions' do
       Phony.split('31201234567').should == ['31', '20', '1234567']
       Phony.split('31222123456').should == ['31', '222', '123456']
     end
-    it "handles egyptian numbers" do
+    it 'handles egyptian numbers' do
       Phony.split('20212345678').should == ['20', '2', '12345678']
       Phony.split('20921234567').should == ['20', '92', '1234567']
       Phony.split('20951234567').should == ['20', '95', '1234567']
@@ -73,10 +73,10 @@ describe 'country descriptions' do
       Phony.split('3585012312').should == ['358', '50', '123', '12'] # Mobile
       Phony.split('358600123').should  == ['358', '600', '123'] # Service
     end
-    it "handles french numbers" do
+    it 'handles french numbers' do
       Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
     end
-    it "handles german numbers" do
+    it 'handles german numbers' do
       Phony.split('493038625454').should  == ['49', '30', '386', '25454'] # Berlin
       Phony.split('4922137683323').should == ['49', '221', '376', '83323'] # Cologne
       Phony.split('497614767676').should  == ['49', '761', '476', '7676'] # Freiburg im Breisgau
@@ -85,24 +85,24 @@ describe 'country descriptions' do
       Phony.split('491805878323').should  == ['49', '180', '587', '8323'] # Service numbers
       Phony.split('491815878323').should  == ['49', '181', '587', '8323'] # Service numbers
     end
-    it "handles greek numbers" do
+    it 'handles greek numbers' do
       Phony.split('3021123456').should == ['30', '21', '123456'] # Athens
       Phony.split('3069512345').should == ['30', '695', '12345'] # Mobile
       Phony.split('302108131234').should == ['30', '21', '08131234'] # Long mobile, noted by vilcsak in pull request #26.
       Phony.split('3025941234').should == ['30', '2594', '1234']
       Phony.split('3022631234').should == ['30', '2263', '1234']
     end
-    it "handles hungarian numbers" do
+    it 'handles hungarian numbers' do
       Phony.split('3612345678').should == ['36', '1', '234', '5678']
       Phony.split('3622123456').should == ['36', '22', '123', '456']
     end
-    it "handles icelandic numbers" do
+    it 'handles icelandic numbers' do
       Phony.split('354112').should == ['354', '112'] # Emergency TODO
       Phony.split('3544211234').should == ['354', '421', '1234'] # Keflavík
       Phony.split('3544621234').should == ['354', '462', '1234'] # Akureyri
       Phony.split('3545511234').should == ['354', '551', '1234'] # Reykjavík
     end
-    it "handles italian numbers" do
+    it 'handles italian numbers' do
       Phony.split('3934869528').should == ['39', '3486', '952', '8']     # Mobile
       Phony.split('39068546705').should == ['39', '06', '854', '6705']   # Roma
       Phony.split('390909709511').should == ['39', '090', '970', '9511'] # Barcellona
@@ -111,7 +111,7 @@ describe 'country descriptions' do
       Phony.split('254201234567').should == ['254', '20', '1234567'] # Nairobi
       Phony.split('254111234567').should == ['254', '11', '1234567'] # Mombasa
     end
-    it "handles lithuanian numbers" do
+    it 'handles lithuanian numbers' do
       Phony.split('37070012123').should == ['370', '700', '12', '123']     # Service
       Phony.split('37061212123').should == ['370', '612', '12', '123']     # Mobile
       Phony.split('37051231212').should == ['370', '5', '123', '12', '12'] # Vilnius
@@ -142,7 +142,7 @@ describe 'country descriptions' do
       Phony.split('51912341234').should == ['51', '9', '1234', '1234'] # mobile
       Phony.split('51841234123').should == ['51', '84', '1234', '123'] # Cuzco, best effort
     end
-    it "handles polish numbers" do
+    it 'handles polish numbers' do
       Phony.split('48123123123').should == ['48', '123', '123', '123']
     end
     it 'handles portuguese numbers' do
@@ -171,24 +171,33 @@ describe 'country descriptions' do
       Phony.split('21611231234').should == ['216', '1', '123', '1234'] # Ariana
       Phony.split('21621231234').should == ['216', '2', '123', '1234'] # Bizerte
     end
-    it "handles singaporean numbers" do
+    it 'handles singaporean numbers' do
       Phony.split('6561231234').should == ['65', '6123', '1234'] # Fixed line
     end
-    it "handles slovakian numbers" do
+    it 'handles slovakian numbers' do
       Phony.split('421912123456').should == ['421', '912', '123456'] # Mobile
       Phony.split('421212345678').should == ['421', '2', '12345678'] # Bratislava
       Phony.split('421371234567').should == ['421', '37', '1234567'] # Nitra / Other
     end
-    it "handles swedish numbers" do
+    it 'handles swedish numbers' do
       Phony.split('46812345678').should == ['46', '8', '12345678'] # Stockholm
       Phony.split('46111234567').should == ['46', '11', '1234567']
       Phony.split('46125123456').should == ['46', '125', '123456']
     end
-    it "handles swiss numbers" do
+    it 'handles swiss numbers' do
       Phony.split('41443643532').should == ['41', '44', '364', '35', '32']
+    end
+    it 'handles tanzanian numbers' do
+      Phony.split('255221231234').should == ['255', '22', '123', '1234'] # Dar Es Salaam
+      Phony.split('255651231234').should == ['255', '65', '123', '1234'] # TIGO
+      Phony.split('255861123123').should == ['255', '861', '123', '123'] # Special Rates
     end
     it 'handles turkish numbers' do
       Phony.split('903121234567').should == ['90', '312', '123', '4567'] # Ankara
+    end
+    it 'handles ugandan numbers' do
+      Phony.split('256414123456').should == ['256', '41', '4123456'] # Kampania
+      Phony.split('256464441234').should == ['256', '464', '441234'] # Mubende
     end
     it 'handles UK numbers' do
       Phony.split('442045671113').should == ['44', '20', '4567', '1113'] # London
@@ -201,20 +210,20 @@ describe 'country descriptions' do
       Phony.split('447480605207').should == ['44', '7480', '605207'] # Mobile
       Phony.split('448005878323').should == ['44', '800', '587', '8323'] # Service, regression
     end
-    it "handles US numbers" do
+    it 'handles US numbers' do
       Phony.split('15551115511').should == ['1', '555', '111', '5511']
     end
-    it "handles venezuelan numbers" do
-      Phony.split('582121234567').should == ["58", "212", "1234567"]
+    it 'handles venezuelan numbers' do
+      Phony.split('582121234567').should == ['58', '212', '1234567']
     end
-    it "handles new zealand numbers" do
+    it 'handles new zealand numbers' do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end
 
-    it "handles french service numbers" do
+    it 'handles french service numbers' do
       Phony.split('33812345678').should == ['33', '8', '12','34','56','78']
     end
-    it "handles swiss service numbers" do
+    it 'handles swiss service numbers' do
       Phony.split('41800334455').should == ['41', '800', '334', '455']
     end
   end

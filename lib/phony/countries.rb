@@ -254,8 +254,11 @@ Phony.define do
   country '252', todo # Somali Democratic Republic
   country '253', todo # Djibouti
   country '254', fixed(2) >> split(7) # Kenya
-  country '255', todo # Tanzania
-  country '256', todo # Uganda
+  country '255', match(/^([89]\d\d)/) >> split(3,3) | # Special/Premium. Tanzania
+                 one_of('112', '118') >> split(3,3) | # Short Codes.
+                 fixed(2)             >> split(3,4)   # Geographic.
+  country '256', match(/^(46[45]|4[78]\d)/) >> split(6) | # Geo 1. Uganda
+                 fixed(2)                   >> split(7)   # Geo 2.
   country '257', todo # Burundi
   country '258', todo # Mozambique
   country '259', todo # -
