@@ -45,6 +45,7 @@ module Phony
     # Useful before inserting the number into a database.
     #
     def normalize phone_number
+      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
       normalize! phone_number.dup
     end
     def normalize! phone_number
@@ -54,6 +55,7 @@ module Phony
     # Splits the phone number into pieces according to the country codes.
     #
     def split phone_number
+      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number)." unless phone_number
       split! phone_number.dup
     end
     def split! phone_number
@@ -63,6 +65,7 @@ module Phony
     # Formats a E164 number according to local customs.
     #
     def format phone_number, options = {}
+      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number)." unless phone_number
       formatted! phone_number.dup, options
     end
     def format! phone_number, options = {}

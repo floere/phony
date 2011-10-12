@@ -4,6 +4,24 @@ require 'spec_helper'
 
 describe Phony do
   
+  describe 'nil cases' do
+    it "should raise on normalize nil" do
+      expect {
+        Phony.normalize(nil)
+      }.to raise_error(ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number).")
+    end
+    it "should raise on format nil" do
+      expect {
+        Phony.format(nil)
+      }.to raise_error(ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number).")
+    end
+    it "should raise on split nil" do
+      expect {
+        Phony.split(nil)
+      }.to raise_error(ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number).")
+    end
+  end
+  
   describe "normalize" do
     describe "some examples" do
       it "should normalize an already normalized number" do
