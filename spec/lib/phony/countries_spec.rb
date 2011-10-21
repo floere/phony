@@ -162,6 +162,7 @@ describe 'country descriptions' do
       Phony.split('82212345678').should == ['82', '2', '1234', '5678']   # Seoul
       Phony.split('825112345678').should == ['82', '51', '1234', '5678'] # Busan
       Phony.split('821027975588').should == ['82', '10', '2797', '5588'] # mobile
+      Phony.split('821087971234').should == ['82', '10', '8797', '1234'] # mobile
     end
     it 'handles thai numbers' do
       Phony.split('6621231234').should == ['66', '2', '123', '1234'] # Bangkok

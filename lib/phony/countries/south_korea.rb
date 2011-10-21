@@ -9,7 +9,7 @@ service = %w{ 30 50 60 70 80 100 101 105 106 107 108 109 111 112 113 114 115 116
 mobile  = ('10'..'19').to_a
 
 Phony.define do
-  country '82', one_of(*service)              >> split(3,3) |
-                one_of(*mobile)               >> split(4,4) |
+  country '82', one_of(*mobile)               >> split(4,4) |
+                one_of(*service)              >> split(3,3) |
                 one_of('2', :max_length => 2) >> split(4,4) # Seoul
 end
