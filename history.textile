@@ -1,5 +1,13 @@
 h2. Upcoming Version.
 
+h2. Version 1.5.1
+
+* hanke: Fix for korean service codes incorrectly formatting korean mobile numbers (by vilcsak, thanks!).
+
+h2. Version 1.5.0
+
+* hanke: Raises when nil is handed into @#normalize@, @#split@, or @#format@ – to fail fast and hard. Please handle e.g. using @number && Phony.normalize(number)@, or @number && Phony.format(number)@.
+
 h2. Version 1.4.5
 
 * hanke: Fix for digits being cut off at the end of a greek mobile number (by vilcsak, thanks!).
