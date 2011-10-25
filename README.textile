@@ -1,6 +1,6 @@
 h1. Phony
 
-Used in e.g.: "airbnb.com":airbnb.com, "restorm.com":restorm.com, "socialcam.com":socialcam.com (and many, many others).
+Used in e.g.: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com (and many, many others).
 
 h2. Description
 
