@@ -130,9 +130,13 @@ Phony.define do
                 match(/^(7|21|22|23|4[1-8]|3[1-3])/) >> split(7) | # Short NDCs
                 fixed(3)                             >> split(7)   # 3-digit NDCs
 
-  # TODO Argentine Republic.
+  # Argentine Republic.
   #
-  country '54', fixed(2) >> split(3,2,2)
+  country '54', one_of('11', '911') >> split(4,4) | # Fixed & Mobile
+                match(/^(22[0137]|237|26[14]|29[179]|34[1235]|35[138]|38[1578])/) >> split(3,4) |        # Fixed
+                match(/^(922[0137]|9237|926[14]|929[179]|934[1235]|935[138]|938[1578])/) >> split(3,4) | # Mobile
+                match(/^(9\d{4})/) >> split(2,4) | # Mobile
+                fixed(4) >> split(2,4) # Fixed
 
   # Brazil (Federative Republic of).
   #

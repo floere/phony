@@ -12,6 +12,14 @@ describe 'country descriptions' do
       Phony.split('213211231234').should == ['213', '21', '123', '1234'] # Algiers
       Phony.split('213331231234').should == ['213', '33', '123', '1234'] # Batna
     end
+    it 'handles argentine numbers' do
+      Phony.split('541112345678').should == ['54', '11', '1234', '5678']
+      Phony.split('542911234567').should == ['54', '291', '123', '4567']
+      Phony.split('542965123456').should == ['54', '2965', '12', '3456']
+      Phony.split('5491112345678').should == ['54', '911', '1234', '5678']
+      Phony.split('5492201234567').should == ['54', '9220', '123', '4567']
+      Phony.split('5492221123456').should == ['54', '92221', '12', '3456']
+    end
     it 'handles austrian numbers' do
       Phony.split('43198110').should == ['43', '1', '98110'] # Vienna
       Phony.split('4366914093902').should == ['43', '669', '14093902'] # Mobile
