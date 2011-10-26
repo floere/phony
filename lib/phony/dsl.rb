@@ -83,6 +83,7 @@ module Phony
     #
     #
     def split *local
+      local << local.pop + 10 # Allow for call-through numbers with an arbitrary size.
       LocalSplitters::Fixed.instance_for local
     end
     def matched_split options = {}

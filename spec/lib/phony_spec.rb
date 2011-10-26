@@ -270,7 +270,8 @@ describe Phony do
     describe 'vanity_to_number' do
       it {Phony.vanity_to_number('41800WEGGLI').should == '41800934454'}
       it {Phony.vanity_to_number('41800weggli').should == '41800934454'}
-      it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237'} # Cut off according to the swiss norms.
+      # it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237'} # Cut off according to the swiss norms.
+      it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237762824'} # Allow for call-through numbers (>= 1.6.0)
       it {Phony.vanity_to_number('4180BLA').should == '4180252'} # Does not check for validity of number.
     end
   end

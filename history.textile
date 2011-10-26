@@ -1,5 +1,14 @@
 h2. Upcoming Version.
 
+h2. Version 1.6.0
+
+* hanke: Phony's API is now much more lenient by always rendering 10 more numbers. If @split(3, 4)@ is defined in the DSL, it actually behaves as if @split(3, 4 + 10)@ was defined, allowing for irregularities in a country's scheme that Phony did not cover yet.
+* hanke: The above change also allows for call-through numbers into offices etc.
+
+h2. Version 1.5.2
+
+* hanke: Fix for argentine republic's numbers (with input by vilcsak, thanks!).
+
 h2. Version 1.5.1
 
 * hanke: Fix for korean service codes incorrectly formatting korean mobile numbers (by vilcsak, thanks!).
