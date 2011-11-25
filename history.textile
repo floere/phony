@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.6.1
+
+* hanke: Closes https://github.com/floere/phony/issues/32, normalizing numbers with a double zero at the beginning. Aka the "James Bond" release.
+
 h2. Version 1.6.0
 
 * hanke: Phony's API is now much more lenient by always rendering 10 more numbers. If @split(3, 4)@ is defined in the DSL, it actually behaves as if @split(3, 4 + 10)@ was defined, allowing for irregularities in a country's scheme that Phony did not cover yet.
