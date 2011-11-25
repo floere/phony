@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Phony do
-  
+
   describe 'nil cases' do
     it "should raise on normalize nil" do
       expect {
@@ -21,7 +21,7 @@ describe Phony do
       }.to raise_error(ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number).")
     end
   end
-  
+
   describe "normalize" do
     describe "some examples" do
       it "should normalize an already normalized number" do
@@ -30,8 +30,8 @@ describe Phony do
       it "should normalize a format number" do
         Phony.normalize('+41 44 364 35 33').should == '41443643533'
       end
-      it "should normalize a format number" do
-        Phony.normalize('+41 44 364 35 33').should == '41443643533'
+      it "should normalize a 00 number" do
+        Phony.normalize('0041 44 364 35 33').should == '41443643533'
       end
       it "should normalize a service number" do
         Phony.normalize('+41 800 11 22 33').should == '41800112233'
@@ -59,13 +59,13 @@ describe Phony do
       end
     end
   end
-  
+
   describe 'formatted' do
     it 'is an alias of format' do
       Phony.formatted('41443643532').should == '+41 44 364 35 32'
     end
   end
-  
+
   describe "format" do
     describe "default" do
       it "should format swiss numbers" do
@@ -182,7 +182,7 @@ describe Phony do
       end
     end
   end
-  
+
   context 'minimal cases' do
     context 'normalizing' do
       it 'handles completely crazy "numbers"' do
@@ -217,7 +217,7 @@ describe Phony do
       end
     end
   end
-  
+
   context "speed" do
     before(:each) do
       @phone_numbers = [
@@ -256,7 +256,7 @@ describe Phony do
       end
     end
   end
-  
+
   describe 'vanity' do
     describe 'vanity_number?' do
       it {Phony.vanity?('41800 WEGGLI').should be_true}
@@ -266,7 +266,7 @@ describe Phony do
       it {Phony.vanity?('41900 KURZ').should be_false}
       it {Phony.vanity?('41 44 364 35 32').should be_false}
     end
-    
+
     describe 'vanity_to_number' do
       it {Phony.vanity_to_number('41800WEGGLI').should == '41800934454'}
       it {Phony.vanity_to_number('41800weggli').should == '41800934454'}

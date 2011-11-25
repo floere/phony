@@ -22,10 +22,11 @@ module Phony
       @instance ||= new
     end
 
+    @@normalizing_pattern = /^0+|\D/
     def normalize number
       # Remove non-digit chars.
       #
-      number.gsub! /\D*/, EMPTY_STRING
+      number.gsub! @@normalizing_pattern, EMPTY_STRING
       national_handler, cc, rest = split_cc number
       @normalize_format % [cc, national_handler.normalize(rest)]
     end

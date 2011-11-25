@@ -86,6 +86,7 @@ describe 'country descriptions' do
     end
     it 'handles german numbers' do
       Phony.split('493038625454').should  == ['49', '30', '386', '25454'] # Berlin
+      Phony.split('4932221764542').should == ['49', '32', '221', '764542'] # Non-Geographical
       Phony.split('4922137683323').should == ['49', '221', '376', '83323'] # Cologne
       Phony.split('497614767676').should  == ['49', '761', '476', '7676'] # Freiburg im Breisgau
       Phony.split('4921535100').should    == ['49', '2153', '510', '0'] # Nettetal-Lobberich
