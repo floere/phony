@@ -2,6 +2,12 @@
 #
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Italy
 #
+
+ndcs_2digit = [
+   '02', # Milan
+   '06', # Rome (including State of Vatican City) and Aprilia
+]
+
 ndcs = [
   '010', # Genoa
   '011', # Turin
@@ -17,7 +23,6 @@ ndcs = [
  '0185', # Tigullio
  '0187', # La Spezia and Cinque Terre
   '019', # Savona
-   '02', # Milan
   '030', # Brescia
   '031', # Como
  '0321', # Novara
@@ -53,7 +58,6 @@ ndcs = [
  '0577', # Siena
  '0586', # Livorno
   '059', # Modena
-   '06', # Rome (including State of Vatican City) and Aprilia
   '070', # Cagliari
   '071', # Ancona
   '075', # Perugia
@@ -166,6 +170,11 @@ handlers << Phony::NationalCode.new(
 handlers << Phony::NationalCode.new(
   Phony::NationalSplitters::Variable.new(nil, mobile),
   Phony::LocalSplitters::Fixed.instance_for([3, 4]),
+  false
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, ndcs_2digit),
+  Phony::LocalSplitters::Fixed.instance_for([4, 4]),
   false
 )
 handlers << Phony::NationalCode.new(
