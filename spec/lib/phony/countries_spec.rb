@@ -112,8 +112,8 @@ describe 'country descriptions' do
       Phony.split('3545511234').should == ['354', '551', '1234'] # Reykjavík
     end
     it 'handles italian numbers' do
-      Phony.split('3934869528').should == ['39', '3486', '952', '8']     # Mobile
-      Phony.split('39068546705').should == ['39', '06', '854', '6705']   # Roma
+      Phony.split('3934869528').should   == ['39', '3486', '952', '8']   # Mobile
+      Phony.split('390612341234').should == ['39', '06', '1234', '1234'] # Roma
       Phony.split('390909709511').should == ['39', '090', '970', '9511'] # Barcellona
     end
     it 'handles kenyan numbers' do
