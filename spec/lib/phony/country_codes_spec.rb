@@ -75,6 +75,9 @@ describe Phony::CountryCodes do
       it "should format american numbers" do
         @countries.formatted('18705551122').should == '+1 870 555 1122'
       end
+      it "should format irish numbers" do
+        @countries.formatted('35311234567').should == '+353 1 123 4567'
+      end
     end
     describe "international" do
       it "should format north american numbers" do
@@ -94,6 +97,9 @@ describe Phony::CountryCodes do
       end
       it 'should format liechtensteiner numbers' do
         @countries.formatted('4233841148', :format => :international_relative).should == '00423 384 11 48'
+      end
+      it "should format irish numbers" do
+        @countries.formatted('35311234567', :format => :international).should == '+353 1 123 4567'
       end
       context 'with no spaces' do
         it "should format north american numbers" do

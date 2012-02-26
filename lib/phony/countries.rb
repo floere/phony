@@ -310,7 +310,10 @@ Phony.define do
                  fixed(3)             >> split(3,4)   # 3-digit NDCs
 
   country '352', todo # Luxembourg
-  country '353', todo # Ireland (0-3-4)
+
+  # country '353', todo # Ireland (0-3-4)
+  # country '353' # Republic of Ireland, see special file.
+
   country '354', none >> split(3,4) # Iceland
   country '355', todo # Albania
   country '356', todo # Malta
