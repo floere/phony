@@ -311,7 +311,6 @@ Phony.define do
 
   country '352', todo # Luxembourg
 
-  # country '353', todo # Ireland (0-3-4)
   # country '353' # Republic of Ireland, see special file.
 
   country '354', none >> split(3,4) # Iceland
