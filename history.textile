@@ -1,6 +1,10 @@
 h2. Upcoming Version.
 
-h2. Version 1.6.1
+h2. Version 1.6.3
+
+* hanke: Ireland, thanks to stevenyan! (Closes "pull request #36":https://github.com/floere/phony/pull/36)
+
+h2. Version 1.6.1/1.6.2
 
 * hanke: Closes https://github.com/floere/phony/issues/32, normalizing numbers with a double zero at the beginning. Aka the "James Bond" release.
 
