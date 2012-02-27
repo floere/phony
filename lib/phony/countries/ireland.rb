@@ -31,7 +31,6 @@ ndcs_with_5_subscriber_digits = [
   '67',   # Nenagh
   '68',   # Listowel
   '69',   # Newcastle West
-  '76',   # VoIP
   '93',   # Tuam
   ('94'..'99').to_a # Castlebar, Castlerea, Claremorris, Clifden, Ballina, Belmullet, Westport, Kilronan
 ].flatten
@@ -57,6 +56,7 @@ ndcs_with_7_subscriber_digits = [
   '66', # Tralee, Dingle, Killorglin, Cahirciveen
   '71', # Sligo, Manorhamilton, Carrick-on-Shannon
   '74', # Donegal, Letterkenny, Dungloe, Buncrana
+  '76', # VoIP
   '90', # Athlone, Ballinasloe, Portumna, Roscommon
   '94'  # Ballinrobe
 ]

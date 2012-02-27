@@ -112,11 +112,11 @@ describe 'country descriptions' do
       Phony.split('3545511234').should == ['354', '551', '1234'] # Reykjavík
     end
     it 'handles irish numbers' do
-      Phony.split('35311234567').should == ['353', '1', '123', '4567']   # Dublin, 7 digit subscriber #
-      Phony.split('3532212345').should == ['353', '22', '12345']         # Mallow, 5 digit subscriber #
-      Phony.split('35345123456').should == ['353', '45', '123456']       # Naas, 6 digit subscriber #
+      Phony.split('35311234567').should  == ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
+      Phony.split('3532212345').should   == ['353', '22', '12345']       # Mallow, 5 digit subscriber #
+      Phony.split('35345123456').should  == ['353', '45', '123456']      # Naas, 6 digit subscriber #
       Phony.split('353801234567').should == ['353', '80', '123', '4567'] # Mobile
-      Phony.split('3537612345').should == ['353', '76', '12345'] # VoIP
+      Phony.split('353761234567').should == ['353', '76', '123', '4567'] # VoIP
       Phony.split('353800123456').should == ['353', '800', '123456']     # Freefone
       Phony.split('353000123456').should == ['353', '000123456']         # No NDC/local split for unrecognized
     end
