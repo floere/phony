@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.6.4
+
+* hanke: Fix for Ireland's VoIP numbers.
+
 h2. Version 1.6.3
 
 * hanke: Ireland, thanks to stevenyan! (Closes "pull request #36":https://github.com/floere/phony/pull/36)
