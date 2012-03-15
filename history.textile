@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.6.5
+
+* hanke: Ghana (thanks jschwertfeger!).
+
 h2. Version 1.6.4
 
 * hanke: Fix for Ireland's VoIP numbers.
