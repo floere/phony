@@ -94,6 +94,9 @@ describe 'country descriptions' do
       Phony.split('491805878323').should  == ['49', '180', '587', '8323'] # Service numbers
       Phony.split('491815878323').should  == ['49', '181', '587', '8323'] # Service numbers
     end
+    it 'handles ghanese numbers' do
+      Phony.split('233302123456').should == ['233', '30', '212', '3456'] # Mobile Vodafone, Accra
+    end
     it 'handles greek numbers' do
       Phony.split('3021123456').should == ['30', '21', '123456'] # Athens
       Phony.split('3069512345').should == ['30', '695', '12345'] # Mobile
