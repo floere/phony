@@ -64,31 +64,33 @@ Phony.define do
 
   # Spain.
   #
-  country '34', fixed(2) >> split(3,4)
+  country '34',
+          fixed(2) >> split(3,4)
 
   # Hungary.
   #
   # TODO Mobile.
   #
-  country '36', one_of('104','105','107','112') >> split(3,3) | # Service
-                one_of('1')                     >> split(3,4) | # Budapest
-                fixed(2)                        >> split(3,4)   # 2-digit NDCs
+  country '36',
+          one_of('104','105','107','112') >> split(3,3) | # Service
+          one_of('1')                     >> split(3,4) | # Budapest
+          fixed(2)                        >> split(3,4)   # 2-digit NDCs
 
   # country '39' # Italy, see special file.
 
   # Romania.
   #
-  country '40', match(/^(112|800|90[036])\d+$/) >> split(3,3) | # Service
-                match(/^(7[1-8])\d+$/)          >> split(3,4) | # Mobile
-                one_of('21', '31')              >> split(3,4) | # Bucureşti
-                fixed(3)                        >> split(3,4)   # 3-digit NDCs
+  country '40',
+          match(/^(112|800|90[036])\d+$/) >> split(3,3) | # Service
+          match(/^(7[1-8])\d+$/)          >> split(3,4) | # Mobile
+          one_of('21', '31')              >> split(3,4) | # Bucureşti
+          fixed(3)                        >> split(3,4)   # 3-digit NDCs
 
   # Switzerland.
   #
-  # :service => %w{800 840 842 844 848}, :mobile  => %w{74 76 77 78 79}
-  swiss_service_regex = /^(800|840|842|844|848)\d+$/
-  country '41', match(swiss_service_regex) >> split(3,3) |
-                fixed(2)                   >> split(3,2,2)
+  country '41',
+          match(/^(8(00|40|42|44|48))\d+$/) >> split(3,3) |
+          fixed(2)                          >> split(3,2,2)
 
 
   # country '43' # Austria, see special file.
@@ -96,61 +98,71 @@ Phony.define do
 
   # Denmark.
   #
-  country '45', none >> split(2,2,2,2)
+  country '45',
+          none >> split(2,2,2,2)
 
   # country '46' # Sweden, see special file.
 
   # Norway.
   #
-  country '47', none >> matched_split(/^[1].*$/ => [3], /^[489].*$/ => [3,2,3], :fallback => [2,2,2,2])
+  country '47',
+          none >> matched_split(/^[1].*$/   => [3],
+                                /^[489].*$/ => [3,2,3],
+                                :fallback   => [2,2,2,2])
 
   # Poland (Republic of)
   # Although the NDCs are 2 digits, the representation is 3 digits.
   # Note: http://wapedia.mobi/en/Telephone_numbers_in_Poland, mobile not yet correct
   #
-  country '48', fixed(3) >> split(3,3) # Poland
+  country '48',
+          fixed(3) >> split(3,3) # Poland
 
   # country '49' # Germany, see special file.
 
   # Peru.
   #
-  country '51', one_of('103', '105') >> split(3,3) | # Service.
-                one_of('1', '9')     >> split(4,4) | # Lima and mobile.
-                fixed(2)             >> split(4,4)   # 2-digit NDCs.
+  country '51',
+          one_of('103', '105') >> split(3,3) | # Service.
+          one_of('1', '9')     >> split(4,4) | # Lima and mobile.
+          fixed(2)             >> split(4,4)   # 2-digit NDCs.
 
   # Mexico.
   #
-  country '52', match(/^(0\d{2})\d+$/)   >> split(2,2,2,2) |
-                match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
-                match(/^(\d{3})\d+$/)    >> split(3,2,2)
+  country '52',
+          match(/^(0\d{2})\d+$/)   >> split(2,2,2,2) |
+          match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
+          match(/^(\d{3})\d+$/)    >> split(3,2,2)
 
   # Cuba.
   #
-  country '53', match(/^(5\d{3})\d+$/)               >> split(4) | # Mobile
-                match(/^(7|21|22|23|4[1-8]|3[1-3])/) >> split(7) | # Short NDCs
-                fixed(3)                             >> split(7)   # 3-digit NDCs
+  country '53',
+          match(/^(5\d{3})\d+$/)               >> split(4) | # Mobile
+          match(/^(7|21|22|23|4[1-8]|3[1-3])/) >> split(7) | # Short NDCs
+          fixed(3)                             >> split(7)   # 3-digit NDCs
 
   # Argentine Republic.
   #
-  country '54', one_of('11', '911') >> split(4,4) | # Fixed & Mobile
-                match(/^(22[0137]|237|26[14]|29[179]|34[1235]|35[138]|38[1578])/) >> split(3,4) |        # Fixed
-                match(/^(922[0137]|9237|926[14]|929[179]|934[1235]|935[138]|938[1578])/) >> split(3,4) | # Mobile
-                match(/^(9\d{4})/) >> split(2,4) | # Mobile
-                fixed(4) >> split(2,4) # Fixed
+  country '54',
+          one_of('11', '911') >> split(4,4) | # Fixed & Mobile
+          match(/^(22[0137]|237|26[14]|29[179]|34[1235]|35[138]|38[1578])/) >> split(3,4) |        # Fixed
+          match(/^(922[0137]|9237|926[14]|929[179]|934[1235]|935[138]|938[1578])/) >> split(3,4) | # Mobile
+          match(/^(9\d{4})/) >> split(2,4) | # Mobile
+          fixed(4) >> split(2,4) # Fixed
 
   # Brazil (Federative Republic of).
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
   #
   brazilian_service = /^(100|128|190|191|192|193|194|197|198|199)\d+$/
-  country '55', match(brazilian_service) >> split(3,3) | # Service.
-                fixed(2) >> split(4,4)                   # NDCs
-                # :service? => brazilian_service, :mobile? => ?
-                # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
+  country '55',
+          match(brazilian_service) >> split(3,3) | # Service.
+          fixed(2) >> split(4,4)                   # NDCs
 
   # Chile.
   #
-  country '56', match(/^(13[0-79]|14[79])\d+$/) >> split(3,3) | # Service
-                one_of('2', '9')                >> split(8)   | # Santiago, Mobile
-                fixed(2)                        >> split(8)     # 2-digit NDCs
+  country '56',
+          match(/^(13[0-79]|14[79])\d+$/) >> split(3,3) | # Service
+          one_of('2', '9')                >> split(8)   | # Santiago, Mobile
+          fixed(2)                        >> split(8)     # 2-digit NDCs
 
   # TODO Colombia.
   #
@@ -158,14 +170,17 @@ Phony.define do
 
   # Venezuela (Bolivarian Republic of)
   #
-  country '58', fixed(3) >> split(7)
+  country '58',
+          fixed(3) >> split(7)
 
   # country '60' # Malaysia, see special file.
 
   # Australia.
   #
-  country '61', match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
-                fixed(1)              >> split(4,4)   # Rest
+  country '61',
+          match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
+          fixed(1)              >> split(4,4)   # Rest
+          
   country '62', todo # TODO Indonesia (Republic of)
   country '63', todo # TODO Philippines (Republic of the)
 
@@ -173,16 +188,19 @@ Phony.define do
   #
   # TODO Mobile?
   #
-  country '64', fixed(1) >> split(3,4)
+  country '64',
+          fixed(1) >> split(3,4)
 
   # Singapore (Republic of).
   #
-  country '65', none >> split(4,4) # TODO Short Codes.
+  country '65',
+          none >> split(4,4) # TODO Short Codes.
 
   # Thailand.
   #
-  country '66', one_of('2') >> split(3,4) | # Bangkok
-                fixed(2)    >> split(3,3)   # Rest
+  country '66',
+          one_of('2') >> split(3,4) | # Bangkok
+          fixed(2)    >> split(3,3)   # Rest
 
   country '81', todo # TODO Japan
 
@@ -194,7 +212,8 @@ Phony.define do
 
   # Turkey.
   #
-  country '90', fixed(3) >> split(3,4)   # Wiki says 7, but the examples say 3, 4.
+  country '90',
+          fixed(3) >> split(3,4)   # Wiki says 7, but the examples say 3, 4.
 
   country '91', todo # TODO India (Republic of)
   country '92', todo # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
@@ -264,11 +283,20 @@ Phony.define do
   country '252', todo # Somali Democratic Republic
   country '253', todo # Djibouti
   country '254', fixed(2) >> split(7) # Kenya
-  country '255', match(/^([89]\d\d)/) >> split(3,3) | # Special/Premium. Tanzania
-                 one_of('112', '118') >> split(3,3) | # Short Codes.
-                 fixed(2)             >> split(3,4)   # Geographic.
-  country '256', match(/^(46[45]|4[78]\d)/) >> split(6) | # Geo 1. Uganda
-                 fixed(2)                   >> split(7)   # Geo 2.
+  
+  # Tanzania.
+  #
+  country '255',
+          match(/^([89]\d\d)/) >> split(3,3) | # Special/Premium.
+          one_of('112', '118') >> split(3,3) | # Short Codes.
+          fixed(2)             >> split(3,4)   # Geographic.
+
+  # Uganda.
+  #
+  country '256',
+          match(/^(46[45]|4[78]\d)/) >> split(6) | # Geo 1.
+          fixed(2)                   >> split(7)   # Geo 2.
+          
   country '257', todo # Burundi
   country '258', todo # Mozambique
   country '259', todo # -
@@ -310,10 +338,11 @@ Phony.define do
 
   # Portugal.
   #
-  country '351', one_of('700', '800') >> split(3,3) | # Service.
-                 match(/^(9\d)\d+$/)  >> split(3,4) | # Mobile.
-                 one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
-                 fixed(3)             >> split(3,4)   # 3-digit NDCs
+  country '351',
+          one_of('700', '800') >> split(3,3) | # Service.
+          match(/^(9\d)\d+$/)  >> split(3,4) | # Mobile.
+          one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
+          fixed(3)             >> split(3,4)   # 3-digit NDCs
 
   country '352', todo # Luxembourg
 
@@ -326,19 +355,25 @@ Phony.define do
 
   # Finland.
   #
-  country '358', match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Service
-                 match(/^(4\d|50)\d+$/)          >> split(3,2,2) | # Mobile
-                 one_of('2','3','5','6','8','9') >> split(3,3)   | # Short NDCs
-                 fixed(2)                        >> split(3,3)     # 2-digit NDCs
-  country '359', fixed(2) >> split(3,2,2) # Bulgaria
+  country '358',
+          match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Service
+          match(/^(4\d|50)\d+$/)          >> split(3,2,2) | # Mobile
+          one_of('2','3','5','6','8','9') >> split(3,3)   | # Short NDCs
+          fixed(2)                        >> split(3,3)     # 2-digit NDCs
+          
+  # Bulgaria.
+  #
+  country '359',
+          fixed(2) >> split(3,2,2) # Bulgaria
 
   # Lithuania.
   #
-  country '370', one_of('700', '800')  >> split(2,3)   | # Service
-                 match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
-                 one_of('5')           >> split(3,2,2) | # Vilnius
-                 one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
-                 fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
+  country '370',
+          one_of('700', '800')  >> split(2,3)   | # Service
+          match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
+          one_of('5')           >> split(3,2,2) | # Vilnius
+          one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
+          fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
 
   country '371', todo # Latvia
   country '372', todo # Estonia
