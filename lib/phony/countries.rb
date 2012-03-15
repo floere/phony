@@ -234,7 +234,13 @@ Phony.define do
   country '230', todo # Mauritius
   country '231', todo # Liberia
   country '232', todo # Sierra Leone
-  country '233', todo # Ghana
+
+  # Ghana
+  #
+  # From http://www.itu.int/oth/T0202000052/en
+  #
+  country '233', fixed(2) >> split(3,4)
+
   country '234', todo # Nigeria
   country '235', todo # Chad
   country '236', todo # Central African Republic
