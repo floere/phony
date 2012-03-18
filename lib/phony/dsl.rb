@@ -46,8 +46,9 @@ module Phony
 
     #
     #
-    def country country_code, country
+    def country country_code, country, validator = nil
       Phony::CountryCodes.instance.add country_code, country
+      Phony::Validators.instance.add country_code, validator if validator
     end
 
     # National matcher & splitters.
@@ -88,6 +89,12 @@ module Phony
     end
     def matched_split options = {}
       Phony::LocalSplitters::Regex.instance_for options
+    end
+    
+    # Validators
+    #
+    def invalid_ndcs ndc
+      Validator.new.ndc_check ndc
     end
 
   end

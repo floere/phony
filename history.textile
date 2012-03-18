@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.6.6
+
+* hanke: Experimental @plausible?@ feature. Checks if the given number is a plausible number. Returns @false@ if 100% not plausible, @true@ if probably true.
+
 h2. Version 1.6.5
 
 * hanke: Ghana (thanks jschwertfeger!).

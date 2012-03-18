@@ -12,6 +12,8 @@ require File.expand_path '../phony/national_splitters/default', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
 require File.expand_path '../phony/country', __FILE__
 require File.expand_path '../phony/country_codes', __FILE__
+require File.expand_path '../phony/validator', __FILE__
+require File.expand_path '../phony/validators', __FILE__
 require File.expand_path '../phony/dsl', __FILE__
 
 # Countries.
@@ -37,7 +39,8 @@ module Phony
 
   # Phony uses a single country codes instance.
   #
-  @codes = CountryCodes.instance
+  @codes     = CountryCodes.instance
+  @validator = Validators.instance 
 
   class << self
 
@@ -74,6 +77,16 @@ module Phony
     end
     alias formatted  format
     alias formatted! format!
+    
+    # Makes a plausibility check.
+    #
+    # If it returns false, it is not plausible.
+    # If it returns true, it is unclear whether it is plausible,
+    # leaning towards being plausible.
+    #
+    def plausible? number, hints = {}
+      @validator.plausible? number, hints
+    end
 
     # def service? number
     #   @codes.service? number.dup

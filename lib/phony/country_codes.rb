@@ -6,7 +6,7 @@ module Phony
   #
   class CountryCodes
 
-    attr_reader   :mapping
+    attr_reader   :splitter_mapping
     attr_accessor :international_absolute_format, :international_relative_format, :national_format
 
     def initialize
@@ -22,11 +22,14 @@ module Phony
       @instance ||= new
     end
 
-    @@normalizing_pattern = /^0+|\D/
-    def normalize number
+    @@basic_normalizing_pattern = /^0+|\D/
+    def clean number
       # Remove non-digit chars.
       #
-      number.gsub! @@normalizing_pattern, EMPTY_STRING
+      number.gsub! @@basic_normalizing_pattern, EMPTY_STRING
+    end
+    def normalize number
+      clean number
       national_handler, cc, rest = split_cc number
       @normalize_format % [cc, national_handler.normalize(rest)]
     end
@@ -102,7 +105,7 @@ module Phony
       presumed_cc = ''
       1.upto(3) do |i|
         presumed_cc << rest.slice!(0..0)
-        national_code_handler = mapping[i][presumed_cc]
+        national_code_handler = splitter_mapping[i][presumed_cc]
         return [national_code_handler, presumed_cc, rest] if national_code_handler
       end
       # This line is never reached as CCs are in prefix code.
@@ -121,9 +124,9 @@ module Phony
       country_code = country_code.to_s
       optimized_country_code_access = country_code.size
 
-      @mapping ||= {}
-      @mapping[optimized_country_code_access] ||= {}
-      @mapping[optimized_country_code_access][country_code] = country
+      @splitter_mapping ||= {}
+      @splitter_mapping[optimized_country_code_access] ||= {}
+      @splitter_mapping[optimized_country_code_access][country_code] = country
     end
 
   end

@@ -27,7 +27,9 @@ Phony.define do
 
   # USA, Canada, etc.
   #
-  country '1', fixed(3) >> split(3,4)
+  country '1',
+          fixed(3) >> split(3,4),
+          invalid_ndcs(/911/)
 
   # Kazakhstan (Republic of) & Russian Federation.
   #

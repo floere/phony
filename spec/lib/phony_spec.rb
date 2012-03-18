@@ -57,9 +57,6 @@ describe Phony do
       it "should not normalize a number with a correct zero inside" do
         Phony.normalize('+390909709511').should == '390909709511'
       end
-      it "works with completely broken numbers" do
-        Phony.normalize('0000000').should == ''
-      end
     end
   end
 
