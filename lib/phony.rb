@@ -39,8 +39,8 @@ module Phony
 
   # Phony uses a single country codes instance.
   #
-  @codes     = CountryCodes.instance
-  @validator = Validators.instance 
+  @codes      = CountryCodes.instance
+  @validators = Validators.instance 
 
   class << self
 
@@ -85,7 +85,7 @@ module Phony
     # leaning towards being plausible.
     #
     def plausible? number, hints = {}
-      @validator.plausible? number, hints
+      @validators.plausible? number, hints
     end
 
     # def service? number

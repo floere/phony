@@ -49,12 +49,12 @@ module Phony
       # CC.
       #
       cc_needed = hints[:cc]
-      return false if cc_needed && cc_needed != cc
+      return false if cc_needed && !(cc_needed === cc)
       
       # NDC.
       #
       ndc_needed = hints[:ndc]
-      return false if ndc_needed && ndc_needed != ndc
+      return false if ndc_needed && !(ndc_needed === ndc)
       
       # Country specific checks.
       #

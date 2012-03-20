@@ -26,7 +26,7 @@ module Phony
     def clean number
       # Remove non-digit chars.
       #
-      number.gsub! @@basic_normalizing_pattern, EMPTY_STRING
+      number.gsub!(@@basic_normalizing_pattern, EMPTY_STRING) || number
     end
     def normalize number
       clean number

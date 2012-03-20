@@ -17,6 +17,10 @@
 # * matched_split: Give a hash of regex => format array, with a :fallback => format option.
 #                   (See Norway how it looks.)
 #
+# The third parameter to country are validations.
+# Currently, there is one method available:
+# * invalid_ndcs: Give a regexp or string to describe invalid ndc(s).
+#
 # Note: The ones that are commented are defined in their special files.
 #
 Phony.define do
@@ -29,7 +33,7 @@ Phony.define do
   #
   country '1',
           fixed(3) >> split(3,4),
-          invalid_ndcs(/911/)
+          invalid_ndcs('911') # /911/ would also work.
 
   # Kazakhstan (Republic of) & Russian Federation.
   #
