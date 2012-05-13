@@ -238,6 +238,11 @@ describe 'country descriptions' do
     it 'handles venezuelan numbers' do
       Phony.split('582121234567').should == ['58', '212', '1234567']
     end
+    it 'handles vietnamese numbers' do
+      Phony.split('8498123456').should == ['84', '98', '123456'] # Viettel Mobile
+      Phony.split('8499612345').should == ['84', '996', '12345'] # GTel
+      Phony.split('8441234567').should == ['84', '4', '1234567'] # Hanoi
+    end
     it 'handles new zealand numbers' do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
     end

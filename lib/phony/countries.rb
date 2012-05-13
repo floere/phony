@@ -212,7 +212,11 @@ Phony.define do
 
   # country '82' # SouthKorea, see special file.
 
-  country '84', todo # TODO Viet Nam (Socialist Republic of)
+  country '84', # Viet Nam (Socialist Republic of)
+          one_of('4', '8') >> split(7) |
+          match(/^(2[025679]|3[0136789]|5[23456789]|6[01234678]|7[02345679]|9[0-8])\d/) >> split(6) |
+          fixed(3) >> split(5)
+  
 
   # country '86' # China, see special file.
 
