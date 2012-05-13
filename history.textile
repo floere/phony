@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.6.8
+
+* hanke: Vietnam! (Closes "issue #39":https://github.com/floere/phony/issues/39)
+
 h2. Version 1.6.7
 
 * hanke: Improvements to the experimental @plausible?(number, hints = {})@ feature. It is now possible to give the hints @cc@ and @ndc@ a regexp, as in @Phony.plausible?("1-434-123-1234", cc: /1|7/, ndc: /4(34|35)/)@.
