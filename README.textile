@@ -20,7 +20,35 @@ h2. Installation
 
 h2. Some examples
 
+h3. Plausibility
+
+"Plausible" means "seems reasonable or probable", not implying 100% correctness on a @true@, but implying 100% correctness on a @false@ return value. So if this returns @true@, it might still be not a plausible number. If it returns @false@, it is definitely not an E164 conform number.
+
+Use this method in combination with @normalize@ for saving it into the database. Also see https://github.com/floere/phony/issues/35 for a discussion on the topic.
+
+@Phony.plausible?('0000000').should be_false@
+
+@Phony.plausible?('hello').should be_false@
+
+@Phony.plausible?('+41 44 111 22 33').should be_true@
+
+@Phony.plausible?('+41 44 111 22 33', cc: '41').should be_true@
+
+@Phony.plausible?('+41 44 111 22 33', ndc: '44').should be_true@
+
+@Phony.plausible?('+41 44 111 22 33', cc: '1').should be_false@
+
+@Phony.plausible?('+41 44 111 22 33', ndc: '43').should be_false@
+    
+@Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44').should be_true@
+
+@Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/).should be_false@
+
+@Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true@
+
 h3. Normalizing
+
+Note: This method will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first. 
 
 @Phony.normalize('41443643533').should == '41443643533'@
 
