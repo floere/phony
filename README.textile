@@ -26,6 +26,8 @@ h3. Plausibility
 
 Use this method in combination with @normalize@ for saving it into the database. Also see https://github.com/floere/phony/issues/35 for a discussion on the topic.
 
+Note that you can add constraints to the plausibility check like the country code, @cc@, and the national destination code, @ndc@. Use the options to further limit the plausibility range. For example, only allow a small number of countries.
+
 @Phony.plausible?('0000000').should be_false@
 
 @Phony.plausible?('hello').should be_false@
@@ -48,7 +50,7 @@ Use this method in combination with @normalize@ for saving it into the database.
 
 h3. Normalizing
 
-Note: This method will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first. 
+This will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first. 
 
 @Phony.normalize('41443643533').should == '41443643533'@
 
