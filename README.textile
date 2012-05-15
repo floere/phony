@@ -20,7 +20,7 @@ h2. Installation
 
 h2. Some examples
 
-h3. Plausibility
+h3(#plausibility). Plausibility
 
 "Plausible" means "seems reasonable or probable", not implying 100% correctness on a @true@, but implying 100% correctness on a @false@ return value. So if this returns @true@, it might still be not a plausible number. If it returns @false@, it is definitely not an E164 conform number.
 
@@ -48,7 +48,7 @@ Note that you can add constraints to the plausibility check like the country cod
 
 @Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true@
 
-h3. Normalizing
+h3(#normalizing). Normalizing
 
 This will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first. 
 
@@ -70,7 +70,7 @@ This will often raise an error if you try normalizing a non E164-izable number (
 
 @Phony.normalize('+41 (044) 364 35 33').should == '41443643533'@
 
-h3. Formatting
+h3(#formatting). Formatting
 
 @Phony.formatted('41443643532').should == '+41 44 364 35 32'@
 
@@ -80,7 +80,7 @@ h3. Formatting
 
 @Phony.formatted('18705551122').should == '+1 870 555 1122'@
 
-h4. International
+h4(#international). International
 
 @Phony.formatted('18091231234', :format => :international).should == '+1 809 123 1234'@
 
@@ -94,7 +94,7 @@ h4. International
 
 @Phony.formatted('4233841148', :format => :international_relative).should == '00423 384 11 48'@
 
-h4. With spaces
+h4(#spaces). With spaces
 
 @Phony.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'@
 
@@ -108,7 +108,7 @@ h4. With spaces
 
 @Phony.formatted('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'@
 
-h4. With special spaces
+h4(#special). With special spaces
 
 @Phony.formatted('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'@
 
@@ -122,7 +122,7 @@ h4. With special spaces
 
 @Phony.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'@
 
-h4. National
+h4(#national). National
 
 @Phony.formatted('41443643532', :format => :national).should == '044 364 35 32'@
 
@@ -130,13 +130,13 @@ h4. National
 
 @Phony.formatted('43198110', :format => :national).should == '01 98110'@
 
-h4. Local
+h4(#local). Local
 
 @Phony.formatted('41443643532', :format => :local).should == '364 35 32'@
 
 @Phony.formatted('493038625454', :format => :local).should == '386 25454'@
 
-h3. Splitting
+h3(#splitting). Splitting
 
 @Phony.split('43198110').should == ['43', '1', '98110']@
 
