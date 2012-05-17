@@ -1,6 +1,6 @@
-h1. Phony
+"!{float:right}https://secure.travis-ci.org/floere/phony.png!":http://travis-ci.org/floere/phony
 
-"!https://secure.travis-ci.org/floere/phony.png!":http://travis-ci.org/floere/phony
+h1. Phony
 
 Used in e.g.: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
 
