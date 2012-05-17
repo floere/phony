@@ -2,6 +2,8 @@ h1. Phony
 
 Used in e.g.: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
 
+There's also a Rails wrapper: https://github.com/joost/phony_rails.
+
 h2. Description
 
 This gem can normalize, format and split E164 numbers.
@@ -18,7 +20,7 @@ h2. Installation
 
 <pre><code>gem install phony</code></pre>
 
-h2. Some examples
+h2(#examples). Some examples
 
 h3(#plausibility). Plausibility
 

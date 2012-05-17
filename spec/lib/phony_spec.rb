@@ -172,6 +172,11 @@ describe Phony do
       it "should format austrian numbers" do
         Phony.format('43198110', :format => :national).should == '01 98110'
       end
+      # TODO
+      #
+      # it "should format US numbers without a leading zero" do
+      #   Phony.format('14159224711', :format => :national).should == '415 922 4711'
+      # end
     end
     describe "local" do
       it "should format swiss numbers" do
