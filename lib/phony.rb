@@ -63,7 +63,9 @@ module Phony
       split! phone_number.dup
     end
     def split! phone_number
-      @codes.split phone_number
+      parts = @codes.split phone_number
+      parts.delete_at 1
+      parts
     end
 
     # Formats a E164 number according to local customs.

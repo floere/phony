@@ -38,8 +38,7 @@ module Phony
     #
     def split number
       country_handler, cc, rest = split_cc number
-      zero, *rest = country_handler.split(rest)
-      [cc, *rest.compact]
+      [cc, *country_handler.split(rest)]
     end
 
     def formatted number, options = {}
