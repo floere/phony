@@ -3,6 +3,7 @@ h2. Upcoming Version.
 h2. Version 1.7.0
 
 * hanke: Specifiable whether a zero is added in front of the NDC when formatting with format @:national@. Example: The US adds none, while Vietnam or Switzerland have one.
+* hanke: Internal #split method is now more consistent. If there is no NDC, it will return nil. Also, it will return a @"0"@ in front of the NDC if a country needs that prefix, and @nil@ if not.
 
 h2. Version 1.6.8
 
