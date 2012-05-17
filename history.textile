@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.1
+
+* hanke: Polish number support much improved (thanks filiptepper!).
+
 h2. Version 1.7.0
 
 * hanke: Specifiable whether a zero is added in front of the NDC when formatting with format @:national@. Example: The US adds none, while Vietnam or Switzerland have one.
