@@ -56,6 +56,9 @@ module Phony
                end
       cc_ndc.empty?? local : "#{cc_ndc}#{space}#{local}"
     end
+    #
+    # TODO This method needs an overhaul.
+    #
     def format_cc_ndc format, space, cc, zero, ndc
       case format
       when nil, :international_absolute, :international, :+
