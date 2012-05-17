@@ -164,7 +164,11 @@ describe 'country descriptions' do
       Phony.split('51841234123').should == ['51', '84', '1234', '123'] # Cuzco, best effort
     end
     it 'handles polish numbers' do
-      Phony.split('48123123123').should == ['48', '123', '123', '123']
+      Phony.split('48123456789').should == ['48', '12', '345', '67', '89'] # Landline
+      Phony.split('48501123456').should == ['48', '501', '123', '456']     # Mobile
+      Phony.split('48800123456').should == ['48', '800', '123', '456']     # Free
+      Phony.split('48801123456').should == ['48', '801', '123', '456']     # Shared cost
+      Phony.split('48701123456').should == ['48', '701', '123', '456']     # Premium
     end
     it 'handles portuguese numbers' do
       Phony.split('351211231234').should == ['351', '21', '123', '1234'] # Lisboa
