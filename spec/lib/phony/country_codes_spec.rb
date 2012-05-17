@@ -12,7 +12,7 @@ describe Phony::CountryCodes do
     end
     it 'formats correctly' do
       old_format = @countries.international_absolute_format
-      @countries.international_absolute_format = '!!! %s%s%s%s'
+      @countries.international_absolute_format = '!!! %s%s%s'
       
       @countries.formatted('41443643532', :format => :international).should == '!!! 41 44 364 35 32'
       
@@ -25,7 +25,7 @@ describe Phony::CountryCodes do
     end
     it 'formats correctly' do
       old_format = @countries.international_relative_format
-      @countries.international_relative_format = '000 %s%s%s%s'
+      @countries.international_relative_format = '000 %s%s%s'
       
       @countries.formatted('41443643532', :format => :international_relative).should == '000 41 44 364 35 32'
       
@@ -48,7 +48,7 @@ describe Phony::CountryCodes do
   
   describe 'split' do
     it 'splits correctly' do
-      @countries.split('41443643532').should == ['41', '44', '364', '35', '32']
+      @countries.split('41443643532').should == ['41', '0', '44', '364', '35', '32']
     end
   end
   

@@ -11,7 +11,7 @@ describe Phony::NationalSplitters::None do
   describe 'split' do
     let(:splitter) { described_class.instance_for }
     it 'splits correctly into ndc and rest' do
-      splitter.split('123456789').should == [nil, '123456789']
+      splitter.split('123456789').should == [nil, nil, '123456789']
     end
   end
   
