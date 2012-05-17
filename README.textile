@@ -1,5 +1,7 @@
 h1. Phony
 
+"!https://secure.travis-ci.org/floere/phony.png!":http://travis-ci.org/floere/phony
+
 Used in e.g.: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
 
 There's also a Rails wrapper: https://github.com/joost/phony_rails.
