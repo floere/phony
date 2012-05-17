@@ -186,7 +186,7 @@ Phony.define do
   country '61',
           match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
           fixed(1)              >> split(4,4)   # Rest
-          
+
   country '62', todo # TODO Indonesia (Republic of)
   country '63', todo # TODO Philippines (Republic of the)
 
@@ -216,7 +216,7 @@ Phony.define do
           one_of('4', '8') >> split(7) |
           match(/^(2[025679]|3[0136789]|5[23456789]|6[01234678]|7[02345679]|9[0-8])\d/) >> split(6) |
           fixed(3) >> split(5)
-  
+
 
   # country '86' # China, see special file.
 
@@ -293,7 +293,7 @@ Phony.define do
   country '252', todo # Somali Democratic Republic
   country '253', todo # Djibouti
   country '254', fixed(2) >> split(7) # Kenya
-  
+
   # Tanzania.
   #
   country '255',
@@ -306,7 +306,7 @@ Phony.define do
   country '256',
           match(/^(46[45]|4[78]\d)/) >> split(6) | # Geo 1.
           fixed(2)                   >> split(7)   # Geo 2.
-          
+
   country '257', todo # Burundi
   country '258', todo # Mozambique
   country '259', todo # -
@@ -370,7 +370,7 @@ Phony.define do
           match(/^(4\d|50)\d+$/)          >> split(3,2,2) | # Mobile
           one_of('2','3','5','6','8','9') >> split(3,3)   | # Short NDCs
           fixed(2)                        >> split(3,3)     # 2-digit NDCs
-          
+
   # Bulgaria.
   #
   country '359',
