@@ -7,8 +7,8 @@ require File.expand_path '../phony/national_splitters/dsl', __FILE__
 require File.expand_path '../phony/national_splitters/fixed', __FILE__
 require File.expand_path '../phony/national_splitters/variable', __FILE__
 require File.expand_path '../phony/national_splitters/regex', __FILE__
-require File.expand_path '../phony/national_splitters/none', __FILE__
 require File.expand_path '../phony/national_splitters/default', __FILE__
+require File.expand_path '../phony/national_splitters/none', __FILE__
 require File.expand_path '../phony/national_code', __FILE__
 require File.expand_path '../phony/country', __FILE__
 require File.expand_path '../phony/country_codes', __FILE__

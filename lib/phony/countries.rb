@@ -32,7 +32,7 @@ Phony.define do
   # USA, Canada, etc.
   #
   country '1',
-          fixed(3) >> split(3,4),
+          fixed(3, :zero => false) >> split(3,4),
           invalid_ndcs('911') # /911/ would also work.
 
   # Kazakhstan (Republic of) & Russian Federation.
@@ -527,7 +527,7 @@ Phony.define do
   country '878', todo # Universal Personal Telecommunication Service (UPT)
   country '879', todo # Reserved for national non-commercial purposes
 
-  country '880', todo                  # Bangladesh (People's Republic of)
+  country '880', todo # Bangladesh (People's Republic of)
   country '881', todo # International Mobile, shared code
   country '882', todo # International Networks, shared code
   country '883', todo # -

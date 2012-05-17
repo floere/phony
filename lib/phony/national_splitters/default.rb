@@ -8,8 +8,8 @@ module Phony
         @instance ||= new
       end
 
-      def split number
-        number
+      def split national_number
+        [nil, nil, national_number]
       end
 
     end

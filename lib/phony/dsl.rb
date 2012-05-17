@@ -54,10 +54,17 @@ module Phony
     # National matcher & splitters.
     #
 
+    # By default, a fixed length NDC
+    # uses a zero prefix when formatted
+    # with format :national.
     #
+    # Options:
+    #  * length: Length of the fixed length NDC.
+    #  * options: Set :zero to false to not add a zero on format :national.
     #
-    def fixed size
-      NationalSplitters::Fixed.instance_for size
+    def fixed length, options = {}
+      options[:zero] = true if options[:zero].nil?
+      NationalSplitters::Fixed.instance_for length, options
     end
     def none
       NationalSplitters::None.instance_for
@@ -72,7 +79,8 @@ module Phony
       NationalSplitters::Variable.new options[:max_length], ndcs
     end
     def match regex, options = {}
-      NationalSplitters::Regex.instance_for regex, options[:on_fail_take]
+      on_fail_take = options.delete :on_fail_take
+      NationalSplitters::Regex.instance_for regex, options[:on_fail_take], options
     end
     def todo
       none >> NationalSplitters::Default.instance_for

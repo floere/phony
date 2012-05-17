@@ -6,12 +6,18 @@ module Phony
     #
     class DSL
       
-      # TODO normalize option!
+      #
       #
       def >> local_splitter
-        national_code = Phony::NationalCode.new self, local_splitter
-        Phony::Country.new national_code
+        country_for local_splitter, true
       end
+      
+      private
+      
+        def country_for local_splitter, with_zero
+          national_code = Phony::NationalCode.new self, local_splitter, with_zero
+          Phony::Country.new national_code
+        end
       
     end
     

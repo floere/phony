@@ -27,8 +27,8 @@ module Phony
     #
     def split national_number
       @codes.each do |code|
-        ndc, *rest = code.split national_number
-        return ndc ? [ndc, *rest] : rest if rest && !rest.empty?
+        zero, ndc, *rest = code.split national_number
+        return ndc ? [zero, ndc, *rest] : [zero, nil, *rest] if rest && !rest.empty?
       end
     end
     
@@ -55,7 +55,7 @@ module Phony
     #
     #
     def vanity_to_number vanity_number
-      ndc, *rest = split vanity_number
+      zero, ndc, *rest = split vanity_number
       "#{ndc}#{Vanity.replace(rest.join)}"
     end
     

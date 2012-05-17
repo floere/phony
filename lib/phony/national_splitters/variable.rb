@@ -6,8 +6,8 @@ module Phony
       
       #
       #
-      def initialize fallback, ndcs
-        super fallback
+      def initialize fallback, ndcs, options = {}
+        super fallback, options
         @ndcs = optimize ndcs
       end
       
@@ -28,7 +28,7 @@ module Phony
         #
         @mapped_ndc_min_length.upto(@mapped_ndc_max_length) do |i|
           sized_ndcs = @ndcs[i]
-          return [presumed_code, national_number] unless sized_ndcs && !sized_ndcs.include?(presumed_code)
+          return [@zero, presumed_code, national_number] unless sized_ndcs && !sized_ndcs.include?(presumed_code)
           presumed_code << national_number.slice!(0..0)
         end
         
