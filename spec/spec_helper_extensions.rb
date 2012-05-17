@@ -13,7 +13,7 @@ module SpecHelperExtensions
   begin
     require File.expand_path '../performance_ratio', __FILE__
   rescue LoadError => e
-    Phony::PerformanceRatio = 0.01 # Default is for travis - only breaks when it's really really bad.
+    Phony::PerformanceRatio = 0 # Ignore speed tests by default.
   end
   def performance_of &block
     GC.disable
