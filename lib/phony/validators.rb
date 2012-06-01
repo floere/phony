@@ -36,7 +36,7 @@ module Phony
     # Is the given number plausible?
     #
     def plausible? number, hints = {}
-      normalized = CountryCodes.instance.clean number
+      normalized = CountryCodes.instance.clean number.dup
       
       # False if it fails the basic check.
       #
