@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.2
+
+* hanke: Fix for issue #72. @CountryCodes#clean@ is not destructive anymore, while @CountryCodes#clean!@ is.
+
 h2. Version 1.7.1
 
 * hanke: Polish number support much improved (thanks filiptepper!).
