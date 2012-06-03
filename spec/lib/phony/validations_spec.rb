@@ -5,7 +5,15 @@ require 'spec_helper'
 describe 'validations' do
 
   describe 'plausible?' do
-
+    
+    it 'does not change the given number' do
+      number = "123-123-1234"
+      
+      Phony.plausible? number
+      
+      number.should == '123-123-1234'
+    end
+    
     it "is correct" do
       Phony.plausible?('0000000').should be_false
     end

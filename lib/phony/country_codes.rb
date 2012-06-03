@@ -24,12 +24,15 @@ module Phony
 
     @@basic_normalizing_pattern = /^0+|\D/
     def clean number
+      clean! number && number.dup
+    end
+    def clean! number
       # Remove non-digit chars.
       #
       number.gsub!(@@basic_normalizing_pattern, EMPTY_STRING) || number
     end
     def normalize number
-      clean number
+      clean! number
       national_handler, cc, rest = split_cc number
       @normalize_format % [cc, national_handler.normalize(rest)]
     end
