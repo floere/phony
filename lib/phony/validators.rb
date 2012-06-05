@@ -49,6 +49,7 @@ module Phony
       # Element based checking.
       #
       return false unless ndc
+      return false if ndc.empty?
       
       # CC.
       #

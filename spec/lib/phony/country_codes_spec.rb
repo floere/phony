@@ -62,6 +62,14 @@ describe Phony::CountryCodes do
     it 'formats correctly' do
       @countries.formatted('41443643532', :format => :national, :spaces => :-).should == '044-364-35-32'
     end
+    context 'specific' do
+      it 'formats ireland correctly' do
+        @countries.formatted("3533451234", :format => :national).should == '0345 1234'
+      end
+      it 'formats ireland correctly' do
+        @countries.formatted("353411231234", :format => :national).should == '041 123 1234'
+      end
+    end
     context 'default' do
       it "should format swiss numbers" do
         @countries.formatted('41443643532').should == '+41 44 364 35 32'

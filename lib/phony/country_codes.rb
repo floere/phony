@@ -73,7 +73,9 @@ module Phony
           @international_relative_format % [cc, space, ndc] :
           @international_relative_format % [cc, nil, nil]
       when :national
-        (ndc.empty? ? EMPTY_STRING : @national_format) % [zero, ndc]
+        ndc && !ndc.empty? ?
+          @national_format % [zero, ndc] :
+          @national_format % [zero, nil]
       when :local
         EMPTY_STRING
       end

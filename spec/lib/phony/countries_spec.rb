@@ -121,7 +121,7 @@ describe 'country descriptions' do
       Phony.split('353801234567').should == ['353', '80', '123', '4567'] # Mobile
       Phony.split('353761234567').should == ['353', '76', '123', '4567'] # VoIP
       Phony.split('353800123456').should == ['353', '800', '123456']     # Freefone
-      Phony.split('353000123456').should == ['353', nil, '000123456']         # No NDC/local split for unrecognized
+      Phony.split('353000123456').should == ['353', '000', '123456']     # Default fixed 3 split for unrecognized
     end
     it 'handles italian numbers' do
       Phony.split('3934869528').should   == ['39', '3486', '952', '8']   # Mobile

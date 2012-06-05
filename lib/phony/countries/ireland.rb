@@ -71,6 +71,6 @@ Phony.define do
                  one_of(ndcs_with_6_subscriber_digits)   >> split(6)   |
                  one_of(freefone) >> split(6) |
                  match(/^(8\d).+$/) >> split(3,4) | # mobile
-                 none >> split(0)
+                 fixed(3) >> split(6)
 
 end
