@@ -1,5 +1,7 @@
 h2. Upcoming Version.
 
+* hanke: Fix for issue #44. @Phony.plausible?('353')@ now returns false (on any number, if the NDC is missing, thanks theirishpenguin!).
+
 h2. Version 1.7.2
 
 * hanke: Fix for issue #42. @CountryCodes#clean@ is not destructive anymore, while @CountryCodes#clean!@ is.
