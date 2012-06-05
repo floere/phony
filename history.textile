@@ -1,5 +1,11 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.4
+
+* hanke: Fix for issue #45. Irish phone numbers with unrecognized NDCs are now formatted better when using @:national@ formatting (thanks theirishpenguin!).
+
+h2. Version 1.7.3
+
 * hanke: Fix for issue #44. @Phony.plausible?('353')@ now returns false (on any number, if the NDC is missing, thanks theirishpenguin!).
 
 h2. Version 1.7.2
