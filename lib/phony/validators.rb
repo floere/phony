@@ -46,6 +46,10 @@ module Phony
       #
       cc, ndc, *rest = Phony.split normalized
       
+      # Element based checking.
+      #
+      return false unless ndc
+      
       # CC.
       #
       cc_needed = hints[:cc]

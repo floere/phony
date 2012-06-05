@@ -14,6 +14,10 @@ describe 'validations' do
       number.should == '123-123-1234'
     end
     
+    it 'handles small numbers' do
+      Phony.plausible?('353').should be_false
+    end
+    
     it "is correct" do
       Phony.plausible?('0000000').should be_false
     end
