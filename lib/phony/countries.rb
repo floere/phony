@@ -36,8 +36,9 @@ Phony.define do
           invalid_ndcs('911') # /911/ would also work.
 
   # Kazakhstan (Republic of) & Russian Federation.
-  #
-  country '7', fixed(3) >> split(3,2,2)
+  # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
+  #country '7', fixed(3) >> split(3,2,2)
+  # see special file
 
   # Egypt.
   #
