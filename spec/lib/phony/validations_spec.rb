@@ -17,11 +17,21 @@ describe 'validations' do
     it 'handles small numbers' do
       Phony.plausible?('353').should be_false
     end
-    
-    it "is correct" do
+
+    # TODO
+    # it 'is correct' do
+    #   Phony.plausible?('+1911').should be_false
+    # end
+    it 'is correct' do
+      Phony.plausible?('010').should be_false
+    end
+    it 'is correct' do
+      Phony.plausible?("+460000").should be_false
+    end
+    it 'is correct' do
       Phony.plausible?('0000000').should be_false
     end
-    it "is correct" do
+    it 'is correct' do
       Phony.plausible?('hello').should be_false
     end
     

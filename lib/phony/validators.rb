@@ -40,7 +40,7 @@ module Phony
       
       # False if it fails the basic check.
       #
-      return false unless (2..15) === normalized.size
+      return false unless (4..15) === normalized.size
       
       # Hint based checking.
       #
@@ -50,6 +50,10 @@ module Phony
       #
       return false unless ndc
       return false if ndc.empty?
+      
+      # A valid range for the rest is 0 or 3+ total digits.
+      #
+      return false if (1..2) === rest.reduce(0) { |total, string| total + string.size }
       
       # CC.
       #
