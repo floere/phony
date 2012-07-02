@@ -183,9 +183,11 @@ describe 'country descriptions' do
     it 'handles russian numbers' do
       Phony.split('78122345678').should == ['7', '812', '234', '56', '78']
       Phony.split('74012771077').should == ['7', '4012', '77', '10', '77']
+      Phony.split('78402411212').should == ['7', '84024', '1', '12', '12']
+      Phony.split('7840121212').should  == ['7', '840', '12', '12', '12']
     end
     it 'handles south korean numbers' do
-      Phony.split('82212345678').should == ['82', '2', '1234', '5678']   # Seoul
+      Phony.split('82212345678').should  == ['82', '2', '1234', '5678']   # Seoul
       Phony.split('825112345678').should == ['82', '51', '1234', '5678'] # Busan
       Phony.split('821027975588').should == ['82', '10', '2797', '5588'] # mobile
       Phony.split('821087971234').should == ['82', '10', '8797', '1234'] # mobile

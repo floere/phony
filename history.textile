@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.6
+
+* hanke: Russia, Kazakhstan, Abhasia *and* South Osetia (thanks glebm)!
+
 h2. Version 1.7.5
 
 * hanke: Fix for issue #47. If a number contains a rest (CC + NDC + rest) size that is in the range of @1..2@, it is not considered plausible (ie. @plausible?@ will return @false@).
