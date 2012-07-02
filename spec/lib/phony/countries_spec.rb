@@ -182,6 +182,7 @@ describe 'country descriptions' do
     end
     it 'handles russian numbers' do
       Phony.split('78122345678').should == ['7', '812', '234', '56', '78']
+      Phony.split('74012771077').should == ['7', '4012', '77', '10', '77']
     end
     it 'handles south korean numbers' do
       Phony.split('82212345678').should == ['82', '2', '1234', '5678']   # Seoul
