@@ -181,10 +181,11 @@ describe 'country descriptions' do
       Phony.split('40249123123').should == ['40', '249', '123', '123'] # Olt
     end
     it 'handles russian numbers' do
-      Phony.split('78122345678').should == ['7', '812', '234', '56', '78']
-      Phony.split('74012771077').should == ['7', '4012', '77', '10', '77']
-      Phony.split('78402411212').should == ['7', '84024', '1', '12', '12']
-      Phony.split('7840121212').should  == ['7', '840', '12', '12', '12']
+      Phony.split('78122345678').should == ['7', '812', '234', '56', '78'] # Russia 3-digit
+      Phony.split('74012771077').should == ['7', '4012', '77', '10', '77'] # Russia 4-digit
+      Phony.split('78402411212').should == ['7', '84024', '1', '12', '12'] # Russia 5-digit
+      Phony.split('7840121212').should  == ['7', '840', '12', '12', '12'] # Abhasia
+      Phony.split('7209175276').should  == ['7', '209', '17', '52', '76'] # Fantasy number
     end
     it 'handles south korean numbers' do
       Phony.split('82212345678').should  == ['82', '2', '1234', '5678']   # Seoul
