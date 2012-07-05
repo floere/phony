@@ -1,5 +1,7 @@
 h2. Upcoming Version.
 
+* hanke: Russia, added catchall in last rule and group in regexp.
+
 h2. Version 1.7.6
 
 * hanke: Russia, Kazakhstan, Abhasia *and* South Osetia (thanks glebm)!
