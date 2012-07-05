@@ -79,6 +79,10 @@ module Phony
       NationalSplitters::Variable.new options[:max_length], ndcs
     end
     def match regex, options = {}
+      # Check if regexp has a group in it.
+      #
+      raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless regex.source =~ /\(/
+      
       on_fail_take = options.delete :on_fail_take
       NationalSplitters::Regex.instance_for regex, options[:on_fail_take], options
     end
