@@ -116,8 +116,9 @@ Phony.define do
   country '7', one_of(ndcs_with_5_subscriber_digits) >> split(1, 2, 2) |
                one_of(ndcs_with_6_subscriber_digits) >> split(2, 2, 2) |
                one_of(ndcs_with_7_subscriber_digits) >> split(3, 2, 2) |
-               one_of(%w(800)) >> split(3, 2, 2) | # Russia free number
+               one_of(%w(800))                       >> split(3, 2, 2) | # Russia free number
                one_of(%w(929 995344 9971 99744 9976 997)) >> split(2, 2, 2) | # South Osetia
-               match(/([67]\d{2})/) >> split(2, 2, 2) | # Kazakhstan: (600..799)
-               one_of(%w(840 940), :max_length => 3) >> split(2, 2, 2) # Abhasia
+               match(/([67]\d{2})/)                  >> split(2, 2, 2) | # Kazakhstan: (600..799)
+               one_of(%w(840 940))                   >> split(2,2,2) # Abhasia
+               fixed(3)                              >> split(2,2,2)
 end

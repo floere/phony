@@ -10,7 +10,7 @@
 # * none:   Does not have a national destination code, e.g. Denmark, Iceland.
 # * one_of: Matches one of the following numbers. Splits if it does.
 # * match: Try to match the regex, and if it matches, splits it off.
-# * fixed:  Always splits off a fixed length ndc. (Always use last in a | chain) Offers a "zero" formatting option (default true).
+# * fixed:  Always splits off a fixed length ndc. (Always use last in a | chain as a catchall) Offers a "zero" formatting option (default true).
 #
 # For the national number part, there are two:
 # * split:         Use this number group splitting.
@@ -139,7 +139,7 @@ Phony.define do
   country '52',
           match(/^(0\d{2})\d+$/)   >> split(2,2,2,2) |
           match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
-          match(/^(\d{3})\d+$/)    >> split(3,2,2)
+          match(/^(\d{3})\d+$/)    >> split(3,2,2)     # catchall.
 
   # Cuba.
   #

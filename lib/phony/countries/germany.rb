@@ -4066,7 +4066,8 @@ service = [
 ]
 
 Phony.define do
-   country '49', one_of(service)                >> split(3,10) |
-                 match(/^(1[567]\d)\d*$/)       >> split(3,10) | # Mobile
-                 one_of(ndcs, :max_length => 5) >> split(3,10)
+   country '49', one_of(service)          >> split(3,10) |
+                 match(/^(1[567]\d)\d*$/) >> split(3,10) | # Mobile
+                 one_of(ndcs)             >> split(3,10) |
+                 fixed(5)                 >> split(3,10)
 end

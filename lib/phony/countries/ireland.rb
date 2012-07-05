@@ -69,8 +69,8 @@ Phony.define do
   country '353', one_of(ndcs_with_7_subscriber_digits)   >> split(3,4) |
                  one_of(ndcs_with_5_subscriber_digits)   >> split(5)   |
                  one_of(ndcs_with_6_subscriber_digits)   >> split(6)   |
-                 one_of(freefone) >> split(6) |
-                 match(/^(8\d).+$/) >> split(3,4) | # mobile
-                 fixed(3) >> split(6)
+                 one_of(freefone)                        >> split(6)   |
+                 match(/^(8\d).+$/)                      >> split(3,4) | # mobile
+                 fixed(3)                                >> split(6)     # Fallback
 
 end
