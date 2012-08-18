@@ -8,7 +8,7 @@
 #
 
 ndcs = [
- '7',  # Non-geographical
+ '7',  # Non-geographic
  '8',  # Stockholm
  '10', # VOIP
  '11', # Norrköping
