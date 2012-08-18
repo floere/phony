@@ -45,7 +45,7 @@ Phony.define do
   country '20', one_of('800')    >> split(7) | # Egypt
                 one_of('2', '3') >> split(8) | # Cairo/Giza, Alexandria
                 fixed(2)         >> split(8)
-                # :mobile? => /^10|11|12|14|16|17|18|19*$/, :service? => /^800.*$/
+                # :mobile? => /^1[01246-9]*$/, :service? => /^800.*$/
 
   # South Africa.
   #
@@ -96,7 +96,7 @@ Phony.define do
   # Switzerland.
   #
   country '41',
-          match(/^(8(00|40|42|44|48))\d+$/) >> split(3,3) |
+          match(/^(8(00|4[0248]))\d+$/) >> split(3,3) |
           fixed(2)                          >> split(3,2,2)
 
 
@@ -145,7 +145,7 @@ Phony.define do
   #
   country '53',
           match(/^(5\d{3})\d+$/)               >> split(4) | # Mobile
-          match(/^(7|21|22|23|4[1-8]|3[1-3])/) >> split(7) | # Short NDCs
+          match(/^(7|2[123]|4[1-8]|3[1-3])/) >> split(7) | # Short NDCs
           fixed(3)                             >> split(7)   # 3-digit NDCs
 
   # Argentine Republic.
@@ -160,7 +160,7 @@ Phony.define do
   # Brazil (Federative Republic of).
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
   #
-  brazilian_service = /^(100|128|190|191|192|193|194|197|198|199)\d+$/
+  brazilian_service = /^(1(00|28|9[0-4789]))\d+$/
   country '55',
           match(brazilian_service) >> split(3,3) | # Service.
           fixed(2) >> split(4,4)                   # NDCs
@@ -241,7 +241,7 @@ Phony.define do
   country '98', fixed(2) >> split(3,2,2) # TODO Iran (Islamic Republic of)
 
   country '210', todo # -
-  country '211', todo # -
+  country '211', todo # South Sudan
   country '212', todo # Morocco
   country '213', fixed(2) >> split(3,4)   # Algeria
   country '214', todo # -
