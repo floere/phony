@@ -45,7 +45,7 @@ Phony.define do
   country '20', one_of('800')    >> split(7) | # Egypt
                 one_of('2', '3') >> split(8) | # Cairo/Giza, Alexandria
                 fixed(2)         >> split(8)
-                # :mobile? => /^1[01246-9]*$/, :service? => /^800.*$/
+                # :mobile? => /^1[01246-9]\d+$/, :service? => /^800\d+$/
 
   # South Africa.
   #
