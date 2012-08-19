@@ -23,6 +23,12 @@ describe 'validations' do
     #   Phony.plausible?('+1911').should be_false
     # end
     it 'is correct' do
+      Phony.plausible?('45 44 11 22 33').should be_true
+    end
+    it 'is correct' do
+      Phony.plausible?('+4231231212').should be_true
+    end
+    it 'is correct' do
       Phony.plausible?('010').should be_false
     end
     it 'is correct' do
