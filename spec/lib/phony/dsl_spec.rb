@@ -8,7 +8,7 @@ describe Phony::DSL do
 
   it 'has a todo' do
     Phony.define do
-      todo.split("123456789012345").should == [nil, nil, nil, nil, '123456789012345']
+      todo.split("123456789012345").should == [nil, false, nil, nil, '123456789012345']
     end
   end
   

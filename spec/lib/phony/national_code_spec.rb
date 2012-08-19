@@ -12,7 +12,7 @@ describe Phony::NationalCode do
           @national         = Phony::NationalCode.new national_splitter, local_splitter
         end
         it 'splits correctly' do
-          @national.split('112').should == [nil, nil, '112']
+          @national.split('112').should == [nil, false, '112']
         end
       end
     end

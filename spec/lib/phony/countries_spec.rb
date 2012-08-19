@@ -63,7 +63,7 @@ describe 'country descriptions' do
       Phony.split('5342123456').should == ['53', '42', '123456'] # Villa Clara
     end
     it 'handles danish numbers' do
-      Phony.split('4532121212').should == ['45', nil, '32', '12', '12', '12']
+      Phony.split('4532121212').should == ['45', false, '32', '12', '12', '12']
     end
     it 'handles dutch numbers' do
       Phony.split('31612345678').should == ['31', '6', '12345678'] # mobile
@@ -109,10 +109,10 @@ describe 'country descriptions' do
       Phony.split('3622123456').should == ['36', '22', '123', '456']
     end
     it 'handles icelandic numbers' do
-      Phony.split('354112').should == ['354', nil, '112'] # Emergency TODO
-      Phony.split('3544211234').should == ['354', nil, '421', '1234'] # Keflavík
-      Phony.split('3544621234').should == ['354', nil, '462', '1234'] # Akureyri
-      Phony.split('3545511234').should == ['354', nil, '551', '1234'] # Reykjavík
+      Phony.split('354112').should == ['354', false, '112'] # Emergency TODO
+      Phony.split('3544211234').should == ['354', false, '421', '1234'] # Keflavík
+      Phony.split('3544621234').should == ['354', false, '462', '1234'] # Akureyri
+      Phony.split('3545511234').should == ['354', false, '551', '1234'] # Reykjavík
     end
     it 'handles irish numbers' do
       Phony.split('35311234567').should  == ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
@@ -149,14 +149,14 @@ describe 'country descriptions' do
       Phony.split('526641231212').should == ['52', '664', '123', '12', '12'] # Tijuana
     end
     it 'handles norwegian numbers' do
-      Phony.split('4721234567').should == ['47',nil,'21','23','45','67']
-      Phony.split('4731234567').should == ['47',nil,'31','23','45','67']
-      Phony.split('4741234567').should == ['47',nil,'412','34','567']
-      Phony.split('4751234567').should == ['47',nil,'51','23','45','67']
-      Phony.split('4761234567').should == ['47',nil,'61','23','45','67']
-      Phony.split('4771234567').should == ['47',nil,'71','23','45','67']
-      Phony.split('4781234567').should == ['47',nil,'812','34','567']
-      Phony.split('4791234567').should == ['47',nil,'912','34','567']
+      Phony.split('4721234567').should == ['47',false,'21','23','45','67']
+      Phony.split('4731234567').should == ['47',false,'31','23','45','67']
+      Phony.split('4741234567').should == ['47',false,'412','34','567']
+      Phony.split('4751234567').should == ['47',false,'51','23','45','67']
+      Phony.split('4761234567').should == ['47',false,'61','23','45','67']
+      Phony.split('4771234567').should == ['47',false,'71','23','45','67']
+      Phony.split('4781234567').should == ['47',false,'812','34','567']
+      Phony.split('4791234567').should == ['47',false,'912','34','567']
     end
     it 'handles peruvian numbers' do
       Phony.split('51112341234').should == ['51', '1', '1234', '1234'] # Lima
@@ -202,7 +202,7 @@ describe 'country descriptions' do
       Phony.split('21621231234').should == ['216', '2', '123', '1234'] # Bizerte
     end
     it 'handles singaporean numbers' do
-      Phony.split('6561231234').should == ['65', nil, '6123', '1234'] # Fixed line
+      Phony.split('6561231234').should == ['65', false, '6123', '1234'] # Fixed line
     end
     it 'handles slovakian numbers' do
       Phony.split('421912123456').should == ['421', '912', '123456'] # Mobile

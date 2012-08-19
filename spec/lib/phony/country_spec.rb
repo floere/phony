@@ -12,7 +12,7 @@ describe Phony::Country do
         @iceland          = described_class.new national_code
       end
       it 'splits correctly' do
-        @iceland.split('112').should == [nil, nil, '112']
+        @iceland.split('112').should == [nil, false, '112']
       end
     end
   end

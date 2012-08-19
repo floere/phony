@@ -48,8 +48,10 @@ module Phony
       
       # Element based checking.
       #
-      return false unless ndc
-      return false if ndc.empty?
+      # Note: ndc == false means the country has none.
+      #
+      return false if ndc.nil?
+      return false if ndc && ndc.empty?
       
       # A valid range for the rest is 0 or 3+ total digits.
       #
