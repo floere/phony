@@ -241,7 +241,7 @@ describe 'country descriptions' do
       Phony.split('441697744555').should == ['44', '16977', '44555'] # Brampton
       Phony.split('44169772333').should  == ['44', '16977', '2333']  # Brampton
       Phony.split('443005878323').should == ['44', '300', '587', '8323'] # Non-geographic
-      Phony.split('443005878323').should == ['44', '345', '777', '7334'] # Non-geographic
+      Phony.split('443457777334').should == ['44', '345', '777', '7334'] # Non-geographic
 #     Phony.split('44500557788').should  == ['44', '500', '557788']  # Freefone
       Phony.split('445575671113').should == ['44', '55', '7567', '1113'] # Corporate
       Phony.split('445644775533').should == ['44', '56', '4477', '5533'] # LIECS/VoIP
