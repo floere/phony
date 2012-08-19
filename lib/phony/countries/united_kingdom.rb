@@ -68,7 +68,7 @@ area_code_3_national = Phony::NationalSplitters::Variable.new nil, [
   '372',
   '373',
 
-  '500', # Freephone (9 digits)
+#  '500', # Freephone (9 digits) -- to do  0500 + 6 digits
   '800', # Freephone (9 or 10 digits)
   '808', # Freephone (10 digits)
 
@@ -183,6 +183,8 @@ area_code_45_national = Phony::NationalSplitters::Variable.new 6, [
 ].flatten
 area_code_45_local    = Phony::LocalSplitters::Fixed.instance_for [6]
 handlers             << Phony::NationalCode.new(area_code_45_national, area_code_45_local)
+
+#  '16977', # Brampton -- to do  016977 + 4 digits for 169772 and 169773
 
 Phony.define do
   country '44', Phony::Country.new(*handlers)
