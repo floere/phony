@@ -241,13 +241,14 @@ describe 'country descriptions' do
       Phony.split('441697744555').should == ['44', '16977', '44555'] # Brampton
       Phony.split('44169772333').should  == ['44', '16977', '2333']  # Brampton
       Phony.split('443005878323').should == ['44', '300', '587', '8323'] # Non-geographic
-      Phony.split('44500557788').should  == ['44', '500', '557788']  # Freefone
+      Phony.split('443005878323').should == ['44', '345', '777', '7334'] # Non-geographic
+#     Phony.split('44500557788').should  == ['44', '500', '557788']  # Freefone
       Phony.split('445575671113').should == ['44', '55', '7567', '1113'] # Corporate
       Phony.split('445644775533').should == ['44', '56', '4477', '5533'] # LIECS/VoIP
       Phony.split('447020229901').should == ['44', '70', '2022', '9901'] # Personal numbers
       Phony.split('447780605207').should == ['44', '7780', '605207'] # Mobile
       Phony.split('447480605207').should == ['44', '7480', '605207'] # Mobile
-      Phony.split('44800557788').should  == ['44', '800', '557788']  # Freefone
+#     Phony.split('44800557788').should  == ['44', '800', '557788']  # Freefone
       Phony.split('448004682355').should == ['44', '808', '468', '2355'] # Freefone
       Phony.split('448005878323').should == ['44', '800', '587', '8323'] # Freefone, regression
     end
