@@ -1,5 +1,11 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.8
+
+* hanke: Closes "https://github.com/floere/phony/issues/53":https://github.com/floere/phony/issues/53. Countries who don't have NDCs are now also plausible.
+
+h2. Version 1.7.7
+
 * hanke: Russia, added catchall in last rule and group in regexp.
 
 h2. Version 1.7.6
