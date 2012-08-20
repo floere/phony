@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.10
+
+* hanke: More improvements to UK numbers.
+
 h2. Version 1.7.9
 
 * hanke: Many improvements to UK numbers (thanks @g1smd)! 
