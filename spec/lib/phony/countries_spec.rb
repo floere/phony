@@ -230,15 +230,27 @@ describe 'country descriptions' do
       Phony.split('256464441234').should == ['256', '464', '441234'] # Mubende
     end
     it 'handles UK numbers' do
-      Phony.split('442045671113').should == ['44', '20', '4567', '1113'] # London
-      Phony.split('442076229901').should == ['44', '20', '7622', '9901'] # Cardiff
-      Phony.split('441136770011').should == ['44', '113', '677', '0011'] # Leeds
+      Phony.split('442075671113').should == ['44', '20', '7567', '1113'] # London
+      Phony.split('442920229901').should == ['44', '29', '2022', '9901'] # Cardiff
+      Phony.split('441134770011').should == ['44', '113', '477', '0011'] # Leeds
+      Phony.split('441412770011').should == ['44', '141', '277', '0011'] # Glasgow
       Phony.split('441382229845').should == ['44', '1382', '229845'] # Dundee
-      Phony.split('44120499532').should  == ['44', '1204', '99532'] # Bolten
-      Phony.split('441539618756').should == ['44', '15396', '18756'] # Sedbergh
+      Phony.split('441204500532').should == ['44', '1204', '500532'] # Bolton
+      Phony.split('44120462532').should  == ['44', '1204', '62532']  # Bolton
+      Phony.split('441539648756').should == ['44', '15396', '48756'] # Sedbergh
+      Phony.split('441697744555').should == ['44', '16977', '44555'] # Brampton
+      Phony.split('44169772333').should  == ['44', '16977', '2333']  # Brampton
+      Phony.split('443005878323').should == ['44', '300', '587', '8323'] # Non-geographic
+      Phony.split('443457777334').should == ['44', '345', '777', '7334'] # Non-geographic
+#     Phony.split('44500557788').should  == ['44', '500', '557788']  # Freefone
+      Phony.split('445575671113').should == ['44', '55', '7567', '1113'] # Corporate
+      Phony.split('445644775533').should == ['44', '56', '4477', '5533'] # LIECS/VoIP
+      Phony.split('447020229901').should == ['44', '70', '2022', '9901'] # Personal numbers
       Phony.split('447780605207').should == ['44', '7780', '605207'] # Mobile
       Phony.split('447480605207').should == ['44', '7480', '605207'] # Mobile
-      Phony.split('448005878323').should == ['44', '800', '587', '8323'] # Service, regression
+#     Phony.split('44800557788').should  == ['44', '800', '557788']  # Freefone
+      Phony.split('448084682355').should == ['44', '808', '468', '2355'] # Freefone
+      Phony.split('448005878323').should == ['44', '800', '587', '8323'] # Freefone, regression
     end
     it 'handles US numbers' do
       Phony.split('15551115511').should == ['1', '555', '111', '5511']
