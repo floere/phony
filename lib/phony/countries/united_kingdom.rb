@@ -1,19 +1,13 @@
-# The United Kingdom uses a variable-length ndc code,
-# thus we use a separate file to not let all_other.rb explode.
+# The United Kingdom uses a variable-length NDC code,
+# thus we use a separate file to not let countries.rb explode.
 #
-# Note: The United Kingdom uses a variable ndc format from length 2 to 5.
+# Note: The United Kingdom uses a variable NDC format from length 2 to 5.
 #
 # The UK is special in formatting in that it uses:
 #  a 4-4 formatting rule with area codes that are 2 digits long,
 #  a 3-4 formatting rule with area codes that are 3 digits long,
 #  a 6 or 5 formatting rule with area codes that are 4 digits long, and
 #  a 5 or 4 formatting rule with area codes that are 5 digits long.
-#
-# To reflect this different formatting, we need to install all handlers in a row.
-# First, the area codes of length 2, without a fallback length (since this
-# captures all), but with a nil fallback length.
-#
-# TODO Implement and use length-based splitter.
 #
 
 two_digit_ndc = [
