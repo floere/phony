@@ -82,7 +82,8 @@ describe 'country descriptions' do
       Phony.split('358600123').should  == ['358', '600', '123'] # Service
     end
     it 'handles french numbers' do
-      Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
+      Phony.split('33112345678').should == ['33', '1', '12','34','56','78'] # Paris
+      Phony.split('33812345678').should == ['33', '8', '12','34','56','78'] # Service number
     end
     it 'handles german numbers' do
       Phony.split('493038625454').should  == ['49', '30', '386', '25454'] # Berlin
@@ -91,8 +92,8 @@ describe 'country descriptions' do
       Phony.split('497614767676').should  == ['49', '761', '476', '7676'] # Freiburg im Breisgau
       Phony.split('4921535100').should    == ['49', '2153', '510', '0'] # Nettetal-Lobberich
       Phony.split('493434144602').should  == ['49', '34341', '446', '02'] # Geithain
-      Phony.split('491805878323').should  == ['49', '180', '587', '8323'] # Service numbers
-      Phony.split('491815878323').should  == ['49', '181', '587', '8323'] # Service numbers
+      Phony.split('491805878323').should  == ['49', '180', '587', '8323'] # Service number
+      Phony.split('491815878323').should  == ['49', '181', '587', '8323'] # Service number
     end
     it 'handles ghanese numbers' do
       Phony.split('233302123456').should == ['233', '30', '212', '3456'] # Mobile Vodafone, Accra
@@ -215,7 +216,8 @@ describe 'country descriptions' do
       Phony.split('46125123456').should == ['46', '125', '123456']
     end
     it 'handles swiss numbers' do
-      Phony.split('41443643532').should == ['41', '44', '364', '35', '32']
+      Phony.split('41443643532').should == ['41', '44', '364', '35', '32'] # Zurich (usually)
+      Phony.split('41800334455').should == ['41', '800', '334', '455'] # Service number
     end
     it 'handles tanzanian numbers' do
       Phony.split('255221231234').should == ['255', '22', '123', '1234'] # Dar Es Salaam
@@ -242,13 +244,13 @@ describe 'country descriptions' do
       Phony.split('44169772333').should  == ['44', '16977', '2333']  # Brampton
       Phony.split('443005878323').should == ['44', '300', '587', '8323'] # Non-geographic
       Phony.split('443457777334').should == ['44', '345', '777', '7334'] # Non-geographic
-#     Phony.split('44500557788').should  == ['44', '500', '557788']  # Freefone
+      Phony.split('44500557788').should  == ['44', '500', '557788']  # Freefone
       Phony.split('445575671113').should == ['44', '55', '7567', '1113'] # Corporate
       Phony.split('445644775533').should == ['44', '56', '4477', '5533'] # LIECS/VoIP
       Phony.split('447020229901').should == ['44', '70', '2022', '9901'] # Personal numbers
       Phony.split('447780605207').should == ['44', '7780', '605207'] # Mobile
       Phony.split('447480605207').should == ['44', '7480', '605207'] # Mobile
-#     Phony.split('44800557788').should  == ['44', '800', '557788']  # Freefone
+      # Phony.split('44800557788').should  == ['44', '800', '557788']  # Freefone
       Phony.split('448084682355').should == ['44', '808', '468', '2355'] # Freefone
       Phony.split('448005878323').should == ['44', '800', '587', '8323'] # Freefone, regression
     end
@@ -263,15 +265,8 @@ describe 'country descriptions' do
       Phony.split('8499612345').should == ['84', '996', '12345'] # GTel
       Phony.split('8441234567').should == ['84', '4', '1234567'] # Hanoi
     end
-    it 'handles new zealand numbers' do
+    it 'handles new zealand / kiwi numbers' do
       Phony.split('6491234567').should == ['64', '9', '123', '4567']
-    end
-
-    it 'handles french service numbers' do
-      Phony.split('33812345678').should == ['33', '8', '12','34','56','78']
-    end
-    it 'handles swiss service numbers' do
-      Phony.split('41800334455').should == ['41', '800', '334', '455']
     end
   end
 

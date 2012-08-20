@@ -1,4 +1,5 @@
-# The United Kingdom uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
+# The United Kingdom uses a variable-length ndc code,
+# thus we use a separate file to not let all_other.rb explode.
 #
 # Note: The United Kingdom uses a variable ndc format from length 2 to 5.
 #
@@ -9,13 +10,13 @@
 #  a 5 or 4 formatting rule with area codes that are 5 digits long.
 #
 # To reflect this different formatting, we need to install all handlers in a row.
-# First, the area codes of length 2, without a fallback length (since this captures all), but with a nil fallback length.
+# First, the area codes of length 2, without a fallback length (since this
+# captures all), but with a nil fallback length.
 #
 # TODO Implement and use length-based splitter.
 #
-handlers = []
 
-area_code_2_national = Phony::NationalSplitters::Variable.new nil, [
+two_digit_ndc = [
   '20',   # London
   '23',   # Southampton, Portsmith
   '24',   # Coventry
@@ -24,12 +25,9 @@ area_code_2_national = Phony::NationalSplitters::Variable.new nil, [
   '55',   # Corporate
   '56',   # LIECS/VoIP
   '70',   # Personal numbers
-
 ]
-area_code_2_local    = Phony::LocalSplitters::Fixed.instance_for [4, 4]
-handlers            << Phony::NationalCode.new(area_code_2_national, area_code_2_local)
 
-area_code_3_national = Phony::NationalSplitters::Variable.new nil, [
+three_digit_ndc = [
   # Geographic.
   #
   '113',  # Leeds
@@ -68,7 +66,6 @@ area_code_3_national = Phony::NationalSplitters::Variable.new nil, [
   '372',
   '373',
 
-#  '500', # Freephone (9 digits) -- to do  0500 + 6 digits
   '800', # Freephone (9 or 10 digits)
   '808', # Freephone (10 digits)
 
@@ -95,12 +92,12 @@ area_code_3_national = Phony::NationalSplitters::Variable.new nil, [
   '909', # Sexual entertainment services
   '982', # Sexual entertainment services
 ]
-area_code_3_local    = Phony::LocalSplitters::Fixed.instance_for [3, 4]
-handlers            << Phony::NationalCode.new(area_code_3_national, area_code_3_local)
 
 # 6 is the fallback length.
 #
-area_code_45_national = Phony::NationalSplitters::Variable.new 6, [
+no_split = [
+  '500', # Freephone (9 digits)
+
   # Geographic.
   #
   '1204', # Bolton
@@ -168,6 +165,9 @@ area_code_45_national = Phony::NationalSplitters::Variable.new 6, [
 
   # Geographic.
   #
+  # Note: We could remove these and use fixed(5) >> split(5)
+  #       for this as a catchall (see sweden.rb).
+  #
   '13873', # Langholm
   '15242', # Hornby
   '15394', # Hawkshead
@@ -181,11 +181,11 @@ area_code_45_national = Phony::NationalSplitters::Variable.new 6, [
   '17687', # Keswick
   '19467', # Gosforth
 ].flatten
-area_code_45_local    = Phony::LocalSplitters::Fixed.instance_for [6]
-handlers             << Phony::NationalCode.new(area_code_45_national, area_code_45_local)
 
-#  '16977', # Brampton -- to do  016977 + 4 digits for 169772 and 169773
+#  '16977', # Brampton -- TODO 016977 + 4 digits for 169772 and 169773
 
 Phony.define do
-  country '44', Phony::Country.new(*handlers)
+  country '44', one_of(two_digit_ndc)   >> split(4,4) |
+                one_of(three_digit_ndc) >> split(3,4) |
+                one_of(no_split)        >> split(6)
 end
