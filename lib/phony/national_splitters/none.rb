@@ -33,6 +33,8 @@ module Phony
       #
       # Note: Actually, it might stay in.
       #
+      # TODO Flip nil/false?
+      #
       def split national_number
         [nil, false, national_number]
       end
