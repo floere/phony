@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.9
+
+* hanke: Many improvements to UK numbers (thanks @g1smd)! 
+
 h2. Version 1.7.8
 
 * hanke: Closes "https://github.com/floere/phony/issues/53":https://github.com/floere/phony/issues/53. Countries who don't have NDCs are now also plausible.
