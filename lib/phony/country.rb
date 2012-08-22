@@ -12,9 +12,7 @@ module Phony
       @codes = codes
     end
     
-    # DSL.
-    #
-    # TODO
+    # Chain two codes together.
     #
     def |(other)
       self.codes = self.codes + other.codes
