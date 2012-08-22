@@ -186,6 +186,8 @@ describe 'country descriptions' do
       it { Phony.split('74012771077').should == ['7', '4012', '77', '10', '77'] } # Russia 4-digit
       it { Phony.split('78402411212').should == ['7', '84024', '1', '12', '12'] } # Russia 5-digit
       it { Phony.split('7840121212').should  == ['7', '840', '12', '12', '12']  } # Abhasia
+      it { Phony.split('7799121212').should  == ['7', '799', '12', '12', '12']  } # Kazachstan
+      it { Phony.split('7995344121212').should == ['7','995344','12','12','12'] } # South Osetia
       it { Phony.split('7209175276').should  == ['7', '209', '17', '52', '76']  } # Fantasy number
     end
     describe 'South Korea' do
