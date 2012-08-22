@@ -105,28 +105,28 @@ describe 'country descriptions' do
       it_splits '3022631234', ['30', '2263', '1234']
     end
     describe 'Hungary' do
-      it { Phony.split('3612345678').should == ['36', '1', '234', '5678'] }
-      it { Phony.split('3622123456').should == ['36', '22', '123', '456'] }
+      it_splits'3612345678', ['36', '1', '234', '5678']
+      it_splits'3622123456', ['36', '22', '123', '456']
     end
     describe 'Iceland' do
-      it { Phony.split('354112').should == ['354', false, '112']             } # Emergency TODO
-      it { Phony.split('3544211234').should == ['354', false, '421', '1234'] } # Keflavík
-      it { Phony.split('3544621234').should == ['354', false, '462', '1234'] } # Akureyri
-      it { Phony.split('3545511234').should == ['354', false, '551', '1234'] } # Reykjavík
+      it_splits '354112',     ['354', false, '112']         # Emergency TODO
+      it_splits '3544211234', ['354', false, '421', '1234'] # Keflavík
+      it_splits '3544621234', ['354', false, '462', '1234'] # Akureyri
+      it_splits '3545511234', ['354', false, '551', '1234'] # Reykjavík
     end
     describe 'Ireland' do
-      it { Phony.split('35311234567').should  == ['353', '1', '123', '4567']  } # Dublin, 7 digit subscriber #
-      it { Phony.split('3532212345').should   == ['353', '22', '12345']       } # Mallow, 5 digit subscriber #
-      it { Phony.split('35345123456').should  == ['353', '45', '123456']      } # Naas, 6 digit subscriber #
-      it { Phony.split('353801234567').should == ['353', '80', '123', '4567'] } # Mobile
-      it { Phony.split('353761234567').should == ['353', '76', '123', '4567'] } # VoIP
-      it { Phony.split('353800123456').should == ['353', '800', '123456']     } # Freefone
-      it { Phony.split('353000123456').should == ['353', '000', '123456']     } # Default fixed 3 split for unrecognized
+      it_splits '35311234567',  ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
+      it_splits '3532212345',   ['353', '22', '12345']       # Mallow, 5 digit subscriber #
+      it_splits '35345123456',  ['353', '45', '123456']      # Naas, 6 digit subscriber #
+      it_splits '353801234567', ['353', '80', '123', '4567'] # Mobile
+      it_splits '353761234567', ['353', '76', '123', '4567'] # VoIP
+      it_splits '353800123456', ['353', '800', '123456']     # Freefone
+      it_splits '353000123456', ['353', '000', '123456']     # Default fixed 3 split for unrecognized
     end
     describe 'Italy' do
-      it { Phony.split('3934869528').should   == ['39', '3486', '952', '8']   } # Mobile
-      it { Phony.split('390612341234').should == ['39', '06', '1234', '1234'] } # Roma
-      it { Phony.split('390909709511').should == ['39', '090', '970', '9511'] } # Barcellona
+      it_splits '3934869528',   ['39', '3486', '952', '8']   # Mobile
+      it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma
+      it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
     end
     describe 'Kenya' do
       it { Phony.split('254201234567').should == ['254', '20', '1234567'] } # Nairobi
