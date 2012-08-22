@@ -60,7 +60,7 @@ three_digit_ndc = [
   '372',
   '373',
 
-  '800', # Freephone (9 or 10 digits)
+  '800', # Freephone (10 digits) # 9 digits handled in specific rule, see below.
   '808', # Freephone (10 digits)
 
   '842', # Business rate
@@ -159,27 +159,26 @@ no_split = [
 
   # Geographic.
   #
-  # Note: We could remove these and use fixed(5) >> split(5)
-  #       for this as a catchall (see sweden.rb).
+  # Note: Removed and replaced by a catchall (fixed(5), see below).
   #
-  '13873', # Langholm
-  '15242', # Hornby
-  '15394', # Hawkshead
-  '15395', # Grange-over-Sands
-  '15396', # Sedbergh
-  '16973', # Wigton
-  '16974', # Raughton Head
-  '16977', # Brampton
-  '17683', # Appleby
-  '17684', # Pooley Bridge
-  '17687', # Keswick
-  '19467', # Gosforth
+  # '13873', # Langholm
+  # '15242', # Hornby
+  # '15394', # Hawkshead
+  # '15395', # Grange-over-Sands
+  # '15396', # Sedbergh
+  # '16973', # Wigton
+  # '16974', # Raughton Head
+  # '16977', # Brampton
+  # '17683', # Appleby
+  # '17684', # Pooley Bridge
+  # '17687', # Keswick
+  # '19467', # Gosforth
 ].flatten
 
-#  '16977', # Brampton -- TODO 016977 + 4 digits for 169772 and 169773
-
 Phony.define do
-  country '44', one_of(two_digit_ndc)   >> split(4,4) |
-                one_of(three_digit_ndc) >> split(3,4) |
-                one_of(no_split)        >> split(6)
+  country '44', one_of(two_digit_ndc)   >> split(4,4) | # 2-4-4
+                match(/^(800)\d{6}$/)   >> split(6)   | # Special handling for 800 + 6 numbers.
+                one_of(three_digit_ndc) >> split(3,4) | # 3-3-4
+                one_of(no_split)        >> split(6)   | # 500 / 4-6
+                fixed(5)                >> split(5)     # Catch all for 5-5 numbers.
 end
