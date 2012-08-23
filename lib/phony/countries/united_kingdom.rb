@@ -4,18 +4,23 @@
 # Note: The United Kingdom uses a variable NDC format from length 2 to 5.
 #
 # The UK is special in formatting in that it uses:
-#  a 4-4 formatting rule with area codes that are 2 digits long,
-#  a 3-4 formatting rule with area codes that are 3 digits long,
-#  a 6 or 5 formatting rule with area codes that are 4 digits long, and
-#  a 5 or 4 formatting rule with area codes that are 5 digits long.
+#  a 2-4-4 formatting rule with area codes that are 2 digits long,
+#  a 3-3-4 or 3-6 formatting rule with area codes that are 3 digits long,
+#  a 4-6 or 4-5 formatting rule with area codes that are 4 digits long, and
+#  a 5-5 or 5-4 formatting rule with area codes that are 5 digits long.
 #
 
 two_digit_ndc = [
+  # Geographic.
+  #
   '20',   # London
   '23',   # Southampton, Portsmith
   '24',   # Coventry
   '28',   # Northern Ireland
   '29',   # Cardiff
+
+  # Non-geographic.
+  #
   '55',   # Corporate
   '56',   # LIECS/VoIP
   '70',   # Personal numbers
@@ -35,8 +40,6 @@ three_digit_ndc = [
   '141',  # Glasgow
   '151',  # Liverpool
   '161',  # Manchester
-  '171',  # Used for inner London until 2000
-  '181',  # Used for outer London until 2000
   '191',  # Tyne and Wear/County Durham
 
   # Services.
@@ -44,6 +47,7 @@ three_digit_ndc = [
   '300', # Non-geographic charged at same rate as 01
   '301',
   '303',
+  '306',
   '308',
   '309',
   '330',
@@ -90,10 +94,15 @@ three_digit_ndc = [
 # 6 is the fallback length.
 #
 no_split = [
+  # Non-geographic.
+  #
   '500', # Freephone (9 digits)
 
   # Geographic.
   #
+  # These 40 area codes have a mix of 4-6 and 4-5 numbers
+  # The three 'mixed' areas also have part of their number
+  # range sub-allocated as 5-5.
   '1204', # Bolton
   '1208', # Bodmin
   '1254', # Blackburn
@@ -137,13 +146,19 @@ no_split = [
 
   # Geographic.
   #
+  # About 500 area codes use the 4-6 format
+  # The three 'mixed' areas also have part of their number
+  # range sub-allocated as 5-5 and one also has some 5-4.
   '1224', # Aberdeen 
   '1244', # Chester
   '1382', # Dundee
+  '1387', # Dumfries (Mixed area)
   '1429', # Hartlepool
   '1482', # Hull
+  '1539', # Kendal (Mixed area)
   '1582', # Luton
   '1670', # Morpeth
+  '1697', # Brampton (Mixed area)
   '1730', # Petersfield
   '1736', # Penzance
   '1772', # Preston
@@ -160,7 +175,8 @@ no_split = [
   # Geographic.
   #
   # Note: Removed and replaced by a catchall (fixed(5), see below).
-  #
+  # These areas use 5-5 format. One area has some 5-4 numbers too.
+  # They share their initial digits with area codes using 4-6 (and 4-5).
   # '13873', # Langholm
   # '15242', # Hornby
   # '15394', # Hawkshead
@@ -179,6 +195,6 @@ Phony.define do
   country '44', one_of(two_digit_ndc)   >> split(4,4) | # 2-4-4
                 match(/^(800)\d{6}$/)   >> split(6)   | # Special handling for 800 + 6 numbers.
                 one_of(three_digit_ndc) >> split(3,4) | # 3-3-4
-                one_of(no_split)        >> split(6)   | # 500 / 4-6
+                one_of(no_split)        >> split(6)   | # 500 / 3-6
                 fixed(5)                >> split(5)     # Catch all for 5-5 numbers.
 end
