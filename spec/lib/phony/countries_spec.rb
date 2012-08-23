@@ -248,9 +248,9 @@ describe 'country descriptions' do
       it { Phony.split('441539248756').should == ['44', '1539', '248756'] }     # Kendal
       it { Phony.split('441539648788').should == ['44', '15396', '48788'] }     # Sedbergh
       it { Phony.split('441697222555').should == ['44', '1697', '222555'] }     # Brampton
-      it { Phony.split('441697344555').should == ['44', '16973', '44555'] }     # Wigton
+      it { Phony.split('441697388555').should == ['44', '16973', '88555'] }     # Wigton
       it { Phony.split('44169772333').should  == ['44', '16977', '2333']  }     # Brampton
-      it { Phony.split('441697733888').should == ['44', '16977', '33888'] }     # Brampton
+      it { Phony.split('441697744888').should == ['44', '16977', '44888'] }     # Brampton
       it { Phony.split('441946555777').should == ['44', '1946', '555777']  }    # Whitehaven
       it { Phony.split('44194662888').should  == ['44', '1946', '62888']  }     # Whitehaven
       it { Phony.split('441946722444').should == ['44', '19467', '22444']  }    # Gosforth 

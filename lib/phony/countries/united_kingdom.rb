@@ -8,6 +8,7 @@
 #  a 3-3-4 or 3-6 formatting rule with area codes that are 3 digits long,
 #  a 4-6 or 4-5 formatting rule with area codes that are 4 digits long, and
 #  a 5-5 or 5-4 formatting rule with area codes that are 5 digits long.
+#  There can be a mix of number lengths within a single area code.
 #
 
 two_digit_ndc = [
