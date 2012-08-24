@@ -241,16 +241,22 @@ describe 'country descriptions' do
       it { Phony.split('442075671113').should == ['44', '20', '7567', '1113'] } # London
       it { Phony.split('442920229901').should == ['44', '29', '2022', '9901'] } # Cardiff
       it { Phony.split('441134770011').should == ['44', '113', '477', '0011'] } # Leeds
-      it { Phony.split('441412770011').should == ['44', '141', '277', '0011'] } # Glasgow
-      it { Phony.split('441382229845').should == ['44', '1382', '229845'] }     # Dundee
+      it { Phony.split('441412770022').should == ['44', '141', '277', '0022'] } # Glasgow
       it { Phony.split('441204500532').should == ['44', '1204', '500532'] }     # Bolton
       it { Phony.split('44120462532').should  == ['44', '1204', '62532']  }     # Bolton
-      it { Phony.split('441539648756').should == ['44', '15396', '48756'] }     # Sedbergh
-      it { Phony.split('441697744555').should == ['44', '16977', '44555'] }     # Brampton
+      it { Phony.split('441382229845').should == ['44', '1382', '229845'] }     # Dundee
+      it { Phony.split('441539248756').should == ['44', '1539', '248756'] }     # Kendal
+      it { Phony.split('441539648788').should == ['44', '15396', '48788'] }     # Sedbergh
+      it { Phony.split('441697222555').should == ['44', '1697', '222555'] }     # Brampton
+      it { Phony.split('441697388555').should == ['44', '16973', '88555'] }     # Wigton
       it { Phony.split('44169772333').should  == ['44', '16977', '2333']  }     # Brampton
+      it { Phony.split('441697744888').should == ['44', '16977', '44888'] }     # Brampton
+      it { Phony.split('441946555777').should == ['44', '1946', '555777']  }    # Whitehaven
+      it { Phony.split('44194662888').should  == ['44', '1946', '62888']  }     # Whitehaven
+      it { Phony.split('441946722444').should == ['44', '19467', '22444']  }    # Gosforth 
       it { Phony.split('443005878323').should == ['44', '300', '587', '8323'] } # Non-geographic
       it { Phony.split('443457777334').should == ['44', '345', '777', '7334'] } # Non-geographic
-      it { Phony.split('44500557788').should  == ['44', '500', '557788'] }      # Freefone
+      it { Phony.split('44500557788').should  == ['44', '500', '557788'] }      # Freefone 500 + 6
       it { Phony.split('445575671113').should == ['44', '55', '7567', '1113'] } # Corporate
       it { Phony.split('445644775533').should == ['44', '56', '4477', '5533'] } # LIECS/VoIP
       it { Phony.split('447020229901').should == ['44', '70', '2022', '9901'] } # Personal numbers
