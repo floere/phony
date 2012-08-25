@@ -370,7 +370,7 @@ Phony.define do
   country '352',
           one_of('4')                   >> split(2,2,2)   | # Luxembourg City
           match(/^(2[4|6|7]\d{2})$/)    >> split(2,2,2)   | # 4-digit NDC
-          match(/^(6\d1)\d+$/)          >> split(3,3)     | # mobile
+          match(/^(6\d[1|8])\d+$/)       >> split(3,3)     | # mobile
           match(/^(60\d{2})\d{8}$/)     >> split(2,2,2,2) | # mobile machine to machine
           match(/^([2-9]\d)/)           >> split(2,2,2)     # 2-digit NDC
 
