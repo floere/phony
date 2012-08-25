@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.7.12
+
+* hanke: Luxembourg & Nigeria (thanks @jcfischer)!
+
 h2. Version 1.7.11
 
 * hanke: Many improvements to UK numbers (thanks @g1smd)!

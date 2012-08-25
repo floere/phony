@@ -129,70 +129,79 @@ describe 'country descriptions' do
       it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
     end
     describe 'Kenya' do
-      it { Phony.split('254201234567').should == ['254', '20', '1234567'] } # Nairobi
-      it { Phony.split('254111234567').should == ['254', '11', '1234567'] } # Mombasa
+      it_splits '254201234567', ['254', '20', '1234567'] # Nairobi
+      it_splits '254111234567', ['254', '11', '1234567'] # Mombasa
     end
     describe 'Lithuania' do
-      it { Phony.split('37070012123').should == ['370', '700', '12', '123']     } # Service
-      it { Phony.split('37061212123').should == ['370', '612', '12', '123']     } # Mobile
-      it { Phony.split('37051231212').should == ['370', '5', '123', '12', '12'] } # Vilnius
-      it { Phony.split('37037121212').should == ['370', '37', '12', '12', '12'] } # Kaunas
-      it { Phony.split('37044011212').should == ['370', '440', '1', '12', '12'] } # Skuodas
+      it_splits '37070012123', ['370', '700', '12', '123']     # Service
+      it_splits '37061212123', ['370', '612', '12', '123']     # Mobile
+      it_splits '37051231212', ['370', '5', '123', '12', '12'] # Vilnius
+      it_splits '37037121212', ['370', '37', '12', '12', '12'] # Kaunas
+      it_splits '37044011212', ['370', '440', '1', '12', '12'] # Skuodas
+    end
+    describe 'Luxembourg' do
+      it_splits '352222809',       ['352', '22', '28', '09']
+      it_splits '35226222809',     ['352', '26', '22', '28', '09']
+      it_splits '352621123456',    ['352', '621', '123', '456']
+      it_splits '3524123456',      ['352', '4', '12', '34', '56']
+      it_splits '352602112345678', ['352', '6021', '12', '34', '56', '78']
+      it_splits '352370431',       ['352', '37', '04', '31']
+      it_splits '35227855',        ['352', '27', '85', '5']
     end
     describe 'Malaysia' do
-      it { Phony.split('6082123456').should == ['60', '82', '123456']   } # Kuching
-      it { Phony.split('60312345678').should == ['60', '3', '12345678'] } # Kuala Lumpur
-      it { Phony.split('60212345678').should == ['60', '2', '12345678'] } # Singapore
+      it_splits '6082123456', ['60', '82', '123456']   # Kuching
+      it_splits '60312345678', ['60', '3', '12345678'] # Kuala Lumpur
+      it_splits '60212345678', ['60', '2', '12345678'] # Singapore
     end
     describe 'Mexico' do
-      it { Phony.split('525512121212').should == ['52', '55', '12', '12', '12', '12'] } # Mexico City
-      it { Phony.split('526641231212').should == ['52', '664', '123', '12', '12']     } # Tijuana
+      it_splits '525512121212', ['52', '55', '12', '12', '12', '12'] # Mexico City
+      it_splits '526641231212', ['52', '664', '123', '12', '12']     # Tijuana
     end
     describe 'The Netherlands' do
-      it { Phony.split('31612345678').should == ['31', '6', '12345678'] } # mobile
-      it { Phony.split('31201234567').should == ['31', '20', '1234567'] } 
-      it { Phony.split('31222123456').should == ['31', '222', '123456'] } 
+      it_splits '31612345678', ['31', '6', '12345678'] # mobile
+      it_splits '31201234567', ['31', '20', '1234567'] 
+      it_splits '31222123456', ['31', '222', '123456'] 
     end
     describe 'Norway' do
-      Phony.split('4721234567').should == ['47',false,'21','23','45','67']
-      Phony.split('4731234567').should == ['47',false,'31','23','45','67']
-      Phony.split('4741234567').should == ['47',false,'412','34','567']
-      Phony.split('4751234567').should == ['47',false,'51','23','45','67']
-      Phony.split('4761234567').should == ['47',false,'61','23','45','67']
-      Phony.split('4771234567').should == ['47',false,'71','23','45','67']
-      Phony.split('4781234567').should == ['47',false,'812','34','567']
-      Phony.split('4791234567').should == ['47',false,'912','34','567']
+      it_splits '4721234567', ['47',false,'21','23','45','67']
+      it_splits '4731234567', ['47',false,'31','23','45','67']
+      it_splits '4741234567', ['47',false,'412','34','567']
+      it_splits '4751234567', ['47',false,'51','23','45','67']
+      it_splits '4761234567', ['47',false,'61','23','45','67']
+      it_splits '4771234567', ['47',false,'71','23','45','67']
+      it_splits '4781234567', ['47',false,'812','34','567']
+      it_splits '4791234567', ['47',false,'912','34','567']
     end
     describe 'Peru' do
-      Phony.split('51112341234').should == ['51', '1', '1234', '1234'] # Lima
-      Phony.split('51912341234').should == ['51', '9', '1234', '1234'] # mobile
-      Phony.split('51841234123').should == ['51', '84', '1234', '123'] # Cuzco, best effort
+      it_splits '51112341234', ['51', '1', '1234', '1234'] # Lima
+      it_splits '51912341234', ['51', '9', '1234', '1234'] # mobile
+      it_splits '51841234123', ['51', '84', '1234', '123'] # Cuzco, best effort
     end
     describe 'Poland' do
-      Phony.split('48123456789').should == ['48', '12', '345', '67', '89'] # Landline
-      Phony.split('48501123456').should == ['48', '501', '123', '456']     # Mobile
-      Phony.split('48800123456').should == ['48', '800', '123', '456']     # Free
-      Phony.split('48801123456').should == ['48', '801', '123', '456']     # Shared cost
-      Phony.split('48701123456').should == ['48', '701', '123', '456']     # Premium
+      it_splits '48123456789', ['48', '12', '345', '67', '89'] # Landline
+      it_splits '48501123456', ['48', '501', '123', '456']     # Mobile
+      it_splits '48800123456', ['48', '800', '123', '456']     # Free
+      it_splits '48801123456', ['48', '801', '123', '456']     # Shared cost
+      it_splits '48701123456', ['48', '701', '123', '456']     # Premium
     end
     describe 'Portugal' do
-      Phony.split('351211231234').should == ['351', '21', '123', '1234'] # Lisboa
-      Phony.split('351241123123').should == ['351', '241', '123', '123'] # Abrantes
-      Phony.split('351931231234').should == ['351', '93', '123', '1234'] # mobile
+      it_splits '351211231234', ['351', '21', '123', '1234'] # Lisboa
+      it_splits '351241123123', ['351', '241', '123', '123'] # Abrantes
+      it_splits '351931231234', ['351', '93', '123', '1234'] # mobile
     end
     describe 'Romania' do
-      it { Phony.split('40211231234').should == ['40', '21', '123', '1234'] } # Bucureşti
-      it { Phony.split('40721231234').should == ['40', '72', '123', '1234'] } # mobile
-      it { Phony.split('40249123123').should == ['40', '249', '123', '123'] } # Olt
+      it_splits '40211231234', ['40', '21', '123', '1234'] # Bucureşti
+      it_splits '40721231234', ['40', '72', '123', '1234'] # mobile
+      it_splits '40249123123', ['40', '249', '123', '123'] # Olt
     end
     describe 'Russia' do
-      it { Phony.split('78122345678').should == ['7', '812', '234', '56', '78'] } # Russia 3-digit
-      it { Phony.split('74012771077').should == ['7', '4012', '77', '10', '77'] } # Russia 4-digit
-      it { Phony.split('78402411212').should == ['7', '84024', '1', '12', '12'] } # Russia 5-digit
-      it { Phony.split('7840121212').should  == ['7', '840', '12', '12', '12']  } # Abhasia
-      it { Phony.split('7799121212').should  == ['7', '799', '12', '12', '12']  } # Kazachstan
-      it { Phony.split('7995344121212').should == ['7','995344','12','12','12'] } # South Osetia
-      it { Phony.split('7209175276').should  == ['7', '209', '17', '52', '76']  } # Fantasy number
+      it_splits '78122345678',   ['7', '812', '234', '56', '78'] # Russia 3-digit
+      it_splits '74012771077',   ['7', '4012', '77', '10', '77'] # Russia 4-digit
+      it_splits '78402411212',   ['7', '84024', '1', '12', '12'] # Russia 5-digit
+      it_splits '7840121212',    ['7', '840', '12', '12', '12']  # Abhasia
+      it_splits '7799121212',    ['7', '799', '12', '12', '12']  # Kazachstan
+      it_splits '7995344121212', ['7','995344','12','12','12']   # South Osetia
+      it_splits '7209175276',    ['7', '209', '17', '52', '76']  # Fantasy number
     end
     describe 'South Korea' do
       it { Phony.split('82212345678').should  == ['82', '2', '1234', '5678']  } # Seoul
