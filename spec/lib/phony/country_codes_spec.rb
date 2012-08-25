@@ -130,7 +130,12 @@ describe Phony::CountryCodes do
       it "should format luxembourgian numbers" do
         @countries.formatted('35227855', :format => :international).should == '+352 27 85 5'
       end
-
+      it "should format nigerian numbers" do
+        @countries.formatted('23414480000', :format => :international).should == '+234 1 448 0000'
+      end
+      it "should format nigerian mobile numbers" do
+        @countries.formatted('2347061234567', :format => :international).should == '+234 706 123 456'
+      end
       context 'with no spaces' do
         it "should format north american numbers" do
           Phony.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'
