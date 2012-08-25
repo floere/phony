@@ -276,9 +276,9 @@ Phony.define do
   # Wikipedia says 3 4 split, many local number with no splitting
   country '234',
         one_of('1', '2', '9')      >> split(3,4) | # Lagos, Ibadan and Abuja
-        match(/^(702\d])\d+$/)     >> split(3,4) | # Mobile
+        match(/^(702\d)\d+$/)     >> split(3,4) | # Mobile
         match(/^(70[3-9])\d+$/)    >> split(3,4) | # Mobile
-        match(/^(8[0,1]\d])\d+$/)  >> split(3,4) | # Mobile
+        match(/^(8[0|1]\d)\d+$/)  >> split(3,4) | # Mobile
         fixed(2)                   >> split(3,4) # 2-digit NDC
 
 
