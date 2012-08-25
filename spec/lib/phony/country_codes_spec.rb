@@ -109,6 +109,21 @@ describe Phony::CountryCodes do
       it "should format irish numbers" do
         @countries.formatted('35311234567', :format => :international).should == '+353 1 123 4567'
       end
+      it "should format luxembourgian numbers" do
+        @countries.formatted('352222809', :format => :international).should == '+352 22 28 09'
+      end
+      it "should format luxembourgian 4-digit ndc numbers" do
+        @countries.formatted('35226222809', :format => :international).should == '+352 26 22 28 09'
+      end
+      it "should format luxembourgian mobile numbers" do
+        @countries.formatted('352621123456', :format => :international).should == '+352 621 12 34 56'
+      end
+      it "should format luxembourgian city numbers" do
+        @countries.formatted('3524123456', :format => :international).should == '+352 4 12 34 56'
+      end
+      it "should format luxembourgian machine to machine numbers" do
+        @countries.formatted('352602112345678', :format => :international).should == '+352 6021 12 34 56 78'
+      end
       context 'with no spaces' do
         it "should format north american numbers" do
           Phony.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'
@@ -151,6 +166,7 @@ describe Phony::CountryCodes do
         it 'should format liechtensteiner numbers' do
           Phony.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
         end
+
       end
     end
   end

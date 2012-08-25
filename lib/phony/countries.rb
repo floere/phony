@@ -356,7 +356,14 @@ Phony.define do
           one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
           fixed(3)             >> split(3,4)   # 3-digit NDCs
 
-  country '352', todo # Luxembourg
+  # Luxembourg
+  #
+  country '352',
+          one_of('4')                   >> split(2,2,2)   | # Luxembourg City
+          match(/^(2[4|6|7]\d{2})$/)    >> split(2,2,2)   | # 4-digit NDC
+          match(/^(6\d1)\d+$/)          >> split(2,2,2)   | # mobile
+          match(/^(60\d{2})\d{8}$/)     >> split(2,2,2,2) | # mobile machine to machine
+          fixed(2)                      >> split(2,2,2)     # 2-digit NDC
 
   # country '353' # Republic of Ireland, see special file.
 
