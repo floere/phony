@@ -372,7 +372,7 @@ Phony.define do
           match(/^(2[4|6|7]\d{2})$/)    >> split(2,2,2)   | # 4-digit NDC
           match(/^(6\d1)\d+$/)          >> split(3,3)     | # mobile
           match(/^(60\d{2})\d{8}$/)     >> split(2,2,2,2) | # mobile machine to machine
-          fixed(2)                      >> split(2,2,2)     # 2-digit NDC
+          match(/^([2-9]\d)/)           >> split(2,2,2)     # 2-digit NDC
 
   # country '353' # Republic of Ireland, see special file.
 
