@@ -134,7 +134,7 @@ describe Phony::CountryCodes do
         @countries.formatted('23414480000', :format => :international).should == '+234 1 448 0000'
       end
       it "should format nigerian mobile numbers" do
-        @countries.formatted('2347061234567', :format => :international).should == '+234 706 123 456'
+        @countries.formatted('2347061234567', :format => :international).should == '+234 706 123 4567'
       end
       context 'with no spaces' do
         it "should format north american numbers" do
