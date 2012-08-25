@@ -272,7 +272,16 @@ Phony.define do
   #
   country '233', fixed(2) >> split(3,4)
 
-  country '234', todo # Nigeria
+  # Nigeria
+  # Wikipedia says 3 4 split, many local number with no splitting
+  country '234',
+        one_of('1', '2', '9')      >> split(3,4) | # Lagos, Ibadan and Abuja
+        match(/^(702\d)\d+$/)      >> split(3,4) | # Mobile
+        match(/^(70[3-9])\d+$/)    >> split(3,4) | # Mobile
+        match(/^(8[01]\d)\d+$/)    >> split(3,4) | # Mobile
+        fixed(2)                   >> split(3,4) # 2-digit NDC
+
+
   country '235', todo # Chad
   country '236', todo # Central African Republic
   country '237', todo # Cameroon
@@ -356,7 +365,14 @@ Phony.define do
           one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
           fixed(3)             >> split(3,4)   # 3-digit NDCs
 
-  country '352', todo # Luxembourg
+  # Luxembourg
+  #
+  country '352',
+          one_of('4')                   >> split(2,2,2)   | # Luxembourg City
+          match(/^(2[467]\d{2})$/)      >> split(2,2,2)   | # 4-digit NDC
+          match(/^(6\d[18])\d+$/)       >> split(3,3)     | # mobile
+          match(/^(60\d{2})\d{8}$/)     >> split(2,2,2,2) | # mobile machine to machine
+          match(/^([2-9]\d)/)           >> split(2,2,2)     # 2-digit NDC
 
   # country '353' # Republic of Ireland, see special file.
 
