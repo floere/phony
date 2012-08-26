@@ -9,6 +9,9 @@ describe 'country descriptions' do
   end
 
   describe 'splitting' do
+    describe 'Ascension Island' do
+      it_splits '2473551', ['247', false, '3551']
+    end
     describe 'Afghanistan' do
       it_splits '93201234567', ['93', '20', '1234567'] # Kabul
     end

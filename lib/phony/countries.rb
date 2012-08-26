@@ -295,7 +295,7 @@ Phony.define do
   country '244', todo # Angola
   country '245', todo # Guinea-Bissau
   country '246', todo # Diego Garcia
-  country '247', todo # Ascension
+  country '247', none >> split(4) # Ascension
   country '248', todo # Seychelles
   country '249', todo # Sudan
 
