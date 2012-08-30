@@ -22,6 +22,9 @@ describe 'validations' do
     # it 'is correct' do
     #   Phony.plausible?('+1911').should be_false
     # end
+    it "correctly plausibilizes to#{}do countries" do
+      Phony.plausible?('6327332350').should be_true
+    end
     it 'is correct' do
       Phony.plausible?('45 44 11 22 33').should be_true
     end
