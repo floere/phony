@@ -1,8 +1,12 @@
 h2. Upcoming Version.
 
+h2. Version 1.8.1
+
+* hanke: Morocco & Sudan (thanks @jcfischer)!
+
 h2. Version 1.8.0
 
-* hanke: TODO countries are now plausibility checked less harshly.
+* hanke: Countries are now plausibility checked less harshly.
 
 h2. Version 1.7.12
 
