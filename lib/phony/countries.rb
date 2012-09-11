@@ -242,7 +242,7 @@ Phony.define do
 
   country '210', todo # -
   country '211', todo # South Sudan
-  country '212', todo # Morocco
+  country '212', fixed(2) >> split(4,3) # Morocco
   country '213', fixed(2) >> split(3,4)   # Algeria
   country '214', todo # -
   country '215', todo # -
@@ -297,7 +297,7 @@ Phony.define do
   country '246', todo # Diego Garcia
   country '247', none >> split(4) # Ascension
   country '248', todo # Seychelles
-  country '249', todo # Sudan
+  country '249', fixed(2) >> split(3,4) # Sudan
 
   country '250', todo # Rwanda
   country '251', todo # Ethiopia
