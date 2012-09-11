@@ -160,6 +160,9 @@ describe 'country descriptions' do
       it_splits '525512121212', ['52', '55', '12', '12', '12', '12'] # Mexico City
       it_splits '526641231212', ['52', '664', '123', '12', '12']     # Tijuana
     end
+    describe 'Morocco' do
+      it_splits '212537718685', ['212', '53', '7718', '685']
+    end
     describe 'The Netherlands' do
       it_splits '31612345678', ['31', '6', '12345678'] # mobile
       it_splits '31201234567', ['31', '20', '1234567'] 
@@ -211,6 +214,9 @@ describe 'country descriptions' do
       it { Phony.split('825112345678').should == ['82', '51', '1234', '5678'] } # Busan
       it { Phony.split('821027975588').should == ['82', '10', '2797', '5588'] } # mobile
       it { Phony.split('821087971234').should == ['82', '10', '8797', '1234'] } # mobile
+    end
+    describe 'Sudan' do
+      it_splits '249187171100', ['249', '18', '717', '1100']
     end
     describe 'Thailand' do
       it { Phony.split('6621231234').should == ['66', '2', '123', '1234'] } # Bangkok
