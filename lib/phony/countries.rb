@@ -355,7 +355,11 @@ Phony.define do
   country '298', todo # Faroe Islands
   country '299', todo # Greenland
 
-  country '350', todo # Gibraltar
+  # Gibraltar
+  country '350',
+          match(/^(2[012]\d)\d+$/) >> split(5) | # fixed
+          match(/^([56]\d)\d+$/) >> split(6)  | # mobile
+          match(/^(8\d\d\d)$/) >> split(0)
 
   # Portugal.
   #
@@ -378,8 +382,18 @@ Phony.define do
 
   country '354', none >> split(3,4) # Iceland
   country '355', todo # Albania
-  country '356', todo # Malta
-  country '357', todo # Cyprus
+
+  # Malta
+  country '356',
+          match(/^(2\d\d\d)\d+$/) >> split(4) | # fixed line
+          match(/(7[79])\d+$/)    >> split(6) | # mobile
+          match(/(9[89])\d+$/)    >> split(6) | # mobile
+          fixed(2)                >> split(6)   # 2 digit ndc
+
+
+  # Cyprus
+  # http://www.cytaglobal.com/cytaglobal/userfiles/NewNumberingPlan.pdf
+  country '357',           fixed(2) >> split(6)
 
   # Finland.
   #
@@ -404,12 +418,23 @@ Phony.define do
           fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
 
   country '371', todo # Latvia
-  country '372', todo # Estonia
+
+  # Estonia
+  country '372',
+          match(/^(5\d\d\d)\d+$/) >> split(4)   | # Mobile
+          match(/^(8[12]\d\d)\d+$/) >> split(4) | # Mobile
+          fixed(3) >> split(4) # 3-digit NDCs
+
   country '373', todo # Moldova
   country '374', todo # Armenia
   country '375', todo # Belarus
   country '376', todo # Andorra
-  country '377', todo # Monaco
+
+  # Monaco
+  country '377',
+          one_of('6')  >> split(2,2,2,2) | # mobile
+          fixed(2) >> split(2,2,2)
+
   country '378', todo # San Marino
   country '379', todo # Vatican City State
 
