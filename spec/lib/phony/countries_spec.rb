@@ -77,6 +77,13 @@ describe 'country descriptions' do
       it_splits '20921234567', ['20', '92', '1234567']
       it_splits '20951234567', ['20', '95', '1234567']
     end
+    describe 'Estonia' do
+      it_splits '3723212345', ['372', '321', '2345']    # Landline
+      it_splits '37251231234', ['372', '5123', '1234']  # Mobile
+      it_splits '3728001234', ['372', '800', '1234']    # Freephone
+      it_splits '37281231234', ['372', '8123', '1234']  # Mobile
+      it_splits '37282231234', ['372', '8223', '1234']  # Mobile
+    end
     describe 'Finland' do
       it_splits '3589123123', ['358', '9', '123', '123'] # Helsinki
       it_splits '3581912312', ['358', '19', '123', '12'] # Nylandia
@@ -99,6 +106,18 @@ describe 'country descriptions' do
     end
     describe 'Ghana' do
       it_splits '233302123456', ['233', '30', '212', '3456'] # Mobile Vodafone, Accra
+    end
+    describe 'Gibralatar' do
+      it_splits '35020012345', ['350', '200', '12345'] # Fixed
+      it_splits '35021112345', ['350', '211', '12345'] # Fixed
+      it_splits '35022212345', ['350', '222', '12345'] # Fixed
+      it_splits '35054123456', ['350', '54', '123456'] # Mobile
+      it_splits '35056123456', ['350', '56', '123456'] # Mobile
+      it_splits '35057123456', ['350', '57', '123456'] # Mobile
+      it_splits '35058123456', ['350', '58', '123456'] # Mobile
+      it_splits '35060123456', ['350', '60', '123456'] # Mobile
+      it_splits '3508012', ['350', '8012', '' ] # Freephone
+
     end
     describe 'Greece' do
       it_splits '3021123456', ['30', '21', '123456']     # Athens
@@ -159,6 +178,10 @@ describe 'country descriptions' do
     describe 'Mexico' do
       it_splits '525512121212', ['52', '55', '12', '12', '12', '12'] # Mexico City
       it_splits '526641231212', ['52', '664', '123', '12', '12']     # Tijuana
+    end
+    describe 'Monaco' do
+      it_splits '37741123456', ['377', '41', '12', '34', '56'] # Mobile
+      it_splits '377612345678', ['377', '6', '12', '34', '56', '78'] # Mobile
     end
     describe 'Morocco' do
       it_splits '212537718685', ['212', '53', '7718', '685']
