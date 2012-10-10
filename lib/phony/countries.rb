@@ -384,16 +384,17 @@ Phony.define do
   country '355', todo # Albania
 
   # Malta
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Malta
   country '356',
+          match(/^([79]\d)\d+$/)  >> split(6) | # mobile
           match(/^(2\d\d\d)\d+$/) >> split(4) | # fixed line
-          match(/(7[79])\d+$/)    >> split(6) | # mobile
-          match(/(9[89])\d+$/)    >> split(6) | # mobile
-          fixed(2)                >> split(6)   # 2 digit ndc
+          fixed(4)                >> split(4)   # eg. with voice mail
 
 
   # Cyprus
   # http://www.cytaglobal.com/cytaglobal/userfiles/NewNumberingPlan.pdf
-  country '357',           fixed(2) >> split(6)
+  country '357', one_of('121','122','123') >> split(2,6) | # voicemail
+                 fixed(2) >> split(6)                      # fixed & mobile
 
   # Finland.
   #

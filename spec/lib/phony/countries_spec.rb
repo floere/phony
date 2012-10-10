@@ -69,6 +69,11 @@ describe 'country descriptions' do
       it_splits '5371234567', ['53', '7', '1234567'] # Havana
       it_splits '5342123456', ['53', '42', '123456'] # Villa Clara
     end
+    describe 'Cyprus' do
+      it_splits '35712322123456', ['357', '123', '22', '123456'] # Voicemail
+      it_splits '35722123456',    ['357', '22', '123456']        # Fixed
+      it_splits '35791123456',    ['357', '91', '123456']        # Mobile
+    end
     describe 'Denmark' do
       it_splits '4532121212', ['45', false, '32', '12', '12', '12']
     end
@@ -107,7 +112,7 @@ describe 'country descriptions' do
     describe 'Ghana' do
       it_splits '233302123456', ['233', '30', '212', '3456'] # Mobile Vodafone, Accra
     end
-    describe 'Gibralatar' do
+    describe 'Gibraltar' do
       it_splits '35020012345', ['350', '200', '12345'] # Fixed
       it_splits '35021112345', ['350', '211', '12345'] # Fixed
       it_splits '35022212345', ['350', '222', '12345'] # Fixed
@@ -117,7 +122,6 @@ describe 'country descriptions' do
       it_splits '35058123456', ['350', '58', '123456'] # Mobile
       it_splits '35060123456', ['350', '60', '123456'] # Mobile
       it_splits '3508012', ['350', '8012', '' ] # Freephone
-
     end
     describe 'Greece' do
       it_splits '3021123456', ['30', '21', '123456']     # Athens
@@ -174,6 +178,12 @@ describe 'country descriptions' do
       it_splits '6082123456', ['60', '82', '123456']   # Kuching
       it_splits '60312345678', ['60', '3', '12345678'] # Kuala Lumpur
       it_splits '60212345678', ['60', '2', '12345678'] # Singapore
+    end
+    describe 'Malta' do
+      it_splits '35621231234', ['356', '2123', '1234'] # Fixed
+      it_splits '35677123456', ['356', '77', '123456'] # Mobile
+      it_splits '35698123456', ['356', '98', '123456'] # Mobile
+      it_splits '35651231234', ['356', '5123', '1234'] # Voice Mail
     end
     describe 'Mexico' do
       it_splits '525512121212', ['52', '55', '12', '12', '12', '12'] # Mexico City
