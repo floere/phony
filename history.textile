@@ -1,5 +1,9 @@
 h2. Upcoming Version.
 
+h2. Version 1.8.2
+
+* jcfischer: Gibraltar, Malta, Cyprus, Estonia, Monaco
+
 h2. Version 1.8.1
 
 * hanke: Morocco & Sudan (thanks @jcfischer)!
