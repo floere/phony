@@ -511,7 +511,7 @@ Phony.define do
   country '852', todo # Hong Kong, China
   country '853', todo # Macao, China
   country '854', todo # Spare code
-  country '855', todo # Cambodia (Kingdom of)
+  country '855', todo # Cambodia (Kingdom of) http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
   country '856', todo # Lao People's Democratic Republic
   country '857', todo # Spare code
   country '858', todo # Spare code
