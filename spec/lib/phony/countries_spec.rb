@@ -44,10 +44,10 @@ describe 'country descriptions' do
       Phony.split('551112341234').should == ['55', '11', '1234', '1234']
     end
     it "handles cambodian numbers" do
-      Phony.split("85512236142").should == ["855", "12", "236142"]   # mobile (Mobitel)
-      Phony.split("855977100872").should == ["855", "97", "7100872"] # mobile (Metfone)
-      Phony.split("855234601183").should == ["855", "23", "4601192"] # Long fixed line (Phnom Penh)
-      Phony.split("85533123456").should == ["855", "33", "123456"]   # Regular fixed line (Kampot)
+      Phony.split("85512236142").should == ["855", "12", "236", "142"]   # mobile (Mobitel)
+      Phony.split("855977100872").should == ["855", "97", "710", "0872"] # mobile (Metfone)
+      Phony.split("855234601183").should == ["855", "23", "460", "1183"] # Long fixed line (Phnom Penh)
+      Phony.split("85533123456").should == ["855", "33", "123", "456"]   # Regular fixed line (Kampot)
     end
     it 'handles chilean numbers' do
       Phony.split('5621234567').should == ['56', '2', '1234567']       # Santiago
