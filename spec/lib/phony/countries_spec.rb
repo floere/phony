@@ -50,6 +50,12 @@ describe 'country descriptions' do
     describe 'Brazil' do
       it_splits '551112341234', ['55', '11', '1234', '1234']
     end
+    describe 'Cambodia' do
+      it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
+      it_splits '855977100872', ["855", "97", "710", "0872"] # mobile (Metfone)
+      it_splits '855234601183', ["855", "23", "460", "1183"] # Long fixed line (Phnom Penh)
+      it_splits '85533123456', ["855", "33", "123", "456"]   # Regular fixed line (Kampot)
+    end
     describe 'Chile' do
       it_splits '5621234567', ['56', '2', '1234567']       # Santiago
       it_splits '5675123456', ['56', '75', '123456']       # Curico
@@ -200,8 +206,8 @@ describe 'country descriptions' do
     end
     describe 'The Netherlands' do
       it_splits '31612345678', ['31', '6', '12345678'] # mobile
-      it_splits '31201234567', ['31', '20', '1234567'] 
-      it_splits '31222123456', ['31', '222', '123456'] 
+      it_splits '31201234567', ['31', '20', '1234567']
+      it_splits '31222123456', ['31', '222', '123456']
     end
     describe 'Norway' do
       it_splits '4721234567', ['47',false,'21','23','45','67']
@@ -271,8 +277,8 @@ describe 'country descriptions' do
     end
     describe 'Sweden' do
       it { Phony.split('46812345678').should == ['46', '8', '12345678'] } # Stockholm
-      it { Phony.split('46111234567').should == ['46', '11', '1234567'] } 
-      it { Phony.split('46125123456').should == ['46', '125', '123456'] } 
+      it { Phony.split('46111234567').should == ['46', '11', '1234567'] }
+      it { Phony.split('46125123456').should == ['46', '125', '123456'] }
     end
     describe 'Switzerland' do
       it { Phony.split('41443643532').should == ['41', '44', '364', '35', '32'] } # Zurich (usually)
@@ -306,7 +312,7 @@ describe 'country descriptions' do
       it { Phony.split('441697744888').should == ['44', '16977', '44888'] }     # Brampton
       it { Phony.split('441946555777').should == ['44', '1946', '555777']  }    # Whitehaven
       it { Phony.split('44194662888').should  == ['44', '1946', '62888']  }     # Whitehaven
-      it { Phony.split('441946722444').should == ['44', '19467', '22444']  }    # Gosforth 
+      it { Phony.split('441946722444').should == ['44', '19467', '22444']  }    # Gosforth
       it { Phony.split('443005878323').should == ['44', '300', '587', '8323'] } # Non-geographic
       it { Phony.split('443457777334').should == ['44', '345', '777', '7334'] } # Non-geographic
       it { Phony.split('44500557788').should  == ['44', '500', '557788'] }      # Freefone 500 + 6
