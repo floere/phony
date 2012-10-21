@@ -12,9 +12,7 @@ module Phony
       @codes = codes
     end
     
-    # DSL.
-    #
-    # TODO
+    # Chain two codes together.
     #
     def |(other)
       self.codes = self.codes + other.codes
@@ -28,7 +26,7 @@ module Phony
     def split national_number
       @codes.each do |code|
         zero, ndc, *rest = code.split national_number
-        return ndc ? [zero, ndc, *rest] : [zero, nil, *rest] if rest && !rest.empty?
+        return [zero, ndc, *rest] if rest && !rest.empty?
       end
     end
     

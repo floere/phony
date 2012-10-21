@@ -109,6 +109,33 @@ describe Phony::CountryCodes do
       it "should format irish numbers" do
         @countries.formatted('35311234567', :format => :international).should == '+353 1 123 4567'
       end
+      it "should format luxembourgian numbers" do
+        @countries.formatted('352222809', :format => :international).should == '+352 22 28 09'
+      end
+      it "should format luxembourgian 4-digit ndc numbers" do
+        @countries.formatted('35226222809', :format => :international).should == '+352 26 22 28 09'
+      end
+      it "should format luxembourgian mobile numbers" do
+        @countries.formatted('352621123456', :format => :international).should == '+352 621 123 456'
+      end
+      it "should format luxembourgian city numbers" do
+        @countries.formatted('3524123456', :format => :international).should == '+352 4 12 34 56'
+      end
+      it "should format luxembourgian machine to machine numbers" do
+        @countries.formatted('352602112345678', :format => :international).should == '+352 6021 12 34 56 78'
+      end
+      it "should format luxembourgian numbers" do
+        @countries.formatted('352370431', :format => :international).should == '+352 37 04 31'
+      end
+      it "should format luxembourgian numbers" do
+        @countries.formatted('35227855', :format => :international).should == '+352 27 85 5'
+      end
+      it "should format nigerian numbers" do
+        @countries.formatted('23414480000', :format => :international).should == '+234 1 448 0000'
+      end
+      it "should format nigerian mobile numbers" do
+        @countries.formatted('2347061234567', :format => :international).should == '+234 706 123 4567'
+      end
       context 'with no spaces' do
         it "should format north american numbers" do
           Phony.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'
@@ -151,6 +178,7 @@ describe Phony::CountryCodes do
         it 'should format liechtensteiner numbers' do
           Phony.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
         end
+
       end
     end
   end

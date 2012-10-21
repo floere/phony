@@ -51,7 +51,7 @@ service = [
  ]
 
 Phony.define do
-  country '31', one_of(service)                        >> split(3,3) |
-          one_of(['6'] + ndcs, :max_length => 3) >> split(8) # mobile + landline
-          # 8 is for mobile numbers, other numbers will work as well (they use 7).
+  country '31', one_of(service) >> split(3,3) |
+          one_of(['6'] + ndcs)  >> split(8)   | # mobile + landline
+          fixed(3)              >> split(8)     # 8 is for mobile numbers, other numbers will work as well (they use 7).
 end

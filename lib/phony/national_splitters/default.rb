@@ -9,7 +9,7 @@ module Phony
       end
 
       def split national_number
-        [nil, nil, national_number]
+        [national_number]
       end
 
     end

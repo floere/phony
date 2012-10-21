@@ -1,5 +1,49 @@
 h2. Upcoming Version.
 
+h2. Version 1.8.2
+
+* jcfischer: Gibraltar, Malta, Cyprus, Estonia, Monaco
+
+h2. Version 1.8.1
+
+* hanke: Morocco & Sudan (thanks @jcfischer)!
+
+h2. Version 1.8.0
+
+* hanke: Countries are now plausibility checked less harshly.
+
+h2. Version 1.7.12
+
+* hanke: Luxembourg & Nigeria (thanks @jcfischer)!
+
+h2. Version 1.7.11
+
+* hanke: Many improvements to UK numbers (thanks @g1smd)!
+
+h2. Version 1.7.10
+
+* hanke: More improvements to UK numbers.
+
+h2. Version 1.7.9
+
+* hanke: Many improvements to UK numbers (thanks @g1smd)!
+
+h2. Version 1.7.8
+
+* hanke: Closes "https://github.com/floere/phony/issues/53":https://github.com/floere/phony/issues/53. Countries who don't have NDCs are now also plausible.
+
+h2. Version 1.7.7
+
+* hanke: Russia, added catchall in last rule and group in regexp.
+
+h2. Version 1.7.6
+
+* hanke: Russia, Kazakhstan, Abhasia *and* South Osetia (thanks glebm)!
+
+h2. Version 1.7.5
+
+* hanke: Fix for issue #47. If a number contains a rest (CC + NDC + rest) size that is in the range of @1..2@, it is not considered plausible (ie. @plausible?@ will return @false@).
+
 h2. Version 1.7.4
 
 * hanke: Fix for issue #45. Irish phone numbers with unrecognized NDCs are now formatted better when using @:national@ formatting (thanks theirishpenguin!).

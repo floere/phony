@@ -18,5 +18,5 @@ Phony.define do
   country '60', one_of(service) >> split(3,3) | # Service
                 one_of(mobile)  >> split(8)   | # Mobile
                 one_of(ndcs)    >> split(8)   | # 1-digit NDCs
-                fixed(2)        >> split(8)     # 2-digit NDCs
+                fixed(2)        >> split(8)     # 2-digit NDCs (Also, fallback)
 end
