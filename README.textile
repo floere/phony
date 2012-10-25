@@ -12,7 +12,9 @@ This gem can normalize, format and split E164 numbers.
 "More about E164 numbers in this Wiki":http://en.wikipedia.org/wiki/E.164.
 
 The (admittedly crazy) *goal* of this Gem is to be able to format/split all phone numbers in the world.
-Currently handles Abhas, Afghan, Algerian, Austrian, Australian, Belgian, Brazilian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, Estonian, French, German, Ghanan, Gibraltar, Greek, Hungarian, Italian, Irish, Kazakh, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, and Vietnamese numbers.
+
+Currently handles Abhas, Afghan, Algerian, Austrian, Australian, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, Estonian, French, German, Ghanan, Gibraltar, Greek, Hungarian, Italian, Irish, Kazakh, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, and Vietnamese numbers.
+
 And to some extent, all others. Just try if it works for you.
 
 If it doesn't, please "enter an issue":http://github.com/floere/phony/issues.
@@ -44,7 +46,7 @@ Note that you can add constraints to the plausibility check like the country cod
 @Phony.plausible?('+41 44 111 22 33', cc: '1').should be_false@
 
 @Phony.plausible?('+41 44 111 22 33', ndc: '43').should be_false@
-    
+
 @Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44').should be_true@
 
 @Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/).should be_false@
@@ -53,7 +55,7 @@ Note that you can add constraints to the plausibility check like the country cod
 
 h3(#normalizing). Normalizing
 
-This will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first. 
+This will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first.
 
 @Phony.normalize('41443643533').should == '41443643533'@
 
