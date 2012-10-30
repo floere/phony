@@ -14,6 +14,12 @@ require File.expand_path '../phony/country', __FILE__
 require File.expand_path '../phony/country_codes', __FILE__
 require File.expand_path '../phony/validator', __FILE__
 require File.expand_path '../phony/validators', __FILE__
+
+#
+# Validators
+#
+require File.expand_path '../phony/validators/length_validator', __FILE__
+
 require File.expand_path '../phony/dsl', __FILE__
 
 # Countries.
@@ -35,6 +41,8 @@ require File.expand_path '../phony/countries/united_kingdom', __FILE__
 # All other countries.
 #
 require File.expand_path '../phony/countries', __FILE__
+
+
 
 module Phony
 

@@ -18,19 +18,22 @@
 module Phony
   
   class Validators
-    
+
+    attr_accessor :country_validators
+
     def initialize
-      @validators = {}
+      @country_validators = {}
     end
-    
+
+
     def self.instance
       @instance ||= new
     end
     
-    # Add a specific country validator.
+    # Add a specific country validator (or an array of validators)
     #
     def add cc, validator
-      @validators[cc] = validator
+      @country_validators[cc] = validator
     end
     
     # Is the given number plausible?
@@ -69,14 +72,19 @@ module Phony
       
       # Country specific checks.
       #
-      validator = validator_for cc
-      validator.plausible? ndc, rest
+      validators = [*validator_for(cc)]
+      valid = validators.map do |validator|
+                validator.plausible? ndc, rest
+      end
+      return false if valid.include? false
+
+      true
     rescue StandardError
       return false
     end
     
     def validator_for cc
-      @validators[cc] || default_validator
+      @country_validators[cc] || default_validator
     end
     
     def default_validator

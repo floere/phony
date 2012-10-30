@@ -68,6 +68,7 @@ module Phony
     # Example:
     #   country '33', fixed(1) >> split(2,2,2,2) # France, uses a fixed NDC of size 1.
     #
+
     def fixed length, options = {}
       options[:zero] = true if options[:zero].nil?
       NationalSplitters::Fixed.instance_for length, options
@@ -175,6 +176,10 @@ module Phony
     #
     def invalid_ndcs ndc
       Validator.new.ndc_check ndc
+    end
+
+    def length_validator length
+      LengthValidator.new length
     end
 
   end
