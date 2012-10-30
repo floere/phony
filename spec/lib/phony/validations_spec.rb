@@ -70,12 +70,24 @@ describe 'validations' do
     end
     
     context 'specific countries' do
-      
-      # TODO
+
+
+      # TODO: more needs to be done here
       #
-      # it "is correct for Swiss numbers" do
-      #   Phony.plausible?('+41 44 111 22 33').should be_true
-      # end
+      it "is correct for Swiss numbers" do
+        Phony.plausible?('+41 44 111 22 33').should be_true
+        Phony.plausible?('+41 44 111 22 334').should be_false
+        Phony.plausible?('+41 44 111 22').should be_false
+
+      end
+
+      it "is correct for Danish numbers" do
+        Phony.plausible?('+45 44 11 12 23 34').should be_false
+        Phony.plausible?('+45 44 11 12 2').should be_false
+        Phony.plausible?('+45 44 55 22 33').should be_true
+      end
+
+
       
       it "is correct for US numbers" do
         # Sorry, still need E164 conform numbers.
@@ -88,6 +100,10 @@ describe 'validations' do
         Phony.plausible?('1-800-692-7753').should be_true
         Phony.plausible?('1-911').should be_false
         Phony.plausible?('1-911-123-1234').should be_false
+        Phony.plausible?('143466677777').should be_false # too long
+        Phony.plausible?('143466677').should be_false # too short
+
+
         
         # With string constraints.
         #
