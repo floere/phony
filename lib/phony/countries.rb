@@ -18,8 +18,9 @@
 #                   (See Norway how it looks.)
 #
 # The third parameter to country are validations.
-# Currently, there is one method available:
+# Currently, there are two methods available:
 # * invalid_ndcs: Give a regexp or string to describe invalid ndc(s).
+# * validate_lengths: Given a number or a hash, validates the length of the number
 #
 # Note: The ones that are commented are defined in their special files.
 #
