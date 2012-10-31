@@ -88,6 +88,15 @@ describe 'validations' do
       end
 
 
+      it 'is correct for egyptian numbers' do
+        Phony.plausible?('+20 800 1234567').should be_true
+        Phony.plausible?('+20 800 12345678').should be_false
+        Phony.plausible?('+20 2 12345678').should be_true
+        Phony.plausible?('+20 2 1234567').should be_false
+        Phony.plausible?('+20 40 12345678').should be_true
+        Phony.plausible?('+20 40 1234567').should be_false
+      end
+
       
       it "is correct for US numbers" do
         # Sorry, still need E164 conform numbers.
@@ -117,7 +126,14 @@ describe 'validations' do
         Phony.plausible?('14346667777', ndc: /434|435/).should be_true
         Phony.plausible?('14346667777', cc: /[123]/, ndc: /434|435/).should be_true
       end
-      
+
+      it "is correct for Portugese numbers" do
+        Phony.plausible?('+351 800 123456').should be_true
+        Phony.plausible?('+351 90 1234567').should be_true
+        Phony.plausible?('+351 90 123456').should be_false
+        Phony.plausible?('+351 123 1234567').should be_true
+
+      end
     end
     
   end

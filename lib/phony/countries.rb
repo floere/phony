@@ -34,7 +34,7 @@ Phony.define do
   country '1',
           fixed(3, :zero => false) >> split(3,4),
           # invalid_ndcs('911'), # /911/ would also work.
-          [invalid_ndcs('911'), length_validator(10)]
+          [invalid_ndcs('911'), validate_lengths(10)]
 
   # Kazakhstan (Republic of) & Russian Federation.
   # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
@@ -45,13 +45,14 @@ Phony.define do
   #
   country '20', one_of('800')    >> split(7) | # Egypt
                 one_of('2', '3') >> split(8) | # Cairo/Giza, Alexandria
-                fixed(2)         >> split(8)
+                fixed(2)         >> split(8),
                 # :mobile? => /^1[01246-9]\d+$/, :service? => /^800\d+$/
+                validate_lengths({ 3 => 10, 1 => 9, 2 => 10})
 
   # South Africa.
   #
   country '27', fixed(2) >> split(3,4),
-                length_validator(9)
+                validate_lengths(9)
 
   # Greece.
   #
@@ -70,12 +71,12 @@ Phony.define do
   # France.
   #
   country '33', fixed(1) >> split(2,2,2,2),    # :service? => /^8.*$/, :mobile? => /^[67].*$/
-                length_validator(9)
+                validate_lengths(9)
   # Spain.
   #
   country '34',
           fixed(2) >> split(3,4),
-          length_validator(9)
+          validate_lengths(9)
 
   # Hungary.
   #
@@ -84,7 +85,8 @@ Phony.define do
   country '36',
           one_of('104','105','107','112') >> split(3,3) | # Service
           one_of('1')                     >> split(3,4) | # Budapest
-          fixed(2)                        >> split(3,4)   # 2-digit NDCs
+          fixed(2)                        >> split(3,4),   # 2-digit NDCs
+          validate_lengths({ 3 => 9, 1 => 8, 2 => 9})
 
   # country '39' # Italy, see special file.
 
@@ -101,7 +103,7 @@ Phony.define do
   country '41',
           match(/^(8(00|4[0248]))\d+$/) >> split(3,3) |
           fixed(2)                          >> split(3,2,2),
-          length_validator(9)
+          validate_lengths(9)
 
 
   # country '43' # Austria, see special file.
@@ -111,7 +113,7 @@ Phony.define do
   #
   country '45',
           none >> split(2,2,2,2),
-          length_validator(8)
+          validate_lengths(8)
 
   # country '46' # Sweden, see special file.
 
@@ -137,7 +139,8 @@ Phony.define do
   country '51',
           one_of('103', '105') >> split(3,3) | # Service.
           one_of('1', '9')     >> split(4,4) | # Lima and mobile.
-          fixed(2)             >> split(4,4)   # 2-digit NDCs.
+          fixed(2)             >> split(4,4),   # 2-digit NDCs.
+          validate_lengths({ 3 => 9, 1 => 9, 2 => 10})
 
   # Mexico.
   #
@@ -181,7 +184,7 @@ Phony.define do
   #
   country '58',
           fixed(3) >> split(7),
-          length_validator(10)
+          validate_lengths(10)
 
   # country '60' # Malaysia, see special file.
 
@@ -189,7 +192,8 @@ Phony.define do
   #
   country '61',
           match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
-          fixed(1)              >> split(4,4)   # Rest
+          fixed(1)              >> split(4,4),  # Rest
+          validate_lengths(9)
 
 	# Indonesia (Republic of)
   country '62',    
@@ -208,19 +212,20 @@ Phony.define do
   #
   country '64',
           fixed(1) >> split(3,4),
-          length_validator(8)
+          validate_lengths(8)
 
   # Singapore (Republic of).
   #
   country '65',
           none >> split(4,4), # TODO Short Codes.
-          length_validator(8)
+          validate_lengths(8)
+
   # Thailand.
   #
   country '66',
           one_of('2') >> split(3,4) | # Bangkok
           fixed(2)    >> split(3,3),   # Rest
-          length_validator(8)
+          validate_lengths(8)
 
   country '81', todo # TODO Japan
 
@@ -229,7 +234,9 @@ Phony.define do
   country '84', # Viet Nam (Socialist Republic of)
           one_of('4', '8') >> split(7) |
           match(/^(2[025679]|3[0136789]|5[23456789]|6[01234678]|7[02345679]|9[0-8])\d/) >> split(6) |
-          fixed(3) >> split(5)
+          fixed(3) >> split(5),
+          validate_lengths(8)
+
 
 
   # country '86' # China, see special file.
@@ -238,7 +245,7 @@ Phony.define do
   #
   country '90',
           fixed(3) >> split(3,4),   # Wiki says 7, but the examples say 3, 4.
-          length_validator(10)
+          validate_lengths(10)
 
   country '91', todo # TODO India (Republic of)
   country '92', todo # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
@@ -248,7 +255,7 @@ Phony.define do
   # From http://www.wtng.info/wtng-93-af.html
   #
   country '93', fixed(2) >> split(7),     # Note: the document says 6, but the examples use 7.
-                length_validator(9)
+                validate_lengths(9)
 
   country '94', fixed(2) >> split(3,2,2) # TODO Sri Lanka (Democratic Socialist Republic of)
   country '95', fixed(2) >> split(3,2,2) # TODO Myanmar (Union of)
@@ -256,11 +263,11 @@ Phony.define do
 
   country '210', todo # -
   country '211', todo # South Sudan
-  country '212', fixed(2) >> split(4,3), length_validator(9) # Morocco
-  country '213', fixed(2) >> split(3,4), length_validator(9) # Algeria
+  country '212', fixed(2) >> split(4,3), validate_lengths(9) # Morocco
+  country '213', fixed(2) >> split(3,4), validate_lengths(9) # Algeria
   country '214', todo # -
   country '215', todo # -
-  country '216', fixed(1) >> split(3,4), length_validator(8)   # Tunisia
+  country '216', fixed(1) >> split(3,4), validate_lengths(8)   # Tunisia
   country '217', todo # -
   country '218', todo # Lybia
   country '219', todo # -
@@ -284,7 +291,7 @@ Phony.define do
   #
   # From http://www.itu.int/oth/T0202000052/en
   #
-  country '233', fixed(2) >> split(3,4), length_validator(9)
+  country '233', fixed(2) >> split(3,4), validate_lengths(9)
 
   # Nigeria
   # Wikipedia says 3 4 split, many local number with no splitting
@@ -309,9 +316,9 @@ Phony.define do
   country '244', todo # Angola
   country '245', todo # Guinea-Bissau
   country '246', todo # Diego Garcia
-  country '247', none >> split(4), length_validator(4) # Ascension
+  country '247', none >> split(4), validate_lengths(4) # Ascension
   country '248', todo # Seychelles
-  country '249', fixed(2) >> split(3,4), length_validator(9) # Sudan
+  country '249', fixed(2) >> split(3,4), validate_lengths(9) # Sudan
 
   # Rwanda
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
@@ -341,7 +348,8 @@ Phony.define do
   #
   country '256',
           match(/^(46[45]|4[78]\d)/) >> split(6) | # Geo 1.
-          fixed(2)                   >> split(7)   # Geo 2.
+          fixed(2)                   >> split(7),   # Geo 2.
+          validate_lengths(9)
 
   country '257', todo # Burundi
   country '258', todo # Mozambique
@@ -388,8 +396,10 @@ Phony.define do
   # Gibraltar
   country '350',
           match(/^(2[012]\d)\d+$/) >> split(5) | # fixed
-          match(/^([56]\d)\d+$/)   >> split(6)  | # mobile
-          match(/^(8\d\d\d)$/)     >> split(0)
+          match(/^([56]\d)\d+$/) >> split(6)   | # mobile
+          match(/^(8\d\d\d)$/) >> split(0),
+          validate_lengths({ 2 => 8, 3 => 8, 4 => 0})
+
 
   # Portugal.
   #
@@ -397,20 +407,23 @@ Phony.define do
           one_of('700', '800') >> split(3,3) | # Service.
           match(/^(9\d)\d+$/)  >> split(3,4) | # Mobile.
           one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
-          fixed(3)             >> split(3,4)   # 3-digit NDCs
+          fixed(3)             >> split(3,4),  # 3-digit NDCs
+          validate_lengths({ 2 => 9, 3 => [9, 10] })
+
 
   # Luxembourg
   #
   country '352',
-          one_of('4')               >> split(2,2,2)   | # Luxembourg City
-          match(/^(2[467]\d{2})$/)  >> split(2,2,2)   | # 4-digit NDC
-          match(/^(6\d[18])\d+$/)   >> split(3,3)     | # mobile
-          match(/^(60\d{2})\d{8}$/) >> split(2,2,2,2) | # mobile machine to machine
-          match(/^([2-9]\d)/)       >> split(2,2,2)     # 2-digit NDC
+          one_of('4')                   >> split(2,2,2)   | # Luxembourg City
+          match(/^(2[467]\d{2})$/)      >> split(2,2,2)   | # 4-digit NDC
+          match(/^(6\d[18])\d+$/)       >> split(3,3)     | # mobile
+          match(/^(60\d{2})\d{8}$/)     >> split(2,2,2,2) | # mobile machine to machine
+          match(/^([2-9]\d)/)           >> split(2,2,2),    # 2-digit NDC
+          validate_lengths( {1 => 7, 2 => 8, 4 => 10 })
 
   # country '353' # Republic of Ireland, see special file.
 
-  country '354', none >> split(3,4), length_validator(7) # Iceland
+  country '354', none >> split(3,4), validate_lengths(7) # Iceland
   country '355', todo # Albania
 
   # Malta
@@ -418,13 +431,15 @@ Phony.define do
   country '356',
           match(/^([79]\d)\d+$/)  >> split(6) | # mobile
           match(/^(2\d\d\d)\d+$/) >> split(4) | # fixed line
-          fixed(4)                >> split(4)   # eg. with voice mail
+          fixed(4)                >> split(4),  # eg. with voice mail
+          validate_lengths(8)
 
 
   # Cyprus
   # http://www.cytaglobal.com/cytaglobal/userfiles/NewNumberingPlan.pdf
   country '357', one_of('121','122','123') >> split(2,6) | # voicemail
-                 fixed(2) >> split(6)                      # fixed & mobile
+                 fixed(2) >> split(6),                     # fixed & mobile
+                 validate_lengths({ 2 => 8, 3 => 11 })
 
   # Finland.
   #
@@ -432,13 +447,14 @@ Phony.define do
           match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Service
           match(/^(4\d|50)\d+$/)          >> split(3,2,2) | # Mobile
           one_of('2','3','5','6','8','9') >> split(3,3)   | # Short NDCs
-          fixed(2)                        >> split(3,3)     # 2-digit NDCs
+          fixed(2)                        >> split(3,3),    # 2-digit NDCs
+          validate_lengths({ 1 => 7, 2 => [8, 9], 3 => 9 })
 
   # Bulgaria.
   #
   country '359',
           fixed(2) >> split(3,2,2), # Bulgaria
-          length_validator(9)
+          validate_lengths(9)
 
   # Lithuania.
   #
@@ -447,14 +463,17 @@ Phony.define do
           match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
           one_of('5')           >> split(3,2,2) | # Vilnius
           one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
-          fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
+          fixed(3)              >> split(1,2,2),  # 3-digit NDCs.
+          validate_lengths(8)
 
   country '371', todo # Latvia
 
   # Estonia
   country '372',
-          match(/^((5\d|8[12])\d\d)\d+$/) >> split(4) | # Mobile
-          fixed(3)                        >> split(4)   # 3-digit NDCs
+          match(/^(5\d\d\d)\d+$/)          >> split(4) | # Mobile
+          match(/^((?:70|8[12])\d\d)\d+$/) >> split(4) | # Mobile
+          fixed(3)                         >> split(4),  # 3-digit NDCs
+          validate_lengths({ 2 => 6, 3 => 7, 4 => 8 })
 
   country '373', todo # Moldova
   country '374', todo # Armenia
@@ -477,24 +496,27 @@ Phony.define do
 
   # Croatia.
   #
-  country '385', one_of('1') >> split(3,5) | # Zagreb
-                 fixed(2)    >> split(3,5)   # 2-digit NDCs
+  country = country '385', one_of('1') >> split(3, 5) | # Zagreb
+                           fixed(2) >> split(3, 5),     # 2-digit NDCs
+                           validate_lengths({ 1 => 9, 2 => 10})
 
-  country '386', fixed(2) >> split(3,2,2), length_validator(9) # Slovenia
-  country '387', fixed(2) >> split(3,2,2), length_validator(9) # Bosnia and Herzegovina
-  country '388', fixed(2) >> split(3,2,2), length_validator(9) # Group of countries, shared code
-  country '389', fixed(2) >> split(3,2,2), length_validator(9) # The Former Yugoslav Republic of Macedonia
+  country '386', fixed(2) >> split(3, 2, 2), validate_lengths(9) # Slovenia
+  country '387', fixed(2) >> split(3,2,2), validate_lengths(9) # Bosnia and Herzegovina
+  country '388', fixed(2) >> split(3,2,2), validate_lengths(9) # Group of countries, shared code
+  country '389', fixed(2) >> split(3,2,2), validate_lengths(9) # The Former Yugoslav Republic of Macedonia
 
-  country '420', fixed(3) >> split(3,3), length_validator(9)   # Czech Republic
+  country '420', fixed(3) >> split(3,3), validate_lengths(9)   # Czech Republic
 
   # Slovak Republic.
   #
   country '421', match(/^(9\d\d).+$/) >> split(6) | # Mobile
                  one_of('2')          >> split(8) | # Bratislava
-                 fixed(2)             >> split(7)   # 2-digit NDCs
+                 fixed(2)             >> split(7),  # 2-digit NDCs
+                 validate_lengths(9)
+
 
   country '422', todo # Spare code
-  country '423', none >> split(3,2,2), length_validator(7) # Liechtenstein (Principality of)
+  country '423', none >> split(3,2,2), validate_lengths(7) # Liechtenstein (Principality of)
   country '424', todo # -
   country '425', todo # -
   country '426', todo # -
@@ -588,7 +610,7 @@ Phony.define do
   # Cambodia (Kingdom of)
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
   country '855',
-          fixed(2) >> split(3,4)
+          fixed(2) >> split(3,4), validate_lengths(9)
 
   country '856', todo # Lao People's Democratic Republic
   country '857', todo # Spare code
