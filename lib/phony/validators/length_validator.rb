@@ -1,10 +1,17 @@
 module Phony
   class LengthValidator
 
-    attr_reader :length
+    attr_accessor :lenghts
 
-    def initialize length
-      @length = length
+    # takes either a number (for fixed length phone numbers) or
+    # a hash where the key is the length of the ndc and the value the corresponding
+    # length
+    def initialize lengths
+      if lengths.is_a? Hash
+        @lengths = lengths
+      else
+        @lengths = Hash.new lengths
+      end
     end
 
     def plausible? ndc, rest
@@ -13,7 +20,9 @@ module Phony
                 else
                   rest.flatten
                 end
-      return false if numbers.join('').length != @length
+      ndc_length = ndc.length rescue 0  # if the ndc is false (example Denamrk), use 0
+      lengths = [*@lengths[ndc_length]]  # we can have one or more lengths, make them into an array
+      return false unless lengths.include? numbers.join('').length
       true
     end
 

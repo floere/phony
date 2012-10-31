@@ -191,7 +191,7 @@ module Phony
     #           none >> split(2,2,2,2),
     #           length_validator(8) # danish phone numbers are always 8 digits long
 
-    def length_validator length
+    def validate_lengths length
       LengthValidator.new length
     end
 
