@@ -138,6 +138,10 @@ describe 'country descriptions' do
       it_splits '3025941234', ['30', '2594', '1234']
       it_splits '3022631234', ['30', '2263', '1234']
     end
+    describe 'Hong Kong' do
+      it_splits '85212341234', ['852', false, '1234', '1234']     #
+    end
+
     describe 'Hungary' do
       it_splits'3612345678', ['36', '1', '234', '5678']
       it_splits'3622123456', ['36', '22', '123', '456']

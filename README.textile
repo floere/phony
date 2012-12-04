@@ -13,7 +13,7 @@ This gem can normalize, format and split E164 numbers.
 
 The (admittedly crazy) *goal* of this Gem is to be able to format/split all phone numbers in the world.
 
-Currently handles Abhas, Afghan, Algerian, Austrian, Australian, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, Estonian, French, German, Ghanan, Gibraltar, Greek, Hungarian, Italian, Irish, Kazakh, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, and Vietnamese numbers.
+Currently handles Abhas, Afghan, Algerian, Austrian, Australian, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, Estonian, French, German, Ghanan, Gibraltar, Greek, Hong Kong, Hungarian, Italian, Irish, Kazakh, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, and Vietnamese numbers.
 
 And to some extent, all others. Just try if it works for you.
 

@@ -37,7 +37,7 @@ Phony.define do
           # invalid_ndcs('911'), # /911/ would also work.
           [invalid_ndcs('911'), validate_lengths(10)]
 
-  # Kazakhstan (Republic of) & Russian Federation.
+  # Kazakhstan (Republic of) & Russsian Federation.
   # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
   #country '7', fixed(3) >> split(3,2,2)
   # see special file
@@ -584,7 +584,13 @@ Phony.define do
 
   country '850', todo # Democratic People's Republic of Korea
   country '851', todo # Spare code
-  country '852', todo # Hong Kong, China
+
+  # Hong Kong, China
+
+  country '852',
+          none >> split(4,4),
+          validate_lengths(8)
+
   country '853', todo # Macao, China
   country '854', todo # Spare code
 
