@@ -299,7 +299,13 @@ Phony.define do
   country '248', todo # Seychelles
   country '249', fixed(2) >> split(3,4) # Sudan
 
-  country '250', todo # Rwanda
+	# Rwanda
+	# http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
+  country '250',
+					one_of('25') 						>> split(7) | # Geographic, fixed
+					match(/^(7[238])/)			>> split(7)	| # Non-geographic, mobile
+					one_of('06') 						>> split(6)	  # Satellite					
+
   country '251', todo # Ethiopia
   country '252', todo # Somali Democratic Republic
   country '253', todo # Djibouti
