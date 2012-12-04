@@ -255,7 +255,7 @@ describe 'country descriptions' do
       it_splits '250721234567', ['250', '72', '1234567'] # mobile
       it_splits '250731234567', ['250', '73', '1234567'] # mobile
       it_splits '250251234567', ['250', '25', '1234567'] # fixed
-      it_splits '25006123456', ['250', '06', '123456'] # fixed
+      it_splits '25006123456',  ['250', '06', '123456']  # fixed
     end
     describe 'South Korea' do
       it { Phony.split('82212345678').should  == ['82', '2', '1234', '5678']  } # Seoul
