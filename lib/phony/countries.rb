@@ -254,7 +254,10 @@ Phony.define do
   country '93', fixed(2) >> split(7),     # Note: the document says 6, but the examples use 7.
                 validate_lengths(9)
 
-  country '94', fixed(2) >> split(3,2,2) # TODO Sri Lanka (Democratic Socialist Republic of)
+  country '94', # TODO Sri Lanka (Democratic Socialist Republic of)
+          fixed(2) >> split(3,2,2),
+          validate_lengths(9)
+
   country '95', fixed(2) >> split(3,2,2) # TODO Myanmar (Union of)
 
   country '98', #  Iran (Islamic Republic of)
@@ -318,7 +321,11 @@ Phony.define do
   country '245', todo # Guinea-Bissau
   country '246', todo # Diego Garcia
   country '247', none >> split(4), validate_lengths(4) # Ascension
-  country '248', todo # Seychelles
+
+  country '248',  # Seychelles
+      fixed(1) >> split(2,2,2),
+      validate_lengths(7)
+
   country '249', fixed(2) >> split(3,4), validate_lengths(9) # Sudan
 
   country '250', todo # Rwanda
