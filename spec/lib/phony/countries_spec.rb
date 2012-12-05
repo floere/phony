@@ -138,6 +138,11 @@ describe 'country descriptions' do
       it_splits '3025941234', ['30', '2594', '1234']
       it_splits '3022631234', ['30', '2263', '1234']
     end
+
+    describe 'Haiti' do
+      it_splits '50922121234', ['509', '22', '12', '1234']
+    end
+
     describe 'Hong Kong' do
       it_splits '85212341234', ['852', false, '1234', '1234']     #
     end
@@ -152,6 +157,12 @@ describe 'country descriptions' do
       it_splits '3544621234', ['354', false, '462', '1234'] # Akureyri
       it_splits '3545511234', ['354', false, '551', '1234'] # Reykjavík
     end
+
+    describe 'Iran' do
+      it_splits '982112341234', ['98', '21', '1234', '1234'] # Teheran
+      it_splits '989191231234', ['98', '919', '123', '1234'] # Example Cell Phone
+    end
+
     describe 'Ireland' do
       it_splits '35311234567',  ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
       it_splits '3532212345',   ['353', '22', '12345']       # Mallow, 5 digit subscriber #

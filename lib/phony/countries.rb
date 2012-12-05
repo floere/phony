@@ -256,7 +256,11 @@ Phony.define do
 
   country '94', fixed(2) >> split(3,2,2) # TODO Sri Lanka (Democratic Socialist Republic of)
   country '95', fixed(2) >> split(3,2,2) # TODO Myanmar (Union of)
-  country '98', fixed(2) >> split(3,2,2) # TODO Iran (Islamic Republic of)
+
+  country '98', #  Iran (Islamic Republic of)
+          one_of('21') >> split(4,4) | # Teheran
+          fixed(3) >> split(3,4),
+          validate_lengths(10)
 
   country '210', todo # -
   country '211', todo # South Sudan
@@ -514,7 +518,10 @@ Phony.define do
   country '506', todo # Costa Rica
   country '507', todo # Panama (Republic of)
   country '508', todo # Saint Pierre and Miquelon (Collectivité territoriale de la République française)
-  country '509', todo # Haiti (Republic of)
+
+  country '509', # Haiti (Republic of)
+    fixed(2) >> split(2,4),
+    validate_lengths(8)
 
   country '590', todo # Guadeloupe (French Department of)
   country '591', todo # Bolivia (Republic of)
