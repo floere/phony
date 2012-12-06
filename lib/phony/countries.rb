@@ -248,7 +248,8 @@ Phony.define do
           fixed(3) >> split(3,4),   # Wiki says 7, but the examples say 3, 4.
           validate_lengths(10)
 
-  country '91', todo # TODO India (Republic of)
+  # country '91' #  India (Republic of) see special file
+
   country '92', todo # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
 
   # Afghanistan.
@@ -354,7 +355,8 @@ Phony.define do
   country '255',
           match(/^([89]\d\d)/) >> split(3,3) | # Special/Premium.
           one_of('112', '118') >> split(3,3) | # Short Codes.
-          fixed(2)             >> split(3,4)   # Geographic.
+          fixed(2)             >> split(3,4),  # Geographic.
+          validate_lengths(9)
 
   # Uganda.
   #
