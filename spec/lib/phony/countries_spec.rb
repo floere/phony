@@ -164,6 +164,14 @@ describe 'country descriptions' do
       it_splits '62217815263', ['62', '21', '7815263']
     end
 
+
+    describe 'India' do
+      it_splits '919911182111', ['91', '99', '111', '82', '111'] # mobile
+      it_splits '912212345678', ['91', '22', '123', '45', '678'] # New Delhi
+      it_splits '911411234567', ['91', '141', '123', '45', '67'] # Jaipur
+      it_splits '913525123456', ['91', '3525', '123', '456' ]    # DALKHOLA
+    end
+
     describe 'Iran' do
       it_splits '982112341234', ['98', '21', '1234', '1234'] # Teheran
       it_splits '989191231234', ['98', '919', '123', '1234'] # Example Cell Phone
@@ -304,6 +312,11 @@ describe 'country descriptions' do
       it { Phony.split('421212345678').should == ['421', '2', '12345678'] } # Bratislava
       it { Phony.split('421371234567').should == ['421', '37', '1234567'] } # Nitra / Other
     end
+
+    describe 'Sri Lanka' do
+      it { Phony.split('94711231212').should == ['94', '71', '123', '12', '12'] } # Mobile
+    end
+
     describe 'Sweden' do
       it { Phony.split('46812345678').should == ['46', '8', '12345678'] } # Stockholm
       it { Phony.split('46111234567').should == ['46', '11', '1234567'] }
