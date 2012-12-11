@@ -97,6 +97,19 @@ describe 'validations' do
         Phony.plausible?('+20 40 1234567').should be_false
       end
 
+      it 'is correct for Dutch numbers' do
+        Phony.plausible?('+31 6 12 34 56 78').should be_true
+        Phony.plausible?('+31 6 12 34 56 7').should be_false
+        Phony.plausible?('+31 20 123 5678').should be_true
+        Phony.plausible?('+31 20 123 567').should be_false
+        Phony.plausible?('+31 221 123 567').should be_true
+        Phony.plausible?('+31 221 123 56').should be_false
+      end
+      it 'is correct for Nigerian numbers' do
+        Phony.plausible?('+234 807 766 1234').should be_true
+        Phony.plausible?('+234 807 766 123').should be_false
+      end
+
       
       it "is correct for US numbers" do
         # Sorry, still need E164 conform numbers.
