@@ -231,9 +231,9 @@ describe 'country descriptions' do
       it_splits '212537718685', ['212', '53', '7718', '685']
     end
     describe 'The Netherlands' do
-      it_splits '31612345678', ['31', '6', '12345678'] # mobile
-      it_splits '31201234567', ['31', '20', '1234567']
-      it_splits '31222123456', ['31', '222', '123456']
+      it_splits '31612345678', ['31', '6', '12', '34', '56', '78'] # mobile
+      it_splits '31201234567', ['31', '20', '123', '4567']
+      it_splits '31222123456', ['31', '222', '123', '456']
     end
     describe 'Norway' do
       it_splits '4721234567', ['47',false,'21','23','45','67']
