@@ -185,14 +185,14 @@ module Phony
     # Example:
     #   country '1',
     #     fixed(3, :zero => false) >> split(3,4),
-    #     [invalid_ndcs('911'), length_validator(10)] # any number not 10 digits is invalid (and a 911 ndc too).
+    #     [invalid_ndcs('911'), length(10)] # any number not 10 digits is invalid (and a 911 ndc too).
     #
     #   country '45',
     #           none >> split(2,2,2,2),
-    #           length_validator(8) # danish phone numbers are always 8 digits long
+    #           length(8) # danish phone numbers are always 8 digits long
 
-    def validate_lengths length
-      LengthValidator.new length
+    def length lengths
+      LengthValidator.new lengths
     end
 
   end

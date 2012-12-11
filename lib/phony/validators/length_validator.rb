@@ -15,14 +15,12 @@ module Phony
     end
 
     def plausible? ndc, rest
-      numbers = if ndc
-                  [ndc, rest].flatten
-                else
-                  rest.flatten
-                end
-      ndc_length = ndc.length rescue 0  # if the ndc is false (example Denamrk), use 0
-      lengths = [*@lengths[ndc_length]]  # we can have one or more lengths, make them into an array
-      return false unless lengths.include? numbers.join('').length
+      ndc ||= ''  # handle 'false' ndc's (like Denmark)
+      lengths = [*@lengths[ndc.length]]  # we can have one or more lengths, make them into an array
+
+      length = ndc.size + rest.inject(0) { |sum, part| part ? sum + part.size : sum }
+
+      return false unless lengths.include? length
       true
     end
 

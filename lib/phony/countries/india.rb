@@ -47,6 +47,6 @@ Phony.define do
                 one_of(pagers) >> split(2, 3, 3) |
 
                 fixed(4) >> split(3, 3), # fallback (4 digit sdca)
-                validate_lengths(10)
+                length(10)
 
 end
