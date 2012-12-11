@@ -1,5 +1,13 @@
 h2. Upcoming Version.
 
+h2. Version 1.8.4
+
+* hanke: Rwanda (thanks @rjhaveri)!
+
+h2. Version 1.8.3
+
+* hanke: Cambodia (thanks @dwilkie)!
+
 h2. Version 1.8.2
 
 * jcfischer: Gibraltar, Malta, Cyprus, Estonia, Monaco
