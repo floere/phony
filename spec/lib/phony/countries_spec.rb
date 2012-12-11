@@ -206,10 +206,13 @@ describe 'country descriptions' do
       it_splits '35227855',        ['352', '27', '85', '5']
     end
     describe 'Malaysia' do
-      it_splits '6082123456', ['60', '82', '123456']   # Kuching
-      it_splits '60312345678', ['60', '3', '12345678'] # Kuala Lumpur
-      it_splits '60212345678', ['60', '2', '12345678'] # Singapore
-    end
+      it_splits '6082123456',   ['60', '82', '123456']   # Kuching
+      it_splits '60312345678',  ['60', '3', '12345678'] # Kuala Lumpur
+      it_splits '60212345678',  ['60', '2', '12345678'] # Singapore
+      it_splits '601121001234', ['60', '11', '2100', '1234'] # Mobile
+      it_splits '60800121234',  ['60', '800', '12', '1234'] # Freephone
+      # it_splits '60112',       ['60', '112'] # Service
+     end
     describe 'Malta' do
       it_splits '35621231234', ['356', '2123', '1234'] # Fixed
       it_splits '35677123456', ['356', '77', '123456'] # Mobile
