@@ -305,7 +305,8 @@ Phony.define do
         match(/^(702\d)\d+$/)      >> split(3,4) | # Mobile
         match(/^(70[3-9])\d+$/)    >> split(3,4) | # Mobile
         match(/^(8[01]\d)\d+$/)    >> split(3,4) | # Mobile
-        fixed(2)                   >> split(3,4) # 2-digit NDC
+        fixed(2)                   >> split(3,4), # 2-digit NDC
+        length( 1 => 8, 2 => 9, 3 => 10)
 
 
   country '235', todo # Chad
