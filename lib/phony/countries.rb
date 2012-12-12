@@ -428,9 +428,8 @@ Phony.define do
 
   # Estonia
   country '372',
-          match(/^(5\d\d\d)\d+$/)          >> split(4) | # Mobile
-          match(/^((?:70|8[12])\d\d)\d+$/) >> split(4) | # Mobile
-          fixed(3)                         >> split(4)   # 3-digit NDCs
+          match(/^(5|8[12])/)          >> split(4) | # Mobile
+          fixed(3)                     >> split(4)   # 3-digit NDCs
 
   country '373', todo # Moldova
   country '374', todo # Armenia
