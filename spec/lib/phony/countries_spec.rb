@@ -95,7 +95,6 @@ describe 'country descriptions' do
       it_splits '37281231234', ['372', '8123', '1234']  # Mobile
       it_splits '37282231234', ['372', '8223', '1234']  # Mobile
       it_splits '37283212345', ['372', '832', '12345']  # Mobile
-      it_splits '37270121234', ['372', '7012', '1234']  # Premium
     end
     describe 'Finland' do
       it_splits '3589123123', ['358', '9', '123', '123'] # Helsinki
