@@ -272,7 +272,12 @@ Phony.define do
 
   country '210', todo # -
   country '211', todo # South Sudan
-  country '212', fixed(2) >> split(4,3), length(9) # Morocco
+
+  country '212', # Morocco
+          one_of('6') >> split(2,2,2,2) | # mobile
+          fixed(2) >> split(4,3),
+          length(9)
+
   country '213', fixed(2) >> split(3,4), length(9) # Algeria
   country '214', todo # -
   country '215', todo # -
