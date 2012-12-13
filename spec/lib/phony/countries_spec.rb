@@ -229,6 +229,7 @@ describe 'country descriptions' do
     end
     describe 'Morocco' do
       it_splits '212537718685', ['212', '53', '7718', '685']
+      it_splits '212612345678', ['212', '6', '12', '34', '56', '78']
     end
     describe 'The Netherlands' do
       it_splits '31612345678', ['31', '6', '12', '34', '56', '78'] # mobile
