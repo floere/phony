@@ -159,11 +159,7 @@ Phony.define do
 
   # Brazil (Federative Republic of).
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
-  #
-  brazilian_service = /^(1(00|28|9[0-4789]))\d+$/
-  country '55',
-          match(brazilian_service) >> split(3,3) | # Service.
-          fixed(2) >> split(4,4)                   # NDCs
+  # country '55' # Brazil, see special file.
 
   # Chile.
   #
@@ -304,7 +300,7 @@ Phony.define do
   country '250',
 					one_of('25') 						>> split(7) | # Geographic, fixed
 					match(/^(7[238])/)			>> split(7)	| # Non-geographic, mobile
-					one_of('06') 						>> split(6)	  # Satellite					
+					one_of('06') 						>> split(6)	  # Satellite
 
   country '251', todo # Ethiopia
   country '252', todo # Somali Democratic Republic
