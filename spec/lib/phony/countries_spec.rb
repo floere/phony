@@ -181,8 +181,12 @@ describe 'country descriptions' do
       it_splits '353000123456', ['353', '000', '123456']     # Default fixed 3 split for unrecognized
     end
     describe 'Italy' do
-      it_splits '3934869528',   ['39', '3486', '952', '8']   # Mobile
+      it_splits '3934869528',   ['39', '348', '695', '28']   # Mobile
+      it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
       it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma
+      it_splits '390288838883', ['39', '02', '8883', '8883'] # Milano
+      it_splits '390141595661', ['39', '0141', '595', '661'] # Asti
+      it_splits '3903123391',   ['39', '031', '233', '91']   # Como
       it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
     end
     describe 'Kenya' do
