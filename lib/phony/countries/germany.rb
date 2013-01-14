@@ -4070,6 +4070,6 @@ Phony.define do
                  match(/^(1[567]\d)\d*$/) >> split(3,10) | # Mobile
                  one_of(ndcs)             >> split(3,10) |
                  fixed(5)                 >> split(3,10),
-                 length( 2 => 5..10, 3 => 7..12, 4 => 7..11, 5 => 8..11 )
+                 length( 2 => 5..10, 3 => 10..12, 4 => 7..11, 5 => 8..11 )
 
 end
