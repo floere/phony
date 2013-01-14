@@ -26,6 +26,7 @@ describe 'country descriptions' do
       it_splits '5491112345678', ['54', '911', '1234', '5678']
       it_splits '5492201234567', ['54', '9220', '123', '4567']
       it_splits '5492221123456', ['54', '92221', '12', '3456']
+      it_splits '548001234567', ['54', '800', '123', '4567']
     end
     describe 'Austria' do
       it_splits '43198110', ['43', '1', '98110']               # Vienna
@@ -312,6 +313,11 @@ describe 'country descriptions' do
       it { Phony.split('21611231234').should == ['216', '1', '123', '1234'] } # Ariana
       it { Phony.split('21621231234').should == ['216', '2', '123', '1234'] } # Bizerte
     end
+    describe 'Salvador (El)' do
+      it { Phony.split('50321121234').should == ['503', '2112', '1234'] } # Fixed number
+      it { Phony.split('50361121234').should == ['503', '6112', '1234'] } # Mobile number
+    end
+
     describe 'Singapore' do
       it { Phony.split('6561231234').should == ['65', false, '6123', '1234'] } # Fixed line
     end

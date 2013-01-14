@@ -164,8 +164,10 @@ Phony.define do
           match(/^(22[0137]|237|26[14]|29[179]|34[1235]|35[138]|38[1578])/) >> split(3,4) |        # Fixed
           match(/^(922[0137]|9237|926[14]|929[179]|934[1235]|935[138]|938[1578])/) >> split(3,4) | # Mobile
           match(/^(9\d{4})/) >> split(2,4) | # Mobile
-          fixed(4) >> split(2,4) # Fixed
-
+          match(/^([68]\d{2})/) >> split(3,4) | # Service
+          fixed(4) >> split(2,4), # Fixed
+          length(10..11)
+  
   # Brazil (Federative Republic of).
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
   # country '55' # Brazil, see special file.
@@ -547,7 +549,9 @@ Phony.define do
   country '500', todo # Falkland Islands (Malvinas)
   country '501', todo # Belize
   country '502', todo # Guatemala (Republic of)
-  country '503', todo # El Salvador (Republic of)
+   # El Salvador (Republic of)
+  country '503', fixed(4) >> split(4,4), length(7..8)
+
   country '504', todo # Honduras (Republic of)
   country '505', todo # Nicaragua
   country '506', todo # Costa Rica
