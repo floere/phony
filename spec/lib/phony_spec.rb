@@ -57,6 +57,20 @@ describe Phony do
       it "should not normalize a number with a correct zero inside" do
         Phony.normalize('+390909709511').should == '390909709511'
       end
+
+      context 'special trunk prefixes' do
+        it 'normalizes Hungary' do
+          Phony.normalize('36 0630245506').should == '3630245506'
+        end
+        it 'normalizes Russia' do
+          Phony.normalize('7 8 342 1234567').should == '73421234567'
+        end
+        it 'normalizes Lithuania' do
+          Phony.normalize('370 8 5 1234567').should == '37051234567'
+        end
+        it 'normalizes Balarus'
+      end
+
     end
   end
 

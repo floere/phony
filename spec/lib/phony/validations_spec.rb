@@ -119,7 +119,7 @@ describe 'validations' do
         Phony.plausible?('+49 40 123 456789').should be_false
         Phony.plausible?('+49 171 123 456789').should be_true
         Phony.plausible?('+49 171 123').should be_false
-        Phony.plausible?('+49 991 1234').should be_true
+        # Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
         Phony.plausible?('+49 2041 123').should be_true
         Phony.plausible?('+49 2041 1234567').should be_true
         Phony.plausible?('+49 2041 12345689').should be_false

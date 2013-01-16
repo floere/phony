@@ -79,15 +79,9 @@ Phony.define do
           fixed(2) >> split(3,4),
           length(9)
 
-  # Hungary.
-  #
-  # TODO Mobile.
-  #
-  country '36',
-          one_of('104','105','107','112') >> split(3,3) | # Service
-          one_of('1')                     >> split(3,4) | # Budapest
-          fixed(2)                        >> split(3,4),   # 2-digit NDCs
-          length( 3 => 9, 1 => 8, 2 => 9 )
+  # country '36' # Hungary, see special file..
+
+
 
   # country '39' # Italy, see special file.
 
@@ -167,7 +161,7 @@ Phony.define do
           match(/^([68]\d{2})/) >> split(3,4) | # Service
           fixed(4) >> split(2,4), # Fixed
           length(10..11)
-  
+
   # Brazil (Federative Republic of).
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil
   #
@@ -464,15 +458,7 @@ Phony.define do
           fixed(2) >> split(3,2,2), # Bulgaria
           length(9)
 
-  # Lithuania.
-  #
-  country '370',
-          one_of('700', '800')  >> split(2,3)   | # Service
-          match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
-          one_of('5')           >> split(3,2,2) | # Vilnius
-          one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
-          fixed(3)              >> split(1,2,2),  # 3-digit NDCs.
-          length(8)
+  # 370 Lithuania.  see special file.
 
   country '371', todo # Latvia
 
