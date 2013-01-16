@@ -26,6 +26,7 @@ describe 'country descriptions' do
       it_splits '5491112345678', ['54', '911', '1234', '5678']
       it_splits '5492201234567', ['54', '9220', '123', '4567']
       it_splits '5492221123456', ['54', '92221', '12', '3456']
+      it_splits '548001234567', ['54', '800', '123', '4567']
     end
     describe 'Austria' do
       it_splits '43198110', ['43', '1', '98110']               # Vienna
@@ -138,6 +139,15 @@ describe 'country descriptions' do
       it_splits '3025941234', ['30', '2594', '1234']
       it_splits '3022631234', ['30', '2263', '1234']
     end
+
+    describe 'Haiti' do
+      it_splits '50922121234', ['509', '22', '12', '1234']
+    end
+
+    describe 'Hong Kong' do
+      it_splits '85212341234', ['852', false, '1234', '1234']     #
+    end
+
     describe 'Hungary' do
       it_splits'3612345678', ['36', '1', '234', '5678']
       it_splits'3622123456', ['36', '22', '123', '456']
@@ -148,6 +158,20 @@ describe 'country descriptions' do
       it_splits '3544621234', ['354', false, '462', '1234'] # Akureyri
       it_splits '3545511234', ['354', false, '551', '1234'] # Reykjavík
     end
+
+
+    describe 'India' do
+      it_splits '919911182111', ['91', '99', '111', '82', '111'] # mobile
+      it_splits '912212345678', ['91', '22', '123', '45', '678'] # New Delhi
+      it_splits '911411234567', ['91', '141', '123', '45', '67'] # Jaipur
+      it_splits '913525123456', ['91', '3525', '123', '456' ]    # DALKHOLA
+    end
+
+    describe 'Iran' do
+      it_splits '982112341234', ['98', '21', '1234', '1234'] # Teheran
+      it_splits '989191231234', ['98', '919', '123', '1234'] # Example Cell Phone
+    end
+
     describe 'Ireland' do
       it_splits '35311234567',  ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
       it_splits '3532212345',   ['353', '22', '12345']       # Mallow, 5 digit subscriber #
@@ -158,8 +182,12 @@ describe 'country descriptions' do
       it_splits '353000123456', ['353', '000', '123456']     # Default fixed 3 split for unrecognized
     end
     describe 'Italy' do
-      it_splits '3934869528',   ['39', '3486', '952', '8']   # Mobile
+      it_splits '3934869528',   ['39', '348', '695', '28']   # Mobile
+      it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
       it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma
+      it_splits '390288838883', ['39', '02', '8883', '8883'] # Milano
+      it_splits '390141595661', ['39', '0141', '595', '661'] # Asti
+      it_splits '3903123391',   ['39', '031', '233', '91']   # Como
       it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
     end
     describe 'Kenya' do
@@ -183,10 +211,13 @@ describe 'country descriptions' do
       it_splits '35227855',        ['352', '27', '85', '5']
     end
     describe 'Malaysia' do
-      it_splits '6082123456', ['60', '82', '123456']   # Kuching
-      it_splits '60312345678', ['60', '3', '12345678'] # Kuala Lumpur
-      it_splits '60212345678', ['60', '2', '12345678'] # Singapore
-    end
+      it_splits '6082123456',   ['60', '82', '123456']   # Kuching
+      it_splits '60312345678',  ['60', '3', '12345678'] # Kuala Lumpur
+      it_splits '60212345678',  ['60', '2', '12345678'] # Singapore
+      it_splits '601121001234', ['60', '11', '2100', '1234'] # Mobile
+      it_splits '60800121234',  ['60', '800', '12', '1234'] # Freephone
+      # it_splits '60112',       ['60', '112'] # Service
+     end
     describe 'Malta' do
       it_splits '35621231234', ['356', '2123', '1234'] # Fixed
       it_splits '35677123456', ['356', '77', '123456'] # Mobile
@@ -203,11 +234,12 @@ describe 'country descriptions' do
     end
     describe 'Morocco' do
       it_splits '212537718685', ['212', '53', '7718', '685']
+      it_splits '212612345678', ['212', '6', '12', '34', '56', '78']
     end
     describe 'The Netherlands' do
-      it_splits '31612345678', ['31', '6', '12345678'] # mobile
-      it_splits '31201234567', ['31', '20', '1234567']
-      it_splits '31222123456', ['31', '222', '123456']
+      it_splits '31612345678', ['31', '6', '12', '34', '56', '78'] # mobile
+      it_splits '31201234567', ['31', '20', '123', '4567']
+      it_splits '31222123456', ['31', '222', '123', '456']
     end
     describe 'Norway' do
       it_splits '4721234567', ['47',false,'21','23','45','67']
@@ -274,6 +306,11 @@ describe 'country descriptions' do
       it { Phony.split('21611231234').should == ['216', '1', '123', '1234'] } # Ariana
       it { Phony.split('21621231234').should == ['216', '2', '123', '1234'] } # Bizerte
     end
+    describe 'Salvador (El)' do
+      it { Phony.split('50321121234').should == ['503', '2112', '1234'] } # Fixed number
+      it { Phony.split('50361121234').should == ['503', '6112', '1234'] } # Mobile number
+    end
+
     describe 'Singapore' do
       it { Phony.split('6561231234').should == ['65', false, '6123', '1234'] } # Fixed line
     end
@@ -282,6 +319,11 @@ describe 'country descriptions' do
       it { Phony.split('421212345678').should == ['421', '2', '12345678'] } # Bratislava
       it { Phony.split('421371234567').should == ['421', '37', '1234567'] } # Nitra / Other
     end
+
+    describe 'Sri Lanka' do
+      it { Phony.split('94711231212').should == ['94', '71', '123', '12', '12'] } # Mobile
+    end
+
     describe 'Sweden' do
       it { Phony.split('46812345678').should == ['46', '8', '12345678'] } # Stockholm
       it { Phony.split('46111234567').should == ['46', '11', '1234567'] }
