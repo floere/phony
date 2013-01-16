@@ -125,4 +125,42 @@ Phony.define do
                # one_of(%w(840 940))                   >> split(2,2,2) # Abhasia
                
                fixed(3)                              >> split(2,2,2)
+
+end
+
+handlers = []
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, ndcs_with_5_subscriber_digits),
+  Phony::LocalSplitters::Fixed.instance_for([1, 2, 2]),
+  true, '8'
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, ndcs_with_6_subscriber_digits),
+  Phony::LocalSplitters::Fixed.instance_for([2, 2, 2]),
+  true, '8'
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, ndcs_with_7_subscriber_digits),
+  Phony::LocalSplitters::Fixed.instance_for([3, 2, 2]),
+  true, '8'
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, %w(800)),
+  Phony::LocalSplitters::Fixed.instance_for([3, 2, 2]),
+  true, '8'
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Variable.new(nil, %w(929 995344 9971 99744 9976 997)),
+  Phony::LocalSplitters::Fixed.instance_for([2, 2, 2]),
+  true, '8'
+)
+handlers << Phony::NationalCode.new(
+  Phony::NationalSplitters::Fixed.new(3),
+  Phony::LocalSplitters::Fixed.instance_for([2, 2, 2]),
+  true, '8'
+)
+
+Phony.define do
+  country '7', Phony::Country.new(*handlers)
+
 end

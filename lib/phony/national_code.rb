@@ -6,10 +6,11 @@ module Phony
 
     #
     #
-    def initialize national_splitter, local_splitter, normalize = nil
+    def initialize national_splitter, local_splitter, normalize = nil, trunk_code = '0'
       @national_splitter = national_splitter
       @local_splitter    = local_splitter
       @normalize         = normalize != false
+      @trunk_code        = trunk_code
     end
 
     # Split gets a number without country code and splits it into
@@ -27,7 +28,7 @@ module Phony
     #
     def normalize national_number
       return national_number unless @normalize
-      national_number.gsub(/^0+/, '')
+      national_number.gsub(/^#{@trunk_code}+/, '')
     end
 
   end
