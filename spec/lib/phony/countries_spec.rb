@@ -49,6 +49,7 @@ describe 'country descriptions' do
     end
     describe 'Brazil' do
       it_splits '551112341234', ['55', '11', '1234', '1234']
+      it_splits '5511981231234', ['55', '11', '9812', '31234'] # São Paulo's 9 digits mobile
     end
     describe 'Cambodia' do
       it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
