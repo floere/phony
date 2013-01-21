@@ -21,6 +21,7 @@ require File.expand_path '../phony/dsl', __FILE__
 # The ones that need more space to define.
 #
 require File.expand_path '../phony/countries/austria', __FILE__
+require File.expand_path '../phony/countries/brazil', __FILE__
 require File.expand_path '../phony/countries/china', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
 require File.expand_path '../phony/countries/ireland', __FILE__
@@ -41,7 +42,7 @@ module Phony
   # Phony uses a single country codes instance.
   #
   @codes      = CountryCodes.instance
-  @validators = Validators.instance 
+  @validators = Validators.instance
 
   class << self
 
@@ -80,7 +81,7 @@ module Phony
     end
     alias formatted  format
     alias formatted! format!
-    
+
     # Makes a plausibility check.
     #
     # If it returns false, it is not plausible.
