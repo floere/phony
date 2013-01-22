@@ -494,7 +494,7 @@ Phony.define do
                            fixed(2) >> split(3, 5),     # 2-digit NDCs
                            length( 1 => 9, 2 => 10)
 
-  country '386', fixed(2) >> split(3, 2, 2), length(9) # Slovenia
+  country '386', fixed(2) >> split(3, 2, 2), length(8..9) # Slovenia
   country '387', fixed(2) >> split(3,2,2), length(9) # Bosnia and Herzegovina
   country '388', fixed(2) >> split(3,2,2), length(9) # Group of countries, shared code
   country '389', fixed(2) >> split(3,2,2), length(9) # The Former Yugoslav Republic of Macedonia
