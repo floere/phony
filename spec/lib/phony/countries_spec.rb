@@ -165,6 +165,7 @@ describe 'country descriptions' do
     describe 'Kenya' do
       it_splits '254201234567', ['254', '20', '1234567'] # Nairobi
       it_splits '254111234567', ['254', '11', '1234567'] # Mombasa
+      it_splits '254723100220', ['254', '723', '100220'] # Mombasa
     end
     describe 'Lithuania' do
       it_splits '37070012123', ['370', '700', '12', '123']     # Service
@@ -342,6 +343,10 @@ describe 'country descriptions' do
       it { Phony.split('8498123456').should == ['84', '98', '123456'] } # Viettel Mobile
       it { Phony.split('8499612345').should == ['84', '996', '12345'] } # GTel
       it { Phony.split('8441234567').should == ['84', '4', '1234567'] } # Hanoi
+    end
+    describe 'Zambia' do
+      it_splits '260977640895', ['260', '97', '7640895'] # mobile
+      it_splits '260211229049', ['260', '211', '229049'] # fixed
     end
     describe 'New Zealand' do
       it { Phony.split('6491234567').should == ['64', '9', '123', '4567'] }
