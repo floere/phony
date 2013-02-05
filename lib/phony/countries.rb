@@ -295,22 +295,22 @@ Phony.define do
   country '248', todo # Seychelles
   country '249', fixed(2) >> split(3,4) # Sudan
 
-	# Rwanda
-	# http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
+  # Rwanda
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
   country '250',
-					one_of('25') 						>> split(7) | # Geographic, fixed
-					match(/^(7[238])/)			>> split(7)	| # Non-geographic, mobile
-					one_of('06') 						>> split(6)	  # Satellite
+          one_of('25')             >> split(7) | # Geographic, fixed
+          match(/^(7[238])/)      >> split(7)  | # Non-geographic, mobile
+          one_of('06')             >> split(6)    # Satellite
 
   country '251', todo # Ethiopia
   country '252', todo # Somali Democratic Republic
   country '253', todo # Djibouti
 
-	# Kenya
-	# http://en.wikipedia.org/wiki/Telephone_numbers_in_Kenya
-	country '254', 
-					match(/^(7\d\d)/)	>> split(6) | # mobile
-					fixed(2) 								>> split(7)   # landline
+  # Kenya
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Kenya
+  country '254', 
+          match(/^(7\d\d)/)  >> split(6) | # mobile
+          fixed(2)           >> split(7)   # landline
 
   # Tanzania.
   #
@@ -332,8 +332,8 @@ Phony.define do
   # Zambia
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Zambia
   country '260',
-					match(/^(9[567])/)  >> split(7) | # Mobile
-					match(/^(21[1-8])/) >> split(6)   # Geographic
+          match(/^(9[567])/)  >> split(7) | # Mobile
+          match(/^(21[1-8])/) >> split(6)   # Geographic
 
   country '261', todo # Madagascar
   country '262', todo # Reunion / Mayotte (new)
@@ -370,8 +370,8 @@ Phony.define do
   # Gibraltar
   country '350',
           match(/^(2[012]\d)\d+$/) >> split(5) | # fixed
-          match(/^([56]\d)\d+$/) >> split(6)  | # mobile
-          match(/^(8\d\d\d)$/) >> split(0)
+          match(/^([56]\d)\d+$/)   >> split(6)  | # mobile
+          match(/^(8\d\d\d)$/)     >> split(0)
 
   # Portugal.
   #
@@ -384,11 +384,11 @@ Phony.define do
   # Luxembourg
   #
   country '352',
-          one_of('4')                   >> split(2,2,2)   | # Luxembourg City
-          match(/^(2[467]\d{2})$/)      >> split(2,2,2)   | # 4-digit NDC
-          match(/^(6\d[18])\d+$/)       >> split(3,3)     | # mobile
-          match(/^(60\d{2})\d{8}$/)     >> split(2,2,2,2) | # mobile machine to machine
-          match(/^([2-9]\d)/)           >> split(2,2,2)     # 2-digit NDC
+          one_of('4')               >> split(2,2,2)   | # Luxembourg City
+          match(/^(2[467]\d{2})$/)  >> split(2,2,2)   | # 4-digit NDC
+          match(/^(6\d[18])\d+$/)   >> split(3,3)     | # mobile
+          match(/^(60\d{2})\d{8}$/) >> split(2,2,2,2) | # mobile machine to machine
+          match(/^([2-9]\d)/)       >> split(2,2,2)     # 2-digit NDC
 
   # country '353' # Republic of Ireland, see special file.
 
