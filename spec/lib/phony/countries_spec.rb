@@ -334,6 +334,7 @@ describe 'country descriptions' do
     describe 'Sweden' do
       it { Phony.split('46812345678').should == ['46', '8', '12345678'] } # Stockholm
       it { Phony.split('46111234567').should == ['46', '11', '1234567'] }
+      it { Phony.split('46721234567').should == ['46', '72', '1234567'] } # mobile
       it { Phony.split('46125123456').should == ['46', '125', '123456'] }
     end
     describe 'Switzerland' do
