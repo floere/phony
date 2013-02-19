@@ -148,6 +148,11 @@ describe 'country descriptions' do
       it_splits '3544621234', ['354', false, '462', '1234'] # Akureyri
       it_splits '3545511234', ['354', false, '551', '1234'] # Reykjavík
     end
+    describe 'Indonesia' do
+      it_splits '6242323032', ['62', '423', '23032']
+      it_splits '6285220119289', ['62', '852', '20119289']
+      it_splits '62217815263', ['62', '21', '7815263']
+    end
     describe 'Ireland' do
       it_splits '35311234567',  ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
       it_splits '3532212345',   ['353', '22', '12345']       # Mallow, 5 digit subscriber #

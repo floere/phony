@@ -185,7 +185,15 @@ Phony.define do
           match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
           fixed(1)              >> split(4,4)   # Rest
 
-  country '62', todo # TODO Indonesia (Republic of)
+	# Indonesia (Republic of)
+  country '62',    
+          one_of('21','22','24','31') >> split(7) |
+          one_of('21','22','24','31') >> split(8) |
+          fixed(3) >> split(5)                    |
+          fixed(3) >> split(6)                    |
+          fixed(3) >> split(7)                    |
+          fixed(3) >> split(8)
+
   country '63', todo # TODO Philippines (Republic of the)
 
   # New Zealand.
