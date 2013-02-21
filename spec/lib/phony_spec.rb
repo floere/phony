@@ -24,6 +24,9 @@ describe Phony do
 
   describe "normalize" do
     describe "some examples" do
+      it "should normalize a too short number" do
+        Phony.normalize('+972').should == '972'
+      end
       it "should normalize an already normalized number" do
         Phony.normalize('41443643533').should == '41443643533'
       end

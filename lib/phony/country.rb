@@ -43,6 +43,7 @@ module Phony
         normalized = code.normalize national_number
         return normalized if normalized && !normalized.empty?
       end
+      return nil
     end
     
     # Is this national number a vanity number?
