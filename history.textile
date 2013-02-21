@@ -1,3 +1,7 @@
+h2. Version 1.9.0
+
+* hanke: Fixes an issue with eg. Phony#normalize("+972") returning not just "972", but Phony internals (thanks @taf2)!
+
 h2. Version 1.8.7
 
 * hanke: Indonesia (thanks @rjhaveri)!
