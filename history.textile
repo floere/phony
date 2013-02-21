@@ -1,3 +1,7 @@
+h2. Version 1.8.7
+
+* hanke: Indonesia (thanks @rjhaveri)!
+
 h2. Version 1.8.6
 
 * hanke: Zambia and mobile numbers for Kenya (thanks @rjhaveri)!
