@@ -680,9 +680,22 @@ Phony.define do
   country '968', todo # Oman (Sultanate of)
   country '969', todo # Reserved - reservation currently under investigation
 
-  country '970', todo # Reserved
+  country '970', # 970 is used in those countries that block access to 972 (Israel)
+          one_of('1')                            >> split(3,3,3) | # special numbers
+          one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
+          match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4),    # 2 digit ndc
+          length( 1 => 8, 2 => 9 )  # doesn't validate service numbers
+
   country '971', todo # United Arab Emirates
-  country '972', todo # Israel (State of)
+
+  # Israel (State of) (also works for numbers in Palestinian territories)
+  country '972',
+          one_of('1')                            >> split(3,3,3) | # special numbers
+          one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
+          match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4),    # 2 digit ndc
+          length( 1 => 8, 2 => 9 ) # doesn't validate service numbers
+
+
   country '973', todo # Bahrain (Kingdom of)
   country '974', todo # Qatar (State of)
   country '975', todo # Bhutan (Kingdom of)
