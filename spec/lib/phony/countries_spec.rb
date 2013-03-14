@@ -181,6 +181,26 @@ describe 'country descriptions' do
       it_splits '353800123456', ['353', '800', '123456']     # Freefone
       it_splits '353000123456', ['353', '000', '123456']     # Default fixed 3 split for unrecognized
     end
+
+    describe 'Israel (972)' do
+      it_splits '972100',       ['972', '1', '00']  # Police
+      it_splits '97221231234',  ['972', '2', '123', '1234']  # Jerusalem Area
+      it_splits '97282411234',  ['972', '8', '241', '1234']  # Gaza Strip (Palestine)
+      it_splits '97291231234',  ['972', '9', '123', '1234']  # Sharon Area
+      it_splits '972501231234', ['972', '50', '123', '1234']  # Mobile (Pelephone)
+      it_splits '972591231234', ['972', '59', '123', '1234']  # Mobile Jawwal (Palestine)
+      it_splits '972771231234', ['972', '77', '123', '1234']  # Cable Phone Services
+      it_splits '9721700123123', ['972', '1', '700', '123', '123']  # Cable Phone Services
+    end
+    describe 'Israel (970)' do
+      it_splits '97021231234',  ['970', '2', '123', '1234']  # Jerusalem Area
+      it_splits '97082411234',  ['970', '8', '241', '1234']  # Gaza Strip (Palestine)
+      it_splits '97091231234',  ['970', '9', '123', '1234']  # Sharon Area
+      it_splits '970501231234', ['970', '50', '123', '1234']  # Mobile (Pelephone)
+      it_splits '970591231234', ['970', '59', '123', '1234']  # Mobile Jawwal (Palestine)
+      it_splits '970771231234', ['970', '77', '123', '1234']  # Cable Phone Services
+      it_splits '9701700123123', ['970', '1', '700', '123', '123']  # Cable Phone Services
+    end
     describe 'Italy' do
       it_splits '3934869528',   ['39', '348', '695', '28']   # Mobile
       it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
