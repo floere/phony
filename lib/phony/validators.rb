@@ -25,15 +25,15 @@ module Phony
       @country_validators = {}
     end
 
-
     def self.instance
       @instance ||= new
     end
     
-    # Add a specific country validator (or an array of validators)
+    # Add a specific country validator.
     #
     def add cc, validator
-      @country_validators[cc] = validator
+      @country_validators[cc] ||= []
+      @country_validators[cc] << validator
     end
     
     # Is the given number plausible?
@@ -72,7 +72,7 @@ module Phony
       
       # Country specific checks.
       #
-      validators = [*validator_for(cc)]
+      validators = validators_for cc
       validators.map do |validator|
         return false unless validator.plausible? ndc, rest
       end
@@ -82,12 +82,12 @@ module Phony
       return false
     end
     
-    def validator_for cc
-      @country_validators[cc] || default_validator
+    def validators_for cc
+      @country_validators[cc] || default_validators
     end
     
-    def default_validator
-      @default_validator ||= Validator.new
+    def default_validators
+      @default_validators ||= [Validator.new]
     end
     
   end
