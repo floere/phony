@@ -71,7 +71,7 @@ describe Phony do
         it 'normalizes Lithuania' do
           Phony.normalize('370 8 5 1234567').should == '37051234567'
         end
-        it 'normalizes Balarus'
+        it 'normalizes Belarus'
       end
 
     end
