@@ -72,8 +72,7 @@ module Phony
       
       # Country specific checks.
       #
-      validators = validators_for cc
-      validators.each do |validator|
+      validators_for(cc).each do |validator|
         return false unless validator.plausible? ndc, rest
       end
 
