@@ -1,8 +1,6 @@
 module Phony
   class LengthValidator
 
-    attr_accessor :lenghts
-
     # takes either a number (for fixed length phone numbers) or
     # a hash where the key is the length of the ndc and the value the corresponding
     # length
