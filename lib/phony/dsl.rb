@@ -177,7 +177,7 @@ module Phony
     #     invalid_ndcs('911') # The regexp /911/ would also work.
     #
     def invalid_ndcs ndc
-      Validator.new.ndc_check ndc
+      Validators::NDC.new.invalid ndc
     end
 
     # checks to see, if number is exactly length
@@ -194,7 +194,7 @@ module Phony
     #           length(8) # danish phone numbers are always 8 digits long
 
     def length lengths
-      LengthValidator.new lengths
+      Validators::Length.new lengths
     end
 
   end
