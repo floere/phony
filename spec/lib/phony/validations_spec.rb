@@ -144,8 +144,6 @@ describe 'validations' do
         Phony.plausible?('1-911-123-1234').should be_false
         Phony.plausible?('143466677777').should be_false # too long
         Phony.plausible?('143466677').should be_false # too short
-
-
         
         # With string constraints.
         #
