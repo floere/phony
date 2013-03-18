@@ -69,16 +69,22 @@ describe 'validations' do
       Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true
     end
     
+    context 'Length validation' do
+      it 'works for Swiss cases' do
+        Phony.plausible?('+41 44 111 22 3').should be_false   # Not long enough is not ok.
+        Phony.plausible?('+41 44 111 22 33').should be_true   #
+        Phony.plausible?('+41 44 111 22 33 4').should be_true # Too long is ok – we don't know about extensions.
+      end
+    end
+    
     context 'specific countries' do
-
-
+      
       # TODO: more needs to be done here
       #
       it "is correct for Swiss numbers" do
         Phony.plausible?('+41 44 111 22 33').should be_true
         Phony.plausible?('+41 44 111 22 334').should be_false
         Phony.plausible?('+41 44 111 22').should be_false
-
       end
 
       it "is correct for Danish numbers" do
@@ -86,7 +92,6 @@ describe 'validations' do
         Phony.plausible?('+45 44 11 12 2').should be_false
         Phony.plausible?('+45 44 55 22 33').should be_true
       end
-
 
       it 'is correct for egyptian numbers' do
         Phony.plausible?('+20 800 1234567').should be_true
@@ -163,7 +168,6 @@ describe 'validations' do
         Phony.plausible?('+351 90 1234567').should be_true
         Phony.plausible?('+351 90 123456').should be_false
         Phony.plausible?('+351 123 1234567').should be_true
-
       end
     end
     
