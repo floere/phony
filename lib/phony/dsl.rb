@@ -49,11 +49,11 @@ module Phony
     # Example:
     #   country '27', # CC, followed by rules, for example fixed(2) >> ...
     #
-    def country country_code, country, validators = nil
+    def country country_code, country, validators = []
       Phony::CountryCodes.instance.add country_code, country
       [*validators].each do |validator|
         Phony::Validators.instance.add country_code, validator
-      end if validators
+      end
     end
 
     # National matcher & splitters.
