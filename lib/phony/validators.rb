@@ -73,10 +73,9 @@ module Phony
       # Country specific checks.
       #
       validators = [*validator_for(cc)]
-      valid = validators.map do |validator|
-                validator.plausible? ndc, rest
+      validators.map do |validator|
+        return false unless validator.plausible? ndc, rest
       end
-      return false if valid.include? false
 
       true
     rescue StandardError
