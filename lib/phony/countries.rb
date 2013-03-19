@@ -97,7 +97,7 @@ Phony.define do
   #
   country '41',
           match(/^(8(00|4[0248]))\d+$/) >> split(3,3) |
-          fixed(2)                          >> split(3,2,2),
+          fixed(2)                      >> split(3,2,2),
           length(9)
 
 
@@ -306,11 +306,11 @@ Phony.define do
   # Nigeria
   # Wikipedia says 3 4 split, many local number with no splitting
   country '234',
-        one_of('1', '2', '9')      >> split(3,4) | # Lagos, Ibadan and Abuja
-        match(/^(702\d)\d+$/)      >> split(3,4) | # Mobile
-        match(/^(70[3-9])\d+$/)    >> split(3,4) | # Mobile
-        match(/^(8[01]\d)\d+$/)    >> split(3,4) | # Mobile
-        fixed(2)                   >> split(3,4), # 2-digit NDC
+        one_of('1', '2', '9')   >> split(3,4) | # Lagos, Ibadan and Abuja
+        match(/^(702\d)\d+$/)   >> split(3,4) | # Mobile
+        match(/^(70[3-9])\d+$/) >> split(3,4) | # Mobile
+        match(/^(8[01]\d)\d+$/) >> split(3,4) | # Mobile
+        fixed(2)                >> split(3,4), # 2-digit NDC
         length( 1 => 8, 2 => 9, 3 => 10)
 
 
