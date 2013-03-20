@@ -30,6 +30,12 @@ module Phony
         [@zero, national_number.slice!(0...@size), national_number]
       end
       
+      # A valid length.
+      #
+      def length
+        @size
+      end
+      
     end
     
   end

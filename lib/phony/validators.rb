@@ -47,7 +47,8 @@ module Phony
       
       # Hint based checking.
       #
-      cc, ndc, *rest = Phony.split normalized
+      country, cc, rest = CountryCodes.instance.split_cc normalized
+      local, _, ndc, _ = country.split_ndc rest
       
       # Element based checking.
       #
@@ -56,9 +57,11 @@ module Phony
       return false if ndc.nil?
       return false if ndc && ndc.empty?
       
+      rest_size = ndc ? rest.size - ndc.size : rest.size
+      
       # A valid range for the rest is 0 or 3+ total digits.
       #
-      return false if (1..2) === rest.reduce(0) { |total, string| total + string.size }
+      return false if (1..2) === rest_size
       
       # CC.
       #
@@ -72,12 +75,14 @@ module Phony
       
       # Country specific checks.
       #
-      validators_for(cc).each do |validator|
-        return false unless validator.plausible? ndc, rest
-      end
+      # validators_for(cc).each do |validator|
+      #   return false unless validator.plausible? ndc, rest
+      # end
+      return false unless (local.length-10) === rest_size
 
       true
-    rescue StandardError
+    rescue StandardError => e
+      puts e.message
       return false
     end
     
@@ -86,7 +91,7 @@ module Phony
     end
     
     def default_validators
-      @default_validators ||= [Validator.new]
+      @default_validators ||= []
     end
     
   end

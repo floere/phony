@@ -39,6 +39,12 @@ module Phony
         [nil, false, national_number]
       end
       
+      # A valid length.
+      #
+      def length
+        0
+      end
+      
     end
     
   end

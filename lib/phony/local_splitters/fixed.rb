@@ -43,6 +43,12 @@ module Phony
         end
       end
       
+      # A valid length.
+      #
+      def length
+        @length ||= @format.inject { |total, part| total + part }
+      end
+      
     end
     
   end

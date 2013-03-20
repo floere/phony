@@ -49,9 +49,13 @@ module Phony
     # Example:
     #   country '27', # CC, followed by rules, for example fixed(2) >> ...
     #
-    def country country_code, country, *validators
-      Phony::CountryCodes.instance.add country_code, country
+    def country country_code, definition, *validators
+      Phony::CountryCodes.instance.add country_code, definition
       validators.each do |validator|
+        # codes = definition.codes
+        # codes.each do |code|
+        #   p [code.instance_variable_get(:@national_splitter).length, code.instance_variable_get(:@local_splitter).length]
+        # end
         Phony::Validators.instance.add country_code, validator
       end
     end
@@ -125,7 +129,6 @@ module Phony
       #
       raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless regex.source =~ /\(/
       
-      on_fail_take = options.delete :on_fail_take
       NationalSplitters::Regex.instance_for regex, options[:on_fail_take], options
     end
     

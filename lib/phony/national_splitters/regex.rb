@@ -42,6 +42,12 @@ module Phony
         super national_number
       end
       
+      # A valid length.
+      #
+      def length
+        # raise "#{self.class.name} has no length that can be automatically extracted."
+      end
+      
     end
     
   end

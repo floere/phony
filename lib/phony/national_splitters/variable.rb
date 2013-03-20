@@ -37,6 +37,12 @@ module Phony
         super fallback_number
       end
       
+      # A valid length.
+      #
+      def length
+        (@mapped_ndc_min_length..@mapped_ndc_max_length)
+      end
+      
       private
         
         # def restructure ndc_map
@@ -45,7 +51,7 @@ module Phony
         
         # Optimizes and restructures the given ndcs array.
         #
-        def optimize(ndc_ary)
+        def optimize ndc_ary
           ndcs = {}
           ndc_ary.each do |ndc|
             ndcs[ndc.length] ||= []

@@ -11,6 +11,12 @@ module Phony
       def split national_number
         [national_number]
       end
+      
+      # A valid length.
+      #
+      def length
+        1
+      end
 
     end
   end

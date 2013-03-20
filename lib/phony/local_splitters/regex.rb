@@ -42,6 +42,12 @@ module Phony
         split_with number, fallback
       end
       
+      # A valid length.
+      #
+      def length
+        # raise "#{self.class.name} has no length that can be automatically extracted."
+      end
+      
       private
         
         def split_with number, format

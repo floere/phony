@@ -29,6 +29,12 @@ module Phony
         return [zero, ndc, *rest] if rest && !rest.empty?
       end
     end
+    def split_ndc national_number
+      @codes.each do |code|
+        zero, ndc, *rest = code.split national_number
+        return [code.local_splitter, zero, ndc, *rest] if rest && !rest.empty?
+      end
+    end
     
     # Removes 0s from partially normalized numbers
     # such as 410443643533.
@@ -44,6 +50,15 @@ module Phony
         return normalized if normalized && !normalized.empty?
       end
       return nil
+    end
+    
+    #
+    #
+    def plausible? ndc, rest
+      @codes.each do |code|
+        zero, ndc, *rest = code.split national_number
+        return [zero, ndc, *rest] if rest && !rest.empty?
+      end
     end
     
     # Is this national number a vanity number?
