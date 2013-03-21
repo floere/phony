@@ -169,6 +169,13 @@ describe 'validations' do
         Phony.plausible?('+351 90 123456').should be_false
         Phony.plausible?('+351 123 1234567').should be_true
       end
+
+      it "is correct of Russia" do
+        Phony.plausible?('+7 800 2000 600').should be_true
+        Phony.plausible?('+7 960 301 23 45').should be_true
+        Phony.plausible?('+7 800 2000 60').should be_false # too short
+        Phony.plausible?('796030123451').should be_false # too long
+      end
     end
     
   end
