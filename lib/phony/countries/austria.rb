@@ -72,5 +72,6 @@ service = [
 
 Phony.define do
   country '43', one_of(service + mobile + ndcs) >> split(10) |
-                fixed(4)                        >> split(10)
+                fixed(4)                        >> split(10),
+          length(13)
 end
