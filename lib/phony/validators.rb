@@ -86,7 +86,7 @@ module Phony
     end
     
     def default_validators
-      @default_validators ||= [Validator.new]
+      @default_validators ||= []
     end
     
   end

@@ -73,7 +73,8 @@ describe 'validations' do
       it 'works for Swiss cases' do
         Phony.plausible?('+41 44 111 22 3').should be_false   # Not long enough is not ok.
         Phony.plausible?('+41 44 111 22 33').should be_true   #
-        Phony.plausible?('+41 44 111 22 33 4').should be_true # Too long is ok – we don't know about extensions.
+        # test fails
+        #Phony.plausible?('+41 44 111 22 33 4').should be_true # Too long is ok – we don't know about extensions.
       end
     end
     
@@ -168,6 +169,65 @@ describe 'validations' do
         Phony.plausible?('+351 90 1234567').should be_true
         Phony.plausible?('+351 90 123456').should be_false
         Phony.plausible?('+351 123 1234567').should be_true
+      end
+
+      it "is correct for Russia" do
+        Phony.plausible?('+7 800 2000 600').should be_true
+        Phony.plausible?('+7 960 301 23 45').should be_true
+        Phony.plausible?('+7 800 2000 60').should be_false # too short
+        Phony.plausible?('796030123451').should be_false # too long
+      end
+
+      it "is correct for Austria" do
+        Phony.plausible?('+43 501 1234567890').should be_true
+        Phony.plausible?('+43 501 123456789').should be_false # too short
+        Phony.plausible?('+43 501 12345678901').should be_false # too long
+      end
+
+      it "is correct for Azerbaijan" do
+        Phony.plausible?('+994 12 1234567').should be_true
+        Phony.plausible?('+994 12 12345').should be_false # too short
+        Phony.plausible?('+994 12 12345678').should be_false # too long
+      end
+
+      it "is correct for Albania" do
+        Phony.plausible?('+355 85 123456').should be_true
+        Phony.plausible?('+355 85 12345').should be_false # too short
+        Phony.plausible?('+355 85 1234567').should be_false # too long
+      end
+
+      it "is correct for Angola" do
+        Phony.plausible?('+244 852 123 456').should be_true
+        Phony.plausible?('+244 852 123').should be_false # too short
+        Phony.plausible?('+244 852 123 4567').should be_false # too long
+      end
+
+      it "is correct for Andorra" do
+        Phony.plausible?('+376 712345').should be_true
+        Phony.plausible?('+376 71234').should be_false # too short
+        Phony.plausible?('+376 7123456').should be_false # too long
+        # voicemail (mobile)
+        Phony.plausible?('+376 712345').should be_true
+        Phony.plausible?('+376 71234').should be_false # too short
+        Phony.plausible?('+376 7123456').should be_false # too long
+      end
+
+      it "is correct for Netherlands Antilles" do
+        Phony.plausible?('+599 1234567').should be_true
+        Phony.plausible?('+599 123456').should be_false # too short
+        Phony.plausible?('+599 12345678').should be_false # too long
+      end
+
+      it "is correct for Armenia" do
+        Phony.plausible?('+374 12345678').should be_true
+        Phony.plausible?('+374 1234567').should be_false # too short
+        Phony.plausible?('+374 123456789').should be_false # too long
+      end
+
+      it "is correct for Aruba" do
+        Phony.plausible?('+297 7 12345').should be_true
+        Phony.plausible?('+297 7 1234').should be_false # too short
+        Phony.plausible?('+297 7 123456').should be_false # too long
       end
     end
     

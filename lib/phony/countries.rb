@@ -324,7 +324,7 @@ Phony.define do
   country '241', todo # Gabonese Republic
   country '242', todo # Congo
   country '243', todo # Democratic Republic of the Congo
-  country '244', todo # Angola
+  country '244', fixed(2) >> split(7), length(9) # Angola
   country '245', todo # Guinea-Bissau
   country '246', todo # Diego Garcia
   country '247', none >> split(4), length(4) # Ascension
@@ -405,7 +405,7 @@ Phony.define do
   country '294', todo # -
   country '295', todo # -
   country '296', todo # -
-  country '297', todo # Aruba
+  country '297', fixed(1) >> split(5), length(6) # Aruba
   country '298', todo # Faroe Islands
   country '299', todo # Greenland
 
@@ -440,7 +440,7 @@ Phony.define do
   # country '353' # Republic of Ireland, see special file.
 
   country '354', none >> split(3,4), length(7) # Iceland
-  country '355', todo # Albania
+  country '355', fixed(2) >> split(6), length(8) # Albania
 
   # Malta
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Malta
@@ -484,9 +484,14 @@ Phony.define do
           length( 2 => 6, 3 => 7, 4 => 8 )
 
   country '373', todo # Moldova
-  country '374', todo # Armenia
+  country '374', fixed(3) >> split(5), length(8) # Armenia
   country '375', todo # Belarus
-  country '376', todo # Andorra
+
+  # Andorra
+  country '376',
+          one_of('960') >> split(2,2,2) | # voicemail (mobile)
+          fixed(1) >> split(5),
+          length(3 => 9, 1 => 6)
 
   # Monaco
   country '377',
@@ -557,7 +562,7 @@ Phony.define do
   country '596', todo # Martinique (French Department of)
   country '597', todo # Suriname (Republic of)
   country '598', todo # Uruguay (Eastern Republic of)
-  country '599', todo # Netherlands Antilles
+  country '599', none >> split(7), length(7) # Netherlands Antilles
 
   country '670', todo # Democratic Republic of Timor-Leste
   country '671', todo # Spare code
@@ -708,7 +713,7 @@ Phony.define do
   country '991', todo # Trial of a proposed new international telecommunication public correspondence service, shared code
   country '992', todo # Tajikistan (Republic of)
   country '993', todo # Turkmenistan
-  country '994', todo # Azerbaijani Republic
+  country '994', fixed(2) >> split(7), length(9) # Azerbaijani Republic
   country '995', todo # Georgia
   country '996', todo # Kyrgyz Republic
   country '997', todo # Spare code
