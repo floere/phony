@@ -136,7 +136,7 @@ Phony.define do
           [one_of(ndcs_with_7_subscriber_digits),      split(3, 2, 2)],
           [one_of(%w(800)),                            split(3, 2, 2)],
           [one_of(%w(929 995344 9971 99744 9976 997)), split(2, 2, 2)],
-          [fixed(3),                                   split(3, 2, 2)]
+          [fixed(3),                                   split(2, 2, 3)]
 
       ].map { |national, local| Phony::NationalCode.new(national, local, true, '8') }
   )
