@@ -424,7 +424,7 @@ Phony.define do
   country '357', one_of('121','122','123') >> split(2,6) | # voicemail
                  fixed(2) >> split(6)                      # fixed & mobile
 
-  # Finland.
+  # Finland
   #
   country '358',
           match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Service
@@ -432,12 +432,13 @@ Phony.define do
           one_of('2','3','5','6','8','9') >> split(3,3)   | # Short NDCs
           fixed(2)                        >> split(3,3)     # 2-digit NDCs
 
-  # Bulgaria.
+  # Bulgaria
   #
   country '359',
           fixed(2) >> split(3,2,2) # Bulgaria
 
-  # 370 Lithuania.  see special file.
+  # Lithuania
+  #
   country '370',
           one_of('700', '800')  >> trunk('8') >> split(2,3)   | # Service
           match(/^(6\d\d)\d+$/) >> trunk('8') >> split(2,3)   | # Mobile
@@ -448,6 +449,7 @@ Phony.define do
   country '371', todo # Latvia
 
   # Estonia
+  #
   country '372',
           match(/^(5\d\d\d)\d+$/)          >> split(4) | # Mobile
           match(/^((?:70|8[12])\d\d)\d+$/) >> split(4) | # Mobile
@@ -460,6 +462,7 @@ Phony.define do
   country '376', fixed(1) >> split(5) # Andorra
 
   # Monaco
+  #
   country '377',
           one_of('6')  >> split(2,2,2,2) | # mobile
           fixed(2) >> split(2,2,2)
