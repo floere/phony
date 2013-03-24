@@ -33,15 +33,15 @@ module Phony
     end
     def normalize number
       clean! number
-      national_handler, cc, rest = split_cc number
-      @normalize_format % [cc, national_handler.normalize(rest)]
+      country, cc, rest = split_cc number
+      @normalize_format % [cc, country.normalize(rest)]
     end
 
     # Splits this number into cc, ndc and locally split number parts.
     #
     def split number
-      country_handler, cc, rest = split_cc number
-      [cc, *country_handler.split(rest)]
+      country, cc, rest = split_cc number
+      [cc, *country.split(rest)]
     end
 
     def formatted number, options = {}
@@ -88,29 +88,29 @@ module Phony
     #
     #
     def service? number
-      country_handler, cc, rest = split_cc number
-      country_handler.service? rest
+      country, cc, rest = split_cc number
+      country.service? rest
     end
     def mobile? number
-      country_handler, cc, rest = split_cc number
-      country_handler.mobile? rest
+      country, cc, rest = split_cc number
+      country.mobile? rest
     end
     def landline? number
-      country_handler, cc, rest = split_cc number
-      country_handler.landline? rest
+      country, cc, rest = split_cc number
+      country.landline? rest
     end
 
     # Is the given number a vanity number?
     #
     def vanity? number
-      country_handler, _, rest = split_cc number
-      country_handler.vanity? rest
+      country, _, rest = split_cc number
+      country.vanity? rest
     end
     # Converts a vanity number into a normalized E164 number.
     #
     def vanity_to_number vanity_number
-      country_handler, cc, rest = split_cc vanity_number
-      "#{cc}#{country_handler.vanity_to_number(rest)}"
+      country, cc, rest = split_cc vanity_number
+      "#{cc}#{country.vanity_to_number(rest)}"
     end
     
     # TODO Rewrite this to just find the country handler and
@@ -120,8 +120,8 @@ module Phony
       presumed_cc = ''
       1.upto(3) do |i|
         presumed_cc << rest.slice!(0..0)
-        country_handler = splitter_mapping[i][presumed_cc]
-        return [country_handler, presumed_cc, rest] if country_handler
+        country = splitter_mapping[i][presumed_cc]
+        return [country, presumed_cc, rest] if country
       end
       # This line is never reached as CCs are in prefix code.
     end

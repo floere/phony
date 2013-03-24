@@ -19,6 +19,14 @@ module Phony
       self
     end
     
+    # Options.
+    #
+    # TODO Rewrite.
+    #
+    def with options = {}
+      @invalid_ndcs = options[:invalid_ndcs] || []
+    end
+    
     # A number is split with the code handlers as given in the initializer.
     #
     # Note: If the ndc is nil, it will not return it.
@@ -63,23 +71,20 @@ module Phony
       #
       return false if ndc.nil?
       return false if ndc && ndc.empty?
+      return false if @invalid_ndcs.include? ndc # TODO Refactor.
       
-      rest_size = rest.inject(0) { |total, part| total + part.size }  # ndc ? rest.size - ndc.size : rest.size
-      
-      # A valid range for the rest is 0 or 3+ total digits.
-      #
-      return false if (1..2) === rest_size
+      # # A valid range for the rest is 0 or 3+ total digits.
+      # #
+      # return false if (1..2) === rest_size
       
       # National destination code plausible?
       #
       ndc_needed = hints[:ndc]
       return false if ndc_needed && !(ndc_needed === ndc)
       
-      p [ndc, rest, rest_size]
-      
       # Local code specific checks.
       #
-      return local.plausible? rest, rest_size, hints
+      return local.plausible? rest, hints
     end
     
     # Is this national number a vanity number?

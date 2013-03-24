@@ -32,6 +32,6 @@ handlers << Phony::NationalCode.new(
 )
 
 Phony.define do
-  country '36', Phony::Country.new(*handlers), length( 3 => 9, 1 => 8, 2 => 9 )
+  country '36', Phony::Country.new(*handlers)
 
 end

@@ -18,10 +18,10 @@ module Phony
         true
       end
       
-      # A valid length.
+      # A valid length (at least 3).
       #
       def length
-        1
+        3
       end
 
     end

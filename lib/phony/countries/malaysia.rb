@@ -20,6 +20,5 @@ Phony.define do
                 # one_of(service) >>  none  | # Service
                 one_of(mobile)  >> split(4,4)   | # Mobile
                 one_of(ndcs)    >> split(8)     | # 1-digit NDCs
-                fixed(2)        >> split(8),       # 2-digit NDCs (Also, fallback)
-                length( 1 => 9, 2 => 10, 3 => 9 )
+                fixed(2)        >> split(8)       # 2-digit NDCs (Also, fallback)
 end

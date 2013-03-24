@@ -44,12 +44,10 @@ module Phony
         end
       end
       
-      # TODO
+      # TODO Fix length fudging.
       #
-      def plausible? rest, size, hints = {}
-        p [rest, size, length - 10]
-        
-        return (length - 10) === size
+      def plausible? rest, hints = {}
+        return (length > 10 ? length - 10 : length) === rest.inject(0) { |total, part| total + part.size }
       end
       
       # A valid length.

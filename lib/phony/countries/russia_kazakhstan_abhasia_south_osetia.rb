@@ -124,8 +124,7 @@ Phony.define do
                # match(/([67]\d{2})/)                  >> split(2, 2, 2) | # Kazakhstan: (600..799)
                # one_of(%w(840 940))                   >> split(2,2,2) # Abhasia
                
-               fixed(3)                              >> split(2,2,2),
-               length(10)
+               fixed(3)                              >> split(2,2,2)
 end
 
 # NOTE: duplicates code above. DSL does not support trunk code set.
@@ -137,7 +136,7 @@ Phony.define do
           [one_of(ndcs_with_7_subscriber_digits),      split(3, 2, 2)],
           [one_of(%w(800)),                            split(3, 2, 2)],
           [one_of(%w(929 995344 9971 99744 9976 997)), split(2, 2, 2)],
-          [fixed(3),                                   split(2, 2, 2)]
+          [fixed(3),                                   split(3, 2, 2)]
 
       ].map { |national, local| Phony::NationalCode.new(national, local, true, '8') }
   )

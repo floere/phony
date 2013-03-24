@@ -1,9 +1,9 @@
-# Germany uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
+# Germany uses a variable-length ndc code, thus we use a separate file to not let countries.rb explode.
 #
 # Note: Germany uses a variable ndc format from length 2 to 5.
 #
 
-ndcs = [
+ndcs2and3 = [
 '10',  # Call-By-Call
 '11',  # formerly Value Added Services
 '13',  # Voting and Lottery Numbers
@@ -104,8 +104,10 @@ ndcs = [
 '971', # Bad Kissingen
 '981', # Ansbach
 '991', # Deggendorf
+]
 # 4-digit NDCs from now on.
 #
+ndcs4 = [
 '2041',
 '2043',
 '2045',
@@ -4065,11 +4067,18 @@ service = [
 '9009',
 ]
 
+# Note: http://en.wikipedia.org/wiki/Telephone_numbers_in_Germany
+# "Numbers assigned in the past, which are generally grandfathered, may be as short as five digits."
+#
+
 Phony.define do
-   country '49', one_of(service)          >> split(3,10) |
-                 match(/^(1[567]\d)\d*$/) >> split(3,10) | # Mobile
-                 one_of(ndcs)             >> split(3,10) |
-                 fixed(5)                 >> split(3,10),
-                 length( 2 => 5..10, 3 => 10..12, 4 => 7..11, 5 => 8..11 )
+   country '49', one_of(service)             >> split(3,0) |
+                 one_of('176')               >> split(3,6) |
+                 one_of('1609')              >> split(3,5) |
+                 match(/\A(15\d\d)\d*\z/)    >> split(3,4) |
+                 match(/\A(1[67]\d)\d*\z/)   >> split(3,5) |
+                 one_of(ndcs2and3)           >> split(3,5) |
+                 one_of(ndcs4)               >> split(3,4) |
+                 fixed(5)                    >> split(3,3)
 
 end

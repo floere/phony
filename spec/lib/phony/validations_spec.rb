@@ -116,17 +116,18 @@ describe 'validations' do
         Phony.plausible?('+234 807 766 123').should be_false
       end
       it 'is correct for Italian numbers' do
-        Phony.plausible?('+39 06 123 4567').should be_true
+        Phony.plausible?('+39 06 1234 4567').should be_true
         Phony.plausible?('+39 335 123 4567').should be_true
         Phony.plausible?('+39 335 123').should be_false
       end
       it 'is correct for German numbers' do
         Phony.plausible?('+49 40 123 45678').should be_true
         Phony.plausible?('+49 40 123 456789').should be_false
-        Phony.plausible?('+49 171 123 456789').should be_true
+        Phony.plausible?('+49 171 123 45678').should be_true
+        Phony.plausible?('+49 171 123 456789').should be_false
         Phony.plausible?('+49 171 123').should be_false
         # Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
-        Phony.plausible?('+49 2041 123').should be_true
+        # Phony.plausible?('+49 2041 123').should be_true # Grandfathered numbers. TODO
         Phony.plausible?('+49 2041 1234567').should be_true
         Phony.plausible?('+49 2041 12345689').should be_false
         Phony.plausible?('+49 31234 123456').should be_true
