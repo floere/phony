@@ -54,11 +54,32 @@ module Phony
     
     #
     #
-    def plausible? ndc, rest
-      @codes.each do |code|
-        zero, ndc, *rest = code.split national_number
-        return [zero, ndc, *rest] if rest && !rest.empty?
-      end
+    def plausible? rest, hints = {}
+      local, _, ndc, *rest = split_ndc rest
+      
+      # Element based checking.
+      #
+      # Note: ndc == false means the country has none.
+      #
+      return false if ndc.nil?
+      return false if ndc && ndc.empty?
+      
+      rest_size = rest.inject(0) { |total, part| total + part.size }  # ndc ? rest.size - ndc.size : rest.size
+      
+      # A valid range for the rest is 0 or 3+ total digits.
+      #
+      return false if (1..2) === rest_size
+      
+      # National destination code plausible?
+      #
+      ndc_needed = hints[:ndc]
+      return false if ndc_needed && !(ndc_needed === ndc)
+      
+      p [ndc, rest, rest_size]
+      
+      # Local code specific checks.
+      #
+      return local.plausible? rest, rest_size, hints
     end
     
     # Is this national number a vanity number?

@@ -1,7 +1,9 @@
 module Phony
 
   module NationalSplitters
-
+    
+    # TODO Default = Fixed.new(...)?
+    #
     class Default < DSL
 
       def self.instance_for
@@ -10,6 +12,10 @@ module Phony
 
       def split national_number
         [national_number]
+      end
+      
+      def plausible? rest, size, hints = {}
+        true
       end
       
       # A valid length.

@@ -99,18 +99,8 @@ module Phony
     # leaning towards being plausible.
     #
     def plausible? number, hints = {}
-      @validators.plausible? number, hints
+      @codes.plausible? number, hints
     end
-
-    # def service? number
-    #   @codes.service? number.dup
-    # end
-    # def mobile? number
-    #   @codes.mobile? number.dup
-    # end
-    # def landline? number
-    #   @codes.landline? number.dup
-    # end
 
     # Returns true if there is a character in the number
     # after the first four numbers.

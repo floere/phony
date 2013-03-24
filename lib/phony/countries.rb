@@ -46,9 +46,8 @@ Phony.define do
   #
   country '20', one_of('800')    >> split(7) | # Egypt
                 one_of('2', '3') >> split(8) | # Cairo/Giza, Alexandria
-                fixed(2)         >> split(8),
+                fixed(2)         >> split(8)
                 # :mobile? => /^1[01246-9]\d+$/, :service? => /^800\d+$/
-                length( 3 => 10, 1 => 9, 2 => 10 )
 
   # South Africa.
   #
@@ -80,8 +79,6 @@ Phony.define do
           length(9)
 
   # country '36' # Hungary, see special file..
-
-
 
   # country '39' # Italy, see special file.
 

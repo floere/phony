@@ -27,7 +27,8 @@ module Phony
       # The format [3, 2, 2] splits a number like '3332222' into ['333', '22', '22'].
       #
       def initialize format = nil
-        @format = format || [3, 2, 2]
+        @format = format && format.dup || [3, 2, 2]
+        # @format << @format.pop + 10 # Allow for call-through numbers with an arbitrary size.
       end
     
       # Split a local number according to an assumed country specific format.
@@ -41,6 +42,14 @@ module Phony
           return result if number.empty?
           result
         end
+      end
+      
+      # TODO
+      #
+      def plausible? rest, size, hints = {}
+        p [rest, size, length - 10]
+        
+        return (length - 10) === size
       end
       
       # A valid length.

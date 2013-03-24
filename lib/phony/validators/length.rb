@@ -17,12 +17,12 @@ module Phony
       end
 
       def plausible? ndc, rest
-        ndc ||= ''  # handle 'false' ndc's (like Denmark)
-        lengths = [*@lengths[ndc.length]]  # we can have one or more lengths, make them into an array
-
-        length = ndc.size + rest.inject(0) { |sum, part| part ? sum + part.size : sum }
-
-        return false unless lengths.include? length
+        # ndc ||= ''  # handle 'false' ndc's (like Denmark)
+        # lengths = [*@lengths[ndc.length]]  # we can have one or more lengths, make them into an array
+        # 
+        # length = ndc.size + rest.inject(0) { |sum, part| part ? sum + part.size : sum }
+        # 
+        # return false unless lengths.include? length
         true
       end
 

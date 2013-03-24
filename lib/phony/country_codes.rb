@@ -112,7 +112,10 @@ module Phony
       country_handler, cc, rest = split_cc vanity_number
       "#{cc}#{country_handler.vanity_to_number(rest)}"
     end
-
+    
+    # TODO Rewrite this to just find the country handler and
+    # then call a method on the country handler?
+    #
     def split_cc rest
       presumed_cc = ''
       1.upto(3) do |i|
@@ -121,6 +124,28 @@ module Phony
         return [country_handler, presumed_cc, rest] if country_handler
       end
       # This line is never reached as CCs are in prefix code.
+    end
+    
+    def plausible? number, hints = {}
+      normalized = clean number
+      
+      # False if it fails the basic check.
+      #
+      return false unless (4..15) === normalized.size
+      
+      country, cc, rest = split_cc normalized
+      
+      # Country code plausible?
+      #
+      cc_needed = hints[:cc]
+      return false if cc_needed && !(cc_needed === cc)
+      
+      # Country specific tests.
+      #
+      country.plausible? rest, hints
+    rescue StandardError => e
+      puts e.message
+      return false
     end
 
     # # TODO

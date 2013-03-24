@@ -51,13 +51,6 @@ module Phony
     #
     def country country_code, definition, *validators
       Phony::CountryCodes.instance.add country_code, definition
-      validators.each do |validator|
-        # codes = definition.codes
-        # codes.each do |code|
-        #   p [code.instance_variable_get(:@national_splitter).length, code.instance_variable_get(:@local_splitter).length]
-        # end
-        Phony::Validators.instance.add country_code, validator
-      end
     end
 
     # National matcher & splitters.
@@ -179,8 +172,8 @@ module Phony
     #     fixed(3, :zero => false) >> split(3,4),
     #     invalid_ndcs('911') # The regexp /911/ would also work.
     #
-    def invalid_ndcs ndc
-      Validators::NDC.new.invalid ndc
+    def invalid_ndcs *ndc
+      Validators::NDC.new invalid: ndc
     end
 
     # checks to see, if number is exactly length
