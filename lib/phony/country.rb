@@ -60,7 +60,7 @@ module Phony
       return nil
     end
     
-    #
+    # Tests for plausibility of this national number.
     #
     def plausible? rest, hints = {}
       local, _, ndc, *rest = split_ndc rest

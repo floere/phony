@@ -113,9 +113,6 @@ module Phony
       "#{cc}#{country.vanity_to_number(rest)}"
     end
     
-    # TODO Rewrite this to just find the country handler and
-    # then call a method on the country handler?
-    #
     def split_cc rest
       presumed_cc = ''
       1.upto(3) do |i|
