@@ -207,7 +207,6 @@ describe 'validations' do
         Phony.plausible?('+376 712345').should be_true
         Phony.plausible?('+376 71234').should be_false # too short
         Phony.plausible?('+376 7123456').should be_false # too long
-        # voicemail (mobile)
         Phony.plausible?('+376 712345').should be_true
         Phony.plausible?('+376 71234').should be_false # too short
         Phony.plausible?('+376 7123456').should be_false # too long

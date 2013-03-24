@@ -443,9 +443,10 @@ Phony.define do
           fixed(3)                         >> split(4)   # 3-digit NDCs
 
   country '373', todo # Moldova
-  country '374', todo # Armenia
+  country '374', match(/\A(10|55|77|9[13-9])\d*\z/) >> split(6) | # Armenia
+                 fixed(3) >> split(5)
   country '375', todo # Belarus
-  country '376', todo # Andorra
+  country '376', fixed(1) >> split(5) # Andorra
 
   # Monaco
   country '377',
