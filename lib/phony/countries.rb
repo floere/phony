@@ -30,7 +30,7 @@ Phony.define do
   country '1',
           fixed(3, :zero => false) >> split(3,4),
           # invalid_ndcs('911'), # /911/ would also work.
-          :invalid_ndcs => ['911']
+          :invalid_ndcs => ['911'] # TODO
 
   # Kazakhstan (Republic of) & Russsian Federation.
   # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
