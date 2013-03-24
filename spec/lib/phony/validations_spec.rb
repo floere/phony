@@ -225,9 +225,9 @@ describe 'validations' do
       end
 
       it "is correct for Aruba" do
-        Phony.plausible?('+297 7 12345').should be_true
-        Phony.plausible?('+297 7 1234').should be_false # too short
-        Phony.plausible?('+297 7 123456').should be_false # too long
+        Phony.plausible?('+297 52 1234').should be_true
+        Phony.plausible?('+297 52 123').should be_false # too short
+        Phony.plausible?('+297 52 12345').should be_false # too long
       end
     end
     

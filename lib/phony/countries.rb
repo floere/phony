@@ -373,7 +373,7 @@ Phony.define do
   country '294', todo # -
   country '295', todo # -
   country '296', todo # -
-  country '297', todo # Aruba
+  country '297', fixed(2) >> split(4) # Aruba
   country '298', todo # Faroe Islands
   country '299', todo # Greenland
 
@@ -513,7 +513,8 @@ Phony.define do
   country '596', todo # Martinique (French Department of)
   country '597', todo # Suriname (Republic of)
   country '598', todo # Uruguay (Eastern Republic of)
-  country '599', todo # Netherlands Antilles
+  country '599', one_of('9') >> split(3,4) | # Netherlands Antilles (Curacao)
+                 fixed(3)    >> split(4)     # (other)
 
   country '670', todo # Democratic Republic of Timor-Leste
   country '671', todo # Spare code
