@@ -438,6 +438,12 @@ Phony.define do
           fixed(2) >> split(3,2,2) # Bulgaria
 
   # 370 Lithuania.  see special file.
+  country '370',
+          one_of('700', '800')  >> trunk('8') >> split(2,3)   | # Service
+          match(/^(6\d\d)\d+$/) >> trunk('8') >> split(2,3)   | # Mobile
+          one_of('5')           >> trunk('8') >> split(3,2,2) | # Vilnius
+          one_of('37','41')     >> trunk('8') >> split(2,2,2) | # Kaunas, Šiauliai
+          fixed(3)              >> trunk('8') >> split(1,2,2)   # 3-digit NDCs.
 
   country '371', todo # Latvia
 

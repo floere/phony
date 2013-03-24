@@ -12,7 +12,7 @@ special = %w{ 100 101 105 106 107 108 109 111 112 113 114 115 116 117 118 119 12
 Phony.define do
   country '82', match(/^(#{special.join("|")})$/) >> split(3,3) | # Special actually don't need to be split – but better err.
                 one_of('2')                       >> split(4,4) | # Seoul, also includes "services".
-                fixed(2)                          >> split(4,4)   # catchall
+                fixed(2)                          >> split(4,4)   # Catchall.
                 
                 # See above.
                 #

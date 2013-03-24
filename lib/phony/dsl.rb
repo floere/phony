@@ -56,8 +56,9 @@ module Phony
     
     class Trunk
       
-      def initialize code
+      def initialize code, options = {}
         @code = code
+        @normalize = options[:normalize]
       end
       
       def national_splitter= national_splitter
@@ -65,13 +66,13 @@ module Phony
       end
       
       def >> local_splitter
-        @national_splitter.country_for local_splitter, true, @code
+        @national_splitter.country_for local_splitter, @normalize, @code
       end
       
     end
     
-    def trunk code
-      Trunk.new code
+    def trunk code, options = {}
+      Trunk.new code, options
     end
 
     # National matcher & splitters.
