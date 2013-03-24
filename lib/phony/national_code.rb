@@ -30,7 +30,7 @@ module Phony
     #
     def normalize national_number
       return national_number unless @normalize
-      national_number.gsub(/^#{@trunk_code}+/, '')
+      national_number.gsub(/\A#{@trunk_code}/, '')
     end
 
   end

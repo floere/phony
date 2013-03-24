@@ -70,8 +70,13 @@ Phony.define do
   #
   country '34',
           fixed(2) >> split(3,4)
-
-  # country '36' # Hungary, see special file..
+          
+  # Hungary.
+  #
+  country '36',
+          one_of('104','105','107','112') >> trunk('06') >> split(3,3) | # Service
+          one_of('1')                     >> trunk('06') >> split(3,4) | # Budapest
+          fixed(2)                        >> trunk('06') >> split(3,4)   # 2-digit NDCs
 
   # country '39' # Italy, see special file.
 

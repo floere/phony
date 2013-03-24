@@ -53,6 +53,26 @@ module Phony
       definition.with options
       Phony::CountryCodes.instance.add country_code, definition
     end
+    
+    class Trunk
+      
+      def initialize code
+        @code = code
+      end
+      
+      def national_splitter= national_splitter
+        @national_splitter = national_splitter
+      end
+      
+      def >> local_splitter
+        @national_splitter.country_for local_splitter, true, @code
+      end
+      
+    end
+    
+    def trunk code
+      Trunk.new code
+    end
 
     # National matcher & splitters.
     #
