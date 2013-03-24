@@ -294,7 +294,8 @@ Phony.define do
   country '241', todo # Gabonese Republic
   country '242', todo # Congo
   country '243', todo # Democratic Republic of the Congo
-  country '244', todo # Angola
+  country '244', one_of('321', '348', '358', '363', '364', '485', '526', '535', '546', '612', '643', '652', '655', '722', '726', '728', '729', '777') >> split(3,3) | # Angola
+                 fixed(2) >> split(3,4)
   country '245', todo # Guinea-Bissau
   country '246', todo # Diego Garcia
   country '247', none >> split(4) # Ascension
