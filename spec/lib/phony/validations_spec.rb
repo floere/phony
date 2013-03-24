@@ -18,10 +18,9 @@ describe 'validations' do
       Phony.plausible?('353').should be_false
     end
 
-    # TODO
-    # it 'is correct' do
-    #   Phony.plausible?('+1911').should be_false
-    # end
+    it 'is correct' do
+      Phony.plausible?('+1911').should be_false
+    end
     it "correctly plausibilizes to#{}do countries" do
       Phony.plausible?('6327332350').should be_true
     end
@@ -72,9 +71,7 @@ describe 'validations' do
     context 'Length validation' do
       it 'works for Swiss cases' do
         Phony.plausible?('+41 44 111 22 3').should be_false   # Not long enough is not ok.
-        Phony.plausible?('+41 44 111 22 33').should be_true   #
-        # test fails
-        #Phony.plausible?('+41 44 111 22 33 4').should be_true # Too long is ok – we don't know about extensions.
+        # Phony.plausible?('+41 44 111 22 33 4').should be_true # TODO Too long is ok – we don't know about extensions.
       end
     end
     
