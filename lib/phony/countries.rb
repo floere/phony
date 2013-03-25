@@ -617,7 +617,9 @@ Phony.define do
   country '878', todo # Universal Personal Telecommunication Service (UPT)
   country '879', todo # Reserved for national non-commercial purposes
 
-  country '880', todo # Bangladesh (People's Republic of)
+  # Bangladesh (People's Republic of)
+  #  country '880' # see special file
+
   country '881', todo # International Mobile, shared code
   country '882', todo # International Networks, shared code
   country '883', todo # -
@@ -663,7 +665,7 @@ Phony.define do
           one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
           match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
 
-  country '973', todo # Bahrain (Kingdom of)
+  country '973', none >> split(4,4) # Bahrain (Kingdom of) http://www.itu.int/oth/T0202000011/en
   country '974', todo # Qatar (State of)
   country '975', todo # Bhutan (Kingdom of)
   country '976', todo # Mongolia

@@ -38,6 +38,20 @@ describe 'country descriptions' do
       it_splits '61512341234', ['61', '5', '1234', '1234'] # Landline
       it_splits '61423123123', ['61', '423', '123', '123'] # Mobile
     end
+
+    describe 'Bahrain' do
+      it_splits '97312345678', ['973', false, '1234', '5678']
+    end
+
+    describe 'Bangladesh' do
+      it_splits '88021234567', %w(880 2 1234567)
+      it_splits '8805112345', %w(880 51 12345)
+      it_splits '88031123456', %w(880 31 123456)
+      it_splits '88032112345', %w(880 321 12345)
+      it_splits '8804311234567', %w(880 431 1234567)
+      it_splits '880902012345', %w(880 9020 12345)
+    end
+
     describe 'Belgium' do
       it_splits '3235551212', ['32', '3', '555', '1212']   # Antwerpen
       it_splits '32505551212', ['32', '50', '555', '1212'] # Brugge

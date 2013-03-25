@@ -26,6 +26,7 @@ require File.expand_path '../phony/dsl', __FILE__
 # The ones that need more space to define.
 #
 require File.expand_path '../phony/countries/austria', __FILE__
+require File.expand_path '../phony/countries/bangladesh', __FILE__
 require File.expand_path '../phony/countries/brazil', __FILE__
 require File.expand_path '../phony/countries/china', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
