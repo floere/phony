@@ -617,7 +617,9 @@ Phony.define do
   country '878', todo # Universal Personal Telecommunication Service (UPT)
   country '879', todo # Reserved for national non-commercial purposes
 
-  country '880', todo # Bangladesh (People's Republic of)
+  # Bangladesh (People's Republic of)
+  #  country '880' # see special file
+
   country '881', todo # International Mobile, shared code
   country '882', todo # International Networks, shared code
   country '883', todo # -

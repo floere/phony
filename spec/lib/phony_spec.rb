@@ -164,16 +164,16 @@ describe Phony do
       end
       describe '"unsupported" countries' do
         it 'should format as a single block' do
-          Phony.format('88032155605220').should == '+880 32155605220'
+          Phony.format('88132155605220').should == '+881 32155605220'
         end
         it 'should format as a single block, regardless of format' do
-          Phony.format('8801819372205', :format => :international).should == '+880 1819372205'
+          Phony.format('8811819372205', :format => :international).should == '+881 1819372205'
         end
         it 'should format as a single block, respecting custom spaces' do
-          Phony.format('8801819372205', :spaces => :-).should == '+880-1819372205'
+          Phony.format('8811819372205', :spaces => :-).should == '+881-1819372205'
         end
         it 'should format as a single block, even without spaces' do
-          Phony.format('8801819372205', :spaces => '').should == '+8801819372205'
+          Phony.format('8811819372205', :spaces => '').should == '+8811819372205'
         end
       end
     end
@@ -233,10 +233,10 @@ describe Phony do
     end
     context '"unsupported" countries' do
       it 'handles formatting' do
-        Phony.format('88032155605220').should == '+880 32155605220'
+        Phony.format('88132155605220').should == '+881 32155605220'
       end
       it 'handles normalizing' do
-        Phony.normalize('+880-321 5560 5220').should == '88032155605220'
+        Phony.normalize('+881-321 5560 5220').should == '88132155605220'
       end
     end
   end
