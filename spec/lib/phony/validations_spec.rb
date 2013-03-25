@@ -228,13 +228,13 @@ describe 'validations' do
       end
 
       it 'is correct for Bangladesh' do
-        Phony.plausible?('+880 2 1234567' ).should be_true
-        Phony.plausible?('+880 2 12345678' ).should be_false # too long
-        Phony.plausible?('+880 2 123456' ).should be_false # too short
+        Phony.plausible?('+880 2 1234567').should be_true
+        Phony.plausible?('+880 2 12345678').should be_false # too long
+        Phony.plausible?('+880 2 123456').should be_false # too short
 
-        Phony.plausible?('+880 9020 12345' ).should be_true
-        Phony.plausible?('+880 9020 123456' ).should be_false # too long
-        Phony.plausible?('+880 9020 1234' ).should be_false # too short
+        Phony.plausible?('+880 9020 12345').should be_true
+        Phony.plausible?('+880 9020 123456').should be_false # too long
+        Phony.plausible?('+880 9020 1234').should be_false # too short
       end
 
       it 'is correct for Bahrain' do
