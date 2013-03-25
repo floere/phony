@@ -39,6 +39,10 @@ describe 'country descriptions' do
       it_splits '61423123123', ['61', '423', '123', '123'] # Mobile
     end
 
+    describe 'Bahrain' do
+      it_splits '97312345678', ['973', false, '1234', '5678']
+    end
+
     describe 'Bangladesh' do
       it_splits '88021234567', %w(880 2 1234567)
       it_splits '8805112345', %w(880 51 12345)

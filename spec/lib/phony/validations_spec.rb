@@ -236,6 +236,13 @@ describe 'validations' do
         Phony.plausible?('+880 9020 123456' ).should be_false # too long
         Phony.plausible?('+880 9020 1234' ).should be_false # too short
       end
+
+      it 'is correct for Bahrain' do
+        Phony.plausible?('+973 1234 5678').should be_true
+        Phony.plausible?('+973 1234 567').should be_false  # too short
+        Phony.plausible?('+973 1234 56789').should be_false # too long
+      end
+
     end
     
   end
