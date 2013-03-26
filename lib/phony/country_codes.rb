@@ -141,7 +141,6 @@ module Phony
       #
       country.plausible? rest, hints
     rescue StandardError => e
-      puts e.message
       return false
     end
 
