@@ -79,6 +79,10 @@ describe 'country descriptions' do
       it_splits '5012051234', %w(501 205 1234)
     end
 
+    describe 'Benin' do
+      it_splits '22912345678', ['229', false, '1234', '5678']
+    end
+
     describe 'Brazil' do
       it_splits '551112341234', ['55', '11', '1234', '1234']
       it_splits '5511981231234', ['55', '11', '9812', '31234'] # São Paulo's 9 digits mobile

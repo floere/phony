@@ -268,7 +268,7 @@ Phony.define do
   country '226', todo # Burkina Faso
   country '227', todo # Niger
   country '228', todo # Togolese Republic
-  country '229', todo # Benin
+  country '229', none >> split(4,4) # Benin http://www.itu.int/oth/T0202000017/en
 
   country '230', todo # Mauritius
   country '231', todo # Liberia

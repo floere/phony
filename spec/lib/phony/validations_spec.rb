@@ -261,6 +261,12 @@ describe 'validations' do
         Phony.plausible?('+501 205 12345').should be_false # too long
       end
 
+      it 'is correct for Benin' do
+        Phony.plausible?('+229 1234 5678').should be_true
+        Phony.plausible?('+229 1234 567').should be_false
+        Phony.plausible?('+229 1234 56789').should be_false
+      end
+
     end
     
   end
