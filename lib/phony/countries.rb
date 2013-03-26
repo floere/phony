@@ -268,7 +268,7 @@ Phony.define do
   country '226', todo # Burkina Faso
   country '227', todo # Niger
   country '228', todo # Togolese Republic
-  country '229', todo # Benin
+  country '229', none >> split(4,4) # Benin http://www.itu.int/oth/T0202000017/en
 
   country '230', todo # Mauritius
   country '231', todo # Liberia
@@ -458,7 +458,10 @@ Phony.define do
   country '373', todo # Moldova
   country '374', match(/\A(10|55|77|9[13-9])\d*\z/) >> split(6) | # Armenia
                  fixed(3) >> split(5)
-  country '375', todo # Belarus
+
+  # Belarus
+  #  country '375' # see special file
+
   country '376', fixed(1) >> split(5) # Andorra
 
   # Monaco
@@ -504,7 +507,7 @@ Phony.define do
   country '429', todo # -
 
   country '500', todo # Falkland Islands (Malvinas)
-  country '501', todo # Belize
+  country '501', fixed(3) >> split(4) # Belize
   country '502', todo # Guatemala (Republic of)
    # El Salvador (Republic of)
   country '503', fixed(4) >> split(4,4)
@@ -519,7 +522,7 @@ Phony.define do
     fixed(2) >> split(2,4)
 
   country '590', todo # Guadeloupe (French Department of)
-  country '591', todo # Bolivia (Republic of)
+  country '591', fixed(1) >> split(3,4) # Bolivia (Republic of) http://www.itu.int/oth/T020200001A/en
   country '592', todo # Guyana
   country '593', todo # Ecuador
   country '594', todo # French Guiana (French Department of)
