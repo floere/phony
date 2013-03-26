@@ -13,7 +13,7 @@ describe 'validations' do
     #
     def self.it_is_correct_for(country_name, options={})
       samples = [*options[:samples]]
-      raise ':samples option should be specified' if samples.empty?
+      raise ArgumentError, ':samples option should be specified' if samples.empty?
 
       it "is correct for #{country_name}" do
         samples.each do |sample|
@@ -254,6 +254,12 @@ describe 'validations' do
         Phony.plausible?('+880 9020 12345').should be_true
         Phony.plausible?('+880 9020 123456').should be_false # too long
         Phony.plausible?('+880 9020 1234').should be_false # too short
+
+        # ndc with several subscriber number length
+        Phony.plausible?('+880 3035 1234').should be_true
+        Phony.plausible?('+880 3035 123').should be_true
+        Phony.plausible?('+880 3035 12').should be_false # too short
+        Phony.plausible?('+880 3035 12345').should be_false # too long
       end
 
       it 'is correct for Bahrain' do
