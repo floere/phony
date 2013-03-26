@@ -5,6 +5,25 @@ require 'spec_helper'
 describe 'validations' do
 
   describe 'plausible?' do
+
+    # Validations test helper.
+    # @param country_name [String]
+    # @param options [Hash]
+    # @option options [String, Array<String>] :samples
+    #
+    def self.it_is_correct_for(country_name, options={})
+      samples = [*options[:samples]]
+      raise ':samples option should be specified' if samples.empty?
+
+      it "is correct for #{country_name}" do
+        samples.each do |sample|
+          Phony.plausible?(sample).should be_true
+          # damage number
+          Phony.plausible?(sample.sub(/\d\D*\z/, '')).should be_false # too short
+          Phony.plausible?(sample + '0').should be_false  # too long
+        end
+      end
+    end
     
     it 'does not change the given number' do
       number = "123-123-1234"
@@ -255,17 +274,9 @@ describe 'validations' do
         Phony.plausible?('+375 800 12345678').should be_false
       end
 
-      it 'is correct for Belize' do
-        Phony.plausible?('+501 205 1234').should be_true
-        Phony.plausible?('+501 205 123').should be_false # too short
-        Phony.plausible?('+501 205 12345').should be_false # too long
-      end
-
-      it 'is correct for Benin' do
-        Phony.plausible?('+229 1234 5678').should be_true
-        Phony.plausible?('+229 1234 567').should be_false
-        Phony.plausible?('+229 1234 56789').should be_false
-      end
+      it_is_correct_for 'Belize', :samples => '+501 205 1234'
+      it_is_correct_for 'Benin', :samples => '+229 1234 5678'
+      it_is_correct_for 'Bolivia', :samples => '+591 2 277 2266'
 
     end
     

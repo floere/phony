@@ -522,7 +522,7 @@ Phony.define do
     fixed(2) >> split(2,4)
 
   country '590', todo # Guadeloupe (French Department of)
-  country '591', todo # Bolivia (Republic of)
+  country '591', fixed(1) >> split(3,4) # Bolivia (Republic of) http://www.itu.int/oth/T020200001A/en
   country '592', todo # Guyana
   country '593', todo # Ecuador
   country '594', todo # French Guiana (French Department of)
