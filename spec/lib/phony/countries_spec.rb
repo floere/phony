@@ -52,6 +52,18 @@ describe 'country descriptions' do
       it_splits '880902012345', %w(880 9020 12345)
     end
 
+    describe 'Belarus' do
+      it_splits '375152123456', %w(375 152 123456)
+      it_splits '375151512345', %w(375 1515 12345)
+      it_splits '375163423456', %w(375 163 423456)
+      it_splits '375163112345', %w(375 1631 12345)
+      it_splits '375291234567', %w(375 29 1234567)
+      it_splits '375800123', %w(375 800 123)
+      it_splits '3758001234', %w(375 800 1234)
+      it_splits '3758001234567', %w(375 800 1234567)
+      it_splits '37582012345678', %w(375 820 12345678)
+    end
+
     describe 'Belgium' do
       it_splits '3235551212', ['32', '3', '555', '1212']   # Antwerpen
       it_splits '32505551212', ['32', '50', '555', '1212'] # Brugge

@@ -243,6 +243,18 @@ describe 'validations' do
         Phony.plausible?('+973 1234 56789').should be_false # too long
       end
 
+      it 'is correct for Belarus' do
+        Phony.plausible?('+375 152 123456').should be_true
+        Phony.plausible?('+375 152 12345').should be_false # too short
+        Phony.plausible?('+375 152 1234567').should be_false # too long
+
+        Phony.plausible?('+375 800 123').should be_true
+        Phony.plausible?('+375 800 1234').should be_true
+        Phony.plausible?('+375 800 1234567').should be_true
+        Phony.plausible?('+375 800 123456').should be_false
+        Phony.plausible?('+375 800 12345678').should be_false
+      end
+
     end
     
   end
