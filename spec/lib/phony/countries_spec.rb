@@ -74,6 +74,11 @@ describe 'country descriptions' do
       it_splits '32475279584', ['32', '475', '279584']     # mobile
       it_splits '3270123123', ['32', '70', '123', '123']   # Bus Service?
     end
+
+    describe 'Belize' do
+      it_splits '5012051234', %w(501 205 1234)
+    end
+
     describe 'Brazil' do
       it_splits '551112341234', ['55', '11', '1234', '1234']
       it_splits '5511981231234', ['55', '11', '9812', '31234'] # São Paulo's 9 digits mobile

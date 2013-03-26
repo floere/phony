@@ -255,6 +255,12 @@ describe 'validations' do
         Phony.plausible?('+375 800 12345678').should be_false
       end
 
+      it 'is correct for Belize' do
+        Phony.plausible?('+501 205 1234').should be_true
+        Phony.plausible?('+501 205 123').should be_false # too short
+        Phony.plausible?('+501 205 12345').should be_false # too long
+      end
+
     end
     
   end

@@ -507,7 +507,7 @@ Phony.define do
   country '429', todo # -
 
   country '500', todo # Falkland Islands (Malvinas)
-  country '501', todo # Belize
+  country '501', fixed(3) >> split(4) # Belize
   country '502', todo # Guatemala (Republic of)
    # El Salvador (Republic of)
   country '503', fixed(4) >> split(4,4)
