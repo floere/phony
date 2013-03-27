@@ -163,9 +163,11 @@ Phony.define do
           one_of('2', '9')                >> split(8)   | # Santiago, Mobile
           fixed(2)                        >> split(8)     # 2-digit NDCs
 
-  # TODO Colombia.
-  #
-  country '57', todo
+  # Colombia.
+  # http://www.itu.int/oth/T020200002C/en
+  country '57',
+          match(/\A(3\d\d)\d+\z/) >> split(3,4) | # mobile (300 310 311 312 313 315 316)
+          fixed(1) >> split(3,4)
 
   # Venezuela (Bolivarian Republic of)
   #
@@ -189,7 +191,17 @@ Phony.define do
           fixed(3) >> split(7)                    |
           fixed(3) >> split(8)
 
-  country '63', todo # TODO Philippines (Republic of the)
+  # TODO Philippines (Republic of the)
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
+  country '63',
+          # 7/10 digits for area code '2'.
+          match(/\A(2)\d{10}\z/) >> split(10) |
+          one_of('2') >> split(7) |
+          # mobile
+          match(/\A(9\d\d)\d{7}\z/) >> split(7) |
+          match(/\A(9\d\d)\d+\z/) >> split(6) |
+          #
+          fixed(2) >> split(7)
 
   # New Zealand.
   #
@@ -209,7 +221,7 @@ Phony.define do
           one_of('2') >> split(3,4) | # Bangkok
           fixed(2)    >> split(3,3)   # Rest
 
-  country '81', todo # TODO Japan
+  # country '81'  # Japan, see special file.
 
   # country '82' # SouthKorea, see special file.
 
@@ -227,7 +239,7 @@ Phony.define do
 
   # country '91' #  India (Republic of) see special file
 
-  country '92', todo # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
+  # country '92' # Pakistan (Islamic Republic of), see special file.
 
   # Afghanistan.
   #
