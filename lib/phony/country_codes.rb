@@ -22,6 +22,10 @@ module Phony
       @instance ||= new
     end
 
+    # 00 for the international call prefix.
+    # http://en.wikipedia.org/wiki/List_of_international_call_prefixes
+    # (TODO we need to include more)
+    #
     @@basic_normalizing_pattern = /^0+|\D/
     def clean number
       clean! number && number.dup

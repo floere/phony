@@ -13,6 +13,7 @@ module Phony
       @local_splitter    = local_splitter
       @normalize         = normalize != false
       @trunk_code        = trunk_code
+      @trunk_code_replacement = /\A#{@trunk_code}+/
     end
 
     # Split gets a number without country code and splits it into
@@ -30,7 +31,7 @@ module Phony
     #
     def normalize national_number
       return national_number unless @normalize
-      national_number.gsub(/\A#{@trunk_code}/, '')
+      national_number.gsub(@trunk_code_replacement, EMPTY_STRING)
     end
 
   end

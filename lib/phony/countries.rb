@@ -28,7 +28,7 @@ Phony.define do
   # USA, Canada, etc.
   #
   country '1',
-          fixed(3, :zero => false) >> split(3,4),
+          fixed(3, :zero => false) >> trunk('1') >> split(3,4),
           # invalid_ndcs('911'), # /911/ would also work.
           :invalid_ndcs => ['911'] # TODO
 
