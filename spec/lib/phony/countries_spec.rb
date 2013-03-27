@@ -329,6 +329,12 @@ describe 'country descriptions' do
       it_splits '4781234567', ['47',false,'812','34','567']
       it_splits '4791234567', ['47',false,'912','34','567']
     end
+    describe 'Pakistan' do
+      it_splits '922112345678', %w(92 21 1234 5678)
+      it_splits '92221234567', %w(92 22 1234 567)
+      it_splits '92232123456', %w(92 232 123 456)
+      it_splits '923012345678', %w(92 30 1234 5678)
+    end
     describe 'Peru' do
       it_splits '51112341234', ['51', '1', '1234', '1234'] # Lima
       it_splits '51912341234', ['51', '9', '1234', '1234'] # mobile

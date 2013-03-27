@@ -239,7 +239,7 @@ Phony.define do
 
   # country '91' #  India (Republic of) see special file
 
-  country '92', todo # TODO Pakistan (Islamic Republic of), http://en.wikipedia.org/wiki/Telephone_numbers_in_Pakistan, NDC 2-5
+  # country '92' # Pakistan (Islamic Republic of), see special file.
 
   # Afghanistan.
   #
