@@ -283,6 +283,7 @@ describe 'validations' do
       it_is_correct_for 'Belize', :samples => '+501 205 1234'
       it_is_correct_for 'Benin', :samples => '+229 1234 5678'
       it_is_correct_for 'Bolivia', :samples => '+591 2 277 2266'
+      it_is_correct_for 'Colombia', :samples =>['+57 1 123 4567', '+57 310 123 4567']
 
     end
     

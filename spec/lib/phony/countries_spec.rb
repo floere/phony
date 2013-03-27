@@ -107,6 +107,10 @@ describe 'country descriptions' do
       it_splits '862112345678', ['86', '21', '1234', '5678']   # Shanghai
       it_splits '8675582193447', ['86', '755', '8219', '3447'] # Shenzhen
     end
+    describe 'Colombia' do
+      it_splits '5711234567', ['57', '1', '123', '4567']
+      it_splits '573101234567', ['57', '310', '123', '4567'] # mobile
+    end
     describe 'Croatia' do
       it_splits '385112312345', ['385', '1', '123', '12345'] # Zagreb
       it_splits '385491231234', ['385', '49', '123', '1234'] # Krapina

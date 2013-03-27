@@ -163,9 +163,11 @@ Phony.define do
           one_of('2', '9')                >> split(8)   | # Santiago, Mobile
           fixed(2)                        >> split(8)     # 2-digit NDCs
 
-  # TODO Colombia.
-  #
-  country '57', todo
+  # Colombia.
+  # http://www.itu.int/oth/T020200002C/en
+  country '57',
+          match(/\A(3\d\d)\d+\z/) >> split(3,4) | # mobile (300 310 311 312 313 315 316)
+          fixed(1) >> split(3,4)
 
   # Venezuela (Bolivarian Republic of)
   #
