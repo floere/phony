@@ -326,6 +326,13 @@ describe 'country descriptions' do
       it_splits '51912341234', ['51', '9', '1234', '1234'] # mobile
       it_splits '51841234123', ['51', '84', '1234', '123'] # Cuzco, best effort
     end
+    describe 'Philippines' do
+      it_splits '6321234567', ['63', '2', '1234567']
+      it_splits '6321234567890', ['63', '2', '1234567890']
+      it_splits '632123456789012', ['63', '2', '123456789012']
+      it_splits '639121234567', ['63', '912', '1234567']
+      it_splits '63881234567', ['63', '88', '1234567']
+    end
     describe 'Poland' do
       it_splits '48123456789', ['48', '12', '345', '67', '89'] # Landline
       it_splits '48501123456', ['48', '501', '123', '456']     # Mobile

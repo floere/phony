@@ -17,10 +17,18 @@ describe 'validations' do
 
       it "is correct for #{country_name}" do
         samples.each do |sample|
-          Phony.plausible?(sample).should be_true
-          # damage number
-          Phony.plausible?(sample.sub(/\d\D*\z/, '')).should be_false # too short
-          Phony.plausible?(sample + '0').should be_false  # too long
+          correct = [*sample]
+
+          shortest = correct.min{|x| x.scan(/\d/).length}
+          longest = correct.max{|x| x.scan(/\d/).length}
+          incorrect = [shortest.sub(/\d\s*\z/, ''), longest + '0']
+
+          correct.each do |value|
+            Phony.plausible?(value).should be_true
+          end
+          incorrect.each do |value|
+            Phony.plausible?(value).should be_false
+          end
         end
       end
     end
@@ -283,7 +291,10 @@ describe 'validations' do
       it_is_correct_for 'Belize', :samples => '+501 205 1234'
       it_is_correct_for 'Benin', :samples => '+229 1234 5678'
       it_is_correct_for 'Bolivia', :samples => '+591 2 277 2266'
-      it_is_correct_for 'Colombia', :samples =>['+57 1 123 4567', '+57 310 123 4567']
+      it_is_correct_for 'Colombia', :samples => ['+57 1 123 4567', '+57 310 123 4567']
+      it_is_correct_for 'Philippines', :samples => [['+63 2 1234567', '+63 2 1234567890'],
+                                                    '+63 88 1234567',
+                                                    ['+63 920 123456', '+63 920 1234567']]
 
     end
     

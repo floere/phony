@@ -191,7 +191,17 @@ Phony.define do
           fixed(3) >> split(7)                    |
           fixed(3) >> split(8)
 
-  country '63', todo # TODO Philippines (Republic of the)
+  # TODO Philippines (Republic of the)
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
+  country '63',
+          # 7/10 digits for area code '2'.
+          match(/\A(2)\d{10}\z/) >> split(10) |
+          one_of('2') >> split(7) |
+          # mobile
+          match(/\A(9\d\d)\d{7}\z/) >> split(7) |
+          match(/\A(9\d\d)\d+\z/) >> split(6) |
+          #
+          fixed(2) >> split(7)
 
   # New Zealand.
   #
