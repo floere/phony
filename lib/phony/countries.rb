@@ -221,7 +221,7 @@ Phony.define do
           one_of('2') >> split(3,4) | # Bangkok
           fixed(2)    >> split(3,3)   # Rest
 
-  country '81', todo # TODO Japan
+  # country '81'  # Japan, see special file.
 
   # country '82' # SouthKorea, see special file.
 

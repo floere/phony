@@ -259,6 +259,14 @@ describe 'country descriptions' do
       it_splits '3903123391',   ['39', '031', '233', '91']   # Como
       it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
     end
+    describe 'Japan' do
+      it_splits '81312345678', %w(81 3 1234 5678)
+      it_splits '81120123456', %w(81 120 123 456)
+      it_splits '81111234567', %w(81 11 1234 567)
+      it_splits '81123123456', %w(81 123 123 456)
+      it_splits '81126712345', %w(81 1267 123 45)
+      it_splits '819012345678', %w(81 90 1234 5678)
+    end
     describe 'Kenya' do
       it_splits '254201234567', ['254', '20', '1234567'] # Nairobi
       it_splits '254111234567', ['254', '11', '1234567'] # Mombasa
