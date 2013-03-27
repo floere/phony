@@ -107,6 +107,10 @@ describe 'country descriptions' do
       it_splits '862112345678', ['86', '21', '1234', '5678']   # Shanghai
       it_splits '8675582193447', ['86', '755', '8219', '3447'] # Shenzhen
     end
+    describe 'Colombia' do
+      it_splits '5711234567', ['57', '1', '123', '4567']
+      it_splits '573101234567', ['57', '310', '123', '4567'] # mobile
+    end
     describe 'Croatia' do
       it_splits '385112312345', ['385', '1', '123', '12345'] # Zagreb
       it_splits '385491231234', ['385', '49', '123', '1234'] # Krapina
@@ -255,6 +259,14 @@ describe 'country descriptions' do
       it_splits '3903123391',   ['39', '031', '233', '91']   # Como
       it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
     end
+    describe 'Japan' do
+      it_splits '81312345678', %w(81 3 1234 5678)
+      it_splits '81120123456', %w(81 120 123 456)
+      it_splits '81111234567', %w(81 11 1234 567)
+      it_splits '81123123456', %w(81 123 123 456)
+      it_splits '81126712345', %w(81 1267 123 45)
+      it_splits '819012345678', %w(81 90 1234 5678)
+    end
     describe 'Kenya' do
       it_splits '254201234567', ['254', '20', '1234567'] # Nairobi
       it_splits '254111234567', ['254', '11', '1234567'] # Mombasa
@@ -317,10 +329,23 @@ describe 'country descriptions' do
       it_splits '4781234567', ['47',false,'812','34','567']
       it_splits '4791234567', ['47',false,'912','34','567']
     end
+    describe 'Pakistan' do
+      it_splits '922112345678', %w(92 21 1234 5678)
+      it_splits '92221234567', %w(92 22 1234 567)
+      it_splits '92232123456', %w(92 232 123 456)
+      it_splits '923012345678', %w(92 30 1234 5678)
+    end
     describe 'Peru' do
       it_splits '51112341234', ['51', '1', '1234', '1234'] # Lima
       it_splits '51912341234', ['51', '9', '1234', '1234'] # mobile
       it_splits '51841234123', ['51', '84', '1234', '123'] # Cuzco, best effort
+    end
+    describe 'Philippines' do
+      it_splits '6321234567', ['63', '2', '1234567']
+      it_splits '6321234567890', ['63', '2', '1234567890']
+      it_splits '632123456789012', ['63', '2', '123456789012']
+      it_splits '639121234567', ['63', '912', '1234567']
+      it_splits '63881234567', ['63', '88', '1234567']
     end
     describe 'Poland' do
       it_splits '48123456789', ['48', '12', '345', '67', '89'] # Landline
