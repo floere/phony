@@ -19,8 +19,8 @@ describe 'validations' do
         samples.each do |sample|
           correct = [*sample]
 
-          shortest = correct.min{|x| x.scan(/\d/).length}
-          longest = correct.max{|x| x.scan(/\d/).length}
+          shortest = correct.min_by{|x| x.scan(/\d/).length}
+          longest = correct.max_by{|x| x.scan(/\d/).length}
           incorrect = [shortest.sub(/\d\s*\z/, ''), longest + '0']
 
           correct.each do |value|
