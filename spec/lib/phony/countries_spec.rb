@@ -638,6 +638,12 @@ describe 'country descriptions' do
     describe 'Micronesia (Federated States of)' do
       it_splits '6911991754', ['691', false, '199', '1754']
     end
+    describe 'Mozambique' do
+      it_splits '258600123456', %w(258 600 123 456)
+      it_splits '25825112345', %w(258 251 123 45)
+      it_splits '258821234456', %w(258 82 1234 456)
+      it_splits '258712344567', %w(258 7 1234 4567)
+    end
     describe 'Nauru (Republic of)' do
       it_splits '6741288739', ['674', false, '128', '8739']
     end

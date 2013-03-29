@@ -385,7 +385,14 @@ describe 'validations' do
       it_is_correct_for 'Tuvalu', :samples => '+688  93742'
       it_is_correct_for 'Uzbekistan (Republic of)', :samples => '+998 78 867 4419'
       it_is_correct_for 'Vanuatu (Republic of)', :samples => ['+678  7216 123', '+678  26 123']
-      it_is_correct_for 'Lybia', :samples => ['+218 205 123 45', '+218 22 123 456', '+218 21 1234 456', '+218 91 1234 456']
+      it_is_correct_for 'Lybia', :samples => ['+218 205 123 45',
+                                              '+218 22 123 456',
+                                              '+218 21 1234 456',
+                                              '+218 91 1234 456']
+      it_is_correct_for 'Mozambique', :samples => ['+258 600 123 456',
+                                                   '+258 251 123 45',
+                                                   '+258 82 1234 456',
+                                                   '+258 7 1234 4567']
 
     end
     

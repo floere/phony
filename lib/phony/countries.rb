@@ -367,7 +367,22 @@ Phony.define do
           fixed(2)                   >> split(7)   # Geo 2.
 
   country '257', none >> split(4,4) # Burundi http://www.wtng.info/wtng-257-bi.html
-  country '258', todo # Mozambique
+
+  # Mozambique, https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=MZ
+  country '258',
+          one_of(%w(600)) >> split(3,3) | # audiotext
+          one_of(%w(610)) >> split(3,3) | # ISP
+          one_of(%w(800)) >> split(3,3) | # freephone
+          one_of(%w(801)) >> split(3,3) | # local rate
+          one_of(%w(802)) >> split(3,3) | # national rate
+          one_of(%w(251 252 271 272 281 282 293)) >> split(3,2) |
+          one_of(%w(21 23 24 26)) >> split(3,3) |
+          one_of(%w(82 84 86)) >> split(4,3) | # mobile
+          one_of(%w(89)) >> split(4,3) | # satellite GMPCS
+          one_of(%w(7)) >> split(4,4) | # universal access
+          one_of(%w(9)) >> split(4,4) | # premium rate
+          fixed(2) >> split(3,3)
+
   country '259', todo # -
 
   # Zambia
