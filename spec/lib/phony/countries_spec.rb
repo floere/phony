@@ -606,6 +606,12 @@ describe 'country descriptions' do
       it_splits '23121234567', ['231', false, '2123', '4567']
       it_splits '2314123456', ['231', false, '4123', '456']
     end
+    describe 'Libya' do
+      it_splits '21820512345', %w(218 205 123 45)
+      it_splits '21822123456', %w(218 22 123 456)
+      it_splits '218211234456', %w(218 21 1234 456)
+      it_splits '218911234456', %w(218 91 1234 456)
+    end
     describe 'Madagascar' do
       it_splits '26120012345678', ['261', false, '20', '012', '345', '678']
       it_splits '261201243456', ['261', false, *%w(20 124 3456)]

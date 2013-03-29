@@ -268,7 +268,9 @@ Phony.define do
   country '215', todo # -
   country '216', fixed(1) >> split(3,4) # Tunisia
   country '217', todo # -
-  country '218', todo # Lybia
+
+  # country '218' # Lybia, see special file
+
   country '219', todo # -
 
   country '220', none >> split(3,4) # Gambia http://www.wtng.info/wtng-220-gm.html
