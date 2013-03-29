@@ -484,6 +484,231 @@ describe 'country descriptions' do
     describe 'New Zealand' do
       it { Phony.split('6491234567').should == ['64', '9', '123', '4567'] }
     end
+    describe 'Bhutan (Kingdom of)' do
+      it_splits '9759723642', %w(975 9 723 642)
+    end
+    describe 'Brunei Darussalam' do
+      it_splits '6737932744', %w(673 7 932 744)
+    end
+    describe 'Burkina Faso' do
+      it_splits '22667839323', ['226', false, '6783', '9323']
+    end
+    describe 'Burundi' do
+      it_splits '25712345678', ['257', false, '1234', '5678']
+    end
+    describe 'Cameroon' do
+      it_splits '23727659381', ['237', false, '2765', '9381']
+    end
+    describe 'Cape Verde' do
+      it_splits '2385494177', ['238', false, '549', '4177']
+    end
+    describe 'Central African Republic' do
+      it_splits '23612345678', ['236', false, '1234', '5678']
+    end
+    describe 'Chad' do
+      it_splits '23512345678', ['235', false, '1234', '5678']
+    end
+    describe 'Comoros' do
+      it_splits '2693901234', ['269', false, '3901', '234']
+      it_splits '2693401234', ['269', false, '3401', '234']
+    end
+    describe 'Congo' do
+      it_splits '242123456789', ['242', false, '1234', '56789']
+    end
+    describe 'Cook Islands' do
+      it_splits '68251475', ['682', false, '51', '475']
+    end
+    describe 'Costa Rica' do
+      it_splits '50622345678', %w(506 2 234 5678)
+    end
+    describe "Côte d'Ivoire" do
+      it_splits '22537335518', ['225', false, '3733', '5518']
+    end
+    describe 'Democratic Republic of Timor-Leste' do
+      it_splits '6701742945', ['670', false, '174', '2945']
+    end
+    describe 'Democratic Republic of the Congo' do
+      it_splits '24311995381', %w(243 1 199 5381)
+    end
+    describe 'Diego Garcia' do
+      it_splits '2461234683', ['246', false, '123', '4683']
+    end
+    describe 'Djibouti' do
+      it_splits '25349828978', ['253', false, '4982', '8978']
+    end
+    describe 'Ecuador' do
+      it_splits '593445876756', %w(593 44 587 6756)
+    end
+    describe 'Eritrea' do
+      it_splits '2916537192', %w(291 6 537 192)
+    end
+    describe 'Ethiopia' do
+      it_splits '251721233486', %w(251 72 123 3486)
+    end
+    describe 'Falkland Islands (Malvinas)' do
+      it_splits '50014963', ['500', false, '14', '963']
+    end
+    describe 'Faroe Islands' do
+      it_splits '298997986', ['298', false, '997', '986']
+    end
+    describe 'Fiji (Republic of)' do
+      it_splits '6798668123', ['679', false, '866', '8123']
+    end
+    describe 'French Guiana (French Department of)' do
+      it_splits '594594123456', %w(594 594 123 456)
+    end
+    describe "French Polynesia (Territoire français d'outre-mer)" do
+      it_splits '689219889', ['689', false, '219', '889']
+    end
+    describe 'Gabonese Republic' do
+      it_splits '2411834375', ['241', '1', '834', '375']
+    end
+    describe 'Gambia' do
+      it_splits '2206683355', ['220', false, '668', '3355']
+    end
+    describe 'Greenland' do
+      it_splits '299314185', ['299', '31', '4185']
+      it_splits '299691123', ['299', '691', '123']
+    end
+    describe 'Guadeloupe (French Department of)' do
+      it_splits '590123456789', %w(590 123 456 789)
+    end
+    describe 'Guatemala (Republic of)' do
+      it_splits '50219123456789', ['502', '19', '123', '456', '789']
+      it_splits '50221234567', ['502', '2', '123', '4567']
+    end
+    describe 'Guinea' do
+      it_splits '22412345678', ['224', false, '1234', '5678']
+    end
+    describe 'Guinea-Bissau' do
+      it_splits '2453837652', ['245', false, '383', '7652']
+    end
+    describe 'Guyana' do
+      it_splits '5922631234', %w(592 263 1234)
+    end
+    describe 'Honduras (Republic of)' do
+      it_splits '50412961637', %w(504 12 961 637)
+    end
+    describe 'Kiribati (Republic of)' do
+      it_splits '68634814', ['686', false, '34', '814']
+    end
+    describe 'Kuwait (State of)' do
+      it_splits '96523456789', ['965', false, '2345', '6789']
+      it_splits '9651812345', ['965', false, '181', '2345']
+    end
+    describe "Lao People's Democratic Republic" do
+      it_splits '85697831195', %w(856 97 831 195)
+    end
+    describe 'Lesotho' do
+      it_splits '26623592495', ['266', false, '2359', '2495']
+    end
+    describe 'Liberia' do
+      it_splits '23121234567', ['231', false, '2123', '4567']
+      it_splits '2314123456', ['231', false, '4123', '456']
+    end
+    describe 'Madagascar' do
+      it_splits '26120012345678', ['261', false, '20', '012', '345', '678']
+      it_splits '261201243456', ['261', false, *%w(20 124 3456)]
+      it_splits '261512345678', ['261', false, *%w(512 345 678)]
+    end
+    describe 'Maldives (Republic of)' do
+      it_splits '9606568279', ['960', '656', '8279']
+    end
+    describe 'Mali' do
+      it_splits '22379249349', ['223', false, '7924', '9349']
+    end
+    describe 'Marshall Islands (Republic of the)' do
+      it_splits '6924226536', ['692', false, '422', '6536']
+    end
+    describe 'Martinique (French Department of)' do
+      it_splits '596596123456', %w(596 596 123 456)
+    end
+    describe 'Mauritania' do
+      it_splits '22212345678', ['222', false, '1234', '5678']
+    end
+    describe 'Mauritius' do
+      it_splits '2309518919', ['230', false, '951', '8919']
+    end
+    describe 'Micronesia (Federated States of)' do
+      it_splits '6911991754', ['691', false, '199', '1754']
+    end
+    describe 'Nauru (Republic of)' do
+      it_splits '6741288739', ['674', false, '128', '8739']
+    end
+    describe "New Caledonia (Territoire français d'outre-mer)" do
+      it_splits '687747184', ['687', false, '747', '184']
+    end
+    describe 'Nicaragua' do
+      it_splits '50512345678', ['505', '12', '345', '678']
+    end
+    describe 'Niger' do
+      it_splits '22712345678', ['227', false, '1234', '5678']
+    end
+    describe 'Niue' do
+      it_splits '6833651', ['683', false, '3651']
+    end
+    describe 'Palau (Republic of)' do
+      it_splits '6804873653', ['680', false, '487', '3653']
+    end
+    describe 'Panama (Republic of)' do
+      it_splits '5078001234', %w(507 800 1234)
+      it_splits '50761234567', %w(507 6 123 4567)
+      it_splits '5072123456', %w(507 2 123 456)
+    end
+    describe 'Reunion / Mayotte (new)' do
+      it_splits '2625943992657', ['262', false, '59439', '92657']
+    end
+    describe 'Saint Helena' do
+      it_splits '2903614', ['290', false, '3614']
+    end
+    describe 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)' do
+      it_splits '508418826', ['508', false, '418', '826']
+    end
+    describe 'Saudi Arabia (Kingdom of)' do
+      it_splits '96628528423', %w(966 2 852 8423)
+    end
+    describe 'Senegal' do
+      it_splits '221123456789', ['221', false, '1234', '56789']
+    end
+    describe 'Sierra Leone' do
+      it_splits '23264629769', %w(232 64 629 769)
+    end
+    describe 'Solomon Islands' do
+      it_splits '67754692', ['677', false, '54', '692']
+      it_splits '6777546921', ['677', false, '7546', '921']
+    end
+    describe 'Somali Democratic Republic' do
+      it_splits '252103412345', %w(252 1034 123 45)
+      it_splits '2521313123', %w(252 1313 123)
+      it_splits '2521601234', %w(252 160 12 34)
+      it_splits '25250012345', %w(252 500 123 45)
+      it_splits '252671234567', %w(252 67 1234 567)
+    end
+    describe 'Suriname (Republic of)' do
+      it_splits '597958434', ['597', false, '958', '434']
+
+      it_splits  '597212345',  ['597', false, '212', '345']
+      it_splits  '5976123456', ['597', false, '612', '3456']
+    end
+    describe 'Swaziland' do
+      it_splits '26822071234', ['268', false, '2207', '1234']
+      it_splits '2685501234', ['268', false, '550', '1234']
+    end
+    describe 'Togolese Republic' do
+      it_splits '22812345678', ['228', false, '1234', '5678']
+    end
+    describe 'Tokelau' do
+      it_splits '6901371', %w(690 1 371)
+    end
+    describe 'Tuvalu' do
+      it_splits '68893741', ['688', false, '93741']
+    end
+    describe 'Uzbekistan (Republic of)' do
+      it_splits '998433527869', %w(998 43 352 7869)
+    end
+    describe 'Vanuatu (Republic of)' do
+      it_splits '67889683', ['678', false, '89', '683']
+    end
   end
 
 end

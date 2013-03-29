@@ -24,10 +24,10 @@ describe 'validations' do
           incorrect = [shortest.sub(/\d\s*\z/, ''), longest + '0']
 
           correct.each do |value|
-            Phony.plausible?(value).should be_true
+            Phony.plausible?(value).should be_true, "not validates '#{value}', but should"
           end
           incorrect.each do |value|
-            Phony.plausible?(value).should be_false
+            Phony.plausible?(value).should be_false, "validates '#{value}', but should not"
           end
         end
       end
@@ -305,6 +305,86 @@ describe 'validations' do
                                                  '+92 22 1234 567',
                                                  '+92 232 123 456',
                                                  '+92 30 1234 5678']
+      it_is_correct_for 'Bhutan (Kingdom of)', :samples => '+975 2 889 648'
+      it_is_correct_for 'Brunei Darussalam', :samples => '+673 5 523 876'
+      it_is_correct_for 'Burkina Faso', :samples => '+226  1476 2312'
+      it_is_correct_for 'Burundi', :samples => '+257  1234 5678'
+      it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'
+      it_is_correct_for 'Cape Verde', :samples => '+238  642 3843'
+      it_is_correct_for 'Central African Republic', :samples => '+236  1234 5678'
+      it_is_correct_for 'Chad', :samples => '+235  1234 5678'
+      it_is_correct_for 'Comoros', :samples => ['+269 3901 234', '+269 3401 234']
+      it_is_correct_for 'Congo', :samples => '+242 1234 56789'
+      it_is_correct_for 'Cook Islands', :samples => '+682  71928'
+      it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'
+      it_is_correct_for "Côte d'Ivoire", :samples => '+225  9358 8764'
+      it_is_correct_for 'Democratic Republic of Timor-Leste', :samples => ['+670 465 7886', '+670 7465 7886']
+      it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 8 864 9794'
+      it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
+      it_is_correct_for 'Djibouti', :samples => '+253  3671 1431'
+      it_is_correct_for 'Ecuador', :samples => '+593 68 467 4579'
+      it_is_correct_for 'Eritrea', :samples => '+291 6 334 475'
+      it_is_correct_for 'Ethiopia', :samples => '+251 89 558 3197'
+      it_is_correct_for 'Falkland Islands (Malvinas)', :samples => '+500  28494'
+      it_is_correct_for 'Faroe Islands', :samples => '+298  969 597'
+      it_is_correct_for 'Fiji (Republic of)', :samples => '+679  998 2441'
+      it_is_correct_for 'French Guiana (French Department of)', :samples => '+594 594 123 456'
+      it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689  872 784'
+      it_is_correct_for 'Gabonese Republic', :samples => '+241 1 627 739'
+      it_is_correct_for 'Gambia', :samples => '+220  989 5148'
+      it_is_correct_for 'Greenland', :samples => '+299  922 954'
+      it_is_correct_for 'Guadeloupe (French Department of)', :samples => '+590 123 456 789'
+      it_is_correct_for 'Guatemala (Republic of)', :samples => ['+502 19 123 456 789',
+                                                                '+502 2 123 4567']
+      it_is_correct_for 'Guinea', :samples => '+224 1234 5678'
+      it_is_correct_for 'Guinea-Bissau', :samples => '+245  728 6998'
+      it_is_correct_for 'Guyana', :samples => '+592 263 1234'
+      it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
+      it_is_correct_for 'Kiribati (Republic of)', :samples => '+686  31993'
+      it_is_correct_for 'Kuwait (State of)', :samples => ['+965 2345 6789', '+965 181 2345' ]
+      it_is_correct_for "Lao People's Democratic Republic", :samples => ['+856 96 443 333',
+                                                                         '+856 30 443 3334',
+                                                                         '+856 20 4433 3334']
+      it_is_correct_for 'Lesotho', :samples => '+266  7612 6866'
+      it_is_correct_for 'Liberia', :samples => [['+231 2 123 4567', '+231 4 123 456']]
+      it_is_correct_for 'Madagascar', :samples => ['+261 20 012 345 678',
+                                                   '+261 20 124 3456',
+                                                   '+261 512 345 678']
+      it_is_correct_for 'Maldives (Republic of)', :samples => '+960  928 8399'
+      it_is_correct_for 'Mali', :samples => '+223  1117 9812'
+      it_is_correct_for 'Marshall Islands (Republic of the)', :samples => '+692  372 7183'
+      it_is_correct_for 'Martinique (French Department of)', :samples => '+596 596 123 456'
+      it_is_correct_for 'Mauritania', :samples => '+222  1234 5678'
+      it_is_correct_for 'Mauritius', :samples => '+230  695 2277'
+      it_is_correct_for 'Micronesia (Federated States of)', :samples => '+691  766 7914'
+      it_is_correct_for 'Nauru (Republic of)', :samples => '+674  239 8387'
+      it_is_correct_for "New Caledonia (Territoire français d'outre-mer)", :samples => '+687  546 835'
+      it_is_correct_for 'Nicaragua', :samples => '+505 12 345 678'
+      it_is_correct_for 'Niger', :samples => '+227  1234 5678'
+      it_is_correct_for 'Niue', :samples => '+683  3791'
+      it_is_correct_for 'Palau (Republic of)', :samples => '+680  483 7871'
+      it_is_correct_for 'Panama (Republic of)', :samples => ['+507 800 1234',
+                                                             '+507 6 123 4567',
+                                                             '+507 2 123 456']
+      it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262  29527 69649'
+      it_is_correct_for 'Saint Helena', :samples => '+290  5134'
+      it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
+      it_is_correct_for 'Saudi Arabia (Kingdom of)', :samples => '+966 5 296 3727'
+      it_is_correct_for 'Senegal', :samples => '+221  1234 56789'
+      it_is_correct_for 'Sierra Leone', :samples => '+232 42 393 972'
+      it_is_correct_for 'Solomon Islands', :samples => '+677  97851'
+      it_is_correct_for 'Somali Democratic Republic', :samples => ['+252 1034 123 45',
+                                                                   '+252 1313 123',
+                                                                   '+252 160 12 34',
+                                                                   '+252 500 123 45',
+                                                                   '+252 67 1234 567']
+      it_is_correct_for 'Suriname (Republic of)', :samples => ['+597 212 345', '+597 612 3456']
+      it_is_correct_for 'Swaziland', :samples => ['+268 2207 1234', '+268 550 1234']
+      it_is_correct_for 'Togolese Republic', :samples => '+228 1234 5678'
+      it_is_correct_for 'Tokelau', :samples => '+690 3 291'
+      it_is_correct_for 'Tuvalu', :samples => '+688  93742'
+      it_is_correct_for 'Uzbekistan (Republic of)', :samples => '+998 78 867 4419'
+      it_is_correct_for 'Vanuatu (Republic of)', :samples => ['+678  7216 123', '+678  26 123']
 
     end
     
