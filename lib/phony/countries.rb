@@ -411,7 +411,8 @@ Phony.define do
 
   # country '263' # Zimbabwe, see special file
 
-  country '264', todo # Namibia
+  # country '264' # Namibia, see special file
+
   country '265', todo # Malawi
   country '266', none >> split(4, 4) # Lesotho http://www.wtng.info/wtng-266-ls.html
   country '267', todo # Botswana

@@ -730,6 +730,12 @@ describe 'country descriptions' do
       it_splits  '26327012345', %w(263 270 123 45)
       it_splits  '2638612354567', %w(263 86 1235 4567)
     end
+    describe 'Namibia' do
+      it_splits '264675161324', %w(264 6751 613 24)
+      it_splits '26467175890', %w(264 67 175 890)
+      it_splits '26463088612345', %w(264 63 088 612 345)
+      it_splits '264851234567', %w(264 85 1234 567)
+    end
   end
 
 end
