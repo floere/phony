@@ -690,6 +690,14 @@ describe 'country descriptions' do
     describe 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)' do
       it_splits '508418826', ['508', false, '418', '826']
     end
+    describe 'San Marino' do
+      it_splits '378800123', ['378', false, '800', '123']
+      it_splits '3788001234567', ['378', false, '800', '123', '4567']
+      it_splits '378012345', ['378', false, '012', '345']
+      it_splits '3780123456789', ['378', false, '012', '345', '6789']
+      it_splits '378512345', ['378', false, '512', '345']
+      it_splits '3785123456789', ['378', false, '512', '345', '6789']
+    end
     describe 'Saudi Arabia (Kingdom of)' do
       it_splits '96628528423', %w(966 2 852 8423)
     end

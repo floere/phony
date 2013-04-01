@@ -590,7 +590,13 @@ Phony.define do
           one_of('6')  >> split(2,2,2,2) | # mobile
           fixed(2) >> split(2,2,2)
 
-  country '378', todo # San Marino
+  # San Marino
+  country '378',
+          none >> matched_split(
+              /\A\d{6}\z/ => [3,3],
+              /\A\d+\z/ => [3,3,4]
+          )
+
   country '379', todo # Vatican City State
 
   country '380', todo # Ukraine

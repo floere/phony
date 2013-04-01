@@ -383,6 +383,12 @@ describe 'validations' do
       it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262  29527 69649'
       it_is_correct_for 'Saint Helena', :samples => '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
+      it_is_correct_for 'San Marino', :samples => ['+378 800 123',
+                                                   '+378 800 123 4567',
+                                                   '+378 012 345',
+                                                   '+378 012 345 6789',
+                                                   '+378 512 345',
+                                                   '+378 512 345 6789']
       it_is_correct_for 'Saudi Arabia (Kingdom of)', :samples => '+966 5 296 3727'
       it_is_correct_for 'Senegal', :samples => '+221  1234 56789'
       it_is_correct_for 'Sierra Leone', :samples => '+232 42 393 972'
