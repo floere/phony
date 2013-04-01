@@ -749,6 +749,14 @@ describe 'country descriptions' do
     describe 'Tuvalu' do
       it_splits '68893741', ['688', false, '93741']
     end
+    describe 'Ukraine' do
+      it_splits '380800123456', %w(380 800 123 456)
+      it_splits '380312123456', %w(380 312 123 456)
+      it_splits '380320123456', %w(380 32 0123 456)
+      it_splits '380325912345', %w(380 3259 123 45)
+      it_splits '380326061234', %w(380 32606 1234)
+      it_splits '380981234567', %w(380 981 234 567)
+    end
     describe 'Uzbekistan (Republic of)' do
       it_splits '998433527869', %w(998 43 352 7869)
     end

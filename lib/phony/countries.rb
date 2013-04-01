@@ -600,7 +600,8 @@ Phony.define do
 
   country '379', todo # Vatican City State
 
-  country '380', todo # Ukraine
+  # country '380' # Ukraine, see special file
+
   country '381', todo # Serbia and Montenegro
   country '382', todo # -
   country '383', todo # -
