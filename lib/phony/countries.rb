@@ -575,7 +575,8 @@ Phony.define do
           match(/^((?:70|8[12])\d\d)\d+$/) >> split(4) | # Mobile
           fixed(3)                         >> split(4)   # 3-digit NDCs
 
-  country '373', todo # Moldova
+  # country '373' # Moldova, see special file
+
   country '374', match(/\A(10|55|77|9[13-9])\d*\z/) >> split(6) | # Armenia
                  fixed(3) >> split(5)
 

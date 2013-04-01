@@ -370,6 +370,11 @@ describe 'validations' do
       it_is_correct_for 'Mauritania', :samples => '+222  1234 5678'
       it_is_correct_for 'Mauritius', :samples => '+230  695 2277'
       it_is_correct_for 'Micronesia (Federated States of)', :samples => '+691  766 7914'
+      it_is_correct_for 'Moldova', :samples => ['+373 800 123 45',
+                                                '+373 22 123 345',
+                                                '+373 241 123 45',
+                                                '+373 605 123 45',
+                                                '+373 803 123 45']
       it_is_correct_for 'Namibia', :samples => ['+264 6751 613 24',
                                                 '+264 67 175 890',
                                                 '+264 63 088 612 345',
