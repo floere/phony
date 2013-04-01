@@ -424,7 +424,20 @@ Phony.define do
           )
 
   country '266', none >> split(4, 4) # Lesotho http://www.wtng.info/wtng-266-ls.html
-  country '267', todo # Botswana
+
+  # Botswana
+  # https://www.numberingplans.com/?page=dialling&sub=areacodes
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=BW
+  country '267',
+          one_of(%w(463 495 499 590)) >> split(4) |
+          one_of(%w(24 26 29 31 46 47 49 53 54 57 58 59 62 65 68)) >> split(3,2) |
+          one_of(%w(79)) >> split(3,3) | # VoIP telephony
+          one_of(%w(80)) >> split(3,3) | # freephone
+          one_of(%w(90)) >> split(3,3) | # premium rate
+          one_of(%w(7)) >> split(4,3) | # moblie
+          one_of(%w(8)) >> split(4,3) | # shared cost
+          one_of(%w(3)) >> split(3,3) |
+          fixed(2) >> split(3,2)
 
   # Swaziland http://www.wtng.info/wtng-268-sz.html
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=SZ

@@ -291,6 +291,12 @@ describe 'validations' do
       it_is_correct_for 'Belize', :samples => '+501 205 1234'
       it_is_correct_for 'Benin', :samples => '+229 1234 5678'
       it_is_correct_for 'Bolivia', :samples => '+591 2 277 2266'
+      it_is_correct_for 'Botswana', :samples => ['+267 80 123 456',
+                                                 '+267 29 567 89',
+                                                 '+267 463 4567',
+                                                 '+267 58 123 45',
+                                                 '+267 7 6712 345',
+                                                 '+267 8 1234 567']
       it_is_correct_for 'Colombia', :samples => ['+57 1 123 4567', '+57 310 123 4567']
       it_is_correct_for 'Philippines', :samples => [['+63 2 1234567', '+63 2 1234567890'],
                                                     '+63 88 1234567',

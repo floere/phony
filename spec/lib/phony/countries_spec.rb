@@ -87,6 +87,14 @@ describe 'country descriptions' do
       it_splits '59122772266', %w(591 2 277 2266)
     end
 
+    describe 'Botswana' do
+      it_splits '26780123456', %w(267 80 123 456)
+      it_splits '2672956789', %w(267 29 567 89)
+      it_splits '2674634567', %w(267 463 4567)
+      it_splits '2675812345', %w(267 58 123 45)
+      it_splits '26776712345', %w(267 7 6712 345)
+      it_splits '26781234567', %w(267 8 1234 567)
+    end
     describe 'Brazil' do
       it_splits '551112341234', ['55', '11', '1234', '1234']
       it_splits '5511981231234', ['55', '11', '9812', '31234'] # São Paulo's 9 digits mobile
