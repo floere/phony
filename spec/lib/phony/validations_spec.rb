@@ -350,6 +350,10 @@ describe 'validations' do
       it_is_correct_for 'Madagascar', :samples => ['+261 20 012 345 678',
                                                    '+261 20 124 3456',
                                                    '+261 512 345 678']
+      it_is_correct_for 'Malawi', :samples => ['+265 1725 123',
+                                               '+265 213 456 789',
+                                               '+265 9123 456',
+                                               '+265 991 123 456']
       it_is_correct_for 'Maldives (Republic of)', :samples => '+960  928 8399'
       it_is_correct_for 'Mali', :samples => '+223  1117 9812'
       it_is_correct_for 'Marshall Islands (Republic of the)', :samples => '+692  372 7183'
@@ -357,6 +361,10 @@ describe 'validations' do
       it_is_correct_for 'Mauritania', :samples => '+222  1234 5678'
       it_is_correct_for 'Mauritius', :samples => '+230  695 2277'
       it_is_correct_for 'Micronesia (Federated States of)', :samples => '+691  766 7914'
+      it_is_correct_for 'Namibia', :samples => ['+264 6751 613 24',
+                                                '+264 67 175 890',
+                                                '+264 63 088 612 345',
+                                                '+264 85 1234 567']
       it_is_correct_for 'Nauru (Republic of)', :samples => '+674  239 8387'
       it_is_correct_for "New Caledonia (Territoire français d'outre-mer)", :samples => '+687  546 835'
       it_is_correct_for 'Nicaragua', :samples => '+505 12 345 678'
@@ -397,11 +405,6 @@ describe 'validations' do
                                                  ['+263 147 123 456', '+263 147 123'],
                                                  ['+263 270 123 456', '+263 270 123 45'],
                                                  '+263 86 1235 4567']
-      it_is_correct_for 'Namibia', :samples => ['+264 6751 613 24',
-                                                '+264 67 175 890',
-                                                '+264 63 088 612 345',
-                                                '+264 85 1234 567']
-
 
     end
     

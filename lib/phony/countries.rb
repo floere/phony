@@ -413,7 +413,16 @@ Phony.define do
 
   # country '264' # Namibia, see special file
 
-  country '265', todo # Malawi
+  # Malawi
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=MW
+  country '265',
+          none >> matched_split(
+              /\A(21|77)\d+\z/ => [3,3,3], # geographic, mobile
+              /\A(88|99)\d{7}\z/ => [3,3,3], # mobile
+              /\A18(00|11|18|20)\z/ => [4], # ISP
+              /\A\d+\z/ => [4,3]
+          )
+
   country '266', none >> split(4, 4) # Lesotho http://www.wtng.info/wtng-266-ls.html
   country '267', todo # Botswana
 
