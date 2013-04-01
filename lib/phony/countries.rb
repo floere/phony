@@ -697,7 +697,8 @@ Phony.define do
 
   country '593', fixed(2) >> split(3, 4) # Ecuador http://www.wtng.info/wtng-593-ec.html
   country '594', fixed(3) >> split(3, 3) # French Guiana (French Department of) http://www.wtng.info/wtng-594-fr.html
-  country '595', todo # Paraguay (Republic of)
+
+  # country '595' # Paraguay (Republic of), see special file
 
   # Martinique (French Department of) http://www.wtng.info/wtng-596-mq.html, https://www.numberingplans.com
   country '596', fixed(3) >> split(3, 3)

@@ -359,6 +359,12 @@ describe 'country descriptions' do
       it_splits '92232123456', %w(92 232 123 456)
       it_splits '923012345678', %w(92 30 1234 5678)
     end
+    describe 'Paraguay (Republic of)' do
+      it_splits '59521123456', %w(595 21 123 456)
+      it_splits '595211234567', %w(595 21 123 4567)
+      it_splits '595345123456', %w(595 345 123 456)
+      it_splits '595961611234', %w(595 96 161 1234)
+    end
     describe 'Peru' do
       it_splits '51112341234', ['51', '1', '1234', '1234'] # Lima
       it_splits '51912341234', ['51', '9', '1234', '1234'] # mobile

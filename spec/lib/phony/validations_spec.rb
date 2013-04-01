@@ -401,6 +401,9 @@ describe 'validations' do
       it_is_correct_for 'Panama (Republic of)', :samples => ['+507 800 1234',
                                                              '+507 6 123 4567',
                                                              '+507 2 123 456']
+      it_is_correct_for 'Paraguay (Republic of)', :samples => [['+595 21 123 456', '+595 21 123 4567'],
+                                                               '+595 345 123 456',
+                                                               '+595 96 161 1234']
       it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262  29527 69649'
       it_is_correct_for 'Saint Helena', :samples => '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
