@@ -721,6 +721,15 @@ describe 'country descriptions' do
     describe 'Vanuatu (Republic of)' do
       it_splits '67889683', ['678', false, '89', '683']
     end
+    describe 'Zimbabwe' do
+      it_splits  '2632582123456', %w(263 2582 123 456)
+      it_splits  '2632582123', %w(263 2582 123)
+      it_splits  '263147123456', %w(263 147 123 456)
+      it_splits  '263147123', %w(263 147 123)
+      it_splits  '263270123456', %w(263 270 123 456)
+      it_splits  '26327012345', %w(263 270 123 45)
+      it_splits  '2638612354567', %w(263 86 1235 4567)
+    end
   end
 
 end

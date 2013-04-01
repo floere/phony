@@ -408,7 +408,9 @@ Phony.define do
           )
 
   country '262', none >> split(5, 5) # Reunion / Mayotte (new) http://www.wtng.info/wtng-262-fr.html
-  country '263', todo # Zimbabwe
+
+  # country '263' # Zimbabwe, see special file
+
   country '264', todo # Namibia
   country '265', todo # Malawi
   country '266', none >> split(4, 4) # Lesotho http://www.wtng.info/wtng-266-ls.html
