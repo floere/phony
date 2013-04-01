@@ -692,6 +692,12 @@ describe 'country descriptions' do
       it_splits '258821234456', %w(258 82 1234 456)
       it_splits '258712344567', %w(258 7 1234 4567)
     end
+    describe 'Namibia' do
+      it_splits '264675161324', %w(264 6751 613 24)
+      it_splits '26467175890', %w(264 67 175 890)
+      it_splits '26463088612345', %w(264 63 088 612 345)
+      it_splits '264851234567', %w(264 85 1234 567)
+    end
     describe 'Nauru (Republic of)' do
       it_splits '6741288739', ['674', false, '128', '8739']
     end
@@ -794,6 +800,15 @@ describe 'country descriptions' do
       it_splits '380326061234', %w(380 32606 1234)
       it_splits '380981234567', %w(380 981 234 567)
     end
+    describe 'Uruguay (Eastern Republic of)' do
+      it_splits '59880012345', %w(598 800 123 45)
+      it_splits '59820123456', %w(598 2 012 3456)
+      it_splits '59821123456', %w(598 21 123 456)
+      it_splits '59890912345', %w(598 909 123 45)
+      it_splits '59893123456', %w(598 93 123 456)
+      it_splits '59890812345', %w(598 908 123 45)
+      it_splits '59880512345', %w(598 805 123 45)
+    end
     describe 'Uzbekistan (Republic of)' do
       it_splits '998433527869', %w(998 43 352 7869)
     end
@@ -808,12 +823,6 @@ describe 'country descriptions' do
       it_splits  '263270123456', %w(263 270 123 456)
       it_splits  '26327012345', %w(263 270 123 45)
       it_splits  '2638612354567', %w(263 86 1235 4567)
-    end
-    describe 'Namibia' do
-      it_splits '264675161324', %w(264 6751 613 24)
-      it_splits '26467175890', %w(264 67 175 890)
-      it_splits '26463088612345', %w(264 63 088 612 345)
-      it_splits '264851234567', %w(264 85 1234 567)
     end
   end
 

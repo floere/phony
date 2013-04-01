@@ -710,7 +710,8 @@ Phony.define do
               /\A[2345]\d+\z/ => [3,3], # geographic, VoIP telephony
           )
 
-  country '598', todo # Uruguay (Eastern Republic of)
+  # country '598' # Uruguay (Eastern Republic of), see special file
+
   country '599', one_of('9') >> split(3,4) | # Netherlands Antilles (Curacao)
                  fixed(3)    >> split(4)     # (other)
 
