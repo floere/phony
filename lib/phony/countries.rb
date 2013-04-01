@@ -602,8 +602,10 @@ Phony.define do
 
   # country '380' # Ukraine, see special file
 
-  country '381', todo # Serbia and Montenegro
-  country '382', todo # -
+  # country '381' # Serbia, see special file
+
+  # country '382' # Montenegro, see special file
+
   country '383', todo # -
   country '384', todo # -
 

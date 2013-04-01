@@ -33,10 +33,12 @@ require File.expand_path '../phony/countries/latvia', __FILE__
 require File.expand_path '../phony/countries/libya', __FILE__
 require File.expand_path '../phony/countries/malaysia', __FILE__
 require File.expand_path '../phony/countries/moldova', __FILE__
+require File.expand_path '../phony/countries/montenegro', __FILE__
 require File.expand_path '../phony/countries/namibia', __FILE__
 require File.expand_path '../phony/countries/netherlands', __FILE__
 require File.expand_path '../phony/countries/pakistan', __FILE__
 require File.expand_path '../phony/countries/russia_kazakhstan_abhasia_south_osetia', __FILE__
+require File.expand_path '../phony/countries/serbia', __FILE__
 require File.expand_path '../phony/countries/somali', __FILE__
 require File.expand_path '../phony/countries/south_korea', __FILE__
 require File.expand_path '../phony/countries/sweden', __FILE__
