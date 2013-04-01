@@ -607,6 +607,11 @@ describe 'country descriptions' do
     describe "Lao People's Democratic Republic" do
       it_splits '85697831195', %w(856 97 831 195)
     end
+    describe 'Latvia' do
+      it_splits '37180123456', %w(371 801 234 56)
+      it_splits '37163723456', %w(371 637 234 56)
+      it_splits '37129412345', %w(371 294 123 45)
+    end
     describe 'Lesotho' do
       it_splits '26623592495', ['266', false, '2359', '2495']
     end

@@ -566,7 +566,7 @@ Phony.define do
           one_of('37','41')     >> trunk('8') >> split(2,2,2) | # Kaunas, Šiauliai
           fixed(3)              >> trunk('8') >> split(1,2,2)   # 3-digit NDCs.
 
-  country '371', todo # Latvia
+  # country '371' # Latvia, see special file
 
   # Estonia
   #
