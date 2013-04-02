@@ -160,6 +160,12 @@ describe 'country descriptions' do
       it_splits '33112345678', ['33', '1', '12','34','56','78'] # Paris
       it_splits '33812345678', ['33', '8', '12','34','56','78'] # Service number
     end
+    describe 'Georgia' do
+      it_splits '99522012345', %w(995 220 123 45)
+      it_splits '995321234567', %w(995 32 123 4567)
+      it_splits '995342123456', %w(995 342 123 456)
+      it_splits '995596123456', %w(995 596 123 456)
+    end
     describe 'Germany' do
       it_splits '493038625454',  ['49', '30', '386', '25454']  # Berlin
       it_splits '4932221764542', ['49', '32', '221', '764542'] # Non-Geographical

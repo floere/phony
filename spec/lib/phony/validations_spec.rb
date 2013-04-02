@@ -333,6 +333,10 @@ describe 'validations' do
       it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689  872 784'
       it_is_correct_for 'Gabonese Republic', :samples => '+241 1 627 739'
       it_is_correct_for 'Gambia', :samples => '+220  989 5148'
+      it_is_correct_for 'Georgia', :samples => ['+995 220 123 45',
+                                                '+995 32 123 4567',
+                                                '+995 342 123 456',
+                                                '+995 596 123 456']
       it_is_correct_for 'Greenland', :samples => '+299  922 954'
       it_is_correct_for 'Guadeloupe (French Department of)', :samples => '+590 123 456 789'
       it_is_correct_for 'Guatemala (Republic of)', :samples => ['+502 19 123 456 789',
