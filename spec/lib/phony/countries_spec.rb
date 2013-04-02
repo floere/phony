@@ -831,6 +831,12 @@ describe 'country descriptions' do
       it_splits '26822071234', ['268', false, '2207', '1234']
       it_splits '2685501234', ['268', false, '550', '1234']
     end
+    describe 'Syrian Arab Republic' do
+      it_splits '963111234567', %w(963 11 123 4567)
+      it_splits '963311234567', %w(963 31 123 4567)
+      it_splits '96315731234', %w(963 15 731 234)
+      it_splits '963912345678', %w(963 9 1234 5678)
+    end
     describe 'Taiwan' do
       it_splits '88618123456', %w(886 18 123 456)
       it_splits '8866121234567', %w(886 612 123 4567)

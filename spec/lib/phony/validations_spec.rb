@@ -474,6 +474,10 @@ describe 'validations' do
                                                                    '+252 67 1234 567']
       it_is_correct_for 'Suriname (Republic of)', :samples => ['+597 212 345', '+597 612 3456']
       it_is_correct_for 'Swaziland', :samples => ['+268 2207 1234', '+268 550 1234']
+      it_is_correct_for 'Syrian Arab Republic', :samples => ['+963 11 123 4567',
+                                                             '+963 31 123 4567',
+                                                             '+963 15 731 234',
+                                                             '+963 9 1234 5678']
       it_is_correct_for 'Taiwan', :samples => ['+886 18 123 456',
                                                '+886 612 123 4567',
                                                '+886 2 1234 5678',

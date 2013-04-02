@@ -928,7 +928,15 @@ Phony.define do
           one_of(%w(7)) >> split(4,4) | # mobile, pager
           fixed(1) >> split(3,4)
 
-  country '963', todo # Syrian Arab Republic
+  # Syrian Arab Republic
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=SY
+  country '963',
+          one_of(%w(11 14 31 33)) >> split(3,4) |
+          one_of(%w(12 13 15 16 21 22 23 25 34 41 43 51 52 53)) >> split(3,3) |
+          one_of(%w(4)) >> split(3,4) |
+          one_of(%w(9)) >> split(4,4) | # mobile
+          fixed(2) >> split(3,3)
+
   country '964', todo # Iraq (Republic of)
   # Kuwait (State of) http://www.wtng.info/wtng-965-kw.html
   country '965',
