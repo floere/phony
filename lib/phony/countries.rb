@@ -1020,7 +1020,9 @@ Phony.define do
 
   country '990', todo # Spare code
   country '991', todo # Trial of a proposed new international telecommunication public correspondence service, shared code
-  country '992', todo # Tajikistan (Republic of)
+
+  # country '992' # Tajikistan (Republic of), see special file
+
   country '993', todo # Turkmenistan
   country '994', fixed(2) >> split(7) # Azerbaijani Republic
   country '995', todo # Georgia

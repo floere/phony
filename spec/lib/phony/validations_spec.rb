@@ -493,6 +493,12 @@ describe 'validations' do
                                                '+886 412 1234',
                                                ['+886 90 123 456', '+886 90 123 4567'],
                                                '+886 94 991 345']
+      it_is_correct_for 'Tajikistan', :samples => ['+992 3130 123 45',
+                                                   '+992 331700 123',
+                                                   '+992 372 123 345',
+                                                   '+992 505 123 456',
+                                                   '+992 973 123 456',
+                                                   '+992 474 456 123']
       it_is_correct_for 'Togolese Republic', :samples => '+228 1234 5678'
       it_is_correct_for 'Tokelau', :samples => '+690 3 291'
       it_is_correct_for 'Tonga (Kingdom of)', :samples => ['+676 20 123',

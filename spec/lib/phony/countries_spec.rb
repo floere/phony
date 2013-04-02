@@ -871,6 +871,14 @@ describe 'country descriptions' do
     describe 'Togolese Republic' do
       it_splits '22812345678', ['228', false, '1234', '5678']
     end
+    describe 'Tajikistan' do
+      it_splits '992313012345', %w(992 3130 123 45)
+      it_splits '992331700123', %w(992 331700 123)
+      it_splits '992372123345', %w(992 372 123 345)
+      it_splits '992505123456', %w(992 505 123 456)
+      it_splits '992973123456', %w(992 973 123 456)
+      it_splits '992474456123', %w(992 474 456 123)
+    end
     describe 'Tokelau' do
       it_splits '6901371', %w(690 1 371)
     end
