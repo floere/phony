@@ -882,7 +882,9 @@ Phony.define do
   country '883', todo # -
   country '884', todo # -
   country '885', todo # -
-  country '886', todo # Reserved
+
+  # country '886' # Taiwan, see special file
+
   country '887', todo # -
   country '888', todo # Reserved for future global service
   country '889', todo # -

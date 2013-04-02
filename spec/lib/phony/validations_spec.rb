@@ -458,6 +458,15 @@ describe 'validations' do
                                                                    '+252 67 1234 567']
       it_is_correct_for 'Suriname (Republic of)', :samples => ['+597 212 345', '+597 612 3456']
       it_is_correct_for 'Swaziland', :samples => ['+268 2207 1234', '+268 550 1234']
+      it_is_correct_for 'Taiwan', :samples => ['+886 18 123 456',
+                                               '+886 612 123 4567',
+                                               '+886 2 1234 5678',
+                                               '+886 3 123 4567',
+                                               '+886 33 123 456',
+                                               '+886 827 123 45',
+                                               '+886 412 1234',
+                                               ['+886 90 123 456', '+886 90 123 4567'],
+                                               '+886 94 991 345']
       it_is_correct_for 'Togolese Republic', :samples => '+228 1234 5678'
       it_is_correct_for 'Tokelau', :samples => '+690 3 291'
       it_is_correct_for 'Tonga (Kingdom of)', :samples => ['+676 20 123',

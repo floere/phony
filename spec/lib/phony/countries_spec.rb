@@ -812,6 +812,18 @@ describe 'country descriptions' do
       it_splits '26822071234', ['268', false, '2207', '1234']
       it_splits '2685501234', ['268', false, '550', '1234']
     end
+    describe 'Taiwan' do
+      it_splits '88618123456', %w(886 18 123 456)
+      it_splits '8866121234567', %w(886 612 123 4567)
+      it_splits '886212345678', %w(886 2 1234 5678)
+      it_splits '88631234567', %w(886 3 123 4567)
+      it_splits '88633123456', %w(886 33 123 456)
+      it_splits '88682712345', %w(886 827 123 45)
+      it_splits '8864121234', %w(886 412 1234)
+      it_splits '88690123456', %w(886 90 123 456)
+      it_splits '886901234567', %w(886 90 123 4567)
+      it_splits '88694991345', %w(886 94 991 345)
+    end
     describe 'Togolese Republic' do
       it_splits '22812345678', ['228', false, '1234', '5678']
     end
