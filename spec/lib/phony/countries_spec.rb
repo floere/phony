@@ -622,6 +622,13 @@ describe 'country descriptions' do
     describe 'Kiribati (Republic of)' do
       it_splits '68634814', ['686', false, '34', '814']
     end
+    describe "Democratic People's Republic of Korea" do
+      it_splits '850212345', %w(850 2 123 45)
+      it_splits '8502123456789', %w(850 2 123 456 789)
+      it_splits '85023812356', %w(850 2 381 2356)
+      #it_splits '85028801123456781256', %w(850 2 8801 1234 5678 1256)
+      it_splits '8501911234567', %w(850 191 123 4567)
+    end
     describe 'Kuwait (State of)' do
       it_splits '96523456789', ['965', false, '2345', '6789']
       it_splits '9651812345', ['965', false, '181', '2345']

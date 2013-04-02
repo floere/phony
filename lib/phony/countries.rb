@@ -826,7 +826,18 @@ Phony.define do
   country '838', todo # -
   country '839', todo # -
 
-  country '850', todo # Democratic People's Republic of Korea
+  # Democratic People's Republic of Korea
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=KP
+  country '850',
+          one_of(%w(191 192 193)) >> split(3,4) | # mobile
+          one_of(%w(2)) >> matched_split(
+              /\A\d{5}\z/ => [3,2],
+              /\A\d{7}\z/ => [3,4],
+              #/\A(880|881|882|883|885)\d+\z/ => [4,4,4,4],
+              /\A\d+\z/ => [3,3,3]) |
+          one_of(%w(31 39 41 45 53 57 61 67 73 79))  >> split(3,3) |
+          fixed(2) >> split(3,3)
+
   country '851', todo # Spare code
 
   # Hong Kong, China

@@ -347,6 +347,11 @@ describe 'validations' do
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
       it_is_correct_for 'Kiribati (Republic of)', :samples => '+686  31993'
+      it_is_correct_for "Democratic People's Republic of Korea", :samples => ['+850 2 123 45',
+                                                                              '+850 2 123 456 789',
+                                                                              '+850 2 381 2356',
+                                                                              #'+850 2 8801 1234 5678 1256',
+                                                                              '+850 191 123 4567']
       it_is_correct_for 'Kuwait (State of)', :samples => ['+965 2345 6789', '+965 181 2345' ]
       it_is_correct_for "Lao People's Democratic Republic", :samples => ['+856 96 443 333',
                                                                          '+856 30 443 3334',
