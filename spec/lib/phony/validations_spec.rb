@@ -449,6 +449,10 @@ describe 'validations' do
       it_is_correct_for 'Swaziland', :samples => ['+268 2207 1234', '+268 550 1234']
       it_is_correct_for 'Togolese Republic', :samples => '+228 1234 5678'
       it_is_correct_for 'Tokelau', :samples => '+690 3 291'
+      it_is_correct_for 'Tonga (Kingdom of)', :samples => ['+676 20 123',
+                                                           '+676 84 123',
+                                                           '+676 77 123 45',
+                                                           '+676 89 123 45']
       it_is_correct_for 'Tuvalu', :samples => '+688  93742'
       it_is_correct_for 'Uzbekistan (Republic of)', :samples => '+998 78 867 4419'
       it_is_correct_for 'Vanuatu (Republic of)', :samples => ['+678  7216 123', '+678  26 123']

@@ -746,7 +746,12 @@ Phony.define do
           one_of(%w(3 4 5 6 7 8 9)) >> split(3,3) # geographic
           fixed(1) >> split(3,3) # geographic
 
-  country '676', todo # Tonga (Kingdom of)
+  # Tonga (Kingdom of)
+  country '676',
+          none >> matched_split(
+              /\A(77|78|87|88|89)\d+\z/ => [2,3,2],
+              /\A\d+\z/ => [2,3]
+          )
 
   # Solomon Islands http://www.wtng.info/wtng-677-sb.html, https://www.numberingplans.com
   country '677',

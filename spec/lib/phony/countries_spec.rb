@@ -803,6 +803,12 @@ describe 'country descriptions' do
     describe 'Tokelau' do
       it_splits '6901371', %w(690 1 371)
     end
+    describe 'Tonga (Kingdom of)' do
+      it_splits '67620123', ['676', false, '20', '123']
+      it_splits '67684123', ['676', false, '84', '123']
+      it_splits '6767712345', ['676', false, '77', '123', '45']
+      it_splits '6768912345', ['676', false, '89', '123', '45']
+    end
     describe 'Tuvalu' do
       it_splits '68893741', ['688', false, '93741']
     end
