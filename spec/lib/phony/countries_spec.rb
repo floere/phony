@@ -641,6 +641,14 @@ describe 'country descriptions' do
       it_splits '37163723456', %w(371 637 234 56)
       it_splits '37129412345', %w(371 294 123 45)
     end
+    describe 'Lebanon' do
+      it_splits '9611123456', %w(961 1 123 456)
+      it_splits '9614123456', %w(961 4 123 456)
+      it_splits '9613123456', %w(961 3 123 456)
+      it_splits '96170123456', %w(961 70 123 456)
+      it_splits '96190123456', %w(961 90 123 456)
+      it_splits '96181123456', %w(961 81 123 456)
+    end
     describe 'Lesotho' do
       it_splits '26623592495', ['266', false, '2359', '2495']
     end

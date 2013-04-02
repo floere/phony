@@ -905,7 +905,17 @@ Phony.define do
           one_of(%w(800 900)) >> split(3,4) | # freephone, premium rate
           fixed(3) >> split(4) # geographic, mobile
 
-  country '961', todo # Lebanon
+  # Lebanon
+  # https://www.numberingplans.com/?page=dialling&sub=areacodes
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LB
+  country '961',
+          one_of(%w(70 71 76 78 79)) >> split(3,3) | # mobile
+          one_of(%w(90 91)) >> split(3,3) | # premium rate
+          one_of(%w(80 81)) >> split(3,3) | # shared cost
+          one_of(%w(1 4 5 6 7 8 9)) >> split(3,3) | # geographic
+          one_of(%w(3)) >> split(3,3) | # mobile
+          fixed(1) >> split(3,3)
+
   country '962', todo # Jordan (Hashemite Kingdom of)
   country '963', todo # Syrian Arab Republic
   country '964', todo # Iraq (Republic of)

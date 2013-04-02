@@ -359,6 +359,12 @@ describe 'validations' do
       it_is_correct_for 'Latvia', :samples => ['+371 801 234 56',
                                                '+371 637 234 56',
                                                '+371 294 123 45']
+      it_is_correct_for 'Lebanon', :samples => ['+961 1 123 456',
+                                                '+961 4 123 456',
+                                                '+961 3 123 456',
+                                                '+961 70 123 456',
+                                                '+961 90 123 456',
+                                                '+961 81 123 456']
       it_is_correct_for 'Lesotho', :samples => '+266  7612 6866'
       it_is_correct_for 'Liberia', :samples => [['+231 2 123 4567', '+231 4 123 456']]
       it_is_correct_for 'Madagascar', :samples => ['+261 20 012 345 678',
