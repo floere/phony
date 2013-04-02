@@ -717,6 +717,15 @@ describe 'country descriptions' do
       it_splits '37360512345', %w(373 605 123 45)
       it_splits '37380312345', %w(373 803 123 45)
     end
+    describe 'Mongolia' do
+      it_splits '9761112345', %w(976 11 123 45)
+      it_splits '9761211234', %w(976 121 12 34)
+      it_splits '97612112345', %w(976 121 12 345)
+      it_splits '97670123456', %w(976 70 123 456)
+      it_splits '97675123456', %w(976 75 123 456)
+      it_splits '97688123456', %w(976 88 123 456)
+      it_splits '97650123456', %w(976 50 123 456)
+    end
     describe 'Mozambique' do
       it_splits '258600123456', %w(258 600 123 456)
       it_splits '25825112345', %w(258 251 123 45)

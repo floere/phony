@@ -1000,7 +1000,19 @@ Phony.define do
   country '973', none >> split(4,4) # Bahrain (Kingdom of) http://www.itu.int/oth/T0202000011/en
   country '974', todo # Qatar (State of)
   country '975', fixed(1) >> split(3, 3) # Bhutan (Kingdom of) http://www.wtng.info/wtng-975-bt.html
-  country '976', todo # Mongolia
+
+  # Mongolia
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=MN
+  country '976',
+          one_of(%w(121 122 123 221 222 223)) >> matched_split(
+              /\A\d{4}\z/ => [2,2],
+              /\A\d+\z/ => [2,3]) |
+          one_of(%w(11 12 13 14 15 21 22 23 24 25)) >> split(3,2) |
+          one_of(%w(70 75 76 77 78 79)) >> split(3,3) | # VoIP telephony
+          one_of(%w(88 89 90 91 94 95 96 99)) >> split(3,3) | # mobile
+          one_of(%w(50 55 56 58 92)) >> split(3,3) | # wireless geographic
+          fixed(2) >> split(3,3)
+
   country '977', todo # Nepal
   country '978', todo # -
   country '979', todo # International Premium Rate Service (IPRS)
