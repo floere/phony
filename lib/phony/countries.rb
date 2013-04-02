@@ -747,6 +747,7 @@ Phony.define do
           fixed(1) >> split(3,3) # geographic
 
   # Tonga (Kingdom of)
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=TO
   country '676',
           none >> matched_split(
               /\A(77|78|87|88|89)\d+\z/ => [2,3,2],
@@ -774,7 +775,19 @@ Phony.define do
   country '682', none >> split(2,3) # Cook Islands http://www.wtng.info/wtng-682-ck.html
   country '683', none >> split(4) # Niue http://www.wtng.info/wtng-683-nu.html
   country '684', todo # -
-  country '685', todo # Samoa (Independent State of)
+
+  # Samoa (Independent State of)
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=WS
+  country '685',
+          none >> matched_split(
+              /\A800\d+\z/ => [3,3], # freephone
+              /\A830\d+\z/ => [3,3], # shared cost
+              /\A60\d+\z/ => [3,3], # wireless geographic
+              /\A(72|75|76|77)\d+\z/ => [3,4], # mobile
+              /\A84\d+\z/ => [3,4], # wireless geographic
+              /\A\d+\z/ => [2,3] # geographic
+          )
+
   country '686', none >> split(2,3) # Kiribati (Republic of) http://www.wtng.info/wtng-686-ki.html
   country '687', none >> split(3,3) # New Caledonia (Territoire français d'outre-mer) http://www.wtng.info/wtng-687-nc.html
   country '688', none >> split(5) # Tuvalu http://www.wtng.info/wtng-688-tv.html

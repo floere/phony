@@ -419,6 +419,12 @@ describe 'validations' do
       it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262  29527 69649'
       it_is_correct_for 'Saint Helena', :samples => '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
+      it_is_correct_for 'Samoa (Independent State of)', :samples => ['+685 800 123',
+                                                                     '+685 61 123',
+                                                                     '+685 721 2345',
+                                                                     '+685 830 123',
+                                                                     '+685 601 234',
+                                                                     '+685 841 2345']
       it_is_correct_for 'San Marino', :samples => ['+378 800 123',
                                                    '+378 800 123 4567',
                                                    '+378 012 345',
