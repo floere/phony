@@ -619,6 +619,17 @@ describe 'country descriptions' do
     describe 'Honduras (Republic of)' do
       it_splits '50412961637', %w(504 12 961 637)
     end
+    describe 'Jordan (Hashemite Kingdom of)' do
+      it_splits '96280012345', %w(962 800 123 45)
+      it_splits '96226201234', %w(962 2 620 1234)
+      it_splits '962712345678', %w(962 7 1234 5678)
+      it_splits '962746612345', %w(962 7 4661 2345)
+      it_splits '96290012345', %w(962 900 123 45)
+      it_splits '96285123456', %w(962 85 123 456)
+      it_splits '96270123456', %w(962 70 123 456)
+      it_splits '96262501456', %w(962 6250 1456)
+      it_splits '96287901456', %w(962 8790 1456)
+    end
     describe 'Kiribati (Republic of)' do
       it_splits '68634814', ['686', false, '34', '814']
     end

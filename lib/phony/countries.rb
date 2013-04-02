@@ -916,7 +916,18 @@ Phony.define do
           one_of(%w(3)) >> split(3,3) | # mobile
           fixed(1) >> split(3,3)
 
-  country '962', todo # Jordan (Hashemite Kingdom of)
+  # Jordan (Hashemite Kingdom of)
+  country '962',
+          one_of(%w(6250 8790)) >> split(4) | # wireless geographic
+          one_of(%w(800 801 802 803 804 805 806 807 808 809)) >> split(3,2) | # freephone
+          one_of(%w(810)) >> split(3,2) | # ISP
+          one_of(%w(900)) >> split(3,2) | # premium rate
+          one_of(%w(70)) >> split(3,3) | # universal access
+          one_of(%w(85 87)) >> split(3,3) | # shared cost
+          one_of(%w(2 3 5 6)) >> split(3,4) | # geographic
+          one_of(%w(7)) >> split(4,4) | # mobile, pager
+          fixed(1) >> split(3,4)
+
   country '963', todo # Syrian Arab Republic
   country '964', todo # Iraq (Republic of)
   # Kuwait (State of) http://www.wtng.info/wtng-965-kw.html

@@ -301,12 +301,7 @@ describe 'validations' do
       it_is_correct_for 'Philippines', :samples => [['+63 2 1234567', '+63 2 1234567890'],
                                                     '+63 88 1234567',
                                                     ['+63 920 123456', '+63 920 1234567']]
-      it_is_correct_for 'Japan', :samples => ['+81 3 1234 5678',
-                                              '+81 120 123 456',
-                                              '+81 11 1234 567',
-                                              '+81 123 123 456',
-                                              '+81 1267 123 45',
-                                              '+81 90 1234 5678']
+
       it_is_correct_for 'Pakistan', :samples => ['+92 21 1234 5678',
                                                  '+92 22 1234 567',
                                                  '+92 232 123 456',
@@ -346,6 +341,21 @@ describe 'validations' do
       it_is_correct_for 'Guinea-Bissau', :samples => '+245  728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
+      it_is_correct_for 'Japan', :samples => ['+81 3 1234 5678',
+                                              '+81 120 123 456',
+                                              '+81 11 1234 567',
+                                              '+81 123 123 456',
+                                              '+81 1267 123 45',
+                                              '+81 90 1234 5678']
+      it_is_correct_for 'Jordan (Hashemite Kingdom of)', :samples => ['+962 800 123 45',
+                                                                      '+962 2 620 1234',
+                                                                      '+962 7 1234 5678',
+                                                                      '+962 7 4661 2345',
+                                                                      '+962 900 123 45',
+                                                                      '+962 85 123 456',
+                                                                      '+962 70 123 456',
+                                                                      '+962 6250 1456',
+                                                                      '+962 8790 1456']
       it_is_correct_for 'Kiribati (Republic of)', :samples => '+686  31993'
       it_is_correct_for "Democratic People's Republic of Korea", :samples => ['+850 2 123 45',
                                                                               '+850 2 123 456 789',
