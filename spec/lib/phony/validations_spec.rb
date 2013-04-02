@@ -341,6 +341,9 @@ describe 'validations' do
       it_is_correct_for 'Guinea-Bissau', :samples => '+245  728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
+      it_is_correct_for 'Iraq', :samples => ['+964 1 123 4567',
+                                             '+964 21 113 456',
+                                             '+964 71 1234 5678']
       it_is_correct_for 'Japan', :samples => ['+81 3 1234 5678',
                                               '+81 120 123 456',
                                               '+81 11 1234 567',

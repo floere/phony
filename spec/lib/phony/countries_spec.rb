@@ -619,6 +619,11 @@ describe 'country descriptions' do
     describe 'Honduras (Republic of)' do
       it_splits '50412961637', %w(504 12 961 637)
     end
+    describe 'Iraq' do
+      it_splits '96411234567', %w(964 1 123 4567)
+      it_splits '96421113456', %w(964 21 113 456)
+      it_splits '9647112345678', %w(964 71 1234 5678)
+    end
     describe 'Jordan (Hashemite Kingdom of)' do
       it_splits '96280012345', %w(962 800 123 45)
       it_splits '96226201234', %w(962 2 620 1234)
