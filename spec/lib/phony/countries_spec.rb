@@ -877,6 +877,15 @@ describe 'country descriptions' do
       it_splits '380326061234', %w(380 32606 1234)
       it_splits '380981234567', %w(380 981 234 567)
     end
+    describe 'United Arab Emirates' do
+      it_splits '97180012', %w(971 800 12)
+      it_splits '971800123456789', %w(971 800 12 345 6789)
+      it_splits '97121234567', %w(971 2 123 4567)
+      it_splits '971506412345', %w(971 50 641 2345)
+      it_splits '971600641234', %w(971 600 641 234)
+      it_splits '971500641234', %w(971 500 641 234)
+      it_splits '971200641234', %w(971 200 641 234)
+    end
     describe 'Uruguay (Eastern Republic of)' do
       it_splits '59880012345', %w(598 800 123 45)
       it_splits '59820123456', %w(598 2 012 3456)

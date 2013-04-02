@@ -977,7 +977,19 @@ Phony.define do
           one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
           match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
 
-  country '971', todo # United Arab Emirates
+  # United Arab Emirates
+  # https://www.numberingplans.com/?page=dialling&sub=areacodes
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=AE
+  country '971',
+          one_of(%w(200 300)) >> split(3,3) | # shared cost
+          one_of(%w(600)) >> split(3,3) | # national rate
+          one_of(%w(500 700 900)) >> split(3,3) | # premium rate
+          one_of(%w(800)) >> matched_split(
+              /\A\d{2}\z/ => [2],
+              /\A\d+\z/ => [2,3,4]) | # freephone
+          one_of(%w(50 52 55 56)) >> split(3,4) | # mobile
+          one_of(%w(2 3 4 6 7 9)) >> split(3,4) |
+          fixed(1) >> split(3,4)
 
   # Israel (State of) (also works for numbers in Palestinian territories)
   country '972',
