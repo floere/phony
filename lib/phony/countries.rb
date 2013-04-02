@@ -726,7 +726,26 @@ Phony.define do
   country '672', todo # Australian External Territories
   country '673', fixed(1) >> split(3, 3) # Brunei Darussalam http://www.wtng.info/wtng-673-bn.html
   country '674', none >> split(3, 4) # Nauru (Republic of) http://www.wtng.info/wtng-674-nr.html
-  country '675', todo # Papua New Guinea
+
+  # Papua New Guinea
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PG
+  country '675',
+          one_of(%w(180 181 182 183)) >> split(4) | # freephone
+          one_of(%w(170)) >> split(2) | # mobile
+          one_of(%w(189)) >> split(1) | # mobile
+          one_of(%w(184)) >> split(4,4) | # ISP, PSDN X.28
+          one_of(%w(185 270 271)) >> split(4) | # pager
+          one_of(%w(275 276)) >> split(4) | # satellite
+          one_of(%w(278 279)) >> split(2) | # satellite
+          one_of(%w(115)) >> split(4,4) | # voicemail (mobile)
+          one_of(%w(28 29)) >> split(3,2) | # pager
+          one_of(%w(16 18)) >> split(3,2) | # ISP
+          one_of(%w(71 72 73 76)) >> split(3,3) | # mobile
+          one_of(%w(80 81 82 83)) >> split(3,3) | # freephone
+          one_of(%w(90 91 92 93)) >> split(3,3) | # geographic, ISDN
+          one_of(%w(3 4 5 6 7 8 9)) >> split(3,3) # geographic
+          fixed(1) >> split(3,3) # geographic
+
   country '676', todo # Tonga (Kingdom of)
 
   # Solomon Islands http://www.wtng.info/wtng-677-sb.html, https://www.numberingplans.com

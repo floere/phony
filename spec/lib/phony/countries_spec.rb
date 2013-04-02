@@ -721,6 +721,20 @@ describe 'country descriptions' do
       it_splits '50761234567', %w(507 6 123 4567)
       it_splits '5072123456', %w(507 2 123 456)
     end
+    describe 'Papua New Guinea' do
+      it_splits '6753123567', %w(675 3 123 567)
+      it_splits '6751801234', %w(675 180 1234)
+      it_splits '67580123456', %w(675 80 123 456)
+      it_splits '67591123456', %w(675 91 123 456)
+      it_splits '6751612345', %w(675 16 123 45)
+      it_splits '67518412345678', %w(675 184 1234 5678)
+      it_splits '67517012', %w(675 170 12)
+      it_splits '6751891', %w(675 189 1)
+      it_splits '6752701234', %w(675 270 1234)
+      it_splits '6752751234', %w(675 275 1234)
+      it_splits '67527912', %w(675 279 12)
+      it_splits '67511512345678', %w(675 115 1234 5678)
+    end
     describe 'Reunion / Mayotte (new)' do
       it_splits '2625943992657', ['262', false, '59439', '92657']
     end
