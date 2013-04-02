@@ -1013,7 +1013,8 @@ Phony.define do
           one_of(%w(50 55 56 58 92)) >> split(3,3) | # wireless geographic
           fixed(2) >> split(3,3)
 
-  country '977', todo # Nepal
+  # country '977' # Nepal, see special file
+
   country '978', todo # -
   country '979', todo # International Premium Rate Service (IPRS)
 

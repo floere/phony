@@ -741,6 +741,11 @@ describe 'country descriptions' do
     describe 'Nauru (Republic of)' do
       it_splits '6741288739', ['674', false, '128', '8739']
     end
+    describe 'Nepal' do
+      it_splits '97714345678', %w(977 1 434 5678)
+      it_splits '97710123456', %w(977 10 123 456)
+      it_splits '9779812345678', %w(977 98 1234 5678)
+    end
     describe "New Caledonia (Territoire français d'outre-mer)" do
       it_splits '687747184', ['687', false, '747', '184']
     end

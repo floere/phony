@@ -417,6 +417,9 @@ describe 'validations' do
                                                 '+264 63 088 612 345',
                                                 '+264 85 1234 567']
       it_is_correct_for 'Nauru (Republic of)', :samples => '+674  239 8387'
+      it_is_correct_for 'Nepal', :samples => ['+977 1 434 5678',
+                                              '+977 10 123 456',
+                                              '+977 98 1234 5678']
       it_is_correct_for "New Caledonia (Territoire français d'outre-mer)", :samples => '+687  546 835'
       it_is_correct_for 'Nicaragua', :samples => '+505 12 345 678'
       it_is_correct_for 'Niger', :samples => '+227  1234 5678'
