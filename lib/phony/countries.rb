@@ -957,7 +957,18 @@ Phony.define do
           )
 
   country '966', fixed(1) >> split(3, 4) # Saudi Arabia (Kingdom of) http://www.wtng.info/wtng-966-sa.html
-  country '967', todo # Yemen (Republic of)
+
+  # Yemen (Republic of)
+  # https://www.numberingplans.com/?page=dialling&sub=areacodes
+  country '967',
+          one_of(%w(70 71 73 77)) >> split(3,4) | # mobile
+          one_of(%w(58)) >> split(4) | # pager
+          one_of(%w(1)) >> matched_split(
+              /\A\d{6}\z/ => [3,3],
+              /\A\d+\z/ => [3,4]) |
+          one_of(%w(2 3 4 5 6 7)) >> split(3,3) |
+          fixed(1) >> split(3,3)
+
   country '968', todo # Oman (Sultanate of)
   country '969', todo # Reserved - reservation currently under investigation
 
