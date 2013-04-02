@@ -1023,7 +1023,8 @@ Phony.define do
 
   # country '992' # Tajikistan (Republic of), see special file
 
-  country '993', todo # Turkmenistan
+  # country '993' # Turkmenistan, see special file
+
   country '994', fixed(2) >> split(7) # Azerbaijani Republic
   country '995', todo # Georgia
   country '996', todo # Kyrgyz Republic

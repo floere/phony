@@ -891,6 +891,12 @@ describe 'country descriptions' do
     describe 'Tuvalu' do
       it_splits '68893741', ['688', false, '93741']
     end
+    describe 'Turkmenistan' do
+      it_splits '99312456789', %w(993 12 456 789)
+      it_splits '99313145678', %w(993 131 456 78)
+      it_splits '99313924567', %w(993 1392 4567)
+      it_splits '99361234567', %w(993 6 123 4567)
+    end
     describe 'Ukraine' do
       it_splits '380800123456', %w(380 800 123 456)
       it_splits '380312123456', %w(380 312 123 456)

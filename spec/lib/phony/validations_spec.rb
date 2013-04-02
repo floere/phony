@@ -505,6 +505,10 @@ describe 'validations' do
                                                            '+676 84 123',
                                                            '+676 77 123 45',
                                                            '+676 89 123 45']
+      it_is_correct_for 'Turkmenistan', :samples => ['+993 12 456 789',
+                                                     '+993 131 456 78',
+                                                     '+993 1392 4567',
+                                                     '+993 6 123 4567']
       it_is_correct_for 'Tuvalu', :samples => '+688  93742'
       it_is_correct_for 'Uzbekistan (Republic of)', :samples => '+998 78 867 4419'
       it_is_correct_for 'Vanuatu (Republic of)', :samples => ['+678  7216 123', '+678  26 123']
