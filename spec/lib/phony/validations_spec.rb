@@ -370,6 +370,14 @@ describe 'validations' do
                                                                               #'+850 2 8801 1234 5678 1256',
                                                                               '+850 191 123 4567']
       it_is_correct_for 'Kuwait (State of)', :samples => ['+965 2345 6789', '+965 181 2345' ]
+      it_is_correct_for 'Kyrgyzstan', :samples => ['+996 312 212 345',
+                                                   '+996 315 212 345',
+                                                   '+996 3131 212 34',
+                                                   '+996 3946 212 34',
+                                                   '+996 50 123 4567',
+                                                   '+996 52 123 4567',
+                                                   '+996 58 123 4567',
+                                                   '+996 800 123 456']
       it_is_correct_for "Lao People's Democratic Republic", :samples => ['+856 96 443 333',
                                                                          '+856 30 443 3334',
                                                                          '+856 20 4433 3334']

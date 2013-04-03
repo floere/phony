@@ -286,6 +286,16 @@ describe 'country descriptions' do
       it_splits '254111234567', ['254', '11', '1234567'] # Mombasa
       it_splits '254723100220', ['254', '723', '100220'] # Mombasa
     end
+    describe 'Kyrgyzstan' do
+      it_splits '996312212345', %w(996 312 212 345)
+      it_splits '996315212345', %w(996 315 212 345)
+      it_splits '996313121234', %w(996 3131 212 34)
+      it_splits '996394621234', %w(996 3946 212 34)
+      it_splits '996501234567', %w(996 50 123 4567)
+      it_splits '996521234567', %w(996 52 123 4567)
+      it_splits '996581234567', %w(996 58 123 4567)
+      it_splits '996800123456', %w(996 800 123 456)
+    end
     describe 'Lithuania' do
       it_splits '37070012123', ['370', '700', '12', '123']     # Service
       it_splits '37061212123', ['370', '612', '12', '123']     # Mobile

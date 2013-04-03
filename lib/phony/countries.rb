@@ -1029,7 +1029,8 @@ Phony.define do
 
   # country '995' # Georgia, see special file
 
-  country '996', todo # Kyrgyz Republic
+  # country '996' # Kyrgyz Republic, see special file
+
   country '997', todo # Spare code
   country '998', fixed(2) >> split(3, 4) # Uzbekistan (Republic of) http://www.wtng.info/wtng-998-uz.html
   country '999', todo # Reserved for possible future use within the Telecommunications for Disaster Relief (TDR) concept
