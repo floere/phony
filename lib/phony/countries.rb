@@ -969,7 +969,9 @@ Phony.define do
           one_of(%w(2 3 4 5 6 7)) >> split(3,3) |
           fixed(1) >> split(3,3)
 
-  country '968', todo # Oman (Sultanate of)
+  # Oman (Sultanate of), https://www.numberingplans.com/?page=dialling&sub=areacodes
+  country '968', fixed(2) >> split(3,3)
+
   country '969', todo # Reserved - reservation currently under investigation
 
   country '970', # 970 is used in those countries that block access to 972 (Israel)
@@ -998,7 +1000,16 @@ Phony.define do
           match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
 
   country '973', none >> split(4,4) # Bahrain (Kingdom of) http://www.itu.int/oth/T0202000011/en
-  country '974', todo # Qatar (State of)
+
+  # Qatar (State of)
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=QA
+  country '974',
+          one_of(%w(1245 1744)) >> split(3,3) | # voicemail
+          one_of(%w(800 900)) >> split(2,2) | # freephone, audiotext
+          one_of(%w(20 21 22 26)) >> split(3,2) | # pager
+          one_of(%w(92 97)) >> split(3) | # mobile
+          fixed(2) >> split(3,3)
+
   country '975', fixed(1) >> split(3, 3) # Bhutan (Kingdom of) http://www.wtng.info/wtng-975-bt.html
 
   # Mongolia

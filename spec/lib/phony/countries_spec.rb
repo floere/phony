@@ -373,6 +373,10 @@ describe 'country descriptions' do
       it_splits '4781234567', ['47',false,'812','34','567']
       it_splits '4791234567', ['47',false,'912','34','567']
     end
+    describe 'Oman' do
+      it_splits '96824423123', %w(968 24 423 123)
+      it_splits '96825423123', %w(968 25 423 123)
+    end
     describe 'Pakistan' do
       it_splits '922112345678', %w(92 21 1234 5678)
       it_splits '92221234567', %w(92 22 1234 567)
@@ -408,6 +412,16 @@ describe 'country descriptions' do
       it_splits '351211231234', ['351', '21', '123', '1234'] # Lisboa
       it_splits '351241123123', ['351', '241', '123', '123'] # Abrantes
       it_splits '351931231234', ['351', '93', '123', '1234'] # mobile
+    end
+    describe 'Qatar' do
+      it_splits '9741245123456', %w(974 1245 123 456)
+      it_splits '9742613456', %w(974 26 134 56)
+      it_splits '97433123456', %w(974 33 123 456)
+      it_splits '97444412456', %w(974 44 412 456)
+      it_splits '9748001234', %w(974 800 12 34)
+      it_splits '9749001234', %w(974 900 12 34)
+      it_splits '97492123', %w(974 92 123)
+      it_splits '97497123', %w(974 97 123)
     end
     describe 'Romania' do
       it_splits '40211231234', ['40', '21', '123', '1234'] # Bucureşti

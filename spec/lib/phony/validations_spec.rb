@@ -438,6 +438,8 @@ describe 'validations' do
       it_is_correct_for 'Nicaragua', :samples => '+505 12 345 678'
       it_is_correct_for 'Niger', :samples => '+227  1234 5678'
       it_is_correct_for 'Niue', :samples => '+683  3791'
+      it_is_correct_for 'Oman', :samples => ['+968 24 423 123',
+                                             '+968 25 423 123']
       it_is_correct_for 'Palau (Republic of)', :samples => '+680  483 7871'
       it_is_correct_for 'Panama (Republic of)', :samples => ['+507 800 1234',
                                                              '+507 6 123 4567',
@@ -457,6 +459,14 @@ describe 'validations' do
       it_is_correct_for 'Paraguay (Republic of)', :samples => [['+595 21 123 456', '+595 21 123 4567'],
                                                                '+595 345 123 456',
                                                                '+595 96 161 1234']
+      it_is_correct_for 'Qatar', :samples => ['+974 1245 123 456',
+                                              '+974 26 134 56',
+                                              '+974 33 123 456',
+                                              '+974 44 412 456',
+                                              '+974 800 12 34',
+                                              '+974 900 12 34',
+                                              '+974 92 123',
+                                              '+974 97 123']
       it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262  29527 69649'
       it_is_correct_for 'Saint Helena', :samples => '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
