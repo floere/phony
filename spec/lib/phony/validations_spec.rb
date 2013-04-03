@@ -324,6 +324,8 @@ describe 'validations' do
       it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
       it_is_correct_for 'Djibouti', :samples => '+253  3671 1431'
       it_is_correct_for 'Ecuador', :samples => '+593 68 467 4579'
+      it_is_correct_for 'Equatorial Guinea', :samples => ['+240 222 201 123',
+                                                          '+240 335 201 123']
       it_is_correct_for 'Eritrea', :samples => '+291 6 334 475'
       it_is_correct_for 'Ethiopia', :samples => '+251 89 558 3197'
       it_is_correct_for 'Falkland Islands (Malvinas)', :samples => '+500  28494'
@@ -470,6 +472,8 @@ describe 'validations' do
                                                    '+378 012 345 6789',
                                                    '+378 512 345',
                                                    '+378 512 345 6789']
+      it_is_correct_for 'Sao Tome and Principe', :samples => ['+239 2 220 012',
+                                                              '+239 9 920 012']
       it_is_correct_for 'Saudi Arabia (Kingdom of)', :samples => '+966 5 296 3727'
       it_is_correct_for 'Senegal', :samples => '+221  1234 56789'
       it_is_correct_for 'Serbia', :samples => ['+381 800 123 45',
@@ -490,6 +494,8 @@ describe 'validations' do
                                                                    '+252 160 12 34',
                                                                    '+252 500 123 45',
                                                                    '+252 67 1234 567']
+      it_is_correct_for 'South Sudan', :samples => ['+211 123 212 345',
+                                                    '+211 973 212 345']
       it_is_correct_for 'Suriname (Republic of)', :samples => ['+597 212 345', '+597 612 3456']
       it_is_correct_for 'Swaziland', :samples => ['+268 2207 1234', '+268 550 1234']
       it_is_correct_for 'Syrian Arab Republic', :samples => ['+963 11 123 4567',

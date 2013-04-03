@@ -257,7 +257,7 @@ Phony.define do
           fixed(3) >> split(3,4)
 
   country '210', todo # -
-  country '211', todo # South Sudan
+  country '211', fixed(3) >> split(3,3) # South Sudan, http://www.wtng.info/wtng-211-ss.html
 
   country '212', # Morocco
           one_of('6') >> split(2,2,2,2) | # mobile
@@ -317,9 +317,9 @@ Phony.define do
   country '236', none >> split(4,4) # Central African Republic http://www.wtng.info/wtng-236-cf.html
   country '237', none >> split(4,4) # Cameroon http://www.wtng.info/wtng-237-cm.html
   country '238', none >> split(3,4) # Cape Verde http://www.wtng.info/wtng-238-cv.html
-  country '239', todo # Sao Tome and Principe
+  country '239', fixed(1) >> split(3,3) # Sao Tome and Principe, http://www.wtng.info/wtng-239-st.html
 
-  country '240', todo # Equatorial Guinea
+  country '240', none >> split(3,3,3) # Equatorial Guinea
   country '241', fixed(1) >> split(3,3) # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
   country '242', none >> split(4,5) # Congo http://www.wtng.info/wtng-242-cg.html
   country '243', fixed(1) >> split(3,4) # Democratic Republic of the Congo http://www.wtng.info/wtng-243-cd.html

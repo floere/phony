@@ -141,6 +141,10 @@ describe 'country descriptions' do
       it_splits '20921234567', ['20', '92', '1234567']
       it_splits '20951234567', ['20', '95', '1234567']
     end
+    describe 'Equatorial Guinea' do
+      it_splits '240222201123', ['240', false, '222', '201', '123']
+      it_splits '240335201123', ['240', false, '335', '201', '123']
+    end
     describe 'Estonia' do
       it_splits '3723212345',  ['372', '321', '2345']   # Landline
       it_splits '37251231234', ['372', '5123', '1234']  # Mobile
@@ -426,11 +430,19 @@ describe 'country descriptions' do
       it_splits '250251234567', ['250', '25', '1234567'] # fixed
       it_splits '25006123456',  ['250', '06', '123456']  # fixed
     end
+    describe 'Sao Tome and Principe' do
+      it_splits '2392220012', %w(239 2 220 012)
+      it_splits '2399920012', %w(239 9 920 012)
+    end
     describe 'South Korea' do
       it { Phony.split('82212345678').should  == ['82', '2', '1234', '5678']  } # Seoul
       it { Phony.split('825112345678').should == ['82', '51', '1234', '5678'] } # Busan
       it { Phony.split('821027975588').should == ['82', '10', '2797', '5588'] } # mobile
       it { Phony.split('821087971234').should == ['82', '10', '8797', '1234'] } # mobile
+    end
+    describe 'South Sudan' do
+      it_splits '211123212345', ['211', '123', '212', '345']
+      it_splits '211973212345', ['211', '973', '212', '345']
     end
     describe 'Sudan' do
       it_splits '249187171100', ['249', '18', '717', '1100']
