@@ -42,10 +42,15 @@ module Phony
         split_with number, fallback
       end
       
-      # TODO This is not true for everything.
-      #
       def plausible? rest, hints = {}
-        true
+        number = rest.inject('', :+)
+        mapping.each do |regex, format|
+          next unless number =~ regex
+          length = format.inject(0, :+)
+          length -= 10 if length > 10
+          return number.length == length
+        end
+        false
       end
       
       private
@@ -57,7 +62,7 @@ module Phony
             result
           end
         end
-      
+
     end
     
   end
