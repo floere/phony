@@ -370,17 +370,17 @@ Phony.define do
 
   # Mozambique, https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=MZ
   country '258',
-          one_of(%w(600)) >> split(3,3) | # audiotext
-          one_of(%w(610)) >> split(3,3) | # ISP
-          one_of(%w(800)) >> split(3,3) | # freephone
-          one_of(%w(801)) >> split(3,3) | # local rate
-          one_of(%w(802)) >> split(3,3) | # national rate
+          one_of('600') >> split(3,3) | # audiotext
+          one_of('610') >> split(3,3) | # ISP
+          one_of('800') >> split(3,3) | # freephone
+          one_of('801') >> split(3,3) | # local rate
+          one_of('802') >> split(3,3) | # national rate
           one_of(%w(251 252 271 272 281 282 293)) >> split(3,2) |
           one_of(%w(21 23 24 26)) >> split(3,3) |
           one_of(%w(82 84 86)) >> split(4,3) | # mobile
-          one_of(%w(89)) >> split(4,3) | # satellite GMPCS
-          one_of(%w(7)) >> split(4,4) | # universal access
-          one_of(%w(9)) >> split(4,4) | # premium rate
+          one_of('89') >> split(4,3) | # satellite GMPCS
+          one_of('7') >> split(4,4) | # universal access
+          one_of('9') >> split(4,4) | # premium rate
           fixed(2) >> split(3,3)
 
   country '259', todo # -
@@ -431,12 +431,12 @@ Phony.define do
   country '267',
           one_of(%w(463 495 499 590)) >> split(4) |
           one_of(%w(24 26 29 31 46 47 49 53 54 57 58 59 62 65 68)) >> split(3,2) |
-          one_of(%w(79)) >> split(3,3) | # VoIP telephony
-          one_of(%w(80)) >> split(3,3) | # freephone
-          one_of(%w(90)) >> split(3,3) | # premium rate
-          one_of(%w(7)) >> split(4,3) | # moblie
-          one_of(%w(8)) >> split(4,3) | # shared cost
-          one_of(%w(3)) >> split(3,3) |
+          one_of('79') >> split(3,3) | # VoIP telephony
+          one_of('80') >> split(3,3) | # freephone
+          one_of('90') >> split(3,3) | # premium rate
+          one_of('7') >> split(4,3) | # moblie
+          one_of('8') >> split(4,3) | # shared cost
+          one_of('3') >> split(3,3) |
           fixed(2) >> split(3,2)
 
   # Swaziland http://www.wtng.info/wtng-268-sz.html
@@ -674,7 +674,7 @@ Phony.define do
   # https://www.numberingplans.com/?page=dialling&sub=areacodes
   country '507',
           one_of(%w(800 809)) >> split(4) | # freephone
-          one_of(%w(6)) >> split(3,4) | # mobile
+          one_of('6') >> split(3,4) | # mobile
           fixed(1) >> split(3,3) # geographic, VoIP telephony, mobile, premium rate, shared cost, pager
 
   country '508', none >> split(3, 3) # Saint Pierre and Miquelon (Collectivité territoriale de la République française) http://www.wtng.info/wtng-508-pm.html
@@ -731,13 +731,13 @@ Phony.define do
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PG
   country '675',
           one_of(%w(180 181 182 183)) >> split(4) | # freephone
-          one_of(%w(170)) >> split(2) | # mobile
-          one_of(%w(189)) >> split(1) | # mobile
-          one_of(%w(184)) >> split(4,4) | # ISP, PSDN X.28
+          one_of('170') >> split(2) | # mobile
+          one_of('189') >> split(1) | # mobile
+          one_of('184') >> split(4,4) | # ISP, PSDN X.28
           one_of(%w(185 270 271)) >> split(4) | # pager
           one_of(%w(275 276)) >> split(4) | # satellite
           one_of(%w(278 279)) >> split(2) | # satellite
-          one_of(%w(115)) >> split(4,4) | # voicemail (mobile)
+          one_of('115') >> split(4,4) | # voicemail (mobile)
           one_of(%w(28 29)) >> split(3,2) | # pager
           one_of(%w(16 18)) >> split(3,2) | # ISP
           one_of(%w(71 72 73 76)) >> split(3,3) | # mobile
@@ -830,7 +830,7 @@ Phony.define do
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=KP
   country '850',
           one_of(%w(191 192 193)) >> split(3,4) | # mobile
-          one_of(%w(2)) >> matched_split(
+          one_of('2') >> matched_split(
               /\A\d{5}\z/ => [3,2],
               /\A\d{7}\z/ => [3,4],
               #/\A(880|881|882|883|885)\d+\z/ => [4,4,4,4],
@@ -913,19 +913,19 @@ Phony.define do
           one_of(%w(90 91)) >> split(3,3) | # premium rate
           one_of(%w(80 81)) >> split(3,3) | # shared cost
           one_of(%w(1 4 5 6 7 8 9)) >> split(3,3) | # geographic
-          one_of(%w(3)) >> split(3,3) | # mobile
+          one_of('3') >> split(3,3) | # mobile
           fixed(1) >> split(3,3)
 
   # Jordan (Hashemite Kingdom of)
   country '962',
           one_of(%w(6250 8790)) >> split(4) | # wireless geographic
           one_of(%w(800 801 802 803 804 805 806 807 808 809)) >> split(3,2) | # freephone
-          one_of(%w(810)) >> split(3,2) | # ISP
-          one_of(%w(900)) >> split(3,2) | # premium rate
-          one_of(%w(70)) >> split(3,3) | # universal access
+          one_of('810') >> split(3,2) | # ISP
+          one_of('900') >> split(3,2) | # premium rate
+          one_of('70') >> split(3,3) | # universal access
           one_of(%w(85 87)) >> split(3,3) | # shared cost
           one_of(%w(2 3 5 6)) >> split(3,4) | # geographic
-          one_of(%w(7)) >> split(4,4) | # mobile, pager
+          one_of('7') >> split(4,4) | # mobile, pager
           fixed(1) >> split(3,4)
 
   # Syrian Arab Republic
@@ -933,8 +933,8 @@ Phony.define do
   country '963',
           one_of(%w(11 14 31 33)) >> split(3,4) |
           one_of(%w(12 13 15 16 21 22 23 25 34 41 43 51 52 53)) >> split(3,3) |
-          one_of(%w(4)) >> split(3,4) |
-          one_of(%w(9)) >> split(4,4) | # mobile
+          one_of('4') >> split(3,4) |
+          one_of('9') >> split(4,4) | # mobile
           fixed(2) >> split(3,3)
 
   # Iraq (Republic of)
@@ -943,7 +943,7 @@ Phony.define do
   country '964',
           one_of(%w(21 23 24 25 30 32 33 36 37 40 42 43 50 53 60 62 66)) >> split(3,3) |
           one_of(%w(71 72 73 74 75 76 77 78 79)) >> split(4,4) | # mobile
-          one_of(%w(1)) >> split(3,4) |
+          one_of('1') >> split(3,4) |
           fixed(2) >> split(3,3)
 
   # Kuwait (State of) http://www.wtng.info/wtng-965-kw.html
@@ -962,8 +962,8 @@ Phony.define do
   # https://www.numberingplans.com/?page=dialling&sub=areacodes
   country '967',
           one_of(%w(70 71 73 77)) >> split(3,4) | # mobile
-          one_of(%w(58)) >> split(4) | # pager
-          one_of(%w(1)) >> matched_split(
+          one_of('58') >> split(4) | # pager
+          one_of('1') >> matched_split(
               /\A\d{6}\z/ => [3,3],
               /\A\d+\z/ => [3,4]) |
           one_of(%w(2 3 4 5 6 7)) >> split(3,3) |
@@ -984,9 +984,9 @@ Phony.define do
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=AE
   country '971',
           one_of(%w(200 300)) >> split(3,3) | # shared cost
-          one_of(%w(600)) >> split(3,3) | # national rate
+          one_of('600') >> split(3,3) | # national rate
           one_of(%w(500 700 900)) >> split(3,3) | # premium rate
-          one_of(%w(800)) >> matched_split(
+          one_of('800') >> matched_split(
               /\A\d{2}\z/ => [2],
               /\A\d+\z/ => [2,3,4]) | # freephone
           one_of(%w(50 52 55 56)) >> split(3,4) | # mobile
