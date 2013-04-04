@@ -179,6 +179,10 @@ module Phony
     #                           :fallback   => [2,2,2,2])
     #
     def matched_split options = {}
+      # TODO: Refactor: it's a workaround. It creates high coupling with Phony::LocalSplitters::Regex.
+      options.each do |_, format|
+        format << format.pop + 10
+      end
       Phony::LocalSplitters::Regex.instance_for options
     end
     

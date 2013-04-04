@@ -24,18 +24,35 @@ require File.expand_path '../phony/countries/bangladesh', __FILE__
 require File.expand_path '../phony/countries/belarus', __FILE__
 require File.expand_path '../phony/countries/brazil', __FILE__
 require File.expand_path '../phony/countries/china', __FILE__
+require File.expand_path '../phony/countries/georgia', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
 require File.expand_path '../phony/countries/india', __FILE__
 require File.expand_path '../phony/countries/ireland', __FILE__
 require File.expand_path '../phony/countries/italy', __FILE__
 require File.expand_path '../phony/countries/japan', __FILE__
+require File.expand_path '../phony/countries/kyrgyzstan', __FILE__
+require File.expand_path '../phony/countries/latvia', __FILE__
+require File.expand_path '../phony/countries/libya', __FILE__
 require File.expand_path '../phony/countries/malaysia', __FILE__
+require File.expand_path '../phony/countries/moldova', __FILE__
+require File.expand_path '../phony/countries/montenegro', __FILE__
+require File.expand_path '../phony/countries/namibia', __FILE__
+require File.expand_path '../phony/countries/nepal', __FILE__
 require File.expand_path '../phony/countries/netherlands', __FILE__
 require File.expand_path '../phony/countries/pakistan', __FILE__
+require File.expand_path '../phony/countries/paraguay', __FILE__
 require File.expand_path '../phony/countries/russia_kazakhstan_abhasia_south_osetia', __FILE__
+require File.expand_path '../phony/countries/serbia', __FILE__
+require File.expand_path '../phony/countries/somali', __FILE__
 require File.expand_path '../phony/countries/south_korea', __FILE__
 require File.expand_path '../phony/countries/sweden', __FILE__
+require File.expand_path '../phony/countries/taiwan', __FILE__
+require File.expand_path '../phony/countries/tajikistan', __FILE__
+require File.expand_path '../phony/countries/turkmenistan', __FILE__
+require File.expand_path '../phony/countries/ukraine', __FILE__
 require File.expand_path '../phony/countries/united_kingdom', __FILE__
+require File.expand_path '../phony/countries/uruguay', __FILE__
+require File.expand_path '../phony/countries/zimbabwe', __FILE__
 #
 # All other countries.
 #

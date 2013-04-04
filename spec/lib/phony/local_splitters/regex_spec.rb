@@ -45,5 +45,46 @@ describe Phony::LocalSplitters::Regex do
       performance_of { @splitter.split('91234567').should == ['912','34','567'] }.should < 0.00004
     end
   end
+
+  describe 'plausible?' do
+    let(:number) {['123', '456']}
+    let(:result) { local_splitter.plausible?(number) }
+
+    context 'Local splitter without mappings' do
+      let(:local_splitter) { described_class.instance_for({})}
+      it 'returns false' do
+        result.should be_false
+      end
+    end
+
+    context 'Mapping does not exist for a number' do
+      let(:local_splitter) { described_class.instance_for /\A5/ => [1,2,3]}
+      it 'returns false' do
+        result.should be_false
+      end
+    end
+
+    context "Mapping exists, but the length is greater" do
+      let(:local_splitter) { described_class.instance_for /\A123/ => [2,2]}
+      it 'returns false' do
+        result.should be_false
+      end
+    end
+
+    context "Mapping exists, but the length is less" do
+      let(:local_splitter) { described_class.instance_for /\A123/ => [2,2,3]}
+      it 'returns false' do
+        result.should be_false
+      end
+    end
+
+    context 'Mapping exists and the length is equal' do
+      let(:local_splitter) { described_class.instance_for /\A123/ => [2,2,2]}
+      it 'returns true' do
+        result.should be_true
+      end
+    end
+
+  end
   
 end
