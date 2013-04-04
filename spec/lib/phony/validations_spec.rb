@@ -149,7 +149,9 @@ describe 'validations' do
         Phony.plausible?('+49 40 123 456789').should be_false
         Phony.plausible?('+49 171 123 45678').should be_true
         Phony.plausible?('+49 171 123 456789').should be_false
-        Phony.plausible?('+49 171 123').should be_false
+        Phony.plausible?('+49 171 123 456789').should be_false
+        Phony.plausible?('+49 177 123 1234').should be_true
+        Phony.plausible?('+49 176 123 12345').should be_true
         # Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
         # Phony.plausible?('+49 2041 123').should be_true # Grandfathered numbers. TODO
         Phony.plausible?('+49 2041 1234567').should be_true
@@ -403,6 +405,14 @@ describe 'validations' do
                                                '+265 991 123 456']
       it_is_correct_for 'Maldives (Republic of)', :samples => '+960  928 8399'
       it_is_correct_for 'Mali', :samples => '+223  1117 9812'
+
+      it 'is correct for Malaysia' do
+        Phony.plausible?('+60 14 1234 123').should be_true
+        Phony.plausible?('+60 14 1234 1234').should be_true
+        Phony.plausible?('+60 14 1234 12').should be_false     # too short
+        Phony.plausible?('+60 14 1234 12345').should be_false  # too long
+      end
+
       it_is_correct_for 'Marshall Islands (Republic of the)', :samples => '+692  372 7183'
       it_is_correct_for 'Martinique (French Department of)', :samples => '+596 596 123 456'
       it_is_correct_for 'Mauritania', :samples => '+222  1234 5678'
