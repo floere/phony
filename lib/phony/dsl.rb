@@ -202,22 +202,6 @@ module Phony
       Validators::NDC.new invalid: ndc
     end
 
-    # checks to see, if number is exactly length
-    #
-    # takes a number
-    #
-    # Example:
-    #   country '1',
-    #     fixed(3, :zero => false) >> split(3,4),
-    #     [invalid_ndcs('911'), length(10)] # any number not 10 digits is invalid (and a 911 ndc too).
-    #
-    #   country '45',
-    #           none >> split(2,2,2,2),
-    #           length(8) # danish phone numbers are always 8 digits long
-
-    def length lengths
-      Validators::Length.new lengths
-    end
 
   end
 
