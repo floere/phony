@@ -340,6 +340,17 @@ describe 'validations' do
                                                 '+995 32 123 4567',
                                                 '+995 342 123 456',
                                                 '+995 596 123 456']
+      it_is_correct_for 'Greece', :samples => ['+30 21 4234 5678',
+                                               '+30 24 4234 5678',
+                                               '+30 50 3457 1234',
+                                               '+30 69 0123 4567',
+                                               '+30 70 0123 4567',
+                                               '+30 800 100 1234',
+                                               '+30 801 100 1234',
+                                               '+30 807 100 1234',
+                                               '+30 896 100 1234',
+                                               '+30 901 123 4565',
+                                               '+30 909 123 4565']
       it_is_correct_for 'Greenland', :samples => '+299  922 954'
       it_is_correct_for 'Guadeloupe (French Department of)', :samples => '+590 123 456 789'
       it_is_correct_for 'Guatemala (Republic of)', :samples => ['+502 19 123 456 789',

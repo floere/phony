@@ -198,11 +198,17 @@ describe 'country descriptions' do
       it_splits '3508012', ['350', '8012', '' ] # Freephone
     end
     describe 'Greece' do
-      it_splits '3021123456', ['30', '21', '123456']     # Athens
-      it_splits '3069512345', ['30', '695', '12345']     # Mobile
-      it_splits '302108131234', ['30', '21', '08131234'] # Long mobile, noted by vilcsak in pull request #26.
-      it_splits '3025941234', ['30', '2594', '1234']
-      it_splits '3022631234', ['30', '2263', '1234']
+      it_splits '302142345678', %w(30 21 4234 5678)
+      it_splits '302442345678', %w(30 24 4234 5678)
+      it_splits '305034571234', %w(30 50 3457 1234)
+      it_splits '306901234567', %w(30 69 0123 4567)
+      it_splits '307001234567', %w(30 70 0123 4567)
+      it_splits '308001001234', %w(30 800 100 1234)
+      it_splits '308011001234', %w(30 801 100 1234)
+      it_splits '308071001234', %w(30 807 100 1234)
+      it_splits '308961001234', %w(30 896 100 1234)
+      it_splits '309011234565', %w(30 901 123 4565)
+      it_splits '309091234565', %w(30 909 123 4565)
     end
 
     describe 'Haiti' do

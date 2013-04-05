@@ -48,10 +48,19 @@ Phony.define do
   #
   country '27', fixed(2) >> split(3,4)
 
-  # Greece.
-  #
-  country '30', match(/^(2[3-8]?1|69[0345789]|800)\d+$/) >> split(8) | # Geo/Mobile
-                fixed(4)                                 >> split(6)   # 3-digit NDCs
+  # Greece. http://www.numberingplans.com/?page=dialling&sub=areacodes
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=GR
+  country '30',
+          one_of(%w(231 241 251 261 271 281)) >> split(3,4) |
+          one_of('800') >> split(3,4) | # freephone
+          one_of(%w(801 807)) >> split(3,4) | # shared cost, premium rate
+          one_of('896') >> split(3,4) | # ISP
+          one_of(%w(901 909)) >> split(3,4) | # premium rate
+          one_of(%w(21 22 23 24 25 26 27 28)) >> split(4,4) |
+          one_of('50') >> split(4,4) | # VPN
+          one_of('69') >> split(4,4) | # mobile, pager
+          one_of('70') >> split(4,4) | # universal access
+          fixed(4) >> split(6)   # 3-digit NDCs
 
   # country '31' # Netherlands, see special file.
 
