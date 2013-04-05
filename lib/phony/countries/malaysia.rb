@@ -18,7 +18,7 @@ freephone = %w{ 300 700 800 }
 Phony.define do
   country '60', one_of(freephone) >> split(2,4) | # Freephone, Tollfree, Forwarding
                 # one_of(service) >>  none  | # Service
-                one_of(mobile)  >> split(4,4)   | # Mobile
+                one_of(mobile)  >> split(3,4)   | # Mobile
                 one_of(ndcs)    >> split(8)     | # 1-digit NDCs
                 fixed(2)        >> split(8)       # 2-digit NDCs (Also, fallback)
 end

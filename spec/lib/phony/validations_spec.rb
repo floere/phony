@@ -406,8 +406,8 @@ describe 'validations' do
       it_is_correct_for 'Mali', :samples => '+223  1117 9812'
 
       it 'is correct for Malaysia' do
-        Phony.plausible?('+60 14 1234 123').should be_true
-        Phony.plausible?('+60 14 1234 1234').should be_true
+        Phony.plausible?('+60 14 123 1234').should be_true
+        Phony.plausible?('+60 14 1234 1234').should be_false
         Phony.plausible?('+60 14 1234 12').should be_false     # too short
         Phony.plausible?('+60 14 1234 12345').should be_false  # too long
       end
