@@ -536,6 +536,9 @@ describe 'validations' do
                                                    '+992 505 123 456',
                                                    '+992 973 123 456',
                                                    '+992 474 456 123']
+      it_is_correct_for 'Thailand', :samples => ['+6621231234',
+                                                 '+6636123123',
+                                                 '+66851234567']
       it_is_correct_for 'Togolese Republic', :samples => '+228 1234 5678'
       it_is_correct_for 'Tokelau', :samples => '+690 3 291'
       it_is_correct_for 'Tonga (Kingdom of)', :samples => ['+676 20 123',

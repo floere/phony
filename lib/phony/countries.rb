@@ -218,6 +218,7 @@ Phony.define do
   # Thailand.
   #
   country '66',
+          match(/\A(8\d\d)\d+\z/) >> split(3,3) | # mobile
           one_of('2') >> split(3,4) | # Bangkok
           fixed(2)    >> split(3,3)   # Rest
 

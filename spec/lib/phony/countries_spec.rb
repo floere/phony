@@ -467,6 +467,7 @@ describe 'country descriptions' do
     describe 'Thailand' do
       it { Phony.split('6621231234').should == ['66', '2', '123', '1234'] } # Bangkok
       it { Phony.split('6636123123').should == ['66', '36', '123', '123'] } # Lop Buri
+      it { Phony.split('66851234567').should == ['66', '851', '234', '567'] } # Lop Buri
     end
     describe 'Tunesia' do
       it { Phony.split('21611231234').should == ['216', '1', '123', '1234'] } # Ariana
