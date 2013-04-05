@@ -48,10 +48,19 @@ Phony.define do
   #
   country '27', fixed(2) >> split(3,4)
 
-  # Greece.
-  #
-  country '30', match(/^(2[3-8]?1|69[0345789]|800)\d+$/) >> split(8) | # Geo/Mobile
-                fixed(4)                                 >> split(6)   # 3-digit NDCs
+  # Greece. http://www.numberingplans.com/?page=dialling&sub=areacodes
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=GR
+  country '30',
+          one_of(%w(231 241 251 261 271 281)) >> split(3,4) |
+          one_of('800') >> split(3,4) | # freephone
+          one_of(%w(801 807)) >> split(3,4) | # shared cost, premium rate
+          one_of('896') >> split(3,4) | # ISP
+          one_of(%w(901 909)) >> split(3,4) | # premium rate
+          one_of(%w(21 22 23 24 25 26 27 28)) >> split(4,4) |
+          one_of('50') >> split(4,4) | # VPN
+          one_of('69') >> split(4,4) | # mobile, pager
+          one_of('70') >> split(4,4) | # universal access
+          fixed(4) >> split(6)   # 3-digit NDCs
 
   # country '31' # Netherlands, see special file.
 
@@ -182,14 +191,7 @@ Phony.define do
           match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
           fixed(1)              >> split(4,4)   # Rest
 
-	# Indonesia (Republic of)
-  country '62',    
-          one_of('21','22','24','31') >> split(7) |
-          one_of('21','22','24','31') >> split(8) |
-          fixed(3) >> split(5)                    |
-          fixed(3) >> split(6)                    |
-          fixed(3) >> split(7)                    |
-          fixed(3) >> split(8)
+	# country '62' # Indonesia (Republic of), see special file
 
   # TODO Philippines (Republic of the)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
@@ -218,6 +220,7 @@ Phony.define do
   # Thailand.
   #
   country '66',
+          match(/\A(8\d\d)\d+\z/) >> split(3,3) | # mobile
           one_of('2') >> split(3,4) | # Bangkok
           fixed(2)    >> split(3,3)   # Rest
 

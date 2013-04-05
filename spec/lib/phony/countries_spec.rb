@@ -198,11 +198,17 @@ describe 'country descriptions' do
       it_splits '3508012', ['350', '8012', '' ] # Freephone
     end
     describe 'Greece' do
-      it_splits '3021123456', ['30', '21', '123456']     # Athens
-      it_splits '3069512345', ['30', '695', '12345']     # Mobile
-      it_splits '302108131234', ['30', '21', '08131234'] # Long mobile, noted by vilcsak in pull request #26.
-      it_splits '3025941234', ['30', '2594', '1234']
-      it_splits '3022631234', ['30', '2263', '1234']
+      it_splits '302142345678', %w(30 21 4234 5678)
+      it_splits '302442345678', %w(30 24 4234 5678)
+      it_splits '305034571234', %w(30 50 3457 1234)
+      it_splits '306901234567', %w(30 69 0123 4567)
+      it_splits '307001234567', %w(30 70 0123 4567)
+      it_splits '308001001234', %w(30 800 100 1234)
+      it_splits '308011001234', %w(30 801 100 1234)
+      it_splits '308071001234', %w(30 807 100 1234)
+      it_splits '308961001234', %w(30 896 100 1234)
+      it_splits '309011234565', %w(30 901 123 4565)
+      it_splits '309091234565', %w(30 909 123 4565)
     end
 
     describe 'Haiti' do
@@ -224,11 +230,38 @@ describe 'country descriptions' do
       it_splits '3545511234', ['354', false, '551', '1234'] # Reykjavík
     end
     describe 'Indonesia' do
-      it_splits '6242323032', ['62', '423', '23032']
-      it_splits '6285220119289', ['62', '852', '20119289']
-      it_splits '62217815263', ['62', '21', '7815263']
+      it_splits '6242323032', ["62", "4", "2323", "032"]
+      it_splits '6285220119289', ['62', '852', '2011', '9289']
+      it_splits '62217815263', ['62', '21', '7815', '263']
+      it_splits '6213123', %w(62 13 123)
+      it_splits '6213123456', %w(62 13 123 456)
+      it_splits '6217412', %w(62 174 12)
+      it_splits '6217412345', %w(62 174 12 345)
+      it_splits '6217712', %w(62 177 12)
+      it_splits '6217712123456', %w(62 177 1212 3456)
+      it_splits '62178123', %w(62 178 123)
+      it_splits '6217812345', %w(62 178 123 45)
+      it_splits '622112345', %w(62 21 123 45)
+      it_splits '622112345567', %w(62 21 1234 5567)
+      it_splits '622212345', %w(62 22 123 45)
+      it_splits '62221234567', %w(62 22 123 4567)
+      it_splits '624311234', %w(62 4 311 234)
+      it_splits '62431123456', %w(62 4 3112 3456)
+      it_splits '6262212345', %w(62 6 221 2345)
+      it_splits '62622123456', %w(62 6 2212 3456)
+      it_splits '6270123456', %w(62 70 123 456)
+      it_splits '6271123456', %w(62 71 123 456)
+      it_splits '62711234567', %w(62 71 123 4567)
+      it_splits '62810123456', %w(62 810 123 456)
+      it_splits '6281012345678', %w(62 810 1234 5678)
+      it_splits '62820123456', %w(62 820 123 456)
+      it_splits '6287012345', %w(62 870 123 45)
+      it_splits '62877123456', %w(62 877 123 456)
+      it_splits '62881123456', %w(62 881 123 456)
+      it_splits '6288112345656', %w(62 881 1234 5656)
+      it_splits '6291234567', %w(62 9 1234 567)
+      it_splits '629123456789', %w(62 9 123 456 789)
     end
-
 
     describe 'India' do
       it_splits '919911182111', ['91', '99', '111', '82', '111'] # mobile
@@ -467,6 +500,7 @@ describe 'country descriptions' do
     describe 'Thailand' do
       it { Phony.split('6621231234').should == ['66', '2', '123', '1234'] } # Bangkok
       it { Phony.split('6636123123').should == ['66', '36', '123', '123'] } # Lop Buri
+      it { Phony.split('66851234567').should == ['66', '851', '234', '567'] } # Lop Buri
     end
     describe 'Tunesia' do
       it { Phony.split('21611231234').should == ['216', '1', '123', '1234'] } # Ariana
