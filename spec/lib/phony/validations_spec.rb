@@ -147,9 +147,8 @@ describe 'validations' do
       it 'is correct for German numbers' do
         Phony.plausible?('+49 40 123 45678').should be_true
         Phony.plausible?('+49 40 123 456789').should be_false
-        Phony.plausible?('+49 171 123 45678').should be_true
-        Phony.plausible?('+49 171 123 456789').should be_false
-        Phony.plausible?('+49 171 123 456789').should be_false
+        Phony.plausible?('+49 171 123 4567').should be_true
+        Phony.plausible?('+49 171 123 45678').should be_false
         Phony.plausible?('+49 177 123 1234').should be_true
         Phony.plausible?('+49 176 123 12345').should be_true
         # Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules

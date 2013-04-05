@@ -4067,17 +4067,19 @@ service = [
 '9009',
 ]
 
-# Note: http://en.wikipedia.org/wiki/Telephone_numbers_in_Germany
+# Note:
+# http://en.wikipedia.org/wiki/Telephone_numbers_in_Germany
+# http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510001PDFE.pdf
 # "Numbers assigned in the past, which are generally grandfathered, may be as short as five digits."
 #
 
 Phony.define do
    country '49', one_of(service)             >> split(3,0) |
-                 one_of('176')               >> split(3,6) |
+                 one_of('176')               >> split(3,5) |
                  one_of('1609')              >> split(3,5) |
-                 one_of('1521', '1529', '1570', '1575', '1579')    >> split(3,4) |
-                 match(/\A(15\d)\d*\z/)      >> split(3,4) |
-                 match(/\A(1[67]\d)\d*\z/)   >> split(3,5) |
+                 one_of('1521', '1529', '1570', '1575', '1579') >> split(3,4) |
+                 match(/\A(1[57]\d)\d*\z/)   >> split(3,4) |
+                 match(/\A(16\d)\d*\z/)   >> split(3,5) |
                  one_of(ndcs2and3)           >> split(3,5) |
                  one_of(ndcs4)               >> split(3,4) |
                  fixed(5)                    >> split(3,3)
