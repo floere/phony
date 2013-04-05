@@ -182,14 +182,7 @@ Phony.define do
           match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
           fixed(1)              >> split(4,4)   # Rest
 
-	# Indonesia (Republic of)
-  country '62',    
-          one_of('21','22','24','31') >> split(7) |
-          one_of('21','22','24','31') >> split(8) |
-          fixed(3) >> split(5)                    |
-          fixed(3) >> split(6)                    |
-          fixed(3) >> split(7)                    |
-          fixed(3) >> split(8)
+	# country '62' # Indonesia (Republic of), see special file
 
   # TODO Philippines (Republic of the)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
