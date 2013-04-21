@@ -59,10 +59,14 @@ require File.expand_path '../phony/countries/zimbabwe', __FILE__
 #
 require File.expand_path '../phony/countries', __FILE__
 
-
-
 module Phony
 
+  class NormalizationError < StandardError
+    def initialize
+      super %Q{Phony could not normalize the given number. Is it a phone number?}
+    end
+  end
+    
   # Phony uses a single country codes instance.
   #
   @codes = CountryCodes.instance
@@ -79,6 +83,8 @@ module Phony
     end
     def normalize! phone_number
       @codes.normalize phone_number
+    rescue
+      raise NormalizationError.new
     end
 
     # Splits the phone number into pieces according to the country codes.

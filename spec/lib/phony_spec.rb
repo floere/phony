@@ -4,60 +4,54 @@ require 'spec_helper'
 
 describe Phony do
 
-  describe 'nil cases' do
-    it "should raise on normalize nil" do
-      expect {
-        Phony.normalize(nil)
-      }.to raise_error(ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number).")
+  describe 'normalize' do
+    describe 'exceptions' do
+      it 'raises on nil' do
+        expect {
+          Phony.normalize nil
+        }.to raise_error(ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.normalize(number).')
+      end
+      it 'raises a nice error message' do
+        expect do
+          Phony.normalize 'test'
+        end.to raise_error(Phony::NormalizationError, 'Phony could not normalize the given number. Is it a phone number?')
+      end
     end
-    it "should raise on format nil" do
-      expect {
-        Phony.format(nil)
-      }.to raise_error(ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number).")
-    end
-    it "should raise on split nil" do
-      expect {
-        Phony.split(nil)
-      }.to raise_error(ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number).")
-    end
-  end
-
-  describe "normalize" do
-    describe "some examples" do
-      it "should normalize a too short number" do
+    describe 'some examples' do
+      it 'should normalize a too short number' do
         Phony.normalize('+972').should == '972'
       end
-      it "should normalize an already normalized number" do
+      it 'should normalize an already normalized number' do
         Phony.normalize('41443643533').should == '41443643533'
       end
-      it "should normalize a format number" do
+      it 'should normalize a format number' do
         Phony.normalize('+41 44 364 35 33').should == '41443643533'
       end
-      it "should normalize a 00 number" do
+      it 'should normalize a 00 number' do
         Phony.normalize('0041 44 364 35 33').should == '41443643533'
       end
-      it "should normalize a service number" do
+      it 'should normalize a service number' do
         Phony.normalize('+41 800 11 22 33').should == '41800112233'
       end
-      it "should remove characters from the number" do
+      it 'should remove characters from the number' do
         Phony.normalize('John: +41 44 364 35 33').should == '41443643533'
       end
-      it "should normalize one of these crazy american numbers" do
+      it 'should normalize one of these crazy american numbers' do
         Phony.normalize('1 (703) 451-5115').should == '17034515115'
       end
-      it "should normalize another one of these crazy american numbers" do
+      it 'should normalize another one of these crazy american numbers' do
         Phony.normalize('1-888-407-4747').should == '18884074747'
       end
-      it "should normalize a number with colons" do
+      it 'should normalize a number with colons' do
         Phony.normalize('1.906.387.1698').should == '19063871698'
       end
-      it "should normalize a number with optional ndc" do
+      it 'should normalize a number with optional ndc' do
         Phony.normalize('+41 (044) 364 35 33').should == '41443643533'
       end
-      it "should normalize a number with erroneous zero inside" do
+      it 'should normalize a number with erroneous zero inside' do
         Phony.normalize('+410443643533').should == '41443643533'
       end
-      it "should not normalize a number with a correct zero inside" do
+      it 'should not normalize a number with a correct zero inside' do
         Phony.normalize('+390909709511').should == '390909709511'
       end
 
@@ -83,56 +77,63 @@ describe Phony do
     end
   end
 
-  describe "format" do
-    describe "default" do
-      it "should format swiss numbers" do
+  describe 'format' do
+    describe 'exceptions' do
+      it 'raises on nil' do
+        expect {
+          Phony.format nil
+        }.to raise_error(ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.format(number).')
+      end
+    end
+    describe 'default' do
+      it 'should format swiss numbers' do
         Phony.format('41443643532').should == '+41 44 364 35 32'
       end
       # TODO
       #
-      it "should format swiss service numbers" do
+      it 'should format swiss service numbers' do
         Phony.format('41800112233').should == '+41 800 112 233'
       end
-      it "should format austrian numbers" do
+      it 'should format austrian numbers' do
         Phony.format('43198110').should == '+43 1 98110'
       end
-      it "should format american numbers" do
+      it 'should format american numbers' do
         Phony.format('18705551122').should == '+1 870 555 1122'
       end
     end
-    describe "international" do
-      it "should format north american numbers" do
+    describe 'international' do
+      it 'should format north american numbers' do
         Phony.format('18091231234', :format => :international).should == '+1 809 123 1234'
       end
-      it "should format austrian numbers" do
+      it 'should format austrian numbers' do
         Phony.format('43198110', :format => :international).should == '+43 1 98110'
       end
-      it "should format austrian numbers" do
+      it 'should format austrian numbers' do
         Phony.format('43198110', :format => :international_absolute).should == '+43 1 98110'
       end
-      it "should format french numbers" do
+      it 'should format french numbers' do
         Phony.format('33142278186', :format => :+).should == '+33 1 42 27 81 86'
       end
-      it "should format austrian numbers" do
+      it 'should format austrian numbers' do
         Phony.format('43198110', :format => :international_relative).should == '0043 1 98110'
       end
       it 'should format liechtensteiner numbers' do
         Phony.format('4233841148', :format => :international_relative).should == '00423 384 11 48'
       end
       context 'with no spaces' do
-        it "should format north american numbers" do
+        it 'should format north american numbers' do
           Phony.format('18091231234', :format => :international, :spaces => '').should == '+18091231234'
         end
-        it "should format austrian numbers" do
+        it 'should format austrian numbers' do
           Phony.format('43198110', :format => :international, :spaces => '').should == '+43198110'
         end
-        it "should format austrian numbers" do
+        it 'should format austrian numbers' do
           Phony.format('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'
         end
-        it "should format french numbers" do
+        it 'should format french numbers' do
           Phony.format('33142278186', :format => :+, :spaces => '').should == '+33142278186'
         end
-        it "should format austrian numbers" do
+        it 'should format austrian numbers' do
           Phony.format('43198110', :format => :international_relative, :spaces => '').should == '0043198110'
         end
         it 'should format liechtensteiner numbers' do
@@ -140,29 +141,29 @@ describe Phony do
         end
       end
       context 'with special spaces' do
-        it "should format swiss numbers" do
+        it 'should format swiss numbers' do
           Phony.format('41443643532', :format => :international).should == '+41 44 364 35 32'
         end
-        it "should format north american numbers" do
+        it 'should format north american numbers' do
           Phony.format('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'
         end
-        it "should format austrian numbers" do
+        it 'should format austrian numbers' do
           Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'
         end
-        it "should format austrian numbers" do
+        it 'should format austrian numbers' do
           Phony.format('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'
         end
-        it "should format french numbers" do
+        it 'should format french numbers' do
           Phony.format('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'
         end
-        it "should format austrian numbers" do
+        it 'should format austrian numbers' do
           Phony.format('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'
         end
         it 'should format liechtensteiner numbers' do
           Phony.format('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
         end
       end
-      describe '"unsupported" countries' do
+      describe "'unsupported' countries" do
         it 'should format as a single block' do
           Phony.format('88132155605220').should == '+881 32155605220'
         end
@@ -177,27 +178,27 @@ describe Phony do
         end
       end
     end
-    describe "national" do
-      it "should format swiss numbers" do
+    describe 'national' do
+      it 'should format swiss numbers' do
         Phony.format('41443643532', :format => :national).should == '044 364 35 32'
       end
       # TODO
       #
-      it "should format swiss service numbers" do
+      it 'should format swiss service numbers' do
         Phony.format('41800112233', :format => :national).should == '0800 112 233'
       end
-      it "should format austrian numbers" do
+      it 'should format austrian numbers' do
         Phony.format('43198110', :format => :national).should == '01 98110'
       end
-      it "should format US numbers without a leading zero" do
+      it 'should format US numbers without a leading zero' do
         Phony.format('14159224711', :format => :national).should == '415 922 4711'
       end
     end
-    describe "local" do
-      it "should format swiss numbers" do
+    describe 'local' do
+      it 'should format swiss numbers' do
         Phony.format('41443643532', :format => :local).should == '364 35 32'
       end
-      it "should format german numbers" do
+      it 'should format german numbers' do
         Phony.format('493038625454', :format => :local).should == '386 25454'
       end
     end
@@ -205,11 +206,18 @@ describe Phony do
 
   context 'minimal cases' do
     context 'normalizing' do
-      it 'handles completely crazy "numbers"' do
+      it "handles completely crazy 'numbers'" do
         Phony.normalize('Hello, I am Cora, the 41th parrot, and 044 is my 364 times 35 funky number. 32.').should == '41443643532'
       end
     end
     context 'splitting' do
+      describe 'exceptions' do
+        it 'should raise on split nil' do
+          expect {
+            Phony.split nil
+          }.to raise_error(ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.split(number).')
+        end
+      end
       it 'handles completely missing numbers well enough' do
         Phony.split('4144').should == ['41', '44', '']
       end
@@ -231,7 +239,7 @@ describe Phony do
         Phony.format('414436435').should == '+41 44 364 35'
       end
     end
-    context '"unsupported" countries' do
+    context "'unsupported' countries" do
       it 'handles formatting' do
         Phony.format('88132155605220').should == '+881 32155605220'
       end
@@ -241,7 +249,7 @@ describe Phony do
     end
   end
 
-  context "speed" do
+  context 'speed' do
     before(:each) do
       @phone_numbers = [
         '41443643532',
