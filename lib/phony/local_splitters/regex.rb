@@ -46,11 +46,9 @@ module Phony
         number = rest.inject('', :+)
         mapping.each do |regex, format|
           next unless number =~ regex
-          length = format.inject(0, :+)
-          length -= 10 if length > 10
-          return number.length == length
+          return plausible_with? number, format
         end
-        false
+        plausible_with? number, fallback
       end
       
       private
@@ -61,6 +59,12 @@ module Phony
             return result if number.empty?
             result
           end
+        end
+        
+        def plausible_with? number, format
+          length = format.inject(0, :+)
+          length -= 10 if length > 10
+          number.length == length
         end
 
     end

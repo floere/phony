@@ -24,10 +24,12 @@ describe 'validations' do
           incorrect = [shortest.sub(/\d\s*\z/, ''), longest + '0']
 
           correct.each do |value|
-            Phony.plausible?(value).should be_true, "not validates '#{value}', but should"
+            Phony.plausible?(value).should be_true,
+              "It should validate #{value}, but does not."
           end
           incorrect.each do |value|
-            Phony.plausible?(value).should be_false, "validates '#{value}', but should not"
+            Phony.plausible?(value).should be_false,
+              "It should not validate #{value}, but does."
           end
         end
       end
@@ -479,6 +481,8 @@ describe 'validations' do
                                                 '+264 63 088 612 345',
                                                 '+264 85 1234 567']
       it_is_correct_for 'Nauru (Republic of)', :samples => '+674  239 8387'
+      it_is_correct_for 'Norway', :samples => ['+47 51 23 45 67',
+                                               '+47 41 23 45 67']
       it_is_correct_for 'Nepal', :samples => ['+977 1 434 5678',
                                               '+977 10 123 456',
                                               '+977 98 1234 5678']
