@@ -49,16 +49,18 @@ three_digit_ndc = [
   '161',  # Manchester
   '191',  # Tyne and Wear/County Durham
 
-  # Services [3+7].
+  # Non-geographic [3+7].
   #
-  '300', # Non-geographic charged at same rate as 01
+  '300', # Non-geographic numbers charged at geographic rates.
   '301',
+  '302',
   '303',
   '306',
   '308',
   '309',
   '330',
   '331',
+  '332',
   '333',
   '336',
   '339',
@@ -74,17 +76,17 @@ three_digit_ndc = [
   '800', # Freephone (10 digits) # 9 digits handled in specific rule, see below.
   '808', # Freephone (10 digits)
 
-  '842', # Business rate [3+7].
+  '842', # Non-geographic numbers (NTS) with Service Charge up to 7p/min [3+7].
   '843',
   '844',
   '845',
-  '870',
 
-  '871', # Premium rate [3+7].
+  '870', # Non-geographic numbers (NTS) with Service Charge up to 13p/min [3+7].
+  '871',
   '872',
   '873',
 
-  '900', # Premium rate content services [3+7].
+  '900', # Premium Rate Services (PRS) with Service Charge up to 300p/min [3+7].
   '901',
   '902',
   '903',
@@ -92,10 +94,24 @@ three_digit_ndc = [
   '905',
   '906',
   '907',
+  '910',
+  '911',
+  '912',
+  '913',
+  '914',
+  '915',
+  '916',
+  '917',
+  '918',
+  '919',
 
-  '908', # Sexual entertainment services [3+7].
+  '908', # Sexual entertainment services (SES) with Service Charge up to 300p/min [3+7].
   '909',
+  '981',
   '982',
+  '983',
+  '984',
+  '989',
 ]
 
 # five_digit_ndc_with_nine_digits
