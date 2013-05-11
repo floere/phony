@@ -42,9 +42,9 @@ require File.expand_path '../phony/countries/nepal', __FILE__
 require File.expand_path '../phony/countries/netherlands', __FILE__
 require File.expand_path '../phony/countries/pakistan', __FILE__
 require File.expand_path '../phony/countries/paraguay', __FILE__
-require File.expand_path '../phony/countries/russia_kazakhstan_abhasia_south_osetia', __FILE__
+require File.expand_path '../phony/countries/russia_kazakhstan_abkhasia_south_ossetia', __FILE__
 require File.expand_path '../phony/countries/serbia', __FILE__
-require File.expand_path '../phony/countries/somali', __FILE__
+require File.expand_path '../phony/countries/somalia', __FILE__
 require File.expand_path '../phony/countries/south_korea', __FILE__
 require File.expand_path '../phony/countries/sweden', __FILE__
 require File.expand_path '../phony/countries/taiwan', __FILE__
