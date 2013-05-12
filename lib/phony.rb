@@ -13,6 +13,8 @@ require File.expand_path '../phony/national_code', __FILE__
 require File.expand_path '../phony/country', __FILE__
 require File.expand_path '../phony/country_codes', __FILE__
 
+require File.expand_path '../phony/country_detectors/nanp_country_detector', __FILE__
+
 require File.expand_path '../phony/dsl', __FILE__
 
 # Countries.
