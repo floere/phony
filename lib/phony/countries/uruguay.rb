@@ -38,7 +38,7 @@ ndcs_with_5_subscriber_numbers = %w(
 
 
 Phony.define do
-  country '598',
+  country '598', :UY,
           one_of('800') >> split(3,2) | # freephone
           one_of('805') >> split(3,2) | # shared cost
           one_of(%w(900 901 902 903 904 905 906 907 908)) >> split(3,2) | # premium rate

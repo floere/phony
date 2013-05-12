@@ -61,7 +61,7 @@ ndcs_with_6_subscriber_digits = %w(
 )
 
 Phony.define do
-  country '977',
+  country '977', :NP,
           one_of(ndcs_with_6_subscriber_digits) >> split(3,3) |
           one_of(%w(98)) >> split(4,4) | # mobile
           one_of(ndcs_with_7_subscriber_digits) >> split(3,4) |

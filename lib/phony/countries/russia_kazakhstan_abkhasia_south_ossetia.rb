@@ -113,7 +113,7 @@ ndcs_with_6_subscriber_digits = %w(3012 3022 3412 3435 3439 3452 3456 3462 3463 
 ndcs_with_7_subscriber_digits = %w(342 343 347 351 383 391 473 495 496 498 499 812 818 831 843 844 846 861 862 863)
 
 Phony.define do
-  country '7', one_of(ndcs_with_5_subscriber_digits)      >> trunk('8') >> split(1, 2, 2) |
+  country '7', :RU, one_of(ndcs_with_5_subscriber_digits)      >> trunk('8') >> split(1, 2, 2) |
                one_of(ndcs_with_6_subscriber_digits)      >> trunk('8') >> split(2, 2, 2) |
                one_of(ndcs_with_7_subscriber_digits)      >> trunk('8') >> split(3, 2, 2) |
                one_of(%w(800))                            >> trunk('8') >> split(3, 2, 2) | # Russia free number

@@ -130,7 +130,7 @@ ndcs_with_6_subscriber_numbers = %w(
 
 Phony.define do
 
-  country '595',
+  country '595', :PY,
           one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) | # geographic
           one_of(ndcs_with_6_7_subscriber_numbers) >>
               matched_split(

@@ -4074,7 +4074,7 @@ service = [
 #
 
 Phony.define do
-   country '49', one_of(service)             >> split(3,0) |
+   country '49', :DE, one_of(service)             >> split(3,0) |
                  one_of('176')               >> split(3,5) |
                  one_of('1609')              >> split(3,5) |
                  one_of('1521', '1529', '1570', '1575', '1579') >> split(3,4) |

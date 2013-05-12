@@ -218,7 +218,7 @@ no_split = [
 ].flatten
 
 Phony.define do
-  country '44', one_of(two_digit_ndc)    >> split(4,4) | # 2-4-4
+  country '44', :GB, one_of(two_digit_ndc)    >> split(4,4) | # 2-4-4
                 match(/^([58]00)\d{6}$/) >> split(6)   | # Special handling for 500 and 800: 3-6 numbers.
                 one_of(three_digit_ndc)  >> split(3,4) | # 3-3-4
                 match(/^(16977)\d{4}$/)  >> split(4)   | # Special handling for 16977: 5-4 numbers.

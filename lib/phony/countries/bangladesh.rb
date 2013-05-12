@@ -35,7 +35,7 @@ ndcs_with_6_subscriber_numbers = {2 => %w(31 41), 3 => %w(721 821)}
 ndcs_with_7_subscriber_numbers = {1 => %w(2), 3 => %w(431)}
 
 Phony.define do
-  country '880',
+  country '880', :BD,
           # some ndc have several subscriber number length.
           match(/\A(#{ndcs_with_3_subscriber_numbers.join('|')})\d{3}\z/) >> split(3) |
           match(/\A(#{ndcs_with_4_subscriber_numbers.join('|')})\d{4}\z/) >> split(4) |

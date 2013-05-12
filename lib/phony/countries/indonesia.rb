@@ -3,7 +3,7 @@
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=ID
 
 Phony.define do
-  country '62',
+  country '62', :ID,
           one_of('21') >> matched_split(
               /\A\d{5}\z/ => [3,2],
               /\A\d+\z/ => [4,4]) |

@@ -108,7 +108,7 @@ ndcs_with_5_subscriber_digits = %w(
 )
 
 Phony.define do
-  country '996',
+  country '996', :KG,
           one_of(ndcs_with_5_subscriber_digits) >> split(3,2) |
           one_of(ndcs_with_6_subscriber_digits) >> split(3,3) |
           one_of(%w(800)) >> split(3,3) | # freephone

@@ -3,7 +3,7 @@
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=ME
 
 Phony.define do
-  country '382',
+  country '382', :ME,
           one_of(%w(80)) >> split(3,3) | # freephone
               one_of(%w(20 30 31 40 52)) >> matched_split(
                   /\A\d{5}\z/ => [3,2],

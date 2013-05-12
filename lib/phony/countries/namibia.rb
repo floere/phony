@@ -3,7 +3,7 @@
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=NA
 
 Phony.define do
-  country '264',
+  country '264', :NA,
           one_of(%w(632532)) >> split(4) |
               one_of(%w(6342)) >> matched_split(
                   /\A\d{3}\z/ => [3],

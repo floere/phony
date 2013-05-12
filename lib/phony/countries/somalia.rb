@@ -1,7 +1,7 @@
 Phony.define do
   # Somali Democratic Republic http://www.wtng.info/wtng-252-so.html
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=SO
-  country '252',
+  country '252', :SO,
     one_of('88216') >> split(3) | # Thuraya Satellite Telecommunications Company
     one_of(%w(1034 1043)) >> split(3,2) | # Hortel
     one_of(%w(1313)) >> split(3) | # Telcom Somalia
