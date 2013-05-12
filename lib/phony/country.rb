@@ -5,6 +5,7 @@ module Phony
   class Country
     
     attr_accessor :codes
+    attr_accessor :alpha2
     
     # 
     #

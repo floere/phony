@@ -1,21 +1,21 @@
 # # Switzerland (simplified):
 # #
-# country('41', fixed(2) >> local([3,2,2]))
+# country('41', :CH, fixed(2) >> local([3,2,2]))
 #
 # # Germany. Too big, we use a separate file:
 # #
 # Phony.define do
-#   country '49', match(...) >> split([...]) ||
+#   country '49', :DE, match(...) >> split([...]) ||
 #                 one_of([...], :max_length => 5) >> split([...])
 # end
 #
 # # Denmark:
 # #
-# country('45', none >> split([2,2,2,2]))
+# country('45', :DK, none >> split([2,2,2,2]))
 #
 # # Hungary:
 # #
-# country('36',
+# country('36', :HU,
 #         match(/^104|105|107|112/) >> split([3,3]) ||
 #         one_of([1], :max_length => 2) >> split([3,4])
 # )
@@ -47,10 +47,11 @@ module Phony
     # Start defining a country.
     #
     # Example:
-    #   country '27', # CC, followed by rules, for example fixed(2) >> ...
+    #   country '27', 'Alpha2', # CC, followed by rules, for example fixed(2) >> ...
     #
-    def country country_code, definition, options = {}
+    def country country_code, country_alpha2, definition, options = {}
       definition.with options
+      definition.alpha2 = country_alpha2
       Phony::CountryCodes.instance.add country_code, definition
     end
     
