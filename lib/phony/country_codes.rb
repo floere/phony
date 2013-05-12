@@ -167,6 +167,31 @@ module Phony
       @splitter_mapping[optimized_country_code_access] ||= {}
       @splitter_mapping[optimized_country_code_access][country_code] = country
     end
+    
+    # Attempt to find a country for the given phone number.
+    #
+    def country number
+      country, cc, rest = split_cc number.dup
+      return nil if !country.respond_to? :alpha2
+      return country.alpha2.country( number ) if country.alpha2.respond_to? :country
+      return country.alpha2 rescue nil
+    end
+
+    # List all recognised countries.
+    #
+    def recognized_countries
+      countries = @splitter_mapping.values.map do |optimized_country_code_access|
+        optimized_country_code_access.values.map do |country|
+          next if country.nil?
+          if country.alpha2.respond_to? :recognized_countries
+            country.alpha2.recognized_countries
+          else
+            country.alpha2
+          end
+        end
+      end
+      return countries.flatten.uniq.compact
+    end
 
   end
 

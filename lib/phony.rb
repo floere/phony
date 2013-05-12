@@ -136,6 +136,18 @@ module Phony
     def vanity_to_number vanity_number
       @codes.vanity_to_number vanity_number.dup
     end
+    
+    # Attempt to find a country for the given phone number.
+    #
+    def country phone_number
+      @codes.country phone_number.dup
+    end
+    
+    # List all recognised countries
+    #
+    def recognized_countries
+      @codes.recognized_countries
+    end
 
   end
 
