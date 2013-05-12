@@ -108,7 +108,7 @@ ndcs_with_6_subscriber_numbers = %w(
 
 Phony.define do
 
-  country '92',
+  country '92', :PK,
           one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) |
           one_of('122') >> split(3,3) | # universal access
           one_of(ndcs_with_7_subscriber_numbers) >> split(4,3) |

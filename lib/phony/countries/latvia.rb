@@ -33,7 +33,7 @@ ndcs_with_5_subscriber_numbers = %w(
 ndcs_with_6_subscriber_numbers = %w(67)
 
 Phony.define do
-  country '371',
+  country '371', :LV,
           one_of(ndcs_with_5_subscriber_numbers) >> trunk('8') >> split(3,2) |
           one_of(ndcs_with_6_subscriber_numbers) >> trunk('8') >> split(3,3) |
           fixed(3) >> trunk('8') >> split(3,2)

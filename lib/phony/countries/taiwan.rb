@@ -35,7 +35,7 @@ ndcs_with_6_subscriber_numbers = %w(
 ndcs_with_5_subscriber_numbers = %w(823 826 827)
 
 Phony.define do
-  country '886',
+  country '886', :TW,
           one_of(ndcs_with_5_subscriber_numbers) >> split(3,2) |
           match(/\A(6\d\d)\d{7}\z/) >> split(3,4) | # geographic ; Taipei
           one_of(%w(412)) >> split(4) | # VoIP telephony ; Taichung

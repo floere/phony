@@ -1,7 +1,7 @@
 # Zimbabwe, https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=ZW
 
 Phony.define do
-  country '263',
+  country '263', :ZW,
     one_of(%w(2582 2583 5483)) >>
     matched_split(/\A\d{6}\z/ => [3,3],
                   /\A\d+\z/ => [3] ) | # geographic [XXXX] XXX(XXX)

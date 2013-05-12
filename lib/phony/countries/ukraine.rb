@@ -603,7 +603,7 @@ ndcs_with_4_subscriber_numbers = %w(
 ndcs_with_3_subscriber_numbers = %w(433861)
 
 Phony.define do
-  country '380',
+  country '380', :UA,
           one_of(ndcs_with_3_subscriber_numbers) >> split(3) |
           one_of(ndcs_with_4_subscriber_numbers) >> split(4) |
           one_of(ndcs_with_5_subscriber_numbers) >> split(3,2) |

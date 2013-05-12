@@ -64,7 +64,7 @@ ndcs_with_5_subscriber_digits = %w(
 ndcs_with_4_subscriber_digits = %w(1392)
 
 Phony.define do
-  country '993',
+  country '993', :TM,
           one_of(ndcs_with_4_subscriber_digits) >> trunk('8') >> split(4) |
           one_of(ndcs_with_5_subscriber_digits) >> trunk('8') >> split(3,2) |
           one_of(ndcs_with_6_subscriber_digits) >> trunk('8') >> split(3,3) |

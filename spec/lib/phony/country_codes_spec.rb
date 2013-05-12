@@ -183,4 +183,13 @@ describe Phony::CountryCodes do
     end
   end
   
+  describe '#recognized_countries' do
+    subject { Phony::CountryCodes.instance.recognized_countries }
+    it { should_not be_empty }
+    it 'only includes symbols' do
+      subject.reject! { |entry| entry.is_a? Symbol }
+      subject.should be_empty
+    end
+  end
+  
 end

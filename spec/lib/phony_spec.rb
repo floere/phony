@@ -42,7 +42,7 @@ describe Phony do
       it 'should normalize another one of these crazy american numbers' do
         Phony.normalize('1-888-407-4747').should == '18884074747'
       end
-      it 'should normalize a number with colons' do
+      it 'should normalize a number with periods' do
         Phony.normalize('1.906.387.1698').should == '19063871698'
       end
       it 'should normalize a number with optional ndc' do
@@ -304,6 +304,21 @@ describe Phony do
       # it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237'} # Cut off according to the swiss norms.
       it {Phony.vanity_to_number('41800SUCCESSMATCH').should == '41800782237762824'} # Allow for call-through numbers (>= 1.6.0)
       it {Phony.vanity_to_number('4180BLA').should == '4180252'} # Does not check for validity of number.
+    end
+  end
+  
+  describe 'country' do
+    it 'detects north american numbers' do
+      Phony.country('18091231234').should == :US
+    end
+    it 'should format austrian numbers' do
+      Phony.country('43198110').should == :AT
+    end
+    it 'should format french numbers' do
+      Phony.country('33142278186').should == :FR
+    end
+    it 'should format liechtensteiner numbers' do
+      Phony.country('4233841148').should == :LI
     end
   end
 

@@ -13,6 +13,8 @@ require File.expand_path '../phony/national_code', __FILE__
 require File.expand_path '../phony/country', __FILE__
 require File.expand_path '../phony/country_codes', __FILE__
 
+require File.expand_path '../phony/country_detectors/nanp_country_detector', __FILE__
+
 require File.expand_path '../phony/dsl', __FILE__
 
 # Countries.
@@ -133,6 +135,18 @@ module Phony
     #
     def vanity_to_number vanity_number
       @codes.vanity_to_number vanity_number.dup
+    end
+    
+    # Attempt to find a country for the given phone number.
+    #
+    def country phone_number
+      @codes.country phone_number.dup
+    end
+    
+    # List all recognised countries
+    #
+    def recognized_countries
+      @codes.recognized_countries
     end
 
   end

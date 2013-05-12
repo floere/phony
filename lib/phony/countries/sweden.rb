@@ -54,7 +54,7 @@ service = [
 ]
 
 Phony.define do
-  country '46', one_of(service)       >> split(3,3) |
+  country '46', :SE, one_of(service)       >> split(3,3) |
                 one_of(ndcs + mobile) >> split(8)   |
                 fixed(3)              >> split(8)     # catchall
 end
