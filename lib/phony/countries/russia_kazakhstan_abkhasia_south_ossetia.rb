@@ -117,7 +117,7 @@ Phony.define do
                one_of(ndcs_with_6_subscriber_digits)      >> trunk('8') >> split(2, 2, 2) |
                one_of(ndcs_with_7_subscriber_digits)      >> trunk('8') >> split(3, 2, 2) |
                one_of(%w(800))                            >> trunk('8') >> split(3, 2, 2) | # Russia free number
-               one_of(%w(929 995344 9971 99744 9976 997)) >> trunk('8') >> split(2, 2, 2) | # South Osetia
+               one_of(%w(995344 9971 99744 9976 997)) >> trunk('8') >> split(2, 2, 2) | # South Osetia
                
                # The two following lines have been replaced by fixed(3).
                #
