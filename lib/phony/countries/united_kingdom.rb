@@ -12,13 +12,13 @@
 #
 
 two_digit_ndc = [
-  # Geographic [2+8].
+  # Geographic [2+8] - includes (02x) 0 and (02x) 1 as NDO.
   #
-  '20',   # London
-  '23',   # Southampton, Portsmith
-  '24',   # Coventry
-  '28',   # Northern Ireland
-  '29',   # Cardiff
+  '20',   # London - (020) 3, (020) 7, (020) 8
+  '23',   # Southampton - (023) 8, Portsmouth (023) 9
+  '24',   # Coventry - (024) 7
+  '28',   # Northern Ireland - (028) but not (028) 5
+  '29',   # Cardiff - (029) 2
 
   # Non-geographic [2+8].
   #
@@ -35,7 +35,7 @@ two_digit_ndc = [
   # '800', # Freephone (9 digits) handled in specific rule, see below.
 
 three_digit_ndc = [
-  # Geographic [3+7].
+  # Geographic [3+7] - includes (01xx) 0 and (01xx) 1 as NDO.
   #
   '113',  # Leeds
   '114',  # Sheffield
@@ -116,13 +116,13 @@ three_digit_ndc = [
 ]
 
 # five_digit_ndc_with_nine_digits
-  # Geographic [5+4].
+  # Geographic [5+4] - includes (016977) 0 and (016977) 1 as NDO.
   #
   # '16977', # Brampton (contains both 4 and 5 digit numbers)
   #          # 9 digits handled in specific rule, see below.
 
 five_digit_ndc = [
-  # Geographic [5+5].
+  # Geographic [5+5] - includes (01xxxx) 0 and (01xxxx) 1 as NDO.
   #
   # These areas use 5-5 format. One area has some 5-4 numbers too (see above).
   # They share their initial digits with area codes using 4-6 (and 4-5).
@@ -141,7 +141,7 @@ five_digit_ndc = [
 ]
 
 no_split = [
-  # Geographic [4+6]/[4+5].
+  # Geographic [4+6]/[4+5] - includes (01xxx) 0 and (01xxx) 1 as NDO.
   #
   # These 40 area codes have a mix of 4-6 and 4-5 numbers
   # The three 'mixed' areas also have part of their number
@@ -195,7 +195,7 @@ no_split = [
   '7624',
   ('7700'..'7999').to_a,
 
-  # Geographic [4+6].
+  # Geographic [4+6] - includes (01xxx) 0 and (01xxx) 1 as NDO.
   #
   # About 500 area codes use the 4-6 format
   # The three 'mixed' areas also have part of their number
