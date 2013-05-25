@@ -15,7 +15,7 @@ two_digit_ndc = [
   # Geographic [2+8] - includes (02x) 0 and (02x) 1 as NDO.
   #
   '20',   # London - (020) 3, (020) 7, (020) 8
-  '23',   # Southampton - (023) 8, Portsmouth (023) 9
+  '23',   # Southampton - (023) 8, Portsmouth - (023) 9
   '24',   # Coventry - (024) 7
   '28',   # Northern Ireland - (028) but not (028) 5
   '29',   # Cardiff - (029) 2
@@ -52,7 +52,7 @@ three_digit_ndc = [
 
   # Non-geographic [3+7].
   #
-  '300', # Non-geographic numbers charged at geographic rates.
+  '300', # Non-geographic numbers (NTS) charged at geographic rates.
   '301',
   '302',
   '303',
@@ -106,7 +106,7 @@ three_digit_ndc = [
   '918',
   '919',
 
-  '908', # Sexual entertainment services (SES) with Service Charge up to 300p/min [3+7].
+  '908', # Sexual Entertainment Services (SES) with Service Charge up to 300p/min [3+7].
   '909',
   '981',
   '982',
