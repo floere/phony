@@ -24,11 +24,11 @@ mobile_ndc = [
 two_digit_ndc = [
   # Geographic [2+8] - includes (02x) 0 and (02x) 1 as NDO.
   #
-  '20\d{8}',   # London - (020) 3, (020) 7, (020) 8
-  '23\d{8}',   # Southampton - (023) 8, Portsmouth - (023) 9
-  '24\d{8}',   # Coventry - (024) 7
-  '28\d{8}',   # Northern Ireland - (028) but not (028) 5
-  '29\d{8}',   # Cardiff - (029) 2
+  '(20)[01378]\d{7}',  # London - (020) 3, (020) 7, (020) 8
+  '(23)[0189]\d{7}',   # Southampton - (023) 8, Portsmouth - (023) 9
+  '(24)[017]\d{7}',    # Coventry - (024) 7
+  '(28)[0-46-9]\d{7}', # Northern Ireland - (028) but not (028) 5
+  '(29)[012]\d{7}',    # Cardiff - (029) 2
 
   # Non-geographic [2+8].
   #
