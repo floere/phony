@@ -19,7 +19,7 @@ mobile_ndc = [
   ('7100'..'7599').to_a,
   '7624', # Isle of Man
   ('7700'..'7999').to_a,
-]
+].flatten
 
 two_digit_ndc = [
   # Geographic [2+8] - includes (02x) 0 and (02x) 1 as NDO.
@@ -787,7 +787,7 @@ four_digit_ndc = [
   '1994', # St Clears, West Wales
   #1995     Garstang, Wyre (see [4+6]/[4+5] areas)
   '1997', # Strathpeffer, Wyvis
-].flatten
+]
 
 Phony.define do
   country '44', one_of(mobile_ndc)             >> split(6)   | # 4-6
