@@ -207,10 +207,9 @@ Phony.define do
 
   # New Zealand.
   #
-  # TODO Mobile?
-  #
   country '64',
-          fixed(1) >> split(3,4)
+          match(/^(2\d)\d+$/) >> split(3,4) | # Mobile
+          fixed(1) >> split(3,4)              # Rest
 
   # Singapore (Republic of).
   #
