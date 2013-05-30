@@ -100,6 +100,12 @@ describe Phony do
       it 'should format american numbers' do
         Phony.format('18705551122').should == '+1 870 555 1122'
       end
+      it 'should format New Zealand 021 mobile numbers' do
+        Phony.format('64211234567').should == '+64 21 123 4567'
+      end
+      it 'should format New Zealand landline numbers' do
+        Phony.format('6493791234').should == '+64 9 379 1234'
+      end
     end
     describe 'international' do
       it 'should format north american numbers' do
