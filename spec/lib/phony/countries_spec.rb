@@ -29,8 +29,9 @@ describe 'country descriptions' do
       it_splits '548001234567', ['54', '800', '123', '4567']
     end
     describe 'Austria' do
-      it_splits '43198110', ['43', '1', '98110']               # Vienna
-      it_splits '4366914093902', ['43', '669', '14093902']     # Mobile
+      it_splits '43198110',        ['43', '1', '98110']        # Vienna
+      it_splits '43800123456789',  ['43', '800', '123456789']  # Free
+      it_splits '4366914093902',   ['43', '669', '14093902']   # Mobile
       it_splits '433161234567891', ['43', '316', '1234567891'] # Graz
       it_splits '432164123456789', ['43', '2164', '123456789'] # Rohrau
     end
