@@ -34,15 +34,15 @@ describe 'validations' do
         end
       end
     end
-    
+
     it 'does not change the given number' do
       number = "123-123-1234"
-      
+
       Phony.plausible? number
-      
+
       number.should == '123-123-1234'
     end
-    
+
     it 'handles small numbers' do
       Phony.plausible?('353').should be_false
     end
@@ -80,7 +80,7 @@ describe 'validations' do
     it 'is correct' do
       Phony.plausible?('hello').should be_false
     end
-    
+
     it "is correct" do
       Phony.plausible?('+41 44 111 22 33').should be_true
     end
@@ -105,16 +105,16 @@ describe 'validations' do
     it "works with regexps" do
       Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true
     end
-    
+
     context 'Length validation' do
       it 'works for Swiss cases' do
         Phony.plausible?('+41 44 111 22 3').should be_false   # Not long enough is not ok.
         # Phony.plausible?('+41 44 111 22 33 4').should be_true # TODO Too long is ok – we don't know about extensions.
       end
     end
-    
+
     context 'specific countries' do
-      
+
       # TODO: more needs to be done here
       #
       it "is correct for Swiss numbers" do
@@ -178,7 +178,7 @@ describe 'validations' do
         # Sorry, still need E164 conform numbers.
         #
         Phony.plausible?('4346667777', cc: '1').should be_false
-        
+
         # Automatic country checking.
         #
         Phony.plausible?('1-4346667777').should be_true
@@ -187,13 +187,13 @@ describe 'validations' do
         Phony.plausible?('1-911-123-1234').should be_false
         Phony.plausible?('143466677777').should be_false # too long
         Phony.plausible?('143466677').should be_false # too short
-        
+
         # With string constraints.
         #
         Phony.plausible?('14346667777', cc: '1').should be_true
         Phony.plausible?('14346667777', ndc: '434').should be_true
         Phony.plausible?('14346667777', cc: '1', ndc: '434').should be_true
-        
+
         # With regexp constraints.
         #
         Phony.plausible?('14346667777', cc: /[123]/).should be_true
@@ -322,6 +322,10 @@ describe 'validations' do
       it_is_correct_for 'Brunei Darussalam', :samples => '+673 5 523 876'
       it_is_correct_for 'Burkina Faso', :samples => '+226  1476 2312'
       it_is_correct_for 'Burundi', :samples => '+257  1234 5678'
+      it_is_correct_for "Cambodia", :samples => [["+855 12 236 142",
+                                                "+855 97 710 0872"],
+                                                ["+855 234 601 183",
+                                                "855 33 123 456"]]
       it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'
       it_is_correct_for 'Cape Verde', :samples => '+238  642 3843'
       it_is_correct_for 'Central African Republic', :samples => '+236  1234 5678'
@@ -648,7 +652,7 @@ describe 'validations' do
                                                  '+263 86 1235 4567']
 
     end
-    
+
   end
-  
+
 end
