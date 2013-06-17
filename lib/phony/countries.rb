@@ -74,12 +74,12 @@ Phony.define do
   # France.
   #
   country '33', fixed(1) >> split(2,2,2,2) # :service? => /^8.*$/, :mobile? => /^[67].*$/
-  
+
   # Spain.
   #
   country '34',
           fixed(2) >> split(3,4)
-          
+
   # Hungary.
   #
   country '36',
@@ -231,7 +231,7 @@ Phony.define do
           one_of('4', '8') >> split(7) |
           match(/^(2[025679]|3[0136789]|5[23456789]|6[01234678]|7[02345679]|9[0-8])\d/) >> split(6) |
           fixed(3) >> split(5)
-          
+
   # country '86' # China, see special file.
 
   # Turkey.
@@ -351,7 +351,7 @@ Phony.define do
 
   # Kenya
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Kenya
-  country '254', 
+  country '254',
           match(/^(7\d\d)/)  >> split(6) | # mobile
           fixed(2)           >> split(7)   # landline
 
@@ -853,7 +853,7 @@ Phony.define do
   # Cambodia (Kingdom of)
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
   country '855',
-          fixed(2) >> split(3,4)
+          fixed(2) >> matched_split(/^\d{6}$/ => [3,3], /^\d{7}$/ => [3,4])
 
   # Lao People's Democratic Republic http://www.wtng.info/wtng-856-la.html, https://www.numberingplans.com
   country '856',
