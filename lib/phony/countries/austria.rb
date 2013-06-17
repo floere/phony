@@ -1,25 +1,28 @@
 # Austria uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 ndcs = [
-  '1', # Vienna
- '57',  # -
- '59',  # -
+  # '1', # Vienna
  '89',  # Routing Number
  '316', # Graz
- '501', # -
- '502', # -
- '503', # -
- '504', # -
- '505', # -
- '506', # -
- '507', # -
- '508', # -
- '509', # -
  '512', # Innsbruck
- '517', # -
  '662', # Salzburg
- '720', #
  '732'  # Linz
+]
+
+corporate = [
+  '57',  # -
+  '59',  # -
+  '501', # -
+  '502', # -
+  '503', # -
+  '504', # -
+  '505', # -
+  '506', # -
+  '507', # -
+  '508', # -
+  '509', # -
+  '517', # -
+  '720', #
 ]
 
 mobile = [
@@ -70,8 +73,15 @@ service = [
  '939'
 ]
 
+# https://www.rtr.at/en/tk/E129/Austrian_Numbering_Plan_2011-03-30.pdf
+#
+# TODO Add more details.
+#
 Phony.define do
-  country '43', one_of(service)       >> split(9)  |
-                one_of(mobile + ndcs) >> split(10) |
-                fixed(4)              >> split(10)
+  country '43', one_of('1')       >> split(4) | # Vienna
+                one_of(service)   >> split(9) |
+                one_of(corporate) >> split(5) |
+                one_of(ndcs)      >> split(6) |
+                one_of(mobile)    >> split(7) |
+                fixed(4)          >> split(7)
 end

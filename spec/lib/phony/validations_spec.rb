@@ -216,9 +216,10 @@ describe 'validations' do
       end
 
       it "is correct for Austria" do
-        Phony.plausible?('+43 501 1234567890').should be_true
-        Phony.plausible?('+43 501 123456789').should be_false # too short
-        Phony.plausible?('+43 501 12345678901').should be_false # too long
+        Phony.plausible?('+43 501 12345').should be_true
+        Phony.plausible?('+43 501 1234').should be_false # too short
+        Phony.plausible?('+43 501 123456').should be_false # too long
+        Phony.plausible?('+43 800 123456789').should be_true
       end
 
       it "is correct for Azerbaijan" do
