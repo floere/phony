@@ -103,10 +103,10 @@ module Phony
     #
     def format phone_number, options = {}
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number)." unless phone_number
-      formatted! phone_number.dup, options
+      format! phone_number.dup, options
     end
     def format! phone_number, options = {}
-      @codes.formatted phone_number, options
+      @codes.format phone_number, options
     end
     alias formatted  format
     alias formatted! format!
