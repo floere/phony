@@ -7,7 +7,11 @@ describe 'country descriptions' do
   def self.it_splits number, expected
     it { Phony.split(number).should == expected }
   end
-
+  
+  describe 'regression' do
+    it_splits '33630588659', ["33", "6", "30", "58", "86", "59"]
+  end
+  
   describe 'splitting' do
     describe 'Ascension Island' do
       it_splits '2473551', ['247', false, '3551']
