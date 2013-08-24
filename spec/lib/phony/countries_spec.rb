@@ -272,7 +272,8 @@ describe 'country descriptions' do
       it_splits '919911182111', ['91', '99', '111', '82', '111'] # mobile
       it_splits '912212345678', ['91', '22', '123', '45', '678'] # New Delhi
       it_splits '911411234567', ['91', '141', '123', '45', '67'] # Jaipur
-      it_splits '913525123456', ['91', '3525', '123', '456' ]    # DALKHOLA
+      it_splits '913525123456', ['91', '3525', '123', '456']     # DALKHOLA
+      it_splits '914433993939', ['91', '44', '339', '93', '939'] # 
     end
 
     describe 'Iran' do

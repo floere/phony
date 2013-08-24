@@ -106,6 +106,9 @@ describe Phony do
       it 'should format New Zealand landline numbers' do
         Phony.format('6493791234').should == '+64 9 379 1234'
       end
+      it 'should format Indian numbers' do
+        Phony.format('914433993939').should == '+91 44 339 93 939'
+      end
     end
     describe 'international' do
       it 'should format north american numbers' do
