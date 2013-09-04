@@ -44,6 +44,12 @@ module Phony
       end
     end
     
+    def countrify! number, cc
+      # Just the US case for fun.
+      #
+      number.sub! /\b1?/, cc
+    end
+    
     # Removes 0s from partially normalized numbers
     # such as 410443643533.
     # 

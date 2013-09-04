@@ -77,12 +77,12 @@ module Phony
     #
     # Useful before inserting the number into a database.
     #
-    def normalize phone_number
+    def normalize phone_number, options = {}
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
-      normalize! phone_number.dup
+      normalize! phone_number.dup, options
     end
-    def normalize! phone_number
-      @codes.normalize phone_number
+    def normalize! phone_number, options = {}
+      @codes.normalize phone_number, options
     rescue
       raise NormalizationError.new
     end
