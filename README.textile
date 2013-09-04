@@ -8,7 +8,7 @@ There's also a Rails wrapper: https://github.com/joost/phony_rails.
 
 h2. Description
 
-This gem can normalize, format and split E164 numbers. Mostly, that means international numbers with a country dial prefix. 
+This gem can normalize, format and split E164 numbers. E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. Here's an example from Australia: +61 412 345 678. 61 is the country code of Australia, 4 denotes a mobile number and 12 345 678 is the subscriber number.
 "More about E164 numbers in this Wiki":http://en.wikipedia.org/wiki/E.164.
 
 The (admittedly crazy) *goal* of this Gem is to be able to format/split all phone numbers in the world.
