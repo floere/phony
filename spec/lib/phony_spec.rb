@@ -4,6 +4,16 @@ require 'spec_helper'
 
 describe Phony do
 
+  describe 'OO interface' do
+    describe '[]' do
+      it '' do
+        us = described_class['1']
+        us.plausible?('4159224711').should be_true
+        us.plausible?('55512345678').should be_false
+      end
+    end
+  end
+
   describe 'normalize' do
     describe 'exceptions' do
       it 'raises on nil' do

@@ -44,10 +44,15 @@ module Phony
       end
     end
     
+    # TODO Move the cc into the country.
+    #
     def countrify! number, cc
-      # Just the US case for fun.
+      # The sensible default is to add the country code
+      # if it does not already start with it.
       #
-      number.sub! /\b1?/, cc
+      # Note: This won't be correct in some cases, but it is the best we can do.
+      #
+      number.sub! /\b#{cc}?/, cc
     end
     
     # Removes 0s from partially normalized numbers

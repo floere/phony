@@ -21,6 +21,12 @@ module Phony
     def self.instance
       @instance ||= new
     end
+    
+    # Get the Country object for the given CC.
+    #
+    def [] cc
+      countries[cc.size][cc]
+    end
 
     # 00 for the standard international call prefix.
     # http://en.wikipedia.org/wiki/List_of_international_call_prefixes
@@ -45,10 +51,8 @@ module Phony
     end
     
     def countrify! number, options = {}
-      cc = options[:cc]
-      if cc
-        country = countries[cc.size][cc]
-        country.countrify! number, cc
+      if cc = options[:cc]
+        self[cc].countrify! number, cc
       end
     end
 

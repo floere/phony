@@ -72,6 +72,16 @@ module Phony
   @codes = CountryCodes.instance
 
   class << self
+    
+    # Get the Country for the given CC.
+    #
+    # Example:
+    #   us = Phony['1']
+    #   normalized_number = us.normalize number
+    #
+    def [] cc
+      @codes[cc]
+    end
 
     # Normalizes the given number.
     #
