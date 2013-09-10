@@ -9,7 +9,7 @@ describe Phony do
       it '' do
         us = described_class['1']
         us.plausible?('4159224711').should be_true
-        us.plausible?('55512345678').should be_false
+        us.countrify!('4159224711').should == '14159224711'
       end
     end
   end

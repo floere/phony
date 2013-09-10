@@ -52,7 +52,7 @@ module Phony
     
     def countrify! number, options = {}
       if cc = options[:cc]
-        self[cc].countrify! number, cc
+        self[cc].countrify! number
       end
     end
 

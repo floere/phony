@@ -24,6 +24,7 @@ module Phony
     # TODO Rewrite.
     #
     def with options = {}
+      @cc           = options[:cc]
       @invalid_ndcs = options[:invalid_ndcs] || []
     end
     
@@ -44,15 +45,13 @@ module Phony
       end
     end
     
-    # TODO Move the cc into the country.
-    #
-    def countrify! number, cc
+    def countrify! number
       # The sensible default is to add the country code
       # if it does not already start with it.
       #
       # Note: This won't be correct in some cases, but it is the best we can do.
       #
-      number.sub! /\b#{cc}?/, cc
+      number.sub! /\b#{@cc}?/, @cc
     end
     
     # Removes 0s from partially normalized numbers
