@@ -13,7 +13,7 @@ describe 'Phony.normalize' do
       Phony.normalize('+1 724 999 9999', cc: '1').should == '17249999999'
     end
     it 'handles the US (without cc) correctly' do
-      Phony.normalize('724 999 9999', cc: '1').should == '17249999999'
+      Phony.normalize('(310) 555-2121', cc: '1').should == '13105552121'
     end
     
   end
