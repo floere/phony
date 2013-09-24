@@ -23,8 +23,8 @@ module Phony
     #
     # TODO Rewrite.
     #
-    def with options = {}
-      @cc           = options[:cc]
+    def with cc, options = {}
+      @cc           = cc
       @invalid_ndcs = options[:invalid_ndcs] || []
     end
     

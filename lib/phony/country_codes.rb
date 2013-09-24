@@ -50,6 +50,8 @@ module Phony
       @normalize_format % [cc, country.normalize(rest)]
     end
     
+    #
+    #
     def countrify! number, options = {}
       if cc = options[:cc]
         self[cc].countrify! number
