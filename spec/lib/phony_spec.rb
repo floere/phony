@@ -68,7 +68,12 @@ describe Phony do
         it 'normalizes Lithuania' do
           Phony.normalize('370 8 5 1234567').should == '37051234567'
         end
-        it 'normalizes Balarus'
+        it 'normalizes Balarus' do
+          # ??
+        end
+        it 'normalizes Iraq' do
+          Phony.normalize('+964 755 123 4567').should == '9647551234567'
+        end
       end
 
     end
@@ -95,6 +100,11 @@ describe Phony do
       end
       it "should format american numbers" do
         Phony.format('18705551122').should == '+1 870 555 1122'
+      end
+      it 'should format iraqi numbers' do
+        Phony.format('9647551234567').should == '+964 755 123 4567'
+        Phony.format('009647551234567').should == '+964 755 123 4567'
+        Phony.format('0119647551234567').should == '+964 755 123 4567'
       end
     end
     describe "international" do
@@ -188,6 +198,9 @@ describe Phony do
       end
       it "should format US numbers without a leading zero" do
         Phony.format('14159224711', :format => :national).should == '415 922 4711'
+      end
+      it 'should format iraqi numbers' do
+        Phony.format('9647551234567', :format => :national).should == '0755 123 4567'
       end
     end
     describe "local" do

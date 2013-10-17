@@ -178,7 +178,9 @@ describe Phony::CountryCodes do
         it 'should format liechtensteiner numbers' do
           Phony.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'
         end
-
+        it 'should format iraqi numbers' do
+          Phony.formatted('9647551234567', :format => :international).should == '+964 755 123 4567'
+        end
       end
     end
   end

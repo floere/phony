@@ -172,6 +172,14 @@ describe 'country descriptions' do
       it_splits '989191231234', ['98', '919', '123', '1234'] # Example Cell Phone
     end
 
+    describe 'Iraq' do
+      it_splits '9647551234567', ['964', '755', '123', '4567'] # mobile
+      it_splits '96411234567', ['964', '1', '123', '4567']     # Baghdad
+      it_splits '96423123456', ['964', '23', '123', '456']     # Wasit
+      it_splits '964231234567', ['964', '23', '123', '4567']   # governorates
+      it_splits '96440123456', ['964', '40', '123', '456']     # Basrah
+    end
+
     describe 'Ireland' do
       it_splits '35311234567',  ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
       it_splits '3532212345',   ['353', '22', '12345']       # Mallow, 5 digit subscriber #

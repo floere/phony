@@ -131,6 +131,13 @@ describe 'validations' do
         Phony.plausible?('+972 2 123 1234').should be_true
         Phony.plausible?('+972 59 123 1234').should be_true
       end
+
+      it 'is correct for Iraqi numbers' do
+        Phony.plausible?('+964 755 123 4567').should be_true
+        Phony.plausible?('00 964 755 123 4567').should be_true
+        Phony.plausible?('011 964 755 123 4567').should be_true
+      end
+
       it "is correct for US numbers" do
         # Sorry, still need E164 conform numbers.
         #
