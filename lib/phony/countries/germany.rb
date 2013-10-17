@@ -2,8 +2,7 @@
 #
 # Note: Germany uses a variable ndc format from length 2 to 5.
 #
-
-ndcs2and3 = [
+ndcs2 = [
 '10',  # Call-By-Call
 '11',  # formerly Value Added Services
 '13',  # Voting and Lottery Numbers
@@ -12,6 +11,8 @@ ndcs2and3 = [
 '40',  # Hamburg
 '69',  # Frankfurt am Main
 '89',  # München
+]
+ndcs3 = [
 '201', # Essen
 '202', # Wuppertal
 '203', # Duisburg
@@ -4079,9 +4080,10 @@ Phony.define do
                  one_of('1609')              >> split(3,5) |
                  one_of('1521', '1529', '1570', '1575', '1579') >> split(3,4) |
                  match(/\A(1[57]\d)\d*\z/)   >> split(3,4) |
-                 match(/\A(16\d)\d*\z/)   >> split(3,5) |
-                 one_of(ndcs2and3)           >> split(3,5) |
-                 one_of(ndcs4)               >> split(3,4) |
-                 fixed(5)                    >> split(3,3)
+                 match(/\A(16\d)\d*\z/)      >> split(3,5) |
+                 one_of(ndcs2)               >> split(3,0..6) |
+                 one_of(ndcs3)               >> split(3,0..5) |
+                 one_of(ndcs4)               >> split(3,0..4) |
+                 fixed(5)                    >> split(3,3..3) 
 
 end

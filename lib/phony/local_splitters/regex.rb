@@ -58,12 +58,11 @@ module Phony
             result << number.slice!(0..size-1)
             return result if number.empty?
             result
-          end
+          end << number
         end
         
         def plausible_with? number, format
-          length = format.inject(0, :+)
-          length -= 10 if length > 10
+          length = format.inject 0, :+
           number.length == length
         end
 

@@ -78,10 +78,10 @@ service = [
 # TODO Add more details.
 #
 Phony.define do
-  country '43', one_of('1')       >> split(4) | # Vienna
-                one_of(service)   >> split(9) |
-                one_of(corporate) >> split(5) |
-                one_of(ndcs)      >> split(6) |
-                one_of(mobile)    >> split(7) |
-                fixed(4)          >> split(7)
+  country '43', one_of('1')       >> split(4..4) | # Vienna
+                one_of(service)   >> split(9..9) |
+                one_of(corporate) >> split(5..5) |
+                one_of(ndcs)      >> split(6..6) |
+                one_of(mobile)    >> split(7..7) |
+                fixed(4)          >> split(7..7)
 end

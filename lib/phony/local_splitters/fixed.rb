@@ -27,8 +27,23 @@ module Phony
       # The format [3, 2, 2] splits a number like '3332222' into ['333', '22', '22'].
       #
       def initialize format = nil
-        @format = format && format.dup || [3, 2, 2]
-        # @format << @format.pop + 10 # Allow for call-through numbers with an arbitrary size.
+        format = format && format.dup || [3, 2, 2]
+        @format, @length = extract_params format
+        @format << @format.pop + 10
+      end
+      
+      #
+      #
+      def extract_params format
+        if format.last.respond_to? :max
+          last = format.pop
+          length = format.inject(0) { |total, part| total + part }
+          length = (length+last.min..length+last.max)
+          format << last.min
+        else
+          length = format.inject(0) { |total, part| total + part }
+        end
+        [format, length]
       end
     
       # Split a local number according to an assumed country specific format.
@@ -47,13 +62,7 @@ module Phony
       # TODO Fix length fudging.
       #
       def plausible? rest, hints = {}
-        (length > 10 ? length - 10 : length) === rest.inject(0) { |total, part| total + part.size }
-      end
-      
-      # A valid length.
-      #
-      def length
-        @length ||= @format.inject { |total, part| total + part }
+        @length === rest.inject(0) { |total, part| total + part.size }
       end
       
     end

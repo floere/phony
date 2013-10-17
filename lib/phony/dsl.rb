@@ -162,7 +162,7 @@ module Phony
     #   match(/^(0\d{2})\d+$/) >> split(2,2,2,2) # If it matches, split in 4 groups of size 2.
     #
     def split *local
-      local << local.pop + 10 # Allow for call-through numbers with an arbitrary size.
+      # local << local.pop + 10 # Allow for call-through numbers with an arbitrary size.
       LocalSplitters::Fixed.instance_for local
     end
     
@@ -179,10 +179,10 @@ module Phony
     #                           :fallback   => [2,2,2,2])
     #
     def matched_split options = {}
-      # TODO: Refactor: it's a workaround. It creates high coupling with Phony::LocalSplitters::Regex.
-      options.each do |_, format|
-        format << format.pop + 10
-      end
+      # # TODO: Refactor: it's a workaround. It creates high coupling with Phony::LocalSplitters::Regex.
+      # options.each do |_, format|
+      #   format << format.pop + 10
+      # end
       Phony::LocalSplitters::Regex.instance_for options
     end
     

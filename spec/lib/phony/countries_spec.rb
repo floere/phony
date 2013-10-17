@@ -532,10 +532,10 @@ describe 'country descriptions' do
     end
 
     describe 'Sweden' do
-      it { Phony.split('46812345678').should == ['46', '8', '12345678'] } # Stockholm
-      it { Phony.split('46111234567').should == ['46', '11', '1234567'] }
-      it { Phony.split('46721234567').should == ['46', '72', '1234567'] } # mobile
-      it { Phony.split('46125123456').should == ['46', '125', '123456'] }
+      it { Phony.split('46812345678').should == ['46', '8', '123', '45', '678'] } # Stockholm
+      it { Phony.split('46111234567').should == ['46', '11', '123', '45', '67'] }
+      it { Phony.split('46721234567').should == ['46', '72', '123', '45', '67'] } # mobile
+      it { Phony.split('46125123456').should == ['46', '125', '123', '456'] }
     end
     describe 'Switzerland' do
       it { Phony.split('41443643532').should == ['41', '44', '364', '35', '32'] } # Zurich (usually)

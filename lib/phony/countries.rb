@@ -39,9 +39,9 @@ Phony.define do
 
   # Egypt.
   #
-  country '20', one_of('800')    >> split(7) | # Egypt
-                one_of('2', '3') >> split(8) | # Cairo/Giza, Alexandria
-                fixed(2)         >> split(8)
+  country '20', one_of('800')    >> split(7..7) | # Egypt
+                one_of('2', '3') >> split(8..8) | # Cairo/Giza, Alexandria
+                fixed(2)         >> split(8..8)
                 # :mobile? => /^1[01246-9]\d+$/, :service? => /^800\d+$/
 
   # South Africa.
@@ -100,7 +100,7 @@ Phony.define do
   # Switzerland.
   #
   country '41',
-          match(/^(8(00|4[0248]))\d+$/) >> split(3,3) |
+          match(/^(8(00|4[0248]))\d+$/) >> split(3,3)|
           fixed(2)                      >> split(3,2,2)
 
   # country '43' # Austria, see special file.
@@ -109,8 +109,8 @@ Phony.define do
   # Denmark.
   #
   country '45',
-          none >> split(2,2,2,2)
-
+          none >> split(2,2,2,2..2)
+          
   # country '46' # Sweden, see special file.
 
   # Norway.
@@ -1001,7 +1001,7 @@ Phony.define do
           one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
           match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
 
-  country '973', none >> split(4,4) # Bahrain (Kingdom of) http://www.itu.int/oth/T0202000011/en
+  country '973', none >> split(4,4..4) # Bahrain (Kingdom of) http://www.itu.int/oth/T0202000011/en
 
   # Qatar (State of)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=QA
