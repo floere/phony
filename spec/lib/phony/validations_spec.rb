@@ -134,8 +134,8 @@ describe 'validations' do
 
       it 'is correct for Iraqi numbers' do
         Phony.plausible?('+964 755 123 4567').should be_true
-        Phony.plausible?('00 964 755 123 4567').should be_true
-        Phony.plausible?('011 964 755 123 4567').should be_true
+        Phony.plausible?('+964 1 123 4567').should be_true
+        Phony.plausible?('+964 50 123 456').should be_true
       end
 
       it "is correct for US numbers" do

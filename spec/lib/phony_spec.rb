@@ -103,8 +103,8 @@ describe Phony do
       end
       it 'should format iraqi numbers' do
         Phony.format('9647551234567').should == '+964 755 123 4567'
-        Phony.format('009647551234567').should == '+964 755 123 4567'
-        Phony.format('0119647551234567').should == '+964 755 123 4567'
+        Phony.format('96411234567').should == '+964 1 123 4567'
+        Phony.format('96440123456').should == '+964 40 123 456'
       end
     end
     describe "international" do

@@ -659,7 +659,16 @@ Phony.define do
   country '961', todo # Lebanon
   country '962', todo # Jordan (Hashemite Kingdom of)
   country '963', todo # Syrian Arab Republic
-  country '964', todo # Iraq (Republic of)
+
+  # Iraq (Republic of)
+  country '964',
+          one_of('1')                                  >> split(3,4) | # Baghdad
+          one_of('21', '23', '24', '25', '30', '32',
+                 '33', '36', '37', '40', '42', '43',
+                 '50', '53', '60', '62', '66')         >> split(3,3) | # other cities
+          match(/^(7[3-9]\d)/)                         >> split(3,4),  # mobiles
+          length( 1 => 8, 2 => 8, 3 => 10 )
+
   country '965', todo # Kuwait (State of)
   country '966', todo # Saudi Arabia (Kingdom of)
   country '967', todo # Yemen (Republic of)
