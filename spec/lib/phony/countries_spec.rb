@@ -173,7 +173,7 @@ describe 'country descriptions' do
     end
 
     describe 'Iraq' do
-      it_splits '9647551234567', ['964', '75', '5123', '4567'] # mobile
+      it_splits '9647551234567', ['964', '755', '123', '4567'] # mobile
       it_splits '96411234567', ['964', '1', '123', '4567']     # Baghdad
       it_splits '96423123456', ['964', '23', '123', '456']     # Wasit
       it_splits '964231234567', ['964', '23', '123', '4567']   # governorates

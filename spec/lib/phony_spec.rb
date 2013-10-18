@@ -102,7 +102,7 @@ describe Phony do
         Phony.format('18705551122').should == '+1 870 555 1122'
       end
       it 'should format iraqi numbers' do
-        Phony.format('9647551234567').should == '+964 75 5123 4567'
+        Phony.format('9647551234567').should == '+964 755 123 4567'
         Phony.format('96411234567').should == '+964 1 123 4567'
         Phony.format('96440123456').should == '+964 40 123 456'
       end
@@ -200,7 +200,7 @@ describe Phony do
         Phony.format('14159224711', :format => :national).should == '415 922 4711'
       end
       it 'should format iraqi numbers' do
-        Phony.format('9647551234567', :format => :national).should == '075 5123 4567'
+        Phony.format('9647551234567', :format => :national).should == '0755 123 4567'
       end
     end
     describe "local" do

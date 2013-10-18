@@ -664,8 +664,8 @@ Phony.define do
   country '964',
           one_of('1')                                                    >> split(3,4) |
           one_of(%w(21 23 24 25 30 32 33 36 37 40 42 43 50 53 60 62 66)) >> split(3,3) |
-          one_of(%w(71 72 73 74 75 76 77 78 79))                         >> split(4,4),
-          length( 1 => 8, 2 => 8..10 )
+          match(/^(7[1-9]\d)\d{7}$/)                                      >> split(3,4),
+          length( 1 => 8, 2 => 8, 3 => 10 )
 
   country '965', todo # Kuwait (State of)
   country '966', todo # Saudi Arabia (Kingdom of)
