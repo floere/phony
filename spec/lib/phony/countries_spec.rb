@@ -178,6 +178,7 @@ describe 'country descriptions' do
       it_splits '96423123456', ['964', '23', '123', '456']     # Wasit
       it_splits '964231234567', ['964', '23', '123', '4567']   # governorates
       it_splits '96440123456', ['964', '40', '123', '456']     # Basrah
+      it_splits '9647818855122', ['964', '7818', '855', '122'] # some random iraqi guy's phone
     end
 
     describe 'Ireland' do

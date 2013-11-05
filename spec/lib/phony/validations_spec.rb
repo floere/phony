@@ -136,7 +136,8 @@ describe 'validations' do
         Phony.plausible?('+964 75 5123 4567').should be_true
         Phony.plausible?('+964 1 123 4567').should be_true
         Phony.plausible?('+964 50 123 456').should be_true
-        Phony.plausible?('+964 75 5123 45678').should be_false
+        Phony.plausible?('+964 75 5123 45678').should be_true
+        Phony.plausible?('+964 75 5123 456789').should be_false
       end
 
       it "is correct for US numbers" do
