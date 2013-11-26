@@ -110,7 +110,7 @@ Phony.define do
   #
   country '45',
           none >> split(2,2,2,2..2)
-          
+
   # country '46' # Sweden, see special file.
 
   # Norway.
@@ -853,6 +853,7 @@ Phony.define do
   # Cambodia (Kingdom of)
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
   country '855',
+          match(/^(1\d{1})/) >> split(3, 3) |
           fixed(2) >> matched_split(/^\d{6}$/ => [3,3], /^\d{7}$/ => [3,4])
 
   # Lao People's Democratic Republic http://www.wtng.info/wtng-856-la.html, https://www.numberingplans.com

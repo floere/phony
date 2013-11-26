@@ -325,10 +325,22 @@ describe 'validations' do
       it_is_correct_for 'Brunei Darussalam', :samples => '+673 5 523 876'
       it_is_correct_for 'Burkina Faso', :samples => '+226  1476 2312'
       it_is_correct_for 'Burundi', :samples => '+257  1234 5678'
-      it_is_correct_for "Cambodia", :samples => [["+855 12 236 142",
-                                                "+855 97 710 0872"],
-                                                ["+855 234 601 183",
-                                                "855 33 123 456"]]
+
+      it 'is correct for Cambodia' do
+        # 7 digit identifiers
+        Phony.plausible?("+855965787807").should be_true    # Smart
+        Phony.plausible?("+855312067777").should be_true    # Beeline
+        Phony.plausible?("+855383001801").should be_true    # CooTel
+        Phony.plausible?("+855973001801").should be_true    # Metfone
+        Phony.plausible?("+855883001801").should be_true    # Metfone
+        Phony.plausible?("+85510234567").should be_true     # Smart
+        Phony.plausible?("+85511234564").should be_true     # Mobitel (former Mfone)
+        Phony.plausible?("+855 12 236 142").should be_true  # Mobitel
+        Phony.plausible?("+855 234 601 183").should be_true # Long fixed line (Phnom Penh)
+        Phony.plausible?("855 33 123 456").should be_true   # Regular fixed line (Kampot)
+        Phony.plausible?("+855102345678").should be_false   # Too many digits for a 01 prefix
+      end
+
       it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'
       it_is_correct_for 'Cape Verde', :samples => '+238  642 3843'
       it_is_correct_for 'Central African Republic', :samples => '+236  1234 5678'
