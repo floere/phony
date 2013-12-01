@@ -463,11 +463,15 @@ Phony.define do
   country '371', todo # Latvia
 
   # Estonia
+  # 5xx xxxx      Mobile
+  # 5xxx xxxx     Mobile
+  # 81xx xxxx     Mobile
+  # 82xx xxxx     Mobile
   country '372',
-          match(/^(5\d\d\d)\d+$/)          >> split(4) | # Mobile
-          match(/^((?:70|8[12])\d\d)\d+$/) >> split(4) | # Mobile
+          match(/^(5\d\d)\d+$/)            >> split(4) | # Mobile
+          match(/^(8[12]\d)\d+$/)          >> split(4) | # Mobile
           fixed(3)                         >> split(4),  # 3-digit NDCs
-          length( 2 => 6, 3 => 7, 4 => 8 )
+          length( 2 => 6..7, 3 => 7..8, 4 => 8 )
 
   country '373', todo # Moldova
   country '374', todo # Armenia
