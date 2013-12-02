@@ -16,3 +16,4 @@ doc/
 .DS_Store
 .idea
 spec/performance_ratio.rb
+coverage
