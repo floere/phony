@@ -95,9 +95,14 @@ ndcs = [
 ]
 service = %w{ 100, 128, 190 191 192 193 194 197 198 199 } # State specific numbers were not added. See http://www.brasil.gov.br/navegue_por/aplicativos/agenda
 
+special_numbers_3_4 = %w{ 0800 }
+special_numbers_4 = %w{ 3003 4004 4020 }
+
 Phony.define do
   country '55', match(/^(11|12|13|14|15|16|17|18|19|21|22|24|27|28)9\d+$/) >> split(5,4) |
-                one_of(service)     >> split(3,3) |
-                one_of(ndcs)        >> split(4,4) |
-                fixed(3)            >> split(4,4)
+                one_of(special_numbers_3_4)  >> split(3,4) |
+                one_of(special_numbers_4)    >> split(4) |
+                one_of(service)              >> split(3,3) |
+                one_of(ndcs)                 >> split(4,4) |
+                fixed(3)                     >> split(4,4)
 end
