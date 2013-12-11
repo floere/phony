@@ -5,6 +5,7 @@
 # Note: São Paulo recently added an extra 9 digit to all mobile phones in the 11 area code
 #
 ndcs = [
+
  '11', #Sao Paulo
  '12', #Sao Paulo
  '13', #Sao Paulo
@@ -95,7 +96,8 @@ ndcs = [
 service = %w{ 100, 128, 190 191 192 193 194 197 198 199 } # State specific numbers were not added. See http://www.brasil.gov.br/navegue_por/aplicativos/agenda
 
 Phony.define do
-  country '55', one_of(service) >> split(3,3) |
-                one_of(ndcs)    >> split(4,4) |
-                fixed(3)        >> split(4,4)
+  country '55', match(/^(11|12|13|14|15|16|17|18|19|21|22|24|27|28)9\d+$/) >> split(5,4) |
+                one_of(service)     >> split(3,3) |
+                one_of(ndcs)        >> split(4,4) |
+                fixed(3)            >> split(4,4)
 end

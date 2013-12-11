@@ -7,11 +7,11 @@ describe 'country descriptions' do
   def self.it_splits number, expected
     it { Phony.split(number).should == expected }
   end
-  
+
   describe 'regression' do
     it_splits '33630588659', ["33", "6", "30", "58", "86", "59"]
   end
-  
+
   describe 'splitting' do
     describe 'Ascension Island' do
       it_splits '2473551', ['247', false, '3551']
@@ -102,7 +102,15 @@ describe 'country descriptions' do
     end
     describe 'Brazil' do
       it_splits '551112341234', ['55', '11', '1234', '1234']
-      it_splits '5511981231234', ['55', '11', '9812', '31234'] # São Paulo's 9 digits mobile
+      it_splits '5511981231234', ['55', '11', '98123', '1234'] # São Paulo's 9 digits mobile
+      it_splits '552181231234', ['55', '21', '8123', '1234']
+      it_splits '5521981231234', ['55', '21', '98123', '1234'] # Rio de Janeiro's 9 digits mobile
+
+      context "special states with 9 in mobile" do
+        %w{ 11 12 13 14 15 16 17 18 19 21 22 24 27 28}.each do |state_code|
+          it_splits "55#{state_code}993051123", ['55', state_code, '99305', '1123']
+        end
+      end
     end
     describe 'Cambodia' do
       it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
@@ -273,7 +281,7 @@ describe 'country descriptions' do
       it_splits '912212345678', ['91', '22', '123', '45', '678'] # New Delhi
       it_splits '911411234567', ['91', '141', '123', '45', '67'] # Jaipur
       it_splits '913525123456', ['91', '3525', '123', '456']     # DALKHOLA
-      it_splits '914433993939', ['91', '44', '339', '93', '939'] # 
+      it_splits '914433993939', ['91', '44', '339', '93', '939'] #
     end
 
     describe 'Iran' do
