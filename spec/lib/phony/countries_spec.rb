@@ -111,6 +111,13 @@ describe 'country descriptions' do
           it_splits "55#{state_code}993051123", ['55', state_code, '99305', '1123']
         end
       end
+
+      context "special numbers" do
+        it_splits '5508002221234', ['55', '0800', '222', '1234']
+        it_splits '5530032221', ['55', '3003', '2221']
+        it_splits '5540209999', ['55', '4020', '9999']
+        it_splits '5540048999', ['55', '4004', '8999']
+      end
     end
     describe 'Cambodia' do
       it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
