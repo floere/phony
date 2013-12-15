@@ -10,15 +10,15 @@ module Phony
       #
       def >> local_splitter
         if local_splitter.respond_to? :split
-          country_for local_splitter, true
+          country_for local_splitter
         else
           local_splitter.national_splitter = self
           local_splitter
         end
       end
       
-      def country_for local_splitter, normalize, trunk = '0'
-        Phony::Country.new Phony::NationalCode.new(self, local_splitter, normalize, trunk)
+      def country_for local_splitter
+        Phony::Country.new Phony::NationalCode.new(self, local_splitter)
       end
       
     end

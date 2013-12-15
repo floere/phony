@@ -8,12 +8,9 @@ module Phony
     
     #
     #
-    def initialize national_splitter, local_splitter, normalize = nil, trunk_code = '0'
+    def initialize national_splitter, local_splitter
       @national_splitter = national_splitter
       @local_splitter    = local_splitter
-      @normalize         = normalize != false
-      @trunk_code        = trunk_code
-      @trunk_code_replacement = /\A#{@trunk_code}+/
     end
 
     # Split gets a number without country code and splits it into
@@ -30,8 +27,7 @@ module Phony
     # Note: Some cases, like Italy, don't remove the relative zero.
     #
     def normalize national_number
-      return national_number unless @normalize
-      national_number.gsub(@trunk_code_replacement, EMPTY_STRING)
+      national_number.gsub(/\A0+/, EMPTY_STRING)
     end
 
   end

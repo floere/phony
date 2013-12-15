@@ -152,8 +152,9 @@ service = [ # Not exhaustive.
 ]
 
 Phony.define do
-  country '39', one_of(*service)                >> trunk('0', normalize: false) >> split(3,3) |
-                one_of(*mobile)                 >> trunk('0', normalize: false) >> split(3,4) |
-                one_of(*ndcs_2digit)            >> trunk('0', normalize: false) >> split(4,4) |
-                one_of(*ndcs, :max_length => 3) >> trunk('0', normalize: false) >> split(3,4)
+  country '39', trunk('0', :normalize => false) |
+                one_of(*service)                >> split(3,3) |
+                one_of(*mobile)                 >> split(3,4) |
+                one_of(*ndcs_2digit)            >> split(4,4) |
+                one_of(*ndcs, :max_length => 3) >> split(3,4)
 end

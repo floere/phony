@@ -54,25 +54,10 @@ module Phony
       Phony::CountryCodes.instance.add country_code, definition
     end
     
-    class Trunk
-      
-      def initialize code, options = {}
-        @code = code
-        @normalize = options[:normalize]
-      end
-      
-      def national_splitter= national_splitter
-        @national_splitter = national_splitter
-      end
-      
-      def >> local_splitter
-        @national_splitter.country_for local_splitter, @normalize, @code
-      end
-      
-    end
-    
+    #
+    #
     def trunk code, options = {}
-      Trunk.new code, options
+      TrunkCode.new code, options
     end
 
     # National matcher & splitters.
@@ -150,7 +135,7 @@ module Phony
     # This country still uses a default NDC (and needs to be done, hence the todo).
     #
     def todo
-      none >> NationalSplitters::Default.instance_for
+      none >> split(10)
     end
 
     # Local splitters.

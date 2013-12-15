@@ -20,7 +20,7 @@
 # Note: The ones that are commented are defined in their special files.
 #
 Phony.define do
-
+  
   # Reserved.
   #
   country '0', fixed(1) >> split(10) # Reserved.
@@ -28,9 +28,9 @@ Phony.define do
   # USA, Canada, etc.
   #
   country '1',
-          fixed(3, :zero => false) >> trunk('1') >> split(3,4),
-          # invalid_ndcs('911'), # /911/ would also work.
-          :invalid_ndcs => ['911'] # TODO
+    trunk('1') |
+    fixed(3, :zero => false) >> split(3,4),
+    :invalid_ndcs => ['911']
 
   # Kazakhstan (Republic of) & Russsian Federation.
   # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
@@ -51,16 +51,17 @@ Phony.define do
   # Greece. http://www.numberingplans.com/?page=dialling&sub=areacodes
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=GR
   country '30',
-          one_of(%w(231 241 251 261 271 281)) >> split(3,4) |
-          one_of('800') >> split(3,4) | # freephone
-          one_of(%w(801 807)) >> split(3,4) | # shared cost, premium rate
-          one_of('896') >> split(3,4) | # ISP
-          one_of(%w(901 909)) >> split(3,4) | # premium rate
-          one_of(%w(21 22 23 24 25 26 27 28)) >> split(4,4) |
-          one_of('50') >> split(4,4) | # VPN
-          one_of('69') >> split(4,4) | # mobile, pager
-          one_of('70') >> split(4,4) | # universal access
-          fixed(4) >> split(6)   # 3-digit NDCs
+    trunk('0') |
+    one_of(%w(231 241 251 261 271 281)) >> split(3,4) |
+    one_of('800') >> split(3,4) | # freephone
+    one_of(%w(801 807)) >> split(3,4) | # shared cost, premium rate
+    one_of('896') >> split(3,4) | # ISP
+    one_of(%w(901 909)) >> split(3,4) | # premium rate
+    one_of(%w(21 22 23 24 25 26 27 28)) >> split(4,4) |
+    one_of('50') >> split(4,4) | # VPN
+    one_of('69') >> split(4,4) | # mobile, pager
+    one_of('70') >> split(4,4) | # universal access
+    fixed(4) >> split(6)   # 3-digit NDCs
 
   # country '31' # Netherlands, see special file.
 
@@ -83,9 +84,10 @@ Phony.define do
   # Hungary.
   #
   country '36',
-          one_of('104','105','107','112') >> trunk('06') >> split(3,3) | # Service
-          one_of('1')                     >> trunk('06') >> split(3,4) | # Budapest
-          fixed(2)                        >> trunk('06') >> split(3,4)   # 2-digit NDCs
+    trunk('06') |
+    one_of('104','105','107','112') >> split(3,3) | # Service
+    one_of('1')                     >> split(3,4) | # Budapest
+    fixed(2)                        >> split(3,4)   # 2-digit NDCs
 
   # country '39' # Italy, see special file.
 
@@ -340,8 +342,8 @@ Phony.define do
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
   country '250',
           one_of('25')       >> split(7) | # Geographic, fixed
-          match(/^(7[238])/) >> split(7)  | # Non-geographic, mobile
-          one_of('06')       >> split(6)    # Satellite
+          match(/^(7[238])/) >> split(7) | # Non-geographic, mobile
+          one_of('06')       >> split(6)   # Satellite
 
   country '251', fixed(2) >> split(3, 4) # Ethiopia http://www.wtng.info/wtng-251-et.html
 
@@ -352,8 +354,9 @@ Phony.define do
   # Kenya
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Kenya
   country '254',
-          match(/^(7\d\d)/)  >> split(6) | # mobile
-          fixed(2)           >> split(7)   # landline
+    trunk('0') |
+    match(/^(7\d\d)/) >> split(6) | # mobile
+    fixed(2)          >> split(7)   # landline
 
   # Tanzania.
   #
@@ -562,11 +565,12 @@ Phony.define do
   # Lithuania
   #
   country '370',
-          one_of('700', '800')  >> trunk('8') >> split(2,3)   | # Service
-          match(/^(6\d\d)\d+$/) >> trunk('8') >> split(2,3)   | # Mobile
-          one_of('5')           >> trunk('8') >> split(3,2,2) | # Vilnius
-          one_of('37','41')     >> trunk('8') >> split(2,2,2) | # Kaunas, Šiauliai
-          fixed(3)              >> trunk('8') >> split(1,2,2)   # 3-digit NDCs.
+    trunk('8') |
+    one_of('700', '800')  >> split(2,3)   | # Service
+    match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
+    one_of('5')           >> split(3,2,2) | # Vilnius
+    one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
+    fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
 
   # country '371' # Latvia, see special file
 

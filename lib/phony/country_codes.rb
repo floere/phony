@@ -34,7 +34,12 @@ module Phony
     # We can't know from what country that person was calling, so we
     # can't remove the intl' call prefix.
     #
-    @@basic_normalizing_pattern = /^00?|\D/
+    # We remove:
+    #  * 0 or 00 at the very beginning.
+    #  * (0) anywhere.
+    #  * Non-digits.
+    #
+    @@basic_normalizing_pattern = /^00?|\(0\)|\D/
     def clean number
       clean! number && number.dup
     end
