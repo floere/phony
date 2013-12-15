@@ -17,8 +17,8 @@ module Phony
         end
       end
       
-      def country_for local_splitter, with_zero, trunk = '0'
-        Phony::Country.new Phony::NationalCode.new(self, local_splitter, with_zero, trunk)
+      def country_for local_splitter, normalize, trunk = '0'
+        Phony::Country.new Phony::NationalCode.new(self, local_splitter, normalize, trunk)
       end
       
     end
