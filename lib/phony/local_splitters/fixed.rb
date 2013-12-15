@@ -59,7 +59,7 @@ module Phony
         end
       end
       
-      # TODO Fix length fudging.
+      #
       #
       def plausible? rest, hints = {}
         @length === rest.inject(0) { |total, part| total + part.size }
