@@ -39,14 +39,14 @@ module Phony
     #  * (0) anywhere.
     #  * Non-digits.
     #
-    @@basic_normalizing_pattern = /^00?|\(0\)|\D/
+    @@basic_cleaning_pattern = /^00?|\(0\)|\D/
     def clean number
       clean! number && number.dup
     end
     def clean! number
       # Remove non-digit chars.
       #
-      number.gsub!(@@basic_normalizing_pattern, EMPTY_STRING) || number
+      number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
     def normalize number, options = {}
       clean! number

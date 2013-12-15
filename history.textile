@@ -1,4 +1,8 @@
-h2. Next up: 2.0
+h2. Version 2.0.1
+
+* hanke: Moved trunk codes to where they belong. Handle "(0)" in numbers.
+
+h2. Version 2.0.0
 
 * hanke: Many improvements and API changes.
 
