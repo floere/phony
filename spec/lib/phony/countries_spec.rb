@@ -199,8 +199,9 @@ describe 'country descriptions' do
       it_splits '493434144602',  ['49', '34341', '446', '02']  # Geithain
       it_splits '491805878323',  ['49', '180', '587', '8323']  # Service number
       it_splits '491815878323',  ['49', '181', '587', '8323']  # Service number
-      it_splits '4915112312345', ['49', '151', '123', '12345']  # Mobile number
-      it_splits '49152112312345',['49', '1521', '123', '12345']  # Mobile number
+      it_splits '4915111231234', ['49', '1511', '123', '1234']  # Mobile number
+      it_splits '4915211231234', ['49', '1521', '123', '1234']  # Mobile number
+      it_splits '4915771231234', ['49', '1577', '123', '1234']  # Mobile number
       it_splits '4916312312345', ['49', '163', '123', '12345']  # Mobile number
     end
     describe 'Ghana' do
