@@ -2,7 +2,7 @@
 #
 require 'spec_helper'
 
-describe 'validations' do
+describe 'plausibility' do
 
   describe 'plausible?' do
 
@@ -366,6 +366,9 @@ describe 'validations' do
       it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689  872 784'
       it_is_correct_for 'Gabonese Republic', :samples => '+241 1 627 739'
       it_is_correct_for 'Gambia', :samples => '+220  989 5148'
+      it_is_correct_for 'Germany', :samples => [
+        '+4915775368708'
+      ]
       it_is_correct_for 'Georgia', :samples => ['+995 220 123 45',
                                                 '+995 32 123 4567',
                                                 '+995 342 123 456',
