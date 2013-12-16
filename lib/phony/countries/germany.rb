@@ -4075,15 +4075,15 @@ service = [
 #
 
 Phony.define do
-   country '49', one_of(service)             >> split(3,0) |
-                 one_of('176')               >> split(3,5) |
-                 one_of('1609')              >> split(3,5) |
-                 one_of('1521', '1529', '1570', '1575', '1579') >> split(3,4) |
-                 match(/\A(1[57]\d)\d*\z/)   >> split(3,4) |
-                 match(/\A(16\d)\d*\z/)      >> split(3,5) |
-                 one_of(ndcs2)               >> split(3,0..6) |
-                 one_of(ndcs3)               >> split(3,0..5) |
-                 one_of(ndcs4)               >> split(3,0..4) |
-                 fixed(5)                    >> split(3,3..3) 
-
+   country '49',
+     one_of(service)           >> split(3,0) |
+     one_of('176')             >> split(3,5) |
+     one_of('1609')            >> split(3,5) |
+     match(/\A(151[124567]|152[012359]|157[035789]|1590)\d*\z/) >> split(3,4) |
+     match(/\A(1[57]\d)\d*\z/) >> split(3,4) |
+     match(/\A(16\d)\d*\z/)    >> split(3,5) |
+     one_of(ndcs2)             >> split(3,0..6) |
+     one_of(ndcs3)             >> split(3,0..5) |
+     one_of(ndcs4)             >> split(3,0..4) |
+     fixed(5)                  >> split(3,3..3)
 end
