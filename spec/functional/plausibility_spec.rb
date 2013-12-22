@@ -327,18 +327,50 @@ describe 'plausibility' do
       it_is_correct_for 'Burundi', :samples => '+257  1234 5678'
 
       it 'is correct for Cambodia' do
-        # 7 digit identifiers
-        Phony.plausible?("+855965787807").should be_true    # Smart
-        Phony.plausible?("+855312067777").should be_true    # Beeline
-        Phony.plausible?("+855383001801").should be_true    # CooTel
-        Phony.plausible?("+855973001801").should be_true    # Metfone
-        Phony.plausible?("+855883001801").should be_true    # Metfone
-        Phony.plausible?("+85510234567").should be_true     # Smart
-        Phony.plausible?("+85511234564").should be_true     # Mobitel (former Mfone)
-        Phony.plausible?("+855 12 236 142").should be_true  # Mobitel
-        Phony.plausible?("+855 234 601 183").should be_true # Long fixed line (Phnom Penh)
-        Phony.plausible?("855 33 123 456").should be_true   # Regular fixed line (Kampot)
-        Phony.plausible?("+855102345678").should be_false   # Too many digits for a 01 prefix
+        # http://en.wikipedia.org/wiki/Telecommunications_in_Cambodia#Mobile_networks
+        # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
+        # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWE.doc
+
+        Phony.plausible?("+855312345678").should be_true     # Beeline (7 digit id)
+        Phony.plausible?("+85531234567").should be_false     # Beeline (too short)
+        Phony.plausible?("+85560234567").should be_true      # Beeline (6 digit id)
+        Phony.plausible?("+855602345678").should be_false    # Beeline (too long)
+
+        Phony.plausible?("+855762345678").should be_true     # Mobitel (7 digit id)
+        Phony.plausible?("+85576234567").should be_false     # Mobitel (too short)
+        Phony.plausible?("+85512234567").should be_true      # Mobitel (6 digit id)
+        Phony.plausible?("+855122345678").should be_false    # Mobitel (too long)
+
+        Phony.plausible?("+855383001801").should be_true     # CooTel (7 digit id)
+        Phony.plausible?("+85538300180").should be_false     # CooTel (too short)
+
+        Phony.plausible?("+85518234567").should be_true      # Excell (6 digit id)
+        Phony.plausible?("+855182345678").should be_false    # Excell (too long)
+
+        Phony.plausible?("+855882345678").should be_true     # Metfone (7 digit id)
+        Phony.plausible?("+85588234567").should be_false     # Metfone (too short)
+        Phony.plausible?("+855972345678").should be_true     # Metfone (7 digit id)
+        Phony.plausible?("+85597234567").should be_false     # Metfone (too short)
+
+        Phony.plausible?("+85513234567").should be_true      # qb (6 digit id)
+        Phony.plausible?("+855132345678").should be_false    # qb (too long)
+
+        Phony.plausible?("+855962345678").should be_true     # Smart (7 digit id)
+        Phony.plausible?("+85596234567").should be_false     # Smart (too short)
+        Phony.plausible?("+85510234567").should be_true      # Smart (6 digit id)
+        Phony.plausible?("+855102345678").should be_false    # Smart (too long)
+
+        # AXXXXX (A must be between 2 and 9)
+        Phony.plausible?("+85512023456").should be_false     # invalid numbering plan
+        Phony.plausible?("+85512123456").should be_false     # invalid numbering plan
+        Phony.plausible?("+855380234567").should be_false    # invalid numbering plan
+        Phony.plausible?("+855381234567").should be_false    # invalid numbering plan
+
+        Phony.plausible?("+85514234567").should be_false     # invalid mobile operator
+        Phony.plausible?("+85527234567").should be_false     # invalid ndc
+
+        Phony.plausible?("+85523471234").should be_true      # Fixed line (NDC + '47' + 4 digit id)
+        Phony.plausible?("+855234712345").should be_true     # Fixed line (NDC + '47' + 5 digit id)
       end
 
       it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'

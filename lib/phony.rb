@@ -24,6 +24,7 @@ require File.expand_path '../phony/countries/austria', __FILE__
 require File.expand_path '../phony/countries/bangladesh', __FILE__
 require File.expand_path '../phony/countries/belarus', __FILE__
 require File.expand_path '../phony/countries/brazil', __FILE__
+require File.expand_path '../phony/countries/cambodia', __FILE__
 require File.expand_path '../phony/countries/china', __FILE__
 require File.expand_path '../phony/countries/georgia', __FILE__
 require File.expand_path '../phony/countries/germany', __FILE__
@@ -67,13 +68,13 @@ module Phony
       super %Q{Phony could not normalize the given number. Is it a phone number?}
     end
   end
-    
+
   # Phony uses a single country codes instance.
   #
   @codes = CountryCodes.instance
 
   class << self
-    
+
     # Get the Country for the given CC.
     #
     # Example:
