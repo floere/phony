@@ -37,7 +37,6 @@ six_digit_mobile_prefixes = [
   '68', # Beeline
   '90', # Beeline
   '11', # Mobitel
-  '12', # Mobitel
   '17', # Mobitel
   '61', # Mobitel
   '77', # Mobitel
@@ -73,8 +72,15 @@ seven_digit_mobile_prefixes = [
   '97', # Metfone
 ]
 
+six_or_seven_digit_mobile_prefixes = [
+  '12' # Mobitel
+]
+
 Phony.define do
-  country '855', one_of(six_digit_mobile_prefixes)   >> matched_split(/^[2-9]/ => [3, 3]) |
+  country '855', one_of(six_digit_mobile_prefixes)   >> matched_split(/^[1-9]/ => [3, 3]) |
                  one_of(seven_digit_mobile_prefixes) >> matched_split(/^[2-9]/ => [3, 4]) |
-                 one_of(ndcs) >> matched_split(/^\d{6}$/ => [3, 3], /^\d{7}$/ => [3, 4])
+                 one_of(six_or_seven_digit_mobile_prefixes) >> matched_split(
+                   /^[2-9]\d{5}$/ => [3, 3], /^[1-9]\d{6}$/ => [3, 4]
+                 ) |
+                 one_of(ndcs) >> matched_split(/^[2-9]\d{5}$/ => [3, 3], /^[2-9]\d{6}$/ => [3, 4])
 end

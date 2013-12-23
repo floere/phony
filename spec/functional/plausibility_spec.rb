@@ -338,8 +338,11 @@ describe 'plausibility' do
 
         Phony.plausible?("+855762345678").should be_true     # Mobitel (7 digit id)
         Phony.plausible?("+85576234567").should be_false     # Mobitel (too short)
+        Phony.plausible?("+85517234567").should be_true      # Mobitel (6 digit id)
+        Phony.plausible?("+855172345678").should be_false    # Mobitel (too long)
         Phony.plausible?("+85512234567").should be_true      # Mobitel (6 digit id)
-        Phony.plausible?("+855122345678").should be_false    # Mobitel (too long)
+        Phony.plausible?("+855121345678").should be_true     # Mobitel (7 digit id)
+        Phony.plausible?("+85512123456").should be_false     # Mobitel (6 digit invalid)
 
         Phony.plausible?("+855383001801").should be_true     # CooTel (7 digit id)
         Phony.plausible?("+85538300180").should be_false     # CooTel (too short)
@@ -360,17 +363,17 @@ describe 'plausibility' do
         Phony.plausible?("+85510234567").should be_true      # Smart (6 digit id)
         Phony.plausible?("+855102345678").should be_false    # Smart (too long)
 
-        # AXXXXX (A must be between 2 and 9)
+        # AXXXXX (A must be between 1 and 9)
         Phony.plausible?("+85512023456").should be_false     # invalid numbering plan
-        Phony.plausible?("+85512123456").should be_false     # invalid numbering plan
         Phony.plausible?("+855380234567").should be_false    # invalid numbering plan
-        Phony.plausible?("+855381234567").should be_false    # invalid numbering plan
+        Phony.plausible?("+85592123456").should be_true      # valid for 6 digit id
 
         Phony.plausible?("+85514234567").should be_false     # invalid mobile operator
         Phony.plausible?("+85527234567").should be_false     # invalid ndc
 
         Phony.plausible?("+85523471234").should be_true      # Fixed line (NDC + '47' + 4 digit id)
         Phony.plausible?("+855234712345").should be_true     # Fixed line (NDC + '47' + 5 digit id)
+        Phony.plausible?("+85523123456").should be_false     # Fixed line (NDC + invalid A)
       end
 
       it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'

@@ -123,7 +123,7 @@ describe 'country descriptions' do
       it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
       it_splits '855977100872', ["855", "97", "710", "0872"] # mobile (Metfone)
       it_splits '855234601183', ["855", "23", "460", "1183"] # Long fixed line (Phnom Penh)
-      it_splits '85533123456', ["855", "33", "123", "456"]   # Regular fixed line (Kampot)
+      it_splits '85533234567', ["855", "33", "234", "567"]   # Regular fixed line (Kampot)
     end
     describe 'Chile' do
       it_splits '5621234567', ['56', '2', '1234567']       # Santiago
