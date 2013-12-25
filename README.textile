@@ -3,16 +3,22 @@
 
 h1. Phony
 
-Used in e.g.: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
+The (admittedly crazy) goal of this Gem is to be able to format/split all phone numbers in the world.
+
+Used in: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
 
 There's also a Rails wrapper: https://github.com/joost/phony_rails.
 
 h2. Description
 
-This gem can normalize, format and split E164 numbers. E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. Here's an example from Australia: +61 412 345 678. 61 is the country code of Australia, 4 denotes a mobile number and 12 345 678 is the subscriber number.
-"More about E164 numbers in this Wiki":http://en.wikipedia.org/wiki/E.164.
+This gem normalizes, formats and splits *E164 phone numbers*. A valid E164 phone number *must* include a country code.
 
-The (admittedly crazy) *goal* of this Gem is to be able to format/split all phone numbers in the world.
+E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. For example, the Austalian number number @+61 412 345 678@ can be broken down into the following components:
+* a country code of @61@
+* a mobile number denoted by the @4@ (specific to Austria)
+* a subscriber number of @12 345 678@
+
+Learn more about E164 numbers "here":http://en.wikipedia.org/wiki/E.164.
 
 Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, and Vietnamese numbers.
 
@@ -22,9 +28,15 @@ If it doesn't, please "enter an issue":http://github.com/floere/phony/issues.
 
 h2. Installation
 
-<pre><code>gem install phony</code></pre>
+Using with Rails? Check out: https://github.com/joost/phony_rails.
 
-h2(#examples). Some examples
+With Bundler:
+Append @gem 'phony'@ to your @Gemfile@ and @bundle install@ it.
+
+Without Bundler:
+Run @gem install phony@ from your command line.
+
+h2(#usage). Usage
 
 h3(#plausibility). Plausibility
 
