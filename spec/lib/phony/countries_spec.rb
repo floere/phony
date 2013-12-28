@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'country descriptions' do
 
   def self.it_splits number, expected
-    it { Phony.split(number).should == expected }
+    it { expect(Phony.split(number)).to eq(expected) }
   end
 
   describe 'regression' do
@@ -516,10 +516,10 @@ describe 'country descriptions' do
       it_splits '2399920012', %w(239 9 920 012)
     end
     describe 'South Korea' do
-      it { Phony.split('82212345678').should  == ['82', '2', '1234', '5678']  } # Seoul
-      it { Phony.split('825112345678').should == ['82', '51', '1234', '5678'] } # Busan
-      it { Phony.split('821027975588').should == ['82', '10', '2797', '5588'] } # mobile
-      it { Phony.split('821087971234').should == ['82', '10', '8797', '1234'] } # mobile
+      it { expect(Phony.split('82212345678')).to  eq(['82', '2', '1234', '5678'])  } # Seoul
+      it { expect(Phony.split('825112345678')).to eq(['82', '51', '1234', '5678']) } # Busan
+      it { expect(Phony.split('821027975588')).to eq(['82', '10', '2797', '5588']) } # mobile
+      it { expect(Phony.split('821087971234')).to eq(['82', '10', '8797', '1234']) } # mobile
     end
     describe 'South Sudan' do
       it_splits '211123212345', ['211', '123', '212', '345']
@@ -529,127 +529,127 @@ describe 'country descriptions' do
       it_splits '249187171100', ['249', '18', '717', '1100']
     end
     describe 'Thailand' do
-      it { Phony.split('6621231234').should == ['66', '2', '123', '1234'] } # Bangkok
-      it { Phony.split('6636123123').should == ['66', '36', '123', '123'] } # Lop Buri
-      it { Phony.split('66851234567').should == ['66', '851', '234', '567'] } # Lop Buri
+      it { expect(Phony.split('6621231234')).to eq(['66', '2', '123', '1234']) } # Bangkok
+      it { expect(Phony.split('6636123123')).to eq(['66', '36', '123', '123']) } # Lop Buri
+      it { expect(Phony.split('66851234567')).to eq(['66', '851', '234', '567']) } # Lop Buri
     end
     describe 'Tunesia' do
-      it { Phony.split('21611231234').should == ['216', '1', '123', '1234'] } # Ariana
-      it { Phony.split('21621231234').should == ['216', '2', '123', '1234'] } # Bizerte
+      it { expect(Phony.split('21611231234')).to eq(['216', '1', '123', '1234']) } # Ariana
+      it { expect(Phony.split('21621231234')).to eq(['216', '2', '123', '1234']) } # Bizerte
     end
     describe 'Salvador (El)' do
-      it { Phony.split('50321121234').should == ['503', '2112', '1234'] } # Fixed number
-      it { Phony.split('50361121234').should == ['503', '6112', '1234'] } # Mobile number
+      it { expect(Phony.split('50321121234')).to eq(['503', '2112', '1234']) } # Fixed number
+      it { expect(Phony.split('50361121234')).to eq(['503', '6112', '1234']) } # Mobile number
     end
 
     describe 'Singapore' do
-      it { Phony.split('6561231234').should == ['65', false, '6123', '1234'] } # Fixed line
+      it { expect(Phony.split('6561231234')).to eq(['65', false, '6123', '1234']) } # Fixed line
     end
     describe 'Slovakia' do
-      it { Phony.split('421912123456').should == ['421', '912', '123456'] } # Mobile
-      it { Phony.split('421212345678').should == ['421', '2', '12345678'] } # Bratislava
-      it { Phony.split('421371234567').should == ['421', '37', '1234567'] } # Nitra / Other
+      it { expect(Phony.split('421912123456')).to eq(['421', '912', '123456']) } # Mobile
+      it { expect(Phony.split('421212345678')).to eq(['421', '2', '12345678']) } # Bratislava
+      it { expect(Phony.split('421371234567')).to eq(['421', '37', '1234567']) } # Nitra / Other
     end
 
     describe 'Sri Lanka' do
-      it { Phony.split('94711231212').should == ['94', '71', '123', '12', '12'] } # Mobile
+      it { expect(Phony.split('94711231212')).to eq(['94', '71', '123', '12', '12']) } # Mobile
     end
 
     describe 'Sweden' do
-      it { Phony.split('46812345678').should == ['46', '8', '123', '45', '678'] } # Stockholm
-      it { Phony.split('46111234567').should == ['46', '11', '123', '45', '67'] }
-      it { Phony.split('46721234567').should == ['46', '72', '123', '45', '67'] } # mobile
-      it { Phony.split('46125123456').should == ['46', '125', '123', '456'] }
+      it { expect(Phony.split('46812345678')).to eq(['46', '8', '123', '45', '678']) } # Stockholm
+      it { expect(Phony.split('46111234567')).to eq(['46', '11', '123', '45', '67']) }
+      it { expect(Phony.split('46721234567')).to eq(['46', '72', '123', '45', '67']) } # mobile
+      it { expect(Phony.split('46125123456')).to eq(['46', '125', '123', '456']) }
     end
     describe 'Switzerland' do
-      it { Phony.split('41443643532').should == ['41', '44', '364', '35', '32'] } # Zurich (usually)
-      it { Phony.split('41800334455').should == ['41', '800', '334', '455'] }     # Service number
+      it { expect(Phony.split('41443643532')).to eq(['41', '44', '364', '35', '32']) } # Zurich (usually)
+      it { expect(Phony.split('41800334455')).to eq(['41', '800', '334', '455']) }     # Service number
     end
     describe 'Tanzania' do
-      it { Phony.split('255221231234').should == ['255', '22', '123', '1234'] } # Dar Es Salaam
-      it { Phony.split('255651231234').should == ['255', '65', '123', '1234'] } # TIGO
-      it { Phony.split('255861123123').should == ['255', '861', '123', '123'] } # Special Rates
+      it { expect(Phony.split('255221231234')).to eq(['255', '22', '123', '1234']) } # Dar Es Salaam
+      it { expect(Phony.split('255651231234')).to eq(['255', '65', '123', '1234']) } # TIGO
+      it { expect(Phony.split('255861123123')).to eq(['255', '861', '123', '123']) } # Special Rates
     end
     describe 'Turkey' do
-      it { Phony.split('903121234567').should == ['90', '312', '123', '4567'] } # Ankara
+      it { expect(Phony.split('903121234567')).to eq(['90', '312', '123', '4567']) } # Ankara
     end
     describe 'Uganda' do
-      it { Phony.split('256414123456').should == ['256', '41', '4123456'] } # Kampania
-      it { Phony.split('256464441234').should == ['256', '464', '441234'] } # Mubende
+      it { expect(Phony.split('256414123456')).to eq(['256', '41', '4123456']) } # Kampania
+      it { expect(Phony.split('256464441234')).to eq(['256', '464', '441234']) } # Mubende
     end
     describe 'The UK' do
-      it { Phony.split('442075671113').should == ['44', '20', '7567', '1113'] } # [2+8] London
-      it { Phony.split('442920229901').should == ['44', '29', '2022', '9901'] } # [2+8] Cardiff
-      it { Phony.split('441134770011').should == ['44', '113', '477', '0011'] } # [3+7] Leeds
-      it { Phony.split('441412770022').should == ['44', '141', '277', '0022'] } # [3+7] Glasgow
-      it { Phony.split('441204500532').should == ['44', '1204', '500532'] }     # [4+6] Bolton
-      it { Phony.split('44120462532').should  == ['44', '1204', '62532']  }     # [4+5] Bolton
-      it { Phony.split('441333247700').should == ['44', '1333', '247700'] }     # [4+6] Leven (Fife)
-      it { Phony.split('441382229845').should == ['44', '1382', '229845'] }     # [4+6] Dundee
-      it { Phony.split('441420700378').should == ['44', '1420', '700378'] }     # [4+6] Alton
-      it { Phony.split('44142080378').should  == ['44', '1420', '80378']  }     # [4+5] Alton
-      it { Phony.split('441475724688').should == ['44', '1475', '724688'] }     # [4+6] Greenock
-      it { Phony.split('441539248756').should == ['44', '1539', '248756'] }     # [4+6] Kendal (Mixed area)
-      it { Phony.split('441539648788').should == ['44', '15396', '48788'] }     # [5+5] Sedbergh (Mixed area)
-      it { Phony.split('441652757248').should == ['44', '1652', '757248'] }     # [4+6] Brigg
-      it { Phony.split('441664333456').should == ['44', '1664', '333456'] }     # [4+6] Melton Mowbray
-      it { Phony.split('441697222555').should == ['44', '1697', '222555'] }     # [4+6] Brampton (Mixed area)
-      it { Phony.split('441697388555').should == ['44', '16973', '88555'] }     # [5+5] Wigton (Mixed area)
-      it { Phony.split('441697433777').should == ['44', '16974', '33777'] }     # [5+5] Raughton Head (Mixed area)
-      it { Phony.split('44169772333').should  == ['44', '16977', '2333']  }     # [5+4] Brampton (Mixed area)
-      it { Phony.split('441697744888').should == ['44', '16977', '44888'] }     # [5+5] Brampton (Mixed area)
-      it { Phony.split('441757850526').should == ['44', '1757', '850526'] }     # [4+6] Selby
-      it { Phony.split('441890234567').should == ['44', '1890', '234567'] }     # [4+6] Coldstream (ELNS area)
-      it { Phony.split('441890595378').should == ['44', '1890', '595378'] }     # [4+6] Ayton (ELNS area)
-      it { Phony.split('441931306526').should == ['44', '1931', '306526'] }     # [4+6] Shap
-      it { Phony.split('441946555777').should == ['44', '1946', '555777']  }    # [4+6] Whitehaven (Mixed area)
-      it { Phony.split('44194662888').should  == ['44', '1946', '62888']  }     # [4+5] Whitehaven (Mixed area)
-      it { Phony.split('441946722444').should == ['44', '19467', '22444']  }    # [5+5] Gosforth (Mixed area)
-      it { Phony.split('441987705337').should == ['44', '1987', '705337'] }     # [4+6] Ebbsfleet
-      it { Phony.split('443005828323').should == ['44', '300', '582', '8323'] } # Non-geographic (NTS)
-      it { Phony.split('443334253344').should == ['44', '333', '425', '3344'] } # Non-geographic (NTS)
-      it { Phony.split('443437658834').should == ['44', '343', '765', '8834'] } # Non-geographic (NTS)
-      it { Phony.split('443452273512').should == ['44', '345', '227', '3512'] } # Non-geographic (NTS)
-      it { Phony.split('443707774444').should == ['44', '370', '777', '4444'] } # Non-geographic (NTS)
-      it { Phony.split('443725247722').should == ['44', '372', '524', '7722'] } # Non-geographic (NTS)
-      it { Phony.split('44500557788').should  == ['44', '500', '557788'] }      # Freefone (500 + 6)
-      it { Phony.split('445575671113').should == ['44', '55', '7567', '1113'] } # Corporate numbers
-      it { Phony.split('445644775533').should == ['44', '56', '4477', '5533'] } # LIECS/VoIP
-      it { Phony.split('447020229901').should == ['44', '70', '2022', '9901'] } # Personal numbers
-      it { Phony.split('447688554246').should == ['44', '76', '8855', '4246'] } # Pager
-      it { Phony.split('447180605207').should == ['44', '7180', '605207'] }     # Mobile
-      it { Phony.split('447480605207').should == ['44', '7480', '605207'] }     # Mobile
-      it { Phony.split('447624605207').should == ['44', '7624', '605207'] }     # Mobile (Isle of Man)
-      it { Phony.split('447780605207').should == ['44', '7780', '605207'] }     # Mobile
-      it { Phony.split('447980605207').should == ['44', '7980', '605207'] }     # Mobile
-      it { Phony.split('44800557788').should  == ['44', '800', '557788']  }     # Freefone (800 + 6)
-      it { Phony.split('448084682355').should == ['44', '808', '468', '2355'] } # Freefone (808 + 7)
-      it { Phony.split('448005878323').should == ['44', '800', '587', '8323'] } # Freefone (800 + 7), regression
-      it { Phony.split('448437777334').should == ['44', '843', '777', '7334'] } # Non-geographic (NTS)
-      it { Phony.split('448457777334').should == ['44', '845', '777', '7334'] } # Non-geographic (NTS)
-      it { Phony.split('448707777334').should == ['44', '870', '777', '7334'] } # Non-geographic (NTS)
-      it { Phony.split('448727777334').should == ['44', '872', '777', '7334'] } # Non-geographic (NTS)
-      it { Phony.split('449052463456').should == ['44', '905', '246', '3456'] } # Non-geographic (PRS)
-      it { Phony.split('449122463456').should == ['44', '912', '246', '3456'] } # Non-geographic (PRS)
-      it { Phony.split('449832463456').should == ['44', '983', '246', '3456'] } # Non-geographic (SES)
+      it { expect(Phony.split('442075671113')).to eq(['44', '20', '7567', '1113']) } # [2+8] London
+      it { expect(Phony.split('442920229901')).to eq(['44', '29', '2022', '9901']) } # [2+8] Cardiff
+      it { expect(Phony.split('441134770011')).to eq(['44', '113', '477', '0011']) } # [3+7] Leeds
+      it { expect(Phony.split('441412770022')).to eq(['44', '141', '277', '0022']) } # [3+7] Glasgow
+      it { expect(Phony.split('441204500532')).to eq(['44', '1204', '500532']) }     # [4+6] Bolton
+      it { expect(Phony.split('44120462532')).to  eq(['44', '1204', '62532'])  }     # [4+5] Bolton
+      it { expect(Phony.split('441333247700')).to eq(['44', '1333', '247700']) }     # [4+6] Leven (Fife)
+      it { expect(Phony.split('441382229845')).to eq(['44', '1382', '229845']) }     # [4+6] Dundee
+      it { expect(Phony.split('441420700378')).to eq(['44', '1420', '700378']) }     # [4+6] Alton
+      it { expect(Phony.split('44142080378')).to  eq(['44', '1420', '80378'])  }     # [4+5] Alton
+      it { expect(Phony.split('441475724688')).to eq(['44', '1475', '724688']) }     # [4+6] Greenock
+      it { expect(Phony.split('441539248756')).to eq(['44', '1539', '248756']) }     # [4+6] Kendal (Mixed area)
+      it { expect(Phony.split('441539648788')).to eq(['44', '15396', '48788']) }     # [5+5] Sedbergh (Mixed area)
+      it { expect(Phony.split('441652757248')).to eq(['44', '1652', '757248']) }     # [4+6] Brigg
+      it { expect(Phony.split('441664333456')).to eq(['44', '1664', '333456']) }     # [4+6] Melton Mowbray
+      it { expect(Phony.split('441697222555')).to eq(['44', '1697', '222555']) }     # [4+6] Brampton (Mixed area)
+      it { expect(Phony.split('441697388555')).to eq(['44', '16973', '88555']) }     # [5+5] Wigton (Mixed area)
+      it { expect(Phony.split('441697433777')).to eq(['44', '16974', '33777']) }     # [5+5] Raughton Head (Mixed area)
+      it { expect(Phony.split('44169772333')).to  eq(['44', '16977', '2333'])  }     # [5+4] Brampton (Mixed area)
+      it { expect(Phony.split('441697744888')).to eq(['44', '16977', '44888']) }     # [5+5] Brampton (Mixed area)
+      it { expect(Phony.split('441757850526')).to eq(['44', '1757', '850526']) }     # [4+6] Selby
+      it { expect(Phony.split('441890234567')).to eq(['44', '1890', '234567']) }     # [4+6] Coldstream (ELNS area)
+      it { expect(Phony.split('441890595378')).to eq(['44', '1890', '595378']) }     # [4+6] Ayton (ELNS area)
+      it { expect(Phony.split('441931306526')).to eq(['44', '1931', '306526']) }     # [4+6] Shap
+      it { expect(Phony.split('441946555777')).to eq(['44', '1946', '555777'])  }    # [4+6] Whitehaven (Mixed area)
+      it { expect(Phony.split('44194662888')).to  eq(['44', '1946', '62888'])  }     # [4+5] Whitehaven (Mixed area)
+      it { expect(Phony.split('441946722444')).to eq(['44', '19467', '22444'])  }    # [5+5] Gosforth (Mixed area)
+      it { expect(Phony.split('441987705337')).to eq(['44', '1987', '705337']) }     # [4+6] Ebbsfleet
+      it { expect(Phony.split('443005828323')).to eq(['44', '300', '582', '8323']) } # Non-geographic (NTS)
+      it { expect(Phony.split('443334253344')).to eq(['44', '333', '425', '3344']) } # Non-geographic (NTS)
+      it { expect(Phony.split('443437658834')).to eq(['44', '343', '765', '8834']) } # Non-geographic (NTS)
+      it { expect(Phony.split('443452273512')).to eq(['44', '345', '227', '3512']) } # Non-geographic (NTS)
+      it { expect(Phony.split('443707774444')).to eq(['44', '370', '777', '4444']) } # Non-geographic (NTS)
+      it { expect(Phony.split('443725247722')).to eq(['44', '372', '524', '7722']) } # Non-geographic (NTS)
+      it { expect(Phony.split('44500557788')).to  eq(['44', '500', '557788']) }      # Freefone (500 + 6)
+      it { expect(Phony.split('445575671113')).to eq(['44', '55', '7567', '1113']) } # Corporate numbers
+      it { expect(Phony.split('445644775533')).to eq(['44', '56', '4477', '5533']) } # LIECS/VoIP
+      it { expect(Phony.split('447020229901')).to eq(['44', '70', '2022', '9901']) } # Personal numbers
+      it { expect(Phony.split('447688554246')).to eq(['44', '76', '8855', '4246']) } # Pager
+      it { expect(Phony.split('447180605207')).to eq(['44', '7180', '605207']) }     # Mobile
+      it { expect(Phony.split('447480605207')).to eq(['44', '7480', '605207']) }     # Mobile
+      it { expect(Phony.split('447624605207')).to eq(['44', '7624', '605207']) }     # Mobile (Isle of Man)
+      it { expect(Phony.split('447780605207')).to eq(['44', '7780', '605207']) }     # Mobile
+      it { expect(Phony.split('447980605207')).to eq(['44', '7980', '605207']) }     # Mobile
+      it { expect(Phony.split('44800557788')).to  eq(['44', '800', '557788'])  }     # Freefone (800 + 6)
+      it { expect(Phony.split('448084682355')).to eq(['44', '808', '468', '2355']) } # Freefone (808 + 7)
+      it { expect(Phony.split('448005878323')).to eq(['44', '800', '587', '8323']) } # Freefone (800 + 7), regression
+      it { expect(Phony.split('448437777334')).to eq(['44', '843', '777', '7334']) } # Non-geographic (NTS)
+      it { expect(Phony.split('448457777334')).to eq(['44', '845', '777', '7334']) } # Non-geographic (NTS)
+      it { expect(Phony.split('448707777334')).to eq(['44', '870', '777', '7334']) } # Non-geographic (NTS)
+      it { expect(Phony.split('448727777334')).to eq(['44', '872', '777', '7334']) } # Non-geographic (NTS)
+      it { expect(Phony.split('449052463456')).to eq(['44', '905', '246', '3456']) } # Non-geographic (PRS)
+      it { expect(Phony.split('449122463456')).to eq(['44', '912', '246', '3456']) } # Non-geographic (PRS)
+      it { expect(Phony.split('449832463456')).to eq(['44', '983', '246', '3456']) } # Non-geographic (SES)
     end
     describe 'US' do
-      it { Phony.split('15551115511').should == ['1', '555', '111', '5511'] }
+      it { expect(Phony.split('15551115511')).to eq(['1', '555', '111', '5511']) }
     end
     describe 'Venezuela' do
-      it { Phony.split('582121234567').should == ['58', '212', '1234567'] }
+      it { expect(Phony.split('582121234567')).to eq(['58', '212', '1234567']) }
     end
     describe 'Vietnam' do
-      it { Phony.split('8498123456').should == ['84', '98', '123456'] } # Viettel Mobile
-      it { Phony.split('8499612345').should == ['84', '996', '12345'] } # GTel
-      it { Phony.split('8441234567').should == ['84', '4', '1234567'] } # Hanoi
+      it { expect(Phony.split('8498123456')).to eq(['84', '98', '123456']) } # Viettel Mobile
+      it { expect(Phony.split('8499612345')).to eq(['84', '996', '12345']) } # GTel
+      it { expect(Phony.split('8441234567')).to eq(['84', '4', '1234567']) } # Hanoi
     end
     describe 'Zambia' do
       it_splits '260977640895', ['260', '97', '7640895'] # mobile
       it_splits '260211229049', ['260', '211', '229049'] # fixed
     end
     describe 'New Zealand' do
-      it { Phony.split('6491234567').should == ['64', '9', '123', '4567'] }
+      it { expect(Phony.split('6491234567')).to eq(['64', '9', '123', '4567']) }
     end
     describe 'Bhutan (Kingdom of)' do
       it_splits '9759723642', %w(975 9 723 642)

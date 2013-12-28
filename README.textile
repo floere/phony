@@ -31,7 +31,7 @@ h2. Installation
 Using with Rails? Check out: https://github.com/joost/phony_rails.
 
 With Bundler:
-Append @gem 'phony'@ to your @Gemfile@ and @bundle install@ it.
+Append @gem 'phony')@ to your @Gemfile@ and @bundle install@ it.
 
 Without Bundler:
 Run @gem install phony@ from your command line.
@@ -46,131 +46,131 @@ Use this method in combination with @normalize@ for saving it into the database.
 
 Note that you can add constraints to the plausibility check like the country code, @cc@, and the national destination code, @ndc@. Use the options to further limit the plausibility range. For example, only allow a small number of countries.
 
-@Phony.plausible?('0000000').should be_false@
+@expect(Phony.plausible?('0000000')).to be false@
 
-@Phony.plausible?('hello').should be_false@
+@expect(Phony.plausible?('hello')).to be false@
 
-@Phony.plausible?('+41 44 111 22 33').should be_true@
+@expect(Phony.plausible?('+41 44 111 22 33')).to be true@
 
-@Phony.plausible?('+41 44 111 22 33', cc: '41').should be_true@
+@expect(Phony.plausible?('+41 44 111 22 33', cc: '41')).to be true@
 
-@Phony.plausible?('+41 44 111 22 33', ndc: '44').should be_true@
+@expect(Phony.plausible?('+41 44 111 22 33', ndc: '44')).to be true@
 
-@Phony.plausible?('+41 44 111 22 33', cc: '1').should be_false@
+@expect(Phony.plausible?('+41 44 111 22 33', cc: '1')).to be false@
 
-@Phony.plausible?('+41 44 111 22 33', ndc: '43').should be_false@
+@expect(Phony.plausible?('+41 44 111 22 33', ndc: '43')).to be false@
 
-@Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44').should be_true@
+@expect(Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44')).to be true@
 
-@Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/).should be_false@
+@expect(Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/)).to be false@
 
-@Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true@
+@expect(Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/)).to be true@
 
 h3(#normalizing). Normalizing
 
 This will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first.
 
-@Phony.normalize('41443643533').should == '41443643533'@
+@expect(Phony.normalize('41443643533')).to eq('41443643533')@
 
-@Phony.normalize('+41 44 364 35 33').should == '41443643533'@
+@expect(Phony.normalize('+41 44 364 35 33')).to eq('41443643533')@
 
-@Phony.normalize('+41 44 364 35 33').should == '41443643533'@
+@expect(Phony.normalize('+41 44 364 35 33')).to eq('41443643533')@
 
-@Phony.normalize('+41 800 11 22 33').should == '41800112233'@
+@expect(Phony.normalize('+41 800 11 22 33')).to eq('41800112233')@
 
-@Phony.normalize('John: +41 44 364 35 33').should == '41443643533'@
+@expect(Phony.normalize('John: +41 44 364 35 33')).to eq('41443643533')@
 
-@Phony.normalize('1 (703) 451-5115').should == '17034515115'@
+@expect(Phony.normalize('1 (703) 451-5115')).to eq('17034515115')@
 
-@Phony.normalize('1-888-407-4747').should == '18884074747'@
+@expect(Phony.normalize('1-888-407-4747')).to eq('18884074747')@
 
-@Phony.normalize('1.906.387.1698').should == '19063871698'@
+@expect(Phony.normalize('1.906.387.1698')).to eq('19063871698')@
 
-@Phony.normalize('+41 (044) 364 35 33').should == '41443643533'@
+@expect(Phony.normalize('+41 (044) 364 35 33')).to eq('41443643533')@
 
 h3(#formatting). Formatting
 
-@Phony.formatted('41443643532').should == '+41 44 364 35 32'@
+@expect(Phony.formatted('41443643532')).to eq('+41 44 364 35 32')@
 
-@Phony.formatted('41800112233').should == '+41 800 11 22 33'@
+@expect(Phony.formatted('41800112233')).to eq('+41 800 11 22 33')@
 
-@Phony.formatted('43198110').should == '+43 1 98110'@
+@expect(Phony.formatted('43198110')).to eq('+43 1 98110')@
 
-@Phony.formatted('18705551122').should == '+1 870 555 1122'@
+@expect(Phony.formatted('18705551122')).to eq('+1 870 555 1122')@
 
 h4(#international). International
 
-@Phony.formatted('18091231234', :format => :international).should == '+1 809 123 1234'@
+@expect(Phony.formatted('18091231234', :format => :international)).to eq('+1 809 123 1234')@
 
-@Phony.formatted('43198110', :format => :international).should == '+43 1 98110'@
+@expect(Phony.formatted('43198110', :format => :international)).to eq('+43 1 98110')@
 
-@Phony.formatted('43198110', :format => :international_absolute).should == '+43 1 98110'@
+@expect(Phony.formatted('43198110', :format => :international_absolute)).to eq('+43 1 98110')@
 
-@Phony.formatted('33142278186', :format => :+).should == '+33 1 42 27 81 86'@
+@expect(Phony.formatted('33142278186', :format => :+)).to eq('+33 1 42 27 81 86')@
 
-@Phony.formatted('43198110', :format => :international_relative).should == '0043 1 98110'@
+@expect(Phony.formatted('43198110', :format => :international_relative)).to eq('0043 1 98110')@
 
-@Phony.formatted('4233841148', :format => :international_relative).should == '00423 384 11 48'@
+@expect(Phony.formatted('4233841148', :format => :international_relative)).to eq('00423 384 11 48')@
 
 h4(#spaces). With spaces
 
-@Phony.formatted('18091231234', :format => :international, :spaces => '').should == '+18091231234'@
+@expect(Phony.formatted('18091231234', :format => :international, :spaces => '')).to eq('+18091231234')@
 
-@Phony.formatted('43198110', :format => :international, :spaces => '').should == '+43198110'@
+@expect(Phony.formatted('43198110', :format => :international, :spaces => '')).to eq('+43198110')@
 
-@Phony.formatted('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'@
+@expect(Phony.formatted('43198110', :format => :international_absolute, :spaces => '')).to eq('+43198110')@
 
-@Phony.formatted('33142278186', :format => :+, :spaces => '').should == '+33142278186'@
+@expect(Phony.formatted('33142278186', :format => :+, :spaces => '')).to eq('+33142278186')@
 
-@Phony.formatted('43198110', :format => :international_relative, :spaces => '').should == '0043198110'@
+@expect(Phony.formatted('43198110', :format => :international_relative, :spaces => '')).to eq('0043198110')@
 
-@Phony.formatted('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'@
+@expect(Phony.formatted('4233841148', :format => :international_relative, :spaces => '')).to eq('004233841148')@
 
 h4(#special). With special spaces
 
-@Phony.formatted('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'@
+@expect(Phony.formatted('18091231234', :format => :international, :spaces => :-)).to eq('+1-809-123-1234')@
 
-@Phony.formatted('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'@
+@expect(Phony.formatted('43198110', :format => :international, :spaces => :-)).to eq('+43-1-98110')@
 
-@Phony.formatted('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'@
+@expect(Phony.formatted('43198110', :format => :international_absolute, :spaces => :-)).to eq('+43-1-98110')@
 
-@Phony.formatted('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'@
+@expect(Phony.formatted('33142278186', :format => :+, :spaces => :-)).to eq('+33-1-42-27-81-86')@
 
-@Phony.formatted('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'@
+@expect(Phony.formatted('43198110', :format => :international_relative, :spaces => :-)).to eq('0043-1-98110')@
 
-@Phony.formatted('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'@
+@expect(Phony.formatted('4233841148', :format => :international_relative, :spaces => :-)).to eq('00423-384-11-48')@
 
 h4(#national). National
 
-@Phony.formatted('41443643532', :format => :national).should == '044 364 35 32'@
+@expect(Phony.formatted('41443643532', :format => :national)).to eq('044 364 35 32')@
 
-@Phony.formatted('41800112233', :format => :national).should == '0800 11 22 33'@
+@expect(Phony.formatted('41800112233', :format => :national)).to eq('0800 11 22 33')@
 
-@Phony.formatted('43198110', :format => :national).should == '01 98110'@
+@expect(Phony.formatted('43198110', :format => :national)).to eq('01 98110')@
 
 h4(#local). Local
 
-@Phony.formatted('41443643532', :format => :local).should == '364 35 32'@
+@expect(Phony.formatted('41443643532', :format => :local)).to eq('364 35 32')@
 
-@Phony.formatted('493038625454', :format => :local).should == '386 25454'@
+@expect(Phony.formatted('493038625454', :format => :local)).to eq('386 25454')@
 
 h3(#splitting). Splitting
 
-@Phony.split('43198110').should == ['43', '1', '98110']@
+@expect(Phony.split('43198110')).to eq(['43', '1', '98110'])@
 
-@Phony.split('33112345678').should == ['33', '1', '12','34','56','78']@
+@expect(Phony.split('33112345678')).to eq(['33', '1', '12','34','56','78'])@
 
-@Phony.split('4976112345').should == ['49', '761', '123', '45']@
+@expect(Phony.split('4976112345')).to eq(['49', '761', '123', '45'])@
 
-@Phony.split('3928061371').should == ['39', '2', '806', '1371']@
+@expect(Phony.split('3928061371')).to eq(['39', '2', '806', '1371'])@
 
-@Phony.split('41443643532').should == ['41', '44', '364', '35', '32']@
+@expect(Phony.split('41443643532')).to eq(['41', '44', '364', '35', '32'])@
 
-@Phony.split('15551115511').should == ['1', '555', '111', '5511']@
+@expect(Phony.split('15551115511')).to eq(['1', '555', '111', '5511'])@
 
-@Phony.split('6491234567').should == ['64', '9', '123', '4567']@
+@expect(Phony.split('6491234567')).to eq(['64', '9', '123', '4567'])@
 
-@Phony.split('41800334455').should == ['41', '800', '33', '44', '55']@
+@expect(Phony.split('41800334455')).to eq(['41', '800', '33', '44', '55'])@
 
 Note: There is also a ! version of each of these methods which
       will destroy the original string and return a new (or old) one.
