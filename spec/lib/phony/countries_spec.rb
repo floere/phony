@@ -334,6 +334,7 @@ describe 'country descriptions' do
       it_splits '390141595661', ['39', '0141', '595', '661'] # Asti
       it_splits '3903123391',   ['39', '031', '233', '91']   # Como
       it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
+      it_splits '390471811353', ['39', '0471', '811', '353'] # Bolzano
     end
     describe 'Japan' do
       it_splits '81312345678', %w(81 3 1234 5678)

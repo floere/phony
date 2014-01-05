@@ -137,6 +137,10 @@ describe 'plausibility' do
         Phony.plausible?('+20 40 12345678').should be_true
         Phony.plausible?('+20 40 1234567').should be_false
       end
+      
+      it 'is correct for Italian numbers' do
+        Phony.plausible?('+39 0471 811 353').should be_true
+      end
 
       it 'is correct for Dutch numbers' do
         Phony.plausible?('+31 6 12 34 56 78').should be_true
