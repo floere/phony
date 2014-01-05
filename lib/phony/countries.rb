@@ -20,7 +20,7 @@
 # Note: The ones that are commented are defined in their special files.
 #
 Phony.define do
-  
+
   # Reserved.
   #
   country '0', fixed(1) >> split(10) # Reserved.
@@ -853,12 +853,6 @@ Phony.define do
 
   country '853', todo # Macao, China
   country '854', todo # Spare code
-
-  # Cambodia (Kingdom of)
-  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
-  country '855',
-          match(/^(1\d{1})/) >> split(3, 3) |
-          fixed(2) >> matched_split(/^\d{6}$/ => [3,3], /^\d{7}$/ => [3,4])
 
   # Lao People's Democratic Republic http://www.wtng.info/wtng-856-la.html, https://www.numberingplans.com
   country '856',
