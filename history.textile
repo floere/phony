@@ -1,3 +1,11 @@
+h2. Version 2.0.3
+
+* hanke: Improve Italian numbers.
+
+h2. Version 2.0.2
+
+* hanke: Improve German numbers.
+
 h2. Version 2.0.1
 
 * hanke: Moved trunk codes to where they belong. Handle "(0)" in numbers.
