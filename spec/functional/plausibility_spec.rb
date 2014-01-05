@@ -137,10 +137,6 @@ describe 'plausibility' do
         Phony.plausible?('+20 40 12345678').should be_true
         Phony.plausible?('+20 40 1234567').should be_false
       end
-      
-      it 'is correct for Italian numbers' do
-        Phony.plausible?('+39 0471 811 353').should be_true
-      end
 
       it 'is correct for Dutch numbers' do
         Phony.plausible?('+31 6 12 34 56 78').should be_true
@@ -158,6 +154,7 @@ describe 'plausibility' do
         Phony.plausible?('+39 06 1234 4567').should be_true
         Phony.plausible?('+39 335 123 4567').should be_true
         Phony.plausible?('+39 335 123').should be_false
+        Phony.plausible?('+39 0471 123 456').should be_true
       end
       it 'is correct for German numbers' do
         Phony.plausible?('+49 209 169 - 0').should be_true # Gelsenkirchen
@@ -176,7 +173,7 @@ describe 'plausibility' do
         # Phony.plausible?('+49 31234 1234567').should be_false # Could be a call-through number
       end
 
-      it 'is correct for Isralian numbers' do
+      it 'is correct for Israelian numbers' do
         Phony.plausible?('+972 2 123 1234').should be_true
         Phony.plausible?('+972 59 123 1234').should be_true
       end
