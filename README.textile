@@ -15,7 +15,7 @@ This gem normalizes, formats and splits *E164 phone numbers*. A valid E164 phone
 
 E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. For example, the Austalian number number @+61 412 345 678@ can be broken down into the following components:
 * a country code of @61@
-* a mobile number denoted by the @4@ (specific to Austria)
+* a mobile number denoted by the @4@ (specific to Australia)
 * a subscriber number of @12 345 678@
 
 Learn more about E164 numbers "here":http://en.wikipedia.org/wiki/E.164.
