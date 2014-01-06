@@ -79,7 +79,17 @@ describe Phony do
           Phony.normalize('375 152450911').should == '375152450911'
         end
       end
-
+    end
+    describe 'country-based' do
+      it 'normalizes the US correctly' do
+        Phony["1"].normalize("555 1234567890").should == '15551234567890'
+        Phony["1"].normalize("+1 555 1234567890").should == '15551234567890'
+        Phony["1"].normalize("+1 (0) 555 1234567890").should == '15551234567890'
+      end
+      it 'normalizes Japan correctly' do
+        Phony["81"].normalize("80 1234 5634").should == '818012345634'
+        Phony["81"].normalize("+81 80 1234 5634").should == '818012345634'
+      end
     end
   end
 
