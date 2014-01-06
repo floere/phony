@@ -14,8 +14,7 @@ module Phony
       @international_relative_format = '00%s%s%s'
       @national_format               = '%s%s'
 
-      @normalize_format = '%s%s'
-      @default_space    = ' '
+      @default_space = ' '
     end
 
     def self.instance
@@ -26,6 +25,18 @@ module Phony
     #
     def [] cc
       countries[cc.size][cc]
+    end
+    
+    # TODO This is now in country_codes and country.
+    #
+    @@basic_cleaning_pattern = /\A00?|\(0\)|\D/
+    def clean number
+      clean! number && number.dup
+    end
+    def clean! number
+      # Remove non-digit chars.
+      #
+      number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
 
     # 00 for the standard international call prefix.
@@ -39,28 +50,15 @@ module Phony
     #  * (0) anywhere.
     #  * Non-digits.
     #
-    @@basic_cleaning_pattern = /^00?|\(0\)|\D/
-    def clean number
-      clean! number && number.dup
-    end
-    def clean! number
-      # Remove non-digit chars.
-      #
-      number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
-    end
     def normalize number, options = {}
-      clean! number
-      countrify! number, options
-      country, cc, rest = split_cc number
-      @normalize_format % [cc, country.normalize(rest)]
-    end
-    
-    #
-    #
-    def countrify! number, options = {}
-      if cc = options[:cc]
-        self[cc].countrify! number
+      country = if cc = options[:cc]
+        self[cc]
+      else
+        clean! number
+        country, cc, number = split_cc number
+        country
       end
+      country.normalize number
     end
 
     # Splits this number into cc, ndc and locally split number parts.

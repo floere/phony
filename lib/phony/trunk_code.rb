@@ -22,9 +22,7 @@ module Phony
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @split
       return [@code, national_number]
     end
-
-    # Never normalizes.
-    # 
+    
     def normalize national_number
       return national_number unless @normalize
       national_number.gsub @trunk_code_replacement, EMPTY_STRING

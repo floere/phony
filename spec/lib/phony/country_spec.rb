@@ -24,6 +24,7 @@ describe Phony::Country do
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
       
       @switzerland      = Phony::Country.new national_code
+      @switzerland.with '41' # TODO Remove this kludge.
     end
     
     describe "split" do
@@ -33,7 +34,7 @@ describe Phony::Country do
     end
     describe 'normalize' do
       it "should handle ZH" do
-        @switzerland.normalize('0443643532').should == '443643532'
+        @switzerland.normalize('0443643532').should == '41443643532'
       end
     end
   end

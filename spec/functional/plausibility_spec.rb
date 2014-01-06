@@ -165,12 +165,12 @@ describe 'plausibility' do
         Phony.plausible?('+49 171 123 45678').should be_false
         Phony.plausible?('+49 177 123 1234').should be_true
         Phony.plausible?('+49 176 123 12345').should be_true
-        # Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
+        Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
         Phony.plausible?('+49 2041 123').should be_true # Grandfathered numbers.
         Phony.plausible?('+49 2041 1234567').should be_true
-        # Phony.plausible?('+49 2041 12345689').should be_false # Could be a call-through number
+        Phony.plausible?('+49 2041 12345689').should be_false # Could be a call-through number
         Phony.plausible?('+49 31234 123456').should be_true
-        # Phony.plausible?('+49 31234 1234567').should be_false # Could be a call-through number
+        Phony.plausible?('+49 31234 1234567').should be_false # Could be a call-through number
       end
 
       it 'is correct for Israelian numbers' do
@@ -178,7 +178,7 @@ describe 'plausibility' do
         Phony.plausible?('+972 59 123 1234').should be_true
       end
       it "is correct for US numbers" do
-        # Sorry, still need E164 conform numbers.
+        # Still need E164 conform numbers.
         #
         Phony.plausible?('4346667777', cc: '1').should be_false
 

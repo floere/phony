@@ -45,13 +45,28 @@ module Phony
       end
     end
     
+    # TODO This is now in country_codes and country.
+    #
+    @@basic_cleaning_pattern = /\D/
+    def clean number
+      clean! number && number.dup
+    end
+    def clean! number
+      # Remove non-digit chars.
+      #
+      number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
+    end
+    
+    # Adds the country code to the front
+    # if it does not already start with it.
+    #
+    # Note: This won't be correct in some cases, but it is the best we can do.
+    #
+    def countrify number
+      countrify! number || number
+    end
     def countrify! number
-      # The sensible default is to add the country code
-      # if it does not already start with it.
-      #
-      # Note: This won't be correct in some cases, but it is the best we can do.
-      #
-      number.sub! /\b#{@cc}?/, @cc
+      number.sub! /\A(?!#{@cc})?/, @cc
     end
     
     # Removes 0s from partially normalized numbers
@@ -63,11 +78,15 @@ module Phony
     # In some cases it doesn't, like Italy.
     #
     def normalize national_number
-      @codes.each do |code|
-        normalized = code.normalize national_number
-        return normalized if normalized && !normalized.empty?
+      clean! national_number
+      normalized = @codes.reduce(national_number) do |number, code|
+        result = code.normalize number
+        break result if result
+        number
       end
-      return nil
+      return unless normalized
+      countrify! normalized
+      normalized
     end
     
     # Tests for plausibility of this national number.
