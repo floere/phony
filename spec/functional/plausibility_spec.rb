@@ -122,6 +122,12 @@ describe 'plausibility' do
         Phony.plausible?('+41 44 111 22 334').should be_false
         Phony.plausible?('+41 44 111 22').should be_false
       end
+      
+      it "is correct for Belgian numbers" do
+        Phony.plausible?('+32 3 241 11 32').should be_true
+        Phony.plausible?('0032 3 241 11 32').should be_true
+        Phony.plausible?('0032 (0) 3 241 11 32').should be_true
+      end
 
       it "is correct for Danish numbers" do
         Phony.plausible?('+45 44 11 12 23 34').should be_false

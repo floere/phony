@@ -70,12 +70,12 @@ describe 'country descriptions' do
     end
 
     describe 'Belgium' do
-      it_splits '3235551212', ['32', '3', '555', '1212']   # Antwerpen
-      it_splits '32505551212', ['32', '50', '555', '1212'] # Brugge
-      it_splits '3225551212', ['32', '2', '555', '1212']   # Brussels
-      it_splits '3295551914', ['32', '9', '555', '1914']   # Gent
-      it_splits '3245551414', ['32', '4', '555', '1414']   # Liège
-      it_splits '3216473200', ['32', '16', '473', '200']   # Leuven
+      it_splits '3235551212', ['32', '3', '555', '12', '12']   # Antwerpen
+      it_splits '3250551212', ['32', '50', '55', '12', '12'] # Brugge
+      it_splits '3225551212', ['32', '2', '555', '12', '12']   # Brussels
+      it_splits '3295551914', ['32', '9', '555', '19', '14']   # Gent
+      it_splits '3245551414', ['32', '4', '555', '14', '14']   # Liège
+      it_splits '3216473200', ['32', '16', '47', '32', '00']   # Leuven
       it_splits '32475279584', ['32', '475', '279584']     # mobile
       it_splits '3270123123', ['32', '70', '123', '123']   # Bus Service?
     end
