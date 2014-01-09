@@ -67,6 +67,8 @@ Phony.define do
 
   # Belgium.
   #
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
+  #
   country '32', match(/^(70|800|90\d)\d+$/) >> split(3,3)   | # Service
                 match(/^(4[789]\d)\d{6}$/)  >> split(6)     | # Mobile
                 one_of('2','3','4','9')     >> split(3,2,2) | # Short NDCs
