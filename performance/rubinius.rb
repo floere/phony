@@ -19,3 +19,4 @@ end
 
 profile { 10000.times { Phony.normalize "+81-3-9999-9999" } }
 profile { 10000.times { Phony.format "81399999999" } }
+profile { 10000.times { Phony.plausible? "+81-3-9999-9999" } }
