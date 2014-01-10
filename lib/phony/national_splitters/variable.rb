@@ -26,7 +26,7 @@ module Phony
         
         # Try for all possible mapped.
         #
-        @mapped_ndc_min_length.upto(@mapped_ndc_max_length) do |i|
+        @mapped_ndc_min_length.upto @mapped_ndc_max_length do |i|
           sized_ndcs = @ndcs[i]
           return [@zero, presumed_code, national_number] unless sized_ndcs && !sized_ndcs.include?(presumed_code)
           presumed_code << national_number.slice!(0..0)
