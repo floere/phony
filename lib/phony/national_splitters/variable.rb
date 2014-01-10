@@ -27,8 +27,8 @@ module Phony
         # Try for all possible mapped.
         #
         @mapped_ndc_min_length.upto @mapped_ndc_max_length do |i|
-          sized_ndcs = @ndcs[i]
-          return [@zero, presumed_code, national_number] unless sized_ndcs && !sized_ndcs.include?(presumed_code)
+          ndcs_of_size_i = @ndcs[i]
+          return [@zero, presumed_code, national_number] unless ndcs_of_size_i && !ndcs_of_size_i.include?(presumed_code)
           presumed_code << national_number.slice!(0..0)
         end
         
@@ -44,10 +44,6 @@ module Phony
       end
       
       private
-        
-        # def restructure ndc_map
-        #   optimize ndc_map.values.flatten
-        # end
         
         # Optimizes and restructures the given ndcs array.
         #
