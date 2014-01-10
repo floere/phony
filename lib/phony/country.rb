@@ -24,8 +24,9 @@ module Phony
     # TODO Rewrite.
     #
     def with cc, options = {}
-      @cc           = cc
-      @invalid_ndcs = options[:invalid_ndcs] || []
+      @cc              = cc
+      @countrify_regex = /\A(?!#{@cc})/
+      @invalid_ndcs    = options[:invalid_ndcs] || []
     end
     
     # A number is split with the code handlers as given in the initializer.
@@ -68,7 +69,7 @@ module Phony
       countrify! number || number
     end
     def countrify! number
-      number.sub! /\A(?!#{@cc})/, @cc
+      number.sub! @countrify_regex, @cc
     end
     
     # Removes 0s from partially normalized numbers
