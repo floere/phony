@@ -4,19 +4,20 @@
 require 'stackprof'
 require_relative '../lib/phony'
 
-%w|cpu object|.each do |thing|
-  profile = StackProf.run(mode: thing.to_sym) do
-    10000.times { Phony.normalize "+81 08 123 12 12" }
-  end
+def profile thing, &block
+  profile = StackProf.run mode: thing.to_sym, &block
   path = "/tmp/stackprof-#{thing}-phony.dump"
   File.open(path, 'wb'){ |f| f.write Marshal.dump(profile) }
   puts `stackprof #{path}`
 end
-# %w|cpu object|.each do |thing|
-#   profile = StackProf.run(mode: thing.to_sym) do
-#     10000.times { people.search 'florian' }
-#   end
-#   path = "/tmp/stackprof-#{thing}-picky.dump"
-#   File.open(path, 'wb'){ |f| f.write Marshal.dump(profile) }
-#   puts `stackprof #{path}`
-# end
+
+%w|cpu object|.each do |thing|
+  profile thing do
+    10000.times { Phony.normalize "+81-3-9999-9999" }
+  end
+end
+%w|cpu object|.each do |thing|
+  profile thing do
+    10000.times { Phony.format "81399999999" }
+  end
+end
