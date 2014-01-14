@@ -628,7 +628,8 @@ describe 'plausibility' do
                                                '+381 9 123 4567',
                                                '+381 60 123',
                                                '+381 60 123 456 7890',
-                                               '+381 70 123 456']
+                                               '+381 70 123 456',
+                                               '+381 66 12 1234']
       it_is_correct_for 'Sierra Leone', :samples => '+232 42 393 972'
       it_is_correct_for 'Solomon Islands', :samples => '+677  97851'
       it_is_correct_for 'Somali Democratic Republic', :samples => ['+252 1034 123 45',
