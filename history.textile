@@ -1,3 +1,11 @@
+h2. Version 2.1.2
+
+* hanke: Fix Belgian numbers (closes #130).
+
+h2. Version 2.1.1
+
+* hanke: Fix for case where number already had a country code: @jp = Phony["81"]; p jp.normalize "+81 80 1234 5634" # => "818012345634"@
+
 h2. Version 2.1.0
 
 * hanke: Experimental syntax suggested in #104 added. E.g. @jp = Phony["81"]; p jp.normalize "08012345678" # => "818012345678"@

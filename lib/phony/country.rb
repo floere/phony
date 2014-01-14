@@ -24,8 +24,9 @@ module Phony
     # TODO Rewrite.
     #
     def with cc, options = {}
-      @cc           = cc
-      @invalid_ndcs = options[:invalid_ndcs] || []
+      @cc              = cc
+      @countrify_regex = /\A(?!#{@cc})/
+      @invalid_ndcs    = options[:invalid_ndcs] || []
     end
     
     # A number is split with the code handlers as given in the initializer.
@@ -45,15 +46,17 @@ module Phony
       end
     end
     
-    # TODO This is now in country_codes and country.
+    # Cleans all non-numeric characters.
     #
-    @@basic_cleaning_pattern = /\D/
+    @@basic_cleaning_pattern = /\(0\)|\D/
+    # Clean number of all non-numeric characters and return a copy.
+    #
     def clean number
       clean! number && number.dup
     end
+    # Clean number of all non-numeric characters and return it.
+    #
     def clean! number
-      # Remove non-digit chars.
-      #
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
     
@@ -66,7 +69,7 @@ module Phony
       countrify! number || number
     end
     def countrify! number
-      number.sub! /\A(?!#{@cc})?/, @cc
+      number.sub! @countrify_regex, @cc
     end
     
     # Removes 0s from partially normalized numbers
@@ -79,7 +82,7 @@ module Phony
     #
     def normalize national_number
       clean! national_number
-      normalized = @codes.reduce(national_number) do |number, code|
+      normalized = @codes.reduce national_number do |number, code|
         result = code.normalize number
         break result if result
         number
