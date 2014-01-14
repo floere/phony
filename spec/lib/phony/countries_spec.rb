@@ -105,6 +105,8 @@ describe 'country descriptions' do
       it_splits '5511981231234', ['55', '11', '98123', '1234'] # São Paulo's 9 digits mobile
       it_splits '552181231234', ['55', '21', '8123', '1234']
       it_splits '5521981231234', ['55', '21', '98123', '1234'] # Rio de Janeiro's 9 digits mobile
+      it_splits '551931311234', ['55', '19', '3131', '1234'] # Rio de Janeiro's 9 digits mobile
+      it_splits '5519991311234', ['55', '19', '99131', '1234'] # Rio de Janeiro's 9 digits mobile
 
       context "special states with 9 in mobile" do
         %w{ 11 12 13 14 15 16 17 18 19 21 22 24 27 28}.each do |state_code|
@@ -117,6 +119,11 @@ describe 'country descriptions' do
         it_splits '5530032221', ['55', '3003', '2221']
         it_splits '5540209999', ['55', '4020', '9999']
         it_splits '5540048999', ['55', '4004', '8999']
+      end
+
+      context "service numbers" do
+        it_splits '55100', ['55', '100', ""]
+        it_splits '55199', ['55', '199', ""]
       end
     end
     describe 'Cambodia' do
