@@ -43,6 +43,9 @@ service = [
   '87',  # Both of the above.
   '88',  # Bedrijfsnummers
   '91',  # Plaatsonafhankelijk netnummer
+]
+
+service3 = [
   '676', # Inbelnummers van Internetproviders
   '800', # Gratis informatienummers
   '900', # Betaalde informatienummers
@@ -52,7 +55,8 @@ service = [
 
 Phony.define do
   country '31', 
-    one_of(service) >> split(3,3) |
+    one_of(service) >> split(4,3) |
+    one_of(service3) >> split(3,3) |
     one_of('6')  >> split(2,2,2,2) | # mobile
     one_of(ndcs) >> split(3,4)     | # landline (geographic region)
     fixed(3)     >> split(3,3)       # 3 digit ndc

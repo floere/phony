@@ -151,6 +151,7 @@ describe 'plausibility' do
         Phony.plausible?('+31 20 123 567').should be_false
         Phony.plausible?('+31 221 123 567').should be_true
         Phony.plausible?('+31 221 123 56').should be_false
+        Phony.plausible?('+31 880 450 245').should be_true
       end
       it 'is correct for Nigerian numbers' do
         Phony.plausible?('+234 807 766 1234').should be_true
