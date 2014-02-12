@@ -12,7 +12,7 @@ describe Phony::NationalCode do
           @national         = Phony::NationalCode.new national_splitter, local_splitter
         end
         it 'splits correctly' do
-          @national.split('112').should == [nil, false, '112']
+          expect(@national.split('112')).to eq([nil, false, '112'])
         end
       end
     end
@@ -24,16 +24,16 @@ describe Phony::NationalCode do
         @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
-        @national.split('443643532').should == ['0', '44', '364', '35', '32']
+        expect(@national.split('443643532')).to eq(['0', '44', '364', '35', '32'])
       end
       it 'splits correctly' do
-        @national.split('44364353').should == ['0', '44', '364', '35', '3']
+        expect(@national.split('44364353')).to eq(['0', '44', '364', '35', '3'])
       end
       it 'normalizes correctly' do
-        @national.normalize('044364353').should == '44364353'
+        expect(@national.normalize('044364353')).to eq('44364353')
       end
       it 'normalizes correctly' do
-        @national.normalize('44364353').should == '44364353'
+        expect(@national.normalize('44364353')).to eq('44364353')
       end
     end
     context 'with fixed ndc (French)' do
@@ -44,16 +44,16 @@ describe Phony::NationalCode do
         @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
-        @national.split('142278186').should == ['0', '1', '42', '27', '81', '86']
+        expect(@national.split('142278186')).to eq(['0', '1', '42', '27', '81', '86'])
       end
       it 'splits correctly' do
-        @national.split('14227818').should == ['0', '1', '42', '27', '81', '8']
+        expect(@national.split('14227818')).to eq(['0', '1', '42', '27', '81', '8'])
       end
       it 'normalizes correctly' do
-        @national.normalize('0142278186').should == '142278186'
+        expect(@national.normalize('0142278186')).to eq('142278186')
       end
       it 'normalizes correctly' do
-        @national.normalize('142278186').should == '142278186'
+        expect(@national.normalize('142278186')).to eq('142278186')
       end
     end
     # context 'normalizing' do

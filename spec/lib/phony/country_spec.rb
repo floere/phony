@@ -12,7 +12,7 @@ describe Phony::Country do
         @iceland          = described_class.new national_code
       end
       it 'splits correctly' do
-        @iceland.split('112').should == [nil, false, '112']
+        expect(@iceland.split('112')).to eq([nil, false, '112'])
       end
     end
   end
@@ -29,12 +29,12 @@ describe Phony::Country do
     
     describe "split" do
       it "should handle ZH" do
-        @switzerland.split('443643532').should == ['0', '44', '364', '35', '32']
+        expect(@switzerland.split('443643532')).to eq(['0', '44', '364', '35', '32'])
       end
     end
     describe 'normalize' do
       it "should handle ZH" do
-        @switzerland.normalize('0443643532').should == '41443643532'
+        expect(@switzerland.normalize('0443643532')).to eq('41443643532')
       end
     end
   end
@@ -54,10 +54,10 @@ describe Phony::Country do
     
     describe "split" do
       it "should handle ZH" do
-        @switzerland.split('443643532').should == ['0', '44', '364', '35', '32']
+        expect(@switzerland.split('443643532')).to eq(['0', '44', '364', '35', '32'])
       end
       it "should handle 800" do
-        @switzerland.split('800333666').should == ['0', '800', '333', '666']
+        expect(@switzerland.split('800333666')).to eq(['0', '800', '333', '666'])
       end
     end
   end

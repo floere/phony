@@ -6,28 +6,28 @@ describe Phony::Vanity do
   
   describe "vanity?" do
     it 'recognizes a vanity number' do
-      Phony::Vanity.vanity?('800HELLOWORLD').should == true
+      expect(Phony::Vanity.vanity?('800HELLOWORLD')).to eq(true)
     end
     it 'recognizes a non vanity number' do
-      Phony::Vanity.vanity?('444443322').should == false
+      expect(Phony::Vanity.vanity?('444443322')).to eq(false)
     end
   end
   
   describe "replace" do
     it 'replaces all characters' do
-      Phony::Vanity.replace('0123456789abcdefghijklmnopqrstuvwxyz').should == '012345678922233344455566677778889999'
+      expect(Phony::Vanity.replace('0123456789abcdefghijklmnopqrstuvwxyz')).to eq('012345678922233344455566677778889999')
     end
   end
   
   describe 'mapping' do
     it 'caches' do
-      Phony::Vanity.mapping.should equal(Phony::Vanity.mapping)
+      expect(Phony::Vanity.mapping).to equal(Phony::Vanity.mapping)
     end
     it 'returns the right thing' do
-      Phony::Vanity.mapping.should == [
+      expect(Phony::Vanity.mapping).to eq([
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.freeze,
         '2223334445556667777888999922233344455566677778889999'.freeze
-      ]
+      ])
     end
   end
   

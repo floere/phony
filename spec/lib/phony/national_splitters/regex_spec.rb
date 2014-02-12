@@ -4,7 +4,7 @@ describe Phony::NationalSplitters::Regex do
   
   describe 'instance_for' do
     it 'caches correctly (not)' do
-      described_class.instance_for(//).should_not equal(described_class.instance_for(//))
+      expect(described_class.instance_for(//)).not_to equal(described_class.instance_for(//))
     end
   end
   
@@ -15,7 +15,7 @@ describe Phony::NationalSplitters::Regex do
     context 'with on_fail 2' do
       let(:splitter) { described_class.instance_for(/^(123)\d+$/, 2) }
       it 'uses the on_fail_take' do
-        splitter.split('23456789').should == ['0', '23', '456789']
+        expect(splitter.split('23456789')).to eq(['0', '23', '456789'])
       end
     end
   end

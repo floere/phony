@@ -24,12 +24,10 @@ describe 'plausibility' do
           incorrect = [shortest.sub(/\d\s*\z/, '')] # , longest + '0']
 
           correct.each do |value|
-            Phony.plausible?(value).should be_true,
-              "It should validate #{value}, but does not."
+            expect(Phony.plausible?(value)).to be(true) { "It should validate #{value}, but does not." }
           end
           incorrect.each do |value|
-            Phony.plausible?(value).should be_false,
-              "It should not validate #{value}, but does."
+            expect(Phony.plausible?(value)).to be(false) { "It should not validate #{value}, but does." }
           end
         end
       end
@@ -40,76 +38,76 @@ describe 'plausibility' do
 
       Phony.plausible? number
 
-      number.should == '123-123-1234'
+      expect(number).to eq('123-123-1234')
     end
 
     it 'handles small numbers' do
-      Phony.plausible?('353').should be_false
+      expect(Phony.plausible?('353')).to be false
     end
 
     it 'is correct' do
-      Phony.plausible?('+1911').should be_false
+      expect(Phony.plausible?('+1911')).to be false
     end
     it "correctly plausibilizes to#{}do countries" do
-      Phony.plausible?('6327332350').should be_true
+      expect(Phony.plausible?('6327332350')).to be true
     end
     it 'is correct' do
-      Phony.plausible?('45 44 11 22 33').should be_true
+      expect(Phony.plausible?('45 44 11 22 33')).to be true
     end
     it 'is correct' do
-      Phony.plausible?('+4231231212').should be_true
+      expect(Phony.plausible?('+4231231212')).to be true
     end
     it 'is correct' do
-      Phony.plausible?('+4755121212').should be_true
+      expect(Phony.plausible?('+4755121212')).to be true
     end
     it 'is correct' do
-      Phony.plausible?('+475512121').should be_false
+      expect(Phony.plausible?('+475512121')).to be false
     end
     it 'is correct' do
-      Phony.plausible?('+47551212121').should be_false
+      expect(Phony.plausible?('+47551212121')).to be false
     end
     it 'is correct' do
-      Phony.plausible?('010').should be_false
+      expect(Phony.plausible?('010')).to be false
     end
     it 'is correct' do
-      Phony.plausible?("+460000").should be_false
+      expect(Phony.plausible?("+460000")).to be false
     end
     it 'is correct' do
-      Phony.plausible?('0000000').should be_false
+      expect(Phony.plausible?('0000000')).to be false
     end
     it 'is correct' do
-      Phony.plausible?('hello').should be_false
+      expect(Phony.plausible?('hello')).to be false
     end
 
     it "is correct" do
-      Phony.plausible?('+41 44 111 22 33').should be_true
+      expect(Phony.plausible?('+41 44 111 22 33')).to be true
     end
     it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', cc: '41').should be_true
+      expect(Phony.plausible?('+41 44 111 22 33', cc: '41')).to be true
     end
     it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', ndc: '44').should be_true
+      expect(Phony.plausible?('+41 44 111 22 33', ndc: '44')).to be true
     end
     it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', cc: '1').should be_false
+      expect(Phony.plausible?('+41 44 111 22 33', cc: '1')).to be false
     end
     it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', ndc: '43').should be_false
+      expect(Phony.plausible?('+41 44 111 22 33', ndc: '43')).to be false
     end
     it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44').should be_true
+      expect(Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44')).to be true
     end
     it "works with regexps" do
-      Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/).should be_false
+      expect(Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/)).to be false
     end
     it "works with regexps" do
-      Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true
+      expect(Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/)).to be true
     end
 
     context 'Length validation' do
       it 'works for Swiss cases' do
-        Phony.plausible?('+41 44 111 22 3').should be_false   # Not long enough is not ok.
-        # Phony.plausible?('+41 44 111 22 33 4').should be_true # TODO Too long is ok – we don't know about extensions.
+        expect(Phony.plausible?('+41 44 111 22 3')).to be false   # Not long enough is not ok.
+        # Phony.plausible?('+41 44 111 22 33 4').should be true # TODO Too long is ok – we don't know about extensions.
       end
     end
 
@@ -118,200 +116,200 @@ describe 'plausibility' do
       # TODO: more needs to be done here
       #
       it "is correct for Swiss numbers" do
-        Phony.plausible?('+41 44 111 22 33').should be_true
-        Phony.plausible?('+41 44 111 22 334').should be_false
-        Phony.plausible?('+41 44 111 22').should be_false
+        expect(Phony.plausible?('+41 44 111 22 33')).to be true
+        expect(Phony.plausible?('+41 44 111 22 334')).to be false
+        expect(Phony.plausible?('+41 44 111 22')).to be false
       end
       
       it "is correct for Belgian numbers" do
-        Phony.plausible?('+32 3 241 11 32').should be_true
-        Phony.plausible?('0032 3 241 11 32').should be_true
-        Phony.plausible?('0032 (0) 3 241 11 32').should be_true
+        expect(Phony.plausible?('+32 3 241 11 32')).to be_true
+        expect(Phony.plausible?('0032 3 241 11 32')).to be_true
+        expect(Phony.plausible?('0032 (0) 3 241 11 32')).to be_true
       end
 
       it "is correct for Danish numbers" do
-        Phony.plausible?('+45 44 11 12 23 34').should be_false
-        Phony.plausible?('+45 44 11 12 2').should be_false
-        Phony.plausible?('+45 44 55 22 33').should be_true
+        expect(Phony.plausible?('+45 44 11 12 23 34')).to be false
+        expect(Phony.plausible?('+45 44 11 12 2')).to be false
+        expect(Phony.plausible?('+45 44 55 22 33')).to be true
       end
 
       it 'is correct for egyptian numbers' do
-        Phony.plausible?('+20 800 1234567').should be_true
-        Phony.plausible?('+20 800 12345678').should be_false
-        Phony.plausible?('+20 2 12345678').should be_true
-        Phony.plausible?('+20 2 1234567').should be_false
-        Phony.plausible?('+20 40 12345678').should be_true
-        Phony.plausible?('+20 40 1234567').should be_false
+        expect(Phony.plausible?('+20 800 1234567')).to be true
+        expect(Phony.plausible?('+20 800 12345678')).to be false
+        expect(Phony.plausible?('+20 2 12345678')).to be true
+        expect(Phony.plausible?('+20 2 1234567')).to be false
+        expect(Phony.plausible?('+20 40 12345678')).to be true
+        expect(Phony.plausible?('+20 40 1234567')).to be false
       end
 
       it 'is correct for Dutch numbers' do
-        Phony.plausible?('+31 6 12 34 56 78').should be_true
-        Phony.plausible?('+31 6 12 34 56 7').should be_false
-        Phony.plausible?('+31 20 123 5678').should be_true
-        Phony.plausible?('+31 20 123 567').should be_false
-        Phony.plausible?('+31 221 123 567').should be_true
-        Phony.plausible?('+31 221 123 56').should be_false
-        Phony.plausible?('+31 880 450 245').should be_true
-        Phony.plausible?('+31 880 450 24').should be_false
-        Phony.plausible?('+31 900 001 002').should be_true
-        Phony.plausible?('+31 900 001 00').should be_false
+        expect(Phony.plausible?('+31 6 12 34 56 78')).to be true
+        expect(Phony.plausible?('+31 6 12 34 56 7')).to be false
+        expect(Phony.plausible?('+31 20 123 5678')).to be true
+        expect(Phony.plausible?('+31 20 123 567')).to be false
+        expect(Phony.plausible?('+31 221 123 567')).to be true
+        expect(Phony.plausible?('+31 221 123 56')).to be false
+        expect(Phony.plausible?('+31 880 450 245')).to be true
+        expect(Phony.plausible?('+31 880 450 24')).to be false
+        expect(Phony.plausible?('+31 900 001 002')).to be true
+        expect(Phony.plausible?('+31 900 001 00')).to be false
       end
       it 'is correct for Nigerian numbers' do
-        Phony.plausible?('+234 807 766 1234').should be_true
-        Phony.plausible?('+234 807 766 123').should be_false
+        expect(Phony.plausible?('+234 807 766 1234')).to be true
+        expect(Phony.plausible?('+234 807 766 123')).to be false
       end
       it 'is correct for Italian numbers' do
-        Phony.plausible?('+39 06 1234 4567').should be_true
-        Phony.plausible?('+39 335 123 4567').should be_true
-        Phony.plausible?('+39 335 123').should be_false
-        Phony.plausible?('+39 0471 123 456').should be_true
+        expect(Phony.plausible?('+39 06 1234 4567')).to be true
+        expect(Phony.plausible?('+39 335 123 4567')).to be true
+        expect(Phony.plausible?('+39 335 123')).to be false
+        expect(Phony.plausible?('+39 0471 123 456')).to be true
       end
       it 'is correct for German numbers' do
-        Phony.plausible?('+49 209 169 - 0').should be_true # Gelsenkirchen
-        Phony.plausible?('+49 209 169 - 3530').should be_true # Gelsenkirchen
-        Phony.plausible?('+49 40 123 45678').should be_true
-        Phony.plausible?('+49 40 123 456789').should be_true # TODO ?
-        Phony.plausible?('+49 171 123 4567').should be_true
-        Phony.plausible?('+49 171 123 45678').should be_false
-        Phony.plausible?('+49 177 123 1234').should be_true
-        Phony.plausible?('+49 176 123 12345').should be_true
-        Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
-        Phony.plausible?('+49 2041 123').should be_true # Grandfathered numbers.
-        Phony.plausible?('+49 2041 1234567').should be_true
-        Phony.plausible?('+49 2041 12345689').should be_false # Could be a call-through number
-        Phony.plausible?('+49 31234 123456').should be_true
-        Phony.plausible?('+49 31234 1234567').should be_false # Could be a call-through number
+        expect(Phony.plausible?('+49 209 169 - 0')).to be true # Gelsenkirchen
+        expect(Phony.plausible?('+49 209 169 - 3530')).to be true # Gelsenkirchen
+        expect(Phony.plausible?('+49 40 123 45678')).to be true
+        expect(Phony.plausible?('+49 40 123 456789')).to be true # TODO ?
+        expect(Phony.plausible?('+49 171 123 4567')).to be true
+        expect(Phony.plausible?('+49 171 123 45678')).to be false
+        expect(Phony.plausible?('+49 177 123 1234')).to be true
+        expect(Phony.plausible?('+49 176 123 12345')).to be true
+        expect(Phony.plausible?('+49 991 1234')).to be true   # stricter 3 digit ndc rules
+        expect(Phony.plausible?('+49 2041 123')).to be true # Grandfathered numbers.
+        expect(Phony.plausible?('+49 2041 1234567')).to be true
+        expect(Phony.plausible?('+49 2041 12345689')).to be false # Could be a call-through number
+        expect(Phony.plausible?('+49 31234 123456')).to be true
+        expect(Phony.plausible?('+49 31234 1234567')).to be false # Could be a call-through number
       end
 
       it 'is correct for Israelian numbers' do
-        Phony.plausible?('+972 2 123 1234').should be_true
-        Phony.plausible?('+972 59 123 1234').should be_true
+        expect(Phony.plausible?('+972 2 123 1234')).to be true
+        expect(Phony.plausible?('+972 59 123 1234')).to be true
       end
       it "is correct for US numbers" do
         # Still need E164 conform numbers.
         #
-        Phony.plausible?('4346667777', cc: '1').should be_false
+        expect(Phony.plausible?('4346667777', cc: '1')).to be false
 
         # Automatic country checking.
         #
-        Phony.plausible?('1-4346667777').should be_true
-        Phony.plausible?('1-800-692-7753').should be_true
-        Phony.plausible?('1-911').should be_false
-        Phony.plausible?('1-911-123-1234').should be_false
-        Phony.plausible?('143466677777').should be_false # too long
-        Phony.plausible?('143466677').should be_false # too short
+        expect(Phony.plausible?('1-4346667777')).to be true
+        expect(Phony.plausible?('1-800-692-7753')).to be true
+        expect(Phony.plausible?('1-911')).to be false
+        expect(Phony.plausible?('1-911-123-1234')).to be false
+        expect(Phony.plausible?('143466677777')).to be false # too long
+        expect(Phony.plausible?('143466677')).to be false # too short
 
         # With string constraints.
         #
-        Phony.plausible?('14346667777', cc: '1').should be_true
-        Phony.plausible?('14346667777', ndc: '434').should be_true
-        Phony.plausible?('14346667777', cc: '1', ndc: '434').should be_true
+        expect(Phony.plausible?('14346667777', cc: '1')).to be true
+        expect(Phony.plausible?('14346667777', ndc: '434')).to be true
+        expect(Phony.plausible?('14346667777', cc: '1', ndc: '434')).to be true
 
         # With regexp constraints.
         #
-        Phony.plausible?('14346667777', cc: /[123]/).should be_true
-        Phony.plausible?('14346667777', ndc: /434|435/).should be_true
-        Phony.plausible?('14346667777', cc: /[123]/, ndc: /434|435/).should be_true
+        expect(Phony.plausible?('14346667777', cc: /[123]/)).to be true
+        expect(Phony.plausible?('14346667777', ndc: /434|435/)).to be true
+        expect(Phony.plausible?('14346667777', cc: /[123]/, ndc: /434|435/)).to be true
       end
 
       it "is correct for Portugese numbers" do
-        Phony.plausible?('+351 800 123456').should be_true
-        Phony.plausible?('+351 90 1234567').should be_true
-        Phony.plausible?('+351 90 123456').should be_false
-        Phony.plausible?('+351 123 1234567').should be_true
+        expect(Phony.plausible?('+351 800 123456')).to be true
+        expect(Phony.plausible?('+351 90 1234567')).to be true
+        expect(Phony.plausible?('+351 90 123456')).to be false
+        expect(Phony.plausible?('+351 123 1234567')).to be true
       end
 
       it "is correct for Russia" do
-        Phony.plausible?('+7 800 2000 600').should be_true
-        Phony.plausible?('+7 960 301 23 45').should be_true
-        Phony.plausible?('+7 800 2000 60').should be_false # too short
-        Phony.plausible?('796030123451').should be_false # too long
+        expect(Phony.plausible?('+7 800 2000 600')).to be true
+        expect(Phony.plausible?('+7 960 301 23 45')).to be true
+        expect(Phony.plausible?('+7 800 2000 60')).to be false # too short
+        expect(Phony.plausible?('796030123451')).to be false # too long
       end
 
       it "is correct for Austria" do
-        Phony.plausible?('+43 501 12345').should be_true
-        Phony.plausible?('+43 501 1234').should be_false # too short
-        Phony.plausible?('+43 501 123456').should be_false # too long
-        Phony.plausible?('+43 800 123456789').should be_true
+        expect(Phony.plausible?('+43 501 12345')).to be true
+        expect(Phony.plausible?('+43 501 1234')).to be false # too short
+        expect(Phony.plausible?('+43 501 123456')).to be false # too long
+        expect(Phony.plausible?('+43 800 123456789')).to be true
       end
 
       it "is correct for Azerbaijan" do
-        Phony.plausible?('+994 12 1234567').should be_true
-        Phony.plausible?('+994 12 12345').should be_false # too short
-        Phony.plausible?('+994 12 12345678').should be_false # too long
+        expect(Phony.plausible?('+994 12 1234567')).to be true
+        expect(Phony.plausible?('+994 12 12345')).to be false # too short
+        expect(Phony.plausible?('+994 12 12345678')).to be false # too long
       end
 
       it "is correct for Albania" do
-        Phony.plausible?('+355 85 123456').should be_true
-        Phony.plausible?('+355 85 12345').should be_false # too short
-        Phony.plausible?('+355 85 1234567').should be_false # too long
+        expect(Phony.plausible?('+355 85 123456')).to be true
+        expect(Phony.plausible?('+355 85 12345')).to be false # too short
+        expect(Phony.plausible?('+355 85 1234567')).to be false # too long
       end
 
       it "is correct for Angola" do
-        Phony.plausible?('+244 852 123 456').should be_true
-        Phony.plausible?('+244 852 123').should be_false # too short
-        Phony.plausible?('+244 852 123 4567').should be_false # too long
+        expect(Phony.plausible?('+244 852 123 456')).to be true
+        expect(Phony.plausible?('+244 852 123')).to be false # too short
+        expect(Phony.plausible?('+244 852 123 4567')).to be false # too long
       end
 
       it "is correct for Andorra" do
-        Phony.plausible?('+376 712345').should be_true
-        Phony.plausible?('+376 71234').should be_false # too short
-        Phony.plausible?('+376 7123456').should be_false # too long
-        Phony.plausible?('+376 712345').should be_true
-        Phony.plausible?('+376 71234').should be_false # too short
-        Phony.plausible?('+376 7123456').should be_false # too long
+        expect(Phony.plausible?('+376 712345')).to be true
+        expect(Phony.plausible?('+376 71234')).to be false # too short
+        expect(Phony.plausible?('+376 7123456')).to be false # too long
+        expect(Phony.plausible?('+376 712345')).to be true
+        expect(Phony.plausible?('+376 71234')).to be false # too short
+        expect(Phony.plausible?('+376 7123456')).to be false # too long
       end
 
       it "is correct for Netherlands Antilles" do
-        Phony.plausible?('+599 1234567').should be_true
-        Phony.plausible?('+599 123456').should be_false # too short
-        Phony.plausible?('+599 12345678').should be_false # too long
+        expect(Phony.plausible?('+599 1234567')).to be true
+        expect(Phony.plausible?('+599 123456')).to be false # too short
+        expect(Phony.plausible?('+599 12345678')).to be false # too long
       end
 
       it "is correct for Armenia" do
-        Phony.plausible?('+374 12345678').should be_true
-        Phony.plausible?('+374 1234567').should be_false # too short
-        Phony.plausible?('+374 123456789').should be_false # too long
+        expect(Phony.plausible?('+374 12345678')).to be true
+        expect(Phony.plausible?('+374 1234567')).to be false # too short
+        expect(Phony.plausible?('+374 123456789')).to be false # too long
       end
 
       it "is correct for Aruba" do
-        Phony.plausible?('+297 52 1234').should be_true
-        Phony.plausible?('+297 52 123').should be_false # too short
-        Phony.plausible?('+297 52 12345').should be_false # too long
+        expect(Phony.plausible?('+297 52 1234')).to be true
+        expect(Phony.plausible?('+297 52 123')).to be false # too short
+        expect(Phony.plausible?('+297 52 12345')).to be false # too long
       end
 
       it 'is correct for Bangladesh' do
-        Phony.plausible?('+880 2 1234567').should be_true
-        Phony.plausible?('+880 2 12345678').should be_false # too long
-        Phony.plausible?('+880 2 123456').should be_false # too short
+        expect(Phony.plausible?('+880 2 1234567')).to be true
+        expect(Phony.plausible?('+880 2 12345678')).to be false # too long
+        expect(Phony.plausible?('+880 2 123456')).to be false # too short
 
-        Phony.plausible?('+880 9020 12345').should be_true
-        Phony.plausible?('+880 9020 123456').should be_false # too long
-        Phony.plausible?('+880 9020 1234').should be_false # too short
+        expect(Phony.plausible?('+880 9020 12345')).to be true
+        expect(Phony.plausible?('+880 9020 123456')).to be false # too long
+        expect(Phony.plausible?('+880 9020 1234')).to be false # too short
 
         # ndc with several subscriber number length
-        Phony.plausible?('+880 3035 1234').should be_true
-        Phony.plausible?('+880 3035 123').should be_true
-        Phony.plausible?('+880 3035 12').should be_false # too short
-        Phony.plausible?('+880 3035 12345').should be_false # too long
+        expect(Phony.plausible?('+880 3035 1234')).to be true
+        expect(Phony.plausible?('+880 3035 123')).to be true
+        expect(Phony.plausible?('+880 3035 12')).to be false # too short
+        expect(Phony.plausible?('+880 3035 12345')).to be false # too long
       end
 
       it 'is correct for Bahrain' do
-        Phony.plausible?('+973 1234 5678').should be_true
-        Phony.plausible?('+973 1234 567').should be_false  # too short
-        Phony.plausible?('+973 1234 56789').should be_false # too long
+        expect(Phony.plausible?('+973 1234 5678')).to be true
+        expect(Phony.plausible?('+973 1234 567')).to be false  # too short
+        expect(Phony.plausible?('+973 1234 56789')).to be false # too long
       end
 
       it 'is correct for Belarus' do
-        Phony.plausible?('+375 152 123456').should be_true
-        Phony.plausible?('+375 152 12345').should be_false # too short
-        Phony.plausible?('+375 152 1234567').should be_false # too long
+        expect(Phony.plausible?('+375 152 123456')).to be true
+        expect(Phony.plausible?('+375 152 12345')).to be false # too short
+        expect(Phony.plausible?('+375 152 1234567')).to be false # too long
 
-        Phony.plausible?('+375 800 123').should be_true
-        Phony.plausible?('+375 800 1234').should be_true
-        Phony.plausible?('+375 800 1234567').should be_true
-        Phony.plausible?('+375 800 123456').should be_false
-        Phony.plausible?('+375 800 12345678').should be_false
+        expect(Phony.plausible?('+375 800 123')).to be true
+        expect(Phony.plausible?('+375 800 1234')).to be true
+        expect(Phony.plausible?('+375 800 1234567')).to be true
+        expect(Phony.plausible?('+375 800 123456')).to be false
+        expect(Phony.plausible?('+375 800 12345678')).to be false
       end
 
       it_is_correct_for 'Belize', :samples => '+501 205 1234'
@@ -342,49 +340,49 @@ describe 'plausibility' do
         # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
         # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWE.doc
 
-        Phony.plausible?("+855312345678").should be_true     # Beeline (7 digit id)
-        Phony.plausible?("+85531234567").should be_false     # Beeline (too short)
-        Phony.plausible?("+85560234567").should be_true      # Beeline (6 digit id)
-        Phony.plausible?("+855602345678").should be_false    # Beeline (too long)
+        expect(Phony.plausible?("+855312345678")).to be true     # Beeline (7 digit id)
+        expect(Phony.plausible?("+85531234567")).to be false     # Beeline (too short)
+        expect(Phony.plausible?("+85560234567")).to be true      # Beeline (6 digit id)
+        expect(Phony.plausible?("+855602345678")).to be false    # Beeline (too long)
 
-        Phony.plausible?("+855762345678").should be_true     # Mobitel (7 digit id)
-        Phony.plausible?("+85576234567").should be_false     # Mobitel (too short)
-        Phony.plausible?("+85517234567").should be_true      # Mobitel (6 digit id)
-        Phony.plausible?("+855172345678").should be_false    # Mobitel (too long)
-        Phony.plausible?("+85512234567").should be_true      # Mobitel (6 digit id)
-        Phony.plausible?("+855121345678").should be_true     # Mobitel (7 digit id)
-        Phony.plausible?("+85512123456").should be_false     # Mobitel (6 digit invalid)
+        expect(Phony.plausible?("+855762345678")).to be true     # Mobitel (7 digit id)
+        expect(Phony.plausible?("+85576234567")).to be false     # Mobitel (too short)
+        expect(Phony.plausible?("+85517234567")).to be true      # Mobitel (6 digit id)
+        expect(Phony.plausible?("+855172345678")).to be false    # Mobitel (too long)
+        expect(Phony.plausible?("+85512234567")).to be true      # Mobitel (6 digit id)
+        expect(Phony.plausible?("+855121345678")).to be true     # Mobitel (7 digit id)
+        expect(Phony.plausible?("+85512123456")).to be false     # Mobitel (6 digit invalid)
 
-        Phony.plausible?("+855383001801").should be_true     # CooTel (7 digit id)
-        Phony.plausible?("+85538300180").should be_false     # CooTel (too short)
+        expect(Phony.plausible?("+855383001801")).to be true     # CooTel (7 digit id)
+        expect(Phony.plausible?("+85538300180")).to be false     # CooTel (too short)
 
-        Phony.plausible?("+85518234567").should be_true      # Excell (6 digit id)
-        Phony.plausible?("+855182345678").should be_false    # Excell (too long)
+        expect(Phony.plausible?("+85518234567")).to be true      # Excell (6 digit id)
+        expect(Phony.plausible?("+855182345678")).to be false    # Excell (too long)
 
-        Phony.plausible?("+855882345678").should be_true     # Metfone (7 digit id)
-        Phony.plausible?("+85588234567").should be_false     # Metfone (too short)
-        Phony.plausible?("+855972345678").should be_true     # Metfone (7 digit id)
-        Phony.plausible?("+85597234567").should be_false     # Metfone (too short)
+        expect(Phony.plausible?("+855882345678")).to be true     # Metfone (7 digit id)
+        expect(Phony.plausible?("+85588234567")).to be false     # Metfone (too short)
+        expect(Phony.plausible?("+855972345678")).to be true     # Metfone (7 digit id)
+        expect(Phony.plausible?("+85597234567")).to be false     # Metfone (too short)
 
-        Phony.plausible?("+85513234567").should be_true      # qb (6 digit id)
-        Phony.plausible?("+855132345678").should be_false    # qb (too long)
+        expect(Phony.plausible?("+85513234567")).to be true      # qb (6 digit id)
+        expect(Phony.plausible?("+855132345678")).to be false    # qb (too long)
 
-        Phony.plausible?("+855962345678").should be_true     # Smart (7 digit id)
-        Phony.plausible?("+85596234567").should be_false     # Smart (too short)
-        Phony.plausible?("+85510234567").should be_true      # Smart (6 digit id)
-        Phony.plausible?("+855102345678").should be_false    # Smart (too long)
+        expect(Phony.plausible?("+855962345678")).to be true     # Smart (7 digit id)
+        expect(Phony.plausible?("+85596234567")).to be false     # Smart (too short)
+        expect(Phony.plausible?("+85510234567")).to be true      # Smart (6 digit id)
+        expect(Phony.plausible?("+855102345678")).to be false    # Smart (too long)
 
         # AXXXXX (A must be between 1 and 9)
-        Phony.plausible?("+85512023456").should be_false     # invalid numbering plan
-        Phony.plausible?("+855380234567").should be_false    # invalid numbering plan
-        Phony.plausible?("+85592123456").should be_true      # valid for 6 digit id
+        expect(Phony.plausible?("+85512023456")).to be false     # invalid numbering plan
+        expect(Phony.plausible?("+855380234567")).to be false    # invalid numbering plan
+        expect(Phony.plausible?("+85592123456")).to be true      # valid for 6 digit id
 
-        Phony.plausible?("+85514234567").should be_false     # invalid mobile operator
-        Phony.plausible?("+85527234567").should be_false     # invalid ndc
+        expect(Phony.plausible?("+85514234567")).to be false     # invalid mobile operator
+        expect(Phony.plausible?("+85527234567")).to be false     # invalid ndc
 
-        Phony.plausible?("+85523471234").should be_true      # Fixed line (NDC + '47' + 4 digit id)
-        Phony.plausible?("+855234712345").should be_true     # Fixed line (NDC + '47' + 5 digit id)
-        Phony.plausible?("+85523123456").should be_false     # Fixed line (NDC + invalid A)
+        expect(Phony.plausible?("+85523471234")).to be true      # Fixed line (NDC + '47' + 4 digit id)
+        expect(Phony.plausible?("+855234712345")).to be true     # Fixed line (NDC + '47' + 5 digit id)
+        expect(Phony.plausible?("+85523123456")).to be false     # Fixed line (NDC + invalid A)
       end
 
       it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'
@@ -529,10 +527,10 @@ describe 'plausibility' do
       it_is_correct_for 'Mali', :samples => '+223  1117 9812'
 
       it 'is correct for Malaysia' do
-        Phony.plausible?('+60 14 123 1234').should be_true
-        Phony.plausible?('+60 14 1234 1234').should be_false
-        Phony.plausible?('+60 14 1234 12').should be_false     # too short
-        Phony.plausible?('+60 14 1234 12345').should be_false  # too long
+        expect(Phony.plausible?('+60 14 123 1234')).to be true
+        expect(Phony.plausible?('+60 14 1234 1234')).to be false
+        expect(Phony.plausible?('+60 14 1234 12')).to be false     # too short
+        expect(Phony.plausible?('+60 14 1234 12345')).to be false  # too long
       end
 
       it_is_correct_for 'Marshall Islands (Republic of the)', :samples => '+692  372 7183'
