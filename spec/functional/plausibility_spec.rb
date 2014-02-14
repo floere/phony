@@ -162,9 +162,16 @@ describe 'plausibility' do
       end
       it 'is correct for Italian numbers' do
         Phony.plausible?('+39 06 1234 4567').should be_true
+
+        Phony.plausible?('+39 035 00000').should be_false
+        Phony.plausible?('+39 035 000000').should be_true
+        Phony.plausible?('+39 015 8407324').should be_true
+
+        Phony.plausible?('+39 0471 123 456').should be_true
+
+        # Mobile
         Phony.plausible?('+39 335 123 4567').should be_true
         Phony.plausible?('+39 335 123').should be_false
-        Phony.plausible?('+39 0471 123 456').should be_true
       end
       it 'is correct for German numbers' do
         Phony.plausible?('+49 209 169 - 0').should be_true # Gelsenkirchen

@@ -158,6 +158,6 @@ Phony.define do
                 one_of(*service)     >> split(3,3) |
                 one_of(*mobile)      >> split(3,4) |
                 one_of(*ndcs_2digit) >> split(4,4) |
-                one_of(*ndcs_3digit) >> split(3,4) |
+                one_of(*ndcs_3digit) >> split(6..7) |
                 one_of(*ndcs_4digit) >> split(3,3)
 end
