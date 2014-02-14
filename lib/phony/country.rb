@@ -69,7 +69,7 @@ module Phony
       countrify! number || number
     end
     def countrify! number
-      number.sub! @countrify_regex, @cc
+      number.sub! /\A/, @cc # @countrify_regex, @cc
     end
     
     # Removes 0s from partially normalized numbers
