@@ -339,8 +339,8 @@ describe 'country descriptions' do
       it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma
       it_splits '390288838883', ['39', '02', '8883', '8883'] # Milano
       it_splits '390141595661', ['39', '0141', '595', '661'] # Asti
-      it_splits '3903123391',   ['39', '031', '233', '91']   # Como
-      it_splits '390909709511', ['39', '090', '970', '9511'] # Barcellona
+      it_splits '3903123391',   ['39', '031', '23391']   # Como
+      it_splits '390909709511', ['39', '090', '9709511'] # Barcellona
       it_splits '390471811353', ['39', '0471', '811', '353'] # Bolzano
     end
     describe 'Japan' do
