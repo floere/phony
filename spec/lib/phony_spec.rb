@@ -88,7 +88,7 @@ describe Phony do
       end
       it 'normalizes Japan correctly' do
         Phony["81"].normalize("80 1234 5634").should == '818012345634'
-        Phony["81"].normalize("+81 80 1234 5634").should == '818012345634'
+        Phony["81"].normalize("Hello    80 1234 5634").should == '818012345634'
       end
     end
   end
