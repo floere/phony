@@ -1,3 +1,8 @@
+h2. Version 2.2.0
+
+* hanke: Countries cannot normalize full numbers anymore. So `Phony["81"].normalize("+81 80 1234 5634").should == '818012345634'` will not work anymore. 
+* hanke: Fixes for Italy (Thanks @weppos, see #138).
+
 h2. Version 2.1.4
 
 * hanke: Fixes for the Netherlands (Thanks @aeden, see #135).
