@@ -9,7 +9,7 @@ describe Phony do
       it '' do
         us = described_class['1']
         us.plausible?('4159224711').should be_true
-        us.countrify!('4159224711').should == '14159224711'
+        us.normalize('4159224711').should == '4159224711'
       end
     end
   end
@@ -82,13 +82,13 @@ describe Phony do
     end
     describe 'country-based' do
       it 'normalizes the US correctly' do
-        Phony["1"].normalize("555 1234567890").should == '15551234567890'
-        Phony["1"].normalize("+1 555 1234567890").should == '15551234567890'
-        Phony["1"].normalize("+1 (0) 555 1234567890").should == '15551234567890'
+        Phony["1"].normalize("555 1234567890").should == '5551234567890'
+        Phony["1"].normalize("+1 555 1234567890").should == '5551234567890'
+        Phony["1"].normalize("+1 (0) 555 1234567890").should == '5551234567890'
       end
       it 'normalizes Japan correctly' do
-        Phony["81"].normalize("80 1234 5634").should == '818012345634'
-        Phony["81"].normalize("Hello    80 1234 5634").should == '818012345634'
+        Phony["81"].normalize("80 1234 5634").should == '8012345634'
+        Phony["81"].normalize("Hello    80 1234 5634").should == '8012345634'
       end
     end
   end

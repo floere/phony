@@ -40,6 +40,18 @@ module Phony
     def clean! number
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
+    
+    # Adds the country code to the front
+    # if it does not already start with it.
+    #
+    # Note: This won't be correct in some cases, but it is the best we can do.
+    #
+    def countrify number, cc
+      countrify!(number, cc) || number
+    end
+    def countrify! number, cc
+      number.sub! /\A/, cc # @countrify_regex, @cc
+    end
 
     # 00 for the standard international call prefix.
     # http://en.wikipedia.org/wiki/List_of_international_call_prefixes
@@ -60,7 +72,8 @@ module Phony
         country, cc, number = split_cc number
         country
       end
-      country.normalize number
+      number = country.normalize number
+      countrify! number, cc
     end
 
     # Splits this number into cc, ndc and locally split number parts.

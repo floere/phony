@@ -34,7 +34,7 @@ describe Phony::Country do
     end
     describe 'normalize' do
       it "should handle ZH" do
-        @switzerland.normalize('0443643532').should == '41443643532'
+        @switzerland.normalize('0443643532').should == '443643532'
       end
     end
   end

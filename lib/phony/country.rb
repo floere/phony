@@ -24,9 +24,8 @@ module Phony
     # TODO Rewrite.
     #
     def with cc, options = {}
-      @cc              = cc
-      @countrify_regex = /\A(?!#{@cc})/
-      @invalid_ndcs    = options[:invalid_ndcs] || []
+      @cc           = cc
+      @invalid_ndcs = options[:invalid_ndcs] || []
     end
     
     # A number is split with the code handlers as given in the initializer.
@@ -60,18 +59,6 @@ module Phony
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
     
-    # Adds the country code to the front
-    # if it does not already start with it.
-    #
-    # Note: This won't be correct in some cases, but it is the best we can do.
-    #
-    def countrify number
-      countrify! number || number
-    end
-    def countrify! number
-      number.sub! /\A/, @cc # @countrify_regex, @cc
-    end
-    
     # Removes 0s from partially normalized numbers
     # such as 410443643533.
     # 
@@ -87,8 +74,6 @@ module Phony
         break result if result
         number
       end
-      return unless normalized
-      countrify! normalized
       normalized
     end
     
