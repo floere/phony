@@ -83,5 +83,6 @@ Phony.define do
                 one_of(corporate) >> split(5..5) |
                 one_of(ndcs)      >> split(6..6) |
                 one_of(mobile)    >> split(7..7) |
+                one_of('663')     >> split(6..6) |
                 fixed(4)          >> split(7..7)
 end
