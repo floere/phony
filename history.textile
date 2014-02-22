@@ -1,3 +1,7 @@
+h2. Version 2.2.1
+
+* hanke: Fix for Austria's 663 numbers (Thanks @weppos, see #139).
+
 h2. Version 2.2.0
 
 * hanke: Countries cannot normalize full numbers anymore. So `Phony["81"].normalize("+81 80 1234 5634").should == '818012345634'` will not work anymore. Instead `Phony["81"].normalize("80 1234 5678")` will result in `'80 1234 5634'`, so can only be used to normalize that country's national numbers.
