@@ -36,7 +36,6 @@ mobile = [
  '659',
  '660',
  '661',
- '663',
  '664',
  '665',
  '666',
@@ -80,6 +79,7 @@ Phony.define do
                 one_of(service)   >> split(9..9) |
                 one_of(corporate) >> split(5..5) |
                 one_of(ndcs)      >> split(6..6) |
-                one_of(mobile)    >> split(6..7) |
+                one_of(mobile)    >> split(7..7) |
+                one_of('663')     >> split(6..6) | # 6 digit mobile.
                 fixed(4)          >> split(7..7)
 end
