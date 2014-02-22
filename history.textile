@@ -1,3 +1,7 @@
+h2. Version 2.2.2
+
+* hanke: Improvements for Austria.
+
 h2. Version 2.2.1
 
 * hanke: Fix for Austria's 663 numbers (Thanks @weppos, see #139).
