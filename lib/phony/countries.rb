@@ -488,7 +488,12 @@ Phony.define do
   country '294', todo # -
   country '295', todo # -
   country '296', todo # -
-  country '297', fixed(2) >> split(4) # Aruba
+
+  # Aruba
+  # http://www.itu.int/dms_pub/itu-t/oth/02/02/T020200000B0001PDFE.pdf
+  # Landline numbers begin 52 or 58.
+  country '297',
+          fixed(3) >> split(4)
 
   # Faroe Islands http://www.wtng.info/wtng-298-fo.html
   country '298',

@@ -160,9 +160,14 @@ describe 'plausibility' do
       end
 
       it "is correct for Aruba" do
-        Phony.plausible?('+297 52 1234').should be_true
-        Phony.plausible?('+297 52 123').should be_false # too short
-        Phony.plausible?('+297 52 12345').should be_false # too long
+        # Landline
+        Phony.plausible?('+297 525 5200').should be_true
+        Phony.plausible?('+297 586 6555').should be_true
+        # Mobile
+        Phony.plausible?('+297 737 7667').should be_true
+
+        Phony.plausible?('+297 520 000').should be_false    # too short
+        Phony.plausible?('+297 520 00000').should be_false  # too long
       end
 
       it "is correct for Azerbaijan" do
