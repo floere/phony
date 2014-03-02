@@ -126,130 +126,10 @@ describe 'plausibility' do
         Phony.plausible?('+43 663 000000').should be_true
       end
 
-      # TODO: more needs to be done here
-      #
-      it "is correct for Swiss numbers" do
-        Phony.plausible?('+41 44 111 22 33').should be_true
-        Phony.plausible?('+41 44 111 22 334').should be_false
-        Phony.plausible?('+41 44 111 22').should be_false
-      end
-      
       it "is correct for Belgian numbers" do
         Phony.plausible?('+32 3 241 11 32').should be_true
         Phony.plausible?('0032 3 241 11 32').should be_true
         Phony.plausible?('0032 (0) 3 241 11 32').should be_true
-      end
-
-      it "is correct for Danish numbers" do
-        Phony.plausible?('+45 44 11 12 23 34').should be_false
-        Phony.plausible?('+45 44 11 12 2').should be_false
-        Phony.plausible?('+45 44 55 22 33').should be_true
-      end
-
-      it 'is correct for egyptian numbers' do
-        Phony.plausible?('+20 800 1234567').should be_true
-        Phony.plausible?('+20 800 12345678').should be_false
-        Phony.plausible?('+20 2 12345678').should be_true
-        Phony.plausible?('+20 2 1234567').should be_false
-        Phony.plausible?('+20 40 12345678').should be_true
-        Phony.plausible?('+20 40 1234567').should be_false
-      end
-
-      it 'is correct for Dutch numbers' do
-        Phony.plausible?('+31 6 12 34 56 78').should be_true
-        Phony.plausible?('+31 6 12 34 56 7').should be_false
-        Phony.plausible?('+31 20 123 5678').should be_true
-        Phony.plausible?('+31 20 123 567').should be_false
-        Phony.plausible?('+31 221 123 567').should be_true
-        Phony.plausible?('+31 221 123 56').should be_false
-        Phony.plausible?('+31 880 450 245').should be_true
-        Phony.plausible?('+31 880 450 24').should be_false
-        Phony.plausible?('+31 900 001 002').should be_true
-        Phony.plausible?('+31 900 001 00').should be_false
-      end
-      it 'is correct for Nigerian numbers' do
-        Phony.plausible?('+234 807 766 1234').should be_true
-        Phony.plausible?('+234 807 766 123').should be_false
-      end
-      it 'is correct for Italian numbers' do
-        Phony.plausible?('+39 06 1234 4567').should be_true
-
-        Phony.plausible?('+39 035 00000').should be_false
-        Phony.plausible?('+39 035 000000').should be_true
-        Phony.plausible?('+39 015 8407324').should be_true
-
-        Phony.plausible?('+39 0471 123 456').should be_true
-
-        # Mobile
-        Phony.plausible?('+39 335 123 4567').should be_true
-        Phony.plausible?('+39 335 123').should be_false
-      end
-      it 'is correct for German numbers' do
-        Phony.plausible?('+49 209 169 - 0').should be_true # Gelsenkirchen
-        Phony.plausible?('+49 209 169 - 3530').should be_true # Gelsenkirchen
-        Phony.plausible?('+49 40 123 45678').should be_true
-        Phony.plausible?('+49 40 123 456789').should be_true # TODO ?
-        Phony.plausible?('+49 171 123 4567').should be_true
-        Phony.plausible?('+49 171 123 45678').should be_false
-        Phony.plausible?('+49 177 123 1234').should be_true
-        Phony.plausible?('+49 176 123 12345').should be_true
-        Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
-        Phony.plausible?('+49 2041 123').should be_true # Grandfathered numbers.
-        Phony.plausible?('+49 2041 1234567').should be_true
-        Phony.plausible?('+49 2041 12345689').should be_false # Could be a call-through number
-        Phony.plausible?('+49 31234 123456').should be_true
-        Phony.plausible?('+49 31234 1234567').should be_false # Could be a call-through number
-      end
-
-      it 'is correct for Israelian numbers' do
-        Phony.plausible?('+972 2 123 1234').should be_true
-        Phony.plausible?('+972 59 123 1234').should be_true
-      end
-      it "is correct for US numbers" do
-        # Still need E164 conform numbers.
-        #
-        Phony.plausible?('4346667777', cc: '1').should be_false
-
-        # Automatic country checking.
-        #
-        Phony.plausible?('1-4346667777').should be_true
-        Phony.plausible?('1-800-692-7753').should be_true
-        Phony.plausible?('1-911').should be_false
-        Phony.plausible?('1-911-123-1234').should be_false
-        Phony.plausible?('143466677777').should be_false # too long
-        Phony.plausible?('143466677').should be_false # too short
-
-        # With string constraints.
-        #
-        Phony.plausible?('14346667777', cc: '1').should be_true
-        Phony.plausible?('14346667777', ndc: '434').should be_true
-        Phony.plausible?('14346667777', cc: '1', ndc: '434').should be_true
-
-        # With regexp constraints.
-        #
-        Phony.plausible?('14346667777', cc: /[123]/).should be_true
-        Phony.plausible?('14346667777', ndc: /434|435/).should be_true
-        Phony.plausible?('14346667777', cc: /[123]/, ndc: /434|435/).should be_true
-      end
-
-      it "is correct for Portugese numbers" do
-        Phony.plausible?('+351 800 123456').should be_true
-        Phony.plausible?('+351 90 1234567').should be_true
-        Phony.plausible?('+351 90 123456').should be_false
-        Phony.plausible?('+351 123 1234567').should be_true
-      end
-
-      it "is correct for Russia" do
-        Phony.plausible?('+7 800 2000 600').should be_true
-        Phony.plausible?('+7 960 301 23 45').should be_true
-        Phony.plausible?('+7 800 2000 60').should be_false # too short
-        Phony.plausible?('796030123451').should be_false # too long
-      end
-
-      it "is correct for Azerbaijan" do
-        Phony.plausible?('+994 12 1234567').should be_true
-        Phony.plausible?('+994 12 12345').should be_false # too short
-        Phony.plausible?('+994 12 12345678').should be_false # too long
       end
 
       it "is correct for Albania" do
@@ -273,12 +153,6 @@ describe 'plausibility' do
         Phony.plausible?('+376 7123456').should be_false # too long
       end
 
-      it "is correct for Netherlands Antilles" do
-        Phony.plausible?('+599 1234567').should be_true
-        Phony.plausible?('+599 123456').should be_false # too short
-        Phony.plausible?('+599 12345678').should be_false # too long
-      end
-
       it "is correct for Armenia" do
         Phony.plausible?('+374 12345678').should be_true
         Phony.plausible?('+374 1234567').should be_false # too short
@@ -286,9 +160,20 @@ describe 'plausibility' do
       end
 
       it "is correct for Aruba" do
-        Phony.plausible?('+297 52 1234').should be_true
-        Phony.plausible?('+297 52 123').should be_false # too short
-        Phony.plausible?('+297 52 12345').should be_false # too long
+        # Landline
+        Phony.plausible?('+297 525 5200').should be_true
+        Phony.plausible?('+297 586 6555').should be_true
+        # Mobile
+        Phony.plausible?('+297 737 7667').should be_true
+
+        Phony.plausible?('+297 520 000').should be_false    # too short
+        Phony.plausible?('+297 520 00000').should be_false  # too long
+      end
+
+      it "is correct for Azerbaijan" do
+        Phony.plausible?('+994 12 1234567').should be_true
+        Phony.plausible?('+994 12 12345').should be_false # too short
+        Phony.plausible?('+994 12 12345678').should be_false # too long
       end
 
       it 'is correct for Bangladesh' do
@@ -324,29 +209,6 @@ describe 'plausibility' do
         Phony.plausible?('+375 800 123456').should be_false
         Phony.plausible?('+375 800 12345678').should be_false
       end
-
-      it_is_correct_for 'Belize', :samples => '+501 205 1234'
-      it_is_correct_for 'Benin', :samples => '+229 1234 5678'
-      it_is_correct_for 'Bolivia', :samples => '+591 2 277 2266'
-      it_is_correct_for 'Botswana', :samples => ['+267 80 123 456',
-                                                 '+267 29 567 89',
-                                                 '+267 463 4567',
-                                                 '+267 58 123 45',
-                                                 '+267 7 6712 345',
-                                                 '+267 8 1234 567']
-      it_is_correct_for 'Colombia', :samples => ['+57 1 123 4567', '+57 310 123 4567']
-      it_is_correct_for 'Philippines', :samples => [['+63 2 1234567', '+63 2 1234567890'],
-                                                    '+63 88 1234567',
-                                                    ['+63 920 123456', '+63 920 1234567']]
-
-      it_is_correct_for 'Pakistan', :samples => ['+92 21 1234 5678',
-                                                 '+92 22 1234 567',
-                                                 '+92 232 123 456',
-                                                 '+92 30 1234 5678']
-      it_is_correct_for 'Bhutan (Kingdom of)', :samples => '+975 2 889 648'
-      it_is_correct_for 'Brunei Darussalam', :samples => '+673 5 523 876'
-      it_is_correct_for 'Burkina Faso', :samples => '+226  1476 2312'
-      it_is_correct_for 'Burundi', :samples => '+257  1234 5678'
 
       it 'is correct for Cambodia' do
         # http://en.wikipedia.org/wiki/Telecommunications_in_Cambodia#Mobile_networks
@@ -397,6 +259,160 @@ describe 'plausibility' do
         Phony.plausible?("+855234712345").should be_true     # Fixed line (NDC + '47' + 5 digit id)
         Phony.plausible?("+85523123456").should be_false     # Fixed line (NDC + invalid A)
       end
+
+      it "is correct for Danish numbers" do
+        Phony.plausible?('+45 44 11 12 23 34').should be_false
+        Phony.plausible?('+45 44 11 12 2').should be_false
+        Phony.plausible?('+45 44 55 22 33').should be_true
+      end
+
+      it 'is correct for Dutch numbers' do
+        Phony.plausible?('+31 6 12 34 56 78').should be_true
+        Phony.plausible?('+31 6 12 34 56 7').should be_false
+        Phony.plausible?('+31 20 123 5678').should be_true
+        Phony.plausible?('+31 20 123 567').should be_false
+        Phony.plausible?('+31 221 123 567').should be_true
+        Phony.plausible?('+31 221 123 56').should be_false
+        Phony.plausible?('+31 880 450 245').should be_true
+        Phony.plausible?('+31 880 450 24').should be_false
+        Phony.plausible?('+31 900 001 002').should be_true
+        Phony.plausible?('+31 900 001 00').should be_false
+      end
+
+      it 'is correct for Egyptian numbers' do
+        Phony.plausible?('+20 800 1234567').should be_true
+        Phony.plausible?('+20 800 12345678').should be_false
+        Phony.plausible?('+20 2 12345678').should be_true
+        Phony.plausible?('+20 2 1234567').should be_false
+        Phony.plausible?('+20 40 12345678').should be_true
+        Phony.plausible?('+20 40 1234567').should be_false
+      end
+
+      it 'is correct for German numbers' do
+        Phony.plausible?('+49 209 169 - 0').should be_true # Gelsenkirchen
+        Phony.plausible?('+49 209 169 - 3530').should be_true # Gelsenkirchen
+        Phony.plausible?('+49 40 123 45678').should be_true
+        Phony.plausible?('+49 40 123 456789').should be_true # TODO ?
+        Phony.plausible?('+49 171 123 4567').should be_true
+        Phony.plausible?('+49 171 123 45678').should be_false
+        Phony.plausible?('+49 177 123 1234').should be_true
+        Phony.plausible?('+49 176 123 12345').should be_true
+        Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
+        Phony.plausible?('+49 2041 123').should be_true # Grandfathered numbers.
+        Phony.plausible?('+49 2041 1234567').should be_true
+        Phony.plausible?('+49 2041 12345689').should be_false # Could be a call-through number
+        Phony.plausible?('+49 31234 123456').should be_true
+        Phony.plausible?('+49 31234 1234567').should be_false # Could be a call-through number
+      end
+
+      it 'is correct for Israelian numbers' do
+        Phony.plausible?('+972 2 123 1234').should be_true
+        Phony.plausible?('+972 59 123 1234').should be_true
+      end
+
+      it 'is correct for Italian numbers' do
+        Phony.plausible?('+39 06 1234 4567').should be_true
+
+        Phony.plausible?('+39 035 00000').should be_false
+        Phony.plausible?('+39 035 000000').should be_true
+        Phony.plausible?('+39 015 8407324').should be_true
+
+        Phony.plausible?('+39 0471 123 456').should be_true
+
+        # Mobile
+        Phony.plausible?('+39 335 123 4567').should be_true
+        Phony.plausible?('+39 335 123').should be_false
+      end
+
+      it 'is correct for Malaysia' do
+        Phony.plausible?('+60 14 123 1234').should be_true
+        Phony.plausible?('+60 14 1234 1234').should be_false
+        Phony.plausible?('+60 14 1234 12').should be_false     # too short
+        Phony.plausible?('+60 14 1234 12345').should be_false  # too long
+      end
+
+      it "is correct for Netherlands Antilles" do
+        Phony.plausible?('+599 1234567').should be_true
+        Phony.plausible?('+599 123456').should be_false # too short
+        Phony.plausible?('+599 12345678').should be_false # too long
+      end
+
+      it 'is correct for Nigerian numbers' do
+        Phony.plausible?('+234 807 766 1234').should be_true
+        Phony.plausible?('+234 807 766 123').should be_false
+      end
+
+      it "is correct for Portugese numbers" do
+        Phony.plausible?('+351 800 123456').should be_true
+        Phony.plausible?('+351 90 1234567').should be_true
+        Phony.plausible?('+351 90 123456').should be_false
+        Phony.plausible?('+351 123 1234567').should be_true
+      end
+
+      it "is correct for Russia" do
+        Phony.plausible?('+7 800 2000 600').should be_true
+        Phony.plausible?('+7 960 301 23 45').should be_true
+        Phony.plausible?('+7 800 2000 60').should be_false # too short
+        Phony.plausible?('796030123451').should be_false # too long
+      end
+
+      # TODO: more needs to be done here
+      #
+      it "is correct for Swiss numbers" do
+        Phony.plausible?('+41 44 111 22 33').should be_true
+        Phony.plausible?('+41 44 111 22 334').should be_false
+        Phony.plausible?('+41 44 111 22').should be_false
+      end
+
+      it "is correct for US numbers" do
+        # Still need E164 conform numbers.
+        #
+        Phony.plausible?('4346667777', cc: '1').should be_false
+
+        # Automatic country checking.
+        #
+        Phony.plausible?('1-4346667777').should be_true
+        Phony.plausible?('1-800-692-7753').should be_true
+        Phony.plausible?('1-911').should be_false
+        Phony.plausible?('1-911-123-1234').should be_false
+        Phony.plausible?('143466677777').should be_false # too long
+        Phony.plausible?('143466677').should be_false # too short
+
+        # With string constraints.
+        #
+        Phony.plausible?('14346667777', cc: '1').should be_true
+        Phony.plausible?('14346667777', ndc: '434').should be_true
+        Phony.plausible?('14346667777', cc: '1', ndc: '434').should be_true
+
+        # With regexp constraints.
+        #
+        Phony.plausible?('14346667777', cc: /[123]/).should be_true
+        Phony.plausible?('14346667777', ndc: /434|435/).should be_true
+        Phony.plausible?('14346667777', cc: /[123]/, ndc: /434|435/).should be_true
+      end
+
+      it_is_correct_for 'Belize', :samples => '+501 205 1234'
+      it_is_correct_for 'Benin', :samples => '+229 1234 5678'
+      it_is_correct_for 'Bolivia', :samples => '+591 2 277 2266'
+      it_is_correct_for 'Botswana', :samples => ['+267 80 123 456',
+                                                 '+267 29 567 89',
+                                                 '+267 463 4567',
+                                                 '+267 58 123 45',
+                                                 '+267 7 6712 345',
+                                                 '+267 8 1234 567']
+      it_is_correct_for 'Colombia', :samples => ['+57 1 123 4567', '+57 310 123 4567']
+      it_is_correct_for 'Philippines', :samples => [['+63 2 1234567', '+63 2 1234567890'],
+                                                    '+63 88 1234567',
+                                                    ['+63 920 123456', '+63 920 1234567']]
+
+      it_is_correct_for 'Pakistan', :samples => ['+92 21 1234 5678',
+                                                 '+92 22 1234 567',
+                                                 '+92 232 123 456',
+                                                 '+92 30 1234 5678']
+      it_is_correct_for 'Bhutan (Kingdom of)', :samples => '+975 2 889 648'
+      it_is_correct_for 'Brunei Darussalam', :samples => '+673 5 523 876'
+      it_is_correct_for 'Burkina Faso', :samples => '+226  1476 2312'
+      it_is_correct_for 'Burundi', :samples => '+257  1234 5678'
 
       it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'
       it_is_correct_for 'Cape Verde', :samples => '+238  642 3843'
@@ -538,13 +554,6 @@ describe 'plausibility' do
                                                '+265 991 123 456']
       it_is_correct_for 'Maldives (Republic of)', :samples => '+960  928 8399'
       it_is_correct_for 'Mali', :samples => '+223  1117 9812'
-
-      it 'is correct for Malaysia' do
-        Phony.plausible?('+60 14 123 1234').should be_true
-        Phony.plausible?('+60 14 1234 1234').should be_false
-        Phony.plausible?('+60 14 1234 12').should be_false     # too short
-        Phony.plausible?('+60 14 1234 12345').should be_false  # too long
-      end
 
       it_is_correct_for 'Marshall Islands (Republic of the)', :samples => '+692  372 7183'
       it_is_correct_for 'Martinique (French Department of)', :samples => '+596 596 123 456'
