@@ -1,5 +1,6 @@
 "!{float:right}https://secure.travis-ci.org/floere/phony.png!":http://travis-ci.org/floere/phony
 "!https://codeclimate.com/github/floere/phony.png!":https://codeclimate.com/github/floere/phony
+!http://inch-pages.github.io/github/floere/phony.png!:http://inch-pages.github.io/github/floere/phony
 
 h1. Phony
 
