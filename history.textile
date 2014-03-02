@@ -1,3 +1,7 @@
+h2. Version 2.2.3
+
+* hanke: Improvements for Aruba (Thanks @weppos, see #141).
+
 h2. Version 2.2.2
 
 * hanke: Improvements for Austria.
