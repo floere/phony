@@ -29,7 +29,7 @@ module Phony
     
     # Vanity-Normalized.
     #
-    @@vanity_normalizing_regexp = /^0*|[^\d\w]/
+    @@vanity_normalizing_regexp = /^0*|[^\w]/
     def self.normalized number
       number.gsub @@vanity_normalizing_regexp, ''
     end
