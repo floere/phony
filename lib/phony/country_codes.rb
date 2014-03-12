@@ -50,7 +50,7 @@ module Phony
       countrify!(number, cc) || number
     end
     def countrify! number, cc
-      number.sub! /\A/, cc # @countrify_regex, @cc
+      number.sub!(/\A/, cc) # @countrify_regex, @cc
     end
 
     # 00 for the standard international call prefix.

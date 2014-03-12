@@ -17,7 +17,7 @@ module SpecHelperExtensions
   end
   def performance_of &block
     GC.disable
-    result = Benchmark.realtime &block
+    result = Benchmark.realtime(&block)
     GC.enable
     result * Phony::PerformanceRatio
   end

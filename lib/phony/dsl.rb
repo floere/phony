@@ -38,7 +38,7 @@ module Phony
   #
   def self.define
     dsl = DSL.new
-    dsl.instance_eval &Proc.new if block_given?
+    dsl.instance_eval(&Proc.new) if block_given?
     dsl
   end
 
