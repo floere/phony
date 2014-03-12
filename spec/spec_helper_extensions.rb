@@ -12,7 +12,7 @@ module SpecHelperExtensions
   #
   begin
     require File.expand_path '../performance_ratio', __FILE__
-  rescue LoadError => e
+  rescue LoadError
     Phony::PerformanceRatio = 0 # Ignore speed tests by default.
   end
   def performance_of &block

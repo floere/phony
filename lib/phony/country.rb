@@ -112,7 +112,7 @@ module Phony
     #
     #
     def vanity_to_number vanity_number
-      zero, ndc, *rest = split vanity_number
+      _, ndc, *rest = split vanity_number
       "#{ndc}#{Vanity.replace(rest.join)}"
     end
     

@@ -127,15 +127,15 @@ module Phony
     #
     #
     def service? number
-      country, cc, rest = split_cc number
+      country, _, rest = split_cc number
       country.service? rest
     end
     def mobile? number
-      country, cc, rest = split_cc number
+      country, _, rest = split_cc number
       country.mobile? rest
     end
     def landline? number
-      country, cc, rest = split_cc number
+      country, _, rest = split_cc number
       country.landline? rest
     end
 
@@ -179,7 +179,7 @@ module Phony
       # Country specific tests.
       #
       country.plausible? rest, hints
-    rescue StandardError => e
+    rescue StandardError
       return false
     end
 
