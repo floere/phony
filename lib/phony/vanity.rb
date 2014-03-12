@@ -16,7 +16,7 @@ module Phony
     # Replaces (and normalizes) vanity characters of passed number with correct digits.
     #
     def self.replace number
-      number.tr *mapping
+      number.tr(*mapping)
     end
     
     # Returns true if there is a character in the number
