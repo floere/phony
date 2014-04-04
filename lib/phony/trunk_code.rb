@@ -3,7 +3,7 @@ module Phony
   class TrunkCode
   
     def initialize code, options = {}
-      @trunk_code_replacement = /\A#{code}+/
+      @trunk_code_replacement = /\A#{code}/
       @normalize = options[:normalize] != false
       @split     = options[:split]
     end

@@ -1,3 +1,7 @@
+h2. Version 2.2.4
+
+* hanke: Fixed trunk code replacement (Thanks, see #151).
+
 h2. Version 2.2.3
 
 * hanke: Improvements for Aruba (Thanks @weppos, see #141).
