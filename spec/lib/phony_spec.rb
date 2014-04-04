@@ -6,7 +6,7 @@ describe Phony do
 
   describe 'regression' do
     it '#151' do
-      Phony.normalize('1-111-111-1111').should == '1111111111' # One 1 is removed because 1 is the trunk code.
+      described_class.normalize('1-111-111-1111').should == '1111111111' # One 1 is removed because 1 is the trunk code.
     end
   end
 
