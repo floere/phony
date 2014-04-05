@@ -91,6 +91,8 @@ This will often raise an error if you try normalizing a non E164-izable number (
 
 h3(#formatting). Formatting
 
+Aliased as @Phony.formatted(number_string)@. 
+
 @Phony.format('41443643532').should == '+41 44 364 35 32'@
 
 @Phony.format('41800112233').should == '+41 800 11 22 33'@
