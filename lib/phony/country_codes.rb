@@ -83,9 +83,11 @@ module Phony
       [cc, *country.split(rest)]
     end
 
-    def formatted number, options = {}
+    def format number, options = {}
       format_cc_ndc_local options[:format], options[:spaces] || @default_space, *split(number)
     end
+    alias formatted format
+
     # Formats country code and national destination code.
     #
     def format_cc_ndc_local format, space, cc, zero, ndc, *parts
