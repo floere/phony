@@ -20,7 +20,7 @@ module Phony
     #
     def split national_number
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @split
-      return [@code, national_number]
+      return [nil, national_number]
     end
     
     def normalize national_number

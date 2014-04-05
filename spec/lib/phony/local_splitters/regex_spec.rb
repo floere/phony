@@ -12,7 +12,7 @@ describe Phony::LocalSplitters::Regex do
     before(:each) do
       # Norway as example.
       #
-      @splitter = described_class.instance_for /^[489].*$/ => [3,2,3], :fallback => [2,2,2,2]
+      @splitter = described_class.instance_for(/^[489].*$/ => [3,2,3], :fallback => [2,2,2,2])
     end
     it 'splits a number correctly' do
       @splitter.split('21234567').should == ['21','23','45','67']
@@ -58,28 +58,28 @@ describe Phony::LocalSplitters::Regex do
     end
 
     context 'Mapping does not exist for a number' do
-      let(:local_splitter) { described_class.instance_for /\A5/ => [1,2,3]}
+      let(:local_splitter) { described_class.instance_for(/\A5/ => [1,2,3])}
       it 'returns false' do
         result.should be_false
       end
     end
 
     context "Mapping exists, but the length is greater" do
-      let(:local_splitter) { described_class.instance_for /\A123/ => [2,2]}
+      let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2])}
       it 'returns false' do
         result.should be_false
       end
     end
 
     context "Mapping exists, but the length is less" do
-      let(:local_splitter) { described_class.instance_for /\A123/ => [2,2,3]}
+      let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2,3])}
       it 'returns false' do
         result.should be_false
       end
     end
 
     context 'Mapping exists and the length is equal' do
-      let(:local_splitter) { described_class.instance_for /\A123/ => [2,2,2]}
+      let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2,2])}
       it 'returns true' do
         result.should be_true
       end

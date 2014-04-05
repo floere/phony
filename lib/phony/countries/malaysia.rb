@@ -12,7 +12,7 @@ ndcs = [
   '9', # Kelantan, Pahang (except Cameron Highlands & Genting Highlands) & Terengganu
 ]
 mobile = %w{ 10 11 12 13 14 153 154 156 158 16 17 18 19 }
-service = %w{ 100 101 102 103 104 108 991 994 995 999 }  # Emergeny and Service numbers, only 3 digits long
+# service = %w{ 100 101 102 103 104 108 991 994 995 999 }  # Emergeny and Service numbers, only 3 digits long
 freephone = %w{ 300 700 800 }
 
 Phony.define do

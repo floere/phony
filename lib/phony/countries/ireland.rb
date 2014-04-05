@@ -9,8 +9,6 @@
 # http://www.comreg.ie/_fileupload/publications/ComReg03147.pdf
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_the_Republic_of_Ireland
 #
-handlers = []
-
 ndcs_with_5_subscriber_digits = [
   ('22'..'29').to_a, # Mallow, Bandon, Youghal, Fermoy, Macroom, Bantry, Skibbereen, Kanturk
   '402',  # Arklow
