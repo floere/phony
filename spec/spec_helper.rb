@@ -1,6 +1,6 @@
 begin
   require 'bundler'
-rescue LoadError => e
+rescue LoadError
   require 'rubygems'
   require 'bundler'
 end
