@@ -1,24 +1,24 @@
 module Phony
-  
+
   #
   #
   class Country
-    
+
     attr_accessor :codes
-    
-    # 
+
+    #
     #
     def initialize *codes
       @codes = codes
     end
-    
+
     # Chain two codes together.
     #
     def |(other)
       self.codes = self.codes + other.codes
       self
     end
-    
+
     # Options.
     #
     # TODO Rewrite.
@@ -27,7 +27,7 @@ module Phony
       @cc           = cc
       @invalid_ndcs = options[:invalid_ndcs] || []
     end
-    
+
     # A number is split with the code handlers as given in the initializer.
     #
     # Note: If the ndc is nil, it will not return it.
@@ -37,6 +37,9 @@ module Phony
         zero, ndc, *rest = code.split national_number
         return [zero, ndc, *rest] if rest && !rest.empty?
       end
+      # Best effort in error case.
+      #
+      [nil, national_number, []]
     end
     def split_ndc national_number
       @codes.each do |code|
@@ -44,7 +47,7 @@ module Phony
         return [code.local_splitter, zero, ndc, *rest] if rest && !rest.empty?
       end
     end
-    
+
     # Cleans all non-numeric characters.
     #
     @@basic_cleaning_pattern = /\(0\)|\D/
@@ -58,10 +61,10 @@ module Phony
     def clean! number
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
-    
+
     # Removes 0s from partially normalized numbers
     # such as 410443643533.
-    # 
+    #
     # Example:
     #   410443643533 -> 41443643533
     #
@@ -76,12 +79,12 @@ module Phony
       end
       normalized
     end
-    
+
     # Tests for plausibility of this national number.
     #
     def plausible? rest, hints = {}
       local, _, ndc, *rest = split_ndc rest
-      
+
       # Element based checking.
       #
       # Note: ndc == false means the country has none.
@@ -89,21 +92,21 @@ module Phony
       return false if ndc.nil?
       return false if ndc && ndc.empty?
       return false if @invalid_ndcs.include? ndc # TODO Refactor.
-      
+
       # # A valid range for the rest is 0 or 3+ total digits.
       # #
       # return false if (1..2) === rest_size
-      
+
       # National destination code plausible?
       #
       ndc_needed = hints[:ndc]
       return false if ndc_needed && !(ndc_needed === ndc)
-      
+
       # Local code specific checks.
       #
       return local.plausible? rest, hints
     end
-    
+
     # Is this national number a vanity number?
     #
     def vanity? national_number
@@ -115,7 +118,7 @@ module Phony
       _, ndc, *rest = split vanity_number
       "#{ndc}#{Vanity.replace(rest.join)}"
     end
-    
+
   end
-  
+
 end

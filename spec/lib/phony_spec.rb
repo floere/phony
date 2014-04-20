@@ -9,6 +9,9 @@ describe Phony do
       described_class.normalize('1-111-111-1111').should == '1111111111' # One 1 is removed because 1 is the trunk code.
       described_class.normalize('111-111-1111', cc: '1').should == '1111111111' # One 1 is removed because 1 is the trunk code.
     end
+    it 'best effort #152' do
+      described_class.split('39694805123').should == ['39', '694805123', []]
+    end
   end
 
   describe 'OO interface' do
