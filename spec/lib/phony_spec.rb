@@ -11,6 +11,7 @@ describe Phony do
     end
     it 'best effort #152' do
       described_class.split('39694805123').should == ['39', '694805123', []]
+      described_class.format('39694805123').should == '+39 694805123 '
     end
   end
 
