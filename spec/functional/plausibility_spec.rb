@@ -292,6 +292,8 @@ describe 'plausibility' do
         Phony.plausible?('+49 209 169 - 3530').should be_true # Gelsenkirchen
         Phony.plausible?('+49 40 123 45678').should be_true
         Phony.plausible?('+49 40 123 456789').should be_true # TODO ?
+        Phony.plausible?('+49 160 123 1234').should be_true # Mobile Number 7 digits
+        Phony.plausible?('+49 160 123 12345').should be_true # Mobile Number 8 digits
         Phony.plausible?('+49 171 123 4567').should be_true
         Phony.plausible?('+49 171 123 45678').should be_false
         Phony.plausible?('+49 177 123 1234').should be_true

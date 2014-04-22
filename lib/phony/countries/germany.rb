@@ -4081,7 +4081,7 @@ Phony.define do
      one_of('1609')            >> split(3,5) |
      match(/\A(151[124567]|152[012359]|157[035789]|1590)\d*\z/) >> split(3,4) |
      match(/\A(1[57]\d)\d*\z/) >> split(3,4) |
-     match(/\A(16\d)\d*\z/)    >> split(3,5) |
+     match(/\A(16\d)\d*\z/)    >> split(3,4..5) |
      one_of(ndcs2)             >> split(3,0..6) |
      one_of(ndcs3)             >> split(3,0..5) |
      one_of(ndcs4)             >> split(3,0..4) |
