@@ -4084,6 +4084,6 @@ Phony.define do
      match(/\A(16\d)\d*\z/)    >> split(3,4..5) |
      one_of(ndcs2)             >> split(3,0..6) |
      one_of(ndcs3)             >> split(3,0..5) |
-     one_of(ndcs4)             >> split(3,0..4) |
+     one_of(ndcs4)             >> split(3,0..5) |
      fixed(5)                  >> split(3,3..3)
 end

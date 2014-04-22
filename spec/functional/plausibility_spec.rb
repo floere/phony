@@ -301,9 +301,8 @@ describe 'plausibility' do
         Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
         Phony.plausible?('+49 2041 123').should be_true # Grandfathered numbers.
         Phony.plausible?('+49 2041 1234567').should be_true
-        Phony.plausible?('+49 2041 12345689').should be_false # Could be a call-through number
         Phony.plausible?('+49 31234 123456').should be_true
-        Phony.plausible?('+49 31234 1234567').should be_false # Could be a call-through number
+        Phony.plausible?('+49 7141 12345670').should be_true
       end
 
       it 'is correct for Israelian numbers' do
