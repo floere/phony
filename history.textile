@@ -1,3 +1,7 @@
+h2. Version 2.2.6
+
+* hanke: Fix for German numbers (Thanks, see #154).
+
 h2. Version 2.2.5
 
 * hanke: Best effort in case of invalid Italy number (Thanks, see #152).
