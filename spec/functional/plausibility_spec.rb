@@ -303,6 +303,7 @@ describe 'plausibility' do
         Phony.plausible?('+49 2041 1234567').should be_true
         Phony.plausible?('+49 31234 123456').should be_true
         Phony.plausible?('+49 7141 12345670').should be_true
+        Phony.plausible?('+49 1609 1234567').should be_true # Bug: https://github.com/floere/phony/issues/146
       end
 
       it 'is correct for Israelian numbers' do
