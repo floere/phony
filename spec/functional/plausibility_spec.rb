@@ -295,7 +295,7 @@ describe 'plausibility' do
         Phony.plausible?('+49 160 123 1234').should be_true # Mobile Number 7 digits
         Phony.plausible?('+49 160 123 12345').should be_true # Mobile Number 8 digits
         Phony.plausible?('+49 171 123 4567').should be_true
-        Phony.plausible?('+49 171 123 45678').should be_false
+        Phony.plausible?('+49 171 123 45678').should be_true # is a valid number according German authority "bundesnetzagentur": http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
         Phony.plausible?('+49 177 123 1234').should be_true
         Phony.plausible?('+49 176 123 12345').should be_true
         Phony.plausible?('+49 991 1234').should be_true   # stricter 3 digit ndc rules
@@ -304,6 +304,26 @@ describe 'plausibility' do
         Phony.plausible?('+49 31234 123456').should be_true
         Phony.plausible?('+49 7141 12345670').should be_true
         Phony.plausible?('+49 1609 1234567').should be_true # Bug: https://github.com/floere/phony/issues/146
+        # Following tests implement specifications from
+        # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
+        # Page 3
+        Phony.plausible?('+49 89    12345678').should be_true # NZ-E
+        Phony.plausible?('+49 89    123456789').should be_true # NZ-E & NZ-Z
+        Phony.plausible?('+49 89    1234567890').should be_true # NZ-Z
+        Phony.plausible?('+49 209   1234567').should be_true # NZ-E
+        Phony.plausible?('+49 209   12345678').should be_true # NZ-E & NZ-Z
+        Phony.plausible?('+49 209   123456789').should be_true # NZ-Z
+        Phony.plausible?('+49 6421  123456').should be_true # NZ-E
+        Phony.plausible?('+49 6421  1234567').should be_true # NZ-E & NZ-Z
+        Phony.plausible?('+49 6421  12345678').should be_true # NZ-Z
+        Phony.plausible?('+49 33053 12345').should be_true # NZ-E
+        Phony.plausible?('+49 33053 123456').should be_true # NZ-E & NZ-Z
+        Phony.plausible?('+49 33053 1234567').should be_true # NZ-Z
+        # Point 2.3c) Numbers can be up to 13 Digits long without prefix according to E.164
+        Phony.plausible?('+49 33053 12345678').should be_true
+        Phony.plausible?('+49 6421 123456789').should be_true
+        Phony.plausible?('+49 209 1234567890').should be_true
+        Phony.plausible?('+49 40 12345678901').should be_true
       end
 
       it 'is correct for Israelian numbers' do
