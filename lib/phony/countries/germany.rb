@@ -4076,14 +4076,12 @@ service = [
 
 Phony.define do
    country '49',
-     one_of(service)           >> split(3,0) |
-     one_of('176')             >> split(3,5) |
-     one_of('1609')            >> split(3,5) |
+     one_of(service)           >> split(3,0)    |
      match(/\A(151[124567]|152[012359]|157[035789]|1590)\d*\z/) >> split(3,4) |
-     match(/\A(1[57]\d)\d*\z/) >> split(3,4) |
-     match(/\A(16\d)\d*\z/)    >> split(3,4..5) |
-     one_of(ndcs2)             >> split(3,0..6) |
-     one_of(ndcs3)             >> split(3,0..5) |
-     one_of(ndcs4)             >> split(3,0..4) |
-     fixed(5)                  >> split(3,3..3)
+     match(/\A(15\d)\d*\z/) >> split(3,4)    | 
+     match(/\A(1[67]\d)\d*\z/)    >> split(3,4..5) | # Seite 49
+     one_of(ndcs2)             >> split(3,0..11) | # 5-9 Stellen nach Seite 32, http://www.bundesnetzagentur.de/cln_1911/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Nummerierungskonzept/nummerierungskonzept_node.html
+     one_of(ndcs3)             >> split(3,0..10) |
+     one_of(ndcs4)             >> split(3,0..9) |
+     fixed(5)                  >> split(3,0..8)
 end
