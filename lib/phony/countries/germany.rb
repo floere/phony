@@ -4073,15 +4073,18 @@ service = [
 # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510001PDFE.pdf
 # "Numbers assigned in the past, which are generally grandfathered, may be as short as five digits."
 #
-
+# http://www.bundesnetzagentur.de/cln_1911/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Nummerierungskonzept/nummerierungskonzept_node.html
+#
+# TODO Define lower end of last part correctly.
+#
 Phony.define do
    country '49',
      one_of(service)           >> split(3,0)    |
      match(/\A(151[124567]|152[012359]|157[035789]|1590)\d*\z/) >> split(3,4) |
-     match(/\A(15\d)\d*\z/) >> split(3,4)    | 
-     match(/\A(1[67]\d)\d*\z/)    >> split(3,4..5) | # Seite 49
-     one_of(ndcs2)             >> split(3,0..11) | # 5-9 Stellen nach Seite 32, http://www.bundesnetzagentur.de/cln_1911/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Nummerierungskonzept/nummerierungskonzept_node.html
-     one_of(ndcs3)             >> split(3,0..10) |
-     one_of(ndcs4)             >> split(3,0..9) |
-     fixed(5)                  >> split(3,0..8)
+     match(/\A(15\d)\d*\z/)    >> split(3,4)    |
+     match(/\A(1[67]\d)\d*\z/) >> split(3,1..5) | # Seite 49 [?]
+     one_of(ndcs2)             >> split(3,2..10) | # 5-9 Stellen nach Seite 32 [?]
+     one_of(ndcs3)             >> split(3,1..9) |
+     one_of(ndcs4)             >> split(3,0..8) |
+     fixed(5)                  >> split(3,0..7)
 end

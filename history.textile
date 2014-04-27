@@ -1,3 +1,7 @@
+h2. Version 2.2.7
+
+* hanke: Fix for German numbers (Thanks, see #156).
+
 h2. Version 2.2.6
 
 * hanke: Fix for German numbers (Thanks, see #154).
