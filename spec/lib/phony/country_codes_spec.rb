@@ -69,6 +69,9 @@ describe Phony::CountryCodes do
       it 'formats ireland correctly' do
         @countries.formatted("353411231234", :format => :national).should eql '041 123 1234'
       end
+      it 'formats spain correctly' do
+        @countries.formatted("34123456789", :format => :national).should eql '12 345 6789'
+      end
     end
     context 'default' do
       it "should format swiss numbers" do

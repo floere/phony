@@ -81,7 +81,7 @@ Phony.define do
   # Spain.
   #
   country '34',
-          fixed(2) >> split(3,4)
+          fixed(2, :zero => false) >> split(3,4)
 
   # Hungary.
   #
