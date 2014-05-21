@@ -341,7 +341,11 @@ Phony.define do
   country '251', todo # Ethiopia
   country '252', todo # Somali Democratic Republic
   country '253', todo # Djibouti
-  country '254', fixed(2) >> split(7), length(9) # Kenya
+  # Kenya
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Kenya
+  country '254',
+          match(/^(7\d\d)/) >> split(6) | # mobile
+              fixed(2)          >> split(7)   # landline
 
   # Tanzania.
   #
