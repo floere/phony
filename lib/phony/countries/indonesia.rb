@@ -6,6 +6,7 @@ Phony.define do
   country '62',
           one_of('21') >> matched_split(
               /\A\d{5}\z/ => [3,2],
+              /\A\d{7}\z/ => [3,4],
               /\A\d+\z/ => [4,4]) |
           one_of(%w(22 23 24 25 26 27 28 29 31 32 33 34 35 36 37 38 39 72)) >> matched_split(
               /\A\d{5}\z/ => [3,2],
