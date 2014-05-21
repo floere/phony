@@ -260,7 +260,7 @@ describe 'country descriptions' do
     describe 'Indonesia' do
       it_splits '6242323032', ["62", "4", "2323", "032"]
       it_splits '6285220119289', ['62', '852', '2011', '9289']
-      it_splits '62217815263', ['62', '21', '7815', '263']
+      it_splits '62217815263', %w(62 21 781 5263)
       it_splits '6213123', %w(62 13 123)
       it_splits '6213123456', %w(62 13 123 456)
       it_splits '6217412', %w(62 174 12)
