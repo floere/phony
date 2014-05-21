@@ -1,3 +1,7 @@
+h2. Version 2.2.9
+
+* hanke: Fix for Jakarta numbers (Thanks, see #159).
+
 h2. Version 2.2.8
 
 * hanke: Fix for Spanish numbers (Thanks, see #158).
