@@ -345,8 +345,8 @@ Phony.define do
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Kenya
   country '254',
           match(/^(7\d\d)/) >> split(6) | # mobile
-              fixed(2)          >> split(7)   # landline
-
+              fixed(2)          >> split(7),   # landline
+          length(9)
   # Tanzania.
   #
   country '255',
