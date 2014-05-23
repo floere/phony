@@ -27,13 +27,11 @@ Phony.define do
           one_of('178') >> matched_split(  # satellite
               /\A\d{3}\z/ => [3],
               /\A\d+\z/ => [3,2]) |
-          match(/\A(81\d|85\d|86\d|88\d)\d+\z/) >> matched_split(  # mobile
+          one_of(%w(870)) >> split(3,2) | # satellite
+          match(/\A(81\d|82\d|84\d|85\d|86\d|87\d|88\d)\d+\z/) >> matched_split(  # mobile
               /\A\d{6}\z/ => [3,3],
               /\A\d{7}\z/ => [3,4],
               /\A\d+\z/ => [4,4]) |
-          match(/\A(82\d|83\d)\d+\z/) >> split(3,3) |  # mobile
-          one_of(%w(870)) >> split(3,2) | # satellite
-          one_of(%w(877 878)) >> split(3,3) | # mobile
           one_of(%w(9)) >> matched_split( # geographic
               /\A\d{7}\z/ => [4,3],
               /\A\d+\z/ => [3,3,3]) |
