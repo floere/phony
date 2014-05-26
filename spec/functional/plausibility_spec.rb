@@ -358,6 +358,15 @@ describe 'plausibility' do
         Phony.plausible?('+599 12345678').should be_false # too long
       end
 
+      it 'is correct for New Zeland' do
+        Phony.plausible?('+64 21 123 456').should be_true
+        Phony.plausible?('+64 21 123 4567').should be_true
+        Phony.plausible?('+64 9 379 1234').should be_true
+        Phony.plausible?('+64 21 12 345 678').should be_true
+        Phony.plausible?('+64 21 1234 56789').should be_false # to long
+        Phony.plausible?('+64 21 12345').should be_false # to short
+      end
+
       it 'is correct for Nigerian numbers' do
         Phony.plausible?('+234 807 766 1234').should be_true
         Phony.plausible?('+234 807 766 123').should be_false
