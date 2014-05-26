@@ -362,7 +362,7 @@ describe 'plausibility' do
         Phony.plausible?('+64 21 123 456').should be_true
         Phony.plausible?('+64 21 123 4567').should be_true
         Phony.plausible?('+64 9 379 1234').should be_true
-        Phony.plausible?('+64 21 1234 5678').should be_true
+        Phony.plausible?('+64 21 12 345 678').should be_true
         Phony.plausible?('+64 21 1234 56789').should be_false # to long
         Phony.plausible?('+64 21 12345').should be_false # to short
       end

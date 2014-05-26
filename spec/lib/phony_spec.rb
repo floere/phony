@@ -140,7 +140,7 @@ describe Phony do
         Phony.format('64211234567').should eql '+64 21 123 4567'
       end
       it 'should format New Zealand 021 8-digit mobile numbers' do
-        Phony.format('642112345678').should eql '+64 21 1234 5678'
+        Phony.format('642112345678').should eql '+64 21 12 345 678'
       end
       it 'should format New Zealand landline numbers' do
         Phony.format('6493791234').should eql '+64 9 379 1234'
