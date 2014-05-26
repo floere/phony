@@ -1,3 +1,7 @@
+h2. Version 2.2.12
+
+* hanke: Fix for Kiwi numbers (Thanks, see #162).
+
 h2. Version 2.2.11
 
 * hanke: Fix for Indonesian numbers (Thanks, see #161).
