@@ -212,8 +212,10 @@ Phony.define do
   # New Zealand.
   #
   country '64',
-          match(/^(2\d)\d+$/) >> split(3,4) | # Mobile
-          fixed(1) >> split(3,4)              # Rest
+          match(/^(2\d)\d{7}$/) >> split(3,4) | # Mobile
+          match(/^(2\d)\d{6}$/) >> split(3,3) |
+          match(/^(2\d)\d{8}$/) >> split(4,4) |
+          fixed(1) >> split(3,4)                # Rest
 
   # Singapore (Republic of).
   #
