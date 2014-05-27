@@ -645,7 +645,7 @@ describe 'plausibility' do
                                               '+974 900 12 34',
                                               '+974 92 123',
                                               '+974 97 123']
-      it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262 295 276 9649'
+      it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262 295 276 964'
       it_is_correct_for 'Saint Helena', :samples => '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
       it_is_correct_for 'Samoa (Independent State of)', :samples => ['+685 800 123',
