@@ -416,7 +416,7 @@ Phony.define do
               /\A6\d+\z/ => [3,3,3]   # satellite
           )
 
-  country '262', none >> split(5, 5) # Reunion / Mayotte (new) http://www.wtng.info/wtng-262-fr.html
+  country '262', fixed(3) >> split(3, 3) # Reunion / Mayotte (new) http://www.wtng.info/wtng-262-fr.html
 
   # country '263' # Zimbabwe, see special file
 

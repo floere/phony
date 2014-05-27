@@ -921,7 +921,7 @@ describe 'country descriptions' do
       it_splits '67511512345678', %w(675 115 1234 5678)
     end
     describe 'Reunion / Mayotte (new)' do
-      it_splits '2625943992657', ['262', false, '59439', '92657']
+      it_splits '262594399265', ['262', '594', '399', '265']
     end
     describe 'Saint Helena' do
       it_splits '2903614', ['290', false, '3614']
