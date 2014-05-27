@@ -1,3 +1,7 @@
+h2. Version 2.2.13
+
+* hanke: Fix for Reunion and Mayotte numbers (Thanks, see #163).
+
 h2. Version 2.2.12
 
 * hanke: Fix for Kiwi numbers (Thanks, see #162).
