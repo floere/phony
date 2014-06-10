@@ -481,7 +481,7 @@ Phony.define do
   country '374', todo # Armenia
 
   # Belarus
-  country '375', fixed(2) >> split(3,4), length(9)
+  country '375', none >> split(9), length(9)
   country '376', todo # Andorra
 
   # Monaco
