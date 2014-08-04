@@ -147,8 +147,9 @@ describe 'country descriptions' do
       it_splits '573101234567', ['57', '310', '123', '4567'] # mobile
     end
     describe 'Croatia' do
-      it_splits '385112312345', ['385', '1', '123', '12345'] # Zagreb
-      it_splits '385491231234', ['385', '49', '123', '1234'] # Krapina
+      it_splits '38521695900',  %w( 385 21 695 900 )  # Landline
+      it_splits '38514566666',  %w( 385 1 4566 666 )  # Landline (Zagreb)
+      it_splits '385918967509', %w( 385 91 896 7509 ) # Mobile
     end
     describe 'Cuba' do
       it_splits '5351231234', ['53', '5123', '1234'] # Mobile
