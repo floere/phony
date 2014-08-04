@@ -1,3 +1,7 @@
+h2. Version 2.2.14
+
+* hanke: Fix for Croatia (Thanks, see #167).
+
 h2. Version 2.2.13
 
 * hanke: Fix for Reunion and Mayotte numbers (Thanks, see #163).
