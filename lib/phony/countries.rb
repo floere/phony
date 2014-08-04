@@ -624,10 +624,7 @@ Phony.define do
   country '383', todo # -
   country '384', todo # -
 
-  # Croatia.
-  #
-  country = country '385', one_of('1') >> split(3, 5) | # Zagreb
-                           fixed(2) >> split(3, 5)      # 2-digit NDCs
+  # country '385' # Croatia, see special file.
 
   country '386', fixed(2) >> split(3, 2, 2) # Slovenia
   country '387', fixed(2) >> split(3,2,2) # Bosnia and Herzegovina

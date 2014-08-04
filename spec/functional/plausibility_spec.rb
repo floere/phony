@@ -259,13 +259,27 @@ describe 'plausibility' do
         Phony.plausible?("+85523123456").should be_false     # Fixed line (NDC + invalid A)
       end
 
-      it "is correct for Danish numbers" do
+      it 'is correct for Croatia' do
+        # Landline
+        expect(Phony.plausible?('+385 21 695900')).to be_true
+        expect(Phony.plausible?('+385 1 4566 666')).to be_true
+
+        expect(Phony.plausible?('+385 21 12345')).to be_false, "too short"
+        expect(Phony.plausible?('+385 21 1234567')).to be_false, "too long"
+
+        # Mobile
+        expect(Phony.plausible?('+385 91 896 7509')).to be_true
+
+        expect(Phony.plausible?('+385 91 123456')).to be_false, "too short"
+      end
+
+      it "is correct for Denmark" do
         Phony.plausible?('+45 44 11 12 23 34').should be_false
         Phony.plausible?('+45 44 11 12 2').should be_false
         Phony.plausible?('+45 44 55 22 33').should be_true
       end
 
-      it 'is correct for Dutch numbers' do
+      it 'is correct for Netherlands' do
         Phony.plausible?('+31 6 12 34 56 78').should be_true
         Phony.plausible?('+31 6 12 34 56 7').should be_false
         Phony.plausible?('+31 20 123 5678').should be_true
@@ -278,7 +292,7 @@ describe 'plausibility' do
         Phony.plausible?('+31 900 001 00').should be_false
       end
 
-      it 'is correct for Egyptian numbers' do
+      it 'is correct for Egypt' do
         Phony.plausible?('+20 800 1234567').should be_true
         Phony.plausible?('+20 800 12345678').should be_false
         Phony.plausible?('+20 2 12345678').should be_true
@@ -287,7 +301,7 @@ describe 'plausibility' do
         Phony.plausible?('+20 40 1234567').should be_false
       end
 
-      it 'is correct for German numbers' do
+      it 'is correct for Germany' do
         Phony.plausible?('+49 209 169 - 0').should be_true # Gelsenkirchen
         Phony.plausible?('+49 209 169 - 3530').should be_true # Gelsenkirchen
         Phony.plausible?('+49 40 123 45678').should be_true
@@ -326,12 +340,12 @@ describe 'plausibility' do
         Phony.plausible?('+49 40 12345678901').should be_true
       end
 
-      it 'is correct for Israelian numbers' do
+      it 'is correct for Israel' do
         Phony.plausible?('+972 2 123 1234').should be_true
         Phony.plausible?('+972 59 123 1234').should be_true
       end
 
-      it 'is correct for Italian numbers' do
+      it 'is correct for Italy' do
         Phony.plausible?('+39 06 1234 4567').should be_true
 
         Phony.plausible?('+39 035 00000').should be_false
