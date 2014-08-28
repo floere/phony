@@ -80,6 +80,8 @@ Phony.define do
 
   # Spain.
   #
+  # http://www.minetur.gob.es/telecomunicaciones/es-es/servicios/numeracion/paginas/plan.aspx
+  #
   country '34',
     match(/^([67]\d{2})\d+$/) >> split(3,3)   | # Mobile
     match(/^([89]0\d)\d+$/)   >> split(3,3)   | # Special 80X & 90X numbers
