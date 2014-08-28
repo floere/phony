@@ -4,6 +4,8 @@
 
 h1. Phony
 
+Warning: International numbers only, such as @+61 412 345 678@!
+
 The (admittedly crazy) goal of this Gem is to be able to format/split all phone numbers in the world.
 
 Used in: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
