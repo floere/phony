@@ -53,6 +53,8 @@ Note that you can add constraints to the plausibility check like the country cod
 
 @Phony.plausible?('hello').should be_false@
 
+Always use it with a country code, as Phony needs it to know what country to check:
+
 @Phony.plausible?('+41 44 111 22 33').should be_true@
 
 @Phony.plausible?('+41 44 111 22 33', cc: '41').should be_true@
@@ -72,6 +74,12 @@ Note that you can add constraints to the plausibility check like the country cod
 h3(#normalizing). Normalizing
 
 This will often raise an error if you try normalizing a non E164-izable number (a number that does not contain enough information to be normalized into an E164 conform number). Use @Phony.plausible?@ for checking if it can be normalized first.
+
+Example:
+
+@Phony.normalize('364 35 33')@ No. Wrong. Nada.
+
+Always use it with a country code, as Phony needs it to know what country to normalize for:
 
 @Phony.normalize('41443643533').should == '41443643533'@
 
@@ -94,6 +102,12 @@ This will often raise an error if you try normalizing a non E164-izable number (
 h3(#formatting). Formatting
 
 Aliased as @Phony.formatted(number_string)@. 
+
+You really need to give it a normalized phone number WITH country code, so:
+
+@Phony.format('3643532')@ This is bad.
+
+These, however, are splendid:
 
 @Phony.format('41443643532').should == '+41 44 364 35 32'@
 
@@ -160,6 +174,12 @@ h4(#local). Local
 @Phony.format('493038625454', :format => :local).should == '386 25454'@
 
 h3(#splitting). Splitting
+
+You really need to give it a normalized phone number WITH country code, so:
+
+@Phony.split('3643532')@ This … no.
+
+Phony is happy with these:
 
 @Phony.split('43198110').should == ['43', '1', '98110']@
 
