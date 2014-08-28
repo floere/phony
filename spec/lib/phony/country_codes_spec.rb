@@ -70,7 +70,17 @@ describe Phony::CountryCodes do
         @countries.formatted("353411231234", :format => :national).should eql '041 123 1234'
       end
       it 'formats spain correctly' do
-        @countries.formatted("34123456789", :format => :national).should eql '12 345 6789'
+        @countries.formatted("34123456789", :format => :national).should eql '123 456 789'
+      end
+      it 'formats landline numbers correctly with :local' do
+        # TODO local numbers don't work anymore in spain, area code is necessary.
+        @countries.formatted("34910000000", :format => :local).should eql '000 00 00'
+      end
+      it 'formats spain special numbers correctly with :local' do
+        @countries.formatted("34900000000", :format => :local).should eql '900 000 000'
+      end
+      it 'formats spain mobile numbers correctly with :local' do
+        @countries.formatted("34600000000", :format => :local).should eql '600 000 000'
       end
     end
     context 'default' do
