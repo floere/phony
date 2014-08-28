@@ -556,11 +556,11 @@ describe 'country descriptions' do
     end
     
     describe 'Spain' do
-      it_splits '34123456789', ['34', '123', '456', '789'] # Default
-      it_splits '34912345678', ['34', '91', '234', '56', '78'] # Landline
-      it_splits '34971234567', ['34', '971', '23', '45', '67'] # Landline smaller regions
       it_splits '34600123456', ['34', '600', '123', '456'] # Mobile
       it_splits '34900123456', ['34', '900', '123', '456'] # Special
+      it_splits '34931234567', ['34', '93', '123', '45', '67'] # Landline large regions
+      it_splits '34975123456', ['34', '975', '12', '34', '56'] # Landline
+      it_splits '34123456789', ['34', '123', '456', '789'] # Default
     end
     
     describe 'Sri Lanka' do
