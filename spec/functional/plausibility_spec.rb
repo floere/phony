@@ -288,7 +288,7 @@ describe 'plausibility' do
         Phony.plausible?('+31 221 123 56').should be_false
         Phony.plausible?('+31 880 450 245').should be_true
         Phony.plausible?('+31 880 450 24').should be_false
-        Phony.plausible?('+31 900 001 002').should be_true
+        Phony.plausible?('+31 900 123 4567').should be_true
         Phony.plausible?('+31 900 001 00').should be_false
       end
 
