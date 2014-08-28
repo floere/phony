@@ -1,3 +1,7 @@
+h2. Version 2.2.15
+
+* hanke: Fix for The Netherlands (Thanks, see #175).
+
 h2. Version 2.2.14
 
 * hanke: Fix for Croatia (Thanks, see #167).
