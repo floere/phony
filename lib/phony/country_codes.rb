@@ -166,18 +166,18 @@ module Phony
     
     def plausible? number, hints = {}
       normalized = clean number
-      
+
       # False if it fails the basic check.
       #
       return false unless (4..15) === normalized.size
       
       country, cc, rest = split_cc normalized
-      
+
       # Country code plausible?
       #
       cc_needed = hints[:cc]
       return false if cc_needed && !(cc_needed === cc)
-      
+
       # Country specific tests.
       #
       country.plausible? rest, hints

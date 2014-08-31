@@ -83,12 +83,12 @@ service = [
 # TODO Add more details.
 #
 Phony.define do
-  country '43', one_of('1')       >> split(4..4) | # Vienna
+  country '43', one_of('1')       >> split(3..12) | # Vienna
                 one_of(service)   >> split(9..9) |
                 one_of(corporate) >> split(5..5) |
                 one_of(ndcs)      >> split(6..6) |
                 one_of('663')     >> split(6..6) | # 6 digit mobile.
-                one_of(mobile)    >> split(7..7) |
+                one_of(mobile)    >> split(4,3..4) |
                 one_of(mobile_2digit) >> split(7..7) | # Separate as mobile contains 676 - 67 violates the prefix rule.
                 fixed(4)          >> split(7..7)
 end

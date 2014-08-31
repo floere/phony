@@ -16,13 +16,16 @@ describe 'country descriptions' do
     describe 'Ascension Island' do
       it_splits '2473551', ['247', false, '3551']
     end
+
     describe 'Afghanistan' do
       it_splits '93201234567', ['93', '20', '1234567'] # Kabul
     end
+
     describe 'Algeria' do
       it_splits '213211231234', ['213', '21', '123', '1234'] # Algiers
       it_splits '213331231234', ['213', '33', '123', '1234'] # Batna
     end
+
     describe 'Argentina' do
       it_splits '541112345678', ['54', '11', '1234', '5678']
       it_splits '542911234567', ['54', '291', '123', '4567']
@@ -32,13 +35,18 @@ describe 'country descriptions' do
       it_splits '5492221123456', ['54', '92221', '12', '3456']
       it_splits '548001234567', ['54', '800', '123', '4567']
     end
+
     describe 'Austria' do
-      it_splits '43198110',        ['43', '1', '98110']        # Vienna
-      it_splits '43800123456789',  ['43', '800', '123456789']  # Free
-      it_splits '4366914093902',   ['43', '669', '14093902']   # Mobile
-      it_splits '433161234567891', ['43', '316', '1234567891'] # Graz
-      it_splits '432164123456789', ['43', '2164', '123456789'] # Rohrau
+      it_splits '43198110',        %w( 43 1 98110 )        # Vienna
+      it_splits '4310000000',      %w( 43 1 0000000 )      # Vienna
+      it_splits '43800123456789',  %w( 43 800 123456789 )  # Free
+      it_splits '4368100000000',   %w( 43 681 0000 0000 )  # Mobile
+      it_splits '436880000000',    %w( 43 688 0000 000 )   # Mobile
+      it_splits '4366900000000',   %w( 43 669 0000 0000 )  # Mobile
+      it_splits '433161234567891', %w( 43 316 1234567891 ) # Graz
+      it_splits '432164123456789', %w( 43 2164 123456789 ) # Rohrau
     end
+
     describe 'Australia' do
       it_splits '61512341234', ['61', '5', '1234', '1234'] # Landline
       it_splits '61423123123', ['61', '423', '123', '123'] # Mobile
