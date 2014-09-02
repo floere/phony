@@ -113,7 +113,13 @@ describe 'plausibility' do
     end
 
     context 'specific countries' do
+      it "" do
+        Phony.plausible?('+43 699 00000000').should be_true
+      end
+
       it "is correct for Austria" do
+        Phony.plausible?('+43 1 000000').should be_true
+        Phony.plausible?('+43 1 0000000').should be_true
         Phony.plausible?('+43 501 12345').should be_true
         Phony.plausible?('+43 501 1234').should be_false # too short
         Phony.plausible?('+43 501 123456').should be_false # too long
@@ -121,6 +127,9 @@ describe 'plausibility' do
 
         # Mobile
         Phony.plausible?('+43 676 0000000').should be_true
+        Phony.plausible?('+43 681 00000000').should be_true
+        Phony.plausible?('+43 688 0000000').should be_true
+        Phony.plausible?('+43 699 00000000').should be_true
         # 663 mobile numbers have 6 digits
         Phony.plausible?('+43 663 000000').should be_true
       end
