@@ -1,3 +1,7 @@
+h2. Version 2.2.16
+
+* hanke: Fixes for Spain and Austria (Thanks, see #176, #177).
+
 h2. Version 2.2.15
 
 * hanke: Fix for The Netherlands (Thanks, see #175).
