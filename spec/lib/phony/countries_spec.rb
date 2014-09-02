@@ -554,7 +554,15 @@ describe 'country descriptions' do
       it { Phony.split('421212345678').should == ['421', '2', '12345678'] } # Bratislava
       it { Phony.split('421371234567').should == ['421', '37', '1234567'] } # Nitra / Other
     end
-
+    
+    describe 'Spain' do
+      it_splits '34600123456', ['34', '600', '123', '456'] # Mobile
+      it_splits '34900123456', ['34', '900', '123', '456'] # Special
+      it_splits '34931234567', ['34', '93', '123', '45', '67'] # Landline large regions
+      it_splits '34975123456', ['34', '975', '12', '34', '56'] # Landline
+      it_splits '34123456789', ['34', '123', '456', '789'] # Default
+    end
+    
     describe 'Sri Lanka' do
       it { Phony.split('94711231212').should == ['94', '71', '123', '12', '12'] } # Mobile
     end

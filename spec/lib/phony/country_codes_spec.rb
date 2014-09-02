@@ -70,7 +70,7 @@ describe Phony::CountryCodes do
         @countries.formatted("353411231234", :format => :national).should eql '041 123 1234'
       end
       it 'formats spain correctly' do
-        @countries.formatted("34123456789", :format => :national).should eql '12 345 6789'
+        @countries.formatted("34123456789", :format => :national).should eql '123 456 789'
       end
     end
     context 'default' do
