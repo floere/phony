@@ -562,7 +562,7 @@ describe 'country descriptions' do
       it { Phony.split('421212345678').should == ['421', '2', '12345678'] } # Bratislava
       it { Phony.split('421371234567').should == ['421', '37', '1234567'] } # Nitra / Other
     end
-    
+
     describe 'Spain' do
       it_splits '34600123456', ['34', '600', '123', '456'] # Mobile
       it_splits '34900123456', ['34', '900', '123', '456'] # Special
@@ -570,7 +570,7 @@ describe 'country descriptions' do
       it_splits '34975123456', ['34', '975', '12', '34', '56'] # Landline
       it_splits '34123456789', ['34', '123', '456', '789'] # Default
     end
-    
+
     describe 'Sri Lanka' do
       it { Phony.split('94711231212').should == ['94', '71', '123', '12', '12'] } # Mobile
     end
@@ -662,7 +662,7 @@ describe 'country descriptions' do
     describe 'Vietnam' do
       it { Phony.split('8498123456').should == ['84', '98', '123456'] } # Viettel Mobile
       it { Phony.split('8499612345').should == ['84', '996', '12345'] } # GTel
-      it { Phony.split('8441234567').should == ['84', '4', '1234567'] } # Hanoi
+      it { Phony.split('84412345678').should == ['84', '4', '1234', '5678'] } # Hanoi
     end
     describe 'Zambia' do
       it_splits '260977640895', ['260', '97', '7640895'] # mobile
