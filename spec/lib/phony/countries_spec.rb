@@ -348,6 +348,7 @@ describe 'country descriptions' do
     describe 'Italy' do
       it_splits '3934869528',   ['39', '348', '695', '28']   # Mobile
       it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
+      it_splits '393248644272', ['39', '324', '864', '4272'] # Mobile
       it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma
       it_splits '390288838883', ['39', '02', '8883', '8883'] # Milano
       it_splits '390141595661', ['39', '0141', '595', '661'] # Asti
