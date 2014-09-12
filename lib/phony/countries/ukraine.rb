@@ -600,6 +600,17 @@ ndcs_with_4_subscriber_numbers = %w(
 57572
 )
 
+seven_digit_mobile_prefixes = [
+  '50', '66', '95', '99',  # MTS-UKR
+  '67', '96', '97', '98',  # Kyivstar
+  '63', '93', # Life:)
+  '39', # Kyivstar(Golden Telecom)
+  '68', # Kyivstar(Beeline)
+  '91', # UTEL
+  '92', # PEOPLEnet
+  '94'  # Intertelecom
+]
+
 ndcs_with_3_subscriber_numbers = %w(433861)
 
 Phony.define do
@@ -608,7 +619,8 @@ Phony.define do
           one_of(ndcs_with_4_subscriber_numbers) >> split(4) |
           one_of(ndcs_with_5_subscriber_numbers) >> split(3,2) |
           one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) |
+          one_of(seven_digit_mobile_prefixes)    >> split(3,2,2) |
           one_of('800') >> split(3,3) | # freephone
           one_of(ndcs_with_7_subscriber_numbers) >> split(4,3) |
-          fixed(3) >> split(3,3) # mobile
+          fixed(3) >> split(3,3) # other
 end
