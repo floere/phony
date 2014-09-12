@@ -76,10 +76,15 @@ describe 'plausibility' do
     it 'is correct' do
       Phony.plausible?('0000000').should be_false
     end
+    it 'is correct for zeros in number' do
+      Phony.plausible?('+00 00 000 00 01').should be_false
+    end
+    it 'is correct for zeros in number' do
+      Phony.plausible?('00 00 000 00 01').should be_false
+    end
     it 'is correct' do
       Phony.plausible?('hello').should be_false
     end
-
     it "is correct" do
       Phony.plausible?('+41 44 111 22 33').should be_true
     end
