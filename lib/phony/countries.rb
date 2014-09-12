@@ -319,7 +319,7 @@ Phony.define do
   country '240', todo # Equatorial Guinea
   country '241', todo # Gabonese Republic
   country '242', todo # Congo
-  country '243', fixed(2) >> split(3,3,3), length(9) # Democratic Republic of the Congo
+  country '243', fixed(3) >> split(3,3,3), length(9) # Democratic Republic of the Congo
   country '244', todo # Angola
   country '245', todo # Guinea-Bissau
   country '246', todo # Diego Garcia
