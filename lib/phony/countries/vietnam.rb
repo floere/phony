@@ -116,10 +116,13 @@ mobile = [
   '199'  # GTel (traded as Beeline)
 ]
 
+mobile_with_trunk = mobile.map{|num| "0#{num}" }
+
 Phony.define do
   country '84', one_of(ndcs_with_7_subscriber_digits) >> split(3,4) |
                 one_of(ndcs_with_8_subscriber_digits) >> split(4,4) |
                 one_of(mobile)                        >> split(5..8)|
+                one_of(mobile_with_trunk)             >> split(5..8)|
                 # Govt reserved
                 fixed(80)                             >> split(5)   |
                 fixed(69)                             >> split(1,5)
