@@ -417,6 +417,15 @@ describe 'plausibility' do
         Phony.plausible?('+41 44 111 22').should be_false
       end
 
+      it "is correct for Vietnamese numbers" do
+        Phony.plausible?('+84 8 3827 9666').should be_true
+        Phony.plausible?('+84 4 3926 1720').should be_true
+        Phony.plausible?('+84 091 123-4567').should be_true
+        Phony.plausible?('+84 0167 123456').should be_true
+        Phony.plausible?('+84 1 1234').should be_false # too short
+        Phony.plausible?('+84 12 3456 7891 0111213').should be_false # too long
+      end
+
       it "is correct for US numbers" do
         # Still need E164 conform numbers.
         #
