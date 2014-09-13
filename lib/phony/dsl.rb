@@ -54,6 +54,18 @@ module Phony
       Phony::CountryCodes.instance.add country_code, definition
     end
     
+    # Designates a country code as reserved.
+    #
+    def reserved country_code
+      # Does nothing, will just fail with an exception.
+    end
+    
+    # This country still uses a default NDC (and needs to be done, hence the todo).
+    #
+    def todo
+      none >> split(10)
+    end
+    
     #
     #
     def trunk code, options = {}
@@ -130,12 +142,6 @@ module Phony
       raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless regex.source =~ /\(/
       
       NationalSplitters::Regex.instance_for regex, options[:on_fail_take], options
-    end
-    
-    # This country still uses a default NDC (and needs to be done, hence the todo).
-    #
-    def todo
-      none >> split(10)
     end
 
     # Local splitters.

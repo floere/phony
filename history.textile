@@ -1,3 +1,7 @@
+h2. Version 2.3.0
+
+* hanke: Introduces the reserved DSL. If reserved, any operation on a number fails.
+
 h2. Version 2.2.16
 
 * hanke: Fixes for Spain and Austria (Thanks, see #176, #177).

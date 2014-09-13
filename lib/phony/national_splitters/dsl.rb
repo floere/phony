@@ -21,6 +21,10 @@ module Phony
         Phony::Country.new Phony::NationalCode.new(self, local_splitter)
       end
       
+      def reserved
+        
+      end
+      
     end
     
   end

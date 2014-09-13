@@ -23,7 +23,7 @@ Phony.define do
 
   # Reserved.
   #
-  #country '0', fixed(1) >> split(10) # Reserved.
+  reserved '0'
 
   # USA, Canada, etc.
   #
@@ -878,11 +878,11 @@ Phony.define do
   country '872', todo # Inmarsat (Pacific Ocean)
   country '873', todo # Inmarsat (Indian Ocean)
   country '874', todo # Inmarsat (Atlantic Ocean-West)
-  country '875', todo # Reserved - Maritime Mobile Service Applications
-  country '876', todo # Reserved - Maritime Mobile Service Applications
-  country '877', todo # Reserved - Maritime Mobile Service Applications
+  country '875', todo # Maritime Mobile Service Applications
+  country '876', todo # Maritime Mobile Service Applications
+  country '877', todo # Maritime Mobile Service Applications
   country '878', todo # Universal Personal Telecommunication Service (UPT)
-  country '879', todo # Reserved for national non-commercial purposes
+  reserved '879' # Reserved for national non-commercial purposes
 
   # Bangladesh (People's Republic of)
   #  country '880' # see special file
@@ -896,7 +896,7 @@ Phony.define do
   # country '886' # Taiwan, see special file
 
   country '887', todo # -
-  country '888', todo # Reserved for future global service
+  reserved '888' # Reserved for future global service
   country '889', todo # -
 
   country '890', todo # -
@@ -982,7 +982,7 @@ Phony.define do
   # Oman (Sultanate of), https://www.numberingplans.com/?page=dialling&sub=areacodes
   country '968', fixed(2) >> split(3,3)
 
-  country '969', todo # Reserved - reservation currently under investigation
+  reserved '969' # Reserved - reservation currently under investigation
 
   country '970', # 970 is used in those countries that block access to 972 (Israel)
           one_of('1')                            >> split(3,3,3) | # special numbers
@@ -1054,5 +1054,5 @@ Phony.define do
 
   country '997', todo # Spare code
   country '998', fixed(2) >> split(3, 4) # Uzbekistan (Republic of) http://www.wtng.info/wtng-998-uz.html
-  country '999', todo # Reserved for possible future use within the Telecommunications for Disaster Relief (TDR) concept
+  reserved '999' # Reserved for possible future use within the Telecommunications for Disaster Relief (TDR) concept
 end
