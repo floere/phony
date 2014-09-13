@@ -23,7 +23,7 @@ Phony.define do
 
   # Reserved.
   #
-  country '0', fixed(1) >> split(10) # Reserved.
+  #country '0', fixed(1) >> split(10) # Reserved.
 
   # USA, Canada, etc.
   #

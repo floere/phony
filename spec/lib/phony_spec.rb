@@ -32,6 +32,11 @@ describe Phony do
           Phony.normalize nil
         }.to raise_error(ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.normalize(number).')
       end
+      it 'raises if number starts with reserved zero code' do
+        expect do
+          Phony.normalize '+00 00 00 00 01'
+        end.to raise_error(Phony::NormalizationError, 'Phony could not normalize the given number. Is it a phone number?')
+      end
       it 'raises a nice error message' do
         expect do
           Phony.normalize 'test'
