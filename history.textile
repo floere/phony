@@ -1,3 +1,7 @@
+h2. Version 2.4.1
+
+* hanke: Fix for Serbia (thanks, see #181).
+
 h2. Version 2.4.0
 
 * hanke: Rewrites the trunk code handling.
