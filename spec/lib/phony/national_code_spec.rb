@@ -24,10 +24,10 @@ describe Phony::NationalCode do
         @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
-        @national.split('443643532').should == ['0', '44', '364', '35', '32']
+        @national.split('443643532').should == [nil, '44', '364', '35', '32']
       end
       it 'splits correctly' do
-        @national.split('44364353').should == ['0', '44', '364', '35', '3']
+        @national.split('44364353').should == [nil, '44', '364', '35', '3']
       end
       it 'normalizes correctly' do
         @national.normalize('044364353').should == '44364353'
@@ -44,10 +44,10 @@ describe Phony::NationalCode do
         @national         = Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
-        @national.split('142278186').should == ['0', '1', '42', '27', '81', '86']
+        @national.split('142278186').should == [nil, '1', '42', '27', '81', '86']
       end
       it 'splits correctly' do
-        @national.split('14227818').should == ['0', '1', '42', '27', '81', '8']
+        @national.split('14227818').should == [nil, '1', '42', '27', '81', '8']
       end
       it 'normalizes correctly' do
         @national.normalize('0142278186').should == '142278186'

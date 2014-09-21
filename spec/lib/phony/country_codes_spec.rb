@@ -40,7 +40,9 @@ describe Phony::CountryCodes do
       old_format = @countries.national_format
       @countries.national_format = '%s%s'
       
-      @countries.formatted('11231231234', :format => :national).should eql '123 123 1234'
+      # Removes CC 1, but adds national call prefix 1.
+      #
+      @countries.formatted('11231231234', :format => :national).should eql '1123 123 1234'
       
       @countries.national_format = old_format
     end
@@ -63,13 +65,13 @@ describe Phony::CountryCodes do
       @countries.formatted('41443643532', :format => :national, :spaces => :-).should eql '044-364-35-32'
     end
     context 'specific' do
-      it 'formats ireland correctly' do
+      it 'formats Ireland correctly' do
         @countries.formatted("3533451234", :format => :national).should eql '0345 1234'
       end
-      it 'formats ireland correctly' do
+      it 'formats Ireland correctly' do
         @countries.formatted("353411231234", :format => :national).should eql '041 123 1234'
       end
-      it 'formats spain correctly' do
+      it 'formats Spain correctly' do
         @countries.formatted("34123456789", :format => :national).should eql '123 456 789'
       end
     end

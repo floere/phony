@@ -16,13 +16,13 @@ describe Phony::NationalSplitters::Fixed do
       @splitter = Phony::NationalSplitters::Fixed.new 2
     end
     it 'splits correctly' do
-      @splitter.split('443643532').should == ['0', '44', '3643532']
+      @splitter.split('443643532').should == [nil, '44', '3643532']
     end
     it 'splits correctly even when the number is too long' do
-      @splitter.split('44364353211').should == ['0', '44', '364353211']
+      @splitter.split('44364353211').should == [nil, '44', '364353211']
     end
     it 'splits correctly even when the number is too short' do
-      @splitter.split('443').should == ['0', '44','3']
+      @splitter.split('443').should == [nil, '44','3']
     end
   end
   describe 'split' do
@@ -30,13 +30,13 @@ describe Phony::NationalSplitters::Fixed do
       @splitter = Phony::NationalSplitters::Fixed.new nil
     end
     it 'splits correctly' do
-      @splitter.split('443643532').should == ['0', '443643532']
+      @splitter.split('443643532').should == [nil, '443643532']
     end
     it 'splits correctly even when the number is too long' do
-      @splitter.split('44364353211').should == ['0', '44364353211']
+      @splitter.split('44364353211').should == [nil, '44364353211']
     end
     it 'splits correctly even when the number is too short' do
-      @splitter.split('443').should == ['0', '443']
+      @splitter.split('443').should == [nil, '443']
     end
   end
   

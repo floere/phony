@@ -14,7 +14,7 @@ module Phony
 
     # Chain two codes together.
     #
-    def |(other)
+    def | other
       self.codes = self.codes + other.codes
       self
     end
@@ -33,13 +33,15 @@ module Phony
     # Note: If the ndc is nil, it will not return it.
     #
     def split national_number
+      trunk = nil
       @codes.each do |code|
-        zero, ndc, *rest = code.split national_number
-        return [zero, ndc, *rest] if rest && !rest.empty?
+        new_trunk, ndc, *rest = code.split national_number
+        trunk ||= new_trunk
+        return [trunk, ndc, *rest] if rest && !rest.empty?
       end
       # Best effort in error case.
       #
-      [nil, national_number, []]
+      [trunk, national_number, []]
     end
     def split_ndc national_number
       @codes.each do |code|

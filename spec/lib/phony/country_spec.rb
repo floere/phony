@@ -29,7 +29,7 @@ describe Phony::Country do
     
     describe "split" do
       it "should handle ZH" do
-        @switzerland.split('443643532').should == ['0', '44', '364', '35', '32']
+        @switzerland.split('443643532').should == [nil, '44', '364', '35', '32']
       end
     end
     describe 'normalize' do
@@ -54,10 +54,10 @@ describe Phony::Country do
     
     describe "split" do
       it "should handle ZH" do
-        @switzerland.split('443643532').should == ['0', '44', '364', '35', '32']
+        @switzerland.split('443643532').should == [nil, '44', '364', '35', '32']
       end
       it "should handle 800" do
-        @switzerland.split('800333666').should == ['0', '800', '333', '666']
+        @switzerland.split('800333666').should == [nil, '800', '333', '666']
       end
     end
   end

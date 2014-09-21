@@ -15,7 +15,7 @@ describe Phony::NationalSplitters::Regex do
     context 'with on_fail 2' do
       let(:splitter) { described_class.instance_for(/^(123)\d+$/, 2) }
       it 'uses the on_fail_take' do
-        splitter.split('23456789').should == ['0', '23', '456789']
+        splitter.split('23456789').should == [nil, '23', '456789']
       end
     end
   end

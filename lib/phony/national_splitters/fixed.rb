@@ -20,7 +20,7 @@ module Phony
       
       def initialize size, options = {}
         @size = size
-        @zero = options[:zero] == false ? nil : '0'
+        @zero = nil # options[:zero] == false ? nil : '0'
       end
       
       # Takes a national number and splits it into ndc and rest.

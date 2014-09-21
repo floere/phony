@@ -10,7 +10,7 @@
 # * none:   Does not have a national destination code, e.g. Denmark, Iceland.
 # * one_of: Matches one of the following numbers. Splits if it does.
 # * match: Try to match the regex, and if it matches, splits it off.
-# * fixed:  Always splits off a fixed length ndc. (Always use last in a | chain as a catchall) Offers a "zero" formatting option (default true).
+# * fixed:  Always splits off a fixed length ndc. (Always use last in a | chain as a catchall)
 #
 # For the national number part, there are two:
 # * split:         Use this number group splitting.
@@ -28,8 +28,8 @@ Phony.define do
   # USA, Canada, etc.
   #
   country '1',
-    trunk('1') |
-    fixed(3, :zero => false) >> split(3,4),
+    trunk('1', normalize: true) | # http://en.wikipedia.org/wiki/Trunk_prefix
+    fixed(3) >> split(3,4),
     :invalid_ndcs => ['911']
 
   # Kazakhstan (Republic of) & Russsian Federation.
@@ -110,6 +110,7 @@ Phony.define do
   # Switzerland.
   #
   country '41',
+          trunk('0', normalize: true) |
           match(/^(8(00|4[0248]))\d+$/) >> split(3,3)|
           fixed(2)                      >> split(3,2,2)
 

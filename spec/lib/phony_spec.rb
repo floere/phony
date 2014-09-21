@@ -6,8 +6,10 @@ describe Phony do
 
   describe 'regression' do
     it '#151' do
-      described_class.normalize('1-111-111-1111').should == '1111111111' # One 1 is removed because 1 is the trunk code.
-      described_class.normalize('111-111-1111', cc: '1').should == '1111111111' # One 1 is removed because 1 is the trunk code.
+      # Normalizes, but this is a non-real case.
+      #
+      described_class.normalize('1-111-111-1111').should        == '1111111111'
+      described_class.normalize('111-111-1111', cc: '1').should == '1111111111'
     end
     it 'best effort #152' do
       described_class.split('39694805123').should == ['39', '694805123', []]
@@ -71,9 +73,6 @@ describe Phony do
       it 'should normalize a number with colons' do
         Phony.normalize('1.906.387.1698').should eql '19063871698'
       end
-      it 'should normalize a number with optional ndc' do
-        Phony.normalize('+41 (044) 364 35 33').should eql '41443643533'
-      end
       it 'should normalize a number with erroneous zero inside' do
         Phony.normalize('+410443643533').should eql '41443643533'
       end
@@ -81,15 +80,15 @@ describe Phony do
         Phony.normalize('+390909709511').should eql '390909709511'
       end
 
-      context 'special trunk prefixes' do
+      context 'special trunk prefixes are not handled' do
         it 'normalizes Hungary' do
-          Phony.normalize('36 0630245506').should eql '3630245506'
+          Phony.normalize('36 0630245506').should eql '360630245506'
         end
         it 'normalizes Russia' do
-          Phony.normalize('7 8 342 1234567').should eql '73421234567'
+          Phony.normalize('7 8 342 1234567').should eql '783421234567'
         end
         it 'normalizes Lithuania' do
-          Phony.normalize('370 8 5 1234567').should eql '37051234567'
+          Phony.normalize('370 8 5 1234567').should eql '370851234567'
         end
         it 'normalizes Belarus' do
           Phony.normalize('375 152450911').should eql '375152450911'
@@ -124,18 +123,21 @@ describe Phony do
       end
     end
     describe 'default' do
-      it 'should format swiss numbers' do
+      it 'should format Swiss numbers' do
         Phony.format('41443643532').should eql '+41 44 364 35 32'
+      end
+      it 'should format Swiss national numbers' do
+        Phony.format('41443643532', :format => :national).should eql '044 364 35 32'
       end
       # TODO
       #
-      it 'should format swiss service numbers' do
+      it 'should format Swiss service numbers' do
         Phony.format('41800112233').should eql '+41 800 112 233'
       end
-      it 'should format austrian numbers' do
+      it 'should format Austrian numbers' do
         Phony.format('43198110').should eql '+43 1 98110'
       end
-      it 'should format american numbers' do
+      it 'should format American numbers' do
         Phony.format('18705551122').should eql '+1 870 555 1122'
       end
       it 'should format New Zealand 021 6-digit mobile numbers' do
@@ -152,6 +154,18 @@ describe Phony do
       end
       it 'should format Indian numbers' do
         Phony.format('914433993939').should eql '+91 44 339 93 939'
+      end
+      it 'should format Russian numbers' do
+        Phony.format(Phony.normalize('+370 800 12345'), :format => :international).should eql '+370 800 12 345'
+      end
+      it 'should format Russian numbers' do
+        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :international).should eql '+7 812 123 4567'
+      end
+      it 'should format Russian numbers' do
+        Phony.format(Phony.normalize('+370 800 12345'), :format => :national).should eql '8800 12 345'
+      end
+      it 'should format Russian numbers' do
+        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :national).should eql '8812 123 4567'
       end
     end
     describe 'international' do
@@ -243,8 +257,8 @@ describe Phony do
       it 'should format austrian numbers' do
         Phony.format('43198110', :format => :national).should eql '01 98110'
       end
-      it 'should format US numbers without a leading zero' do
-        Phony.format('14159224711', :format => :national).should eql '415 922 4711'
+      it 'should format US numbers with a leading trunk 1' do
+        Phony.format('14159224711', :format => :national).should eql '1415 922 4711'
       end
     end
     describe 'local' do
@@ -260,7 +274,7 @@ describe Phony do
   context 'minimal cases' do
     context 'normalizing' do
       it "handles completely crazy 'numbers'" do
-        Phony.normalize('Hello, I am Cora, the 41th parrot, and 044 is my 364 times 35 funky number. 32.').should eql '41443643532'
+        Phony.normalize('Hello, I am Cora, the 41th parrot, and 44 is my 364 times 35 funky number. 32.').should eql '41443643532'
       end
     end
     context 'splitting' do

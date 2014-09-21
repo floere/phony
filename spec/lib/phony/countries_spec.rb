@@ -508,14 +508,14 @@ describe 'country descriptions' do
       it_splits '40249123123', ['40', '249', '123', '123'] # Olt
     end
     describe 'Russia' do
-      it_splits '78122345678',   ['7', '812', '234', '56', '78'] # Russia 3-digit
-      it_splits '74012771077',   ['7', '4012', '77', '10', '77'] # Russia 4-digit
-      it_splits '78402411212',   ['7', '84024', '1', '12', '12'] # Russia 5-digit
-      it_splits '79296119119',   ['7', '929', '611', '91', '19'] # Russia 3-digit, Megafon Mobile.
-      it_splits '7840121212',    ['7', '840', '12', '12', '12']  # Abhasia
-      it_splits '7799121212',    ['7', '799', '12', '12', '12']  # Kazachstan
-      it_splits '7995344121212', ['7','995344','12','12','12']   # South Osetia
-      it_splits '7209175276',    ['7', '209', '17', '52', '76']  # Fantasy number
+      it_splits '78122345678',   ['7', '812', '234', '5678'] # Russia 3-digit
+      it_splits '74012771077',   ['7', '4012', '77', '1077'] # Russia 4-digit
+      it_splits '78402411212',   ['7', '84024', '1', '1212'] # Russia 5-digit
+      it_splits '79296119119',   ['7', '929', '611', '9119'] # Russia 3-digit, Megafon Mobile.
+      it_splits '7840121212',    ['7', '840', '12', '1212']  # Abhasia
+      it_splits '7799121212',    ['7', '799', '12', '1212']  # Kazachstan
+      it_splits '7995344121212', ['7','995344','12','1212']   # South Osetia
+      it_splits '7209175276',    ['7', '209', '17', '5276']  # Fantasy number
     end
 		describe 'Rwanda' do
       it_splits '250781234567', ['250', '78', '1234567'] # mobile
