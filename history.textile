@@ -1,3 +1,7 @@
+h2. Version 2.4.0
+
+* hanke: Rewrites the trunk code handling.
+
 h2. Version 2.3.0
 
 * hanke: Introduces the reserved DSL. If reserved, any operation on a number fails.
