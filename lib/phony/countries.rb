@@ -6,6 +6,9 @@
 # As soon as a NDC matches, it goes on to the National part. Then breaks off.
 # If the NDC does not match, it go on to the next (|, or "or") NDC.
 #
+# For the pre-ndc part, there's:
+# * trunk: If the country has a trunk code (options normalize/split – remove trunk on these method, default false).
+#
 # Available matching/splitting methods:
 # * none:   Does not have a national destination code, e.g. Denmark, Iceland.
 # * one_of: Matches one of the following numbers. Splits if it does.
