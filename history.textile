@@ -1,3 +1,7 @@
+h2. Version 2.4.2
+
+* hanke: Fix for Malaysia (thanks, see #183)
+
 h2. Version 2.4.1
 
 * hanke: Fix for Serbia (thanks, see #181).
