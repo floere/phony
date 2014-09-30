@@ -83,6 +83,7 @@ ndcs_with_6_subscirber_digits = %w(
 
 Phony.define do
   country '995',
+          trunk('0') |
           one_of('220') >> split(3,2) |
           one_of(%w(514 550 551 555 557 558 568 571 574 577 578 579 591 592 593 595 596 597 598 599 770 790)) >> split(3,3) | # mobile
           one_of(ndcs_with_6_subscirber_digits) >> split(3,3) |

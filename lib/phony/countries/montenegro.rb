@@ -4,6 +4,7 @@
 
 Phony.define do
   country '382',
+          trunk('0') |
           one_of(%w(80)) >> split(3,3) | # freephone
               one_of(%w(20 30 31 40 52)) >> matched_split(
                   /\A\d{5}\z/ => [3,2],

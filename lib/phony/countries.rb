@@ -72,14 +72,17 @@ Phony.define do
   #
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
   #
-  country '32', match(/^(70|800|90\d)\d+$/) >> split(3,3)   | # Service
+  country '32', trunk('0') |
+                match(/^(70|800|90\d)\d+$/) >> split(3,3)   | # Service
                 match(/^(4[789]\d)\d{6}$/)  >> split(6)     | # Mobile
                 one_of('2','3','4','9')     >> split(3,2,2) | # Short NDCs
                 fixed(2)                    >> split(2,2,2)   # 2-digit NDCs
 
   # France.
   #
-  country '33', fixed(1) >> split(2,2,2,2) # :service? => /^8.*$/, :mobile? => /^[67].*$/
+  country '33',
+    trunk('0') |
+    fixed(1) >> split(2,2,2,2) # :service? => /^8.*$/, :mobile? => /^[67].*$/
 
   # Spain.
   #
@@ -105,6 +108,7 @@ Phony.define do
   # Romania.
   #
   country '40',
+          trunk('0') |
           match(/^(112|800|90[036])\d+$/) >> split(3,3) | # Service
           match(/^(7[1-8])\d+$/)          >> split(3,4) | # Mobile
           one_of('21', '31')              >> split(3,4) | # Bucureşti
@@ -250,7 +254,8 @@ Phony.define do
   # Turkey.
   #
   country '90',
-          fixed(3) >> split(3,4) # Wiki says 7, but the examples say 3, 4.
+    trunk('0') |
+    fixed(3) >> split(3,4) # Wiki says 7, but the examples say 3, 4.
 
   # country '91' #  India (Republic of) see special file
 
@@ -549,7 +554,8 @@ Phony.define do
   # country '353' # Republic of Ireland, see special file.
 
   country '354', none >> split(3,4) # Iceland
-  country '355', one_of('4') >> split(4,3) | # Albania
+  country '355', trunk('0') |
+                 one_of('4') >> split(4,3) | # Albania
                  match(/\A(2[24]|3[2-5]|47|5[2-5]|6[6-9]|8[2-5])\d*\z/) >> split(3,3) |
                  fixed(3) >> split(3,2)
 
@@ -562,12 +568,14 @@ Phony.define do
 
   # Cyprus
   # http://www.cytaglobal.com/cytaglobal/userfiles/NewNumberingPlan.pdf
-  country '357', one_of('121','122','123') >> split(2,6) | # voicemail
+  country '357', trunk('0') |
+                 one_of('121','122','123') >> split(2,6) | # voicemail
                  fixed(2) >> split(6)                      # fixed & mobile
 
   # Finland
   #
   country '358',
+          trunk('0') |
           match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Service
           match(/^(4\d|50)\d+$/)          >> split(3,2,2) | # Mobile
           one_of('2','3','5','6','8','9') >> split(3,3)   | # Short NDCs
@@ -576,17 +584,18 @@ Phony.define do
   # Bulgaria
   #
   country '359',
+          trunk('0') |
           fixed(2) >> split(3,2,2) # Bulgaria
 
   # Lithuania
   #
   country '370',
-    trunk('8') |
-    one_of('700', '800')  >> split(2,3)   | # Service
-    match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
-    one_of('5')           >> split(3,2,2) | # Vilnius
-    one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
-    fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
+          trunk('8') |
+          one_of('700', '800')  >> split(2,3)   | # Service
+          match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
+          one_of('5')           >> split(3,2,2) | # Vilnius
+          one_of('37','41')     >> split(2,2,2) | # Kaunas, Šiauliai
+          fixed(3)              >> split(1,2,2)   # 3-digit NDCs.
 
   # country '371' # Latvia, see special file
 
@@ -633,10 +642,10 @@ Phony.define do
 
   # country '385' # Croatia, see special file.
 
-  country '386', fixed(2) >> split(3, 2, 2) # Slovenia
-  country '387', fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
-  country '388', fixed(2) >> split(3,2,2) # Group of countries, shared code
-  country '389', fixed(2) >> split(3,2,2) # The Former Yugoslav Republic of Macedonia
+  country '386', trunk('0') | fixed(2) >> split(3, 2, 2) # Slovenia
+  country '387', trunk('0') | fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
+  country '388', trunk('0') | fixed(2) >> split(3,2,2) # Group of countries, shared code
+  country '389', trunk('0') | fixed(2) >> split(3,2,2) # The Former Yugoslav Republic of Macedonia
 
   country '420', fixed(3) >> split(3,3) # Czech Republic
 

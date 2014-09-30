@@ -19,7 +19,8 @@ mobile = %w(
 )
 
 Phony.define do
-  country '385', one_of(mobile) >> split(3, 4) |
+  country '385', trunk('0') |
+                 one_of(mobile) >> split(3, 4) |
                  one_of('1')    >> split(4, 3) | # Zagreb
                  fixed(2)       >> split(3, 3)   # 2-digit NDCs
 end

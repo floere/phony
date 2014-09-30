@@ -3,6 +3,7 @@
 
 Phony.define do
   country '381',
+    trunk('0') |
     one_of(%w(800)) >> split(3,2) | # freephone
     one_of(%w(808)) >> split(3,2) | # payphone
     one_of(%w(230)) >> matched_split(

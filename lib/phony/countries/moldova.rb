@@ -44,6 +44,7 @@ ndcs_with_5_subscriber_numbers = %w(
 
 Phony.define do
   country '373',
+          trunk('0') |
           one_of(ndcs_with_5_subscriber_numbers) >> split(3,2) |
           one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) |
           fixed(3) >> split(3,2)
