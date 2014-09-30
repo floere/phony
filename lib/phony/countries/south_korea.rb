@@ -10,11 +10,13 @@ special = %w{ 100 101 105 106 107 108 109 111 112 113 114 115 116 117 118 119 12
 # mobile  = ('10'..'19').to_a # Note: Mobile not used as it is (for now) handled by the fixed catchall.
 
 Phony.define do
-  country '82', match(/^(#{special.join("|")})$/) >> split(3,3) | # Special actually don't need to be split – but better err.
-                one_of('2')                       >> split(4,4) | # Seoul, also includes "services".
-                fixed(2)                          >> split(4,4)   # Catchall.
-                
-                # See above.
-                #
-                # one_of(*mobile)                 >> split(4,4) |
+  country '82',
+    trunk('0') |
+    match(/^(#{special.join("|")})$/) >> split(3,3) | # Special actually don't need to be split – but better err.
+    one_of('2')                       >> split(4,4) | # Seoul, also includes "services".
+    fixed(2)                          >> split(4,4)   # Catchall.
+    
+    # See above.
+    #
+    # one_of(*mobile)                 >> split(4,4) |
 end

@@ -212,9 +212,10 @@ Phony.define do
 
 	# country '62' # Indonesia (Republic of), see special file
 
-  # TODO Philippines (Republic of the)
+  # Philippines (Republic of the)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
   country '63',
+    trunk('0') |
     # 7/10 digits for area code '2'.
     match(/\A(2)\d{10}\z/) >> split(10) |
     one_of('2') >> split(7) |
@@ -241,6 +242,7 @@ Phony.define do
   # Thailand.
   #
   country '66',
+    trunk('0') |
     match(/\A(8\d\d)\d+\z/) >> split(3,3) | # mobile
     one_of('2') >> split(3,4) | # Bangkok
     fixed(2)    >> split(3,3)   # Rest
@@ -272,7 +274,7 @@ Phony.define do
   country '94', # TODO Sri Lanka (Democratic Socialist Republic of)
     fixed(2) >> split(3,2,2)
 
-  country '95', fixed(2) >> split(3,2,2) # TODO Myanmar (Union of)
+  country '95', trunk('0') | fixed(2) >> split(3,2,2) # TODO Myanmar (Union of)
 
   country '98', #  Iran (Islamic Republic of)
     one_of('21') >> split(4,4) | # Teheran
@@ -282,6 +284,7 @@ Phony.define do
   country '211', fixed(3) >> split(3,3) # South Sudan, http://www.wtng.info/wtng-211-ss.html
 
   country '212', # Morocco
+    trunk('0') |
     one_of('6') >> split(2,2,2,2) | # mobile
     fixed(2) >> split(4,3)
 
@@ -359,6 +362,7 @@ Phony.define do
   # Rwanda
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
   country '250',
+    trunk('0') |
     one_of('25')       >> split(7) | # Geographic, fixed
     match(/^(7[238])/) >> split(7) | # Non-geographic, mobile
     one_of('06')       >> split(6)   # Satellite
@@ -379,6 +383,7 @@ Phony.define do
   # Tanzania.
   #
   country '255',
+    trunk('0') |
     match(/^([89]\d\d)/) >> split(3,3) | # Special/Premium.
     one_of('112', '118') >> split(3,3) | # Short Codes.
     fixed(2)             >> split(3,4)   # Geographic.
@@ -716,7 +721,8 @@ Phony.define do
   # https://www.numberingplans.com/?page=dialling&sub=areacodes
   country '590', fixed(3) >> split(3,3)
 
-  country '591', fixed(1) >> split(3,4) # Bolivia (Republic of) http://www.itu.int/oth/T020200001A/en
+  country '591', # Bolivia (Republic of) http://www.itu.int/oth/T020200001A/en
+    fixed(1) >> split(3,4)
 
   # Guyana http://www.wtng.info/wtng-592-gy.html
   # https://www.numberingplans.com
@@ -1020,9 +1026,10 @@ Phony.define do
 
   # Israel (State of) (also works for numbers in Palestinian territories)
   country '972',
-          one_of('1')                            >> split(3,3,3) | # special numbers
-          one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
-          match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
+    trunk('0') |
+    one_of('1')                            >> split(3,3,3) | # special numbers
+    one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
+    match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
 
   country '973', none >> split(4,4..4) # Bahrain (Kingdom of) http://www.itu.int/oth/T0202000011/en
 

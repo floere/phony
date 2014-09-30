@@ -21,8 +21,10 @@ mobile = %w{ 130 131 132 133 135 136 137 138 139 145 150 151 152 153 155 156 157
 service = %w{ 110 114 119 120 122 999 } # Probably not exhaustive. TODO Look at http://www.eoc.com.cn/?action-viewnews-itemid-11493.
 
 Phony.define do
-  country '86', one_of(service) >> split(8)   |
-                one_of(mobile)  >> split(4,4) |
-                one_of(ndcs)    >> split(4,4) |
-                fixed(3)        >> split(4,4)
+  country '86',
+    trunk('0') |
+    one_of(service) >> split(8)   |
+    one_of(mobile)  >> split(4,4) |
+    one_of(ndcs)    >> split(4,4) |
+    fixed(3)        >> split(4,4)
 end
