@@ -666,7 +666,8 @@ Phony.define do
   country '899', todo # -
 
   country '960', todo # Maldives (Republic of)
-  country '961', todo # Lebanon
+  #Lebanon
+  country '961', fixed(2) >> split(2), length(7..8)
   country '962', todo # Jordan (Hashemite Kingdom of)
   country '963', todo # Syrian Arab Republic
 
