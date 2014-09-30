@@ -1,3 +1,7 @@
+h2. Version 2.4.3
+
+* Fix for Dutch numbers (thanks, see #184)
+
 h2. Version 2.4.2
 
 * Fix for Malaysia (thanks, see #183)
