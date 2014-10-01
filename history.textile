@@ -1,14 +1,18 @@
+h2. Version 2.5.1
+
+* Trunk handling for German numbers (thanks, see #185).
+
 h2. Version 2.5.0
 
 * Adds a lot of trunk code prefixes for about 30 countries. This will impact on national formatting and normalizing. Please provide feedback on this change – best with pull requests/issues with spec examples. 
 
 h2. Version 2.4.3
 
-* Fix for Dutch numbers (thanks, see #184)
+* Fix for Dutch numbers (thanks, see #184).
 
 h2. Version 2.4.2
 
-* Fix for Malaysia (thanks, see #183)
+* Fix for Malaysia (thanks, see #183).
 
 h2. Version 2.4.1
 
