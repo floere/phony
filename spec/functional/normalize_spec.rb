@@ -16,8 +16,11 @@ describe 'Phony.normalize' do
     it 'handles the US (without cc) correctly' do
       Phony.normalize('(310) 555-2121', cc: '1').should == '13105552121'
     end
-    it 'handles a German number with extra 0' do
+    it 'handles a German number with extra (0)' do
       Phony.normalize('+49 (0) 209 22 33 44 55').should == '4920922334455'
+    end
+    it 'handles a German number with extra 0' do
+      Phony.normalize('+49 0 209 22 33 44 55').should == '4920922334455'
     end
   end
   

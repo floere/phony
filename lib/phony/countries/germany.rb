@@ -4079,7 +4079,7 @@ service = [
 #
 Phony.define do
    country '49',
-     trunk('0') |
+     trunk('0', normalize: true) |
      one_of(service)           >> split(3,0)    |
      match(/\A(151[124567]|152[012359]|157[035789]|1590)\d*\z/) >> split(3,4) |
      match(/\A(15\d)\d*\z/)    >> split(3,4)    |
