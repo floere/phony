@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe Phony::CountryCodes do
-  
+
   before(:all) do
     @countries = Phony::CountryCodes.instance
   end
-  
+
   describe 'international_absolute_format=' do
     it 'formats correctly' do
       @countries.formatted('41443643532', :format => :international).should eql '+41 44 364 35 32'
@@ -13,9 +13,9 @@ describe Phony::CountryCodes do
     it 'formats correctly' do
       old_format = @countries.international_absolute_format
       @countries.international_absolute_format = '!!! %s%s%s'
-      
+
       @countries.formatted('41443643532', :format => :international).should eql '!!! 41 44 364 35 32'
-      
+
       @countries.international_absolute_format = old_format
     end
   end
@@ -26,9 +26,9 @@ describe Phony::CountryCodes do
     it 'formats correctly' do
       old_format = @countries.international_relative_format
       @countries.international_relative_format = '000 %s%s%s'
-      
+
       @countries.formatted('41443643532', :format => :international_relative).should eql '000 41 44 364 35 32'
-      
+
       @countries.international_relative_format = old_format
     end
   end
@@ -39,21 +39,21 @@ describe Phony::CountryCodes do
     it 'formats correctly' do
       old_format = @countries.national_format
       @countries.national_format = '%s%s'
-      
+
       # Removes CC 1, but adds national call prefix 1.
       #
       @countries.formatted('11231231234', :format => :national).should eql '1123 123 1234'
-      
+
       @countries.national_format = old_format
     end
   end
-  
+
   describe 'split' do
     it 'splits correctly' do
       @countries.split('41443643532').should eql ['41', '0', '44', '364', '35', '32']
     end
   end
-  
+
   describe 'formatted' do
     it 'formats correctly' do
       @countries.formatted('41443643532', :format => :international, :spaces => :-).should eql '+41-44-364-35-32'
@@ -73,6 +73,9 @@ describe Phony::CountryCodes do
       end
       it 'formats Spain correctly' do
         @countries.formatted("34123456789", :format => :national).should eql '123 456 789'
+      end
+      it 'formats Cambodia correctly' do
+        @countries.formatted('85512239123', :format => :national).should eql '012 239 123'
       end
     end
     context 'default' do
@@ -187,5 +190,5 @@ describe Phony::CountryCodes do
       end
     end
   end
-  
+
 end
