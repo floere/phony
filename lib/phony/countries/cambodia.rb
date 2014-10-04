@@ -77,7 +77,7 @@ six_or_seven_digit_mobile_prefixes = [
 ]
 
 Phony.define do
-  country '855', one_of(six_digit_mobile_prefixes)   >> matched_split(/^[1-9]/ => [3, 3]) |
+  country '855', trunk('0') | one_of(six_digit_mobile_prefixes)   >> matched_split(/^[1-9]/ => [3, 3]) |
                  one_of(seven_digit_mobile_prefixes) >> matched_split(/^[2-9]/ => [3, 4]) |
                  one_of(six_or_seven_digit_mobile_prefixes) >> matched_split(
                    /^[2-9]\d{5}$/ => [3, 3], /^[1-9]\d{6}$/ => [3, 4]
