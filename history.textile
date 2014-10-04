@@ -1,3 +1,7 @@
+h2. Version 2.5.2
+
+* Trunk handling for Cambodian numbers (thanks, see #186).
+
 h2. Version 2.5.1
 
 * Trunk handling for German numbers (thanks, see #185).
