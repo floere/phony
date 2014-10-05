@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Phony#normalize' do
 
   describe 'cases' do
-    
+
     describe 'regressions' do
       it '#151' do
         # Normalizes, but this is a non-real case.
@@ -12,7 +12,7 @@ describe 'Phony#normalize' do
         Phony.normalize('111-111-1111', cc: '1').should == '1111111111'
       end
     end
-    
+
     it 'handles the US (with cc) correctly' do
       Phony.normalize('+1 724 999 9999').should == '17249999999'
     end
@@ -31,7 +31,9 @@ describe 'Phony#normalize' do
     it 'handles a German number with extra 0' do
       Phony.normalize('+49 0 209 22 33 44 55').should == '4920922334455'
     end
-    
+    it 'handles Cambodian numbers with an extra 0' do
+      Phony.normalize('+855012239134').should == "85512239134"
+    end
     it 'should normalize a too short number' do
       Phony.normalize('+972').should eql '972'
     end
@@ -65,7 +67,7 @@ describe 'Phony#normalize' do
     it 'should not normalize a number with a correct zero inside' do
       Phony.normalize('+390909709511').should eql '390909709511'
     end
-    
+
     it "handles completely crazy 'numbers'" do
       Phony.normalize('Hello, I am Cora, the 41th parrot, and 44 is my 364 times 35 funky number. 32.').should eql '41443643532'
     end
@@ -84,7 +86,7 @@ describe 'Phony#normalize' do
         Phony.normalize('375 152450911').should eql '375152450911'
       end
     end
-    
+
     describe 'exceptions' do
       it 'raises on nil' do
         expect {
@@ -102,7 +104,7 @@ describe 'Phony#normalize' do
         end.to raise_error(Phony::NormalizationError, 'Phony could not normalize the given number. Is it a phone number?')
       end
     end
-    
+
     describe 'country-based' do
       it 'normalizes the US correctly' do
         Phony["1"].normalize("555 1234567890").should eql '5551234567890'
@@ -115,5 +117,5 @@ describe 'Phony#normalize' do
       end
     end
   end
-  
+
 end
