@@ -71,8 +71,6 @@ ndcs3 = [
 '661', # Fulda
 '671', # Bad Kreuznach
 '681', # Saarbrücken
-'700', # Personal Numbers
-'701', # Personal Numbers, reserved
 '711', # Stuttgart
 '721', # Karlsruhe
 '731', # Ulm
@@ -82,8 +80,6 @@ ndcs3 = [
 '771', # Donaueschingen
 '781', # Offenburg
 '791', # Schwäbisch Hall
-'800', # Toll-Free Numbers
-'801', # Toll-Free Numbers, reserved
 '811', # Hallbergmoos
 '821', # Augsburg
 '831', # Kempten
@@ -92,8 +88,6 @@ ndcs3 = [
 '861', # Traunstein
 '871', # Landshut
 '881', # Weilheim in Oberbayern
-'900', # Premium Rate Numbers
-'901', # Premium Rate Numbers, reserved
 '902', # Replacement for 0137/0138
 '906', # Donauwörth
 '911', # Nürnberg
@@ -3992,34 +3986,44 @@ ndcs4 = [
 '9977',
 '9978',
 ]
-# mobile = [
-# '150', # Group3G/Quam
-# '151', # T-Mobile
-# '152', # Vodafone
-# '155', # E-Plus
-# '156', # Mobilcom
-# '157', # E-Plus
-# '159', # O2
-# '160', # T-Mobile
-# '161', # C-Netz
-# '162', # Vodafone
-# '163', # E-Plus
-# '164', # Cityruf
-# '165', # Quix
-# '166', # Telmi
-# '168', # Scall
-# '169', # Cityruf, Scall, Skyper (e*cityruf, e*message, e*skyper)
-# '170', # T-Mobile
-# '171', # T-Mobile
-# '172', # Vodafone
-# '173', # Vodafone
-# '174', # Vodafone
-# '175', # T-Mobile
-# '176', # O2 Germany
-# '177', # E-Plus
-# '178', # E-Plus
-# '179', # O2 Germany
-# ]
+mobile_3digits = [
+'150', # Group3G/Quam
+'151', # T-Mobile
+'152', # Vodafone
+'155', # E-Plus
+'156', # Mobilcom
+'157', # E-Plus
+'159', # O2
+'160', # T-Mobile
+'161', # C-Netz
+'162', # Vodafone
+'163', # E-Plus
+'164', # Cityruf
+'165', # Quix
+'166', # Telmi
+'168', # Scall
+'169', # Cityruf, Scall, Skyper (e*cityruf, e*message, e*skyper)
+'170', # T-Mobile
+'171', # T-Mobile
+'172', # Vodafone
+'173', # Vodafone
+'174', # Vodafone
+'175', # T-Mobile
+'176', # O2 Germany
+'177', # E-Plus
+'178', # E-Plus
+'179', # O2 Germany
+]
+
+mobile_4digits = [
+'1520', # Vodafone
+'1521', # Lycamobile
+'1522', # Vodafone
+'1570', # vistream
+'1527', # E-Plus
+'1672', # Dolphin Telecom
+]
+
 service = [
 '12',  # Innovative Services
 '130',
@@ -4073,19 +4077,18 @@ service = [
 # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510001PDFE.pdf
 # "Numbers assigned in the past, which are generally grandfathered, may be as short as five digits."
 #
-# http://www.bundesnetzagentur.de/cln_1911/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Nummerierungskonzept/nummerierungskonzept_node.html
+# http://www.bundesnetzagentur.de/cln_1422/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/Rufnummern_node.html
 #
 # TODO Define lower end of last part correctly.
 #
 Phony.define do
    country '49',
      trunk('0', normalize: true) |
-     one_of(service)           >> split(3,0)    |
-     match(/\A(151[124567]|152[012359]|157[035789]|1590)\d*\z/) >> split(3,4) |
-     match(/\A(15\d)\d*\z/)    >> split(3,4)    |
-     match(/\A(1[67]\d)\d*\z/) >> split(3,1..5) | # Seite 49 [?]
-     one_of(ndcs2)             >> split(3,2..10) | # 5-9 Stellen nach Seite 32 [?]
-     one_of(ndcs3)             >> split(3,1..9) |
-     one_of(ndcs4)             >> split(3,0..8) |
-     fixed(5)                  >> split(3,0..7)
+     one_of(*service)        >> split(3,4) |
+     one_of(*mobile_4digits) >> split(3,4) |
+     one_of(*mobile_3digits) >> split(4,3..4) |
+     one_of(*ndcs2)          >> split(3,2..10) |
+     one_of(*ndcs3)          >> split(3,1..9) |
+     one_of(*ndcs4)          >> split(3,0..8) |
+     fixed(5)                >> split(3,0..7)
 end

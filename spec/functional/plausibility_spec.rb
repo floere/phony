@@ -332,6 +332,9 @@ describe 'plausibility' do
         Phony.plausible?('+49 31234 123456').should be_true
         Phony.plausible?('+49 7141 12345670').should be_true
         Phony.plausible?('+49 1609 1234567').should be_true # Bug: https://github.com/floere/phony/issues/146
+        Phony.plausible?('+49 800 1234567').should be_true
+        Phony.plausible?('+49 1805 878323').should be_true
+
         # Following tests implement specifications from
         # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
         # Page 3
@@ -507,7 +510,7 @@ describe 'plausibility' do
       it_is_correct_for 'Gabonese Republic', :samples => '+241 1 627 739'
       it_is_correct_for 'Gambia', :samples => '+220  989 5148'
       it_is_correct_for 'Germany', :samples => [
-        '+4915775368708'
+        '+49 157 753 6870'
       ]
       it_is_correct_for 'Georgia', :samples => ['+995 220 123 45',
                                                 '+995 32 123 4567',
