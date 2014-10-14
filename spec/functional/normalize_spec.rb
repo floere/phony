@@ -8,31 +8,31 @@ describe 'Phony#normalize' do
       it '#151' do
         # Normalizes, but this is a non-real case.
         #
-        Phony.normalize('1-111-111-1111').should        == '1111111111'
-        Phony.normalize('111-111-1111', cc: '1').should == '1111111111'
+        Phony.normalize('1-111-111-1111').should        eql '1111111111'
+        Phony.normalize('111-111-1111', cc: '1').should eql '1111111111'
       end
     end
 
     it 'handles the US (with cc) correctly' do
-      Phony.normalize('+1 724 999 9999').should == '17249999999'
+      Phony.normalize('+1 724 999 9999').should eql '17249999999'
     end
     it 'handles the Dutch number (without US cc) correctly' do
-      Phony.normalize('310 5552121').should == '315552121'
+      Phony.normalize('310 5552121').should eql '315552121'
     end
     it 'handles the US (with cc and cc option) correctly' do
-      Phony.normalize('+1 724 999 9999', cc: '1').should == '17249999999'
+      Phony.normalize('+1 724 999 9999', cc: '1').should eql '17249999999'
     end
     it 'handles the US (without cc) correctly' do
-      Phony.normalize('(310) 555-2121', cc: '1').should == '13105552121'
+      Phony.normalize('(310) 555-2121', cc: '1').should eql '13105552121'
     end
     it 'handles a German number with extra (0)' do
-      Phony.normalize('+49 (0) 209 22 33 44 55').should == '4920922334455'
+      Phony.normalize('+49 (0) 209 22 33 44 55').should eql '4920922334455'
     end
     it 'handles a German number with extra 0' do
-      Phony.normalize('+49 0 209 22 33 44 55').should == '4920922334455'
+      Phony.normalize('+49 0 209 22 33 44 55').should eql '4920922334455'
     end
     it 'handles Cambodian numbers with an extra 0' do
-      Phony.normalize('+855012239134').should == "85512239134"
+      Phony.normalize('+855012239134').should eql "85512239134"
     end
     it 'should normalize a too short number' do
       Phony.normalize('+972').should eql '972'
