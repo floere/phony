@@ -1,3 +1,7 @@
+h2. Version 2.5.4
+
+* Improvements for German mobile/service numbers (thanks, see #189).
+
 h2. Version 2.5.3
 
 * Improve trunk handling for Cambodian numbers (thanks, see #187).
