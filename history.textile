@@ -1,3 +1,7 @@
+h2. Version 2.6.0
+
+* Add possibility to add limited whitespace formatting to trunk code.
+
 h2. Version 2.5.4
 
 * Improvements for German mobile/service numbers (thanks, see #189).
