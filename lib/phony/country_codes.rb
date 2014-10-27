@@ -90,8 +90,8 @@ module Phony
 
     # Formats country code and national destination code.
     #
-    def format_cc_ndc_local format, space, cc, zero, ndc, *parts
-      cc_ndc = format_cc_ndc format, space, cc, zero, ndc
+    def format_cc_ndc_local format, space, cc, trunk, ndc, *parts
+      cc_ndc = format_cc_ndc format, space, cc, trunk, ndc
       local  = if parts.empty?
                  cc_ndc = cc_ndc.slice 0...cc_ndc.rindex(space.to_s)
                  EMPTY_STRING
@@ -103,7 +103,7 @@ module Phony
     #
     # TODO This method needs an overhaul.
     #
-    def format_cc_ndc format, space, cc, zero, ndc
+    def format_cc_ndc format, space, cc, trunk, ndc
       case format
       when nil, :international_absolute, :international, :+
         ndc ?
@@ -115,8 +115,8 @@ module Phony
           @international_relative_format % [cc, nil, nil]
       when :national
         ndc && !ndc.empty? ?
-          @national_format % [zero, ndc] :
-          @national_format % [zero, nil]
+          @national_format % [trunk, ndc] :
+          @national_format % [trunk, nil]
       when :local
         EMPTY_STRING
       end
