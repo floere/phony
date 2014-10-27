@@ -171,7 +171,7 @@ describe Phony do
         Phony.format('43198110', :format => :national).should eql '01 98110'
       end
       it 'should format US numbers with a leading trunk 1' do
-        Phony.format('14159224711', :format => :national).should eql '1415 922 4711'
+        Phony.format('14159224711', :format => :national).should eql '1 415 922 4711'
       end
       it 'should format Dutch numbers with a trunk code' do
         Phony.format('311012341234', :format => :national).should eql '010 123 41234'

@@ -42,7 +42,7 @@ describe Phony::CountryCodes do
 
       # Removes CC 1, but adds national call prefix 1.
       #
-      @countries.formatted('11231231234', :format => :national).should eql '1123 123 1234'
+      @countries.formatted('11231231234', :format => :national).should eql '1 123 123 1234'
 
       @countries.national_format = old_format
     end
