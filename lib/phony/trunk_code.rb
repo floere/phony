@@ -11,7 +11,7 @@ module Phony
     #
     def initialize code, options = {}
       @code = code
-      @trunk_code_replacement = /\A#{code}/
+      @trunk_code_replacement = /\A#{code.rstrip}/
       @normalize = options[:normalize]
       @split     = options[:split]
     end
