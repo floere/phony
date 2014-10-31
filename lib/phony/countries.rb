@@ -98,7 +98,7 @@ Phony.define do
   # Hungary.
   #
   country '36',
-    trunk('06') |
+    trunk('06', normalize: false) |
     one_of('104','105','107','112') >> split(3,3) | # Service
     one_of('1')                     >> split(3,4) | # Budapest
     fixed(2)                        >> split(3,4)   # 2-digit NDCs
@@ -597,7 +597,7 @@ Phony.define do
   # Lithuania
   #
   country '370',
-          trunk('8') |
+          trunk('8', normalize: false) |
           one_of('700', '800')  >> split(2,3)   | # Service
           match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
           one_of('5')           >> split(3,2,2) | # Vilnius
