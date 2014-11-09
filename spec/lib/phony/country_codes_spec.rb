@@ -77,6 +77,9 @@ describe Phony::CountryCodes do
       it 'formats Cambodia correctly' do
         @countries.formatted('85512239123', :format => :national).should eql '012 239 123'
       end
+      it 'formats the US correctly' do
+        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '1-800-555-1212'
+      end
     end
     context 'default' do
       it "should format swiss numbers" do

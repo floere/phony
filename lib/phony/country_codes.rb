@@ -114,6 +114,8 @@ module Phony
           @international_relative_format % [cc, space, ndc] :
           @international_relative_format % [cc, nil, nil]
       when :national
+        # Replaces the %s in the trunk code with a "space".
+        trunk = trunk % space if trunk && trunk.size > 1
         ndc && !ndc.empty? ?
           @national_format % [trunk, ndc] :
           @national_format % [trunk, nil]

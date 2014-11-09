@@ -31,7 +31,8 @@ Phony.define do
   # USA, Canada, etc.
   #
   country '1',
-    trunk('1 ', normalize: true) | # http://en.wikipedia.org/wiki/Trunk_prefix
+    # The US has a delimiter between NDC and local number.
+    trunk('1%s', normalize: true) | # http://en.wikipedia.org/wiki/Trunk_prefix
     fixed(3) >> split(3,4),
     :invalid_ndcs => ['911']
 
