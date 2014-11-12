@@ -366,7 +366,17 @@ Phony.define do
   country '258', todo # Mozambique
   country '259', todo # -
 
-  country '260', todo # Zambia
+  # Zambia
+  #
+  # https://www.google.ch/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CB0QFjAA&url=https%3A%2F%2Fwww.itu.int%2Fdms_pub%2Fitu-t%2Foth%2F02%2F02%2FT02020000E80001MSWE.doc&ei=64xjVP6bFcb0PJ7UgMAP&usg=AFQjCNG1D_xb7nHPMOQj0aSJPQK0IOCgdg&bvm=bv.79189006,d.ZWU
+  # http://www.wtng.info/wtng-260-zm.html
+  country '260',
+          match(/^(21)[1-8]\d+$/)   >> split(3,4) | # Landline
+          match(/^(95)5\d+$/)       >> split(3,4) | # Mobile (CellZ)
+          match(/^(96)6\d+$/)       >> split(3,4) | # Mobile (MTN)
+          match(/^(97)[7-9]\d+$/)   >> split(3,4),  # Mobile (Celtel)
+          length(9)
+
   country '261', todo # Madagascar
   country '262', todo # Reunion / Mayotte (new)
   country '263', todo # Zimbabwe

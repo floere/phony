@@ -418,6 +418,27 @@ describe 'country descriptions' do
     describe 'New Zealand' do
       it { Phony.split('6491234567').should == ['64', '9', '123', '4567'] }
     end
+    describe 'Zambia' do
+      it { Phony.split('260211234567').should == ['260', '21', '123', '4567'] } # Lusaka
+      it { Phony.split('260212234567').should == ['260', '21', '223', '4567'] } # Ndola
+      it { Phony.split('260213234567').should == ['260', '21', '323', '4567'] } # Livingstone
+      it { Phony.split('260214234567').should == ['260', '21', '423', '4567'] } # Kasama
+      it { Phony.split('260215234567').should == ['260', '21', '523', '4567'] } # Kabwe
+      it { Phony.split('260216234567').should == ['260', '21', '623', '4567'] } # Chipata
+      it { Phony.split('260217234567').should == ['260', '21', '723', '4567'] } # Solwezi
+      it { Phony.split('260218234567').should == ['260', '21', '823', '4567'] } # Mongu
+
+      it { Phony.split('260955123456').should == ['260', '95', '512', '3456'] } # Mobile, CellZ
+      it { Phony.split('260966123456').should == ['260', '96', '612', '3456'] } # Mobile, MTN
+      it { Phony.split('260977123456').should == ['260', '97', '712', '3456'] } # Mobile, Celtel
+      it { Phony.split('260978123456').should == ['260', '97', '812', '3456'] } # Mobile, Celtel
+      it { Phony.split('260979123456').should == ['260', '97', '912', '3456'] } # Mobile, Celtel
+
+      it { Phony.plausible?('260219123456').should be_false }  # Zamtel - only locality codes from 1-8
+      it { Phony.plausible?('260959123456').should be_false }  # Mobile, CellZ (only leading 5)
+      it { Phony.plausible?('260969123456').should be_false }  # Mobile, MTN (only leading 6 is valid)
+      it { Phony.plausible?('260971123456').should be_false }  # Mobile, Celtel (only leading 7,8,9 are valid)
+    end
   end
 
 end
