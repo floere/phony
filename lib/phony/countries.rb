@@ -303,7 +303,9 @@ Phony.define do
   country '221', none >> split(4,5) # Senegal http://www.wtng.info/wtng-221-sn.html
   country '222', none >> split(4,4) # Mauritania http://www.wtng.info/wtng-222-mr.html
   country '223', none >> split(4,4) # Mali http://www.wtng.info/wtng-223-ml.html
-  country '224', none >> split(4,4) # Guinea http://www.wtng.info/wtng-224-gn.html
+
+  # country '224' # Guinea, see special file
+
   country '225', none >> split(4,4) # Côte d'Ivoire http://www.wtng.info/wtng-225-ci.html
   country '226', none >> split(4,4) # Burkina Faso http://www.wtng.info/wtng-226-bf.html
   country '227', none >> split(4,4) # Niger http://www.wtng.info/wtng-227-ne.html
