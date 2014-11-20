@@ -790,15 +790,15 @@ four_digit_ndc = [
 ]
 
 Phony.define do
-  country '44', 
+  country '44',
     trunk('0') |
-    one_of(mobile_ndc)             >> split(6)   | # 4-6
-    one_of(two_digit_ndc)          >> split(4,4) | # 2-4-4
-    match(/^([58]00)\d{6}$/)       >> split(6)   | # 3-6, Special handling for 500 and 800.
-    one_of(three_digit_ndc)        >> split(3,4) | # 3-3-4
-    match(/^(16977)\d{4}$/)        >> split(4)   | # 5-4, Special handling for 16977.
-    one_of(five_digit_ndc)         >> split(5)   | # 5-5
-    one_of(variable_length_number) >> split(6)   | # 4-6 and 4-5, in 40 areas.
-    one_of(four_digit_ndc)         >> split(6)   | # 4-6
-    fixed(4)                       >> split(6)     # Catchall for undefined numbers.
+    one_of(mobile_ndc)             >> split(6)    | # 4-6
+    one_of(two_digit_ndc)          >> split(4,4)  | # 2-4-4
+    match(/^([58]00)\d{6}$/)       >> split(6)    | # 3-6, Special handling for 500 and 800.
+    one_of(three_digit_ndc)        >> split(3,4)  | # 3-3-4
+    match(/^(16977)\d{4}$/)        >> split(4)    | # 5-4, Special handling for 16977.
+    one_of(five_digit_ndc)         >> split(5)    | # 5-5
+    one_of(variable_length_number) >> split(5..6) | # 4-6 and 4-5, in 40 areas.
+    one_of(four_digit_ndc)         >> split(6)    | # 4-6
+    fixed(4)                       >> split(6)      # Catchall for undefined numbers.
 end
