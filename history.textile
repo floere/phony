@@ -1,3 +1,7 @@
+h2. Version 2.8.1
+
+* Improvements for Guinea (thanks, see #195 and #197).
+
 h2. Version 2.8.0
 
 * Trunk code can have a delimiter added (e.g. US: '1%s'), which will be replaced by a delimiter character.
