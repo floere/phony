@@ -20,13 +20,13 @@ module Phony
     def self.instance
       @instance ||= new
     end
-    
+
     # Get the Country object for the given CC.
     #
     def [] cc
       countries[cc.size][cc]
     end
-    
+
     # Clean number of all non-numeric characters, initial zeros or (0).
     #
     @@basic_cleaning_pattern = /\A00?|\(0\)|\D/
@@ -40,7 +40,7 @@ module Phony
     def clean! number
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
-    
+
     # Adds the country code to the front
     # if it does not already start with it.
     #
@@ -155,7 +155,7 @@ module Phony
       country, cc, rest = split_cc vanity_number
       "#{cc}#{country.vanity_to_number(rest)}"
     end
-    
+
     def split_cc rest
       presumed_cc = ''
       1.upto(3) do |i|
@@ -165,14 +165,14 @@ module Phony
       end
       # This line is never reached as CCs are in prefix code.
     end
-    
+
     def plausible? number, hints = {}
       normalized = clean number
 
       # False if it fails the basic check.
       #
       return false unless (4..15) === normalized.size
-      
+
       country, cc, rest = split_cc normalized
 
       # Country code plausible?

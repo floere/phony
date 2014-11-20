@@ -531,7 +531,10 @@ describe 'plausibility' do
       it_is_correct_for 'Guadeloupe (French Department of)', :samples => '+590 123 456 789'
       it_is_correct_for 'Guatemala (Republic of)', :samples => ['+502 19 123 456 789',
                                                                 '+502 2 123 4567']
-      it_is_correct_for 'Guinea', :samples => '+224 1234 5678'
+      context 'test' do
+        it_is_correct_for 'Guinea', :samples => ['+224 664 12 34 56',
+                                                 '+224 30 31 12 34']
+      end
       it_is_correct_for 'Guinea-Bissau', :samples => '+245  728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
