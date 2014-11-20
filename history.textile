@@ -1,3 +1,7 @@
+h2. Version 2.8.2
+
+* Improvements for the UK (thanks, see #196).
+
 h2. Version 2.8.1
 
 * Improvements for Guinea (thanks, see #195 and #197).
