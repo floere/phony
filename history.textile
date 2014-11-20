@@ -1,3 +1,9 @@
+h2. Version 2.8.3
+
+* Further improvements for the UK (thanks, see #198).
+* Improvements for the Netherlands (thanks, see #199).
+* What's with these "The" country name countries…
+
 h2. Version 2.8.2
 
 * Improvements for the UK (thanks, see #196).
