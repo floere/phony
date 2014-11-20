@@ -16,9 +16,9 @@
 mobile_ndc = [
   # Mobile [4+6].
   #
-  ('7100'..'7599').to_a,
+  *('7100'..'7599').to_a,
   '7624', # Isle of Man
-  ('7700'..'7999').to_a,
+  *('7700'..'7999').to_a,
 ].flatten
 
 two_digit_ndc = [
@@ -195,7 +195,7 @@ variable_length_number = [
   '1946', # Whitehaven (Mixed area)
   '1949', # Whatton
   '1963', # Wincanton
-  '1995', # Garstang 
+  '1995', # Garstang
 ]
 
 four_digit_ndc = [
@@ -800,5 +800,5 @@ Phony.define do
     one_of(five_digit_ndc)         >> split(5)    | # 5-5
     one_of(variable_length_number) >> split(5..6) | # 4-6 and 4-5, in 40 areas.
     one_of(four_digit_ndc)         >> split(6)    | # 4-6
-    fixed(4)                       >> split(6)      # Catchall for undefined numbers.
+    none                           >> split(6)      # Catchall for undefined numbers.
 end

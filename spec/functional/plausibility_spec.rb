@@ -13,6 +13,8 @@ describe 'plausibility' do
     #
     def self.it_is_correct_for(country_name, options={})
       samples = [*options[:samples]]
+      invalid_samples = [*options[:invalid_samples]]
+
       raise ArgumentError, ':samples option should be specified' if samples.empty?
 
       it "is correct for #{country_name}" do
@@ -27,6 +29,15 @@ describe 'plausibility' do
               "It should validate #{value}, but does not."
           end
           incorrect.each do |value|
+            Phony.plausible?(value).should be_false,
+              "It should not validate #{value}, but does."
+          end
+        end
+
+        invalid_samples.each do |sample|
+          invalid = [*sample]
+
+          invalid.each do |value|
             Phony.plausible?(value).should be_false,
               "It should not validate #{value}, but does."
           end
@@ -531,13 +542,13 @@ describe 'plausibility' do
       it_is_correct_for 'Guadeloupe (French Department of)', :samples => '+590 123 456 789'
       it_is_correct_for 'Guatemala (Republic of)', :samples => ['+502 19 123 456 789',
                                                                 '+502 2 123 4567']
-      context 'test' do
-        it_is_correct_for 'Guinea', :samples => [
-          '+224 664 12 34 56',
-          '+224 30 31 12 34',
-          '+224 3041 12 34'
-        ]
-      end
+      it_is_correct_for 'Guinea', :samples => [
+        '+224 664 12 34 56',
+        '+224 30 31 12 34',
+        '+224 3041 12 34',
+        '+224 700 00 00 00'
+      ]
+
       it_is_correct_for 'Guinea-Bissau', :samples => '+245  728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
@@ -822,7 +833,7 @@ describe 'plausibility' do
                                                              '+971 500 641 234',
                                                              '+971 200 641 234']
 
-      it_is_correct_for 'United Kingdom', :samples => ['+44 1827 50111']
+      it_is_correct_for 'United Kingdom', :samples => ['+44 1827 50111'], :invalid_samples => ['+44 0000 123456']
 
       it_is_correct_for 'Uruguay (Eastern Republic of)', :samples => ['+598 800 123 45',
                                                                       '+598 2 012 3456',
@@ -841,7 +852,5 @@ describe 'plausibility' do
                                                  '+263 86 1235 4567']
 
     end
-
   end
-
 end
