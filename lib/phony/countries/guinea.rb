@@ -26,11 +26,11 @@ land_ndcs_with_5_digits = [
 ]
 
 mobile_ndcs_with_3_digits = [
-  *('660'..'669').to_a, # Areeba
-  *('620'..'629').to_a, # Orange
-  *('650'..'659').to_a, # Cellcom
-  *('630'..'639').to_a, # Intercel
-  *('600'..'609').to_a  # Sotelgui
+  *('660'..'669'), # Areeba
+  *('620'..'629'), # Orange
+  *('650'..'659'), # Cellcom
+  *('630'..'639'), # Intercel
+  *('600'..'609')  # Sotelgui
 ]
 
 Phony.define do
@@ -39,5 +39,5 @@ Phony.define do
     one_of(land_ndcs_with_4_digits)   >> split(2, 2)    | # 2-2-2-2
     one_of(mobile_ndcs_with_3_digits) >> split(2, 2, 2) | # 3-2-2-2
     match(/^(7\d{2})\d{6}/)           >> split(2, 2, 2) | # voip numbers
-    none                              >> split(2, 2, 2)
+    fixed(3)                          >> split(2, 2, 2)
 end

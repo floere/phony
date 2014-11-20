@@ -16,10 +16,10 @@
 mobile_ndc = [
   # Mobile [4+6].
   #
-  *('7100'..'7599').to_a,
+  *('7100'..'7599'),
   '7624', # Isle of Man
-  *('7700'..'7999').to_a,
-].flatten
+  *('7700'..'7999')
+]
 
 two_digit_ndc = [
   # Geographic [2+8] - includes (02x) 0 and (02x) 1 as NDO.
@@ -800,5 +800,5 @@ Phony.define do
     one_of(five_digit_ndc)         >> split(5)    | # 5-5
     one_of(variable_length_number) >> split(5..6) | # 4-6 and 4-5, in 40 areas.
     one_of(four_digit_ndc)         >> split(6)    | # 4-6
-    none                           >> split(6)      # Catchall for undefined numbers.
+    match(/^([135789]\d{3})/)      >> split(6)      # Catchall for plausible unallocated numbers.
 end
