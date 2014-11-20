@@ -815,6 +815,9 @@ describe 'plausibility' do
                                                              '+971 600 641 234',
                                                              '+971 500 641 234',
                                                              '+971 200 641 234']
+
+      it_is_correct_for 'United Kingdom', :samples => ['+44 1827 50111']
+
       it_is_correct_for 'Uruguay (Eastern Republic of)', :samples => ['+598 800 123 45',
                                                                       '+598 2 012 3456',
                                                                       '+598 21 123 456',
