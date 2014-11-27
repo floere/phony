@@ -13,6 +13,7 @@ GEM
     json (1.8.1)
     mime-types (2.0)
     multi_json (1.8.2)
+    pippi (0.0.6)
     rake (10.1.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -249,6 +250,7 @@ PLATFORMS
 DEPENDENCIES
   coveralls
   json
+  pippi
   rake
   rspec (~> 2.0)
   rubinius-developer_tools
