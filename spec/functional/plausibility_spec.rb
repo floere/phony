@@ -429,6 +429,12 @@ describe 'plausibility' do
         Phony.plausible?('796030123451').should be_false # too long
       end
 
+      it "is correct for Slovenian numbers" do
+        Phony.plausible?('+386 41 123 456').should be_true
+        Phony.plausible?('+386 1 320 1234').should be_true
+        Phony.plausible?('+386 41 123 4567').should be_false
+      end
+
       # TODO: more needs to be done here
       #
       it "is correct for Swiss numbers" do

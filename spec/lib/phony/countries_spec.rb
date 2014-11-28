@@ -570,6 +570,11 @@ describe 'country descriptions' do
       it { Phony.split('421371234567').should == ['421', '37', '1234567'] } # Nitra / Other
     end
 
+    describe 'Slovenia' do
+      it { Phony.split('38651234567').should == ['386', '51', '234', '567'] }  # Mobile
+      it { Phony.split('38611234567').should == ['386', '1', '123', '4567'] }  # LJUBLJANA
+    end
+
     describe 'Spain' do
       it_splits '34600123456', ['34', '600', '123', '456'] # Mobile
       it_splits '34900123456', ['34', '900', '123', '456'] # Special
