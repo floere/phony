@@ -63,7 +63,7 @@ Phony.define do
     one_of(%w(901 909)) >> split(3,4) | # premium rate
     one_of(%w(21 22 23 24 25 26 27 28)) >> split(4,4) |
     one_of('50') >> split(4,4) | # VPN
-    one_of('69') >> split(4,4) | # mobile, pager
+    match(/^(69\d)\d+$/) >> split(3,4) | # mobile, pager
     one_of('70') >> split(4,4) | # universal access
     fixed(4) >> split(6)   # 3-digit NDCs
 
