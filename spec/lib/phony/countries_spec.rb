@@ -45,6 +45,12 @@ describe 'country descriptions' do
       it_splits '4366900000000',   %w( 43 669 0000 0000 )  # Mobile
       it_splits '433161234567891', %w( 43 316 1234567891 ) # Graz
       it_splits '432164123456789', %w( 43 2164 123456789 ) # Rohrau
+
+      # mobile numbers can have from 7 to 10 digits in the subscriber number
+      it_splits '436641234567',    %w( 43 664 1234 567 )
+      it_splits '4366412345678',   %w( 43 664 1234 5678 )
+      it_splits '43664123456789',  %w( 43 664 1234 56789 )
+      it_splits '436641234567890', %w( 43 664 1234 567890 )
     end
 
     describe 'Australia' do
