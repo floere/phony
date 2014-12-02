@@ -357,7 +357,9 @@ describe 'country descriptions' do
       it_splits '9701700123123', ['970', '1', '700', '123', '123']  # Cable Phone Services
     end
     describe 'Italy' do
-      it_splits '3934869528',   ['39', '348', '695', '28']   # Mobile
+      it_splits '39348695281',  ['39', '348', '695', '281']        # Mobile (6-digit subscriber no. - rare, but still used)
+      it_splits '393486952812', ['39', '348', '695', '2812']       # Mobile (7-digit subscriber no. - common)
+      it_splits '3934869528123',['39', '348', '695', '2812', '3']  # Mobile (8-digit subscriber no - new)
       it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
       it_splits '393248644272', ['39', '324', '864', '4272'] # Mobile
       it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma

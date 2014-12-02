@@ -389,8 +389,12 @@ describe 'plausibility' do
         Phony.plausible?('+39 0471 123 456').should be_true
 
         # Mobile
-        Phony.plausible?('+39 335 123 4567').should be_true
         Phony.plausible?('+39 335 123').should be_false
+        Phony.plausible?('+39 335 123 45').should be_false
+        Phony.plausible?('+39 335 123 456').should be_true
+        Phony.plausible?('+39 335 123 4567').should be_true
+        Phony.plausible?('+39 335 123 45678').should be_true
+        Phony.plausible?('+39 335 123 456789').should be_false
       end
 
       it 'is correct for Malaysia' do
