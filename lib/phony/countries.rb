@@ -652,7 +652,15 @@ Phony.define do
 
   # country '385' # Croatia, see special file.
 
-  country '386', trunk('0') | fixed(2) >> split(3, 2, 2) # Slovenia
+  # Slovenia
+  # http://www.itu.int/oth/default.aspx?lang=en&parent=T02020000BE
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Slovenia
+  country '386',
+          trunk('0') |
+          one_of('30','31','40','41','51','64','65','66','67','68','69','70','71')  >> split(3,3) | # Mobile
+          one_of('1','2','3','4','5','7')  >> split(3,4) | # Ljubljana, Maribor, Celje, Kranj, Nova Gorica, Novo mesto
+          fixed(3)                         >> split(2,3)   # catchall
+
   country '387', trunk('0') | fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
   country '388', trunk('0') | fixed(2) >> split(3,2,2) # Group of countries, shared code
   country '389', trunk('0') | fixed(2) >> split(3,2,2) # The Former Yugoslav Republic of Macedonia
