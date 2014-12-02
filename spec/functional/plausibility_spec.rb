@@ -309,6 +309,22 @@ describe 'plausibility' do
         Phony.plausible?('+45 44 55 22 33').should be_true
       end
 
+      it "is correct for Estonia" do
+        # the 5xxxx mobile numbers can be 7 or 8 digits (ndc + subscriber) long
+        Phony.plausible?('+372 532 12345').should be_true
+        Phony.plausible?('+372 532 1234').should be_true
+        Phony.plausible?('+372 532 123').should be_false
+        Phony.plausible?('+372 532 123456').should be_false
+
+        # the 81x/82x are only 8 digits
+        Phony.plausible?('+372 822 12345').should be_true
+        Phony.plausible?('+372 812 12345').should be_true
+        Phony.plausible?('+372 822 1234').should be_false
+        Phony.plausible?('+372 812 1234').should be_false
+        Phony.plausible?('+372 822 123').should be_false
+        Phony.plausible?('+372 822 123456').should be_false
+      end
+
       it 'is correct for Netherlands' do
         Phony.plausible?('+31 6 12 34 56 78').should be_true
         Phony.plausible?('+31 6 12 34 56 7').should be_false

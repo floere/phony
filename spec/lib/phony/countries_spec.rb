@@ -194,7 +194,8 @@ describe 'country descriptions' do
       it_splits '3728001234',  ['372', '800', '1234']   # Freephone
       it_splits '37281231234', ['372', '8123', '1234']  # Mobile
       it_splits '37282231234', ['372', '8223', '1234']  # Mobile
-      it_splits '37283212345', ['372', '832', '12345']  # Mobile
+      it_splits '37252212345', ['372', '5221', '2345']  # Mobile
+      it_splits '3725221234', ['372',  '5221', '234']  # Mobile
       it_splits '37270121234', ['372', '7012', '1234']  # Premium
     end
     describe 'Finland' do
