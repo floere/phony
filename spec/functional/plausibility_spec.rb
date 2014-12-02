@@ -148,6 +148,11 @@ describe 'plausibility' do
         Phony.plausible?('+43 699 00000000').should be_true
         # 663 mobile numbers have 6 digits
         Phony.plausible?('+43 663 000000').should be_true
+        # mobile numbers can have from 7 to 10 digits in the subscriber number
+        Phony.plausible?('+43 664 1234 567').should be_true
+        Phony.plausible?('+43 664 1234 5678').should be_true
+        Phony.plausible?('+43 664 1234 56789').should be_true
+        Phony.plausible?('+43 664 1234 567890').should be_true
       end
 
       it "is correct for Belgian numbers" do
@@ -304,6 +309,22 @@ describe 'plausibility' do
         Phony.plausible?('+45 44 55 22 33').should be_true
       end
 
+      it "is correct for Estonia" do
+        # the 5xxxx mobile numbers can be 7 or 8 digits (ndc + subscriber) long
+        Phony.plausible?('+372 532 12345').should be_true
+        Phony.plausible?('+372 532 1234').should be_true
+        Phony.plausible?('+372 532 123').should be_false
+        Phony.plausible?('+372 532 123456').should be_false
+
+        # the 81x/82x are only 8 digits
+        Phony.plausible?('+372 822 12345').should be_true
+        Phony.plausible?('+372 812 12345').should be_true
+        Phony.plausible?('+372 822 1234').should be_false
+        Phony.plausible?('+372 812 1234').should be_false
+        Phony.plausible?('+372 822 123').should be_false
+        Phony.plausible?('+372 822 123456').should be_false
+      end
+
       it 'is correct for Netherlands' do
         Phony.plausible?('+31 6 12 34 56 78').should be_true
         Phony.plausible?('+31 6 12 34 56 7').should be_false
@@ -384,8 +405,12 @@ describe 'plausibility' do
         Phony.plausible?('+39 0471 123 456').should be_true
 
         # Mobile
-        Phony.plausible?('+39 335 123 4567').should be_true
         Phony.plausible?('+39 335 123').should be_false
+        Phony.plausible?('+39 335 123 45').should be_false
+        Phony.plausible?('+39 335 123 456').should be_true
+        Phony.plausible?('+39 335 123 4567').should be_true
+        Phony.plausible?('+39 335 123 45678').should be_true
+        Phony.plausible?('+39 335 123 456789').should be_false
       end
 
       it 'is correct for Malaysia' do
@@ -427,6 +452,12 @@ describe 'plausibility' do
         Phony.plausible?('+7 960 301 23 45').should be_true
         Phony.plausible?('+7 800 2000 60').should be_false # too short
         Phony.plausible?('796030123451').should be_false # too long
+      end
+
+      it "is correct for Slovenian numbers" do
+        Phony.plausible?('+386 41 123 456').should be_true
+        Phony.plausible?('+386 1 320 1234').should be_true
+        Phony.plausible?('+386 41 123 4567').should be_false
       end
 
       # TODO: more needs to be done here

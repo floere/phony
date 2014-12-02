@@ -45,6 +45,12 @@ describe 'country descriptions' do
       it_splits '4366900000000',   %w( 43 669 0000 0000 )  # Mobile
       it_splits '433161234567891', %w( 43 316 1234567891 ) # Graz
       it_splits '432164123456789', %w( 43 2164 123456789 ) # Rohrau
+
+      # mobile numbers can have from 7 to 10 digits in the subscriber number
+      it_splits '436641234567',    %w( 43 664 1234 567 )
+      it_splits '4366412345678',   %w( 43 664 1234 5678 )
+      it_splits '43664123456789',  %w( 43 664 1234 56789 )
+      it_splits '436641234567890', %w( 43 664 1234 567890 )
     end
 
     describe 'Australia' do
@@ -188,7 +194,8 @@ describe 'country descriptions' do
       it_splits '3728001234',  ['372', '800', '1234']   # Freephone
       it_splits '37281231234', ['372', '8123', '1234']  # Mobile
       it_splits '37282231234', ['372', '8223', '1234']  # Mobile
-      it_splits '37283212345', ['372', '832', '12345']  # Mobile
+      it_splits '37252212345', ['372', '5221', '2345']  # Mobile
+      it_splits '3725221234', ['372',  '5221', '234']  # Mobile
       it_splits '37270121234', ['372', '7012', '1234']  # Premium
     end
     describe 'Finland' do
@@ -243,7 +250,7 @@ describe 'country descriptions' do
       it_splits '302142345678', %w(30 21 4234 5678)
       it_splits '302442345678', %w(30 24 4234 5678)
       it_splits '305034571234', %w(30 50 3457 1234)
-      it_splits '306901234567', %w(30 69 0123 4567)
+      it_splits '306901234567', %w(30 690 123 4567)
       it_splits '307001234567', %w(30 70 0123 4567)
       it_splits '308001001234', %w(30 800 100 1234)
       it_splits '308011001234', %w(30 801 100 1234)
@@ -351,7 +358,9 @@ describe 'country descriptions' do
       it_splits '9701700123123', ['970', '1', '700', '123', '123']  # Cable Phone Services
     end
     describe 'Italy' do
-      it_splits '3934869528',   ['39', '348', '695', '28']   # Mobile
+      it_splits '39348695281',  ['39', '348', '695', '281']        # Mobile (6-digit subscriber no. - rare, but still used)
+      it_splits '393486952812', ['39', '348', '695', '2812']       # Mobile (7-digit subscriber no. - common)
+      it_splits '3934869528123',['39', '348', '695', '2812', '3']  # Mobile (8-digit subscriber no - new)
       it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
       it_splits '393248644272', ['39', '324', '864', '4272'] # Mobile
       it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma
@@ -568,6 +577,11 @@ describe 'country descriptions' do
       it { Phony.split('421912123456').should == ['421', '912', '123456'] } # Mobile
       it { Phony.split('421212345678').should == ['421', '2', '12345678'] } # Bratislava
       it { Phony.split('421371234567').should == ['421', '37', '1234567'] } # Nitra / Other
+    end
+
+    describe 'Slovenia' do
+      it { Phony.split('38651234567').should == ['386', '51', '234', '567'] }  # Mobile
+      it { Phony.split('38611234567').should == ['386', '1', '123', '4567'] }  # LJUBLJANA
     end
 
     describe 'Spain' do
