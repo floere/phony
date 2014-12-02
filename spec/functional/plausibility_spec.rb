@@ -148,6 +148,11 @@ describe 'plausibility' do
         Phony.plausible?('+43 699 00000000').should be_true
         # 663 mobile numbers have 6 digits
         Phony.plausible?('+43 663 000000').should be_true
+        # mobile numbers can have from 7 to 10 digits in the subscriber number
+        Phony.plausible?('+43 664 1234 567').should be_true
+        Phony.plausible?('+43 664 1234 5678').should be_true
+        Phony.plausible?('+43 664 1234 56789').should be_true
+        Phony.plausible?('+43 664 1234 567890').should be_true
       end
 
       it "is correct for Belgian numbers" do
