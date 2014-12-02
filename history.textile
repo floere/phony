@@ -1,3 +1,7 @@
+h2. Version 2.8.4
+
+* Improvements for Slovenia, Austria, Italia, and Estonia (thanks, see #201, #202, #203, #204).
+
 h2. Version 2.8.3
 
 * Further improvements for the UK (thanks, see #198).
