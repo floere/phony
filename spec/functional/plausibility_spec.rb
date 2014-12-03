@@ -368,6 +368,12 @@ describe 'plausibility' do
         Phony.plausible?('+49 800 1234567').should be_true
         Phony.plausible?('+49 1805 878323').should be_true
 
+        # Extended service numbers
+        # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/0800/0800_Nummernplan.pdf?__blob=publicationFile&v=1
+        Phony.plausible?('+49 800 222 3400 10').should be_true
+        Phony.plausible?('+49 800 222 3400 100').should be_true
+        Phony.plausible?('+49 800 222 3400 1000').should be_false
+
         # Following tests implement specifications from
         # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
         # Page 3

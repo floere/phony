@@ -4084,7 +4084,7 @@ service = [
 Phony.define do
    country '49',
      trunk('0', normalize: true) |
-     one_of(*service)        >> split(3,4) |
+     one_of(*service)        >> split(3,1..9) |
      one_of(*mobile_4digits) >> split(3,4) |
      one_of(*mobile_3digits) >> split(4,3..4) |
      one_of(*ndcs2)          >> split(3,2..10) |
