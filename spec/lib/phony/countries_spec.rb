@@ -215,22 +215,23 @@ describe 'country descriptions' do
       it_splits '995596123456', %w(995 596 123 456)
     end
     describe 'Germany' do
-      it_splits '493038625454',  ['49', '30', '386', '25454']   # Berlin
-      it_splits '4932221764542', ['49', '32', '221', '764542']  # Non-Geographical
-      it_splits '4922137683323', ['49', '221', '376', '83323']  # Cologne
-      it_splits '497614767676',  ['49', '761', '476', '7676']   # Freiburg im Breisgau
-      it_splits '4921535100',    ['49', '2153', '510', '0']     # Nettetal-Lobberich
-      it_splits '493434144602',  ['49', '34341', '446', '02']   # Geithain
+      it_splits '493038625454',    ['49', '30', '386', '25454']   # Berlin
+      it_splits '4932221764542',   ['49', '32', '221', '764542']  # Non-Geographical
+      it_splits '4922137683323',   ['49', '221', '376', '83323']  # Cologne
+      it_splits '497614767676',    ['49', '761', '476', '7676']   # Freiburg im Breisgau
+      it_splits '4921535100',      ['49', '2153', '510', '0']     # Nettetal-Lobberich
+      it_splits '493434144602',    ['49', '34341', '446', '02']   # Geithain
 
-      it_splits '491805878323',  ['49', '180', '587', '8323']   # Service number
-      it_splits '491815878323',  ['49', '181', '587', '8323']   # Service number
-      it_splits '498001234567',  ['49', '800', '123', '4567']   # Service number
+      it_splits '491805878323',    ['49', '180', '587', '8323']   # Service number
+      it_splits '491815878323',    ['49', '181', '587', '8323']   # Service number
+      it_splits '498001234567',    ['49', '800', '123', '4567']   # Service number
+      it_splits '49800222340010',  ['49', '800', '222', '340010'] # Service number
 
-      it_splits '4915111231234', ['49', '151', '1123', '1234']  # Mobile number
-      it_splits '4915771231234', ['49', '157', '7123', '1234']  # Mobile number
-      it_splits '491601234567',  ['49', '160', '1234', '567']   # Mobile number
-      it_splits '4916312345678', ['49', '163', '1234', '5678']  # Mobile number
-      it_splits '4915211231234', ['49', '1521', '123', '1234']  # Mobile number
+      it_splits '4915111231234',   ['49', '151', '1123', '1234']  # Mobile number
+      it_splits '4915771231234',   ['49', '157', '7123', '1234']  # Mobile number
+      it_splits '491601234567',    ['49', '160', '1234', '567']   # Mobile number
+      it_splits '4916312345678',   ['49', '163', '1234', '5678']  # Mobile number
+      it_splits '4915211231234',   ['49', '1521', '123', '1234']  # Mobile number
     end
     describe 'Ghana' do
       it_splits '233302123456', ['233', '30', '212', '3456'] # Mobile Vodafone, Accra
