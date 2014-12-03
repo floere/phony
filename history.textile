@@ -1,3 +1,7 @@
+h2. Version 2.8.5
+
+* Improvements for German 0800 numbers (thanks, see #205).
+
 h2. Version 2.8.4
 
 * Improvements for Slovenia, Austria, Italia, and Estonia (thanks, see #201, #202, #203, #204).
