@@ -426,6 +426,16 @@ describe 'plausibility' do
         Phony.plausible?('+60 14 1234 12345').should be_false  # too long
       end
 
+      it 'is correct for Mexico' do
+        Phony.plausible?('+52 1 55 1212 1212').should be_true
+        Phony.plausible?('+52 55 1212 1212').should be_true
+        Phony.plausible?('+52 664 123 1212').should be_true
+        Phony.plausible?('+52 1 664 123 1212').should be_true
+        Phony.plausible?('+52 044 664 123 1212').should be_true
+        Phony.plausible?('+52 1 55 1212 1212 3').should be_false  # too long
+        Phony.plausible?('+52 55 1212 121').should be_false     # too short
+      end
+
       it "is correct for Netherlands Antilles" do
         Phony.plausible?('+599 1234567').should be_true
         Phony.plausible?('+599 123456').should be_false # too short

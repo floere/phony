@@ -426,8 +426,11 @@ describe 'country descriptions' do
       it_splits '35651231234', ['356', '5123', '1234'] # Voice Mail
     end
     describe 'Mexico' do
-      it_splits '525512121212', ['52', '55', '12', '12', '12', '12'] # Mexico City
-      it_splits '526641231212', ['52', '664', '123', '12', '12']     # Tijuana
+      it_splits '525512121212',  ['52', '55', '1212', '1212']         # Mexico City
+      it_splits '5215512121212', ['52', '1', '55', '1212', '1212']    # Mexico City cell phone from abroad
+      it_splits '526641231212',  ['52', '664', '123', '1212']         # Tijuana
+      it_splits '5216641231212', ['52', '1', '664', '123', '1212']    # Tijuana cell phone from abroad
+      it_splits '520446641231212', ['52', '044', '664', '123', '1212']   # Tijuana cell phone local from landline
     end
     describe 'Monaco' do
       it_splits '37741123456', ['377', '41', '12', '34', '56'] # Mobile

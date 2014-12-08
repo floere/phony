@@ -158,10 +158,14 @@ Phony.define do
 
   # Mexico.
   #
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Mexico
+  # http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#Mexico
   country '52',
-          match(/^(0\d{2})\d+$/)   >> split(2,2,2,2) |
-          match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
-          match(/^(\d{3})\d+$/)    >> split(3,2,2)     # catchall.
+          match(/^(0\d{1,2})\d{10}$/)   >> split(3,3,4)   | # prefixed numbers from within Mexico (e.g. 045 + 10 digits or 02 + 10 digits)
+          match(/^(1)(33|55|81)\d{8}$/) >> split(2,4,4)   | # Mexico D.F, Guadalajara, Monterrey cell phone from abroad (e.g. 52 1 55 xxxx xxxx)
+          match(/^(33|55|81)\d{8}$/)    >> split(4,4)     | # Mexico D.F, Guadalajara, Monterrey from within Mexico
+          match(/^(1)(\d{3})\d{7}$/)    >> split(3,3,4)   | # cell phone from abroad
+          match(/^(\d{3})\d{7}$/)       >> split(3,4)       # catchall.
 
   # Cuba.
   #
