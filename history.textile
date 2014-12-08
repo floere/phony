@@ -1,3 +1,8 @@
+h2. Version 2.8.6
+
+* Improvements for Mexican numbers (thanks, see #206).
+
+
 h2. Version 2.8.5
 
 * Improvements for German 0800 numbers (thanks, see #205).
