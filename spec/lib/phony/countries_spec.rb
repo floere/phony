@@ -553,6 +553,9 @@ describe 'country descriptions' do
       it { Phony.split('821027975588').should == ['82', '10', '2797', '5588'] } # mobile
       it { Phony.split('821087971234').should == ['82', '10', '8797', '1234'] } # mobile
     end
+    describe 'Serbia' do
+      it_splits '38163512529', ['381', '63', '512', '529']
+    end
     describe 'South Sudan' do
       it_splits '211123212345', ['211', '123', '212', '345']
       it_splits '211973212345', ['211', '973', '212', '345']
