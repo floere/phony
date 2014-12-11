@@ -1,7 +1,10 @@
+h2. Version 2.8.7
+
+* Various improvements (thanks, see #207).
+
 h2. Version 2.8.6
 
 * Improvements for Mexican numbers (thanks, see #206).
-
 
 h2. Version 2.8.5
 
