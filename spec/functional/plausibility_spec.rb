@@ -460,7 +460,7 @@ describe 'plausibility' do
         Phony.plausible?('+351 800 123456').should be_true
         Phony.plausible?('+351 90 1234567').should be_true
         Phony.plausible?('+351 90 123456').should be_false
-        Phony.plausible?('+351 123 1234567').should be_true
+        Phony.plausible?('+351 123 1234567').should be_false
       end
 
       it "is correct for Russia" do
