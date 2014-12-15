@@ -551,10 +551,10 @@ Phony.define do
   # Portugal.
   #
   country '351',
-          one_of('700', '800') >> split(3,3) | # Service.
-          match(/^(9\d)\d+$/)  >> split(3,4) | # Mobile.
-          one_of('21', '22')   >> split(3,4) | # Lisboa & Porto
-          fixed(3)             >> split(3,4)   # 3-digit NDCs
+          match(/^([78]\d\d)\d+$/) >> split(3,3) | # Service.
+          match(/^(9\d)\d+$/)  >> split(3,4)     | # Mobile.
+          one_of('21', '22')   >> split(3,4)     | # Lisboa & Porto
+          fixed(3)             >> split(3,3)       # 3-digit NDCs
 
   # Luxembourg
   #
