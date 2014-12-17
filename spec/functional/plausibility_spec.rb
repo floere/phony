@@ -777,7 +777,8 @@ describe 'plausibility' do
                                                    '+378 512 345 6789']
       it_is_correct_for 'Sao Tome and Principe', :samples => ['+239 2 220 012',
                                                               '+239 9 920 012']
-      it_is_correct_for 'Saudi Arabia (Kingdom of)', :samples => '+966 5 296 3727'
+      it_is_correct_for 'Saudi Arabia (Kingdom of)', :samples => ['+966 50 296 3727',
+                                                                  '+966 011 307 4838']
       it_is_correct_for 'Senegal', :samples => '+221  1234 56789'
       it_is_correct_for 'Serbia', :samples => ['+381 800 123 45',
                                                ['+381 10 123 45', '+381 10 123 456'],

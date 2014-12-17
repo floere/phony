@@ -992,7 +992,8 @@ describe 'country descriptions' do
       it_splits '3785123456789', ['378', false, '512', '345', '6789']
     end
     describe 'Saudi Arabia (Kingdom of)' do
-      it_splits '96628528423', %w(966 2 852 8423)
+      it_splits '9660208528423', %w(966 020 852 8423)
+      it_splits '966506306201',  %w(966 50 630 6201)
     end
     describe 'Senegal' do
       it_splits '221123456789', ['221', false, '1234', '56789']
