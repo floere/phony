@@ -1,3 +1,7 @@
+h2. Version 2.8.9
+
+* Improvements for Saudi Arabian numbers (thanks, see #212).
+
 h2. Version 2.8.8
 
 * Improvements for Portuguese numbers (thanks, see #210).
