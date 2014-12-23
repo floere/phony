@@ -12,7 +12,7 @@ describe Phony::CountryCodes do
     end
     it 'formats correctly' do
       old_format = @countries.international_absolute_format
-      @countries.international_absolute_format = '!!! %s%s%s'
+      @countries.international_absolute_format = '!!! %s%s%s%s%s'
 
       @countries.formatted('41443643532', :format => :international).should eql '!!! 41 44 364 35 32'
 
@@ -25,7 +25,7 @@ describe Phony::CountryCodes do
     end
     it 'formats correctly' do
       old_format = @countries.international_relative_format
-      @countries.international_relative_format = '000 %s%s%s'
+      @countries.international_relative_format = '000 %s%s%s%s%s'
 
       @countries.formatted('41443643532', :format => :international_relative).should eql '000 41 44 364 35 32'
 
@@ -38,7 +38,7 @@ describe Phony::CountryCodes do
     end
     it 'formats correctly' do
       old_format = @countries.national_format
-      @countries.national_format = '%s%s'
+      @countries.national_format = '%s%s%s%s'
 
       # Removes CC 1, but adds national call prefix 1.
       #

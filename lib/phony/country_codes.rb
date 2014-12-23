@@ -10,11 +10,12 @@ module Phony
     attr_accessor :international_absolute_format, :international_relative_format, :national_format
 
     def initialize
-      @international_absolute_format = '+%s%s%s'
-      @international_relative_format = '00%s%s%s'
-      @national_format               = '%s%s'
+      @international_absolute_format = '+%s%s%s%s%s'
+      @international_relative_format = '00%s%s%s%s%s'
+      @national_format               = '%s%s%s%s'
 
       @default_space = ' '
+      @default_local_space = ' '
     end
 
     def self.instance
@@ -84,48 +85,50 @@ module Phony
     end
 
     def format number, options = {}
-      format_cc_ndc_local options[:format], options[:spaces] || @default_space, *split(number)
+      format_cc_ndc_local options[:format],
+        options[:spaces] || @default_space,
+        options[:local_spaces] || options[:spaces] || @default_local_space,
+        *split(number)
     end
     alias formatted format
 
     # Formats country code and national destination code.
     #
-    def format_cc_ndc_local format, space, cc, trunk, ndc, *parts
-      cc_ndc = format_cc_ndc format, space, cc, trunk, ndc
-      local  = if parts.empty?
-                 cc_ndc = cc_ndc.slice 0...cc_ndc.rindex(space.to_s)
-                 EMPTY_STRING
-               else
-                 format_local(space, parts) unless parts.empty?
-               end
-      cc_ndc.empty?? local : "#{cc_ndc}#{space}#{local}"
+    def format_cc_ndc_local format, space, local_space, cc, trunk, ndc, *parts
+      local = if parts.empty?
+                EMPTY_STRING
+              else
+                format_local(local_space, parts) unless parts.empty?
+              end
+      format_cc_ndc format, space, cc, trunk, ndc, local
+      
+      # cc_ndc = cc_ndc.slice 0...cc_ndc.rindex(space.to_s) if parts.empty?
     end
-    #
-    # TODO This method needs an overhaul.
-    #
-    def format_cc_ndc format, space, cc, trunk, ndc
+    def format_cc_ndc format, space, cc, trunk, ndc, local
       case format
+      when String
+        format % { :cc => cc, :ndc => ndc, :local => local }
       when nil, :international_absolute, :international, :+
         ndc ?
-          @international_absolute_format % [cc, space, ndc] :
-          @international_absolute_format % [cc, nil, nil]
+          @international_absolute_format % [cc, space, ndc, space, local] :
+          @international_absolute_format % [cc, space, local, nil, nil]
       when :international_relative
         ndc ?
-          @international_relative_format % [cc, space, ndc] :
-          @international_relative_format % [cc, nil, nil]
+          @international_relative_format % [cc, space, ndc, space, local] :
+          @international_relative_format % [cc, space, local, nil, nil]
       when :national
         # Replaces the %s in the trunk code with a "space".
         trunk = trunk % space if trunk && trunk.size > 1
         ndc && !ndc.empty? ?
-          @national_format % [trunk, ndc] :
-          @national_format % [trunk, nil]
+          @national_format % [trunk, ndc, space, local] :
+          @national_format % [trunk, nil, nil, nil]
       when :local
-        EMPTY_STRING
+        local
       end
     end
-    def format_local space, parts_ary
+    def format_local local_space, parts_ary
       parts_ary.compact!
-      parts_ary.join space.to_s
+      parts_ary.join local_space.to_s
     end
 
     #
