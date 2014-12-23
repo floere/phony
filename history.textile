@@ -1,3 +1,10 @@
+h2. Version 2.9.0
+
+* Add String to @Phony.format@. Usage:
+  @Phony.format('71234567890', :format => '+%{cc} (%{ndc}) %{local}').should eql '+7 (123) 45 67890'@
+* Add @:local_spaces@ option to @Phony.format@. Usage:
+  Phony.format('41441231212', :local_spaces => '-').should eql '+41 44 123-12-12'
+
 h2. Version 2.8.9
 
 * Improvements for Saudi Arabian numbers (thanks, see #212).
