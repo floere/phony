@@ -110,19 +110,19 @@ ndcs_with_6_subscriber_digits = %w(3012 3022 3412 3435 3439 3452 3456 3462 3463 
   862 8634 8635 8636 8639 8652 8662 8672 8712 8722 8732 8772 8782 8793
 )
 
-ndcs_with_7_subscriber_digits = %w(342 343 347 351 383 391 473 495 496 498 499 812 818 831 843 844 846 861 862 863 
-  901 902 903 904 905 906 908 909 910 911 912 913 914 915 916 917 918 919 920 921 922 923 924 925 926 927 928 929 
-  930 931 932 933 934 936 937 938 950 951 952 953 960 961 962 963 964 965 967 968 980 981 982 983 984 985 987 988 
+ndcs_with_7_subscriber_digits = %w(342 343 347 351 383 391 473 495 496 498 499 812 818 831 843 844 846 861 862 863
+  901 902 903 904 905 906 908 909 910 911 912 913 914 915 916 917 918 919 920 921 922 923 924 925 926 927 928 929
+  930 931 932 933 934 936 937 938 950 951 952 953 960 961 962 963 964 965 967 968 980 981 982 983 984 985 987 988
   989 997
 )
 
 Phony.define do
-  country '7', 
+  country '7',
     trunk('8', normalize: false) |
-    one_of(ndcs_with_5_subscriber_digits)  >> split(1, 4) |
-    one_of(ndcs_with_6_subscriber_digits)  >> split(2, 4) |
-    one_of(ndcs_with_7_subscriber_digits)  >> split(3, 4) |
-    one_of(%w(800))                        >> split(3, 4) | # Russia free number
+    one_of(ndcs_with_5_subscriber_digits)  >> split(1, 2, 2) |
+    one_of(ndcs_with_6_subscriber_digits)  >> split(2, 2, 2) |
+    one_of(ndcs_with_7_subscriber_digits)  >> split(3, 2, 2) |
+    one_of(%w(800))                        >> split(3, 2, 2) | # Russia free number
     one_of(%w(995344 9971 99744 9976 997)) >> split(2, 4) | # South Osetia
     fixed(3)                               >> split(2, 5)
 end
