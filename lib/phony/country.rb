@@ -3,7 +3,8 @@ module Phony
   #
   #
   class Country
-
+    
+    attr_reader :format, :space, :local_space
     attr_accessor :codes
 
     #
@@ -26,6 +27,9 @@ module Phony
     def with cc, options = {}
       @cc           = cc
       @invalid_ndcs = options[:invalid_ndcs] || []
+      @format       = options[:format]
+      @space        = options[:space]
+      @local_space  = options[:local_space]
     end
 
     # A number is split with the code handlers as given in the initializer.

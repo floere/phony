@@ -70,13 +70,13 @@ describe 'Phony#format' do
         Phony.format(Phony.normalize('+370 800 12345'), :format => :international).should eql '+370 800 12 345'
       end
       it 'should format Russian numbers' do
-        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :international).should eql '+7 812 123 45 67'
+        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :international).should eql '+7 812 123-45-67'
       end
       it 'should format Russian numbers' do
         Phony.format(Phony.normalize('+370 800 12345'), :format => :national).should eql '8800 12 345'
       end
       it 'should format Russian numbers' do
-        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :national).should eql '8812 123 45 67'
+        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :national).should eql '8812 123-45-67'
       end
     end
     describe 'international' do

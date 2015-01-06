@@ -80,15 +80,22 @@ module Phony
     # Splits this number into cc, ndc and locally split number parts.
     #
     def split number
+      country, *cc_split_rest = internal_split number
+      cc_split_rest
+    end
+    
+    def internal_split number
       country, cc, rest = split_cc number
-      [cc, *country.split(rest)]
+      [country, cc, *country.split(rest)]
     end
 
     def format number, options = {}
-      format_cc_ndc_local options[:format],
-        options[:spaces] || @default_space,
-        options[:local_spaces] || options[:spaces] || @default_local_space,
-        *split(number)
+      country, *split_number = internal_split number
+      format_cc_ndc_local \
+        options[:format]       || country.format,
+        options[:spaces]       || country.space                           || @default_space,
+        options[:local_spaces] || country.local_space || options[:spaces] || @default_local_space,
+        *split_number
     end
     alias formatted format
 
