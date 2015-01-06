@@ -7,7 +7,7 @@ describe 'Phony#format' do
       Phony.formatted('41443643532').should eql '+41 44 364 35 32'
     end
   end
-  
+
   describe 'with templates' do
     it 'handles a basic template correctly' do
       Phony.format('41443643532', :format => 'A%{cc}B%{ndc}C%{local}').should eql 'A41B44C364 35 32'
@@ -25,7 +25,7 @@ describe 'Phony#format' do
   end
 
   describe 'cases' do
-    
+
     describe 'exceptions' do
       it 'raises on nil' do
         expect {
@@ -70,13 +70,13 @@ describe 'Phony#format' do
         Phony.format(Phony.normalize('+370 800 12345'), :format => :international).should eql '+370 800 12 345'
       end
       it 'should format Russian numbers' do
-        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :international).should eql '+7 812 123 4567'
+        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :international).should eql '+7 812 123 45 67'
       end
       it 'should format Russian numbers' do
         Phony.format(Phony.normalize('+370 800 12345'), :format => :national).should eql '8800 12 345'
       end
       it 'should format Russian numbers' do
-        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :national).should eql '8812 123 4567'
+        Phony.format(Phony.normalize('+7 812 123 4567'), :format => :national).should eql '8812 123 45 67'
       end
     end
     describe 'international' do
@@ -183,7 +183,7 @@ describe 'Phony#format' do
         Phony.format('493038625454', :format => :local).should eql '386 25454'
       end
     end
-    
+
   end
 
 end
