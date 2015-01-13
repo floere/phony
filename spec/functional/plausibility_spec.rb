@@ -485,6 +485,14 @@ describe 'plausibility' do
         Phony.plausible?('+41 44 111 22').should be_false
       end
 
+      it "is correct for Swedish numbers" do
+        Phony.plausible?('+46 8 506 10 60').should be_true
+        Phony.plausible?('+46 8 506 106 00').should be_true
+        Phony.plausible?('+46 19 764 22 00').should be_true
+        Phony.plausible?('+46 19 20 88 50').should be_true
+        Phony.plausible?('+46 19 20 88').should be_false # too short
+      end
+
       it "is correct for Vietnamese numbers" do
         Phony.plausible?('+84 8 3827 9666').should be_true
         Phony.plausible?('+84 4 3926 1720').should be_true

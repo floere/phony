@@ -54,9 +54,11 @@ service = [
 ]
 
 Phony.define do
-  country '46', 
+  country '46',
     trunk('0') |
     one_of(service)       >> split(3,3)   |
-    one_of(ndcs + mobile) >> split(3,2,2) |
+    one_of(ndcs + mobile) >> matched_split(
+      /^\d{6}$/ => [2, 2, 2], /^\d{7}$/ => [3, 2, 2], /^\d{8}$/ => [3, 2, 3]
+    ) |
     fixed(3)              >> split(3,3,2)   # catchall
 end
