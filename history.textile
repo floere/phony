@@ -1,3 +1,7 @@
+h2. Version 2.10.1
+
+* Improvements for Swedish numbers (thanks, see #217).
+
 h2. Version 2.10.0
 
 * Add default format, space, and local space options to country. See e.g. Russia for a default local_space.
