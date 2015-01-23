@@ -267,6 +267,8 @@ describe 'plausibility' do
         Phony.plausible?("+85588234567").should be_false     # Metfone (too short)
         Phony.plausible?("+855972345678").should be_true     # Metfone (7 digit id)
         Phony.plausible?("+85597234567").should be_false     # Metfone (too short)
+        Phony.plausible?("+855714822684").should be_true     # Metfone (7 digit id)
+        Phony.plausible?("+85571482268").should be_false     # Metfone (too short)
 
         Phony.plausible?("+85513234567").should be_true      # qb (6 digit id)
         Phony.plausible?("+855132345678").should be_false    # qb (too long)

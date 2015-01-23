@@ -66,6 +66,7 @@ six_digit_mobile_prefixes = [
 seven_digit_mobile_prefixes = [
   '31', # Beeline
   '38', # CooTel
+  '71', # Metfone
   '76', # Mobitel
   '88', # Metfone
   '96', # Smart
