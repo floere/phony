@@ -1,3 +1,7 @@
+h2. Version 2.10.2
+
+* Improvements for Cambodian and Italian numbers (thanks, see #222).
+
 h2. Version 2.10.1
 
 * Improvements for Swedish numbers (thanks, see #217).
