@@ -114,6 +114,16 @@ Phony.define do
                 one_of(*service)     >> split(3,3) |
                 one_of(*mobile)      >> split(3,4,-1..1) |
                 one_of(*ndcs_2digit) >> split(4,4) |
-                one_of(*ndcs_3digit) >> split(6..7) |
-                one_of(*ndcs_4digit) >> split(3,3)
+                one_of(*ndcs_3digit) >> matched_split(
+                  /^1\d{6}$/ => [7],
+                  /^1\d{7}$/ => [8],
+                  /^[^1]\d{5}$/ => [6],
+                  /^[^1]\d{6}$/ => [7]
+                ) |
+                one_of(*ndcs_4digit) >> matched_split(
+                /^1\d{5}$/ => [6],
+                /^1\d{6}$/ => [7],
+                /^[^1]\d{4}$/ => [5],
+                /^[^1]\d{5}$/ => [3,3]
+                )
 end
