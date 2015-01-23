@@ -410,6 +410,9 @@ describe 'plausibility' do
 
         Phony.plausible?('+39 0471 123 456').should be_true
 
+        # Issue #221
+        Phony.plausible?('+39 081 1925 2698').should be_true
+
         # Mobile
         Phony.plausible?('+39 335 123').should be_false
         Phony.plausible?('+39 335 123 45').should be_false
