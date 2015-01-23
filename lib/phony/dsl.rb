@@ -66,7 +66,12 @@ module Phony
       none >> split(10)
     end
     
+    # This country uses a trunk code.
     #
+    # Examples:
+    #  * Hungary uses 06.
+    #  * North America uses 1.
+    #  * Most countries which use a trunk code use 0.
     #
     def trunk code, options = {}
       TrunkCode.new code, options
@@ -84,9 +89,9 @@ module Phony
     #  * options: Set :zero to false to not add a zero on format :national.
     #
     # Example:
-    #   country '33', fixed(1) >> split(2,2,2,2) # France, uses a fixed NDC of size 1.
+    #   # France, uses a fixed NDC of size 1.
+    #   country '33', fixed(1) >> split(2,2,2,2)
     #
-
     def fixed length, options = {}
       options[:zero] = true if options[:zero].nil?
       NationalSplitters::Fixed.instance_for length, options
@@ -112,7 +117,9 @@ module Phony
     #   * Can contain :max_length => number to denote a maximum NDC length.
     #
     # Example:
-    #   country '51', one_of('103', '105') >> split(3,3) # If it's either 103 or 105, then split ...
+    #   country '51',
+    #     # If it's either 103 or 105, then split ...
+    #     one_of('103', '105') >> split(3,3)
     #
     def one_of *ndcs
       options = Hash === ndcs.last ? ndcs.pop : {}
@@ -149,6 +156,8 @@ module Phony
 
     # Splits the number into groups of given sizes.
     #
+    # Also takes ranges.
+    #
     # Example:
     #   match(/^(0\d{2})\d+$/) >> split(2,2,2,2) # If it matches, split in 4 groups of size 2.
     #
@@ -160,20 +169,19 @@ module Phony
     # Matches on the rest of the number and splits according
     # to the given value for the regexp key.
     #
+    # Also takes ranges.
+    #
     # Options:
     #   * fallback A fallback amount of group sizes in case it doesn't match.
     #
     # Example:
+    #   # Norway
     #   country '47',
     #     none >> matched_split(/^[1].*$/   => [3],
     #                           /^[489].*$/ => [3,2,3],
     #                           :fallback   => [2,2,2,2])
     #
     def matched_split options = {}
-      # # TODO: Refactor: it's a workaround. It creates high coupling with Phony::LocalSplitters::Regex.
-      # options.each do |_, format|
-      #   format << format.pop + 10
-      # end
       Phony::LocalSplitters::Regex.instance_for options
     end
     
