@@ -773,7 +773,7 @@ describe 'country descriptions' do
       it_splits '594594123456', %w(594 594 123 456)
     end
     describe "French Polynesia (Territoire français d'outre-mer)" do
-      it_splits '689219889', ['689', false, '219', '889']
+      it_splits '68921988900', ['689', false, '21', '98', '89', '00']
     end
     describe 'Gabonese Republic' do
       it_splits '2411834375', ['241', '1', '834', '375']

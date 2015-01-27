@@ -842,7 +842,7 @@ Phony.define do
   country '686', none >> split(2,3) # Kiribati (Republic of) http://www.wtng.info/wtng-686-ki.html
   country '687', none >> split(3,3) # New Caledonia (Territoire français d'outre-mer) http://www.wtng.info/wtng-687-nc.html
   country '688', none >> split(5) # Tuvalu http://www.wtng.info/wtng-688-tv.html
-  country '689', none >> split(3,3) # French Polynesia (Territoire français d'outre-mer) http://www.wtng.info/wtng-689-pf.html
+  country '689', none >> split(2,2,2,2) # French Polynesia (Territoire français d'outre-mer) http://www.wtng.info/wtng-689-pf.html
 
   country '690', fixed(1) >> split(3) # Tokelau http://www.wtng.info/wtng-690-tk.html
   country '691', none >> split(3, 4) # Micronesia (Federated States of) http://www.wtng.info/wtng-691-fm.html
