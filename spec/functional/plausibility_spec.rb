@@ -579,7 +579,7 @@ describe 'plausibility' do
       it_is_correct_for 'Faroe Islands', :samples => '+298  969 597'
       it_is_correct_for 'Fiji (Republic of)', :samples => '+679  998 2441'
       it_is_correct_for 'French Guiana (French Department of)', :samples => '+594 594 123 456'
-      it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689  872 784 00'
+      it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689 87 27 84 00'
       it_is_correct_for 'Gabonese Republic', :samples => '+241 1 627 739'
       it_is_correct_for 'Gambia', :samples => '+220  989 5148'
       it_is_correct_for 'Germany', :samples => [
