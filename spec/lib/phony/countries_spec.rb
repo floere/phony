@@ -91,6 +91,7 @@ describe 'country descriptions' do
       it_splits '3245551414', ['32', '4', '555', '14', '14']   # Liège
       it_splits '3216473200', ['32', '16', '47', '32', '00']   # Leuven
       it_splits '32475279584', ['32', '475', '279584']     # mobile
+      it_splits '32468279584', ['32', '468', '279584']     # mobile (Telenet)
       it_splits '3270123123', ['32', '70', '123', '123']   # Bus Service?
     end
 
