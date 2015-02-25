@@ -1,3 +1,7 @@
+h2. Version 2.11.0
+
+* Fix for national number formatting (thanks, see #227).
+
 h2. Version 2.10.5
 
 * Improvements for Nigeria (thanks, see #226).
