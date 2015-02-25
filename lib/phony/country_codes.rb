@@ -80,7 +80,7 @@ module Phony
     # Splits this number into cc, ndc and locally split number parts.
     #
     def split number
-      country, *cc_split_rest = internal_split number
+      _, *cc_split_rest = internal_split number
       cc_split_rest
     end
     
