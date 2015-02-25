@@ -340,11 +340,12 @@ Phony.define do
   # Nigeria
   # Wikipedia says 3 4 split, many local number with no splitting
   country '234',
-    one_of('1', '2', '9')   >> split(3,4) | # Lagos, Ibadan and Abuja
-    match(/^(702\d)\d+$/)   >> split(3,4) | # Mobile
-    match(/^(70[3-9])\d+$/) >> split(3,4) | # Mobile
-    match(/^(8[01]\d)\d+$/) >> split(3,4) | # Mobile
-    fixed(2)                >> split(3,4)   # 2-digit NDC
+    match(/^(702\d)\d+$/)    >> split(3,4) | # Mobile
+    match(/^(70[3-9])\d+$/)  >> split(3,4) | # Mobile
+    match(/^(8[01]\d)\d+$/)  >> split(3,4) | # Mobile
+    match(/^(90[2359])\d+$/) >> split(3,4) | # Mobile
+    one_of('1', '2', '9')    >> split(3,4) | # Lagos, Ibadan and Abuja
+    fixed(2)                 >> split(3,4)   # 2-digit NDC
 
   country '235', none >> split(4,4) # Chad http://www.wtng.info/wtng-235-td.html
   country '236', none >> split(4,4) # Central African Republic http://www.wtng.info/wtng-236-cf.html

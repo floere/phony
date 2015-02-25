@@ -459,6 +459,7 @@ describe 'plausibility' do
       it 'is correct for Nigerian numbers' do
         Phony.plausible?('+234 807 766 1234').should be_true
         Phony.plausible?('+234 807 766 123').should be_false
+        Phony.plausible?('+234 909 123 1234').should be_true
       end
 
       it "is correct for Portugese numbers" do

@@ -942,6 +942,13 @@ describe 'country descriptions' do
     describe 'Niger' do
       it_splits '22712345678', ['227', false, '1234', '5678']
     end
+    describe 'Nigeria' do
+      it_splits '23411231234', %w(234 1 123 1234) # Lagos
+      it_splits '23470261231234', %w(234 7026 123 1234) # Mobile CDMA
+      it_splits '2347071231234', %w(234 707 123 1234) # Mobile
+      it_splits '2348051231234', %w(234 805 123 1234) # Mobile
+      it_splits '2349091231234', %w(234 909 123 1234) # Mobile
+    end
     describe 'Niue' do
       it_splits '6833651', ['683', false, '3651']
     end
