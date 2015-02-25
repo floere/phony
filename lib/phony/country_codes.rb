@@ -107,6 +107,7 @@ module Phony
               else
                 format_local(local_space, parts) unless parts.empty?
               end
+      
       format_cc_ndc format, space, cc, trunk, ndc, local
       
       # cc_ndc = cc_ndc.slice 0...cc_ndc.rindex(space.to_s) if parts.empty?
@@ -128,7 +129,7 @@ module Phony
         trunk = trunk % space if trunk && trunk.size > 1
         ndc && !ndc.empty? ?
           @national_format % [trunk, ndc, space, local] :
-          @national_format % [trunk, nil, nil, nil]
+          @national_format % [trunk, nil, nil,   local]
       when :local
         local
       end
