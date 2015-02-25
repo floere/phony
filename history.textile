@@ -1,3 +1,7 @@
+h2. Version 2.10.5
+
+* Improvements for Nigeria (thanks, see #226).
+
 h2. Version 2.10.4
 
 * Improvements for Belgium (thanks, see #224).
