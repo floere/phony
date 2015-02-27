@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # All countries, ordered by country code.
 #
 # Definitions are in the format:
@@ -249,7 +250,7 @@ Phony.define do
   #
   country '66',
     trunk('0') |
-    match(/\A(8\d\d)\d+\z/) >> split(3,3) | # mobile
+    match(/\A([89]\d\d)\d+\z/) >> split(3,3) | # mobile
     one_of('2') >> split(3,4) | # Bangkok
     fixed(2)    >> split(3,3)   # Rest
 

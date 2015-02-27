@@ -568,6 +568,7 @@ describe 'country descriptions' do
       it_splits '6621231234',  ['66', '2', '123', '1234']  # Bangkok
       it_splits '6636123123',  ['66', '36', '123', '123']  # Lop Buri
       it_splits '66851234567', ['66', '851', '234', '567'] # Lop Buri
+      it_splits '66921234567', ['66', '921', '234', '567'] # mobile
     end
     describe 'Tunesia' do
       it_splits '21611231234', ['216', '1', '123', '1234'] # Ariana
