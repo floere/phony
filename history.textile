@@ -1,3 +1,7 @@
+h2. Version 2.11.1
+
+* Fix for Thailand (thanks, see #225, #228).
+
 h2. Version 2.11.0
 
 * Fix for national number formatting (thanks, see #227).
