@@ -1,3 +1,8 @@
+h2. Version 2.12.0
+
+* Add experimental trunk option to @format@.
+  @Phony.format('14152223333', :format => :national, :trunk => false).should eql '415 222 3333'@
+
 h2. Version 2.11.1
 
 * Fix for Thailand (thanks, see #225, #228).
