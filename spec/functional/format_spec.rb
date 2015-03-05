@@ -40,8 +40,6 @@ describe 'Phony#format' do
       it 'formats Swiss national numbers' do
         Phony.format('41443643532', :format => :national).should eql '044 364 35 32'
       end
-      # TODO
-      #
       it 'formats Swiss service numbers' do
         Phony.format('41800112233').should eql '+41 800 112 233'
       end
@@ -85,6 +83,12 @@ describe 'Phony#format' do
     describe 'international' do
       it 'formats north american numbers' do
         Phony.format('18091231234', :format => :international).should eql '+1 809 123 1234'
+      end
+      it 'formats north american numbers' do
+        # Gets a trunk code.
+        Phony.format('14152223333', :format => :national).should eql '1 415 222 3333'
+        # Does not show a trunk code.
+        Phony.format('14152223333', :format => :national, :trunk => false).should eql '415 222 3333'
       end
       it 'formats austrian numbers' do
         Phony.format('43198110', :format => :international).should eql '+43 1 98110'

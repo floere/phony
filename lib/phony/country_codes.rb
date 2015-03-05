@@ -90,12 +90,15 @@ module Phony
     end
 
     def format number, options = {}
-      country, *split_number = internal_split number
+      country, cc, trunk, ndc, *parts = internal_split number
       format_cc_ndc_local \
         options[:format]       || country.format,
         options[:spaces]       || country.space                           || @default_space,
         options[:local_spaces] || country.local_space || options[:spaces] || @default_local_space,
-        *split_number
+        cc,
+        options[:trunk] == false ? nil : trunk,
+        ndc,
+        *parts
     end
     alias formatted format
 
