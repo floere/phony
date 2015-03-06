@@ -26,7 +26,7 @@ module Phony
     #
     def with cc, options = {}
       @cc           = cc
-      @invalid_ndcs = options[:invalid_ndcs] || []
+      @invalid_ndcs = options[:invalid_ndcs]
       @format       = options[:format]
       @space        = options[:space]
       @local_space  = options[:local_space]
@@ -97,7 +97,7 @@ module Phony
       #
       return false if ndc.nil?
       return false if ndc && ndc.empty?
-      return false if ( !@invalid_ndcs.empty? && ndc.match(Regexp.union(@invalid_ndcs)) )
+      return false if @invalid_ndcs && @invalid_ndcs === ndc
 
       # # A valid range for the rest is 0 or 3+ total digits.
       # #
