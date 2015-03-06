@@ -97,7 +97,7 @@ module Phony
       #
       return false if ndc.nil?
       return false if ndc && ndc.empty?
-      return false if @invalid_ndcs.include? ndc # TODO Refactor.
+      return false if ( !@invalid_ndcs.empty? && ndc.match(Regexp.union(@invalid_ndcs)) )
 
       # # A valid range for the rest is 0 or 3+ total digits.
       # #

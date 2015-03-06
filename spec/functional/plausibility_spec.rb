@@ -519,6 +519,8 @@ describe 'plausibility' do
         Phony.plausible?('1-800-692-7753').should be_true
         Phony.plausible?('1-911').should be_false
         Phony.plausible?('1-911-123-1234').should be_false
+        Phony.plausible?('1-411-123-1234').should be_false
+        Phony.plausible?('1-040-123-1234').should be_false
         Phony.plausible?('143466677777').should be_false # too long
         Phony.plausible?('143466677').should be_false # too short
 
