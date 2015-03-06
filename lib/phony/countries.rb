@@ -35,7 +35,7 @@ Phony.define do
     # The US has a delimiter between NDC and local number.
     trunk('1%s', normalize: true) | # http://en.wikipedia.org/wiki/Trunk_prefix
     fixed(3) >> split(3,4),
-    :invalid_ndcs => ['911']
+    :invalid_ndcs => [/[0-2]{1}\d{2}/, /[0-9]{1}11/]
 
   # Kazakhstan (Republic of) & Russsian Federation.
   # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
