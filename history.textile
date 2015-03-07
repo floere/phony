@@ -1,3 +1,7 @@
+h2. Version 2.12.2
+
+* Fix for NANP (see #232).
+
 h2. Version 2.12.1
 
 * Improvements for NANP (thanks, see #231).
