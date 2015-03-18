@@ -62,6 +62,7 @@ ndcs_4digit = [
   '0432', # Udine
   '0444', # Vicenza
   '0461', # Trento
+  '0464', # Rovereto
   '0471', # Bolzano
   '0481', # Gorizia
   '0521', # Parma
