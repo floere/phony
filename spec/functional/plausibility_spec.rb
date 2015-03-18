@@ -346,8 +346,16 @@ describe 'plausibility' do
         Phony.plausible?('+20 800 12345678').should be_false
         Phony.plausible?('+20 2 12345678').should be_true
         Phony.plausible?('+20 2 1234567').should be_false
-        Phony.plausible?('+20 40 12345678').should be_true
-        Phony.plausible?('+20 40 1234567').should be_false
+        Phony.plausible?('+20 3 1234567').should be_true
+        Phony.plausible?('+20 3 12345678').should be_false
+        Phony.plausible?('+20 40 1234567').should be_true
+        Phony.plausible?('+20 40 12345678').should be_false
+        Phony.plausible?('+20 10 12345678').should be_true
+        Phony.plausible?('+20 10 1234567').should be_false
+        Phony.plausible?('+20 11 12345678').should be_true
+        Phony.plausible?('+20 11 1234567').should be_false
+        Phony.plausible?('+20 12 12345678').should be_true
+        Phony.plausible?('+20 12 1234567').should be_false
       end
 
       it 'is correct for Germany' do
