@@ -1,3 +1,7 @@
+h2. Version 2.12.4
+
+* Improvements for Italy.
+
 h2. Version 2.12.3
 
 * Improvements for Italy, Egypt.
