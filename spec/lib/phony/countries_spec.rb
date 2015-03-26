@@ -525,6 +525,7 @@ describe 'country descriptions' do
     describe 'Romania' do
       it_splits '40211231234', ['40', '21', '123', '1234'] # Bucureşti
       it_splits '40721231234', ['40', '72', '123', '1234'] # mobile
+      it_splits '40791231234', ['40', '79', '123', '1234'] # mobile
       it_splits '40249123123', ['40', '249', '123', '123'] # Olt
     end
     describe 'Russia' do
