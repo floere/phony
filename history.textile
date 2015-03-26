@@ -1,10 +1,14 @@
+h2. Version 2.12.5
+
+* Improvements for Romania (#238).
+
 h2. Version 2.12.4
 
-* Improvements for Italy.
+* Improvements for Italy (#237).
 
 h2. Version 2.12.3
 
-* Improvements for Italy, Egypt.
+* Improvements for Italy, Egypt (#235, #236).
 
 h2. Version 2.12.2
 
