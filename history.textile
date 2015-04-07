@@ -1,3 +1,7 @@
+h2. Version 2.12.7
+
+* Improvements for Japan (#239).
+
 h2. Version 2.12.6
 
 * Improvements for Japan (#239).
