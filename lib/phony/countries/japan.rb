@@ -1,25 +1,6 @@
 # Japan
 # http://www.itu.int/oth/T020200006D/en
 
-ndcs_with_11_subscriber_numbers = %w(
-020
-030
-040
-050
-060
-070
-080
-090
-)
-
-ndcs_with_10_subscriber_numbers = %w(
-20
-50
-60
-70
-90
-)
-
 ndcs_with_8_subscriber_numbers = %w(3 6)
 
 ndcs_with_7_subscriber_numbers = %w(
@@ -421,13 +402,12 @@ ndcs_with_5_subscriber_numbers = %w(
 Phony.define do
   country '81',
     trunk('0') |
-    one_of(ndcs_with_5_subscriber_numbers)  >> split(3,2) |
-    one_of(ndcs_with_6_subscriber_numbers)  >> split(3,3) |
-    one_of(%w(120 800))                     >> split(3,3) | # freephone
-    one_of(ndcs_with_7_subscriber_numbers)  >> split(4,3) |
-    one_of(ndcs_with_8_subscriber_numbers)  >> split(4,4) |
-    one_of(ndcs_with_10_subscriber_numbers) >> split(4,4) | # mobile, VoIP telephony
-    one_of(ndcs_with_11_subscriber_numbers) >> split(4,4) | # 3-digit non-Geographic area codes (excluding 010)
+    one_of(ndcs_with_5_subscriber_numbers) >> split(3,2) |
+    one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) |
+    one_of(%w(120 800))                    >> split(3,3) | # freephone
+    one_of(ndcs_with_7_subscriber_numbers) >> split(4,3) |
+    one_of(ndcs_with_8_subscriber_numbers) >> split(4,4) |
+    one_of('20', '50', '60', '70', '90')   >> split(4,4) | # mobile, VoIP telephony
     # TODO: 91(NDC) N(S)N length: 5-13 - Non-geographic number (Direct subscriber telephone service (legacy))
     fixed(2) >> split(4,4)
 end
