@@ -27,8 +27,26 @@ describe 'Phony#format' do
       end
     end
     
+    def self.for_each_from tsv_file_name
+      require 'csv'
+      describe "from file #{tsv_file_name}" do
+        CSV.open(tsv_file_name, headers: true, col_sep: "\t").each.with_index do |row, index|
+          country, expected, original, format, spaces, local_spaces = *row.
+            values_at('Country', 'Expected', 'Original', 'Format', 'Spaces', 'Local Spaces')
+          options = {}
+          options[:format] = format.to_sym if format
+          options[:spaces] = spaces.to_sym if spaces
+          it "(row #{index + 2}) #{country}: #{expected} from #{original} with #{format}, #{spaces}, #{local_spaces}" do
+            Phony.format(original, options).should eql expected
+          end
+        end
+      end
+    end
+    
     # Countries.
     #
+    for_each_from 'spec/functional/format.tab'
+    
     describe 'Austria' do
       it { Phony.format('43198110').should eql '+43 1 98110' }
       it { Phony.format('43198110', :format => :international).should eql '+43 1 98110' }

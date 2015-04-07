@@ -1,0 +1,13 @@
+Country	Expected	Original	Format	Spaces	Local	Spaces
+Austria	+43 1 98110	43198110
+Austria	+43 1 98110	43198110	international
+Austria	+43 1 98110	43198110	international_absolute
+Austria	0043 1 98110	43198110	international_relative
+Austria	+43198110	43198110	international	""
+Austria	+43198110	43198110	international_absolute	""
+Austria	0043198110	43198110	international_relative	""
+Austria	+43-1-98110	43198110	international	"-"
+Austria	+43-1-98110	43198110	international_absolute	"-"
+Austria	0043-1-98110	43198110	international_relative	"-"
+Austria	01 98110	43198110	national
+Austria	98110	43198110	local
