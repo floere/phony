@@ -118,6 +118,10 @@ describe 'Phony#format' do
         it 'formats french numbers' do
           Phony.format('33142278186', :format => :+, :spaces => '').should eql '+33142278186'
         end
+        it 'formats italian numbers' do
+          Phony.format('393333337647', :format => :international).should eql '+39 333 333 7647'
+          Phony.format('390108480161', :format => :international).should eql '+39 010 8480161'
+        end
         it 'formats austrian numbers' do
           Phony.format('43198110', :format => :international_relative, :spaces => '').should eql '0043198110'
         end
@@ -164,6 +168,10 @@ describe 'Phony#format' do
       end
     end
     describe 'national' do
+      it 'formats italian numbers' do
+        Phony.format('393333337647', :format => :national).should eql '333 333 7647'
+        Phony.format('390108480161', :format => :national).should eql '010 8480161'
+      end
       it 'formats swiss numbers' do
         Phony.format('41443643532', :format => :national).should eql '044 364 35 32'
       end
