@@ -28,15 +28,15 @@ module Phony
       countries[cc.size][cc]
     end
 
-    # Clean number of all non-numeric characters, initial zeros or (0).
+    # Clean number of all non-numeric characters, initial zeros or (0.
     #
-    @@basic_cleaning_pattern = /\A00?|\(0\)|\D/
-    # Clean number of all non-numeric characters, initial zeros or (0) and return it.
+    @@basic_cleaning_pattern = /\A00?|\(0|\D/
+    # Clean number of all non-numeric characters, initial zeros or (0 and return it.
     #
     def clean number
       clean! number && number.dup
     end
-    # Clean number of all non-numeric characters, initial zeros or (0) and return a copy.
+    # Clean number of all non-numeric characters, initial zeros or (0 and return a copy.
     #
     def clean! number
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number

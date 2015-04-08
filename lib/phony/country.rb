@@ -56,7 +56,7 @@ module Phony
 
     # Cleans all non-numeric characters.
     #
-    @@basic_cleaning_pattern = /\(0\)|\D/
+    @@basic_cleaning_pattern = /\(0|\D/
     # Clean number of all non-numeric characters and return a copy.
     #
     def clean number

@@ -491,12 +491,11 @@ describe 'plausibility' do
         Phony.plausible?('+386 41 123 4567').should be_false
       end
 
-      # TODO: more needs to be done here
-      #
       it "is correct for Swiss numbers" do
         Phony.plausible?('+41 44 111 22 33').should be_true
         Phony.plausible?('+41 44 111 22 334').should be_false
         Phony.plausible?('+41 44 111 22').should be_false
+        Phony.plausible?('+41 (044) 364 35 33').should be_true
       end
 
       it "is correct for Swedish numbers" do
