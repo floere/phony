@@ -341,11 +341,11 @@ Phony.define do
 
   # Nigeria
   # Wikipedia says 3 4 split, many local number with no splitting
+  #
+  # mobile telephony number allocation taken from: http://www.ncc.gov.ng/index.php?option=com_content&view=article&id=113&Itemid=102
   country '234',
-    match(/^(702\d)\d+$/)    >> split(3,4) | # Mobile
-    match(/^(70[3-9])\d+$/)  >> split(3,4) | # Mobile
-    match(/^(8[01]\d)\d+$/)  >> split(3,4) | # Mobile
-    match(/^(90[2359])\d+$/) >> split(3,4) | # Mobile
+    match(/^([7-9]0\d)\d+$/) >> split(3,4) | # Mobile
+    match(/^(81\d)\d+$/)     >> split(3,4) | # Mobile
     one_of('1', '2', '9')    >> split(3,4) | # Lagos, Ibadan and Abuja
     fixed(2)                 >> split(3,4)   # 2-digit NDC
 
