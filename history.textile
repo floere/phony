@@ -1,3 +1,7 @@
+h2. Version 2.12.10
+
+* Improvements for Nigeria (#243).
+
 h2. Version 2.12.9
 
 * Fixes #242 (and improves) by removing only @(0@ instead of @(0)@.
