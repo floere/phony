@@ -465,9 +465,48 @@ describe 'plausibility' do
       end
 
       it 'is correct for Nigerian numbers' do
+        Phony.plausible?('+234 700 766 1234').should be_true
+        Phony.plausible?('+234 701 766 1234').should be_true
+        Phony.plausible?('+234 702 766 1234').should be_true
+        Phony.plausible?('+234 703 766 1234').should be_true
+        Phony.plausible?('+234 704 766 1234').should be_true
+        Phony.plausible?('+234 705 766 1234').should be_true
+        Phony.plausible?('+234 706 766 1234').should be_true
+        Phony.plausible?('+234 707 766 1234').should be_true
+        Phony.plausible?('+234 708 766 1234').should be_true
+        Phony.plausible?('+234 709 766 1234').should be_true
+        Phony.plausible?('+234 800 766 1234').should be_true
+        Phony.plausible?('+234 801 766 1234').should be_true
+        Phony.plausible?('+234 802 766 1234').should be_true
+        Phony.plausible?('+234 803 766 1234').should be_true
+        Phony.plausible?('+234 804 766 1234').should be_true
+        Phony.plausible?('+234 805 766 1234').should be_true
+        Phony.plausible?('+234 806 766 1234').should be_true
         Phony.plausible?('+234 807 766 1234').should be_true
-        Phony.plausible?('+234 807 766 123').should be_false
-        Phony.plausible?('+234 909 123 1234').should be_true
+        Phony.plausible?('+234 808 766 1234').should be_true
+        Phony.plausible?('+234 809 766 1234').should be_true
+        Phony.plausible?('+234 900 766 1234').should be_true
+        Phony.plausible?('+234 901 766 1234').should be_true
+        Phony.plausible?('+234 902 766 1234').should be_true
+        Phony.plausible?('+234 903 766 1234').should be_true
+        Phony.plausible?('+234 904 766 1234').should be_true
+        Phony.plausible?('+234 905 766 1234').should be_true
+        Phony.plausible?('+234 906 766 1234').should be_true
+        Phony.plausible?('+234 907 766 1234').should be_true
+        Phony.plausible?('+234 908 766 1234').should be_true
+        Phony.plausible?('+234 909 766 1234').should be_true
+        Phony.plausible?('+234 810 766 1234').should be_true
+        Phony.plausible?('+234 811 766 1234').should be_true
+        Phony.plausible?('+234 812 766 1234').should be_true
+        Phony.plausible?('+234 813 766 1234').should be_true
+        Phony.plausible?('+234 814 766 1234').should be_true
+        Phony.plausible?('+234 815 766 1234').should be_true
+        Phony.plausible?('+234 816 766 1234').should be_true
+        Phony.plausible?('+234 817 766 1234').should be_true
+        Phony.plausible?('+234 818 766 1234').should be_true
+        Phony.plausible?('+234 819 766 1234').should be_true
+
+        Phony.plausible?('+234 807 766 123').should be_false  # too short
       end
 
       it "is correct for Portugese numbers" do
