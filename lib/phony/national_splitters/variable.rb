@@ -18,8 +18,10 @@ module Phony
         
         # Extract a starting point.
         #
+        # This if can possibly be removed.
+        #
         presumed_code = if @mapped_ndc_min_length > 0
-          national_number.slice!(0..@mapped_ndc_min_length-1)
+          presumed_code = national_number.slice!(0..@mapped_ndc_min_length-1)
         else
           ''
         end

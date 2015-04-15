@@ -24,6 +24,9 @@ describe Phony::NationalSplitters::Fixed do
     it 'splits correctly even when the number is too short' do
       @splitter.split('443').should == [nil, '44','3']
     end
+    it 'has a length of 2' do
+      @splitter.length.should == 2
+    end
   end
   describe 'split' do
     before(:each) do
@@ -37,6 +40,9 @@ describe Phony::NationalSplitters::Fixed do
     end
     it 'splits correctly even when the number is too short' do
       @splitter.split('443').should == [nil, '443']
+    end
+    it 'has a length of nil' do
+      @splitter.length.should == nil
     end
   end
   

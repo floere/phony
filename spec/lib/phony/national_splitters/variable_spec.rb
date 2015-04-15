@@ -19,6 +19,9 @@ describe Phony::NationalSplitters::Variable do
       it "handles Rohrau" do
         @splitter.split('2164123456789').should == [nil, '2164', '123456789']
       end
+      it 'has an NDC length of 3' do
+        @splitter.length.should == (1..3)
+      end
     end
     context 'special handling for using the variable size splitter for Swiss service numbers' do
       before(:each) do
@@ -26,6 +29,9 @@ describe Phony::NationalSplitters::Variable do
       end
       it "should handle swiss service numbers" do
         @splitter.split('800223344').should == [nil, '800', '223344']
+      end
+      it 'has an NDC length of 3' do
+        @splitter.length.should == (3..3)
       end
     end
   end
