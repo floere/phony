@@ -121,12 +121,12 @@ module Phony
         format % { :cc => cc, :ndc => ndc, :local => local }
       when nil, :international_absolute, :international, :+
         ndc ?
-          @international_absolute_format % [cc, space, ndc, space, local] :
-          @international_absolute_format % [cc, space, local, nil, nil]
+          format_with_ndc(@international_absolute_format, cc, ndc, local, space) :
+          format_without_ndc(@international_absolute_format, cc, local, space)
       when :international_relative
         ndc ?
-          @international_relative_format % [cc, space, ndc, space, local] :
-          @international_relative_format % [cc, space, local, nil, nil]
+          format_with_ndc(@international_relative_format, cc, ndc, local, space) :
+          format_without_ndc(@international_relative_format, cc, local, space)
       when :national
         # Replaces the %s in the trunk code with a "space".
         trunk = trunk % space if trunk && trunk.size > 1
@@ -140,6 +140,13 @@ module Phony
     def format_local local_space, parts_ary
       parts_ary.compact!
       parts_ary.join local_space.to_s
+    end
+    
+    def format_with_ndc format, cc, ndc, local, space
+      format % [cc, space, ndc, space, local]
+    end
+    def format_without_ndc format, cc, local, space
+      format % [cc, space, local, nil, nil]
     end
 
     #
