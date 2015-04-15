@@ -1,3 +1,4 @@
+"!{float:right}https://secure.travis-ci.org/floere/phony.png!":http://travis-ci.org/floere/phony
 !https://coveralls.io/repos/floere/phony/badge.svg?branch=master(Coverage Status)!:https://coveralls.io/r/floere/phony?branch=master
 "!https://codeclimate.com/github/floere/phony.png!":https://codeclimate.com/github/floere/phony
 !http://inch-ci.org/github/floere/phony.png!:http://inch-ci.org/github/floere/phony
