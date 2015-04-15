@@ -740,7 +740,8 @@ describe 'country descriptions' do
       it_splits '50622345678', %w(506 2 234 5678)
     end
     describe "Côte d'Ivoire" do
-      it_splits '22537335518', ['225', false, '3733', '5518']
+      it_splits '22507335518', ['225', '07', '33', '55', '18']
+      it_splits '22537335518', ['225', '37', '33', '55', '18']
     end
     describe 'Democratic Republic of Timor-Leste' do
       it_splits '6701742945', ['670', false, '174', '2945']
