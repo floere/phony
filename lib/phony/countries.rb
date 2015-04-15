@@ -313,7 +313,16 @@ Phony.define do
 
   # country '224' # Guinea, see special file
 
-  country '225', none >> split(4,4) # Côte d'Ivoire http://www.wtng.info/wtng-225-ci.html
+  # Côte d'Ivoire
+  # http://www.wtng.info/wtng-225-ci.html
+  # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310001PDFE.pdf
+  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Ivory_Coast
+  #
+  # There is no trunk code for this country and several of the mobile prefixes start with 0
+  country '225',
+    trunk('', :normalize => false) |
+    fixed(2) >> split(2,2,2)
+
   country '226', none >> split(4,4) # Burkina Faso http://www.wtng.info/wtng-226-bf.html
   country '227', none >> split(4,4) # Niger http://www.wtng.info/wtng-227-ne.html
   country '228', none >> split(4,4) # Togolese Republic http://www.wtng.info/wtng-228-tg.html
