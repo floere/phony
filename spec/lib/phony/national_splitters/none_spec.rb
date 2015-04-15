@@ -8,11 +8,21 @@ describe Phony::NationalSplitters::None do
     end
   end
   
-  describe 'split' do
+  context 'with instance' do
     let(:splitter) { described_class.instance_for }
-    it 'splits correctly into ndc and rest' do
-      splitter.split('123456789').should == [nil, false, '123456789']
+  
+    describe 'split' do
+      it 'splits correctly into ndc and rest' do
+        splitter.split('123456789').should == [nil, false, '123456789']
+      end
     end
+    
+    describe 'length' do
+      it 'is always 0' do
+        splitter.length.should be_zero
+      end
+    end
+    
   end
   
 end
