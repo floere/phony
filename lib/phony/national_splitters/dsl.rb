@@ -9,12 +9,7 @@ module Phony
       #
       #
       def >> local_splitter
-        if local_splitter.respond_to? :split
-          country_for local_splitter
-        else
-          local_splitter.national_splitter = self
-          local_splitter
-        end
+        country_for local_splitter
       end
       
       def country_for local_splitter
