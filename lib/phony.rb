@@ -95,9 +95,20 @@ module Phony
       @codes[cc]
     end
 
-    # Normalizes the given number.
+    # Normalizes the given number into a digits-only String.
     #
     # Useful before inserting the number into a database.
+    #
+    # @param [String] phone_number An E164 number.
+    # @param [Hash] options An options hash (With :cc as the only used key).
+    #
+    # @return [String] A normalized E164 number.
+    #
+    # @example Normalize a Swiss number.
+    #   Phony.normalize("+41 (044) 123 45 67") # => "41441234567"
+    #
+    # @example Normalize a phone number assuming it's a NANP number.
+    #   Phony.normalize("301 555 0100", cc: '1') # => "13015550100"
     #
     def normalize phone_number, options = {}
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
@@ -110,6 +121,18 @@ module Phony
     end
 
     # Splits the phone number into pieces according to the country codes.
+    #
+    # Useful for manually processing the CC, NDC, and local pieces.
+    #
+    # @param [String] phone_number An E164 number.
+    #
+    # @return [Array<String>] The pieces of a phone number.
+    #
+    # @example Split a Swiss number.
+    #   Phony.split("41441234567") # => ["41", "44", "123", "45", "67"]
+    #
+    # @example Split a NANP number.
+    #   Phony.split("13015550100") # => ["1", "301", "555", "0100"]
     #
     def split phone_number
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number)." unless phone_number
