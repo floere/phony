@@ -104,6 +104,8 @@ module Phony
     #
     # @return [String] A normalized E164 number.
     #
+    # @raise [Phony::NormalizationError] If phony can't normalize the given number.
+    #
     # @example Normalize a Swiss number.
     #   Phony.normalize("+41 (044) 123 45 67") # => "41441234567"
     #
@@ -114,6 +116,10 @@ module Phony
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
       normalize! phone_number.dup, options
     end
+    # A destructive version of {#normalize}.
+    #
+    # @see #normalize
+    #
     def normalize! phone_number, options = {}
       @codes.normalize phone_number, options
     rescue
