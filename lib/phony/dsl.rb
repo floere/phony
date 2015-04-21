@@ -1,27 +1,3 @@
-# # Switzerland (simplified):
-# #
-# country('41', fixed(2) >> local([3,2,2]))
-#
-# # Germany. Too big, we use a separate file:
-# #
-# Phony.define do
-#   country '49', match(...) >> split([...]) ||
-#                 one_of([...], :max_length => 5) >> split([...])
-# end
-#
-# # Denmark:
-# #
-# country('45', none >> split([2,2,2,2]))
-#
-# # Hungary:
-# #
-# country('36',
-#         match(/^104|105|107|112/) >> split([3,3]) ||
-#         one_of([1], :max_length => 2) >> split([3,4])
-# )
-#
-# Note: Perhaps the DSL should operate directly on country codes.
-#
 module Phony
 
   # For country definitions.

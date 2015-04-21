@@ -59,11 +59,14 @@ require File.expand_path '../phony/countries/ukraine', __FILE__
 require File.expand_path '../phony/countries/united_kingdom', __FILE__
 require File.expand_path '../phony/countries/uruguay', __FILE__
 require File.expand_path '../phony/countries/zimbabwe', __FILE__
-#
+
 # All other countries.
 #
 require File.expand_path '../phony/countries', __FILE__
 
+# Phony is the main module and is generally used to process
+# E164 phone numbers directly.
+#
 module Phony
 
   class NormalizationError < StandardError
@@ -80,9 +83,13 @@ module Phony
 
     # Get the Country for the given CC.
     #
-    # Example:
-    #   us = Phony['1']
-    #   normalized_number = us.normalize number
+    # @param [String] cc A valid country code.
+    #
+    # @return [Country] for the given CC.
+    #
+    # @example Country for the NANP (includes the US)
+    #   nanp = Phony['1']
+    #   normalized_number = nanp.normalize number
     #
     def [] cc
       @codes[cc]
