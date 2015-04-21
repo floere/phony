@@ -182,6 +182,13 @@ module Phony
     # Converts any character in the vanity_number to its numeric representation.
     # Does not check if the passed number is a valid vanity_number, simply does replacement.
     #
+    # @param [String] vanity_number A vanity number.
+    #
+    # @return [String] The de-vanitized phone number.
+    #
+    # @example De-vanitize a number.
+    #   Phony.vanity_to_number("1-800-HELLOTHERE") # => "1-800-4355684373"
+    #
     def vanity_to_number vanity_number
       @codes.vanity_to_number vanity_number.dup
     end
