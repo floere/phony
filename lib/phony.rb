@@ -150,12 +150,32 @@ module Phony
       parts
     end
 
-    # Formats a E164 number according to local customs.
+    # Formats a normalized E164 number according to a country's formatting scheme.
+    #
+    # Absolutely needs a normalized E164 number.
+    #
+    # @param [String] phone_number A normalized E164 number.
+    # @param [Hash] options See the README for a list of options.
+    #
+    # @return [Array<String>] The pieces of a phone number.
+    #
+    # @example Format a Swiss number.
+    #   Phony.format("41441234567") # => "+41 44 123 45 67"
+    #
+    # @example Format a NANP number.
+    #   Phony.format("13015550100") # => "+1 301 555 0100"
+    #
+    # @example Format a NANP number in local format.
+    #   Phony.format("13015550100", :format => :local) # => "555 0100"
     #
     def format phone_number, options = {}
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number)." unless phone_number
       format! phone_number.dup, options
     end
+    # A destructive version of {#format}.
+    #
+    # @see #format
+    #
     def format! phone_number, options = {}
       @codes.format phone_number, options
     end
