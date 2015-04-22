@@ -20,9 +20,16 @@ module Phony
 
   class DSL
 
-    # Start defining a country.
+    # Define a country's rules.
     #
-    # Example:
+    # Use the other DSL methods to define the country's rules.
+    #
+    # @param [String] country_code The country code of the country.
+    # @param [Phony::CountryCodes] definition Rules for this country.
+    #
+    # @return Undefined.
+    #
+    # @example Add a country with country code 27.
     #   country '27', # CC, followed by rules, for example fixed(2) >> ...
     #
     def country country_code, definition, options = {}
@@ -31,12 +38,25 @@ module Phony
     end
     
     # Designates a country code as reserved.
+    # A reserved country will result in an exception when trying to be used.
+    #
+    # @param [String] country_code The country code of the country.
+    #
+    # @return nil
+    #
+    # @example Designate country code 27 as reserved.
+    #   reserved('27')
     #
     def reserved country_code
       # Does nothing, will just fail with an exception.
     end
     
-    # This country still uses a default NDC (and needs to be done, hence the todo).
+    # Define a country to use default rules (and to be done at some point).
+    #
+    # @return Rules for a country.
+    #
+    # @example Define country 27 to use default rules.
+    #   country '27', todo
     #
     def todo
       none >> split(10)
@@ -44,10 +64,14 @@ module Phony
     
     # This country uses a trunk code.
     #
-    # Examples:
-    #  * Hungary uses 06.
-    #  * North America uses 1.
-    #  * Most countries which use a trunk code use 0.
+    # @example Hungary uses 06.
+    #   country '36', trunk('06', normalize: false) | ...
+    #
+    # @example North America uses 1.
+    #   country '1', trunk('1%s', normalize: true) | ...
+    #
+    # @example Most countries which use a trunk code use 0. E.g. Romania.
+    #   country '40', trunk('0') | ...
     #
     def trunk code, options = {}
       TrunkCode.new code, options
