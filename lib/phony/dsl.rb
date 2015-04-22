@@ -18,6 +18,14 @@ module Phony
     dsl
   end
 
+  # Contains a number of DSL methods. Is used e.g. in the countries.rb file.
+  #
+  # Do not use directly, but instead use {Phony.define} to execute a block
+  # in the DSL instance's context.
+  #
+  # @example
+  #   Phony.define { ... }
+  #
   class DSL
 
     # Define a country's rules.
