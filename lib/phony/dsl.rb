@@ -64,6 +64,11 @@ module Phony
     
     # This country uses a trunk code.
     #
+    # @param [String] code The trunk code.
+    # @param [Hash] options Options hash. Pass :normalize (true/false) to indicate whether it needs to be normalized.
+    #
+    # @return TrunkCode A trunk code handler.
+    #
     # @example Hungary uses 06.
     #   country '36', trunk('06', normalize: false) | ...
     #
@@ -174,7 +179,7 @@ module Phony
     #
     # Also takes ranges.
     #
-    # @param [Hash] options. Can contain option :fallback A fallback amount of group sizes in case it doesn't match.
+    # @param [Hash] options Can contain option :fallback A fallback amount of group sizes in case it doesn't match.
     #
     # @return LocalSplitters::Regex A regexp-based local splitter.
     #
@@ -193,7 +198,7 @@ module Phony
     
     # Which NDCs are explicitly invalid?
     #
-    # @param [Regexp, String] A regexp or a string of invalid NDCs.
+    # @param [Regexp, String] ndc A regexp or a string of invalid NDCs.
     #
     # @return Validators::NDC An NDC validator 
     #
