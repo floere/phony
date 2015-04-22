@@ -1,0 +1,9 @@
+files:
+  # define files included in the analysis (defaults to ["{app,lib}/**/*.rb"])
+  included:
+    # The public API.
+    - lib/phony.rb
+    - lib/phony/dsl.rb
+  # define files excluded from the analysis (defaults to [])
+  # excluded:
+  #   - plugins/vendor/sparkr/sparkr.rb
