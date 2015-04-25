@@ -354,6 +354,7 @@ Phony.define do
     none >> matched_split(
         /\A[23]\d+\z/ => [4,4], # LIBTELCO, TEMAS
         /\A[4568]\d+\z/ => [4,3], # mobile Lonestar, Libercell, Comium Liberia Inc.
+        /\A77\d+\z/ => [2,3,4], # http://monrovia.usembassy.gov/contact.html
         /\A7\d+\z/ => [4,4], # mobile Cellcom
         /\A9\d+\z/ => [4,4], # premium rate Telelinks International SAL, Interactive Media Corporation
     )

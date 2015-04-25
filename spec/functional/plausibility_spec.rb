@@ -743,7 +743,11 @@ describe 'plausibility' do
                                                 '+961 90 123 456',
                                                 '+961 81 123 456']
       it_is_correct_for 'Lesotho', :samples => '+266  7612 6866'
-      it_is_correct_for 'Liberia', :samples => [['+231 2 123 4567', '+231 4 123 456']]
+      it 'is correct for Liberia' do
+        Phony.plausible?('+231 2 123 4567').should be_true
+        Phony.plausible?('+231 4 123 456').should be_true
+        Phony.plausible?('+231 77 123 4567').should be_true
+      end
       it_is_correct_for 'Madagascar', :samples => ['+261 20 012 345 678',
                                                    '+261 20 124 3456',
                                                    '+261 512 345 678']
