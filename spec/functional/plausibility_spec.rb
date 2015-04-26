@@ -140,6 +140,7 @@ describe 'plausibility' do
         Phony.plausible?('+43 501 1234').should be_false # too short
         Phony.plausible?('+43 501 123456').should be_false # too long
         Phony.plausible?('+43 800 123456789').should be_true
+        Phony.plausible?('+43 3115 3307').should be_true # See issue #246 on Github.
 
         # Mobile
         Phony.plausible?('+43 676 0000000').should be_true
