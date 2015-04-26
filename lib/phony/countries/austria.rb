@@ -78,7 +78,7 @@ service = [
  '939'
 ]
 
-# https://www.rtr.at/en/tk/E129/Austrian_Numbering_Plan_2011-03-30.pdf
+# https://www.rtr.at/en/tk/E129/2312_Austrian_Numbering_Plan_2011-03-30.pdf
 #
 # TODO Add more details.
 #
