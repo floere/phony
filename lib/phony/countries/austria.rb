@@ -91,5 +91,5 @@ Phony.define do
                 one_of('663')     >> split(6..6) | # 6 digit mobile.
                 one_of(mobile)    >> split(4,3..9) |
                 one_of(mobile_2digit) >> split(7..7) | # Separate as mobile contains 676 - 67 violates the prefix rule.
-                fixed(4)          >> split(7..7)
+                fixed(4)          >> split(3..9) # Number length is 7..13.
 end
