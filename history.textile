@@ -1,3 +1,7 @@
+h2. Version 2.12.12
+
+* Improvements for Austria (#246).
+
 h2. Version 2.12.11
 
 * Improvements for Côte d'Ivoire (#244).
