@@ -861,6 +861,7 @@ describe 'country descriptions' do
     describe 'Liberia' do
       it_splits '23121234567', ['231', false, '2123', '4567']
       it_splits '2314123456', ['231', false, '4123', '456']
+      it_splits '231771234567', ['231', false, '77', '123', '4567']
     end
     describe 'Libya' do
       it_splits '21820512345', %w(218 205 123 45)
