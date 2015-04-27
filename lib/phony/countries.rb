@@ -456,7 +456,7 @@ Phony.define do
   # http://www.wtng.info/wtng-260-zm.html
   country '260',
     match(/^(9(55|66|7[7-9]))/) >> split(6) | # mobile
-    match(/^(21[1-8])\z/) >> split(6) # fixed
+    match(/^(21[1-8])/) >> split(6) # fixed
 
   # Madagascar http://www.wtng.info/wtng-261-mg.html
   # http://www.itu.int/oth/T020200007F/en
