@@ -453,10 +453,10 @@ Phony.define do
   country '259', todo # -
 
   # Zambia
-  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Zambia
+  # http://www.wtng.info/wtng-260-zm.html
   country '260',
-          match(/^(9[567])/)  >> split(7) | # Mobile
-          match(/^(21[1-8])/) >> split(6)   # Geographic
+    match(/^(9(55|66|7[7-9]))/) >> split(6) | # mobile
+    match(/^(21[1-8])\z/) >> split(6) # fixed
 
   # Madagascar http://www.wtng.info/wtng-261-mg.html
   # http://www.itu.int/oth/T020200007F/en
