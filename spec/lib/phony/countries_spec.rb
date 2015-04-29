@@ -696,8 +696,8 @@ describe 'country descriptions' do
       it_splits '84412345678', ['84', '4', '1234', '5678'] # Hanoi
     end
     describe 'Zambia' do
-      it_splits '260977640895', ['260', '97', '7640895'] # mobile
-      it_splits '260211229049', ['260', '211', '229049'] # fixed
+      it_splits '260955123456', ['260', '955', '123456'] # mobile
+      it_splits '260211123456', ['260', '211', '123456'] # fixed
     end
     describe 'New Zealand' do
       it_splits '6491234567', ['64', '9', '123', '4567']

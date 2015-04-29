@@ -24,7 +24,7 @@ E164 numbers are international numbers with a country dial prefix, usually an ar
 
 Learn more about E164 numbers "here":http://en.wikipedia.org/wiki/E.164.
 
-Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, and Vietnamese numbers.
+Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Liberian, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, Vietnamese, and Zambian numbers.
 
 And to some extent, all others. Just try if it works for you.
 
@@ -102,7 +102,7 @@ Always use it with a country code, as Phony needs it to know what country to nor
 
 h3(#formatting). Formatting
 
-Aliased as @Phony.formatted(number_string)@. 
+Aliased as @Phony.formatted(number_string)@.
 
 You really need to give it a normalized phone number WITH country code, so:
 
