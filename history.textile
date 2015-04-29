@@ -1,3 +1,7 @@
+h2. Version 2.12.13
+
+* Improvements for Zambia (#248).
+
 h2. Version 2.12.12
 
 * Improvements for Austria (#246).
