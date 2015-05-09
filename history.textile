@@ -1,3 +1,7 @@
+h2. Version 2.12.14
+
+* Improvements for Belgium (#251).
+
 h2. Version 2.12.13
 
 * Improvements for Zambia (#248).
