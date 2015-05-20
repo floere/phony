@@ -1,5 +1,8 @@
 require 'spec_helper'
 
+# This is a very helpful page for phone number formatting:
+# http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers 
+#
 describe 'Phony#format' do
 
   describe 'cases' do
