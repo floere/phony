@@ -13,17 +13,20 @@ describe 'Phony#format' do
     
     describe 'Templates' do
       it 'handles a basic template correctly' do
-        Phony.format('41443643532', :format => 'A%{cc}B%{ndc}C%{local}').should eql 'A41B44C364 35 32'
+        Phony.format('41443643532', :format => 'A%{cc}B%{trunk}C%{ndc}D%{local}').should eql 'A41B0C44D364 35 32'
       end
       it 'handles a funky template correctly' do
-        Phony.format('41443643532', :format => '%{local}%{ndc}%{cc}', :local_spaces => '').should eql '36435324441'
+        Phony.format('41443643532', :format => '%{local} %{ndc} %{trunk} %{cc}', :local_spaces => '').should eql '3643532 44 0 41'
       end
       it 'handles local_spaces correctly' do
         Phony.format('41443643532', :format => 'A%{cc}B%{ndc}C%{local}', :local_spaces => '/').should eql 'A41B44C364/35/32'
       end
-      it 'handles a russian example correctly' do
+      it 'handles a Russian example correctly' do
         # https://github.com/floere/phony/issues/214
-        Phony.format('71234567890', :format => '(+%{cc} %{ndc}) %{local}', :local_spaces => '-').should eql '(+7 123) 45-67890'
+        Phony.format('71234567890', :format => '+%{cc} (%{trunk}%{ndc}) %{local}', :local_spaces => '-').should eql '+7 (8123) 45-67890'
+      end
+      it 'handles an American example correctly' do
+        Phony.format('13015550100', :format => '+%{cc} %{trunk}%{ndc} %{local}', :local_spaces => '-').should eql '+1 1 301 555-0100'
       end
     end
     

@@ -200,6 +200,9 @@ module Phony
     # @example Format a NANP number in local format.
     #   Phony.format("13015550100", :format => :local) # => "555 0100"
     #
+    # @example Format a NANP number in a specific format.
+    #   Phony.format("13015550100", :format => '%{cc} (%{trunk}%{ndc}) %{local}') # => "555 0100"
+    #
     def format phone_number, options = {}
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number)." unless phone_number
       format! phone_number.dup, options

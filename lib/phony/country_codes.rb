@@ -118,7 +118,8 @@ module Phony
     def format_cc_ndc format, space, cc, trunk, ndc, local
       case format
       when String
-        format % { :cc => cc, :ndc => ndc, :local => local }
+        trunk = trunk % space if trunk && trunk.size > 1
+        format % { :trunk => trunk, :cc => cc, :ndc => ndc, :local => local }
       when nil, :international_absolute, :international, :+
         ndc ?
           format_with_ndc(@international_absolute_format, cc, ndc, local, space) :

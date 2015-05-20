@@ -1,3 +1,7 @@
+h2. Version 2.13.0
+
+* Add @trunk@ interpolation to @Phony#format@ option @format@.
+
 h2. Version 2.12.14
 
 * Improvements for Belgium (#251).
