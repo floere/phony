@@ -96,6 +96,7 @@ module Phony
         options[:spaces]       || country.space                           || @default_space,
         options[:local_spaces] || country.local_space || options[:spaces] || @default_local_space,
         cc,
+        # TODO Trunk needs to be an option on the country, unless specifically given.
         options[:trunk] == false ? nil : trunk,
         ndc,
         *parts
