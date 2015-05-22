@@ -306,6 +306,10 @@ describe 'plausibility' do
         expect(Phony.plausible?('+385 91 123456')).to be_false, "too short"
       end
 
+      it 'is correct for Czech Republic' do
+        expect(Phony.plausible?('+420123456789')).to be_false
+      end
+
       it "is correct for Denmark" do
         Phony.plausible?('+45 44 11 12 23 34').should be_false
         Phony.plausible?('+45 44 11 12 2').should be_false

@@ -703,7 +703,12 @@ Phony.define do
   country '388', trunk('0') | fixed(2) >> split(3,2,2) # Group of countries, shared code
   country '389', trunk('0') | fixed(2) >> split(3,2,2) # The Former Yugoslav Republic of Macedonia
 
-  country '420', fixed(3) >> split(3,3) # Czech Republic
+  country '420',
+          one_of('2','31','32','35','37','38','39','41','47','46','48','49','51','53','54','55','59','56','57','58') >> split(3,3) | # Geographical
+          one_of('601','602','603','604','605','606','607','608','70','72','77','79','91') >> split(3,3) | # Mobile
+          one_of('950','9555','9567','972','973','974') >> split(3,3) | # Institutional networks
+          one_of('800','844','840','90','971','976') >> split(3,3) | # Special pricing
+          fixed(3) >> split(3,3) # Czech Republic
 
   # Slovak Republic.
   #
