@@ -95,6 +95,7 @@ module Phony
         options[:format]       || country.format,
         options[:spaces]       || country.space                           || @default_space,
         options[:local_spaces] || country.local_space || options[:spaces] || @default_local_space,
+        options[:parentheses]  || country.parentheses,
         cc,
         options[:trunk] == false ? nil : trunk,
         ndc,
@@ -104,37 +105,46 @@ module Phony
 
     # Formats country code and national destination code.
     #
-    def format_cc_ndc_local format, space, local_space, cc, trunk, ndc, *parts
+    def format_cc_ndc_local format, space, local_space, parentheses, cc, trunk, ndc, *parts
       local = if parts.empty?
                 EMPTY_STRING
               else
                 format_local(local_space, parts) unless parts.empty?
               end
       
-      format_cc_ndc format, space, cc, trunk, ndc, local
+      format_cc_ndc format, space, parentheses, cc, trunk, ndc, local
       
       # cc_ndc = cc_ndc.slice 0...cc_ndc.rindex(space.to_s) if parts.empty?
     end
-    def format_cc_ndc format, space, cc, trunk, ndc, local
+    def format_cc_ndc format, space, parentheses, cc, trunk, ndc, local
       case format
       when String
         trunk &&= trunk.format(space)
         format % { :trunk => trunk, :cc => cc, :ndc => ndc, :local => local }
       when nil, :international_absolute, :international, :+
-        ndc ?
-          format_with_ndc(@international_absolute_format, cc, ndc, local, space) :
+        if ndc
+          ndc = parentheses ? "(#{ndc})" : ndc
+          format_with_ndc(@international_absolute_format, cc, ndc, local, space)
+        else
           format_without_ndc(@international_absolute_format, cc, local, space)
+        end
       when :international_relative
-        ndc ?
-          format_with_ndc(@international_relative_format, cc, ndc, local, space) :
+        if ndc
+          ndc = parentheses ? "(#{ndc})" : ndc
+          format_with_ndc(@international_relative_format, cc, ndc, local, space)
+        else
           format_without_ndc(@international_relative_format, cc, local, space)
+        end
       when :national
         # Replaces the %s in the trunk code with a "space".
         # trunk = trunk % space if trunk && trunk.size > 1
         trunk &&= trunk.format(space)
-        ndc && !ndc.empty? ?
-          @national_format % [trunk, ndc, space, local] :
+        if ndc && !ndc.empty?
+          ndc = parentheses ? "(#{ndc})" : ndc
+          @national_format % [trunk, ndc, space, local]
+        else
           @national_format % [trunk, nil, nil,   local]
+        end
       when :local
         local
       end
@@ -180,11 +190,11 @@ module Phony
     end
 
     def split_cc rest
-      presumed_cc = ''
+      cc = ''
       1.upto(3) do |i|
-        presumed_cc << rest.slice!(0..0)
-        country = countries[i][presumed_cc]
-        return [country, presumed_cc, rest] if country
+        cc << rest.slice!(0..0)
+        country = countries[i][cc]
+        return [country, cc, rest] if country
       end
       # This line is never reached as CCs are in prefix code.
     end
