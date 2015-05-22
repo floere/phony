@@ -40,7 +40,7 @@ describe Phony::CountryCodes do
       old_format = @countries.national_format
       @countries.national_format = '%s%s%s%s'
 
-      @countries.formatted('11231231234', :format => :national).should eql '123 123 1234'
+      @countries.formatted('11231231234', :format => :national).should eql '(123) 123-1234'
 
       @countries.national_format = old_format
     end
@@ -70,10 +70,10 @@ describe Phony::CountryCodes do
         @countries.formatted('85512239123', :format => :national).should eql '012 239 123'
       end
       it 'formats the US correctly' do
-        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '800-555-1212'
+        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '(800)-555-1212'
       end
       it 'formats the US correctly' do
-        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '800-555-1212'
+        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '(800)-555-1212'
       end
     end
     context 'default' do
@@ -87,7 +87,7 @@ describe Phony::CountryCodes do
         @countries.formatted('43198110').should eql '+43 1 98110'
       end
       it "should format american numbers" do
-        @countries.formatted('18705551122').should eql '+1 870 555 1122'
+        @countries.formatted('18705551122').should eql '+1 (870) 555-1122'
       end
       it "should format irish numbers" do
         @countries.formatted('35311234567').should eql '+353 1 123 4567'
@@ -95,7 +95,7 @@ describe Phony::CountryCodes do
     end
     describe "international" do
       it "should format north american numbers" do
-        @countries.formatted('18091231234', :format => :international).should eql '+1 809 123 1234'
+        @countries.formatted('18091231234', :format => :international).should eql '+1 (809) 123-1234'
       end
       it "should format austrian numbers" do
         @countries.formatted('43198110', :format => :international).should eql '+43 1 98110'
@@ -144,7 +144,7 @@ describe Phony::CountryCodes do
       end
       context 'with no spaces' do
         it "should format north american numbers" do
-          Phony.formatted('18091231234', :format => :international, :spaces => '').should eql '+18091231234'
+          Phony.formatted('18091231234', :format => :international, :spaces => '').should eql '+1(809)123-1234'
         end
         it "should format austrian numbers" do
           Phony.formatted('43198110', :format => :international, :spaces => '').should eql '+43198110'
@@ -167,7 +167,7 @@ describe Phony::CountryCodes do
           Phony.formatted('41443643532', :format => :international).should eql '+41 44 364 35 32'
         end
         it "should format north american numbers" do
-          Phony.formatted('18091231234', :format => :international, :spaces => :-).should eql '+1-809-123-1234'
+          Phony.formatted('18091231234', :format => :international, :spaces => :-).should eql '+1-(809)-123-1234'
         end
         it "should format austrian numbers" do
           Phony.formatted('43198110', :format => :international, :spaces => :-).should eql '+43-1-98110'
