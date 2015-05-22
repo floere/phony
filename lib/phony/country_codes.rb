@@ -9,15 +9,6 @@ module Phony
     attr_reader   :countries
     attr_accessor :international_absolute_format, :international_relative_format, :national_format
 
-    def initialize
-      @international_absolute_format = '+%s%s%s%s%s'
-      @international_relative_format = '00%s%s%s%s%s'
-      @national_format               = '%s%s%s%s'
-
-      @default_space = ' '
-      @default_local_space = ' '
-    end
-
     def self.instance
       @instance ||= new
     end
@@ -90,105 +81,45 @@ module Phony
     end
 
     def format number, options = {}
-      country, cc, trunk, ndc, *parts = internal_split number
-      format_cc_ndc_local \
-        options[:format]       || country.format,
-        options[:spaces]       || country.space                           || @default_space,
-        options[:local_spaces] || country.local_space || options[:spaces] || @default_local_space,
-        options[:parentheses]  || country.parentheses,
-        cc,
-        options[:trunk] == false ? nil : trunk,
-        ndc,
-        *parts
+      country, _, national = split_cc number
+      country.format national, options
     end
     alias formatted format
-
-    # Formats country code and national destination code.
-    #
-    def format_cc_ndc_local format, space, local_space, parentheses, cc, trunk, ndc, *parts
-      local = if parts.empty?
-                EMPTY_STRING
-              else
-                format_local(local_space, parts) unless parts.empty?
-              end
-      
-      format_cc_ndc format, space, parentheses, cc, trunk, ndc, local
-      
-      # cc_ndc = cc_ndc.slice 0...cc_ndc.rindex(space.to_s) if parts.empty?
-    end
-    def format_cc_ndc format, space, parentheses, cc, trunk, ndc, local
-      case format
-      when String
-        trunk &&= trunk.format(space)
-        format % { :trunk => trunk, :cc => cc, :ndc => ndc, :local => local }
-      when nil, :international_absolute, :international, :+
-        if ndc
-          ndc = parentheses ? "(#{ndc})" : ndc
-          format_with_ndc(@international_absolute_format, cc, ndc, local, space)
-        else
-          format_without_ndc(@international_absolute_format, cc, local, space)
-        end
-      when :international_relative
-        if ndc
-          ndc = parentheses ? "(#{ndc})" : ndc
-          format_with_ndc(@international_relative_format, cc, ndc, local, space)
-        else
-          format_without_ndc(@international_relative_format, cc, local, space)
-        end
-      when :national
-        # Replaces the %s in the trunk code with a "space".
-        # trunk = trunk % space if trunk && trunk.size > 1
-        trunk &&= trunk.format(space)
-        if ndc && !ndc.empty?
-          ndc = parentheses ? "(#{ndc})" : ndc
-          @national_format % [trunk, ndc, space, local]
-        else
-          @national_format % [trunk, nil, nil,   local]
-        end
-      when :local
-        local
-      end
-    end
-    def format_local local_space, parts_ary
-      parts_ary.compact!
-      parts_ary.join local_space.to_s
-    end
-    
-    def format_with_ndc format, cc, ndc, local, space
-      format % [cc, space, ndc, space, local]
-    end
-    def format_without_ndc format, cc, local, space
-      format % [cc, space, local, nil, nil]
-    end
 
     #
     #
     def service? number
-      country, _, rest = split_cc number
-      country.service? rest
+      country_for(number).service? rest
     end
     def mobile? number
-      country, _, rest = split_cc number
-      country.mobile? rest
+      country_for(number).mobile? rest
     end
     def landline? number
-      country, _, rest = split_cc number
-      country.landline? rest
+      country_for(number).landline? rest
+    end
+    
+    #
+    #
+    def country_for number
+      country, _ = split_cc number
+      country
     end
 
     # Is the given number a vanity number?
     #
     def vanity? number
-      country, _, rest = split_cc number
-      country.vanity? rest
+      country, _, national = split_cc number
+      country.vanity? national
     end
     # Converts a vanity number into a normalized E164 number.
     #
     def vanity_to_number vanity_number
-      country, cc, rest = split_cc vanity_number
-      "#{cc}#{country.vanity_to_number(rest)}"
+      country, cc, national = split_cc vanity_number
+      "#{cc}#{country.vanity_to_number(national)}"
     end
 
+    # TODO Rename, doc.
+    #
     def split_cc rest
       cc = ''
       1.upto(3) do |i|
@@ -199,6 +130,8 @@ module Phony
       # This line is never reached as CCs are in prefix code.
     end
 
+    # TODO Doc.
+    #
     def plausible? number, hints = {}
       normalized = clean number
 
@@ -219,12 +152,6 @@ module Phony
     rescue StandardError
       return false
     end
-
-    # # TODO
-    # #
-    # def self.with_cc cc
-    #   mapping[cc.size][cc.to_s]
-    # end
 
     # Add the given country to the mapping under the
     # given country code.

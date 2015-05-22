@@ -4,15 +4,23 @@ module Phony
   #
   class Country
     
-    attr_reader :format, :space, :local_space, :parentheses
     attr_accessor :codes
 
-    #
+    @@international_absolute_format = '+%s%s%s%s%s'
+    @@international_relative_format = '00%s%s%s%s%s'
+    @@national_format               = '%s%s%s%s'
+  
+    @@default_space = ' '
+    @@default_local_space = ' '
+
+    # TODO Doc.
     #
     def initialize *codes
       @codes = codes
     end
 
+    # DSL method.
+    #
     # Chain two codes together.
     #
     def | other
@@ -55,6 +63,67 @@ module Phony
         zero, ndc, *rest = code.split national_number
         return [code.local_splitter, zero, ndc, *rest] if rest && !rest.empty?
       end
+    end
+    
+    def format national_number, options = {}
+      type         = options[:format]       || @format
+      space        = options[:spaces]       || @space       || @@default_space
+      local_space  = options[:local_spaces] || @local_space || space           || @@default_local_space
+      parentheses  = options[:parentheses]  || @parentheses
+      trunk        = options[:trunk]
+      
+      trunk, ndc, *local = split national_number
+      
+      local = if local.empty?
+                EMPTY_STRING
+              else
+                format_local(local, local_space) unless local.empty?
+              end
+      
+      format_cc_ndc type, space, parentheses, trunk, ndc, local
+    end
+    def format_local local, local_space
+      local.compact!
+      local.join local_space.to_s
+    end
+    def format_cc_ndc type, space, parentheses, trunk, ndc, local
+      case type
+      when String
+        trunk &&= trunk.format(space)
+        type % { :trunk => trunk, :cc => @cc, :ndc => ndc, :local => local }
+      when nil, :international_absolute, :international, :+
+        if ndc
+          ndc = parentheses ? "(#{ndc})" : ndc
+          format_with_ndc(@@international_absolute_format, @cc, ndc, local, space)
+        else
+          format_without_ndc(@@international_absolute_format, @cc, local, space)
+        end
+      when :international_relative
+        if ndc
+          ndc = parentheses ? "(#{ndc})" : ndc
+          format_with_ndc(@@international_relative_format, @cc, ndc, local, space)
+        else
+          format_without_ndc(@@international_relative_format, @cc, local, space)
+        end
+      when :national
+        # Replaces the %s in the trunk code with a "space".
+        # trunk = trunk % space if trunk && trunk.size > 1
+        trunk &&= trunk.format(space)
+        if ndc && !ndc.empty?
+          ndc = parentheses ? "(#{ndc})" : ndc
+          @@national_format % [trunk, ndc, space, local]
+        else
+          @@national_format % [trunk, nil, nil,   local]
+        end
+      when :local
+        local
+      end
+    end
+    def format_with_ndc format, cc, ndc, local, space
+      format % [cc, space, ndc, space, local]
+    end
+    def format_without_ndc format, cc, local, space
+      format % [cc, space, local, nil, nil]
     end
 
     # Cleans all non-numeric characters.

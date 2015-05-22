@@ -6,46 +6,6 @@ describe Phony::CountryCodes do
     @countries = Phony::CountryCodes.instance
   end
 
-  describe 'international_absolute_format=' do
-    it 'formats correctly' do
-      @countries.formatted('41443643532', :format => :international).should eql '+41 44 364 35 32'
-    end
-    it 'formats correctly' do
-      old_format = @countries.international_absolute_format
-      @countries.international_absolute_format = '!!! %s%s%s%s%s'
-
-      @countries.formatted('41443643532', :format => :international).should eql '!!! 41 44 364 35 32'
-
-      @countries.international_absolute_format = old_format
-    end
-  end
-  describe 'international_relative_format=' do
-    it 'formats correctly' do
-      @countries.formatted('41443643532', :format => :international_relative).should eql '0041 44 364 35 32'
-    end
-    it 'formats correctly' do
-      old_format = @countries.international_relative_format
-      @countries.international_relative_format = '000 %s%s%s%s%s'
-
-      @countries.formatted('41443643532', :format => :international_relative).should eql '000 41 44 364 35 32'
-
-      @countries.international_relative_format = old_format
-    end
-  end
-  describe 'national_format=' do
-    it 'formats correctly' do
-      @countries.formatted('41443643532', :format => :international_relative).should eql '0041 44 364 35 32'
-    end
-    it 'formats correctly' do
-      old_format = @countries.national_format
-      @countries.national_format = '%s%s%s%s'
-
-      @countries.formatted('11231231234', :format => :national).should eql '(123) 123-1234'
-
-      @countries.national_format = old_format
-    end
-  end
-
   describe 'formatted' do
     it 'formats correctly' do
       @countries.formatted('41443643532', :format => :international, :spaces => :-).should eql '+41-44-364-35-32'
