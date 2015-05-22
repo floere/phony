@@ -40,17 +40,9 @@ describe Phony::CountryCodes do
       old_format = @countries.national_format
       @countries.national_format = '%s%s%s%s'
 
-      # Removes CC 1, but adds national call prefix 1.
-      #
-      @countries.formatted('11231231234', :format => :national).should eql '1 123 123 1234'
+      @countries.formatted('11231231234', :format => :national).should eql '123 123 1234'
 
       @countries.national_format = old_format
-    end
-  end
-
-  describe 'split' do
-    it 'splits correctly' do
-      @countries.split('41443643532').should eql ['41', '0', '44', '364', '35', '32']
     end
   end
 
@@ -78,7 +70,10 @@ describe Phony::CountryCodes do
         @countries.formatted('85512239123', :format => :national).should eql '012 239 123'
       end
       it 'formats the US correctly' do
-        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '1-800-555-1212'
+        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '800-555-1212'
+      end
+      it 'formats the US correctly' do
+        @countries.formatted('18005551212', :format => :national, :spaces => :-).should eql '800-555-1212'
       end
     end
     context 'default' do

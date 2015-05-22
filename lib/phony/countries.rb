@@ -51,7 +51,7 @@ Phony.define do
   #
   country '1',
     # The US has a delimiter between NDC and local number.
-    trunk('1%s', normalize: true) | # http://en.wikipedia.org/wiki/Trunk_prefix
+    trunk('1%s', normalize: true, format: false) | # http://en.wikipedia.org/wiki/Trunk_prefix
     fixed(3) >> split(3,4),
     :invalid_ndcs => /[0-1]\d{2}|[3-9]11/
 

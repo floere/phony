@@ -14,6 +14,7 @@ module Phony
       @trunk_code_replacement = /\A#{code.gsub(%r{%s}, '')}/
       @normalize = options[:normalize] || options[:normalize].nil?
       @split     = options[:split]
+      @format    = options[:format] || options[:format].nil?
     end
     
     # Prepends itself to the other codes.
@@ -28,12 +29,20 @@ module Phony
     #
     def split national_number
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @split
-      return [@code, national_number]
+      return [self, national_number]
     end
     
+    # Normalize normalizes the given national number.
+    #
     def normalize national_number
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @normalize
       return national_number
+    end
+    
+    #
+    #
+    def format space
+      @code.size > 1 ? @code % space : @code if @format
     end
   
   end

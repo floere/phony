@@ -96,7 +96,6 @@ module Phony
         options[:spaces]       || country.space                           || @default_space,
         options[:local_spaces] || country.local_space || options[:spaces] || @default_local_space,
         cc,
-        # TODO Trunk needs to be an option on the country, unless specifically given.
         options[:trunk] == false ? nil : trunk,
         ndc,
         *parts
@@ -119,7 +118,7 @@ module Phony
     def format_cc_ndc format, space, cc, trunk, ndc, local
       case format
       when String
-        trunk = trunk % space if trunk && trunk.size > 1
+        trunk &&= trunk.format(space)
         format % { :trunk => trunk, :cc => cc, :ndc => ndc, :local => local }
       when nil, :international_absolute, :international, :+
         ndc ?
@@ -131,7 +130,8 @@ module Phony
           format_without_ndc(@international_relative_format, cc, local, space)
       when :national
         # Replaces the %s in the trunk code with a "space".
-        trunk = trunk % space if trunk && trunk.size > 1
+        # trunk = trunk % space if trunk && trunk.size > 1
+        trunk &&= trunk.format(space)
         ndc && !ndc.empty? ?
           @national_format % [trunk, ndc, space, local] :
           @national_format % [trunk, nil, nil,   local]

@@ -29,7 +29,7 @@ describe 'Phony#format' do
         Phony.format('71234567890', :format => '+%{cc} (%{trunk}%{ndc}) %{local}', :local_spaces => '-').should eql '+7 (8123) 45-67890'
       end
       it 'handles an American example correctly' do
-        Phony.format('13015550100', :format => '+%{cc} %{trunk}%{ndc} %{local}', :local_spaces => '-').should eql '+1 1 301 555-0100'
+        Phony.format('13015550100', :format => '+%{cc} %{trunk}%{ndc} %{local}', :local_spaces => '-').should eql '+1 301 555-0100'
       end
     end
     
@@ -93,12 +93,13 @@ describe 'Phony#format' do
       it { Phony.format('18091231234', :format => :international).should eql '+1 809 123 1234' }
       it { Phony.format('18091231234', :format => :international, :spaces => '').should eql '+18091231234' }
       # Gets a trunk code.
-      it { Phony.format('14152223333', :format => :national).should eql '1 415 222 3333' }
+      it { Phony.format('14152223333', :format => :national).should eql '415 222 3333' }
       # Does not show a trunk code.
       it { Phony.format('14152223333', :format => :national, :trunk => false).should eql '415 222 3333' }
       it { Phony.format('18091231234', :format => :international, :spaces => :-).should eql '+1-809-123-1234' }
-      # leading trunk
-      it { Phony.format('14159224711', :format => :national).should eql '1 415 922 4711' }
+      it { Phony.format('14159224711', :format => :national).should eql '415 922 4711' }
+      # With trunk.
+      xit { Phony.format('14159224711', :format => :national, :trunk => true).should eql '1 415 922 4711' }
     end
     describe 'Netherlands' do
       it { Phony.format('311012341234', :format => :national).should eql '010 123 41234' }
