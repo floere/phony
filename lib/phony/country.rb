@@ -12,6 +12,7 @@ module Phony
   
     @@default_space = ' '
     @@default_local_space = ' '
+    @@default_parentheses = false
 
     # TODO Doc.
     #
@@ -71,7 +72,8 @@ module Phony
       type         = options[:format]       || @format
       space        = options[:spaces]       || @space       || @@default_space
       local_space  = options[:local_spaces] || @local_space || space           || @@default_local_space
-      parentheses  = options[:parentheses]  || @parentheses
+      parentheses  = options[:parentheses]
+      parentheses  = @parentheses || @@default_parentheses if parentheses.nil?
       use_trunk    = options[:trunk]
       
       trunk, ndc, *local_pieces = split national_number

@@ -101,6 +101,9 @@ describe 'Phony#format' do
       # With forced trunk.
       it { Phony.format('14159224711', :format => :national, :trunk => true).should eql '1 (415) 922-4711' }
       it { Phony.format('14159224711', :format => :national, :trunk => false).should eql '(415) 922-4711' }
+      # With forced parentheses.
+      it { Phony.format('14159224711', :format => :national, :parentheses => true).should eql '(415) 922-4711' }
+      it { Phony.format('14159224711', :format => :national, :parentheses => false).should eql '415 922-4711' }
     end
     describe 'Netherlands' do
       it { Phony.format('311012341234', :format => :national).should eql '010 123 41234' }
