@@ -95,11 +95,12 @@ describe 'Phony#format' do
       # Gets a trunk code.
       it { Phony.format('14152223333', :format => :national).should eql '(415) 222-3333' }
       # Does not show a trunk code.
-      it { Phony.format('14152223333', :format => :national, :trunk => false).should eql '(415) 222-3333' }
+      it { Phony.format('14152223333', :format => :national).should eql '(415) 222-3333' }
       it { Phony.format('18091231234', :format => :international, :spaces => :-).should eql '+1-(809)-123-1234' }
       it { Phony.format('14159224711', :format => :national).should eql '(415) 922-4711' }
       # With forced trunk.
       it { Phony.format('14159224711', :format => :national, :trunk => true).should eql '1 (415) 922-4711' }
+      it { Phony.format('14159224711', :format => :national, :trunk => false).should eql '(415) 922-4711' }
     end
     describe 'Netherlands' do
       it { Phony.format('311012341234', :format => :national).should eql '010 123 41234' }
