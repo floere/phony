@@ -121,18 +121,6 @@ module Phony
       country, cc, national = split_cc vanity_number
       "#{cc}#{country.vanity_to_number(national)}"
     end
-    
-    # TODO Remove.
-    #
-    def service? number
-      country_for(number).service? rest
-    end
-    def mobile? number
-      country_for(number).mobile? rest
-    end
-    def landline? number
-      country_for(number).landline? rest
-    end
 
     private
     
