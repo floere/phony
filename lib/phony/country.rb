@@ -65,6 +65,8 @@ module Phony
       end
     end
     
+    #
+    #
     def format national_number, options = {}
       type         = options[:format]       || @format
       space        = options[:spaces]       || @space       || @@default_space

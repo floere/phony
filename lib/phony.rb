@@ -177,9 +177,7 @@ module Phony
     #   Phony.split!("13015550100") # => ["1", "301", "555", "0100"]
     #
     def split! phone_number
-      parts = @codes.split phone_number
-      parts.delete_at 1
-      parts
+      @codes.split phone_number
     end
 
     # Formats a normalized E164 number according to a country's formatting scheme.
