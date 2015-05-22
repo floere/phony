@@ -63,7 +63,7 @@ module Phony
         self[cc]
       else
         clean! number
-        country, cc, number = split_cc number
+        country, cc, number = partial_split number
         country
       end
       number = country.normalize number
@@ -81,7 +81,7 @@ module Phony
     # TODO Doc.
     #
     def format number, options = {}
-      country, _, national = split_cc number
+      country, _, national = partial_split number
       country.format national, options
     end
     alias formatted format
@@ -95,7 +95,7 @@ module Phony
       #
       return false unless (4..15) === normalized.size
 
-      country, cc, rest = split_cc normalized
+      country, cc, rest = partial_split normalized
 
       # Country code plausible?
       #
@@ -112,40 +112,40 @@ module Phony
     # Is the given number a vanity number?
     #
     def vanity? number
-      country, _, national = split_cc number
+      country, _, national = partial_split number
       country.vanity? national
     end
     # Converts a vanity number into a normalized E164 number.
     #
     def vanity_to_number vanity_number
-      country, cc, national = split_cc vanity_number
+      country, cc, national = partial_split vanity_number
       "#{cc}#{country.vanity_to_number(national)}"
     end
 
     private
     
-      # TODO Doc.
+      # Return a country for the number.
       #
       def country_for number
-        country, _ = split_cc number
+        country, _ = partial_split number
         country
       end
       
-      # TODO Doc.
+      # Return a country and the split pieces of a number. 
       #
       def internal_split number
-        country, cc, national = split_cc number
+        country, cc, national = partial_split number
         [country, cc, *country.split(national)]
       end
     
-      # TODO Rename, doc.
+      # Split off the country and the cc, and also return the national number part.
       #
-      def split_cc rest
+      def partial_split number
         cc = ''
         1.upto(3) do |i|
-          cc << rest.slice!(0..0)
+          cc << number.slice!(0..0)
           country = countries[i][cc]
-          return [country, cc, rest] if country
+          return [country, cc, number] if country
         end
         # This line is never reached as CCs are in prefix code.
       end
