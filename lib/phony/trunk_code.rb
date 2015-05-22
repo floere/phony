@@ -39,10 +39,10 @@ module Phony
       return national_number
     end
     
+    # Format the trunk code using the spaces given.
     #
-    #
-    def format space
-      @code.size > 1 ? @code % space : @code if @format
+    def format space, force = nil
+      @code.size > 1 ? @code % space : @code if force || @format
     end
   
   end

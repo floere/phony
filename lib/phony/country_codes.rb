@@ -78,7 +78,7 @@ module Phony
       [cc, *pieces]
     end
 
-    # TODO Doc.
+    # Format the number.
     #
     def format number, options = {}
       country, _, national = partial_split number
@@ -86,7 +86,7 @@ module Phony
     end
     alias formatted format
 
-    # TODO Doc.
+    # Is this number plausible?
     #
     def plausible? number, hints = {}
       normalized = clean number

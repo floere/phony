@@ -65,33 +65,33 @@ module Phony
       end
     end
     
-    #
+    # Format the number, given the national part of it.
     #
     def format national_number, options = {}
       type         = options[:format]       || @format
       space        = options[:spaces]       || @space       || @@default_space
       local_space  = options[:local_spaces] || @local_space || space           || @@default_local_space
       parentheses  = options[:parentheses]  || @parentheses
-      trunk        = options[:trunk]
+      use_trunk    = options[:trunk]
       
-      trunk, ndc, *local = split national_number
+      trunk, ndc, *local_pieces = split national_number
       
-      local = if local.empty?
-                EMPTY_STRING
-              else
-                format_local(local, local_space) unless local.empty?
-              end
+      local = format_local local_pieces, local_space
       
-      format_cc_ndc type, space, parentheses, trunk, ndc, local
+      format_cc_ndc trunk, ndc, local, type, space, parentheses, use_trunk
     end
     def format_local local, local_space
-      local.compact!
-      local.join local_space.to_s
+      if local.empty?
+        EMPTY_STRING
+      else
+        local.compact!
+        local.join local_space.to_s
+      end
     end
-    def format_cc_ndc type, space, parentheses, trunk, ndc, local
+    def format_cc_ndc trunk, ndc, local, type, space, parentheses, use_trunk
       case type
       when String
-        trunk &&= trunk.format(space)
+        trunk &&= trunk.format(space, use_trunk)
         type % { :trunk => trunk, :cc => @cc, :ndc => ndc, :local => local }
       when nil, :international_absolute, :international, :+
         if ndc
@@ -108,9 +108,7 @@ module Phony
           format_without_ndc(@@international_relative_format, @cc, local, space)
         end
       when :national
-        # Replaces the %s in the trunk code with a "space".
-        # trunk = trunk % space if trunk && trunk.size > 1
-        trunk &&= trunk.format(space)
+        trunk &&= trunk.format(space, use_trunk)
         if ndc && !ndc.empty?
           ndc = parentheses ? "(#{ndc})" : ndc
           @@national_format % [trunk, ndc, space, local]
