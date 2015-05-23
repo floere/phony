@@ -1,5 +1,72 @@
 ## Format
 
+Format formats phone numbers according to the predominant format of a country.
+
+You really need to give it a normalized phone number WITH country code, so this won't work.
+
+```ruby
+  Phony.format('3643532')
+```
+
+These, however, are splendid:
+
+```ruby
+  Phony.format('41443643532').assert == '+41 44 364 35 32'
+  Phony.format('41800111222').assert == '+41 800 111 222'
+  Phony.format('43198110').assert == '+43 1 98110'
+  Phony.format('18705551122').assert == '+1 (870) 555-1122'
+```
+
+### Options
+
+#### :format => :international
+
+```ruby
+  Phony.format('18091231234', :format => :international).assert == '+1 (809) 123-1234'
+  Phony.format('43198110', :format => :international).assert == '+43 1 98110'
+  Phony.format('43198110', :format => :international_absolute).assert == '+43 1 98110'
+  Phony.format('33142278186', :format => :+).assert == '+33 1 42 27 81 86'
+  Phony.format('43198110', :format => :international_relative).assert == '0043 1 98110'
+  Phony.format('4233841148', :format => :international_relative).assert == '00423 384 11 48'
+```
+
+#### :format => :national
+
+```ruby
+  Phony.format('41443643532', :format => :national).assert == '044 364 35 32'
+  Phony.format('41800111222', :format => :national).assert == '0800 111 222'
+  Phony.format('43198110', :format => :national).assert == '01 98110'
+```
+
+#### :format => :local
+
+```ruby
+  Phony.format('41443643532', :format => :local).assert == '364 35 32'
+  Phony.format('493038625454', :format => :local).assert == '386 25454'
+```
+
+#### :spaces => String
+
+```ruby
+  Phony.format('18091231234', :format => :international, :spaces => '').assert == '+1(809)123-1234'
+  Phony.format('43198110', :format => :international, :spaces => '').assert == '+43198110'
+  Phony.format('43198110', :format => :international_absolute, :spaces => '').assert == '+43198110'
+  Phony.format('33142278186', :format => :+, :spaces => '').assert == '+33142278186'
+  Phony.format('43198110', :format => :international_relative, :spaces => '').assert == '0043198110'
+  Phony.format('4233841148', :format => :international_relative, :spaces => '').assert == '004233841148'
+  Phony.format('18091231234', :format => :international, :spaces => :-).assert == '+1-(809)-123-1234'
+  Phony.format('43198110', :format => :international, :spaces => :-).assert == '+43-1-98110'
+  Phony.format('43198110', :format => :international_absolute, :spaces => :-).assert == '+43-1-98110'
+  Phony.format('33142278186', :format => :+, :spaces => :-).assert == '+33-1-42-27-81-86'
+  Phony.format('43198110', :format => :international_relative, :spaces => :-).assert == '0043-1-98110'
+  Phony.format('4233841148', :format => :international_relative, :spaces => :-).assert == '00423-384-11-48'
+```
+
+#### :local_spaces => String
+
+```ruby
+  Phony.format("33142278186", :format => :international, :local_spaces => :-).assert == '+33 1 42-27-81-86'
+```
 
 ### Example countries
 
