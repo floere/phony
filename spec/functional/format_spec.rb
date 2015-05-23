@@ -12,7 +12,7 @@ describe 'Phony#format' do
       Phony["1"].format('5551234567890', :format => :local).should eql         '123-4567890'
     end
     it 'is not expected to handle an intl number correctly' do
-      # Yep. This turns out to be wrong. Only handles normalized national numbers.
+      # Yep. This turns out to be wrong. Only expects and handles normalized national numbers.
       Phony["1"].format('15551234567890', :format => :international).should eql '+1 (155) 512-34567890'
     end
     it 'formats Japan correctly' do
