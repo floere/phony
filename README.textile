@@ -38,7 +38,7 @@ Without Bundler: Run @gem install phony@ from your command line.
 
 h2(#usage). Usage docs
 
-Phony uses "qed":https://github.com/rubyworks/qed as docs and to run its functional tests. Start here for usage docs: "Usage index":"./qed/index.md"
+Phony uses "qed":https://github.com/rubyworks/qed as docs and to run its functional tests. Start here for usage docs: "Usage index":./qed/index.md.
 
 h3(#normalizing). Phony.normalize(number)
 
