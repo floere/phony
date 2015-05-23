@@ -12,7 +12,7 @@ Learn more about E164 numbers [here](http://en.wikipedia.org/wiki/E.164).
 
 If it doesn't work, please [enter an issue](http://github.com/floere/phony/issues) or better, fork and send a pull request.
 
-# Phony module
+# Phony Module
 
 `Phony` acts like a helper class, so every public method is on the `Phony` module, for example `normalize`.
 
@@ -29,7 +29,7 @@ There are 4 main methods: `.normalize`, `.format`, `.split`, `.plausible?`
     Phony.split('41443643533').assert == ['41', '44', '364', '35', '33']
     Phony.assert.plausible?('41443643533')
 
-# Docs
+# More Docs
 
 There are more detailed docs (doubling as specs) here:
 
