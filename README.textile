@@ -38,11 +38,15 @@ Phony uses "qed":https://github.com/rubyworks/qed as docs and to run its functio
 
 h3(#normalizing). Phony.normalize(number)
 
+Normalize intelligently removes all non-numeric characters of a number. Do it before storing a number in a DB.
+
 "Phony.normalize docs":./qed/normalize.md
 
 @Phony.normalize('1-888-407-4747').assert == '18884074747'@
 
 h3(#formatting). Phony.format(number, options = {})
+
+Format formats a normalized number according to a country's predominant formatting. Lots of options for int'l, national, local formatting.
 
 "Phony.format docs":./qed/format.md
 
@@ -50,11 +54,15 @@ h3(#formatting). Phony.format(number, options = {})
 
 h3(#plausibility). Phony.plausible?(number, options = {})
 
+Is a number plausible?
+
 "Phony.plausible? docs":./qed/plausibility.md
 
 @Phony.assert.plausible?('+41 44 111 22 33')@
 
 h3(#splitting). Phony.split(number)
+
+Split a number into its parts: CC, NDC, local.
 
 "Phony.split docs":./qed/split.md
 
