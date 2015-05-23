@@ -16,6 +16,9 @@
   nanp.normalize("555 1234567890").assert == '5551234567890'
   nanp.normalize("+1 555 1234567890").assert == '5551234567890'
   nanp.normalize("+1 (0) 555 1234567890").assert == '5551234567890'
+  nanp.normalize('4159224711').assert == '4159224711'
+  
+  nanp.assert.plausible?('4159224711')
 ```
 
 It is not expected to handle an intl number correctly.
