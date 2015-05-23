@@ -18,59 +18,25 @@ h2. Description
 This gem normalizes, formats and splits *E164 phone numbers*. A valid E164 phone number *must* include a country code.
 
 E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. For example, the Austalian number number @+61 412 345 678@ can be broken down into the following components:
-* a country code of @61@
-* a mobile number denoted by the @4@ (specific to Australia)
-* a subscriber number of @12 345 678@
+* Country Code (CC): a country code of @61@
+* National Destination Code (NDC): a mobile number denoted by the @4@ (specific to Australia)
+* Local Number Part: a subscriber number of @12 345 678@
 
 Learn more about E164 numbers "here":http://en.wikipedia.org/wiki/E.164.
 
-Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Liberian, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, Vietnamese, and Zambian numbers.
+It currently handles the countries listed at the end of this README.
 
-And to some extent, all others. Just try if it works for you.
-
-If it doesn't, please "enter an issue":http://github.com/floere/phony/issues.
+If it doesn't work, please "enter an issue":http://github.com/floere/phony/issues or better, fork and send a pull request.
 
 h2. Installation
 
-Using with Rails? Check out: https://github.com/joost/phony_rails.
+With Rails? Check out: https://github.com/joost/phony_rails.
 
-With Bundler:
-Append @gem 'phony'@ to your @Gemfile@ and @bundle install@ it.
+With Bundler: Append @gem 'phony'@ to your @Gemfile@ and @bundle install@ it.
 
-Without Bundler:
-Run @gem install phony@ from your command line.
+Without Bundler: Run @gem install phony@ from your command line.
 
 h2(#usage). Usage
-
-h3(#plausibility). Plausibility
-
-"Plausible" means "seems reasonable or probable", not implying 100% correctness on a @true@, but implying 100% correctness on a @false@ return value. So if this returns @true@, it might still be not a plausible number. If it returns @false@, it is definitely not an E164 conform number.
-
-Use this method in combination with @normalize@ for saving it into the database. Also see https://github.com/floere/phony/issues/35 for a discussion on the topic.
-
-Note that you can add constraints to the plausibility check like the country code, @cc@, and the national destination code, @ndc@. Use the options to further limit the plausibility range. For example, only allow a small number of countries.
-
-@Phony.plausible?('0000000').should be_false@
-
-@Phony.plausible?('hello').should be_false@
-
-Always use it with a country code, as Phony needs it to know what country to check:
-
-@Phony.plausible?('+41 44 111 22 33').should be_true@
-
-@Phony.plausible?('+41 44 111 22 33', cc: '41').should be_true@
-
-@Phony.plausible?('+41 44 111 22 33', ndc: '44').should be_true@
-
-@Phony.plausible?('+41 44 111 22 33', cc: '1').should be_false@
-
-@Phony.plausible?('+41 44 111 22 33', ndc: '43').should be_false@
-
-@Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44').should be_true@
-
-@Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/).should be_false@
-
-@Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true@
 
 h3(#normalizing). Normalizing
 
@@ -106,7 +72,7 @@ Aliased as @Phony.formatted(number_string)@.
 
 You really need to give it a normalized phone number WITH country code, so:
 
-@Phony.format('3643532')@ This is bad.
+@Phony.format('3643532')@ This does not work.
 
 These, however, are splendid:
 
@@ -120,7 +86,7 @@ These, however, are splendid:
 
 h4(#international). International
 
-@Phony.format('18091231234', :format => :international).should == '+1 809 123 1234'@
+@Phony.format('18091231234', :format => :international).should == '+1 (809) 123-1234'@
 
 @Phony.format('43198110', :format => :international).should == '+43 1 98110'@
 
@@ -131,34 +97,6 @@ h4(#international). International
 @Phony.format('43198110', :format => :international_relative).should == '0043 1 98110'@
 
 @Phony.format('4233841148', :format => :international_relative).should == '00423 384 11 48'@
-
-h4(#spaces). With spaces
-
-@Phony.format('18091231234', :format => :international, :spaces => '').should == '+18091231234'@
-
-@Phony.format('43198110', :format => :international, :spaces => '').should == '+43198110'@
-
-@Phony.format('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'@
-
-@Phony.format('33142278186', :format => :+, :spaces => '').should == '+33142278186'@
-
-@Phony.format('43198110', :format => :international_relative, :spaces => '').should == '0043198110'@
-
-@Phony.format('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'@
-
-h4(#special). With special spaces
-
-@Phony.format('18091231234', :format => :international, :spaces => :-).should == '+1-809-123-1234'@
-
-@Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'@
-
-@Phony.format('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'@
-
-@Phony.format('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'@
-
-@Phony.format('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'@
-
-@Phony.format('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'@
 
 h4(#national). National
 
@@ -174,9 +112,76 @@ h4(#local). Local
 
 @Phony.format('493038625454', :format => :local).should == '386 25454'@
 
+h4(#spaces). With spaces
+
+Option @spaces@:
+
+@Phony.format('18091231234', :format => :international, :spaces => '').should == '+1(809)1231234'@
+
+@Phony.format('43198110', :format => :international, :spaces => '').should == '+43198110'@
+
+@Phony.format('43198110', :format => :international_absolute, :spaces => '').should == '+43198110'@
+
+@Phony.format('33142278186', :format => :+, :spaces => '').should == '+33142278186'@
+
+@Phony.format('43198110', :format => :international_relative, :spaces => '').should == '0043198110'@
+
+@Phony.format('4233841148', :format => :international_relative, :spaces => '').should == '004233841148'@
+
+@Phony.format('18091231234', :format => :international, :spaces => :-).should == '+1-(809)-123-1234'@
+
+@Phony.format('43198110', :format => :international, :spaces => :-).should == '+43-1-98110'@
+
+@Phony.format('43198110', :format => :international_absolute, :spaces => :-).should == '+43-1-98110'@
+
+@Phony.format('33142278186', :format => :+, :spaces => :-).should == '+33-1-42-27-81-86'@
+
+@Phony.format('43198110', :format => :international_relative, :spaces => :-).should == '0043-1-98110'@
+
+@Phony.format('4233841148', :format => :international_relative, :spaces => :-).should == '00423-384-11-48'@
+
+Option @local_spaces@:
+
+@Phony.format("33142278186", :format => :international, :local_spaces => :-).should == '+33 1 42-27-81-86'@
+
+h3(#plausibility). Plausibility
+
+"Plausible" means "seems reasonable or probable", not implying 100% correctness on a @true@ or @false@ return value. A @false@ value is usually closer to the truth.
+
+Use this method in combination with @normalize@ for saving it into the database. Also see https://github.com/floere/phony/issues/35 for a discussion on the topic.
+
+Note that you can add constraints to the plausibility check like the country code, @cc@, and the national destination code, @ndc@. Use the options to further limit the plausibility range. For example, only allow a small number of countries.
+
+Examples:
+
+@Phony.plausible?('+41 44 111 22 33').should be_true@
+
+@Phony.plausible?('0000000').should be_false@
+
+@Phony.plausible?('hello').should be_false@
+
+With options:
+
+@Phony.plausible?('+41 44 111 22 33', cc: '41').should be_true@
+
+@Phony.plausible?('+41 44 111 22 33', ndc: '44').should be_true@
+
+@Phony.plausible?('+41 44 111 22 33', cc: '1').should be_false@
+
+@Phony.plausible?('+41 44 111 22 33', ndc: '43').should be_false@
+
+@Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44').should be_true@
+
+@Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/).should be_false@
+
+@Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true@
+
 h3(#splitting). Splitting
 
-You really need to give it a normalized phone number WITH country code, so:
+@Phony.split(international_number)@ splits a normalised int'l number into its components, like so:
+[CC, NDC, LOCAL1, LOCAL2, …, LOCALN].
+
+You really need to give it a normalized phone number WITH a country code, so:
 
 @Phony.split('3643532')@ This … no.
 
@@ -201,3 +206,7 @@ Phony is happy with these:
 Note: There is also a ! version of each of these methods which
       will destroy the original string and return a new (or old) one.
       Just work only with the returned value, and you will be fine.
+
+h2. List of Handled Countries
+
+Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Liberian, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, Vietnamese, and Zambian numbers.
