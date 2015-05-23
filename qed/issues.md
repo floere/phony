@@ -31,3 +31,10 @@ Normalizes, but this is a non-real case.
   Phony.normalize('1-111-111-1111').assert        == '1111111111'
   Phony.normalize('111-111-1111', cc: '1').assert == '1111111111'
 ```
+
+### #152
+
+```ruby
+  Phony.split('39694805123').assert == ['39', '694805123', []]
+  Phony.format('39694805123').assert == '+39 694805123 '
+```

@@ -4,13 +4,6 @@ require 'spec_helper'
 
 describe Phony do
 
-  describe 'regression' do
-    it 'best effort #152' do
-      described_class.split('39694805123').should eql ['39', '694805123', []]
-      described_class.format('39694805123').should eql '+39 694805123 '
-    end
-  end
-
   describe 'OO interface' do
     describe '[]' do
       it '' do
