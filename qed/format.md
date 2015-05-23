@@ -23,6 +23,9 @@ It is aliased as `#formatted`, if that floats your boat.
   Phony.formatted('41443643532').assert == '+41 44 364 35 32'
 ```
 
+This is a very nice page for country specific formats:
+http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers 
+
 ### Options
 
 #### :format => :international
