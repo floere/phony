@@ -31,7 +31,7 @@ There are 4 main methods: `.normalize`, `.format`, `.split`, `.plausible?`
 
 # Docs
 
-There are more detailed docs (they are also the specs at the same time) here:
+There are more detailed docs (doubling as specs) here:
 
 * [Phony.normalize](./normalize.md)
 * [Phony.format](./format.md)
