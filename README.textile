@@ -44,26 +44,30 @@ h3(#normalizing). Phony.normalize(number)
 
 "Phony.normalize docs":./qed/normalize.md
 
-@Phony.normalize('1-888-407-4747').should == '18884074747'@
+@Phony.normalize('1-888-407-4747').assert == '18884074747'@
 
 h3(#formatting). Phony.format(number, options = {})
 
 "Phony.format docs":./qed/format.md
 
-@Phony.format('41443643532').should == '+41 44 364 35 32'@
+@Phony.format('41443643532').assert == '+41 44 364 35 32'@
 
 h3(#plausibility). Phony.plausible?(number, options = {})
 
 "Phony.plausible? docs":./qed/plausibility.md
 
-@Phony.plausible?('+41 44 111 22 33').should be_true@
+@Phony.assert.plausible?('+41 44 111 22 33')@
 
 h3(#splitting). Phony.split(number)
 
 "Phony.split docs":./qed/split.md
 
-@Phony.split('3928061371').should == ['39', '2', '806', '1371']@
+@Phony.split('3928061371').assert == ['39', '2', '806', '1371']@
 
 h2. List of Handled Countries
 
 Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Liberian, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, Vietnamese, and Zambian numbers.
+
+h2. License
+
+See "LICENSE":./LICENSE file.
