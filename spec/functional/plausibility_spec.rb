@@ -45,26 +45,11 @@ describe 'plausibility' do
       end
     end
 
-    it 'does not change the given number' do
-      number = "123-123-1234"
-
-      Phony.plausible? number
-
-      number.should == '123-123-1234'
-    end
-
-    it 'handles small numbers' do
-      Phony.plausible?('353').should be_false
-    end
-
-    it 'is correct' do
-      Phony.plausible?('+1911').should be_false
-    end
     it "correctly plausibilizes to#{}do countries" do
       Phony.plausible?('6327332350').should be_true
     end
     it 'is correct' do
-      Phony.plausible?('45 44 11 22 33').should be_true
+      
     end
     it 'is correct' do
       Phony.plausible?('+4231231212').should be_true
@@ -79,22 +64,7 @@ describe 'plausibility' do
       Phony.plausible?('+47551212121').should be_false
     end
     it 'is correct' do
-      Phony.plausible?('010').should be_false
-    end
-    it 'is correct' do
       Phony.plausible?("+460000").should be_false
-    end
-    it 'is correct' do
-      Phony.plausible?('0000000').should be_false
-    end
-    it 'is correct for zeros in number' do
-      Phony.plausible?('+00 00 000 00 01').should be_false
-    end
-    it 'is correct for zeros in number' do
-      Phony.plausible?('00 00 000 00 01').should be_false
-    end
-    it 'is correct' do
-      Phony.plausible?('hello').should be_false
     end
     it "is correct" do
       Phony.plausible?('+41 44 111 22 33').should be_true

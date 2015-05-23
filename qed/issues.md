@@ -26,7 +26,7 @@ Normalizes, but this is a non-real case.
 
 ### #152
 
-
+Italy numbers needed a 0 to be splittable (officially needed). Now they at least work. In a way.
 
     Phony.split('39694805123').assert == ['39', '694805123', []]
     Phony.format('39694805123').assert == '+39 694805123 '

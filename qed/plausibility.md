@@ -1,36 +1,38 @@
-## Vanity
+## Plausibility
 
-### Phony#vanity?
+### Phony#plausible?
 
-Are these numbers vanity numbers?
+### Special Cases
 
-```ruby
-  Phony.assert.vanity? '41800 WEGGLI'
-  Phony.assert.vanity? '41800WEGGLI'
-  Phony.assert.vanity? '41848 SUCCESSMATCH'
-  Phony.refute.vanity? '4180 NO NO NO'
-  Phony.refute.vanity? '41900 KURZ'
-  Phony.refute.vanity? '41 44 364 35 32'
-```
+The given number is unchanged.
 
-### Phony.vanity\_to\_number
+      number = "123-123-1234"
+      Phony.plausible? number
+      number.assert == '123-123-1234'
 
-Turn the vanity number into a normal number.
+Too small numbers are rejected.
 
-```ruby
-  Phony.vanity_to_number('41800WEGGLI').assert == '41800934454'
-  Phony.vanity_to_number('41800weggli').assert == '41800934454'
-```
+      Phony.refute.plausible?('353')
 
-Allow for call-through numbers (>= 1.6.0).
+Letters-only are rejected.
 
-```ruby
-  Phony.vanity_to_number('41800SUCCESSMATCH').assert == '41800782237762824'
-```
+    Phony.refute.plausible?('hello')
 
-Does not check for validity of number.
+### Example countries
 
-```ruby
-  Phony.vanity_to_number('4180BLA').assert == '4180252'
-  Phony.vanity_to_number('41800SUCCESSMATCH').assert == '41800782237762824'
-```
+#### Reserved
+
+    Phony.refute.plausible?('010')
+    Phony.refute.plausible?('0000000')
+    Phony.refute.plausible?('+00 00 000 00 01')
+    Phony.refute.plausible?('00 00 000 00 01')
+
+#### Denmark
+
+    Phony.assert.plausible?('45 44 11 22 33')
+
+#### NANP
+
+It rejects too small numbers.
+
+      Phony.refute.plausible?('+1911')
