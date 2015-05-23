@@ -105,7 +105,7 @@ describe 'Phony#normalize' do
       end
     end
 
-    describe 'country-based' do
+    describe 'country-specific' do
       it 'normalizes the US correctly' do
         Phony["1"].normalize("555 1234567890").should eql '5551234567890'
         Phony["1"].normalize("+1 555 1234567890").should eql '5551234567890'

@@ -4,7 +4,24 @@ require 'spec_helper'
 # http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers 
 #
 describe 'Phony#format' do
-
+  
+  describe 'country-specific' do
+    it 'formats NANP correctly' do
+      Phony["1"].format('5551234567890', :format => :international).should eql '+1 (555) 123-4567890'
+      Phony["1"].format('5551234567890', :format => :national).should eql      '(555) 123-4567890'
+      Phony["1"].format('5551234567890', :format => :local).should eql         '123-4567890'
+    end
+    it 'is not expected to handle an intl number correctly' do
+      # Yep. This turns out to be wrong. Only handles normalized national numbers.
+      Phony["1"].format('15551234567890', :format => :international).should eql '+1 (155) 512-34567890'
+    end
+    it 'formats Japan correctly' do
+      Phony["81"].format('8012345634', :format => :international).should eql '+81 80 1234 5634'
+      Phony["81"].format('8012345634', :format => :national).should eql      '080 1234 5634'
+      Phony["81"].format('8012345634', :format => :local).should eql         '1234 5634'
+    end
+  end
+  
   describe 'cases' do
     describe 'Exceptions' do
       it 'raises on nil' do
@@ -143,7 +160,7 @@ describe 'Phony#format' do
 
   end
   
-  describe 'formatted' do
+  describe '#formatted' do
     it 'is an alias of format' do
       Phony.formatted('41443643532').should eql '+41 44 364 35 32'
     end
