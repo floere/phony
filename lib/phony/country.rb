@@ -97,29 +97,29 @@ module Phony
         type % { :trunk => trunk, :cc => @cc, :ndc => ndc, :local => local }
       when nil, :international_absolute, :international, :+
         if ndc
-          ndc = parentheses ? "(#{ndc})" : ndc
-          format_with_ndc(@@international_absolute_format, @cc, ndc, local, space)
+          format_with_ndc(@@international_absolute_format, @cc, format_ndc(ndc, parentheses), local, space)
         else
           format_without_ndc(@@international_absolute_format, @cc, local, space)
         end
       when :international_relative
         if ndc
-          ndc = parentheses ? "(#{ndc})" : ndc
-          format_with_ndc(@@international_relative_format, @cc, ndc, local, space)
+          format_with_ndc(@@international_relative_format, @cc, format_ndc(ndc, parentheses), local, space)
         else
           format_without_ndc(@@international_relative_format, @cc, local, space)
         end
       when :national
         trunk &&= trunk.format(space, use_trunk)
         if ndc && !ndc.empty?
-          ndc = parentheses ? "(#{ndc})" : ndc
-          @@national_format % [trunk, ndc, space, local]
+          @@national_format % [trunk, format_ndc(ndc, parentheses), space, local]
         else
           @@national_format % [trunk, nil, nil,   local]
         end
       when :local
         local
       end
+    end
+    def format_ndc ndc, parentheses
+      parentheses ? "(#{ndc})" : ndc
     end
     def format_with_ndc format, cc, ndc, local, space
       format % [cc, space, ndc, space, local]
