@@ -1,9 +1,9 @@
 ## Phony.split
 
-`Phony.split(international_number)` splits a normalised international number into its components, like so:
+`Phony.split(international_number)` splits a *normalized* international number into its components, like so:
 `[CC, NDC, LOCAL1, LOCAL2, …, LOCALN]`.
 
-You really need to give it a normalized phone number WITH a country code, so:
+You really need to give it a *normalized* phone number WITH a country code, so:
 
     Phony.split('3643532') # This … no.
 
