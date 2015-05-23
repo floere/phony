@@ -70,4 +70,5 @@ Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Aze
 
 h2. License
 
+MIT.
 See "LICENSE":./LICENSE file.
