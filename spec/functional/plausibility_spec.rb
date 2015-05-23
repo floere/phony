@@ -49,9 +49,6 @@ describe 'plausibility' do
       Phony.plausible?('6327332350').should be_true
     end
     it 'is correct' do
-      
-    end
-    it 'is correct' do
       Phony.plausible?('+4231231212').should be_true
     end
     it 'is correct' do
@@ -66,30 +63,6 @@ describe 'plausibility' do
     it 'is correct' do
       Phony.plausible?("+460000").should be_false
     end
-    it "is correct" do
-      Phony.plausible?('+41 44 111 22 33').should be_true
-    end
-    it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', cc: '41').should be_true
-    end
-    it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', ndc: '44').should be_true
-    end
-    it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', cc: '1').should be_false
-    end
-    it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', ndc: '43').should be_false
-    end
-    it "is correct for explicit checks" do
-      Phony.plausible?('+41 44 111 22 33', cc: '41', ndc: '44').should be_true
-    end
-    it "works with regexps" do
-      Phony.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/).should be_false
-    end
-    it "works with regexps" do
-      Phony.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/).should be_true
-    end
 
     context 'Length validation' do
       it 'works for Swiss cases' do
@@ -99,9 +72,6 @@ describe 'plausibility' do
     end
 
     context 'specific countries' do
-      it "" do
-        Phony.plausible?('+43 699 00000000').should be_true
-      end
 
       it "is correct for Austria" do
         Phony.plausible?('+43 1 000000').should be_true
