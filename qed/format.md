@@ -1,4 +1,4 @@
-## Format
+## Phony.format
 
 Format formats phone numbers according to the predominant format of a country.
 

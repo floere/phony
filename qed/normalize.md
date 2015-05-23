@@ -1,4 +1,4 @@
-## Normalize
+## Phony.normalize
 
 Normalizes a number, such that only numbers remain.
 Use before saving a normalized form into a database.

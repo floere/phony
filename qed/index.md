@@ -35,7 +35,7 @@ There are more detailed docs (they are also the specs at the same time) here:
 
 * [Phony.normalize](./normalize.md)
 * [Phony.format](./format.md)
-<!-- * [Phony.split](./split.md) -->
+* [Phony.split](./split.md)
 * [Phony.plausible?](./plausibility.md)
 
 And more special info:
