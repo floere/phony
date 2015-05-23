@@ -33,23 +33,478 @@
     Phony.refute.plausible?('+00 00 000 00 01')
     Phony.refute.plausible?('00 00 000 00 01')
 
+#### Andorra
+
+    Phony.assert.plausible?('+376 712345')
+    Phony.refute.plausible?('+376 71234') # too short
+    Phony.refute.plausible?('+376 7123456') # too long
+    Phony.assert.plausible?('+376 712345')
+    Phony.refute.plausible?('+376 71234') # too short
+    Phony.refute.plausible?('+376 7123456') # too long
+
+#### Angola
+
+    Phony.assert.plausible?('+244 852 123 456')
+    Phony.refute.plausible?('+244 852 123') # too short
+    Phony.refute.plausible?('+244 852 123 4567') # too long
+
+#### Albania
+
+    Phony.assert.plausible?('+355 85 123456')
+    Phony.refute.plausible?('+355 85 12345') # too short
+    Phony.refute.plausible?('+355 85 1234567') # too long
+
+#### Armenia
+
+    Phony.assert.plausible?('+374 12345678')
+    Phony.refute.plausible?('+374 1234567') # too short
+    Phony.refute.plausible?('+374 123456789') # too long
+
+#### Aruba
+
+    # Landline
+    Phony.assert.plausible?('+297 525 5200')
+    Phony.assert.plausible?('+297 586 6555')
+    # Mobile
+    Phony.assert.plausible?('+297 737 7667')
+
+    Phony.refute.plausible?('+297 520 000')    # too short
+    Phony.refute.plausible?('+297 520 00000')  # too long
+
 #### Austria
 
     Phony.assert.plausible?('+43 699 00000000')
+    Phony.assert.plausible?('+43 1 000000')
+    Phony.assert.plausible?('+43 1 0000000')
+    Phony.assert.plausible?('+43 501 12345')
+    Phony.refute.plausible?('+43 501 1234') # too short
+    Phony.refute.plausible?('+43 501 123456') # too long
+    Phony.assert.plausible?('+43 800 123456789')
+    Phony.assert.plausible?('+43 3115 3307') # See issue #246 on Github.
+
+Mobile.
+    
+    Phony.assert.plausible?('+43 676 0000000')
+    Phony.assert.plausible?('+43 681 00000000')
+    Phony.assert.plausible?('+43 688 0000000')
+    Phony.assert.plausible?('+43 699 00000000')
+    
+663 mobile numbers have 6 digits.
+    
+    Phony.assert.plausible?('+43 663 000000')
+    
+Mobile numbers can have from 7 to 10 digits in the subscriber number.
+    
+    Phony.assert.plausible?('+43 664 1234 567')
+    Phony.assert.plausible?('+43 664 1234 5678')
+    Phony.assert.plausible?('+43 664 1234 56789')
+    Phony.assert.plausible?('+43 664 1234 567890')
+
+#### Azerbaijan
+
+    Phony.assert.plausible?('+994 12 1234567')
+    Phony.refute.plausible?('+994 12 12345') # too short
+    Phony.refute.plausible?('+994 12 12345678') # too long
+
+#### Bahrain
+
+    Phony.assert.plausible?('+973 1234 5678')
+    Phony.refute.plausible?('+973 1234 567')  # too short
+    Phony.refute.plausible?('+973 1234 56789') # too long
+
+#### Bangladesh
+
+    Phony.assert.plausible?('+880 2 1234567')
+    Phony.refute.plausible?('+880 2 12345678') # too long
+    Phony.refute.plausible?('+880 2 123456') # too short
+
+    Phony.assert.plausible?('+880 9020 12345')
+    Phony.refute.plausible?('+880 9020 123456') # too long
+    Phony.refute.plausible?('+880 9020 1234') # too short
+
+NDC with several subscriber number length.
+    
+    Phony.assert.plausible?('+880 3035 1234')
+    Phony.assert.plausible?('+880 3035 123')
+    Phony.refute.plausible?('+880 3035 12') # too short
+    Phony.refute.plausible?('+880 3035 12345') # too long
+
+#### Belarus
+
+    Phony.assert.plausible?('+375 152 123456')
+    Phony.refute.plausible?('+375 152 12345') # too short
+    Phony.refute.plausible?('+375 152 1234567') # too long
+
+    Phony.assert.plausible?('+375 800 123')
+    Phony.assert.plausible?('+375 800 1234')
+    Phony.assert.plausible?('+375 800 1234567')
+    Phony.refute.plausible?('+375 800 123456')
+    Phony.refute.plausible?('+375 800 12345678')
+
+#### Belgium
+
+    Phony.assert.plausible?('+32 3 241 11 32')
+    Phony.assert.plausible?('0032 3 241 11 32')
+    Phony.assert.plausible?('0032 (0) 3 241 11 32')
+
+#### Cambodia
+
+http://en.wikipedia.org/wiki/Telecommunications_in_Cambodia#Mobile_networks
+http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
+http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWE.doc
+
+    Phony.assert.plausible?("+855312345678")     # Beeline (7 digit id)
+    Phony.refute.plausible?("+85531234567")     # Beeline (too short)
+    Phony.assert.plausible?("+85560234567")      # Beeline (6 digit id)
+    Phony.refute.plausible?("+855602345678")    # Beeline (too long)
+
+    Phony.assert.plausible?("+855762345678")     # Mobitel (7 digit id)
+    Phony.refute.plausible?("+85576234567")     # Mobitel (too short)
+    Phony.assert.plausible?("+85517234567")      # Mobitel (6 digit id)
+    Phony.refute.plausible?("+855172345678")    # Mobitel (too long)
+    Phony.assert.plausible?("+85512234567")      # Mobitel (6 digit id)
+    Phony.assert.plausible?("+855121345678")     # Mobitel (7 digit id)
+    Phony.refute.plausible?("+85512123456")     # Mobitel (6 digit invalid)
+
+    Phony.assert.plausible?("+855383001801")     # CooTel (7 digit id)
+    Phony.refute.plausible?("+85538300180")     # CooTel (too short)
+
+    Phony.assert.plausible?("+85518234567")      # Excell (6 digit id)
+    Phony.refute.plausible?("+855182345678")    # Excell (too long)
+
+    Phony.assert.plausible?("+855882345678")     # Metfone (7 digit id)
+    Phony.refute.plausible?("+85588234567")     # Metfone (too short)
+    Phony.assert.plausible?("+855972345678")     # Metfone (7 digit id)
+    Phony.refute.plausible?("+85597234567")     # Metfone (too short)
+    Phony.assert.plausible?("+855714822684")     # Metfone (7 digit id)
+    Phony.refute.plausible?("+85571482268")     # Metfone (too short)
+
+    Phony.assert.plausible?("+85513234567")      # qb (6 digit id)
+    Phony.refute.plausible?("+855132345678")    # qb (too long)
+
+    Phony.assert.plausible?("+855962345678")     # Smart (7 digit id)
+    Phony.refute.plausible?("+85596234567")     # Smart (too short)
+    Phony.assert.plausible?("+85510234567")      # Smart (6 digit id)
+    Phony.refute.plausible?("+855102345678")    # Smart (too long)
+
+AXXXXX (A must be between 1 and 9).
+    
+    Phony.refute.plausible?("+85512023456")     # invalid numbering plan
+    Phony.refute.plausible?("+855380234567")    # invalid numbering plan
+    Phony.assert.plausible?("+85592123456")      # valid for 6 digit id
+
+    Phony.refute.plausible?("+85514234567")     # invalid mobile operator
+    Phony.refute.plausible?("+85527234567")     # invalid ndc
+
+    Phony.assert.plausible?("+85523471234")      # Fixed line (NDC + '47' + 4 digit id)
+    Phony.assert.plausible?("+855234712345")     # Fixed line (NDC + '47' + 5 digit id)
+    Phony.refute.plausible?("+85523123456")     # Fixed line (NDC + invalid A)
+
+#### Croatia
+
+Landline.
+
+    Phony.assert.plausible?('+385 21 695900')
+    Phony.assert.plausible?('+385 1 4566 666')
+    
+    Phony.refute.plausible?('+385 21 12345') # Too short
+    Phony.refute.plausible?('+385 21 1234567') # Too long
+
+Mobile.
+
+    Phony.assert.plausible?('+385 91 896 7509')
+    Phony.refute.plausible?('+385 91 123456') # Too short
 
 #### Denmark
 
     Phony.assert.plausible?('45 44 11 22 33')
+    Phony.refute.plausible?('+45 44 11 12 23 34')
+    Phony.refute.plausible?('+45 44 11 12 2')
+    Phony.assert.plausible?('+45 44 55 22 33')
+
+#### Dutch Antilles
+
+    Phony.assert.plausible?('+599 1234567')
+    Phony.refute.plausible?('+599 123456') # too short
+    Phony.refute.plausible?('+599 12345678') # too long
+
+#### Egypt
+
+    Phony.assert.plausible?('+20 800 1234567')
+    Phony.refute.plausible?('+20 800 12345678')
+    Phony.assert.plausible?('+20 2 12345678')
+    Phony.refute.plausible?('+20 2 1234567')
+    Phony.assert.plausible?('+20 3 1234567')
+    Phony.refute.plausible?('+20 3 12345678')
+    Phony.assert.plausible?('+20 40 1234567')
+    Phony.refute.plausible?('+20 40 12345678')
+    Phony.assert.plausible?('+20 10 12345678')
+    Phony.refute.plausible?('+20 10 1234567')
+    Phony.assert.plausible?('+20 11 12345678')
+    Phony.refute.plausible?('+20 11 1234567')
+    Phony.assert.plausible?('+20 12 12345678')
+    Phony.refute.plausible?('+20 12 1234567')
+
+#### Estonia
+
+    # the 5xxxx mobile numbers can be 7 or 8 digits (ndc + subscriber) long
+    Phony.assert.plausible?('+372 532 12345')
+    Phony.assert.plausible?('+372 532 1234')
+    Phony.refute.plausible?('+372 532 123')
+    Phony.refute.plausible?('+372 532 123456')
+
+    # the 81x/82x are only 8 digits
+    Phony.assert.plausible?('+372 822 12345')
+    Phony.assert.plausible?('+372 812 12345')
+    Phony.refute.plausible?('+372 822 1234')
+    Phony.refute.plausible?('+372 812 1234')
+    Phony.refute.plausible?('+372 822 123')
+    Phony.refute.plausible?('+372 822 123456')
+
+#### Germany
+
+    Phony.assert.plausible?('+49 209 169 - 0') # Gelsenkirchen
+    Phony.assert.plausible?('+49 209 169 - 3530') # Gelsenkirchen
+    Phony.assert.plausible?('+49 40 123 45678')
+    Phony.assert.plausible?('+49 40 123 456789') # TODO ?
+    Phony.assert.plausible?('+49 160 123 1234') # Mobile Number 7 digits
+    Phony.assert.plausible?('+49 160 123 12345') # Mobile Number 8 digits
+    Phony.assert.plausible?('+49 171 123 4567')
+    Phony.assert.plausible?('+49 171 123 45678') # is a valid number according German authority "bundesnetzagentur": http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
+    Phony.assert.plausible?('+49 177 123 1234')
+    Phony.assert.plausible?('+49 176 123 12345')
+    Phony.assert.plausible?('+49 991 1234')   # stricter 3 digit ndc rules
+    Phony.assert.plausible?('+49 2041 123') # Grandfathered numbers.
+    Phony.assert.plausible?('+49 2041 1234567')
+    Phony.assert.plausible?('+49 31234 123456')
+    Phony.assert.plausible?('+49 7141 12345670')
+    Phony.assert.plausible?('+49 1609 1234567') # Bug: https://github.com/floere/phony/issues/146
+    Phony.assert.plausible?('+49 800 1234567')
+    Phony.assert.plausible?('+49 1805 878323')
+
+    # Extended service numbers
+    # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/0800/0800_Nummernplan.pdf?__blob=publicationFile&v=1
+    Phony.assert.plausible?('+49 800 222 3400 10')
+    Phony.assert.plausible?('+49 800 222 3400 100')
+    Phony.refute.plausible?('+49 800 222 3400 1000')
+
+    # Following tests implement specifications from
+    # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
+    # Page 3
+    Phony.assert.plausible?('+49 89    12345678') # NZ-E
+    Phony.assert.plausible?('+49 89    123456789') # NZ-E & NZ-Z
+    Phony.assert.plausible?('+49 89    1234567890') # NZ-Z
+    Phony.assert.plausible?('+49 209   1234567') # NZ-E
+    Phony.assert.plausible?('+49 209   12345678') # NZ-E & NZ-Z
+    Phony.assert.plausible?('+49 209   123456789') # NZ-Z
+    Phony.assert.plausible?('+49 6421  123456') # NZ-E
+    Phony.assert.plausible?('+49 6421  1234567') # NZ-E & NZ-Z
+    Phony.assert.plausible?('+49 6421  12345678') # NZ-Z
+    Phony.assert.plausible?('+49 33053 12345') # NZ-E
+    Phony.assert.plausible?('+49 33053 123456') # NZ-E & NZ-Z
+    Phony.assert.plausible?('+49 33053 1234567') # NZ-Z
+    # Point 2.3c) Numbers can be up to 13 Digits long without prefix according to E.164
+    Phony.assert.plausible?('+49 33053 12345678')
+    Phony.assert.plausible?('+49 6421 123456789')
+    Phony.assert.plausible?('+49 209 1234567890')
+    Phony.assert.plausible?('+49 40 12345678901')
+
+#### Israel
+
+    Phony.assert.plausible?('+972 2 123 1234')
+    Phony.assert.plausible?('+972 59 123 1234')
+
+#### Italy
+
+    Phony.assert.plausible?('+39 06 1234 4567')
+
+    Phony.refute.plausible?('+39 035 00000')
+    Phony.assert.plausible?('+39 035 000000')
+    Phony.assert.plausible?('+39 015 8407324')
+
+    Phony.assert.plausible?('+39 0471 123 456')
+
+Mobile.
+
+    Phony.refute.plausible?('+39 335 123')
+    Phony.refute.plausible?('+39 335 123 45')
+    Phony.assert.plausible?('+39 335 123 456')
+    Phony.assert.plausible?('+39 335 123 4567')
+    Phony.assert.plausible?('+39 335 123 45678')
+    Phony.refute.plausible?('+39 335 123 456789')
+
+#### Malaysia
+
+    Phony.assert.plausible?('+60 14 123 1234')
+    Phony.assert.plausible?('+60 11 123 12345')
+    Phony.refute.plausible?('+60 14 1234 12')     # too short
+    Phony.refute.plausible?('+60 14 1234 12345')  # too long
+
+#### Mexico
+
+    Phony.assert.plausible?('+52 1 55 1212 1212')
+    Phony.assert.plausible?('+52 55 1212 1212')
+    Phony.assert.plausible?('+52 664 123 1212')
+    Phony.assert.plausible?('+52 1 664 123 1212')
+    Phony.assert.plausible?('+52 044 664 123 1212')
+    Phony.refute.plausible?('+52 1 55 1212 1212 3')  # too long
+    Phony.refute.plausible?('+52 55 1212 121')     # too short
 
 #### NANP
 
 It rejects too small numbers.
 
-      Phony.refute.plausible?('+1911')
+    Phony.refute.plausible?('+1911')
+
+Still need E164 conform numbers.
+
+    Phony.refute.plausible?('4346667777', cc: '1')
+
+Automatic country checking.
+
+    Phony.assert.plausible?('1-4346667777')
+    Phony.assert.plausible?('1-800-692-7753')
+    Phony.refute.plausible?('1-911')
+    Phony.refute.plausible?('1-911-123-1234')
+    Phony.refute.plausible?('1-411-123-1234')
+    Phony.refute.plausible?('1-040-123-1234')
+    Phony.refute.plausible?('143466677777') # too long
+    Phony.refute.plausible?('143466677') # too short
+
+With string constraints.
+
+    Phony.assert.plausible?('14346667777', cc: '1')
+    Phony.assert.plausible?('14346667777', ndc: '434')
+    Phony.assert.plausible?('14346667777', cc: '1', ndc: '434')
+
+With regexp constraints.
+    
+    Phony.assert.plausible?('14346667777', cc: /[123]/)
+    Phony.assert.plausible?('14346667777', ndc: /434|435/)
+    Phony.assert.plausible?('14346667777', cc: /[123]/, ndc: /434|435/)
+
+#### Netherlands
+
+    Phony.assert.plausible?('+31 6 12 34 56 78')
+    Phony.refute.plausible?('+31 6 12 34 56 7')
+    Phony.assert.plausible?('+31 20 123 5678')
+    Phony.refute.plausible?('+31 20 123 567')
+    Phony.assert.plausible?('+31 221 123 567')
+    Phony.refute.plausible?('+31 221 123 56')
+    Phony.assert.plausible?('+31 880 450 245')
+    Phony.refute.plausible?('+31 880 450 24')
+    Phony.assert.plausible?('+31 900 123 4567')
+    Phony.refute.plausible?('+31 900 001 00')
+    Phony.assert.plausible?('+31 800 6080')
+
+#### New Zealand
+
+    Phony.assert.plausible?('+64 21 123 456')
+    Phony.assert.plausible?('+64 21 123 4567')
+    Phony.assert.plausible?('+64 9 379 1234')
+    Phony.assert.plausible?('+64 21 12 345 678')
+    Phony.refute.plausible?('+64 21 1234 56789') # to long
+    Phony.refute.plausible?('+64 21 12345') # to short
+
+#### Nigeria
+
+    Phony.assert.plausible?('+234 700 766 1234')
+    Phony.assert.plausible?('+234 701 766 1234')
+    Phony.assert.plausible?('+234 702 766 1234')
+    Phony.assert.plausible?('+234 703 766 1234')
+    Phony.assert.plausible?('+234 704 766 1234')
+    Phony.assert.plausible?('+234 705 766 1234')
+    Phony.assert.plausible?('+234 706 766 1234')
+    Phony.assert.plausible?('+234 707 766 1234')
+    Phony.assert.plausible?('+234 708 766 1234')
+    Phony.assert.plausible?('+234 709 766 1234')
+    Phony.assert.plausible?('+234 800 766 1234')
+    Phony.assert.plausible?('+234 801 766 1234')
+    Phony.assert.plausible?('+234 802 766 1234')
+    Phony.assert.plausible?('+234 803 766 1234')
+    Phony.assert.plausible?('+234 804 766 1234')
+    Phony.assert.plausible?('+234 805 766 1234')
+    Phony.assert.plausible?('+234 806 766 1234')
+    Phony.assert.plausible?('+234 807 766 1234')
+    Phony.assert.plausible?('+234 808 766 1234')
+    Phony.assert.plausible?('+234 809 766 1234')
+    Phony.assert.plausible?('+234 900 766 1234')
+    Phony.assert.plausible?('+234 901 766 1234')
+    Phony.assert.plausible?('+234 902 766 1234')
+    Phony.assert.plausible?('+234 903 766 1234')
+    Phony.assert.plausible?('+234 904 766 1234')
+    Phony.assert.plausible?('+234 905 766 1234')
+    Phony.assert.plausible?('+234 906 766 1234')
+    Phony.assert.plausible?('+234 907 766 1234')
+    Phony.assert.plausible?('+234 908 766 1234')
+    Phony.assert.plausible?('+234 909 766 1234')
+    Phony.assert.plausible?('+234 810 766 1234')
+    Phony.assert.plausible?('+234 811 766 1234')
+    Phony.assert.plausible?('+234 812 766 1234')
+    Phony.assert.plausible?('+234 813 766 1234')
+    Phony.assert.plausible?('+234 814 766 1234')
+    Phony.assert.plausible?('+234 815 766 1234')
+    Phony.assert.plausible?('+234 816 766 1234')
+    Phony.assert.plausible?('+234 817 766 1234')
+    Phony.assert.plausible?('+234 818 766 1234')
+    Phony.assert.plausible?('+234 819 766 1234')
+
+    Phony.refute.plausible?('+234 807 766 123')  # too short
+
+#### Portugal
+
+    Phony.assert.plausible?('+351 800 123456')
+    Phony.assert.plausible?('+351 90 1234567')
+    Phony.refute.plausible?('+351 90 123456')
+    Phony.assert.plausible?('+351 123 123456')
+    Phony.refute.plausible?('+351 123 1234567')
+
+#### Russia
+
+    Phony.assert.plausible?('+7 800 2000 600')
+    Phony.assert.plausible?('+7 960 301 23 45')
+    Phony.refute.plausible?('+7 800 2000 60') # too short
+    Phony.refute.plausible?('796030123451') # too long
+
+#### Slovenia
+
+    Phony.assert.plausible?('+386 41 123 456')
+    Phony.assert.plausible?('+386 1 320 1234')
+    Phony.refute.plausible?('+386 41 123 4567')
 
 #### Switzerland
 
     Phony.assert.plausible?('+41 44 111 22 33')
+    Phony.refute.plausible?('+41 44 111 22 3')
+    Phony.refute.plausible?('+41 44 111 22 334')
+    Phony.refute.plausible?('+41 44 111 22')
+    Phony.assert.plausible?('+41 (044) 364 35 33')
+
+#### Sweden
+
+    Phony.assert.plausible?('+46 8 506 10 60')
+    Phony.assert.plausible?('+46 8 506 106 00')
+    Phony.assert.plausible?('+46 19 764 22 00')
+    Phony.assert.plausible?('+46 19 20 88 50')
+    Phony.refute.plausible?('+46 19 20 88') # too short
+
+#### Vietnam
+
+    Phony.assert.plausible?('+84 8 3827 9666')
+    Phony.assert.plausible?('+84 4 3926 1720')
+    Phony.assert.plausible?('+84 091 123-4567')
+    Phony.assert.plausible?('+84 0167 123456')
+    Phony.refute.plausible?('+84 1 1234') # too short
+    Phony.refute.plausible?('+84 12 3456 7891 0111213') # too long
+
+#### Various Countries
+
+    Phony.assert.plausible?('6327332350')
+    Phony.assert.plausible?('+4231231212')
+    Phony.assert.plausible?('+4755121212')
+    Phony.refute.plausible?('+475512121')
+    Phony.refute.plausible?('+47551212121')
+    Phony.refute.plausible?("+460000")
 
 ### Special Cases
 

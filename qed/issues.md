@@ -30,3 +30,7 @@ Italy numbers needed a 0 to be splittable (officially needed). Now they at least
 
     Phony.split('39694805123').assert == ['39', '694805123', []]
     Phony.format('39694805123').assert == '+39 694805123 '
+    
+### #221
+
+    Phony.assert.plausible?('+39 081 1925 2698')
