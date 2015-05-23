@@ -17,3 +17,6 @@ doc/
 .idea
 spec/performance_ratio.rb
 coverage
+
+# Ignore wadled files
+vendor/lib
