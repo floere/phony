@@ -17,3 +17,9 @@ Phony is happy with these:
     Phony.split('15551115511').should == ['1', '555', '111', '5511']
     Phony.split('6491234567').should == ['64', '9', '123', '4567']
     Phony.split('41800334455').should == ['41', '800', '33', '44', '55']
+
+It handles missing pieces gracefully.
+
+    Phony.split('4144').assert == ['41', '44', '']
+    Phony.split('4144364').assert == ['41', '44', '364']
+    Phony.split('414436435').assert == ['41', '44', '364', '35']

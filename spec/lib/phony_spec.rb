@@ -16,14 +16,6 @@ describe Phony do
         Phony.split('414436435').should eql ['41', '44', '364', '35']
       end
     end
-    context 'formatting' do
-
-    end
-    context "'unsupported' countries" do
-      it 'handles normalizing' do
-        
-      end
-    end
   end
 
 end
