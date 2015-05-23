@@ -7,26 +7,22 @@ h1. Phony
 
 Disclaimer: Phony works with international numbers only, such as @+61 412 345 678@!
 
-The (admittedly crazy) goal of this Gem is to be able to format/split all phone numbers in the world.
+The (admittedly crazy) goal of this Gem is to be able to normalize/format/split all phone numbers in the world.
 
-Used in: "airbnb.com":http://airbnb.com, "restorm.com":http://restorm.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
-
-There's also a Rails wrapper: https://github.com/joost/phony_rails.
+Used in: "airbnb.com":http://airbnb.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
 
 h2. Description
 
-This gem normalizes, formats and splits *E164 phone numbers*. A valid E164 phone number *must* include a country code.
+This gem normalizes, formats and splits "*E164 phone numbers*":http://en.wikipedia.org/wiki/E.164. A valid E164 phone number *must* include a country code.
 
 E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. For example, the Austalian number number @+61 412 345 678@ can be broken down into the following components:
 * Country Code (CC): a country code of @61@
 * National Destination Code (NDC): a mobile number denoted by the @4@ (specific to Australia)
 * Local Number Part: a subscriber number of @12 345 678@
 
-Learn more about E164 numbers "here":http://en.wikipedia.org/wiki/E.164.
-
 It currently handles the countries listed at the end of this README.
 
-If it doesn't work, please "enter an issue":http://github.com/floere/phony/issues or better, fork and send a pull request.
+If it doesn't work, please "enter an issue":http://github.com/floere/phony/issues or better, fork and "send a pull request":http://github.com/floere/phony/pulls.
 
 h2. Installation
 
@@ -66,7 +62,7 @@ h3(#splitting). Phony.split(number)
 
 h2. List of Handled Countries
 
-Currently handles Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Liberian, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, Vietnamese, and Zambian numbers.
+Mildly unmaintained list: Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Liberian, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, Vietnamese, and Zambian numbers.
 
 h2. License
 
