@@ -46,35 +46,6 @@ describe 'plausibility' do
     end
 
     context 'specific countries' do
-
-      it_is_correct_for 'Belize', :samples => '+501 205 1234'
-      it_is_correct_for 'Benin', :samples => '+229 1234 5678'
-      it_is_correct_for 'Bolivia', :samples => '+591 2 277 2266'
-      it_is_correct_for 'Botswana', :samples => ['+267 80 123 456',
-                                                 '+267 29 567 89',
-                                                 '+267 463 4567',
-                                                 '+267 58 123 45',
-                                                 '+267 7 6712 345',
-                                                 '+267 8 1234 567']
-      it_is_correct_for 'Colombia', :samples => ['+57 1 123 4567', '+57 310 123 4567']
-      it_is_correct_for 'Philippines', :samples => [['+63 2 1234567', '+63 2 1234567890'],
-                                                    '+63 88 1234567',
-                                                    ['+63 920 123456', '+63 920 1234567']]
-
-      it_is_correct_for 'Pakistan', :samples => ['+92 21 1234 5678',
-                                                 '+92 22 1234 567',
-                                                 '+92 232 123 456',
-                                                 '+92 30 1234 5678']
-      it_is_correct_for 'Bhutan (Kingdom of)', :samples => '+975 2 889 648'
-      it_is_correct_for 'Brunei Darussalam', :samples => '+673 5 523 876'
-      it_is_correct_for 'Burkina Faso', :samples => '+226  1476 2312'
-      it_is_correct_for 'Burundi', :samples => '+257  1234 5678'
-
-      it_is_correct_for 'Cameroon', :samples => '+237  7372 8186'
-      it_is_correct_for 'Cape Verde', :samples => '+238  642 3843'
-      it_is_correct_for 'Central African Republic', :samples => '+236  1234 5678'
-      it_is_correct_for 'Chad', :samples => '+235  1234 5678'
-      it_is_correct_for 'Comoros', :samples => ['+269 3901 234', '+269 3401 234']
       it_is_correct_for 'Congo', :samples => '+242 1234 56789'
       it_is_correct_for 'Cook Islands', :samples => '+682  71928'
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'

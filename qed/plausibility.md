@@ -26,6 +26,8 @@
 
 ### Example countries
 
+Some of the examples use `plausible? true: [some numbers]`.
+
 #### Reserved
 
     Phony.refute.plausible?('010')
@@ -141,11 +143,50 @@ NDC with several subscriber number length.
     Phony.refute.plausible?('+375 800 123456')
     Phony.refute.plausible?('+375 800 12345678')
 
+#### Belize
+
+    plausible? true: '+501 205 1234'
+
 #### Belgium
 
     Phony.assert.plausible?('+32 3 241 11 32')
     Phony.assert.plausible?('0032 3 241 11 32')
     Phony.assert.plausible?('0032 (0) 3 241 11 32')
+
+#### Benin
+
+    plausible? true: '+229 1234 5678'
+
+#### Bhutan
+
+    plausible? true: '+975 2 889 648'
+
+#### Bolivia
+
+    plausible? true: '+591 2 277 2266'
+
+#### Botswana
+    
+    plausible? true: [
+      '+267 80 123 456',
+      '+267 29 567 89',
+      '+267 463 4567',
+      '+267 58 123 45',
+      '+267 7 6712 345',
+      '+267 8 1234 567'
+    ]
+
+#### Brunei
+
+    plausible? true: '+673 5 523 876'
+
+#### Burkina Faso
+
+    plausible? true: '+226 1476 2312'
+
+#### Burundi
+
+    plausible? true: '+257 1234 5678'
 
 #### Cambodia
 
@@ -200,6 +241,28 @@ AXXXXX (A must be between 1 and 9).
     Phony.assert.plausible?("+855234712345")     # Fixed line (NDC + '47' + 5 digit id)
     Phony.refute.plausible?("+85523123456")     # Fixed line (NDC + invalid A)
 
+#### Cameroon
+
+    plausible? true: '+237 7372 8186'
+
+#### Cape Verde
+
+    plausible? true: '+238 642 3843'
+
+#### Central African Republic
+
+    plausible? true: '+236 1234 5678'
+
+#### Chad
+
+    plausible? true: '+235 1234 5678'
+
+#### Comoros
+
+    plausible? true: [
+      ['+269 3901 234', '+269 3401 234']
+    ]
+
 #### Croatia
 
 Landline.
@@ -214,6 +277,10 @@ Mobile.
 
     Phony.assert.plausible?('+385 91 896 7509')
     Phony.refute.plausible?('+385 91 123456') # Too short
+
+#### Colombia
+  
+    plausible? true: ['+57 1 123 4567', '+57 310 123 4567']
 
 #### Denmark
 
@@ -450,6 +517,23 @@ With regexp constraints.
     Phony.assert.plausible?('+234 819 766 1234')
 
     Phony.refute.plausible?('+234 807 766 123')  # too short
+
+#### Pakistan
+
+    plausible? true: ['+92 21 1234 5678',
+      '+92 22 1234 567',
+      '+92 232 123 456',
+      '+92 30 1234 5678'
+    ]
+
+#### Philippines
+
+    plausible? true: [
+      '+63 2 1234567',
+      '+63 2 1234567890',
+      '+63 88 1234567',
+      ['+63 920 123456', '+63 920 1234567']
+    ]
 
 #### Portugal
 
