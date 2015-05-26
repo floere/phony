@@ -34,9 +34,9 @@ Yep. This turns out to be wrong. Only expects and handles normalized national nu
 ```ruby
   japan = Phony["81"]
   
-  japan.format('8012345634', :format => :international).assert == '+81 80 1234 5634'
-  japan.format('8012345634', :format => :national).assert ==      '080 1234 5634'
-  japan.format('8012345634', :format => :local).assert ==         '1234 5634'
+  japan.format('8012345634', :format => :international).assert == '+81-80-1234-5634'
+  japan.format('8012345634', :format => :national).assert ==      '080-1234-5634'
+  japan.format('8012345634', :format => :local).assert ==         '1234-5634'
   
   japan.normalize("80 1234 5634").assert == '8012345634'
   japan.normalize("Hello    80 1234 5634").assert == '8012345634'
