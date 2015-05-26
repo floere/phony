@@ -1,3 +1,7 @@
+h2. Version 2.14.1
+
+* Improvements for Japan (#253).
+
 h2. Version 2.14.0
 
 * Major change to formatting NANP numbers (including the US): NDC is now by default wrapped in parentheses, and the local part of the number is separated by dashes.
