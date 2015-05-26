@@ -373,12 +373,18 @@ describe 'country descriptions' do
       it_splits '390471811353', ['39', '0471', '811', '353'] # Bolzano
     end
     describe 'Japan' do
-      it_splits '81312345678', %w(81 3 1234 5678)
-      it_splits '81120123456', %w(81 120 123 456)
+      it_splits '81312345678', %w(81 3 1234 5678) # Tokyo
+      it_splits '81612345678', %w(81 6 1234 5678) # Osaka
+      it_splits '81120123456', %w(81 120 123 456) # Freephone
       it_splits '81111234567', %w(81 11 123 4567)
       it_splits '81123123456', %w(81 123 12 3456)
       it_splits '81126712345', %w(81 1267 1 2345)
-      it_splits '819012345678', %w(81 90 1234 5678)
+      it_splits '812012345678', %w(81 20 1234 5678) # Pager(Calling Party Pay)
+      it_splits '815012345678', %w(81 50 1234 5678) # IP Telephone
+      it_splits '816012345678', %w(81 60 1234 5678) # UPT
+      it_splits '817012345678', %w(81 70 1234 5678) # PHS
+      it_splits '818012345678', %w(81 80 1234 5678) # Cellular
+      it_splits '819012345678', %w(81 90 1234 5678) # Cellular
     end
     describe 'Kenya' do
       it_splits '254201234567', ['254', '20', '1234567'] # Nairobi
