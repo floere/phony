@@ -9,14 +9,14 @@
 
     Phony.assert.plausible?('+41 44 111 22 33', cc: '41')
     Phony.refute.plausible?('+41 44 111 22 33', cc: '1')
-    
+
 #### ndc
-    
+
     Phony.assert.plausible?('+41 44 111 22 33', ndc: '44')
     Phony.refute.plausible?('+41 44 111 22 33', ndc: '43')
-    
+
 #### cc & ndc String
-    
+
     Phony.assert.plausible?('+41 44 111 22 33', cc: '41', ndc: '44')
 
 #### cc & ndc Regex
@@ -85,18 +85,18 @@ Some of the examples use `plausible? true: [some numbers]`.
     Phony.assert.plausible?('+43 3115 3307') # See issue #246 on Github.
 
 Mobile.
-    
+
     Phony.assert.plausible?('+43 676 0000000')
     Phony.assert.plausible?('+43 681 00000000')
     Phony.assert.plausible?('+43 688 0000000')
     Phony.assert.plausible?('+43 699 00000000')
-    
+
 663 mobile numbers have 6 digits.
-    
+
     Phony.assert.plausible?('+43 663 000000')
-    
+
 Mobile numbers can have from 7 to 10 digits in the subscriber number.
-    
+
     Phony.assert.plausible?('+43 664 1234 567')
     Phony.assert.plausible?('+43 664 1234 5678')
     Phony.assert.plausible?('+43 664 1234 56789')
@@ -125,7 +125,7 @@ Mobile numbers can have from 7 to 10 digits in the subscriber number.
     Phony.refute.plausible?('+880 9020 1234') # too short
 
 NDC with several subscriber number length.
-    
+
     Phony.assert.plausible?('+880 3035 1234')
     Phony.assert.plausible?('+880 3035 123')
     Phony.refute.plausible?('+880 3035 12') # too short
@@ -166,7 +166,7 @@ NDC with several subscriber number length.
     plausible? true: '+591 2 277 2266'
 
 #### Botswana
-    
+
     plausible? true: [
       '+267 80 123 456',
       '+267 29 567 89',
@@ -193,53 +193,104 @@ NDC with several subscriber number length.
 http://en.wikipedia.org/wiki/Telecommunications_in_Cambodia#Mobile_networks
 http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
 http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWE.doc
+http://www.khmerdigitalpost.com/national-numbering-plans-in-cambodia-by-2014/
+http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
 
-    Phony.assert.plausible?("+855312345678")     # Beeline (7 digit id)
-    Phony.refute.plausible?("+85531234567")     # Beeline (too short)
-    Phony.assert.plausible?("+85560234567")      # Beeline (6 digit id)
-    Phony.refute.plausible?("+855602345678")    # Beeline (too long)
+##### Mobile Numbers
 
-    Phony.assert.plausible?("+855762345678")     # Mobitel (7 digit id)
+    Phony.assert.plausible?("+855762345678")    # Mobitel (7 digit id)
     Phony.refute.plausible?("+85576234567")     # Mobitel (too short)
-    Phony.assert.plausible?("+85517234567")      # Mobitel (6 digit id)
+    Phony.assert.plausible?("+85517234567")     # Mobitel (6 digit id)
     Phony.refute.plausible?("+855172345678")    # Mobitel (too long)
-    Phony.assert.plausible?("+85512234567")      # Mobitel (6 digit id)
-    Phony.assert.plausible?("+855121345678")     # Mobitel (7 digit id)
-    Phony.refute.plausible?("+85512123456")     # Mobitel (6 digit invalid)
 
-    Phony.assert.plausible?("+855383001801")     # CooTel (7 digit id)
+    Phony.assert.plausible?("+855383001801")    # CooTel (7 digit id)
     Phony.refute.plausible?("+85538300180")     # CooTel (too short)
 
-    Phony.assert.plausible?("+85518234567")      # Excell (6 digit id)
+    Phony.assert.plausible?("+85518234567")     # Excell (6 digit id)
     Phony.refute.plausible?("+855182345678")    # Excell (too long)
 
-    Phony.assert.plausible?("+855882345678")     # Metfone (7 digit id)
+    Phony.assert.plausible?("+855882345678")    # Metfone (7 digit id)
     Phony.refute.plausible?("+85588234567")     # Metfone (too short)
-    Phony.assert.plausible?("+855972345678")     # Metfone (7 digit id)
+    Phony.assert.plausible?("+855972345678")    # Metfone (7 digit id)
     Phony.refute.plausible?("+85597234567")     # Metfone (too short)
-    Phony.assert.plausible?("+855714822684")     # Metfone (7 digit id)
+    Phony.assert.plausible?("+855714822684")    # Metfone (7 digit id)
     Phony.refute.plausible?("+85571482268")     # Metfone (too short)
 
-    Phony.assert.plausible?("+85513234567")      # qb (6 digit id)
+    Phony.assert.plausible?("+85513234567")     # qb (6 digit id)
     Phony.refute.plausible?("+855132345678")    # qb (too long)
 
-    Phony.assert.plausible?("+855962345678")     # Smart (7 digit id)
+    Phony.assert.plausible?("+855962345678")    # Smart (7 digit id)
     Phony.refute.plausible?("+85596234567")     # Smart (too short)
-    Phony.assert.plausible?("+85510234567")      # Smart (6 digit id)
+    Phony.assert.plausible?("+85510234567")     # Smart (6 digit id)
     Phony.refute.plausible?("+855102345678")    # Smart (too long)
 
-AXXXXX (A must be between 1 and 9).
-    
     Phony.refute.plausible?("+85512023456")     # invalid numbering plan
+    Phony.refute.plausible?("+85592123456")     # invalid numbering plan
     Phony.refute.plausible?("+855380234567")    # invalid numbering plan
-    Phony.assert.plausible?("+85592123456")      # valid for 6 digit id
+    Phony.refute.plausible?("+855381234567")    # invalid numbering plan
+    Phony.refute.plausible?("+85519234567")     # invalid mobile operator
 
-    Phony.refute.plausible?("+85514234567")     # invalid mobile operator
+##### Fixed Line
+
+    Phony.assert.plausible?("+85523212345")     # Fixed line Telecom Cambodia
+    Phony.refute.plausible?("+855232123456")    # Fixed line Telecom Cambodia (too long)
+
+    Phony.assert.plausible?("+85523312345")     # Fixed line Mobitel
+    Phony.refute.plausible?("+855233123456")    # Fixed line Mobitel (too long)
+
+    Phony.assert.plausible?("+85523412345")     # Fixed line Telecom Cambodia
+    Phony.refute.plausible?("+855234123456")    # Fixed line Telecom Cambodia (too long)
+
+    Phony.assert.plausible?("+85523712345")     # Fixed line Telecom Cambodia
+    Phony.refute.plausible?("+855237123456")    # Fixed line Telecom Cambodia (too long)
+
+    Phony.assert.plausible?("+85523812345")     # Fixed line Telecom Cambodia
+    Phony.refute.plausible?("+855238123456")    # Fixed line Telecom Cambodia (too long)
+
+    Phony.assert.plausible?("+85523912345")     # Fixed line Camintel
+    Phony.refute.plausible?("+855239123456")    # Fixed line Camintel (too long)
+
+    Phony.assert.plausible?("+855234523456")    # Fixed line Smart
+    Phony.refute.plausible?("+85523452345")     # Fixed line Smart (too short)
+
+    Phony.assert.plausible?("+855234623456")    # Fixed line Metfone
+    Phony.refute.plausible?("+85523462345")     # Fixed line Metfone (too short)
+
+    Phony.assert.plausible?("+855234723456")    # Fixed line CooTel
+    Phony.refute.plausible?("+85523472345")     # Fixed line CooTel (too short)
+
+    Phony.assert.plausible?("+855234823456")    # Fixed line Excell
+    Phony.refute.plausible?("+85523482345")     # Fixed line Excell (too short)
+
+    Phony.assert.plausible?("+855234923456")    # Fixed line qb
+    Phony.refute.plausible?("+85523492345")     # Fixed line qb (too short)
+
+    Phony.assert.plausible?("+855235023456")    # Fixed line Mobitel
+    Phony.refute.plausible?("+85523502345")     # Fixed line Mobitel (too short)
+
+    Phony.assert.plausible?("+855235123456")    # Fixed line Mobitel
+    Phony.refute.plausible?("+85523512345")     # Fixed line Mobitel (too short)
+
+    Phony.assert.plausible?("+855235223456")    # Fixed line Mobitel
+    Phony.refute.plausible?("+85523522345")     # Fixed line Mobitel (too short)
+
+    Phony.assert.plausible?("+855235323456")    # Fixed line Mobitel
+    Phony.refute.plausible?("+85523532345")     # Fixed line Mobitel (too short)
+
+    Phony.assert.plausible?("+855235423456")    # Fixed line Mobitel
+    Phony.refute.plausible?("+85523542345")     # Fixed line Mobitel (too short)
+
+    Phony.assert.plausible?("+855235523456")    # Fixed line Mobitel
+    Phony.refute.plausible?("+85523552345")     # Fixed line Mobitel (too short)
+
+    Phony.assert.plausible?("+855235623456")    # Fixed line Smart
+    Phony.refute.plausible?("+85523562345")     # Fixed line Smart (too short)
+
+    Phony.assert.plausible?("+855236623456")    # Fixed line Metfone
+    Phony.refute.plausible?("+85523662345")     # Fixed line Metfone (too short)
+
     Phony.refute.plausible?("+85527234567")     # invalid ndc
-
-    Phony.assert.plausible?("+85523471234")      # Fixed line (NDC + '47' + 4 digit id)
-    Phony.assert.plausible?("+855234712345")     # Fixed line (NDC + '47' + 5 digit id)
-    Phony.refute.plausible?("+85523123456")     # Fixed line (NDC + invalid A)
+    Phony.refute.plausible?("+85523134567")     # invalid numbering plan
 
 #### Cameroon
 
@@ -269,7 +320,7 @@ Landline.
 
     Phony.assert.plausible?('+385 21 695900')
     Phony.assert.plausible?('+385 1 4566 666')
-    
+
     Phony.refute.plausible?('+385 21 12345') # Too short
     Phony.refute.plausible?('+385 21 1234567') # Too long
 
@@ -279,7 +330,7 @@ Mobile.
     Phony.refute.plausible?('+385 91 123456') # Too short
 
 #### Colombia
-  
+
     plausible? true: ['+57 1 123 4567', '+57 310 123 4567']
 
 #### Denmark
@@ -551,7 +602,7 @@ With string constraints.
     Phony.assert.plausible?('14346667777', cc: '1', ndc: '434')
 
 With regexp constraints.
-    
+
     Phony.assert.plausible?('14346667777', cc: /[123]/)
     Phony.assert.plausible?('14346667777', ndc: /434|435/)
     Phony.assert.plausible?('14346667777', cc: /[123]/, ndc: /434|435/)
