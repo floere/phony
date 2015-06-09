@@ -1,3 +1,7 @@
+h2. Version 2.14.2
+
+* Improvements for Brazil (#256).
+
 h2. Version 2.14.1
 
 * Improvements for Japan (#253).
