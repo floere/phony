@@ -2,6 +2,8 @@
 # http://en.wikipedia.org/wiki/Telecommunications_in_Cambodia#Mobile_networks
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia
 # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000230001MSWE.doc
+# http://www.khmerdigitalpost.com/national-numbering-plans-in-cambodia-by-2014/
+# http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
 
 ndcs = [
   '23', # Phnom Penh
@@ -10,7 +12,7 @@ ndcs = [
   '26', # Kampong Chhnang
   '32', # Takeo
   '33', # Kampot
-  '34', # Sihanoukville
+  '34', # Preah Sihanouk
   '35', # Koh Kong
   '36', # Kep
   '42', # Kampong Cham
@@ -31,40 +33,42 @@ ndcs = [
 ]
 
 six_digit_mobile_prefixes = [
-  '60', # Beeline
-  '66', # Beeline
-  '67', # Beeline
-  '68', # Beeline
-  '90', # Beeline
-  '11', # Mobitel
-  '17', # Mobitel
-  '61', # Mobitel
-  '77', # Mobitel
-  '78', # Mobitel
-  '85', # Mobitel
-  '89', # Mobitel
-  '92', # Mobitel
-  '95', # Mobitel
-  '99', # Mobitel
-  '18', # Excell
-  '13', # qb
-  '80', # qb
-  '83', # qb
-  '84', # qb
   '10', # Smart
+  '11', # Mobitel
+  '12', # Mobitel
+  '13', # qb
+  '14', # Mobitel
   '15', # Smart
   '16', # Smart
+  '17', # Mobitel
+  '18', # Excell
+  '60', # Metfone
+  '61', # Mobitel
+  '66', # Metfone
+  '67', # Metfone
+  '68', # Metfone
   '69', # Smart
   '70', # Smart
+  '77', # Mobitel
+  '78', # Mobitel
+  '80', # qb
   '81', # Smart
+  '83', # qb
+  '84', # qb
+  '85', # Mobitel
   '86', # Smart
   '87', # Smart
+  '89', # Mobitel
+  '90', # Metfone
+  '92', # Mobitel
   '93', # Smart
+  '95', # Mobitel
   '98', # Smart
+  '99', # Mobitel
 ]
 
 seven_digit_mobile_prefixes = [
-  '31', # Beeline
+  '31', # Metfone
   '38', # CooTel
   '71', # Metfone
   '76', # Mobitel
@@ -73,15 +77,44 @@ seven_digit_mobile_prefixes = [
   '97', # Metfone
 ]
 
-six_or_seven_digit_mobile_prefixes = [
-  '12' # Mobitel
+six_digit_total_single_digit_fixed_line_prefixes = [
+  '2',  # Telecom Cambodia
+  '3',  # Mobitel
+  '7',  # Telecom Cambodia
+  '8',  # Telecom Cambodia
+  '9',  # Camintel
+]
+
+six_digit_total_double_digit_fixed_line_prefixes = [
+  '40', # Telecom Cambodia
+  '41', # Telecom Cambodia
+  '42', # Telecom Cambodia
+  '43', # Telecom Cambodia
+  '44', # Telecom Cambodia
+]
+
+seven_digit_total_single_digit_fixed_line_prefixes = [
+  '6',  # Metfone
+]
+
+seven_digit_total_double_digit_fixed_line_prefixes = [
+  '45', # Smart
+  '46', # Metfone
+  '47', # CooTel
+  '48', # Excell
+  '49', # qb
+  '50', # Mobitel
+  '51', # Mobitel
+  '52', # Mobitel
+  '53', # Mobitel
+  '54', # Mobitel
+  '55', # Mobitel
+  '56', # Smart
 ]
 
 Phony.define do
-  country '855', trunk('0', :normalize => true) | one_of(six_digit_mobile_prefixes)   >> matched_split(/^[1-9]/ => [3, 3]) |
+  country '855', trunk('0', :normalize => true) |
+                 one_of(six_digit_mobile_prefixes)   >> matched_split(/^[2-9]/ => [3, 3]) |
                  one_of(seven_digit_mobile_prefixes) >> matched_split(/^[2-9]/ => [3, 4]) |
-                 one_of(six_or_seven_digit_mobile_prefixes) >> matched_split(
-                   /^[2-9]\d{5}$/ => [3, 3], /^[1-9]\d{6}$/ => [3, 4]
-                 ) |
-                 one_of(ndcs) >> matched_split(/^[2-9]\d{5}$/ => [3, 3], /^[2-9]\d{6}$/ => [3, 4])
+                 one_of(ndcs) >> matched_split(/^(#{seven_digit_total_double_digit_fixed_line_prefixes.join('|')})\d{5}$/ => [3, 4], /^(#{seven_digit_total_single_digit_fixed_line_prefixes.join('|')})\d{6}$/ => [3, 4], /^(#{six_digit_total_double_digit_fixed_line_prefixes.join('|')})\d{4}$/ => [3, 3], /^(#{six_digit_total_single_digit_fixed_line_prefixes.join('|')})\d{5}$/ => [3, 3])
 end
