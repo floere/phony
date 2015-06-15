@@ -74,6 +74,10 @@ Split a number into its parts: CC, NDC, local.
 
 @Phony.split('3928061371').assert == ['39', '2', '806', '1371']@
 
+NB If a country does not have an NDC, @#split@ will return @false@ in the NDC position, for example for Denmark:
+
+@Phony.split('4512121212').assert == ['45', false, '12', '12', '12', '12']@
+
 h2. List of Handled Countries
 
 Mildly unmaintained list: Abhas, Afghan, Algerian, Argentinan, Austrian, Australian, Azerbaijani, Belgian, Brazilian, Cambodian, Chilean, Chinese, Croatian, Cuban, Cypriot, Czech, Danish, Dutch, Egyptian, El Salvadorian, Estonian, French, German, Ghanan, Gibraltar, Greek, Haiti, Hong Kong, Hungarian, Indian, Iran, Irish, Israel, Italian, Kazakh, Liberian, Lithuanian, Luxembourgian, Malaysian, Malta, Mexican, Monaco, Morocco, New Zealand, Nigerian, Norwegian, Peruvian, Polish, Romanian, Russian, Rwandan, Seychelles, Singapore, Slovakian, South African, South Korean, South Osetian, Spanish, Sri Lankan, Sudan, Swedish, Swiss, Thailand, Tunisian, Turkish, Liechtenstein, UK, US, Venezuelan, Vietnamese, and Zambian numbers.
