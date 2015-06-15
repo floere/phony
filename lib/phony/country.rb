@@ -48,22 +48,26 @@ module Phony
     #
     # Note: If the ndc is nil, it will not return it.
     #
+    # @return [Trunk, String (ndc), Array<String> (national pieces)]
+    #
     def split national_number
-      trunk = nil
-      @codes.each do |code|
-        new_trunk, ndc, *rest = code.split national_number
-        trunk ||= new_trunk
-        return [trunk, ndc, *rest] if rest && !rest.empty?
-      end
-      # Best effort in error case.
-      #
-      [trunk, national_number, []]
+      _, trunk, ndc, *rest = internal_split national_number
+      [trunk, ndc, *rest]
     end
-    def split_ndc national_number
-      @codes.each do |code|
-        zero, ndc, *rest = code.split national_number
-        return [code.local_splitter, zero, ndc, *rest] if rest && !rest.empty?
+    #
+    #
+    # @return [Splitters::Local, Trunk, String (ndc), Array<String> (national pieces)]
+    #
+    def internal_split national_number
+      trunk = nil
+      @codes.each do |national_splitter|
+        new_trunk, ndc, *rest = national_splitter.split national_number
+        trunk ||= new_trunk
+        return [national_splitter.local_splitter, trunk, ndc, *rest] if rest && !rest.empty?
       end
+      
+      # Best effort.
+      [nil, trunk, national_number, []]
     end
     
     # Format the number, given the national part of it.
@@ -163,7 +167,7 @@ module Phony
     # Tests for plausibility of this national number.
     #
     def plausible? rest, hints = {}
-      local, _, ndc, *rest = split_ndc rest
+      local, _, ndc, *rest = internal_split rest
 
       # Element based checking.
       #

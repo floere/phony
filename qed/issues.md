@@ -34,3 +34,8 @@ Italy numbers needed a 0 to be splittable (officially needed). Now they at least
 ### #221
 
     Phony.assert.plausible?('+39 081 1925 2698')
+    
+### #259
+
+    Phony.split("4512121212").assert == ['45', false, '12', '12', '12', '12']
+    Phony.split("4234760987").assert == ['423', false, '476', '09', '87']

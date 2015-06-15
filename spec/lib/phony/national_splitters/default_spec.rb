@@ -12,8 +12,8 @@ describe Phony::NationalSplitters::Default do
     let(:splitter) { described_class.instance_for }
     
     describe 'split' do
-      it 'does not split' do
-        splitter.split(:anything).should == [:anything]
+      it 'does only pretend split' do
+        splitter.split(:anything).should == [nil, :anything]
       end
     end
     

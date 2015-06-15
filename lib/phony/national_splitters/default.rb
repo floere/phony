@@ -9,7 +9,7 @@ module Phony
       def self.instance_for
         @instance ||= new
       end
-
+      
       # "Splits" the national part of a phone number into a single piece.
       #
       # @param [String] national_number An national part of a number.
@@ -20,7 +20,7 @@ module Phony
       #   Phony.split("1234567") # => ["1234567"]
       #
       def split national_number
-        [national_number]
+        [nil, national_number]
       end
       
       # By default, the national part of a number is always plausible.

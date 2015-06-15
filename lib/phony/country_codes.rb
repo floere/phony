@@ -73,16 +73,20 @@ module Phony
     # Splits this number into cc, ndc and locally split number parts.
     #
     def split number
-      # TODO Think about reordering.
-      country, cc, trunk, *pieces = internal_split number
-      [cc, *pieces]
+      # Split the number into country, cc, and national part.
+      country, cc, national_number = partial_split number
+      
+      # Split the national number into ndc and local part.
+      trunk, ndc, *local = country.split national_number
+      
+      [cc, ndc, *local]
     end
 
     # Format the number.
     #
     def format number, options = {}
-      country, _, national = partial_split number
-      country.format national, options
+      country, _, national_number = partial_split number
+      country.format national_number, options
     end
     alias formatted format
 
@@ -130,14 +134,7 @@ module Phony
         country, _ = partial_split number
         country
       end
-      
-      # Return a country and the split pieces of a number. 
-      #
-      def internal_split number
-        country, cc, national = partial_split number
-        [country, cc, *country.split(national)]
-      end
-    
+          
       # Split off the country and the cc, and also return the national number part.
       #
       def partial_split number
