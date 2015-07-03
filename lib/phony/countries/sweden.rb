@@ -32,6 +32,7 @@ ndcs = [
  '60', # Sundsvall-Timrå
  '63', # Östersund
  '90', # Umeå
+ '522', # Uddevalla
 ]
 mobile = [
  '70', # Mobile
