@@ -1,3 +1,7 @@
+h2. Version 2.14.8
+
+* Improvements for Ireland (#263).
+
 h2. Version 2.14.7
 
 * Improvements for Sweden (#262).
