@@ -1,12 +1,13 @@
 # The Republic of Ireland has variable-length NDCs from 2-3 digits in length.  Depending on the NDC, the length of the subscriber number varies from 5-7 characters in length.  There does not appear to be any pattern that relates NDCs to subscriber number length.
 #
 # 7 digit subscriber numbers follow a 3-4 split pattern.
-# 5 and 6 digit subscriber numbers appear split in some examples, and not in others; to be conservative, these are not currently split.  
+# 5 and 6 digit subscriber numbers appear split in some examples, and not in others; to be conservative, these are not currently split.
 #
-# For NDCs that are not recognized, we fall back to not attempting to split out an NDC at all. 
+# For NDCs that are not recognized, we fall back to not attempting to split out an NDC at all.
 #
 # References:
-# http://www.comreg.ie/_fileupload/publications/ComReg03147.pdf
+# http://www.comreg.ie/_fileupload/publications/ComReg03147.pdf (2003)
+# http://www.comreg.ie/licensing_and_services/area_code_maps.552.1040.html
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_the_Republic_of_Ireland
 #
 ndcs_with_5_subscriber_digits = [
@@ -22,7 +23,9 @@ ndcs_with_5_subscriber_digits = [
   '505',  # Roscrea
   '506',  # Tullamore
   '509',  # Bin-
-  ('52'..'55').to_a, # Killenaule, Wexford, Enniscorthy, Ferns, Gorey
+  '52',   # Killenaule
+  '54',   # Legacy Ferns, Enniscorthy
+  '55',   # Legacy Gorey
   '62',   # Tipperary, Cashel
   '63',   # Charleville
   '64',   # Killarney, Rathmore
@@ -47,6 +50,7 @@ ndcs_with_7_subscriber_digits = [
   '42', # Dundalk, Carrickmacross, Castleblaney
   '46', # Navan, Kells, Trim, Enfield, Edenderry
   '49', # Cavan, Cootehill, Oldcastle, Belturbet
+  '53', # Wexford, Enniscorthy, Ferns, Gorey, Craanford
   '56', # Kilkenny, Castlecomer
   '58', # Dungarvan
   '59', # Carlow, Muine Bheag, Athy, Baltinglass
