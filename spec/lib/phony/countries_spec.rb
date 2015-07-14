@@ -332,6 +332,7 @@ describe 'country descriptions' do
 
     describe 'Ireland' do
       it_splits '35311234567',  ['353', '1', '123', '4567']  # Dublin, 7 digit subscriber #
+      it_splits '353539233333', ['353', '53', '923', '3333'] # Wexford, 7 digit subscriber
       it_splits '3532212345',   ['353', '22', '12345']       # Mallow, 5 digit subscriber #
       it_splits '35345123456',  ['353', '45', '123456']      # Naas, 6 digit subscriber #
       it_splits '353801234567', ['353', '80', '123', '4567'] # Mobile
