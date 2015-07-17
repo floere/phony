@@ -732,7 +732,7 @@ Phony.define do
           fixed(1) >> split(3,4)
 
    # El Salvador (Republic of)
-  country '503', fixed(4) >> split(4,4)
+  country '503', fixed(4) >> split(4)
 
   # Honduras (Republic of) http://www.wtng.info/wtng-504-hn.html
   # https://www.numberingplans.com/?page=dialling&sub=areacodes
