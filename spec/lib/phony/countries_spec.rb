@@ -797,7 +797,7 @@ describe 'country descriptions' do
       it_splits '299691123', ['299', '691', '123']
     end
     describe 'Guadeloupe (French Department of)' do
-      it_splits '590123456789', %w(590 123 456 789)
+      it_splits '590590456789', %w(590 590 45 67 89)
     end
     describe 'Guatemala (Republic of)' do
       it_splits '50219123456789', ['502', '19', '123', '456', '789']
@@ -897,7 +897,7 @@ describe 'country descriptions' do
       it_splits '6924226536', ['692', false, '422', '6536']
     end
     describe 'Martinique (French Department of)' do
-      it_splits '596596123456', %w(596 596 123 456)
+      it_splits '596596123456', %w(596 596 12 34 56)
     end
     describe 'Mauritania' do
       it_splits '22212345678', ['222', false, '1234', '5678']
@@ -1027,7 +1027,7 @@ describe 'country descriptions' do
       it_splits '67511512345678', %w(675 115 1234 5678)
     end
     describe 'Reunion / Mayotte (new)' do
-      it_splits '262594399265', ['262', '594', '399', '265']
+      it_splits '262594399265', ['262', '594', '39', '92', '65']
     end
     describe 'Saint Helena' do
       it_splits '2903614', ['290', false, '3614']

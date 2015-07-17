@@ -476,7 +476,9 @@ Phony.define do
               /\A6\d+\z/ => [3,3,3]   # satellite
           )
 
-  country '262', fixed(3) >> split(3, 3) # Reunion / Mayotte (new) http://www.wtng.info/wtng-262-fr.html
+  country '262', # Reunion / Mayotte (new) http://www.wtng.info/wtng-262-fr.html
+    trunk('0') |
+    fixed(3) >> split(2,2,2)
 
   # country '263' # Zimbabwe, see special file
 
@@ -769,7 +771,8 @@ Phony.define do
 
   # Guadeloupe (French Department of) http://www.wtng.info/wtng-590-fr.html
   # https://www.numberingplans.com/?page=dialling&sub=areacodes
-  country '590', fixed(3) >> split(3,3)
+  country '590', trunk('0') |
+    fixed(3) >> split(2,2,2)
 
   country '591', # Bolivia (Republic of) http://www.itu.int/oth/T020200001A/en
     fixed(1) >> split(3,4)
@@ -787,7 +790,8 @@ Phony.define do
   # country '595' # Paraguay (Republic of), see special file
 
   # Martinique (French Department of) http://www.wtng.info/wtng-596-mq.html, https://www.numberingplans.com
-  country '596', fixed(3) >> split(3, 3)
+  country '596', trunk('0') |
+    fixed(3) >> split(2,2,2)
 
   # Suriname (Republic of) http://www.wtng.info/wtng-597-sr.html, https://www.numberingplans.com
   country '597',
