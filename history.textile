@@ -1,3 +1,7 @@
+h2. Version 2.14.9
+
+* Improvements for El Salvador (#264).
+
 h2. Version 2.14.8
 
 * Improvements for Ireland (#263).
