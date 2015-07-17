@@ -1,3 +1,7 @@
+h2. Version 2.14.10
+
+* Improvements for the French territories (#265).
+
 h2. Version 2.14.9
 
 * Improvements for El Salvador (#264).
