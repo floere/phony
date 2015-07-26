@@ -167,6 +167,19 @@ With forced trunk.
     Phony.format('41800112233', :format => :national).assert == '0800 112 233'
     Phony.format('41443643532', :format => :local).assert == '364 35 32'
     Phony.format('493038625454', :format => :local).assert == '386 25454'
+    
+#### Zimbabwe
+
+##### Mobile numbers
+
+    Phony.format('263713123456', :format => :international).assert == '+263 71 312 3456'
+    Phony.format('263713123456', :format => :national).assert == '071 312 3456'
+    Phony.format('263733123456', :format => :international).assert == '+263 73 312 3456'
+    Phony.format('263733123456', :format => :national).assert == '073 312 3456'
+    Phony.format('263773123456', :format => :international).assert == '+263 77 312 3456'
+    Phony.format('263773123456', :format => :national).assert == '077 312 3456'
+    Phony.format('263783123456', :format => :international).assert == '+263 78 312 3456'
+    Phony.format('263783123456', :format => :national).assert == '078 312 3456'
 
 #### Unsupported Countries
 

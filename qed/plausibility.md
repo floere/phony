@@ -775,6 +775,24 @@ With regexp constraints.
     Phony.assert.plausible?('+84 0167 123456')
     Phony.refute.plausible?('+84 1 1234') # too short
     Phony.refute.plausible?('+84 12 3456 7891 0111213') # too long
+    
+#### Zimbabwe
+
+http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90002PDFE.pdf
+
+##### Mobile numbers
+
+    plausible? true: [
+        '+263 71 3123456',
+        '+263 73 3123456',
+        '+263 77 3123456',
+        '+263 78 3123456'
+    ]
+    
+    plausible? false: [
+        '+263 78 312345',   # too short
+        '+263 78 31234567'  # too long
+    ]
 
 #### Various Countries
 
