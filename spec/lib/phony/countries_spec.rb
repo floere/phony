@@ -1205,6 +1205,12 @@ describe 'country descriptions' do
       it_splits  '263270123456', %w(263 270 123 456)
       it_splits  '26327012345', %w(263 270 123 45)
       it_splits  '2638612354567', %w(263 86 1235 4567)
+
+      # mobile numbers (see http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90002PDFE.pdf, Table 4, Page 25)
+      %w(71 73 77 78).each do |prefix|
+        number = "263#{prefix}2345678"
+        it_splits  number, ['263', prefix, '234', '5678']
+      end
     end
   end
 
