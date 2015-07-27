@@ -1,3 +1,7 @@
+h2. Version 2.14.11
+
+* Improvements for Zimbabwe (#267).
+
 h2. Version 2.14.10
 
 * Improvements for the French territories (#265).
