@@ -1,3 +1,7 @@
+h2. Version 2.14.12
+
+* Improvements for Cambodia (#268).
+
 h2. Version 2.14.11
 
 * Improvements for Zimbabwe (#267).
