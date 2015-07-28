@@ -229,6 +229,9 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.refute.plausible?("+855188700545")    # Excell (too long)
     Phony.refute.plausible?("+85518970054")     # Seatel (too short)
 
+    Phony.assert.plausible?("+855399999898")    # EMAXX  (7 digit id)
+    Phony.refute.plausible?("+85539999989")     # EMAXX  (too short)
+
     Phony.refute.plausible?("+85512023456")     # invalid numbering plan
     Phony.refute.plausible?("+85592123456")     # invalid numbering plan
     Phony.refute.plausible?("+855380234567")    # invalid numbering plan
