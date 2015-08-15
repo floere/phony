@@ -202,6 +202,7 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.refute.plausible?("+85576234567")     # Mobitel (too short)
     Phony.assert.plausible?("+85517234567")     # Mobitel (6 digit id)
     Phony.refute.plausible?("+855172345678")    # Mobitel (too long)
+    Phony.assert.plausible?("+85592122417")     # Mobitel (6 digit extended range id)
 
     Phony.assert.plausible?("+855383001801")    # CooTel (7 digit id)
     Phony.refute.plausible?("+85538300180")     # CooTel (too short)
@@ -233,7 +234,7 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.refute.plausible?("+85539999989")     # EMAXX  (too short)
 
     Phony.refute.plausible?("+85512023456")     # invalid numbering plan
-    Phony.refute.plausible?("+85592123456")     # invalid numbering plan
+    Phony.refute.plausible?("+85510123456")     # invalid numbering plan
     Phony.refute.plausible?("+855380234567")    # invalid numbering plan
     Phony.refute.plausible?("+855381234567")    # invalid numbering plan
     Phony.refute.plausible?("+85519234567")     # invalid mobile operator
@@ -783,7 +784,7 @@ With regexp constraints.
     Phony.assert.plausible?('+84 0167 123456')
     Phony.refute.plausible?('+84 1 1234') # too short
     Phony.refute.plausible?('+84 12 3456 7891 0111213') # too long
-    
+
 #### Zimbabwe
 
 http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90002PDFE.pdf
@@ -796,7 +797,7 @@ http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90002PDFE.pdf
         '+263 77 3123456',
         '+263 78 3123456'
     ]
-    
+
     plausible? false: [
         '+263 78 312345',   # too short
         '+263 78 31234567'  # too long
