@@ -59,11 +59,14 @@ six_digit_mobile_prefixes = [
   '87', # Smart
   '89', # Mobitel
   '90', # Metfone
-  '92', # Mobitel
   '93', # Smart
   '95', # Mobitel
   '98', # Smart
   '99', # Mobitel
+]
+
+six_digit_extended_range_mobile_prefixes = [
+  '92' # Mobitel
 ]
 
 seven_digit_mobile_prefixes = [
@@ -120,6 +123,7 @@ Phony.define do
   country '855', trunk('0', :normalize => true) |
                  one_of(mobile_prefixes_with_variable_length) >> matched_split(/^9/ => [3, 4], /^[2-8]/ => [3, 3]) |
                  one_of(six_digit_mobile_prefixes)   >> matched_split(/^[2-9]/ => [3, 3]) |
+                 one_of(six_digit_extended_range_mobile_prefixes) >> matched_split(/^[1-9]/ => [3, 3]) |
                  one_of(seven_digit_mobile_prefixes) >> matched_split(/^[2-9]/ => [3, 4]) |
                  one_of(ndcs) >> matched_split(/^(#{seven_digit_total_double_digit_fixed_line_prefixes.join('|')})\d{5}$/ => [3, 4], /^(#{seven_digit_total_single_digit_fixed_line_prefixes.join('|')})\d{6}$/ => [3, 4], /^(#{six_digit_total_double_digit_fixed_line_prefixes.join('|')})\d{4}$/ => [3, 3], /^(#{six_digit_total_single_digit_fixed_line_prefixes.join('|')})\d{5}$/ => [3, 3])
 end
