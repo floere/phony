@@ -302,7 +302,7 @@ Phony.define do
   country '94', # TODO Sri Lanka (Democratic Socialist Republic of)
     fixed(2) >> split(3,2,2)
 
-  country '95', trunk('0') | fixed(2) >> split(3,2,2) # TODO Myanmar (Union of)
+  #country '95' # Myanmar, see special file.
 
   country '98', #  Iran (Islamic Republic of)
     one_of('21') >> split(4,4) | # Teheran

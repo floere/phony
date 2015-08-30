@@ -113,6 +113,21 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     Phony.format('4233841148', :format => :international_relative, :spaces => '').assert == '004233841148'
     Phony.format('4233841148', :format => :international_relative, :spaces => :-).assert == '00423-384-11-48'
 
+#### Myanmar
+
+    Phony.format('95169123').assert == '+95 1 69 123'
+    Phony.format('95227000').assert == '+95 2 27 000' # MANDALAY AIR PORT
+    Phony.format('954380123').assert == '+95 43 80 123'
+    Phony.format('95852050123').assert == '+95 85 205 0123'
+    Phony.format('951625123').assert == '+95 1 625 123'
+    # mobile  phone numbers
+    Phony.format('9596312345').assert == '+95 9 631 2345'
+    Phony.format('9595512345').assert == '+95 9 551 2345'
+    Phony.format('95932123456').assert == '+95 9 3212 3456'
+    Phony.format('95930123456').assert == '+95 9 3012 3456'
+    Phony.format('959250233059').assert == '+95 9 250 233 059'
+    Phony.format('959427123456').assert == '+95 9 427 123 456'
+
 #### NANP
 
     Phony.format('18705551122').assert == '+1 (870) 555-1122'

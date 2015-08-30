@@ -41,6 +41,7 @@ require File.expand_path '../phony/countries/libya', __FILE__
 require File.expand_path '../phony/countries/malaysia', __FILE__
 require File.expand_path '../phony/countries/moldova', __FILE__
 require File.expand_path '../phony/countries/montenegro', __FILE__
+require File.expand_path '../phony/countries/myanmar', __FILE__
 require File.expand_path '../phony/countries/namibia', __FILE__
 require File.expand_path '../phony/countries/nepal', __FILE__
 require File.expand_path '../phony/countries/netherlands', __FILE__
