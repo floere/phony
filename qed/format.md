@@ -127,6 +127,9 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     Phony.format('95930123456').assert == '+95 9 3012 3456'
     Phony.format('959250233059').assert == '+95 9 250 233 059'
     Phony.format('959427123456').assert == '+95 9 427 123 456'
+    
+    Phony.format('959427123456', :format => :national).assert == '9 427 123 456'
+    Phony.format('959427123456', :format => :local).assert == '427 123 456'
 
 #### NANP
 
