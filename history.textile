@@ -1,3 +1,7 @@
+h2. Version 2.15.0
+
+* Trunk code will only return digits on @#format@ (#277).
+
 h2. Version 2.14.15
 
 * Improvements for Myanmar (#275).

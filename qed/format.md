@@ -85,6 +85,11 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     Phony.format('43198110', :format => :international_relative, :spaces => :-).assert == '0043-1-98110'
     Phony.format('43198110', :format => :national).assert == '01 98110'
 
+#### Belarus
+
+    Phony.format('375152450911').assert == '+375 152 450911'
+    Phony.format('375331234567', :format => :national).assert == '80 33 1234567'
+
 #### Denmark
 
     Phony.format('4540506070', format: :national).assert == '40 50 60 70'
