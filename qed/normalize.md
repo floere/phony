@@ -49,6 +49,7 @@ Normalizes another one of these crazy numbers.
 #### Belarus
 
     Phony.normalize('375 152450911').assert == '375152450911'
+    Phony.normalize('375 80 331234567').assert == '375331234567'
 
 #### Cambodia
 
