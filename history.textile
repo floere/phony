@@ -1,3 +1,7 @@
+h2. Version 2.15.1
+
+* Improvements for Belgium (#279).
+
 h2. Version 2.15.0
 
 * Trunk code will only return digits on @#format@ (#277).
