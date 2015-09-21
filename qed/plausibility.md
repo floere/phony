@@ -395,7 +395,15 @@ Mobile.
 
 #### Finland
 
-    Phony.assert.plausible?('+358 457 1234567')
+    Phony.assert.plausible?('+358 457 123 45')
+    Phony.assert.plausible?('+358 457 123 45 6')
+    Phony.assert.plausible?('+358 457 123 45 67')
+    Phony.assert.plausible?('+358 41 123 45')
+    Phony.assert.plausible?('+358 41 123 45 6')
+    Phony.assert.plausible?('+358 41 123 45 67')
+    Phony.assert.plausible?('+358 50 123 45')
+    Phony.assert.plausible?('+358 50 123 45 6')
+    Phony.assert.plausible?('+358 50 123 45 67')
 
 #### Germany
 

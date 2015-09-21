@@ -1,3 +1,7 @@
+h2. Version 2.15.2
+
+* Improvements for Finland (#282).
+
 h2. Version 2.15.1
 
 * Improvements for Belgium (#279).
