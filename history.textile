@@ -1,3 +1,7 @@
+h2. Version 2.15.3
+
+* Improvements for Austria (#283).
+
 h2. Version 2.15.2
 
 * Improvements for Finland (#282).
