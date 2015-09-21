@@ -628,7 +628,7 @@ Phony.define do
           trunk('0') |
           match(/^([1-3]0)\d+$/)          >> split(3,3,0..6) | # Service/subscriber
           match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Service
-          match(/^(4\d|50)\d+$/)          >> split(3,2,0..2) | # Mobile
+          match(/^(457|4\d|50)\d+$/)      >> split(3,2,0..2) | # Mobile
           one_of('2','3','5','6','8','9') >> split(3,2..4)   | # Short NDCs
           fixed(2)                        >> split(3,3)     # 2-digit NDCs
 
