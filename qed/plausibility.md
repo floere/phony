@@ -393,6 +393,10 @@ Mobile.
     Phony.refute.plausible?('+372 822 123')
     Phony.refute.plausible?('+372 822 123456')
 
+#### Finland
+
+    Phony.assert.plausible?('+358 457 1234567')
+
 #### Germany
 
     Phony.assert.plausible?('+49 209 169 - 0') # Gelsenkirchen
