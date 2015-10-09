@@ -57,6 +57,9 @@ describe Phony::CountryCodes do
       it "should format north american numbers" do
         @countries.formatted('18091231234', :format => :international).should eql '+1 (809) 123-1234'
       end
+      it "should format pre-formatted north american numbers" do
+        @countries.formatted('+18091231234', :format => :international).should eql '+1 (809) 123-1234'
+      end
       it "should format austrian numbers" do
         @countries.formatted('43198110', :format => :international).should eql '+43 1 98110'
       end
