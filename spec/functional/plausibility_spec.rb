@@ -245,6 +245,7 @@ describe 'plausibility' do
                                                    '+992 474 456 123']
       it_is_correct_for 'Thailand', :samples => ['+6621231234',
                                                  '+6636123123',
+                                                 '+66612345678',
                                                  '+66851234567',
                                                  '+66921234567']
       it_is_correct_for 'Togolese Republic', :samples => '+228 1234 5678'
