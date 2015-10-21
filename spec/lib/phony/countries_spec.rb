@@ -125,7 +125,13 @@ describe 'country descriptions' do
       it_splits '5519991311234', ['55', '19', '99131', '1234'] # Rio de Janeiro's 9 digits mobile
 
       context "special states with 9 in mobile" do
-        %w{ 11 12 13 14 15 16 17 18 19 21 22 24 27 28 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99}.each do |state_code|
+        %w{
+          11 12 13 14 15 16 17 18 19
+          21 22 24 27 28
+          81 82 83 84 85 86 87 88 89
+          91 92 93 94 95 96 97 98 99
+          31 32 33 34 35 36 37 38
+        }.each do |state_code|
           it_splits "55#{state_code}993051123", ['55', state_code, '99305', '1123']
         end
       end
@@ -142,6 +148,7 @@ describe 'country descriptions' do
         it_splits '55199', ['55', '199', ""]
       end
     end
+
     describe 'Cambodia' do
       it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
       it_splits '855977100872', ["855", "97", "710", "0872"] # mobile (Metfone)
