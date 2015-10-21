@@ -131,6 +131,7 @@ describe 'country descriptions' do
           81 82 83 84 85 86 87 88 89
           91 92 93 94 95 96 97 98 99
           31 32 33 34 35 36 37 38
+          71 72 73 74 75 77 78 79
         }.each do |state_code|
           it_splits "55#{state_code}993051123", ['55', state_code, '99305', '1123']
         end

@@ -100,7 +100,7 @@ ndcs = {
 }
 
 regular_phone_or_mobile = /\A(#{ndcs.values.join('|')})\d{8}\z/
-mobile_with_9_digits = /\A(#{ndcs[1]}|#{ndcs[2]}|#{ndcs[8]}|#{ndcs[9]}|#{ndcs[3]})9\d{8}\z/
+mobile_with_9_digits = /\A(#{ndcs[1]}|#{ndcs[2]}|#{ndcs[8]}|#{ndcs[9]}|#{ndcs[3]}|#{ndcs[7]})9\d{8}\z/
 
 service = %w{ 100 128 190 191 192 193 194 197 198 199 } # State specific numbers were not added. See http://www.brasil.gov.br/navegue_por/aplicativos/agenda
 
