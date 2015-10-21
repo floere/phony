@@ -121,11 +121,13 @@ describe 'country descriptions' do
       it_splits '5511981231234', ['55', '11', '98123', '1234'] # São Paulo's 9 digits mobile
       it_splits '552181231234', ['55', '21', '8123', '1234']
       it_splits '5521981231234', ['55', '21', '98123', '1234'] # Rio de Janeiro's 9 digits mobile
-      it_splits '551931311234', ['55', '19', '3131', '1234'] # Rio de Janeiro's 9 digits mobile
-      it_splits '5519991311234', ['55', '19', '99131', '1234'] # Rio de Janeiro's 9 digits mobile
+      it_splits '551931311234', ['55', '19', '3131', '1234'] 
+      it_splits '5531991311234', ['55', '31', '99131', '1234'] # Belo Horizonte's 9th digit
+      it_splits '5571991311234', ['55', '71', '99131', '1234'] # Salvador's 9th digit
+      it_splits '5579991311234', ['55', '79', '99131', '1234'] # Sergipe's 9th digit
 
       context "special states with 9 in mobile" do
-        %w{ 11 12 13 14 15 16 17 18 19 21 22 24 27 28 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99}.each do |state_code|
+        %w{ 11 12 13 14 15 16 17 18 19 21 22 24 27 28 31 32 33 34 35 37 38 71 73 74 75 77 79 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99}.each do |state_code|
           it_splits "55#{state_code}993051123", ['55', state_code, '99305', '1123']
         end
       end
