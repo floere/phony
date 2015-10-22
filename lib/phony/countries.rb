@@ -236,6 +236,9 @@ Phony.define do
   country '61',
     trunk('0') |
     match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
+    match(/^(1800)\d+$/)  >> split(4,4) | # 1800 free call
+    match(/^(1300)\d+$/)  >> split(4,4) | # 1300 local rate
+    match(/^(13)\d+$/)    >> split(2,2) | # 13 local rate
     fixed(1)              >> split(4,4)   # Rest
 
 	# country '62' # Indonesia (Republic of), see special file

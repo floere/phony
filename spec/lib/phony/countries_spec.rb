@@ -56,6 +56,9 @@ describe 'country descriptions' do
     describe 'Australia' do
       it_splits '61512341234', ['61', '5', '1234', '1234'] # Landline
       it_splits '61423123123', ['61', '423', '123', '123'] # Mobile
+      it_splits '61131212', ['61', '13', '12', '12'] # 13 local rate
+      it_splits '61130012341234', ['61', '1300', '1234', '1234'] # 1300 local rate
+      it_splits '61180012341234', ['61', '1800', '1234', '1234'] # 1800 free call
     end
 
     describe 'Bahrain' do
@@ -121,7 +124,7 @@ describe 'country descriptions' do
       it_splits '5511981231234', ['55', '11', '98123', '1234'] # São Paulo's 9 digits mobile
       it_splits '552181231234', ['55', '21', '8123', '1234']
       it_splits '5521981231234', ['55', '21', '98123', '1234'] # Rio de Janeiro's 9 digits mobile
-      it_splits '551931311234', ['55', '19', '3131', '1234'] 
+      it_splits '551931311234', ['55', '19', '3131', '1234']
       it_splits '5531991311234', ['55', '31', '99131', '1234'] # Belo Horizonte's 9th digit
       it_splits '5571991311234', ['55', '71', '99131', '1234'] # Salvador's 9th digit
       it_splits '5579991311234', ['55', '79', '99131', '1234'] # Sergipe's 9th digit
