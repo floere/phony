@@ -103,6 +103,16 @@ Mobile numbers can have from 7 to 10 digits in the subscriber number.
     Phony.assert.plausible?('+43 664 1234 56789')
     Phony.assert.plausible?('+43 664 1234 567890')
 
+#### Australia
+
+    Phony.assert.plausible?('+614 1234 5678')
+    Phony.assert.plausible?('+61 1800 1234 5678')
+    Phony.assert.plausible?('+61 1300 1234 5678')
+    Phony.assert.plausible?('+61 13 12 12')
+    Phony.assert.plausible?('+613 1234 5678')
+    Phony.refute.plausible?('+613 1234 56789') # too long
+    Phony.refute.plausible?('+613 1234 567') # too short
+
 #### Azerbaijan
 
     Phony.assert.plausible?('+994 12 1234567')
