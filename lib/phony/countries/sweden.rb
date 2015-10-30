@@ -33,6 +33,7 @@ ndcs = [
  '63', # Östersund
  '90', # Umeå
  '522', # Uddevalla
+ '77', #Dalarna
 ]
 mobile = [
  '70', # Mobile
