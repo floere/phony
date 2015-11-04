@@ -707,7 +707,11 @@ Phony.define do
 
   country '387', trunk('0') | fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
   country '388', trunk('0') | fixed(2) >> split(3,2,2) # Group of countries, shared code
-  country '389', trunk('0') | fixed(2) >> split(3,2,2) # The Former Yugoslav Republic of Macedonia
+  
+  # The Former Yugoslav Republic of Macedonia
+  country '389',
+  	  trunk('0') | 
+  	  one_of('2','3','4','5','6','7','8')  >> split(3,4)
 
   country '420', fixed(3) >> split(3,3) # Czech Republic
 
