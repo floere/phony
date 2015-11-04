@@ -1,3 +1,7 @@
+h2. Version 2.15.8
+
+* Improvements for Macedonia (#293).
+
 h2. Version 2.15.7
 
 * Improvements for Sweden (#292).
