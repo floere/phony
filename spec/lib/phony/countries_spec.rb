@@ -423,6 +423,13 @@ describe 'country descriptions' do
       it_splits '352370431',       ['352', '37', '04', '31']
       it_splits '35227855',        ['352', '27', '85', '5']
     end
+    describe 'Macedonia' do
+      it_splits '38921234567', ['389', '2', '123', '4567'] # Skopje
+      it_splits '38931234567', ['389', '3', '123', '4567'] # Eastern Macedonia
+      it_splits '38941234567', ['389', '4', '123', '4567'] # Western Macedonia
+      it_splits '38951234567', ['389', '5', '123', '4567'] # Premium
+      it_splits '38971234567', ['389', '7', '123', '4567'] # Mobile
+    end
     describe 'Malaysia' do
       it_splits '6082123456',   ['60', '82', '123456']   # Kuching
       it_splits '60312345678',  ['60', '3', '12345678'] # Kuala Lumpur
