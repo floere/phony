@@ -1,3 +1,7 @@
+h2. Version 2.15.9
+
+* Improvements for Austria (#295).
+
 h2. Version 2.15.8
 
 * Improvements for Macedonia (#293).
