@@ -97,7 +97,7 @@ Phony.define do
   #
   country '32', trunk('0') |
                 match(/^(70|800|90\d)\d+$/) >> split(3,3)   | # Service
-                match(/^(46[68])\d{6}$/)    >> split(2,2,2) | # Mobile (Lycamobile, Telenet)
+                match(/^(46[568])\d{6}$/)   >> split(2,2,2) | # Mobile (Lycamobile, Telenet)
                 match(/^(4[789]\d)\d{6}$/)  >> split(2,2,2) | # Mobile
                 one_of('2','3','4','9')     >> split(3,2,2) | # Short NDCs
                 fixed(2)                    >> split(2,2,2)   # 2-digit NDCs
@@ -707,11 +707,11 @@ Phony.define do
 
   country '387', trunk('0') | fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
   country '388', trunk('0') | fixed(2) >> split(3,2,2) # Group of countries, shared code
-  
+
   # The Former Yugoslav Republic of Macedonia
   country '389',
-  	  trunk('0') | 
-  	  one_of('2','3','4','5','6','7','8')  >> split(3,4)
+      trunk('0') |
+      one_of('2','3','4','5','6','7','8')  >> split(3,4)
 
   country '420', fixed(3) >> split(3,3) # Czech Republic
 
