@@ -1,3 +1,7 @@
+h2. Version 2.15.11
+
+* Improvements for Australia (#298).
+
 h2. Version 2.15.10
 
 * Improvements for Belgium (#296).
