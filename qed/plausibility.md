@@ -106,8 +106,8 @@ Mobile numbers can have from 7 to 10 digits in the subscriber number.
 #### Australia
 
     Phony.assert.plausible?('+614 1234 5678')
-    Phony.assert.plausible?('+61 1800 1234 5678')
-    Phony.assert.plausible?('+61 1300 1234 5678')
+    Phony.assert.plausible?('+61 1800 123 456')
+    Phony.assert.plausible?('+61 1300 123 456')
     Phony.assert.plausible?('+61 13 12 12')
     Phony.assert.plausible?('+613 1234 5678')
     Phony.refute.plausible?('+613 1234 56789') # too long

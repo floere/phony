@@ -57,8 +57,8 @@ describe 'country descriptions' do
       it_splits '61512341234', ['61', '5', '1234', '1234'] # Landline
       it_splits '61423123123', ['61', '423', '123', '123'] # Mobile
       it_splits '61131212', ['61', '13', '12', '12'] # 13 local rate
-      it_splits '61130012341234', ['61', '1300', '1234', '1234'] # 1300 local rate
-      it_splits '61180012341234', ['61', '1800', '1234', '1234'] # 1800 free call
+      it_splits '611300123123', ['61', '1300', '123', '123'] # 1300 local rate
+      it_splits '611800123123', ['61', '1800', '123', '123'] # 1800 free call
     end
 
     describe 'Bahrain' do
