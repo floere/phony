@@ -776,6 +776,15 @@ With regexp constraints.
     Phony.assert.plausible?('+351 123 123456')
     Phony.refute.plausible?('+351 123 1234567')
 
+#### Romania
+
+    plausible? true: [
+      '+40 21 123 1234',
+      '+40 72 123 1234',
+      '+40 79 123 1234',
+      '+40 249 123 123'
+    ]
+
 #### Russia
 
     Phony.assert.plausible?('+7 800 2000 600')
