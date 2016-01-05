@@ -17,7 +17,7 @@ Phony.define do
         /\A\d{5}\z/ => [3,2],
         /\A\d+\z/ => [3,3]) |
     one_of(%w(72)) >> split(3,3) | # ISP
-    one_of(%w(60 61 62 63 68 69)) >> matched_split(
+    one_of(%w(60 61 63 68 69)) >> matched_split(
         /\A\d{3}\z/ => [3],
         /\A\d{7}\z/ => [3,4],
         /\A\d+\z/ => [3,3,4]) | # mobile, voicemail (mobile)
@@ -26,7 +26,7 @@ Phony.define do
         /\A\d{6}\z/ => [3,3],
         /\A\d{7}\z/ => [3,4],
         /\A\d+\z/ => [3,3,4]) | # mobile, voicemail (mobile)
-    one_of(%w(64 65)) >> matched_split(
+    one_of(%w(62 64 65)) >> matched_split(
         /\A\d{2}\z/ => [2],
         /\A\d{3}\z/ => [3],
         /\A\d{6}\z/ => [3,3],
