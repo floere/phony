@@ -97,7 +97,7 @@ Phony.define do
   #
   country '32', trunk('0') |
                 match(/^(70|800|90\d)\d+$/) >> split(3,3)   | # Service
-                match(/^(46[568])\d{6}$/)   >> split(2,2,2) | # Mobile (Lycamobile, Telenet)
+                match(/^(46[0568])\d{6}$/)  >> split(2,2,2) | # Mobile (Lycamobile, Telenet, Proximus 0460)
                 match(/^(4[789]\d)\d{6}$/)  >> split(2,2,2) | # Mobile
                 one_of('2','3','4','9')     >> split(3,2,2) | # Short NDCs
                 fixed(2)                    >> split(2,2,2)   # 2-digit NDCs
