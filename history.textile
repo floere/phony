@@ -1,3 +1,7 @@
+h2. Version 2.15.13
+
+* Improvements for Serbia (#300).
+
 h2. Version 2.15.12
 
 * Improvements for Romania (#299).
