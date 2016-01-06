@@ -1065,8 +1065,11 @@ describe 'country descriptions' do
       it_splits '3785123456789', ['378', false, '512', '345', '6789']
     end
     describe 'Saudi Arabia (Kingdom of)' do
-      it_splits '9660208528423', %w(966 020 852 8423)
-      it_splits '966506306201',  %w(966 50 630 6201)
+      it_splits '9660208528423', %w(966 020 852 8423) # Fixed
+      it_splits '966506306201',  %w(966 50 630 6201)  # NDC Mobile
+      it_splits '966112345678',  %w(966 11 234 5678)  # NDC Region
+      it_splits '9668001234567', %w(966 800 123 4567) # Toll Free
+      it_splits '966920012345',  %w(966 9200 12345)   # Univeral Access
     end
     describe 'Senegal' do
       it_splits '221123456789', ['221', false, '1234', '56789']

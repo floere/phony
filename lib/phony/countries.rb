@@ -1048,14 +1048,7 @@ Phony.define do
               /\A8\d+\z/ => [3,3], # geographic
           )
 
-  # Saudi Arabia (Kingdom of)
-  # http://www.wtng.info/wtng-966-sa.html
-  # http://www.citc.gov.sa/English/MediaCenter/awarenesscampaigns/Pages/PR_AWR_004.aspx
-  # http://en.wikipedia.org/wiki/Telephone_numbers_in_Saudi_Arabia
-  # https://answers.yahoo.com/question/index?qid=20090303142622AAQBoZ0
-  country '966',
-          match(/\A(5[0-9])\d+\z/) >> split(3,4) | # mobile numbers
-          fixed(3) >> split(3,4)
+  # country '966' # Saudi Arabia (Kingdom of), see special file.
 
   # Yemen (Republic of)
   # https://www.numberingplans.com/?page=dialling&sub=areacodes
