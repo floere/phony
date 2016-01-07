@@ -598,11 +598,18 @@ Phony.define do
   # Luxembourg
   #
   country '352',
-          one_of('4')                   >> split(2,2,2)   | # Luxembourg City
-          match(/^(2[467]\d{2})$/)      >> split(2,2,2)   | # 4-digit NDC
-          match(/^(6\d[18])\d+$/)       >> split(3,3)     | # mobile
-          match(/^(60\d{2})\d{8}$/)     >> split(2,2,2,2) | # mobile machine to machine
-          match(/^([2-9]\d)/)           >> split(2,2,2)     # 2-digit NDC
+          match(/^(2[467]\d{2})\d{4}$/)   >> split(2,2)     | # 4-digit NDC
+          match(/^(6\d[18])\d+$/)         >> split(3,3)     | # mobile
+          match(/^(60\d{2})\d{8}$/)       >> split(2,2,2,2) | # mobile machine to machine
+          match(/^([2-9][^467]\d)\d{4}$/) >> split(2,2)     | # 2-digit NDC Regular 6 digits number          
+          match(/^([2-9][^467]\d)\d{5}$/) >> split(2,2,1)   | # 2-digit NDC Regular 6 digits number 
+                                                              # w/ 1 digit extension
+          match(/^([2-9][^467]\d)\d{6}$/) >> split(2,2,2)   | # 2-digit NDC Regular 8 digits number
+                                                              # or 6 digits with 2 digits extension
+          match(/^([2-9][^468]\d)\d{7}$/) >> split(2,2,3)   | # 2-digit NDC Regular 6 digits 
+                                                              # with 3 digits extension
+          match(/^([2-9][^467])\d{8}$/)   >> split(2,2,4)     # 2-digit NDC Regular 6 digits number
+                                                              # with 4 digits extension
 
   # country '353' # Republic of Ireland, see special file.
 
