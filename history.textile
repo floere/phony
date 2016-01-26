@@ -1,3 +1,7 @@
+h2. Version 2.15.15
+
+* Improvements for Belgium (#302).
+
 h2. Version 2.15.14
 
 * Improvements for Saudi Arabia (#301).
