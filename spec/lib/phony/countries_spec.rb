@@ -430,6 +430,10 @@ describe 'country descriptions' do
       it_splits '38951234567', ['389', '5', '123', '4567'] # Premium
       it_splits '38971234567', ['389', '7', '123', '4567'] # Mobile
     end
+    describe 'Macao' do
+      it_splits '85328123456', ["853", "28", "12", "3456"] # Landline
+      it_splits '85361234567', ["853", "6", "123", "4567"] # Mobile
+    end
     describe 'Malaysia' do
       it_splits '6082123456',   ['60', '82', '123456']   # Kuching
       it_splits '60312345678',  ['60', '3', '12345678'] # Kuala Lumpur

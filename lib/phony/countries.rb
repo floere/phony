@@ -942,7 +942,11 @@ Phony.define do
   country '852',
           none >> split(4,4)
 
-  country '853', todo # Macao, China
+  # Macao, China
+  country '853', # Macao, China
+    match(/^(28)\d+$/) >> split(2,4) | # Landline.
+    match(/^(6)\d+$/)  >> split(3,4)  # Mobile.
+
   country '854', todo # Spare code
 
   # Lao People's Democratic Republic http://www.wtng.info/wtng-856-la.html, https://www.numberingplans.com
