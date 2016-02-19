@@ -1,9 +1,17 @@
-# Before you enter an issue…
+Important fact: *Phony only works with international phone numbers.* It needs the country code to be able to identify the number's country and rules.
 
-This one is good to know:
 
-* Phony only works with international phone numbers.
+What I did
+----------
 
-That is, numbers that have a country code. It needs the country code to be able to identify the number's country and rules.
+* 
 
-Ok, go ahead!
+What happened
+-------------
+
+* 
+
+What I expected to happen and why
+---------------------------------
+
+* 
