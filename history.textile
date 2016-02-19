@@ -1,3 +1,7 @@
+h2. Version 2.15.16
+
+* Improvements for Macao (#308).
+
 h2. Version 2.15.15
 
 * Improvements for Belgium (#302).
