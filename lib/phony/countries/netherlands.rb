@@ -1,4 +1,5 @@
-# The Netherlands use a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
+# The Netherlands use a variable-length ndc code, thus we use a separate file to not let all_other.rb explode. The
+# latest version of the numbering plan is available at http://wetten.overheid.nl/BWBR0010198/
 #
 # Note: The netherlands use a variable ndc format from length 2 to 3.
 #       To save space, we only use ndcs of length 2 (and use the fallback of 3 to handle the rest).
@@ -56,6 +57,7 @@ service3 = [
 Phony.define do
   country '31',
     trunk('0', :normalize => true)                |
+    match(/\A(97[0,9])\d{8}\z/) >> split(4,4)     | # machine-to-machine
     one_of(service)             >> split(4,3)     |
     match(/\A(800|900)\d{4}\z/) >> split(4)       |
     one_of(service3)            >> split(4,3)     |

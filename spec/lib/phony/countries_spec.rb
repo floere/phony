@@ -484,6 +484,7 @@ describe 'country descriptions' do
       it_splits '31612345678', ['31', '6', '12', '34', '56', '78'] # mobile
       it_splits '31201234567', ['31', '20', '123', '4567']
       it_splits '31222123456', ['31', '222', '123', '456']
+      it_splits '3197012345678', ['31', '970', '1234', '5678'] # machine-to-machine
     end
     describe 'Norway' do
       it_splits '4721234567', ['47',false,'21','23','45','67']
