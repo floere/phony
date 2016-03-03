@@ -659,6 +659,9 @@ With regexp constraints.
     Phony.assert.plausible?('+31 900 123 4567')
     Phony.refute.plausible?('+31 900 001 00')
     Phony.assert.plausible?('+31 800 6080')
+    Phony.assert.plausible?('+31 970 1234 5678')
+    Phony.refute.plausible?('+31 971 2345 6789')
+    Phony.assert.plausible?('+31 979 0000 0000')
 
 #### New Zealand
 
