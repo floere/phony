@@ -1,3 +1,8 @@
+h2. Version 2.15.18
+
+* Improvements for Sweden (#313).
+* Improvements for Austria (#314).
+
 h2. Version 2.15.17
 
 * Improvements for Luxembourg (#311).
