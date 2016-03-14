@@ -42,6 +42,7 @@ mobile = [
  '73', # Mobile
  '74', # Pagers
  '76', # Mobile
+ '79', # Mobile
 ]
 service = [
     '99', # Premium Rate
