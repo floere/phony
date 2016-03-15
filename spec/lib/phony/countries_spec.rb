@@ -43,6 +43,7 @@ describe 'country descriptions' do
       it_splits '4368100000000',   %w( 43 681 0000 0000 )  # Mobile
       it_splits '436880000000',    %w( 43 688 0000 000 )   # Mobile
       it_splits '4366900000000',   %w( 43 669 0000 0000 )  # Mobile
+      it_splits '4367000000000',   %w( 43 670 0000 0000 )  # Mobile
       it_splits '433161234567891', %w( 43 316 1234567891 ) # Graz
       it_splits '432164123456789', %w( 43 2164 123456789 ) # Rohrau
 
