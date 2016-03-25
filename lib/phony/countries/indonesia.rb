@@ -29,7 +29,7 @@ Phony.define do
         /\A\d{3}\z/ => [3],
         /\A\d+\z/ => [3,2]) |
     one_of(%w(870)) >> split(3,2) | # satellite
-    match(/\A(81\d|82\d|84\d|85\d|86\d|87\d|88\d|89\d)\d+\z/) >> matched_split(  # mobile
+    match(/\A(81\d|82\d|83\d|84\d|85\d|86\d|87\d|88\d|89\d)\d+\z/) >> matched_split(  # mobile
         /\A\d{6}\z/ => [3,3],
         /\A\d{7}\z/ => [3,4],
         /\A\d+\z/ => [4,4]) |
