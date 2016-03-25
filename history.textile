@@ -1,3 +1,7 @@
+h2. Version 2.15.19
+
+* Improvements for Indonesia (#316).
+
 h2. Version 2.15.18
 
 * Improvements for Sweden (#313).
