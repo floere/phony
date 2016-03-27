@@ -1051,6 +1051,11 @@ describe 'country descriptions' do
       it_splits '67527912', %w(675 279 12)
       it_splits '67511512345678', %w(675 115 1234 5678)
     end
+    describe 'Russia' do
+      it_splits '78001234567', %w(7 800 123 45 67)
+      it_splits '79221234545', %w(7 922 123 45 45)
+      it_splits '73012124545', %w(7 3012 12 45 45)
+    end
     describe 'Reunion / Mayotte (new)' do
       it_splits '262594399265', ['262', '594', '39', '92', '65']
     end
