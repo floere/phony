@@ -1100,6 +1100,7 @@ describe 'country descriptions' do
       it_splits '38160123', %w(381 60 123)
       it_splits '381601234567890', %w(381 60 123 456 7890)
       it_splits '38170123456', %w(381 70 123 456)
+      it_splits '38163123456', %w(381 63 123 456)
     end
     describe 'Sierra Leone' do
       it_splits '23264629769', %w(232 64 629 769)
