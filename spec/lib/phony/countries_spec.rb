@@ -643,6 +643,7 @@ describe 'country descriptions' do
       it_splits '46791234567', ['46', '79', '123', '45', '67'] # mobile
       it_splits '46125123456', ['46', '125', '123', '456']
       it_splits '46770820180', ['46', '77', '082', '01', '80']
+      it_splits '4641712345',  ['46', '417', '123', '45']
     end
     describe 'Switzerland' do
       it_splits '41443643532', ['41', '44', '364', '35', '32'] # Zurich (usually)

@@ -817,6 +817,7 @@ With regexp constraints.
     Phony.assert.plausible?('+46 8 506 106 00')
     Phony.assert.plausible?('+46 19 764 22 00')
     Phony.assert.plausible?('+46 19 20 88 50')
+    Phony.assert.plausible?('+46 42 123 45')
     Phony.assert.plausible?('+46 79 123 45 67')
     Phony.refute.plausible?('+46 19 20 88') # too short
 

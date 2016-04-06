@@ -228,7 +228,7 @@ describe 'plausibility' do
                                                     '+211 973 212 345']
       it_is_correct_for 'Suriname (Republic of)', :samples => ['+597 212 345', '+597 612 3456']
       it_is_correct_for 'Swaziland', :samples => ['+268 2207 1234', '+268 550 1234']
-      it_is_correct_for 'Sweden', :samples => ['+46 522 636 365']
+      it_is_correct_for 'Sweden', :samples => ['+46 42 123 45', ['+46 417 123 45', '+46 522 636 365']]
       it_is_correct_for 'Syrian Arab Republic', :samples => ['+963 11 123 4567',
                                                              '+963 31 123 4567',
                                                              '+963 15 731 234',
