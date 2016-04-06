@@ -1,3 +1,7 @@
+h2. Version 2.15.21
+
+* Improvements for Sweden (#318).
+
 h2. Version 2.15.20
 
 * Improvements for Serbia (#317).
