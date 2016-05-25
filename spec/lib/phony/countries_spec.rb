@@ -780,7 +780,7 @@ describe 'country descriptions' do
       it_splits '6701742945', ['670', false, '174', '2945']
     end
     describe 'Democratic Republic of the Congo' do
-      it_splits '24311995381', %w(243 1 199 5381)
+      it_splits '243121995381', %w(243 12 199 5381)
     end
     describe 'Diego Garcia' do
       it_splits '2461234683', ['246', false, '123', '4683']
