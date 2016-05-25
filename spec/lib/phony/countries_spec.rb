@@ -929,7 +929,7 @@ describe 'country descriptions' do
       it_splits '22212345678', ['222', false, '1234', '5678']
     end
     describe 'Mauritius' do
-      it_splits '2309518919', ['230', false, '951', '8919']
+      it_splits '23059518919', ['230', false, '5951', '8919']
     end
     describe 'Micronesia (Federated States of)' do
       it_splits '6911991754', ['691', false, '199', '1754']

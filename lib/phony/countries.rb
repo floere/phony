@@ -351,7 +351,7 @@ Phony.define do
   country '228', none >> split(4,4) # Togolese Republic http://www.wtng.info/wtng-228-tg.html
   country '229', none >> split(4,4) # Benin http://www.itu.int/oth/T0202000017/en
 
-  country '230', none >> split(3,4) # Mauritius http://www.wtng.info/wtng-230-mu.html
+  country '230', none >> split(4,4) # Mauritius http://www.wtng.info/wtng-230-mu.html
 
   # Liberia
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LR

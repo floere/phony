@@ -150,7 +150,7 @@ describe 'plausibility' do
       it_is_correct_for 'Marshall Islands (Republic of the)', :samples => '+692  372 7183'
       it_is_correct_for 'Martinique (French Department of)', :samples => '+596 596 123 456'
       it_is_correct_for 'Mauritania', :samples => '+222  1234 5678'
-      it_is_correct_for 'Mauritius', :samples => '+230  695 2277'
+      it_is_correct_for 'Mauritius', :samples => '+230  5695 2277'
       it_is_correct_for 'Micronesia (Federated States of)', :samples => '+691  766 7914'
       it_is_correct_for 'Moldova', :samples => ['+373 800 123 45',
                                                 '+373 22 123 345',
