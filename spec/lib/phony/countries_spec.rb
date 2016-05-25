@@ -748,7 +748,7 @@ describe 'country descriptions' do
       it_splits '25712345678', ['257', false, '1234', '5678']
     end
     describe 'Cameroon' do
-      it_splits '23727659381', ['237', false, '2765', '9381']
+      it_splits '237276593812', ['237', false, '276', '59', '38', '12']
     end
     describe 'Cape Verde' do
       it_splits '2385494177', ['238', false, '549', '4177']

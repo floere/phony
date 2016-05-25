@@ -384,7 +384,7 @@ Phony.define do
 
   country '235', none >> split(4,4) # Chad http://www.wtng.info/wtng-235-td.html
   country '236', none >> split(4,4) # Central African Republic http://www.wtng.info/wtng-236-cf.html
-  country '237', none >> split(4,4) # Cameroon http://www.wtng.info/wtng-237-cm.html
+  country '237', none >> split(3,2,2,2) # Cameroon http://www.wtng.info/wtng-237-cm.html
   country '238', none >> split(3,4) # Cape Verde http://www.wtng.info/wtng-238-cv.html
   country '239', fixed(1) >> split(3,3) # Sao Tome and Principe, http://www.wtng.info/wtng-239-st.html
 

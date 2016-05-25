@@ -322,7 +322,7 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
 
 #### Cameroon
 
-    plausible? true: '+237 7372 8186'
+    plausible? true: '+237 737 28 18 65'
 
 #### Cape Verde
 
