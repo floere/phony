@@ -834,7 +834,7 @@ describe 'country descriptions' do
       it_splits '224662123456', ['224', '662', '12', '34', '56']
     end
     describe 'Guinea-Bissau' do
-      it_splits '2453837652', ['245', false, '383', '7652']
+      it_splits '245443837652', ['245', false, '44', '383', '7652']
     end
     describe 'Guyana' do
       it_splits '5922631234', %w(592 263 1234)

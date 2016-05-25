@@ -394,7 +394,7 @@ Phony.define do
   country '243', fixed(1) >> split(3,4) # Democratic Republic of the Congo http://www.wtng.info/wtng-243-cd.html
   country '244', one_of('321', '348', '358', '363', '364', '485', '526', '535', '546', '612', '643', '652', '655', '722', '726', '728', '729', '777') >> split(3,3) | # Angola
                  fixed(2) >> split(3,4)
-  country '245', none >> split(3,4) # Guinea-Bissau http://www.wtng.info/wtng-245-gw.html
+  country '245', none >> split(2,3,4) # Guinea-Bissau http://www.wtng.info/wtng-245-gw.html
   country '246', none >> split(3,4) # Diego Garcia http://www.wtng.info/wtng-246-io.html
   country '247', none >> split(4) # Ascension
 

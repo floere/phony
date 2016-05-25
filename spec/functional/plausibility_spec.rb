@@ -93,7 +93,7 @@ describe 'plausibility' do
         '+224 700 00 00 00'
       ]
 
-      it_is_correct_for 'Guinea-Bissau', :samples => '+245  728 6998'
+      it_is_correct_for 'Guinea-Bissau', :samples => '+245 44 728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
       it_is_correct_for 'Iraq', :samples => ['+964 1 123 4567',
