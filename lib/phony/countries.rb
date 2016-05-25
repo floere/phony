@@ -351,7 +351,7 @@ Phony.define do
   country '228', none >> split(4,4) # Togolese Republic http://www.wtng.info/wtng-228-tg.html
   country '229', none >> split(4,4) # Benin http://www.itu.int/oth/T0202000017/en
 
-  country '230', none >> split(3,4) # Mauritius http://www.wtng.info/wtng-230-mu.html
+  country '230', none >> split(4,4) # Mauritius http://www.wtng.info/wtng-230-mu.html
 
   # Liberia
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LR
@@ -384,17 +384,17 @@ Phony.define do
 
   country '235', none >> split(4,4) # Chad http://www.wtng.info/wtng-235-td.html
   country '236', none >> split(4,4) # Central African Republic http://www.wtng.info/wtng-236-cf.html
-  country '237', none >> split(4,4) # Cameroon http://www.wtng.info/wtng-237-cm.html
+  country '237', none >> split(3,2,2,2) # Cameroon http://www.wtng.info/wtng-237-cm.html
   country '238', none >> split(3,4) # Cape Verde http://www.wtng.info/wtng-238-cv.html
   country '239', fixed(1) >> split(3,3) # Sao Tome and Principe, http://www.wtng.info/wtng-239-st.html
 
   country '240', none >> split(3,3,3) # Equatorial Guinea
   country '241', fixed(1) >> split(3,3) # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
   country '242', none >> split(4,5) # Congo http://www.wtng.info/wtng-242-cg.html
-  country '243', fixed(1) >> split(3,4) # Democratic Republic of the Congo http://www.wtng.info/wtng-243-cd.html
+  country '243', fixed(2) >> split(3,4) # Democratic Republic of the Congo http://www.wtng.info/wtng-243-cd.html
   country '244', one_of('321', '348', '358', '363', '364', '485', '526', '535', '546', '612', '643', '652', '655', '722', '726', '728', '729', '777') >> split(3,3) | # Angola
                  fixed(2) >> split(3,4)
-  country '245', none >> split(3,4) # Guinea-Bissau http://www.wtng.info/wtng-245-gw.html
+  country '245', none >> split(2,3,4) # Guinea-Bissau http://www.wtng.info/wtng-245-gw.html
   country '246', none >> split(3,4) # Diego Garcia http://www.wtng.info/wtng-246-io.html
   country '247', none >> split(4) # Ascension
 

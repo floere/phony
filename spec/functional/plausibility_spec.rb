@@ -51,7 +51,7 @@ describe 'plausibility' do
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'
       it_is_correct_for "Côte d'Ivoire", :samples => '+225  9358 8764'
       it_is_correct_for 'Democratic Republic of Timor-Leste', :samples => ['+670 465 7886', '+670 7465 7886']
-      it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 8 864 9794'
+      it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 80 864 9794'
       it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
       it_is_correct_for 'Djibouti', :samples => '+253  3671 1431'
       it_is_correct_for 'Ecuador', :samples => '+593 68 467 4579'
@@ -93,7 +93,7 @@ describe 'plausibility' do
         '+224 700 00 00 00'
       ]
 
-      it_is_correct_for 'Guinea-Bissau', :samples => '+245  728 6998'
+      it_is_correct_for 'Guinea-Bissau', :samples => '+245 44 728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
       it_is_correct_for 'Iraq', :samples => ['+964 1 123 4567',
@@ -150,7 +150,7 @@ describe 'plausibility' do
       it_is_correct_for 'Marshall Islands (Republic of the)', :samples => '+692  372 7183'
       it_is_correct_for 'Martinique (French Department of)', :samples => '+596 596 123 456'
       it_is_correct_for 'Mauritania', :samples => '+222  1234 5678'
-      it_is_correct_for 'Mauritius', :samples => '+230  695 2277'
+      it_is_correct_for 'Mauritius', :samples => '+230  5695 2277'
       it_is_correct_for 'Micronesia (Federated States of)', :samples => '+691  766 7914'
       it_is_correct_for 'Moldova', :samples => ['+373 800 123 45',
                                                 '+373 22 123 345',

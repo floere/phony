@@ -748,7 +748,7 @@ describe 'country descriptions' do
       it_splits '25712345678', ['257', false, '1234', '5678']
     end
     describe 'Cameroon' do
-      it_splits '23727659381', ['237', false, '2765', '9381']
+      it_splits '237276593812', ['237', false, '276', '59', '38', '12']
     end
     describe 'Cape Verde' do
       it_splits '2385494177', ['238', false, '549', '4177']
@@ -780,7 +780,7 @@ describe 'country descriptions' do
       it_splits '6701742945', ['670', false, '174', '2945']
     end
     describe 'Democratic Republic of the Congo' do
-      it_splits '24311995381', %w(243 1 199 5381)
+      it_splits '243121995381', %w(243 12 199 5381)
     end
     describe 'Diego Garcia' do
       it_splits '2461234683', ['246', false, '123', '4683']
@@ -834,7 +834,7 @@ describe 'country descriptions' do
       it_splits '224662123456', ['224', '662', '12', '34', '56']
     end
     describe 'Guinea-Bissau' do
-      it_splits '2453837652', ['245', false, '383', '7652']
+      it_splits '245443837652', ['245', false, '44', '383', '7652']
     end
     describe 'Guyana' do
       it_splits '5922631234', %w(592 263 1234)
@@ -929,7 +929,7 @@ describe 'country descriptions' do
       it_splits '22212345678', ['222', false, '1234', '5678']
     end
     describe 'Mauritius' do
-      it_splits '2309518919', ['230', false, '951', '8919']
+      it_splits '23059518919', ['230', false, '5951', '8919']
     end
     describe 'Micronesia (Federated States of)' do
       it_splits '6911991754', ['691', false, '199', '1754']
