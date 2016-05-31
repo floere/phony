@@ -1,3 +1,7 @@
+h2. Version 2.15.23
+
+* Improvements for Ukraine (#322).
+
 h2. Version 2.15.22
 
 * Improvements for Mauritius, Cameroon, Guinea-Bissau and Dem. Rep. Congo (#321).
