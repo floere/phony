@@ -1,3 +1,7 @@
+h2. Version 2.15.24
+
+* Improvements for Brazil (#323).
+
 h2. Version 2.15.23
 
 * Improvements for Ukraine (#322).
