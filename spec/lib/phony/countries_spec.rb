@@ -40,6 +40,7 @@ describe 'country descriptions' do
       it_splits '43198110',        %w( 43 1 98110 )        # Vienna
       it_splits '4310000000',      %w( 43 1 0000000 )      # Vienna
       it_splits '43800123456789',  %w( 43 800 123456789 )  # Free
+      it_splits '436780000000',    %w( 43 678 0000 000 )   # Mobile
       it_splits '4368100000000',   %w( 43 681 0000 0000 )  # Mobile
       it_splits '436880000000',    %w( 43 688 0000 000 )   # Mobile
       it_splits '4366900000000',   %w( 43 669 0000 0000 )  # Mobile
