@@ -20,7 +20,7 @@ h2. Description
 
 This gem normalizes, formats and splits "*E164 phone numbers*":http://en.wikipedia.org/wiki/E.164. A valid E164 phone number *must* include a country code.
 
-E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. For example, the Austalian number number @+61 412 345 678@ can be broken down into the following components:
+E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. For example, the Australia number number @+61 412 345 678@ can be broken down into the following components:
 * Country Code (CC): a country code of @61@
 * National Destination Code (NDC): a mobile number denoted by the @4@ (specific to Australia)
 * Local Number Part: a subscriber number of @12 345 678@
