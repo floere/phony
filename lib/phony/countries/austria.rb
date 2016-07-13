@@ -11,8 +11,6 @@ ndcs = [
 ]
 
 corporate = [
-  '57',  # -
-  '59',  # -
   '501', # -
   '502', # -
   '503', # -
@@ -22,8 +20,7 @@ corporate = [
   '507', # -
   '508', # -
   '509', # -
-  '517', # -
-  '720', #
+  '517'  # -
 ]
 
 mobile = [
@@ -89,7 +86,9 @@ Phony.define do
   country '43', trunk('0') |
                 one_of('1')       >> split(3..12) | # Vienna
                 one_of(service)   >> split(9..9) |
-                one_of(corporate) >> split(5..5) |
+                one_of('720')     >> split(6..10) | # VoIP number length is 9..13
+                one_of(['57', '59']) >> split(3..11) | # Corporate number length is 5..13
+                one_of(corporate) >> split(2..10) |    # Corporate number length is 5..13
                 one_of(ndcs)      >> split(6..10) |
                 one_of('663')     >> split(6..6) | # 6 digit mobile.
                 one_of(mobile)    >> split(4,3..9) |
