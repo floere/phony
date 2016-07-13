@@ -92,7 +92,7 @@ ndcs = /(11|12|13|14|15|16|17|18|19|21|22|24|27|28|31|32|33|34|35|36|37|38|41|42
 service = %w{ 100 128 190 191 192 193 194 197 198 199 } # State specific numbers were not added. See http://www.brasil.gov.br/navegue_por/aplicativos/agenda
 
 special_numbers_3_4 = %w{ 0800 }
-special_numbers_4 = %w{ 3003 4004 4020 }
+special_numbers_4 = %w{ 3003 4003 4004 4020 }
 
 Phony.define do
   country '55',
