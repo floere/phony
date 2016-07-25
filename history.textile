@@ -1,3 +1,8 @@
+h2. Version 2.15.27
+
+* Improvements for Brazil (#327).
+* Improvements for Austria (#328).
+
 h2. Version 2.15.26
 
 * Improvements for Austria (#325).
