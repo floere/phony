@@ -79,13 +79,12 @@ Some of the examples use `plausible? true: [some numbers]`.
     Phony.assert.plausible?('+43 1 000000')
     Phony.assert.plausible?('+43 1 0000000')
     Phony.assert.plausible?('+43 501 12345')
-    Phony.refute.plausible?('+43 501 1234') # too short
-    Phony.refute.plausible?('+43 501 123456') # too long
     Phony.assert.plausible?('+43 800 123456789')
     Phony.assert.plausible?('+43 512 1234567890')
     Phony.assert.plausible?('+43 670 1234567890')
     Phony.assert.plausible?('+43 3115 3307') # See issue #246 on Github.
     Phony.assert.plausible?('+43 678 1220084')
+    Phony.assert.plausible?('+43 720 116987')
 
 Mobile.
 

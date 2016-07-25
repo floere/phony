@@ -46,6 +46,7 @@ describe 'plausibility' do
     end
 
     context 'specific countries' do
+      it_is_correct_for 'Austria', :samples => '+43 720 116987' # VoIP
       it_is_correct_for 'Congo', :samples => '+242 1234 56789'
       it_is_correct_for 'Cook Islands', :samples => '+682  71928'
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'
