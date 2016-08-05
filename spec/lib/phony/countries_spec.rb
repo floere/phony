@@ -1216,6 +1216,7 @@ describe 'country descriptions' do
       it_splits '971600641234', %w(971 600 641 234)
       it_splits '971500641234', %w(971 500 641 234)
       it_splits '971200641234', %w(971 200 641 234)
+      it_splits '971549999999', %w(971 54 999 9999)
     end
     describe 'Uruguay (Eastern Republic of)' do
       it_splits '59880012345', %w(598 800 123 45)
