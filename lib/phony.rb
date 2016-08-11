@@ -189,7 +189,7 @@ module Phony
     # @param [String] phone_number A normalized E164 number.
     # @param [Hash] options See the README for a list of options.
     #
-    # @return [Array<String>] The pieces of a phone number.
+    # @return [String] A formatted phone number.
     #
     # @example Format a Swiss number.
     #   Phony.format("41441234567") # => "+41 44 123 45 67"
@@ -218,7 +218,7 @@ module Phony
     # @param [String] phone_number A normalized E164 number.
     # @param [Hash] options See the README for a list of options.
     #
-    # @return [Array<String>] The pieces of the phone number.
+    # @return [String] The formatted phone number.
     #
     # @example Format a Swiss number.
     #   Phony.format!("41441234567") # => "+41 44 123 45 67"
