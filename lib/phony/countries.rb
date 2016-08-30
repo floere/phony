@@ -634,11 +634,23 @@ Phony.define do
   #
   country '358',
           trunk('0') |
-          match(/^([1-3]0)\d+$/)          >> split(3,3,0..6) | # Service/subscriber
-          match(/^([6-8]00)\d+$/)         >> split(3,3)   | # Service
-          match(/^(457|4\d|50)\d+$/)      >> split(3,2,0..2) | # Mobile
-          one_of('2','3','5','6','8','9') >> split(3,2..4)   | # Short NDCs
-          fixed(2)                        >> split(3,3)     # 2-digit NDCs
+          match(/^(600[3-5]\d|601\d\d|700[3457]\d|7500[12]|7532[12]|7575[12]|7598[12])\d{3,4}$/) >> split(3..4) | # national service numbers, 5-digit NDC
+          match(/^(753[02][3-9]|7575[3-9]|7598[3-9])\d{3,5}$/)                                   >> split(3..5) |  # national subscriber numbers, 5-digit NDC
+          match(/^(73[0-4]\d\d)\d{5}$/)                                                          >> split(5) |     # national subscriber numbers, 5-digit NDC (starting with 073)
+          match(/^(202[023]|209[8-9]|600[0126-9]|700[0126]|7099|800\d)\d{4,5}$/) >> split(2, 2..3) | # national service numbers, 4-digit NDCs
+          match(/^(606\d|70[78]\d)\d{6}$/)                                       >> split(3, 3) |    # national service numbers, 4-digit NDCs (starting with 0606/0707/0708)
+          match(/^(202[14-9]|209[0-7])\d{4,6}$/)                                 >> split(3, 1..3) |  # national subscriber numbers, 4-digit NDCs
+          match(/^(45[45789]\d)\d{2,6}$/)                                        >> split(2, 0..4) | # mobile numbers, 4-digit NDCs
+          match(/^([123]00|602)\d{5,6}$/)                      >> split(3, 2..3) |  # national service numbers, 3-digit NDCs
+          match(/^(10[1-9]|20[13-8]|30[1-9]|73[5-9])\d{5,7}$/) >> split(3, 2..4) | # national subscriber numbers, 3-digit NDCs
+          match(/^(71\d)\d{6}$/)                               >> split(3, 3) |    # national subscriber numbers, 3-digit NDCs (starting with 071)
+          match(/^(73[5-9])\d{7}$/)                            >> split(3, 4) |    # national subscriber numbers, 3-digit NDCs (starting with 073)
+          match(/^(43\d|45[0-36])\d{5,7}$/)                    >> split(3, 2..4) |  # mobile numbers, 3-digit NDCs
+          match(/^(49\d)\d{8}$/)                               >> split(3, 3, 2) |  # mobile numbers, 3-digit NDCs (starting with 049)
+          match(/^([235]9)\d{6,8}$/)        >> split(3, 3, 0..2) | # national subscriber numbers, 2-digit NDCs
+          match(/^(4[0124678]|50)\d{4,8}$/) >> split(3, 1..5) | # mobile numbers, 2-digit NDCs
+          one_of('2','3','5','6','8','9') >> split(3,1..5)   | # Short NDCs
+          fixed(2)                        >> split(3, 0..4)    # 2-digit NDCs
 
   # Bulgaria
   #
