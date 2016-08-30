@@ -64,13 +64,21 @@ describe 'plausibility' do
       it_is_correct_for 'Faroe Islands', :samples => '+298  969 597'
       it_is_correct_for 'Fiji (Republic of)', :samples => '+679  998 2441'
       it 'is correct for Finland' do
+        Phony.plausible?('+358 50 123 4').should be_true
         Phony.plausible?('+358 50 123 45').should be_true
         Phony.plausible?('+358 50 123 45 6').should be_true
         Phony.plausible?('+358 50 123 45 67').should be_true
+        Phony.plausible?('+358 50 123 45 678').should be_true
+        Phony.plausible?('+358 49 123 456 789').should be_true
+        Phony.plausible?('+358 18 1234').should be_true
+        Phony.plausible?('+358 9 1234').should be_true
         Phony.plausible?('+358 9 123 45').should be_true
         Phony.plausible?('+358 9 123 456').should be_true
         Phony.plausible?('+358 9 123 4567').should be_true
         Phony.plausible?('+358 20 1470 740').should be_true
+        Phony.plausible?('+358 29 123 4567').should be_true
+        Phony.plausible?('+358 75323 1234').should be_true
+        Phony.plausible?('+358 50 123 456 789').should be_false
       end
       it_is_correct_for 'French Guiana (French Department of)', :samples => '+594 594 123 456'
       it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689 87 27 84 00'

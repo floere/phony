@@ -220,7 +220,7 @@ describe 'country descriptions' do
       it_splits '3589123123', ['358', '9', '123', '123'] # Helsinki
       it_splits '3581912312', ['358', '19', '123', '12'] # Nylandia
       it_splits '3585012312', ['358', '50', '123', '12'] # Mobile
-      it_splits '358600123',  ['358', '600', '123']      # Service
+      it_splits '35860012345',  ['358', '6001', '23', '45']      # Service
     end
     describe 'France' do
       it_splits '33112345678', ['33', '1', '12','34','56','78'] # Paris
