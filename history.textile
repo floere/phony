@@ -1,3 +1,7 @@
+h2. Version 2.15.29
+
+* Improvements for Finland (#335).
+
 h2. Version 2.15.28
 
 * Improvements for Sweden (#331).
