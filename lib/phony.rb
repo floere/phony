@@ -235,6 +235,26 @@ module Phony
     alias formatted  format
     alias formatted! format!
 
+    # Trys to format a normalized E164 number according to a country's formatting scheme.
+    # If it fails, the given argument is returned untouched.
+    #
+    # @param [String] phone_number A normalized E164 number.
+    # @param [Hash] options See the README for a list of options.
+    #
+    # @return [String] A formatted phone number or the given argument.
+    #
+    # @example Format a Swiss number.
+    #   Phony.safe_format("41441234567") # => "+41 44 123 45 67"
+    #
+    # @example Does not format a SIP number.
+    #   Phony.safe_format("sip:41441234567@example.com") # => "sip:41441234567@example.com"
+    #
+    def safe_format phone_number, options = {}
+      format! phone_number.dup, options
+    rescue # Maybe to greedy?
+      phone_number
+    end
+
     # Makes a plausibility check.
     #
     # If it returns false, it is not plausible.
