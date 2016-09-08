@@ -55,7 +55,32 @@ describe 'plausibility' do
       it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 80 864 9794'
       it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
       it_is_correct_for 'Djibouti', :samples => '+253  3671 1431'
-      it_is_correct_for 'Ecuador', :samples => '+593 68 467 4579'
+      it 'is correct for Ecuador' do
+        Phony.plausible?('+593 22 000 0000').should be_true
+        Phony.plausible?('+593 23 000 0000').should be_true
+        Phony.plausible?('+593 26 000 0000').should be_true
+        Phony.plausible?('+593 27 000 0000').should be_true
+        Phony.plausible?('+593 44 000 0000').should be_true
+        Phony.plausible?('+593 45 000 0000').should be_true
+        Phony.plausible?('+593 47 000 0000').should be_true
+        Phony.plausible?('+593 2 200 0000').should be_true
+        Phony.plausible?('+593 2 300 0000').should be_true
+        Phony.plausible?('+593 2 400 0000').should be_true
+        Phony.plausible?('+593 2 500 0000').should be_true
+        Phony.plausible?('+593 2 700 0000').should be_true
+        Phony.plausible?('+593 3 000 0000').should be_true
+        Phony.plausible?('+593 4 000 0000').should be_true
+        Phony.plausible?('+593 4 500 0000').should be_true
+        Phony.plausible?('+593 4 600 0000').should be_true
+        Phony.plausible?('+593 5 200 0000').should be_true
+        Phony.plausible?('+593 5 300 0000').should be_true
+        Phony.plausible?('+593 6 200 0000').should be_true
+        Phony.plausible?('+593 7 200 0000').should be_true
+        Phony.plausible?('+593 7 300 0000').should be_true
+        Phony.plausible?('+593 7 400 0000').should be_true
+        Phony.plausible?('+593 7 600 0000').should be_true
+        Phony.plausible?('+593 9 0000 0000').should be_true # mobile
+      end
       it_is_correct_for 'Equatorial Guinea', :samples => ['+240 222 201 123',
                                                           '+240 335 201 123']
       it_is_correct_for 'Eritrea', :samples => '+291 6 334 475'
