@@ -341,6 +341,13 @@ describe 'plausibility' do
                                                  ['+263 270 123 456', '+263 270 123 45'],
                                                  '+263 86 1235 4567']
 
+      it 'is correct for Indonesia' do
+        Phony.plausible?('+62 22 000 0').should be_false
+        Phony.plausible?('+62 22 000 00').should be_true
+        Phony.plausible?('+62 22 000 0000').should be_true
+        Phony.plausible?('+62 22 0000 0000').should be_true
+        Phony.plausible?('+62 22 000 000 000').should be_true
+      end
     end
   end
 end
