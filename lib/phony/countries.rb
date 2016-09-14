@@ -808,7 +808,14 @@ Phony.define do
           one_of(%w(11 16 17 18 19)) >> split(3) | # audiotext
           fixed(3) >> split(4) # geographic, audiotext
 
-  country '593', fixed(2) >> split(3, 4) # Ecuador http://www.wtng.info/wtng-593-ec.html
+  # Ecuador http://www.wtng.info/wtng-593-ec.html
+  # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=EC&current_page=1
+  # https://en.wikipedia.org/wiki/Telephone_numbers_in_Ecuador
+  country '593',
+    one_of('9') >> split(4,4) |
+    match(/\A([\d]{2})\d{7}\z/) >> split(3,4) |
+    fixed(1) >> split(3,4)
+
   country '594', fixed(3) >> split(3, 3) # French Guiana (French Department of) http://www.wtng.info/wtng-594-fr.html
 
   # country '595' # Paraguay (Republic of), see special file
