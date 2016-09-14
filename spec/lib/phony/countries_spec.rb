@@ -21,6 +21,12 @@ describe 'country descriptions' do
       it_splits '93201234567', ['93', '20', '1234567'] # Kabul
     end
 
+    describe 'Albania' do
+      it_splits '355691234567', ['355', '69', '123', '4567'] # Mobile 7 digits
+      it_splits '35569123456', ['355', '69', '123', '456'] # Mobile 6 digits
+      it_splits '35541234567', ['355', '4', '123', '4567'] # Tirana
+    end
+
     describe 'Algeria' do
       it_splits '213211231234', ['213', '21', '123', '1234'] # Algiers
       it_splits '213331231234', ['213', '33', '123', '1234'] # Batna
