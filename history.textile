@@ -1,3 +1,9 @@
+h2. Version 2.15.30
+
+* Improvements for Equador (#337).
+* Improvements for Indonesia (#338).
+* Improvements for Albania (#340).
+
 h2. Version 2.15.29
 
 * Improvements for Finland (#335).
