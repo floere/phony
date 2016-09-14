@@ -612,8 +612,12 @@ Phony.define do
   # country '353' # Republic of Ireland, see special file.
 
   country '354', none >> split(3,4) # Iceland
+
+  # Albania
+  #  https://en.wikipedia.org/wiki/Telephone_numbers_in_Albania
   country '355', trunk('0') |
-                 one_of('4') >> split(4,3) | # Albania
+                 one_of('4') >> split(3,4) | # Tirana
+                 match(/\A(6[6-9])\d*\z/) >> split(3,4) | # mobile
                  match(/\A(2[24]|3[2-5]|47|5[2-5]|6[6-9]|8[2-5])\d*\z/) >> split(3,3) |
                  fixed(3) >> split(3,2)
 
