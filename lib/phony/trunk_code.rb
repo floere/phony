@@ -8,6 +8,7 @@ module Phony
     # Options:
     #  * normalize: Remove the trunk code when normalizing (only use if number scheme is defined unambiguously).
     #  * split: Remove the trunk code when splitting (only use if number scheme is defined unambiguously).
+    #  * format: Add the trunk code when formatting (passing `false` will not add it).
     #
     def initialize code, options = {}
       @code = code
