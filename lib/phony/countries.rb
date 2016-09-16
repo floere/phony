@@ -234,7 +234,7 @@ Phony.define do
   # Australia.
   #
   country '61',
-    trunk('0') |
+    trunk('0', format: false) |
     match(/^(4\d\d)\d+$/) >> split(3,3) | # Mobile
     match(/^(1800)\d+$/)  >> split(3,3) | # 1800 free call
     match(/^(1300)\d+$/)  >> split(3,3) | # 1300 local rate
