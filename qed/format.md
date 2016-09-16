@@ -36,6 +36,7 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     Phony.format('41443643532', :format => :national).assert == '044 364 35 32'
     Phony.format('41800111222', :format => :national).assert == '0800 111 222'
     Phony.format('43198110', :format => :national).assert == '01 98110'
+    Phony.format('611800123456', :format => :national).assert == '1800 123 456'
 
 #### :format => :local
 
