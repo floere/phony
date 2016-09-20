@@ -745,7 +745,7 @@ describe 'country descriptions' do
     end
     describe 'Vietnam' do
       it_splits '8498123456', ['84', '98', '123456'] # Viettel Mobile
-      it_splits '8499612345', ['84', '996', '12345'] # GTel
+      it_splits '8499612345', ['84', '99', '612345'] # GTel
       it_splits '84412345678', ['84', '4', '1234', '5678'] # Hanoi
     end
     describe 'Zambia' do
