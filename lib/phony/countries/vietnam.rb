@@ -81,6 +81,9 @@ ndcs_with_8_subscriber_digits = [
 ]
 
 mobile = [
+  '86',  # Viettel Mobile
+  '88',  # Vinaphone
+  '89',  # MobiFone
   '90', # MobiFone
   '91', # Vinaphone
   '92', # Vietnamobile (previously known as HT Mobile)
@@ -90,10 +93,7 @@ mobile = [
   '96', # previously EVN Telecom, now Viettel Mobile
   '97', # Viettel Mobile
   '98', # Viettel Mobile
-  '996', # Gmobile (traded as Beeline)
-  '997', # Gmobile (traded as Beeline)
-  '998', # Indochina Telecom
-  '999', # Indochina Telecom
+  '99', # Gmobile (traded as Beeline)
   '120', # MobiFone
   '121', # MobiFone
   '122', # MobiFone
@@ -104,6 +104,7 @@ mobile = [
   '127', # Vinaphone
   '128', # MobiFone
   '129', # Vinaphone
+  '162', # Viettel Mobile
   '163', # Viettel Mobile
   '164', # Viettel Mobile
   '165', # Viettel Mobile
@@ -113,7 +114,8 @@ mobile = [
   '169', # Viettel Mobile
   '186', # Vietnamobile
   '188', # Vietnamobile (previously known as HT Mobile)
-  '199'  # GTel (traded as Beeline)
+  '199',  # GTel (traded as Beeline)
+  '868'  # GTel (traded as Beeline)
 ]
 
 mobile_with_trunk = mobile.map{|num| "0#{num}" }
