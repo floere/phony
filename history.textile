@@ -1,3 +1,7 @@
+h2. Version 2.15.32
+
+* Improvements for Vietnam (#341).
+
 h2. Version 2.15.31
 
 * Improvements for Australia (Discussion in #339).
