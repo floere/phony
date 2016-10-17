@@ -726,7 +726,7 @@ Phony.define do
           one_of('1','2','3','4','5','7')  >> split(3,4) | # Ljubljana, Maribor, Celje, Kranj, Nova Gorica, Novo mesto
           fixed(3)                         >> split(2,3)   # catchall
 
-  country '387', trunk('0') | fixed(2) >> split(3,2,2) # Bosnia and Herzegovina
+  country '387', trunk('0') | fixed(2) >> split(3,3) # Bosnia and Herzegovina
   country '388', trunk('0') | fixed(2) >> split(3,2,2) # Group of countries, shared code
 
   # The Former Yugoslav Republic of Macedonia
