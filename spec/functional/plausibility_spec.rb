@@ -47,6 +47,9 @@ describe 'plausibility' do
 
     context 'specific countries' do
       it_is_correct_for 'Austria', :samples => '+43 720 116987' # VoIP
+      it_is_correct_for 'Bosnia and Herzegovina', :samples => ['+387 66 666 666',
+                                                               '+387 37 123 456',
+                                                               '+387 33 222 111']
       it_is_correct_for 'Congo', :samples => '+242 1234 56789'
       it_is_correct_for 'Cook Islands', :samples => '+682  71928'
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'
