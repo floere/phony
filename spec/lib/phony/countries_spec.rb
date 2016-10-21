@@ -128,6 +128,11 @@ describe 'country descriptions' do
       it_splits '26781234567', %w(267 8 1234 567)
     end
 
+    describe 'Bosnia and Herzegovina' do
+      it_splits '38766666666', %w(387 66 666 666)
+      it_splits '38733123456', %w(387 33 123 456)
+    end
+
     describe 'Brazil' do
       it_splits '551112341234', ['55', '11', '1234', '1234']
       it_splits '5511981231234', ['55', '11', '98123', '1234'] # São Paulo's 9 digits mobile
