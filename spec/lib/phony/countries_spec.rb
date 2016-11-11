@@ -142,8 +142,10 @@ describe 'country descriptions' do
       it_splits '5531991311234', ['55', '31', '99131', '1234'] # Belo Horizonte's 9th digit
       it_splits '5571991311234', ['55', '71', '99131', '1234'] # Salvador's 9th digit
       it_splits '5579991311234', ['55', '79', '99131', '1234'] # Sergipe's 9th digit
+      it_splits '5547991311234', ['55', '47', '99131', '1234'] # Santa Catarina's 9th digit
+      it_splits '5541991311234', ['55', '41', '99131', '1234'] # Parana's 9th digit
 
-      context 'special states with 9 in mobile' do
+      context 'mobile numbers' do
         %w{
           11 12 13 14 15 16 17 18 19
           21 22 24 27 28
@@ -152,6 +154,9 @@ describe 'country descriptions' do
           71 73 74 75 77 79
           81 82 83 84 85 86 87 88 89
           91 92 93 94 95 96 97 98 99
+          41 42 43 44 45 46
+          47 48 49
+          51 53 54 55
         }.each do |state_code|
           it_splits "55#{state_code}993051123", ['55', state_code, '99305', '1123']
         end
