@@ -1,3 +1,7 @@
+h2. Version 2.15.34
+
+* Improvements for Brazil (#345).
+
 h2. Version 2.15.33
 
 * Improvements for Bosnia and Herzegowina (#343).
