@@ -1,6 +1,6 @@
 h2. Version 2.15.35
 
-* Improvements for Russia (#346).
+* Improvements for Russia (#347).
 
 h2. Version 2.15.34
 
