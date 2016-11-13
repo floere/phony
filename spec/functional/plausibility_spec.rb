@@ -376,6 +376,10 @@ describe 'plausibility' do
         Phony.plausible?('+62 22 0000 0000').should be_true
         Phony.plausible?('+62 22 000 000 000').should be_true
       end
+
+      it 'is correct for Russia' do
+        Phony.plausible?('+7 3522 000 000').should be_true
+      end
     end
   end
 end

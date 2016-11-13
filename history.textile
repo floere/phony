@@ -1,3 +1,7 @@
+h2. Version 2.15.35
+
+* Improvements for Russia (#346).
+
 h2. Version 2.15.34
 
 * Improvements for Brazil (#345).
@@ -384,7 +388,7 @@ h2. Version 2.5.1
 
 h2. Version 2.5.0
 
-* Adds a lot of trunk code prefixes for about 30 countries. This will impact on national formatting and normalizing. Please provide feedback on this change – best with pull requests/issues with spec examples. 
+* Adds a lot of trunk code prefixes for about 30 countries. This will impact on national formatting and normalizing. Please provide feedback on this change – best with pull requests/issues with spec examples.
 
 h2. Version 2.4.3
 
