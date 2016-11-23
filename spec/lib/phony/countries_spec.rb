@@ -678,6 +678,9 @@ describe 'country descriptions' do
     describe 'Switzerland' do
       it_splits '41443643532', ['41', '44', '364', '35', '32'] # Zurich (usually)
       it_splits '41800334455', ['41', '800', '334', '455']     # Service number
+      it_splits '41900123456', ['41', '900', '123', '456']     # Business Number
+      it_splits '41901123456', ['41', '901', '123', '456']     # Business Number Entertainment
+      it_splits '41906123456', ['41', '906', '123', '456']     # Business Number Adult Entertainment
     end
     describe 'Tanzania' do
       it_splits '255221231234', ['255', '22', '123', '1234'] # Dar Es Salaam
