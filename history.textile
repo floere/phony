@@ -1,3 +1,7 @@
+h2. Version 2.15.36
+
+* Improvements for Switzerland (#348).
+
 h2. Version 2.15.35
 
 * Improvements for Russia (#347).
