@@ -39,6 +39,7 @@ mobile = [
  '659',
  '660',
  '661',
+ '663',
  '664',
  '665',
  '666',
@@ -95,7 +96,6 @@ Phony.define do
                 one_of(corporate_2digit) >> split(3..11)  | # Corporate number length is 5..13
                 one_of(corporate)        >> split(2..10)  | # Corporate number length is 5..13
                 one_of(ndcs)             >> split(6..10)  |
-                one_of('663')            >> split(6..6)   | # 6 digit mobile.
                 one_of(mobile)           >> split(4,3..9) |
                 one_of(mobile_2digit)    >> split(7..7)   | # Separate as mobile contains 676 - 67 violates the prefix rule.
                 fixed(4)                 >> split(3..9)     # Number length is 7..13.
