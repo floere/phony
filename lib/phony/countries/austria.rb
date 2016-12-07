@@ -70,7 +70,6 @@ service = [
  '730',
  '740',
  '780',
- '800',
  '802',
  '804',
  '810',
@@ -93,6 +92,7 @@ Phony.define do
                 one_of('1')              >> split(3..12)  | # Vienna
                 one_of(service)          >> split(9..9)   |
                 one_of('720')            >> split(6..10)  | # VoIP number length is 9..13
+                one_of('800')            >> split(6..10)  | # Free number length is 9..13
                 one_of(corporate_2digit) >> split(3..11)  | # Corporate number length is 5..13
                 one_of(corporate)        >> split(2..10)  | # Corporate number length is 5..13
                 one_of(ndcs)             >> split(6..10)  |
