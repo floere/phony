@@ -93,9 +93,10 @@ Mobile.
     Phony.assert.plausible?('+43 688 0000000')
     Phony.assert.plausible?('+43 699 00000000')
 
-663 mobile numbers have 6 digits.
+663 mobile numbers have 6..8 digits.
 
     Phony.assert.plausible?('+43 663 000000')
+    Phony.assert.plausible?('+43 663 12345678')
 
 Mobile numbers can have from 7 to 10 digits in the subscriber number.
 
