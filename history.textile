@@ -1,3 +1,9 @@
+h2. Version 2.15.39
+
+* Improvements for Belgium (#353).
+* Improvements for Travis (#355, #356)
+* Improvements for UAE (#357).
+
 h2. Version 2.15.38
 
 * Improvements for Austria (#352).
