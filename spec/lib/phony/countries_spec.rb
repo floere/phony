@@ -105,6 +105,9 @@ describe 'country descriptions' do
       it_splits '32475279584', ['32', '475', '27', '95', '84'] # mobile
       it_splits '32468279584', ['32', '468', '27', '95', '84'] # mobile (Telenet)
       it_splits '3270123123', ['32', '70', '123', '123']       # Bus Service?
+      it_splits '3278123123', ['32', '78', '123', '123']       # National rate service
+      it_splits '3290123123', ['32', '901', '23', '123']       # National rate service
+      it_splits '3280080404', ['32', '800', '80', '404']       # Apple support
     end
 
     describe 'Belize' do
