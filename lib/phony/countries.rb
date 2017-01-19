@@ -122,11 +122,19 @@ Phony.define do
 
   # Hungary.
   #
+  # http://webpub-ext.nmhh.hu/aga/foldr/DoIndexAction.do
+  #
   country '36',
     trunk('06', normalize: false) |
-    one_of('104','105','107','112') >> split(3,3) | # Service
-    one_of('1')                     >> split(3,4) | # Budapest
-    fixed(2)                        >> split(3,4)   # 2-digit NDCs
+    one_of('104', '105', '107', '112')   >> split(3,3) | # Service
+    one_of('1')                          >> split(3,4) | # Budapest
+    one_of('20', '30', '31', '50', '70') >> split(3,4) | # Mobile
+    one_of('21')                         >> split(3,4) | # VOIP
+    one_of('40', '80', '90', '91')       >> split(3,3) | # Special charged numbers
+    one_of('51')                         >> split(3,3) | # Corporate network, M2M
+    one_of('38')                         >> split(3,4) | # Corporate network, M2M
+    one_of('71')                         >> split(5,5) | # M2M Numbers
+    fixed(2)                             >> split(3,3)   # Geographic numbers
 
   # country '39' # Italy, see special file.
 

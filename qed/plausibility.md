@@ -488,6 +488,25 @@ Mobile.
       '+30 909 123 4565'
     ]
 
+#### Hungary
+
+    plausible? true: [
+        '+36 1 234 5678',     # Budapest
+        '+36 20 1234 567',    # Telenor
+        '+36 30 1234 567',    # T-Mobile
+        '+36 70 1234 567',    # Vodafone
+        '+36 31 1234 567',    # UPC, Tesco Mobile
+        '+36 21 1234 567',    # Voip
+        '+36 40 123 456',     # Business rate numbers
+        '+36 80 123 456',     # Freephone service
+        '+36 90 123 456',     # Premium-rate number
+        '+36 91 123 456',     # Premium-rate number
+        '+36 38 123 4567',    # Corporate network numbers
+        '+36 51 123 456',     # SHS
+        '+36 71 12345 67890', # M2M (2+10)
+        '+36 22 123 567'      # Geographic number
+    ]
+
 #### Indonesia
 
     plausible? true: [
