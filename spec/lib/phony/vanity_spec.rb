@@ -14,10 +14,10 @@ describe Phony::Vanity do
   
   describe '.vanity?' do
     it 'returns true on a vanity number' do
-      vanity.vanity?('123HELLOES').should == true
+      vanity.vanity?('800HELLOES').should == true
     end
     it 'returns false on a non-vanity number' do
-      vanity.vanity?('1234355637').should == false
+      vanity.vanity?('8004355637').should == false
     end
   end
   

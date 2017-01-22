@@ -2,8 +2,60 @@ require 'spec_helper'
 
 describe Phony::CountryCodes do
 
+  let(:switzerland) do
+    national_splitter = Phony::NationalSplitters::Variable.new 4, ['44']
+    local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
+    national_code     = Phony::NationalCode.new national_splitter, local_splitter
+    
+    Phony::Country.new national_code
+  end
+
   before(:all) do
     @countries = Phony::CountryCodes.instance
+  end
+  
+  describe '#[]' do
+    it 'returns a country' do
+      @countries['41'].class.should eql Phony::Country
+    end
+  end
+  
+  describe '#country_for' do
+    it 'returns a country' do
+      @countries.send(:country_for, '41').class.should eql Phony::Country
+    end
+  end
+  
+  describe '#countrify' do
+    it 'returns a country' do
+      @countries.send(:countrify, '441231212', '41').should eql '41441231212'
+    end
+  end
+  describe '#countrify!' do
+    it 'in-place replaces the number' do
+      number = '441231212'
+      @countries.send(:countrify!, number, '41').should eql number
+      
+      number.should == '41441231212'
+    end
+  end
+  
+  describe '#vanity?' do
+    it 'returns true if so' do
+      @countries.vanity?('1800HELLOES').should eql true
+    end
+    it 'returns false if not' do
+      @countries.vanity?('18001234567').should eql false
+    end
+  end
+
+  describe 'normalize' do
+    it 'normalizes correctly' do
+      @countries.normalize('0041-44-364-35-32').should eql '41443643532'
+    end
+    it 'normalizes correctly with CC option' do
+      @countries.normalize('044-364-35-32', cc: '41').should eql '41443643532'
+    end
   end
 
   describe 'formatted' do
