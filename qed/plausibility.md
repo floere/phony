@@ -546,6 +546,8 @@ Mobile.
 
 #### Italy
 
+    Phony.assert.plausible?('+39 06 1234 45')
+    Phony.assert.plausible?('+39 06 1234 456')
     Phony.assert.plausible?('+39 06 1234 4567')
 
     Phony.refute.plausible?('+39 035 00000')
