@@ -1,3 +1,8 @@
+h2. Version 2.15.40
+
+* Improvements for Hungary (#359).
+* Improvements for Italy (#360)
+
 h2. Version 2.15.39
 
 * Improvements for Belgium (#353).
