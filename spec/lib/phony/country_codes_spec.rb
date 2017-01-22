@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe Phony::CountryCodes do
 
-  let(:switzerland) do
-    national_splitter = Phony::NationalSplitters::Variable.new 4, ['44']
-    local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
-    national_code     = Phony::NationalCode.new national_splitter, local_splitter
-    
-    Phony::Country.new national_code
-  end
-
   before(:all) do
     @countries = Phony::CountryCodes.instance
   end
