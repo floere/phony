@@ -77,8 +77,8 @@ module Phony
   #   Phony.normalize("Fnork!") # Raises a Phony::NormalizationError.
   #
   class NormalizationError < StandardError
-    def initialize
-      super %Q{Phony could not normalize the given number. Is it a phone number?}
+    def initialize(input)
+      super %Q{Phony could not normalize the given number. Is #{input.inspect} a phone number?}
     end
   end
 
@@ -143,7 +143,7 @@ module Phony
     def normalize! phone_number, options = {}
       @codes.normalize phone_number, options
     rescue
-      raise NormalizationError.new
+      raise NormalizationError.new phone_number
     end
 
     # Splits the phone number into pieces according to the country codes.
