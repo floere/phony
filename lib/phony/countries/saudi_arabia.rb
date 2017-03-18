@@ -11,6 +11,7 @@ ndcs_with_7_subscriber_digits = [
   '17', # Southern regions like Asir, Al-Baha, Jizan, Najran & Khamis Mushait
   '50', # Mobile: STC
   '51', # Mobile: Trunking services
+  '52', # Mobile: Reserved for future use
   '53', # Mobile: STC
   '54', # Mobile: Mobily
   '55', # Mobile: STC
