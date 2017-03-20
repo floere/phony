@@ -98,8 +98,9 @@ Phony.define do
   country '32', trunk('0') |
                 match(/^(7[08])\d+$/)       >> split(3,3)   | # Premium and national rate Services
                 match(/^(800|90\d)\d+$/)    >> split(2,3)   | # Toll free service and premium numbers
-                match(/^(46[0568])\d{6}$/)  >> split(2,2,2) | # Mobile (Lycamobile, Telenet, Proximus 0460)
+                match(/^(46[05678])\d{6}$/) >> split(2,2,2) | # Mobile (Lycamobile, Telenet, Join Experience, Proximus 0460)
                 match(/^(4[789]\d)\d{6}$/)  >> split(2,2,2) | # Mobile
+                match(/^(456)\d{6}$/)       >> split(2,2,2) | # Mobile Vikings
                 one_of('2','3','4','9')     >> split(3,2,2) | # Short NDCs
                 fixed(2)                    >> split(2,2,2)   # 2-digit NDCs
 
