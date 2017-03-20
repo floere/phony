@@ -1,3 +1,8 @@
+h2. Version 2.15.42
+
+* Improvements for Saudi Arabia (#366).
+* Improvements for Belgium (#365)
+
 h2. Version 2.15.41
 
 * Improvements for error messages (#362).
