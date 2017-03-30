@@ -139,6 +139,7 @@ module Phony
       #
       def partial_split number
         cc = ''
+        number.sub!(/\A\+/, '')
         1.upto(3) do |i|
           cc << number.slice!(0..0)
           country = countries[i][cc]
