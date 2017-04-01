@@ -178,7 +178,7 @@ Phony.define do
   # Note: http://wapedia.mobi/en/Telephone_numbers_in_Poland, mobile not yet correct
   #
   country '48',
-          match(/^(5[013]\d|6[069]\d|7[02389]\d|80[01]|88\d)/) >> split(3,3) |
+          match(/^(45\d|5[0137]\d|6[069]\d|7[02389]\d|80[01]|88\d)/) >> split(3,3) |
           fixed(2)                                             >> split(3,2,2)
 
   # country '49' # Germany, see special file.
