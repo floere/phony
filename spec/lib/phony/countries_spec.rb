@@ -569,6 +569,8 @@ describe 'country descriptions' do
     describe 'Poland' do
       it_splits '48123456789', ['48', '12', '345', '67', '89'] # Landline
       it_splits '48501123456', ['48', '501', '123', '456']     # Mobile
+      it_splits '48571123456', ['48', '571', '123', '456']     # Mobile
+      it_splits '48451123456', ['48', '451', '123', '456']     # Mobile
       it_splits '48800123456', ['48', '800', '123', '456']     # Free
       it_splits '48801123456', ['48', '801', '123', '456']     # Shared cost
       it_splits '48701123456', ['48', '701', '123', '456']     # Premium
