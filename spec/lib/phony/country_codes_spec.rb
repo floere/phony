@@ -48,6 +48,13 @@ describe Phony::CountryCodes do
     it 'normalizes correctly with CC option' do
       @countries.normalize('044-364-35-32', cc: '41').should eql '41443643532'
     end
+
+    context 'specific countries' do
+      it 'handles Congo correctly' do
+        @countries.normalize('+242 0571 73992').should eql '242057173992'
+        @countries.normalize('+242 2221 15932').should eql '242222115932'
+      end
+    end
   end
 
   describe 'formatted' do
