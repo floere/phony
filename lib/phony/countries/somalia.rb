@@ -1,6 +1,7 @@
 Phony.define do
   # Somali Democratic Republic http://www.wtng.info/wtng-252-so.html
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=SO
+  # https://en.wikipedia.org/wiki/Telecommunications_in_Somaliland#Telesom
   country '252',
     one_of('88216') >> split(3) | # Thuraya Satellite Telecommunications Company
     one_of(%w(1034 1043)) >> split(3,2) | # Hortel
@@ -13,6 +14,7 @@ Phony.define do
     one_of(%w(642 643 644 648 649)) >> split(2,2) | # Galcom
     one_of(%w(33 51 52 54 55 56 57 58 59 68 71 76 78 79 88)) >> split(3,2) |
     match(/\A(67)\d{5}\z/) >> split(3,2) | # Golis Telecom Somalia
+    match(/\A(63)\d{7}\z/) >> split(3,4) | # Telesom
     one_of(%w(15 40 42 45 46 60 61 90 91)) >> split(3,3) | # mobile Somafone, Hortel
     one_of(%w(18)) >> split(3,2) | # Hortel
     one_of(%w(27 28 29 62 63 87)) >> split(2,2) | # Telcom Somalia, Emir Set
