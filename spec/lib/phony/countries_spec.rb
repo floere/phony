@@ -1179,12 +1179,14 @@ describe 'country descriptions' do
       it_splits '67754692', ['677', false, '54', '692']
       it_splits '6777546921', ['677', false, '7546', '921']
     end
-    describe 'Somali Democratic Republic' do
+    describe 'Somalia' do
       it_splits '252103412345', %w(252 1034 123 45)
       it_splits '2521313123', %w(252 1313 123)
       it_splits '2521601234', %w(252 160 12 34)
       it_splits '25250012345', %w(252 500 123 45)
       it_splits '252671234567', %w(252 67 1234 567)
+      it_splits '252634000613', %w(252 63 400 0613)
+      it_splits '252634423020', %w(252 63 442 3020)
     end
     describe 'Suriname (Republic of)' do
       it_splits '597958434', ['597', false, '958', '434']
