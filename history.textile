@@ -1,3 +1,9 @@
+h2. Version 2.15.43
+
+* Improvements for Somalia (#369).
+* Improvements for Congo (#368).
+* Improvements for Poland (#367)
+
 h2. Version 2.15.42
 
 * Improvements for Saudi Arabia (#366).
