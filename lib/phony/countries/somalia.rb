@@ -14,7 +14,7 @@ Phony.define do
     one_of(%w(642 643 644 648 649)) >> split(2,2) | # Galcom
     one_of(%w(33 51 52 54 55 56 57 58 59 68 71 76 78 79 88)) >> split(3,2) |
     match(/\A(67)\d{5}\z/) >> split(3,2) | # Golis Telecom Somalia
-    match(/\A(63)\d{7}\z/) >> split(3,4) | # Telesom
+    match(/\A(63|90|69|65|61)\d{7}\z/) >> split(3,4) | # Telesom, Golis, Nationlink, Somtel, Hormuud
     one_of(%w(15 40 42 45 46 60 61 90 91)) >> split(3,3) | # mobile Somafone, Hortel
     one_of(%w(18)) >> split(3,2) | # Hortel
     one_of(%w(27 28 29 62 63 87)) >> split(2,2) | # Telcom Somalia, Emir Set
