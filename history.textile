@@ -1,3 +1,8 @@
+h2. Version 2.15.44
+
+* Improvements for Cambodia (#372).
+* Improvements for Somalia (#371).
+
 h2. Version 2.15.43
 
 * Improvements for Somalia (#369).
