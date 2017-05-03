@@ -227,6 +227,7 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.assert.plausible?("+85517234567")     # Mobitel (6 digit id)
     Phony.refute.plausible?("+855172345678")    # Mobitel (too long)
     Phony.assert.plausible?("+85592122417")     # Mobitel (6 digit extended range id)
+    Phony.assert.plausible?("+855121234567")    # Mobitel (7 digit extended range id)
 
     Phony.assert.plausible?("+855383001801")    # CooTel (7 digit id)
     Phony.refute.plausible?("+85538300180")     # CooTel (too short)
