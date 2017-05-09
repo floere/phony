@@ -1217,7 +1217,7 @@ describe 'country descriptions' do
       it_splits '88641212345', %w(886 4 121 2345)
       it_splits '886412123456', %w(886 4 1212 3456)
       it_splits '886491234567', %w(886 49 123 4567)
-      it_splits '886901234567', %w(886 9 0123 4567)
+      it_splits '886901234567', %w(886 901 234 567)
     end
     describe 'Togolese Republic' do
       it_splits '22812345678', ['228', false, '1234', '5678']
