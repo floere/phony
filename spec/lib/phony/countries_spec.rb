@@ -782,8 +782,11 @@ describe 'country descriptions' do
       it_splits '84412345678', ['84', '4', '1234', '5678'] # Hanoi
     end
     describe 'Zambia' do
-      it_splits '260955123456', ['260', '955', '123456'] # mobile
-      it_splits '260211123456', ['260', '211', '123456'] # fixed
+      it_splits '260211123456', ['260', '211', '123456']     # Fixed
+      it_splits '260955123456', ['260', '955', '123456']     # Mobile
+      it_splits '260967123456', ['260', '967', '123456']     # Mobile
+      it_splits '260978123456', ['260', '978', '123456']     # Mobile
+      it_splits '260800123456', ['260', '800', '123', '456'] # Toll free
     end
     describe 'New Zealand' do
       it_splits '6491234567', ['64', '9', '123', '4567']
