@@ -472,9 +472,11 @@ Phony.define do
 
   # Zambia
   # http://www.wtng.info/wtng-260-zm.html
+  # https://github.com/googlei18n/libphonenumber/
   country '260',
-    match(/^(9(55|66|7[7-9]))/) >> split(6) | # mobile
-    match(/^(21[1-8])/) >> split(6) # fixed
+    match(/^(9(5[034589]|[67]\d))/) >> split(6)   | # Mobile
+    match(/^(800)/)                 >> split(3,3) | # Toll free
+    match(/^(21[1-8])/)             >> split(6)     # Fixed
 
   # Madagascar http://www.wtng.info/wtng-261-mg.html
   # http://www.itu.int/oth/T020200007F/en
