@@ -201,7 +201,12 @@ describe 'country descriptions' do
     describe 'Croatia' do
       it_splits '38521695900',  %w( 385 21 695 900 )  # Landline
       it_splits '38514566666',  %w( 385 1 4566 666 )  # Landline (Zagreb)
+      it_splits '38599444999',  %w( 385 99 444 999 )  # Mobile
       it_splits '385918967509', %w( 385 91 896 7509 ) # Mobile
+      it_splits '3858001234',   %w( 385 800 1234 )    # Toll free
+      it_splits '385800123456', %w( 385 800 123 456 ) # Toll free
+      it_splits '3856012345',   %w( 385 60 12 345 )   # Premium rate
+      it_splits '38562123456',  %w( 385 62 123 456 )  # Premium, personal and UAN
     end
     describe 'Cuba' do
       it_splits '5351231234', ['53', '5123', '1234'] # Mobile
