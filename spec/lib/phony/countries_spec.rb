@@ -479,6 +479,7 @@ describe 'country descriptions' do
     end
     describe 'Macao' do
       it_splits '85328123456', ["853", "28", "12", "3456"] # Landline
+      it_splits '85381234567', ["853", "8", "123", "4567"] # Landline
       it_splits '85361234567', ["853", "6", "123", "4567"] # Mobile
     end
     describe 'Malaysia' do

@@ -181,6 +181,9 @@ describe 'plausibility' do
         Phony.plausible?('+231 4 123 456').should be_true
         Phony.plausible?('+231 77 123 4567').should be_true
       end
+      it_is_correct_for 'Macao', :samples => ['+853 28 12 3456',
+                                              '+853 8 123 4567',
+                                              '+853 6 123 4567',]
       it_is_correct_for 'Macedonia', :samples => ['+389 2 123 4567',
                                                    '+389 7 124 3456',
                                                    '+389 7 234 5678']
