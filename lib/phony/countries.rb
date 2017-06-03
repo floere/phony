@@ -988,7 +988,8 @@ Phony.define do
   # Macao, China
   country '853', # Macao, China
     match(/^(28)\d+$/) >> split(2,4) | # Landline.
-    match(/^(6)\d+$/)  >> split(3,4)  # Mobile.
+    match(/^(8)\d+$/)  >> split(3,4) | # Landline.
+    match(/^(6)\d+$/)  >> split(3,4)   # Mobile.
 
   country '854', todo # Spare code
 
