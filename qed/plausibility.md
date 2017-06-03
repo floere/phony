@@ -355,13 +355,17 @@ Landline.
     Phony.assert.plausible?('+385 21 695900')
     Phony.assert.plausible?('+385 1 4566 666')
 
-    Phony.refute.plausible?('+385 21 12345') # Too short
-    Phony.refute.plausible?('+385 21 1234567') # Too long
+    Phony.refute.plausible?('+385 21 123 45') # Too short
+    Phony.assert.plausible?('+385 21 123 456')
+    Phony.assert.plausible?('+385 21 123 4567')
+    Phony.refute.plausible?('+385 21 123 45678') # Too long
 
 Mobile.
 
-    Phony.assert.plausible?('+385 91 896 7509')
-    Phony.refute.plausible?('+385 91 123456') # Too short
+    Phony.refute.plausible?('+385 91 123 45') # Too short
+    Phony.assert.plausible?('+385 91 123 456')
+    Phony.assert.plausible?('+385 91 123 4567')
+    Phony.assert.plausible?('+385 91 896 7509') # Too long
 
 #### Colombia
 
