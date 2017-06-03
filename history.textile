@@ -1,3 +1,10 @@
+h2. Version 2.15.45
+
+* Improvements for Macao (#378)
+* Improvements for Zambia (#375)
+* Improvements for Croatia (#375).
+* Improvements for Cambodia (#370).
+
 h2. Version 2.15.44
 
 * Improvements for Cambodia (#372).
