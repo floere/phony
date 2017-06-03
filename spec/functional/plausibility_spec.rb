@@ -53,6 +53,16 @@ describe 'plausibility' do
       it_is_correct_for 'Congo', :samples => '+242 1234 56789'
       it_is_correct_for 'Cook Islands', :samples => '+682  71928'
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'
+      it 'is correct for Croatia' do
+          Phony.plausible?('+385 21 695 900').should be_true  # Landline
+          Phony.plausible?('+385 1 4566 666').should be_true  # Landline (Zagreb)
+          Phony.plausible?('+385 99 444 999').should be_true  # Mobile
+          Phony.plausible?('+385 91 896 7509').should be_true # Mobile
+          Phony.plausible?('+385 800 1234').should be_true    # Toll free
+          Phony.plausible?('+385 800 123 456').should be_true # Toll free
+          Phony.plausible?('+385 60 12 345').should be_true   # Premium rate
+          Phony.plausible?('+385 62 123 456').should be_true  # Premium, personal and UAN
+      end
       it_is_correct_for "Côte d'Ivoire", :samples => '+225  9358 8764'
       it_is_correct_for 'Democratic Republic of Timor-Leste', :samples => ['+670 465 7886', '+670 7465 7886']
       it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 80 864 9794'
@@ -359,8 +369,11 @@ describe 'plausibility' do
                                               '+967 77 123 4567',
                                               '+967 58 1234']
       it 'is correct for Zambia' do
-        Phony.plausible?('+260 955 123456').should be_true # mobile
-        Phony.plausible?('+260 211 123456').should be_true # fixed
+        Phony.plausible?('+260 211 123456').should be_true  # Fixed
+        Phony.plausible?('+260 955 123456').should be_true  # Mobile
+        Phony.plausible?('+260 967 123456').should be_true  # Mobile
+        Phony.plausible?('+260 978 123456').should be_true  # Mobile
+        Phony.plausible?('+260 800 123 456').should be_true # Toll free
       end
       it_is_correct_for 'Zimbabwe', :samples => [['+263 2582 123 456', '+263 2582 123'],
                                                  ['+263 147 123 456', '+263 147 123'],
