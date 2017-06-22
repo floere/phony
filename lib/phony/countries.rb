@@ -753,9 +753,11 @@ Phony.define do
 
   # Slovak Republic.
   #
-  country '421', match(/^(9\d\d).+$/) >> split(6) | # Mobile
-                 one_of('2')          >> split(8) | # Bratislava
-                 fixed(2)             >> split(7)   # 2-digit NDCs
+  country '421', match(/^(9\d\d).+$/)          >> split(6) | # Mobile
+                 match(/\A(2)1\d{2,4}\z/)      >> split(3..5) | # Bratislava Short
+                 match(/\A(\d{2})1\d{2,4}\z/)  >> split(3..5) | # 2-digit NDCs Short
+                 one_of('2')                   >> split(8) | # Bratislava
+                 fixed(2)                      >> split(7) # 2-digit NDCs
 
   country '422', todo # Spare code
   country '423', none >> split(3,2,2) # Liechtenstein (Principality of)
