@@ -666,7 +666,9 @@ describe 'country descriptions' do
     describe 'Slovakia' do
       it_splits '421912123456', ['421', '912', '123456'] # Mobile
       it_splits '421212345678', ['421', '2', '12345678'] # Bratislava
+      it_splits '4212123',      ['421', '2', '123'] # Bratislava Short
       it_splits '421371234567', ['421', '37', '1234567'] # Nitra / Other
+      it_splits '42137123',     ['421', '37', '123'] # Nitra / Other Short
     end
 
     describe 'Slovenia' do
