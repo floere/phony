@@ -1,3 +1,7 @@
+h2. Version 2.15.46
+
+* Improvements for Slovakia (#381)
+
 h2. Version 2.15.45
 
 * Improvements for Macao (#378)
