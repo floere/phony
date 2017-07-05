@@ -11,10 +11,10 @@ Phony.define do
     one_of(%w(201 204 208 210 214)) >> split(2,2) | # Telcom Somalia
     one_of(%w(500 501 502 503 504 505 506 507 508 509)) >> split(3,2) | # mobile NationLink Telecom
     one_of(%w(523 525 526)) >> split(2,2) | # Netco
+    match(/\A(61|62|63|64|65|66|67|68|69|90)\d{7}\z/) >> split(3,4) | # mobile Hormuud, Somtel Mogadishu, Telesom, Hormuud, Somtel, Somtel Puntland, Telecom Mogadishu, Nationlink Mogadishu, Nationlink, Golis
     one_of(%w(642 643 644 648 649)) >> split(2,2) | # Galcom
     one_of(%w(33 51 52 54 55 56 57 58 59 68 71 76 78 79 88)) >> split(3,2) |
     match(/\A(67)\d{5}\z/) >> split(3,2) | # Golis Telecom Somalia
-    match(/\A(63|90|69|65|61)\d{7}\z/) >> split(3,4) | # Telesom, Golis, Nationlink, Somtel, Hormuud
     one_of(%w(15 40 42 45 46 60 61 90 91)) >> split(3,3) | # mobile Somafone, Hortel
     one_of(%w(18)) >> split(3,2) | # Hortel
     one_of(%w(27 28 29 62 63 87)) >> split(2,2) | # Telcom Somalia, Emir Set
