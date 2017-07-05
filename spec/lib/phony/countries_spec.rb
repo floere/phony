@@ -1203,7 +1203,7 @@ describe 'country descriptions' do
       it_splits '252642345678', %w(252 64 234 5678) # Hormuud
       it_splits '252652345678', %w(252 65 234 5678) # Somtel
       it_splits '252662345678', %w(252 66 234 5678) # Somtel Puntland
-      it_splits '252672345678', %w(252 67 234 5678) # Telecom Mogadishu
+      it_splits '252672345678', %w(252 67 234 5678) # Nationlink Mogadishu
       it_splits '252682345678', %w(252 68 234 5678) # Nationlink Mogadishu
       it_splits '252692345678', %w(252 69 234 5678) # Nationlink
       it_splits '252902345678', %w(252 90 234 5678) # Golis
