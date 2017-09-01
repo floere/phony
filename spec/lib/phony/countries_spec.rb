@@ -661,7 +661,8 @@ describe 'country descriptions' do
     end
 
     describe 'Singapore' do
-      it_splits '6561231234', ['65', false, '6123', '1234'] # Fixed line
+      it_splits '6561231234',   ['65', false, '6123', '1234'] # Fixed line
+      it_splits '658008521234', ['65', false, '800', '852', '1234'] # International Toll Free Service (ITFS) and Home Country Direct Service (HCDS) Numbers
     end
     describe 'Slovakia' do
       it_splits '421912123456', ['421', '912', '123456'] # Mobile

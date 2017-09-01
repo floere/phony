@@ -268,6 +268,8 @@ describe 'plausibility' do
                                                ['+381 62 12 34567', '+381 62 12 3456'],
                                                ['+381 65 12 34567', '+381 65 12 3456']]
       it_is_correct_for 'Sierra Leone', :samples => '+232 42 393 972'
+      it_is_correct_for 'Singapore', :samples => ['+65 6123 1234',
+                                                  '+65 800 852 1234']
       it_is_correct_for 'Solomon Islands', :samples => '+677  97851'
       it_is_correct_for 'Somali Democratic Republic', :samples => ['+252 1034 123 45',
                                                                    '+252 1313 123',
