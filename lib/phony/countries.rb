@@ -279,7 +279,10 @@ Phony.define do
   # Singapore (Republic of).
   #
   country '65',
-    none >> split(4,4) # TODO Short Codes.
+    none >> matched_split(
+        /^(800)\d{7}$/ => [3,3,4], # International Toll Free Service (ITFS) and Home Country Direct Service (HCDS) Numbers
+        /^\d{8}$/ => [4,4]         # TODO Short Codes
+    )
 
   # Thailand.
   #
