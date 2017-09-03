@@ -77,7 +77,7 @@ module Phony
       country, cc, national_number = partial_split number
       
       # Split the national number into ndc and local part.
-      trunk, ndc, *local = country.split national_number
+      _, ndc, *local = country.split national_number
       
       [cc, ndc, *local]
     end
