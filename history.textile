@@ -1,3 +1,7 @@
+h2. Version 2.15.48
+
+* Improvements for Singapore (#388)
+
 h2. Version 2.15.47
 
 * Improvements for Somalia (#383)
