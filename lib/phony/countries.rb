@@ -274,6 +274,8 @@ Phony.define do
     match(/^(2\d)\d{7}$/) >> split(3,4)   | # Mobile
     match(/^(2\d)\d{6}$/) >> split(3,3)   |
     match(/^(2\d)\d{8}$/) >> split(2,3,3) |
+    match(/^(800)\d{6}$/) >> split(3,3)   | # International 800 service where agreed
+    match(/^(800)\d{7}$/) >> split(3,4)   | # International 800 service where agreed
     fixed(1) >> split(3,4)                  # Rest
 
   # Singapore (Republic of).

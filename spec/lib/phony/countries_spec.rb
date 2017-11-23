@@ -794,6 +794,8 @@ describe 'country descriptions' do
     end
     describe 'New Zealand' do
       it_splits '6491234567', ['64', '9', '123', '4567']
+      it_splits '64800123123', ['64', '800', '123', '123']
+      it_splits '648001231234', ['64', '800', '123', '1234']
     end
     describe 'Bhutan (Kingdom of)' do
       it_splits '9759723642', %w(975 9 723 642)
