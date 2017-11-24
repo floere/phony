@@ -225,6 +225,7 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.assert.plausible?("+855762345678")    # Mobitel (7 digit id)
     Phony.refute.plausible?("+85576234567")     # Mobitel (too short)
     Phony.assert.plausible?("+85517234567")     # Mobitel (6 digit id)
+    Phony.assert.plausible?("+85512999399")     # Mobitel (6 digit id)
     Phony.refute.plausible?("+855172345678")    # Mobitel (too long)
     Phony.assert.plausible?("+85592122417")     # Mobitel (6 digit extended range id)
     Phony.assert.plausible?("+855121234567")    # Mobitel (7 digit extended range id)
@@ -255,8 +256,8 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.refute.plausible?("+855188700545")    # Excell (too long)
     Phony.refute.plausible?("+85518970054")     # Seatel (too short)
 
-    Phony.assert.plausible?("+855399999898")    # EMAXX  (7 digit id)
-    Phony.refute.plausible?("+85539999989")     # EMAXX  (too short)
+    Phony.assert.plausible?("+855399999898")    # Kingtel  (7 digit id)
+    Phony.refute.plausible?("+85539999989")     # Kingtel  (too short)
 
     Phony.refute.plausible?("+85512023456")     # invalid numbering plan
     Phony.refute.plausible?("+85510123456")     # invalid numbering plan
