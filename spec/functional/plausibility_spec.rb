@@ -25,11 +25,11 @@ describe 'plausibility' do
           incorrect = [shortest.sub(/\d\s*\z/, '')] # , longest + '0']
 
           correct.each do |value|
-            Phony.plausible?(value).should be_true,
+            Phony.plausible?(value).should eq(true),
               "It should validate #{value}, but does not."
           end
           incorrect.each do |value|
-            Phony.plausible?(value).should be_false,
+            Phony.plausible?(value).should eq(false),
               "It should not validate #{value}, but does."
           end
         end
@@ -38,7 +38,7 @@ describe 'plausibility' do
           invalid = [*sample]
 
           invalid.each do |value|
-            Phony.plausible?(value).should be_false,
+            Phony.plausible?(value).should eq(false),
               "It should not validate #{value}, but does."
           end
         end
@@ -54,14 +54,14 @@ describe 'plausibility' do
       it_is_correct_for 'Cook Islands', :samples => '+682  71928'
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'
       it 'is correct for Croatia' do
-          Phony.plausible?('+385 21 695 900').should be_true  # Landline
-          Phony.plausible?('+385 1 4566 666').should be_true  # Landline (Zagreb)
-          Phony.plausible?('+385 99 444 999').should be_true  # Mobile
-          Phony.plausible?('+385 91 896 7509').should be_true # Mobile
-          Phony.plausible?('+385 800 1234').should be_true    # Toll free
-          Phony.plausible?('+385 800 123 456').should be_true # Toll free
-          Phony.plausible?('+385 60 12 345').should be_true   # Premium rate
-          Phony.plausible?('+385 62 123 456').should be_true  # Premium, personal and UAN
+          Phony.plausible?('+385 21 695 900').should eq(true)  # Landline
+          Phony.plausible?('+385 1 4566 666').should eq(true)  # Landline (Zagreb)
+          Phony.plausible?('+385 99 444 999').should eq(true)  # Mobile
+          Phony.plausible?('+385 91 896 7509').should eq(true) # Mobile
+          Phony.plausible?('+385 800 1234').should eq(true)    # Toll free
+          Phony.plausible?('+385 800 123 456').should eq(true) # Toll free
+          Phony.plausible?('+385 60 12 345').should eq(true)   # Premium rate
+          Phony.plausible?('+385 62 123 456').should eq(true)  # Premium, personal and UAN
       end
       it_is_correct_for "Côte d'Ivoire", :samples => '+225  9358 8764'
       it_is_correct_for 'Democratic Republic of Timor-Leste', :samples => ['+670 465 7886', '+670 7465 7886']
@@ -69,30 +69,30 @@ describe 'plausibility' do
       it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
       it_is_correct_for 'Djibouti', :samples => '+253  3671 1431'
       it 'is correct for Ecuador' do
-        Phony.plausible?('+593 22 000 0000').should be_true
-        Phony.plausible?('+593 23 000 0000').should be_true
-        Phony.plausible?('+593 26 000 0000').should be_true
-        Phony.plausible?('+593 27 000 0000').should be_true
-        Phony.plausible?('+593 44 000 0000').should be_true
-        Phony.plausible?('+593 45 000 0000').should be_true
-        Phony.plausible?('+593 47 000 0000').should be_true
-        Phony.plausible?('+593 2 200 0000').should be_true
-        Phony.plausible?('+593 2 300 0000').should be_true
-        Phony.plausible?('+593 2 400 0000').should be_true
-        Phony.plausible?('+593 2 500 0000').should be_true
-        Phony.plausible?('+593 2 700 0000').should be_true
-        Phony.plausible?('+593 3 000 0000').should be_true
-        Phony.plausible?('+593 4 000 0000').should be_true
-        Phony.plausible?('+593 4 500 0000').should be_true
-        Phony.plausible?('+593 4 600 0000').should be_true
-        Phony.plausible?('+593 5 200 0000').should be_true
-        Phony.plausible?('+593 5 300 0000').should be_true
-        Phony.plausible?('+593 6 200 0000').should be_true
-        Phony.plausible?('+593 7 200 0000').should be_true
-        Phony.plausible?('+593 7 300 0000').should be_true
-        Phony.plausible?('+593 7 400 0000').should be_true
-        Phony.plausible?('+593 7 600 0000').should be_true
-        Phony.plausible?('+593 9 0000 0000').should be_true # mobile
+        Phony.plausible?('+593 22 000 0000').should eq(true)
+        Phony.plausible?('+593 23 000 0000').should eq(true)
+        Phony.plausible?('+593 26 000 0000').should eq(true)
+        Phony.plausible?('+593 27 000 0000').should eq(true)
+        Phony.plausible?('+593 44 000 0000').should eq(true)
+        Phony.plausible?('+593 45 000 0000').should eq(true)
+        Phony.plausible?('+593 47 000 0000').should eq(true)
+        Phony.plausible?('+593 2 200 0000').should eq(true)
+        Phony.plausible?('+593 2 300 0000').should eq(true)
+        Phony.plausible?('+593 2 400 0000').should eq(true)
+        Phony.plausible?('+593 2 500 0000').should eq(true)
+        Phony.plausible?('+593 2 700 0000').should eq(true)
+        Phony.plausible?('+593 3 000 0000').should eq(true)
+        Phony.plausible?('+593 4 000 0000').should eq(true)
+        Phony.plausible?('+593 4 500 0000').should eq(true)
+        Phony.plausible?('+593 4 600 0000').should eq(true)
+        Phony.plausible?('+593 5 200 0000').should eq(true)
+        Phony.plausible?('+593 5 300 0000').should eq(true)
+        Phony.plausible?('+593 6 200 0000').should eq(true)
+        Phony.plausible?('+593 7 200 0000').should eq(true)
+        Phony.plausible?('+593 7 300 0000').should eq(true)
+        Phony.plausible?('+593 7 400 0000').should eq(true)
+        Phony.plausible?('+593 7 600 0000').should eq(true)
+        Phony.plausible?('+593 9 0000 0000').should eq(true) # mobile
       end
       it_is_correct_for 'Equatorial Guinea', :samples => ['+240 222 201 123',
                                                           '+240 335 201 123']
@@ -102,21 +102,21 @@ describe 'plausibility' do
       it_is_correct_for 'Faroe Islands', :samples => '+298  969 597'
       it_is_correct_for 'Fiji (Republic of)', :samples => '+679  998 2441'
       it 'is correct for Finland' do
-        Phony.plausible?('+358 50 123 4').should be_true
-        Phony.plausible?('+358 50 123 45').should be_true
-        Phony.plausible?('+358 50 123 45 6').should be_true
-        Phony.plausible?('+358 50 123 45 67').should be_true
-        Phony.plausible?('+358 50 123 45 678').should be_true
-        Phony.plausible?('+358 49 123 456 789').should be_true
-        Phony.plausible?('+358 18 1234').should be_true
-        Phony.plausible?('+358 9 1234').should be_true
-        Phony.plausible?('+358 9 123 45').should be_true
-        Phony.plausible?('+358 9 123 456').should be_true
-        Phony.plausible?('+358 9 123 4567').should be_true
-        Phony.plausible?('+358 20 1470 740').should be_true
-        Phony.plausible?('+358 29 123 4567').should be_true
-        Phony.plausible?('+358 75323 1234').should be_true
-        Phony.plausible?('+358 50 123 456 789').should be_false
+        Phony.plausible?('+358 50 123 4').should eq(true)
+        Phony.plausible?('+358 50 123 45').should eq(true)
+        Phony.plausible?('+358 50 123 45 6').should eq(true)
+        Phony.plausible?('+358 50 123 45 67').should eq(true)
+        Phony.plausible?('+358 50 123 45 678').should eq(true)
+        Phony.plausible?('+358 49 123 456 789').should eq(true)
+        Phony.plausible?('+358 18 1234').should eq(true)
+        Phony.plausible?('+358 9 1234').should eq(true)
+        Phony.plausible?('+358 9 123 45').should eq(true)
+        Phony.plausible?('+358 9 123 456').should eq(true)
+        Phony.plausible?('+358 9 123 4567').should eq(true)
+        Phony.plausible?('+358 20 1470 740').should eq(true)
+        Phony.plausible?('+358 29 123 4567').should eq(true)
+        Phony.plausible?('+358 75323 1234').should eq(true)
+        Phony.plausible?('+358 50 123 456 789').should eq(false)
       end
       it_is_correct_for 'French Guiana (French Department of)', :samples => '+594 594 123 456'
       it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689 87 27 84 00'
@@ -177,9 +177,9 @@ describe 'plausibility' do
                                                 '+961 81 123 456']
       it_is_correct_for 'Lesotho', :samples => '+266  7612 6866'
       it 'is correct for Liberia' do
-        Phony.plausible?('+231 2 123 4567').should be_true
-        Phony.plausible?('+231 4 123 456').should be_true
-        Phony.plausible?('+231 77 123 4567').should be_true
+        Phony.plausible?('+231 2 123 4567').should eq(true)
+        Phony.plausible?('+231 4 123 456').should eq(true)
+        Phony.plausible?('+231 77 123 4567').should eq(true)
       end
       it_is_correct_for 'Macao', :samples => ['+853 28 12 3456',
                                               '+853 8 123 4567',
@@ -378,11 +378,11 @@ describe 'plausibility' do
                                               '+967 77 123 4567',
                                               '+967 58 1234']
       it 'is correct for Zambia' do
-        Phony.plausible?('+260 211 123456').should be_true  # Fixed
-        Phony.plausible?('+260 955 123456').should be_true  # Mobile
-        Phony.plausible?('+260 967 123456').should be_true  # Mobile
-        Phony.plausible?('+260 978 123456').should be_true  # Mobile
-        Phony.plausible?('+260 800 123 456').should be_true # Toll free
+        Phony.plausible?('+260 211 123456').should eq(true)  # Fixed
+        Phony.plausible?('+260 955 123456').should eq(true)  # Mobile
+        Phony.plausible?('+260 967 123456').should eq(true)  # Mobile
+        Phony.plausible?('+260 978 123456').should eq(true)  # Mobile
+        Phony.plausible?('+260 800 123 456').should eq(true) # Toll free
       end
       it_is_correct_for 'Zimbabwe', :samples => [['+263 2582 123 456', '+263 2582 123'],
                                                  ['+263 147 123 456', '+263 147 123'],
@@ -390,15 +390,15 @@ describe 'plausibility' do
                                                  '+263 86 1235 4567']
 
       it 'is correct for Indonesia' do
-        Phony.plausible?('+62 22 000 0').should be_false
-        Phony.plausible?('+62 22 000 00').should be_true
-        Phony.plausible?('+62 22 000 0000').should be_true
-        Phony.plausible?('+62 22 0000 0000').should be_true
-        Phony.plausible?('+62 22 000 000 000').should be_true
+        Phony.plausible?('+62 22 000 0').should eq(false)
+        Phony.plausible?('+62 22 000 00').should eq(true)
+        Phony.plausible?('+62 22 000 0000').should eq(true)
+        Phony.plausible?('+62 22 0000 0000').should eq(true)
+        Phony.plausible?('+62 22 000 000 000').should eq(true)
       end
 
       it 'is correct for Russia' do
-        Phony.plausible?('+7 3522 000 000').should be_true
+        Phony.plausible?('+7 3522 000 000').should eq(true)
       end
     end
   end
