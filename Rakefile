@@ -3,9 +3,14 @@
 require 'rspec'
 require 'rspec/core/rake_task'
 
-desc 'Run specs'
-RSpec::Core::RakeTask.new :spec do |t|
-  t.ruby_opts = ['-w']
+# desc 'Run specs'
+# RSpec::Core::RakeTask.new :spec do |t|
+#   t.ruby_opts = ['-w']
+# end
+task :spec do |t|
+  puts 'Running RSpec'
+  system 'rspec'
+  puts
 end
 
 desc 'Run QED'

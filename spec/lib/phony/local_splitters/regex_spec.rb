@@ -53,35 +53,35 @@ describe Phony::LocalSplitters::Regex do
     context 'Local splitter without mappings' do
       let(:local_splitter) { described_class.instance_for({})}
       it 'returns false' do
-        result.should be_false
+        result.should be_falsey
       end
     end
 
     context 'Mapping does not exist for a number' do
       let(:local_splitter) { described_class.instance_for(/\A5/ => [1,2,3])}
       it 'returns false' do
-        result.should be_false
+        result.should be_falsey
       end
     end
 
     context "Mapping exists, but the length is greater" do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2])}
       it 'returns false' do
-        result.should be_false
+        result.should be_falsey
       end
     end
 
     context "Mapping exists, but the length is less" do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2,3])}
       it 'returns false' do
-        result.should be_false
+        result.should be_falsey
       end
     end
 
     context 'Mapping exists and the length is equal' do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2,2])}
       it 'returns true' do
-        result.should be_true
+        result.should be_truthy
       end
     end
 
