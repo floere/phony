@@ -218,6 +218,10 @@ describe 'plausibility' do
                                               '+977 10 123 456',
                                               '+977 98 1234 5678']
       it_is_correct_for "New Caledonia (Territoire français d'outre-mer)", :samples => '+687  546 835'
+      it 'is correct for New Zealand' do
+        Phony.plausible?('+64800123123').should be_true # Free phone
+        Phony.plausible?('+648001231234').should be_true # Free phone
+      end
       it_is_correct_for 'Nicaragua', :samples => '+505 12 345 678'
       it_is_correct_for 'Niger', :samples => '+227  1234 5678'
       it_is_correct_for 'Niue', :samples => '+683  3791'
