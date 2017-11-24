@@ -1,3 +1,8 @@
+h2. Version 2.15.49
+
+* Improvements for New Zealand (#391)
+* Improvements for Cambodia (#389)
+
 h2. Version 2.15.48
 
 * Improvements for Singapore (#388)
