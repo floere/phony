@@ -76,9 +76,31 @@ module Phony
   # @example
   #   Phony.normalize("Fnork!") # Raises a Phony::NormalizationError.
   #
-  class NormalizationError < StandardError
-    def initialize(input)
-      super %Q{Phony could not normalize the given number. Is #{input.inspect} a phone number?}
+  class NormalizationError < ArgumentError
+    def initialize
+      super %Q{Phony could not normalize the given number. Is it a phone number?}
+    end
+  end
+  
+  # Raised in case Phony can't split a given number.
+  #
+  # @example
+  #   Phony.split("Fnork!") # Raises a Phony::SplittingError.
+  #
+  class SplittingError < ArgumentError
+    def initialize number
+      super %Q{Phony could not split the given number. Is #{number.blank? ? 'it' : number.inspect} a phone number?}
+    end
+  end
+  
+  # Raised in case Phony can't format a given number.
+  #
+  # @example
+  #   Phony.format("Fnork!") # Raises a Phony::FormattingError.
+  #
+  class FormattingError < ArgumentError
+    def initialize
+      super %Q{Phony could not format the given number. Is it a phone number?}
     end
   end
 
@@ -121,6 +143,7 @@ module Phony
     #
     def normalize phone_number, options = {}
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
+      
       normalize! phone_number.dup, options
     end
     # A destructive version of {#normalize}.
@@ -143,7 +166,7 @@ module Phony
     def normalize! phone_number, options = {}
       @codes.normalize phone_number, options
     rescue
-      raise NormalizationError.new phone_number
+      raise NormalizationError.new
     end
 
     # Splits the phone number into pieces according to the country codes.
@@ -162,7 +185,8 @@ module Phony
     #
     def split phone_number
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number)." unless phone_number
-      split! phone_number.dup
+      
+      split! phone_number.dup, phone_number
     end
     # A destructive version of {#split}.
     #
@@ -178,8 +202,11 @@ module Phony
     # @example Split a NANP number.
     #   Phony.split!("13015550100") # => ["1", "301", "555", "0100"]
     #
-    def split! phone_number
+    def split! phone_number, error_number = nil
       @codes.split phone_number
+    rescue
+      # NB The error_number (reference) is used because phone_number is destructively handled.
+      raise SplittingError.new(error_number)
     end
 
     # Formats a normalized E164 number according to a country's formatting scheme.
@@ -231,6 +258,8 @@ module Phony
     #
     def format! phone_number, options = {}
       @codes.format phone_number, options
+    rescue
+      raise FormattingError.new
     end
     alias formatted  format
     alias formatted! format!
