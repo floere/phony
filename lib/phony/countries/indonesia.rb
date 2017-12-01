@@ -34,7 +34,8 @@ Phony.define do
     match(/\A(81\d|82\d|83\d|84\d|85\d|86\d|87\d|88\d|89\d)\d+\z/) >> matched_split(  # mobile
         /\A\d{6}\z/ => [3,3],
         /\A\d{7}\z/ => [3,4],
-        /\A\d+\z/ => [4,4]) |
+        /\A\d{8}\z/ => [4,4],
+        /\A\d+\z/ => [4,5]) |
     one_of(%w(9)) >> matched_split( # geographic
         /\A\d{7}\z/ => [4,3],
         /\A\d+\z/ => [3,3,3]) |
