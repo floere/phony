@@ -1,3 +1,7 @@
+h2. Version 2.16.1
+
+* Improvements for Indonesia (#393, #394)
+
 h2. Version 2.16.0
 
 * The Phony class methods normalize/normalize!/split/split!/format/format! all raise variants of ArgumentErrors now (#385)
