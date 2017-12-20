@@ -854,6 +854,11 @@ With regexp constraints.
     Phony.assert.plausible?('+46 513 12 34 56')
     Phony.refute.plausible?('+46 513 12 34 567') # too long
     Phony.refute.plausible?('+46 19 20 88') # too short
+    Phony.refute.plausible?('+46 11 22 33') # too short and starts with a service number
+    Phony.assert.plausible?('+46 118 800')
+    Phony.assert.plausible?('+46 11 222 333')
+    Phony.assert.plausible?('+46 11 622 333')
+    Phony.assert.plausible?('+46 11 822 333')
 
 #### Vietnam
 
