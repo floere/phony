@@ -1,3 +1,7 @@
+h2. Version 2.16.2
+
+* Improvements for Sweden (#396)
+
 h2. Version 2.16.1
 
 * Improvements for Indonesia (#393, #394)
