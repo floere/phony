@@ -28,6 +28,7 @@ ndcs_with_7_subscriber_numbers = %w(
 64
 65
 69
+72
 )
 
 ndcs_with_6_subscriber_numbers = %w(
