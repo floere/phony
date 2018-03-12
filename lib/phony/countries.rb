@@ -491,8 +491,9 @@ Phony.define do
               /\A20\d+\z/ => [2,3,4], # Telecom Malagasy (Telma)
               /\A23\d+\z/ => [2,3,4], # Digitel
               /\A30\d+\z/ => [2,3,4], # mobile Madamobil (CDMA2000)
-              /\A31\d+\z/ => [2,3,4], # mobile Sacel
+              /\A31\d+\z/ => [2,3,4], # mobile Airtel Madagascar
               /\A32\d+\z/ => [2,3,4], # mobile Orange Madagascar
+              /\A33\d+\z/ => [2,3,4], # mobile Airtel Madagascar
               /\A34\d+\z/ => [2,3,4], # mobile Telecom Malagasy (Telma)
               /\A5\d+\z/ => [3,3,3],  # pager
               /\A22\d+\z/ => [3,3,3], # satellite GULFSAT Téléphonie

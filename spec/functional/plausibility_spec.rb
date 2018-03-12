@@ -189,7 +189,8 @@ describe 'plausibility' do
                                                    '+389 7 234 5678']
       it_is_correct_for 'Madagascar', :samples => ['+261 20 012 345 678',
                                                    '+261 20 124 3456',
-                                                   '+261 512 345 678']
+                                                   '+261 512 345 678',
+                                                   '+261 33 345 678']
       it_is_correct_for 'Malawi', :samples => ['+265 1725 123',
                                                '+265 213 456 789',
                                                '+265 9123 456',
