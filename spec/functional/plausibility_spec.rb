@@ -187,9 +187,18 @@ describe 'plausibility' do
       it_is_correct_for 'Macedonia', :samples => ['+389 2 123 4567',
                                                    '+389 7 124 3456',
                                                    '+389 7 234 5678']
-      it_is_correct_for 'Madagascar', :samples => ['+261 20 012 345 678',
-                                                   '+261 20 124 3456',
-                                                   '+261 512 345 678']
+      it_is_correct_for 'Madagascar', :samples => ['+261 31 345 4678',
+                                                   '+261 32 345 4678',
+                                                   '+261 33 345 4678',
+                                                   '+261 34 345 4678']
+      it 'is incorrect for Madagascar' do
+        Phony.plausible?('+261 20 012 345 678').should be_falsey
+        Phony.plausible?('+261 20 124 3456').should be_falsey
+        Phony.plausible?('+261 512 345 678').should be_falsey
+        Phony.plausible?('+261 34 345 46789').should be_falsey
+        Phony.plausible?('+261 34 345 467').should be_falsey
+      end
+
       it_is_correct_for 'Malawi', :samples => ['+265 1725 123',
                                                '+265 213 456 789',
                                                '+265 9123 456',

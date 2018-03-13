@@ -990,9 +990,10 @@ describe 'country descriptions' do
       it_splits '218911234456', %w(218 91 1234 456)
     end
     describe 'Madagascar' do
-      it_splits '26120012345678', ['261', false, '20', '012', '345', '678']
-      it_splits '261201243456', ['261', false, *%w(20 124 3456)]
-      it_splits '261512345678', ['261', false, *%w(512 345 678)]
+      it_splits '261310254716', ['261', '31', *%w(025 4716)]
+      it_splits '261320254716', ['261', '32', *%w(025 4716)]
+      it_splits '261330254716', ['261', '33', *%w(025 4716)]
+      it_splits '261340254716', ['261', '34', *%w(025 4716)]
     end
     describe 'Malawi' do
       it_splits '2651725123', ['265', false, '1725', '123']
