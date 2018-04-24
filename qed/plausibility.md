@@ -702,8 +702,8 @@ With regexp constraints.
     Phony.assert.plausible?('+64 21 123 4567')
     Phony.assert.plausible?('+64 9 379 1234')
     Phony.assert.plausible?('+64 21 12 345 678')
-    Phony.refute.plausible?('+64 21 1234 56789') # to long
-    Phony.refute.plausible?('+64 21 12345') # to short
+    Phony.refute.plausible?('+64 21 1234 56789') # too long
+    Phony.refute.plausible?('+64 21 12345') # too short
 
 #### Nigeria
 
