@@ -1024,7 +1024,12 @@ Phony.define do
   # Bangladesh (People's Republic of)
   #  country '880' # see special file
 
-  country '881', todo # International Mobile, shared code
+  # Global Mobile Satellite System (i.e. Iridium, Globalstar, etc)
+  #  https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=QM
+  country '881',
+          none >> matched_split(/^[23].*$/  => [8], # Ellipso (see url above)
+                                :fallback   => [10])
+
   country '882', todo # International Networks, shared code
   country '883', todo # -
   country '884', todo # -
