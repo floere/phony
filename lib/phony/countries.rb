@@ -1026,9 +1026,7 @@ Phony.define do
 
   # Global Mobile Satellite System (i.e. Iridium, Globalstar, etc)
   #  https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=QM
-  country '881',
-          none >> matched_split(/^[23].*$/  => [7], # Ellipso (see url above)
-                                :fallback   => [10])
+  country '881', fixed(1) >> split(3,5)
 
   country '882', todo # International Networks, shared code
   country '883', todo # -
