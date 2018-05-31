@@ -208,23 +208,28 @@ With forced trunk.
     Phony.format('263783123456', :format => :international).assert == '+263 78 312 3456'
     Phony.format('263783123456', :format => :national).assert == '078 312 3456'
 
+#### Global Mobile Satellite System
+
+    Phony.format('881632647870', :format => :international).assert == '+881 6 326 47870'
+    Phony.format('881632647870', :format => :national).assert == '6 326 47870'
+
 #### Unsupported Countries
 
 Formats as a single block.
 
-    Phony.format('88132155605220').assert == '+881 32155605220'
+    Phony.format('88232155605220').assert == '+882 32155605220'
 
 Formats as a single block, regardless of format.
 
-    Phony.format('8811819372205', :format => :international).assert == '+881 1819372205'
+    Phony.format('8821819372205', :format => :international).assert == '+882 1819372205'
 
 Formats as a single block, respecting custom spaces.
 
-    Phony.format('8811819372205', :spaces => :-).assert == '+881-1819372205'
+    Phony.format('8821819372205', :spaces => :-).assert == '+882-1819372205'
 
 Formats as a single block, even without spaces.
 
-    Phony.format('8811819372205', :spaces => '').assert == '+8811819372205'
+    Phony.format('8821819372205', :spaces => '').assert == '+8821819372205'
 
 ### Special cases
 
