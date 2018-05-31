@@ -1,6 +1,10 @@
 h2. Version 2.16.4
 
+* Madagascar (#399)
+* New Zealand (#401)
+* South Korea (#402)
 * Remove dependency on #blank? (#403)
+* Satellite phone support (#404, #405)
 
 h2. Version 2.16.3
 
