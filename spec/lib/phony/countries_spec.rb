@@ -632,8 +632,10 @@ describe 'country descriptions' do
       it_splits '2399920012', %w(239 9 920 012)
     end
     describe 'South Korea' do
-      it_splits '82212345678',  ['82', '2', '1234', '5678']  # Seoul
-      it_splits '825112345678', ['82', '51', '1234', '5678'] # Busan
+      it_splits '82212345678',  ['82', '2', '1234', '5678']  # Seoul (8 digits)
+      it_splits '8227111222',   ['82', '2', '711', '1222']   # Seoul (7 digits)
+      it_splits '825112345678', ['82', '51', '1234', '5678'] # Busan (8 digits)
+      it_splits '82511234567',  ['82', '51', '123', '4567']  # Busan (7 digits)
       it_splits '821027975588', ['82', '10', '2797', '5588'] # mobile
       it_splits '821087971234', ['82', '10', '8797', '1234'] # mobile
     end

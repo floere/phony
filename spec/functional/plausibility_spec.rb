@@ -280,6 +280,16 @@ describe 'plausibility' do
                                                                    '+252 160 12 34',
                                                                    '+252 500 123 45',
                                                                    '+252 67 1234 567']
+
+      it 'is correct for South Korea' do
+        Phony.plausible?('+82 2 1234 5678').should be_truthy
+        Phony.plausible?('+82 2 711 2222').should be_truthy
+        Phony.plausible?('+82 51 1234 5678').should be_truthy
+        Phony.plausible?('+82 51 123 5678').should be_truthy
+        Phony.plausible?('+82 10 2797 5588').should be_truthy
+        Phony.plausible?('+82 10 8797 1234').should be_truthy
+      end
+
       it_is_correct_for 'South Sudan', :samples => ['+211 123 212 345',
                                                     '+211 973 212 345']
       it_is_correct_for 'Suriname (Republic of)', :samples => ['+597 212 345', '+597 612 3456']
