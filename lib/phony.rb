@@ -89,7 +89,7 @@ module Phony
   #
   class SplittingError < ArgumentError
     def initialize number
-      super %Q{Phony could not split the given number. Is #{number.blank? ? 'it' : number.inspect} a phone number?}
+      super %Q{Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?}
     end
   end
   
