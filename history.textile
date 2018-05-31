@@ -1,3 +1,7 @@
+h2. Version 2.16.4
+
+* Remove dependency on #blank? (#403)
+
 h2. Version 2.16.3
 
 * Improvements for Austria (#397)
