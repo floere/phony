@@ -204,6 +204,10 @@ NDC with several subscriber number length.
 
     plausible? true: '+673 5 523 876'
 
+#### Bulgaria
+    plausible? true: '+359 2 4928400'
+    plausible? true: '+359 87 8357523'
+
 #### Burkina Faso
 
     plausible? true: '+226 1476 2312'

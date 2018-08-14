@@ -179,6 +179,10 @@ describe 'country descriptions' do
         it_splits '55199', ['55', '199', ""]
       end
     end
+    describe "Bulgaria" do
+      it_splits '359878357523', ['359', '87', '8357523'] # general case
+      it_splits '35929284000', ['359', '2', '9284000']   # Sofia
+    end
     describe 'Cambodia' do
       it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
       it_splits '855977100872', ["855", "97", "710", "0872"] # mobile (Metfone)
