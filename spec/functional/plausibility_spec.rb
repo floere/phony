@@ -411,6 +411,12 @@ describe 'plausibility' do
       it 'is correct for Russia' do
         Phony.plausible?('+7 3522 000 000').should be_truthy
       end
+
+      it 'is correct for Peru' do
+        Phony.plausible?('+51 1 123 1234').should be_truthy # Lima
+        Phony.plausible?('+51 9 1234 1234').should be_truthy # mobile
+        Phony.plausible?('+51 84 123 123').should be_truthy # Cuzco, best effort
+      end
     end
   end
 end

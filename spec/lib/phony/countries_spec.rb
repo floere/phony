@@ -563,9 +563,9 @@ describe 'country descriptions' do
       it_splits '595961611234', %w(595 96 161 1234)
     end
     describe 'Peru' do
-      it_splits '51112341234', ['51', '1', '1234', '1234'] # Lima
+      it_splits '5111231234', ['51', '1', '123', '1234'] # Lima
       it_splits '51912341234', ['51', '9', '1234', '1234'] # mobile
-      it_splits '51841234123', ['51', '84', '1234', '123'] # Cuzco, best effort
+      it_splits '5184123123', ['51', '84', '123', '123'] # Cuzco, best effort
     end
     describe 'Philippines' do
       it_splits '6321234567', ['63', '2', '1234567']
