@@ -442,6 +442,10 @@ describe 'country descriptions' do
       it_splits '254111234567', ['254', '11', '1234567'] # Mombasa
       it_splits '254723100220', ['254', '723', '100220'] # Mombasa
     end
+    describe 'Kosovo' do
+      it_splits '38329000000', ['383', '29', '000', '000'] # Landline
+      it_splits '38344000000', ['383', '44', '000', '000'] # Mobile
+    end
     describe 'Kyrgyzstan' do
       it_splits '996312212345', %w(996 312 212 345)
       it_splits '996315212345', %w(996 315 212 345)
