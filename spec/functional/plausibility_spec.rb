@@ -411,6 +411,14 @@ describe 'plausibility' do
       it 'is correct for Russia' do
         Phony.plausible?('+7 3522 000 000').should be_truthy
       end
+
+      it 'is correct for Bulgaria' do
+          Phony.plausible?('+359 2 123 123').should be_truthy     # Landline Sofia
+          Phony.plausible?('+359 2 123 1234').should be_truthy    # Landline Sofia
+          Phony.plausible?('+359 30 123 12').should be_truthy     # Landline
+          Phony.plausible?('+359 30 123 123').should be_truthy    # Landline
+          Phony.plausible?('+359 89 123 1234').should be_truthy   # Mobile
+      end
     end
   end
 end
