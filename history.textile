@@ -1,3 +1,9 @@
+h2. Version 2.16.5
+
+* Bulgaria (#407)
+* Kosovo (#410)
+* Peru (#411)
+
 h2. Version 2.16.4
 
 * Madagascar (#399)
