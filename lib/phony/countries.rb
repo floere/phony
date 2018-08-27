@@ -741,7 +741,13 @@ Phony.define do
 
   # country '382' # Montenegro, see special file
 
-  country '383', todo # -
+  # Kosovo
+  #
+  # Note: https://en.wikipedia.org/wiki/Telephone_numbers_in_Kosovo
+  country '383',
+          trunk('0') |
+          fixed(2) >> split(3,3)
+
   country '384', todo # -
 
   # country '385' # Croatia, see special file.
