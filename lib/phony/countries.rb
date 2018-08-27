@@ -184,11 +184,13 @@ Phony.define do
   # country '49' # Germany, see special file.
 
   # Peru.
-  #
+  # Note: https://en.wikipedia.org/wiki/Telephone_numbers_in_Peru
+  # Note: https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PE
   country '51',
           one_of('103', '105') >> split(3,3) | # Service.
-          one_of('1', '9')     >> split(4,4) | # Lima and mobile.
-          fixed(2)             >> split(4,4)   # 2-digit NDCs.
+          one_of('9')          >> split(4,4) | # Mobile.
+          one_of('1')          >> split(3,4) | # Lima.
+          fixed(2)             >> split(3,3)   # 2-digit NDCs.
 
   # Mexico.
   #
