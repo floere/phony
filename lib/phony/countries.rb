@@ -681,9 +681,17 @@ Phony.define do
 
   # Bulgaria
   #
+  # Note: https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=BG
+  # Note: https://en.wikipedia.org/wiki/Telephone_numbers_in_Bulgaria
   country '359',
           trunk('0') |
-          fixed(2) >> split(3,2,2) # Bulgaria
+          one_of('2') >> matched_split(
+            /\A\d{6}\z/ => [3,3],     # Landline Sofia (optional last digit)
+            /\A\d{7}\z/ => [3,4]) |   # Landline Sofia
+          fixed(2) >> matched_split(
+            /\A\d{5}\z/ => [3,2],     # Landline (optional last digit)
+            /\A\d{6}\z/ => [3,3],     # Landline
+            /\A\d{7}\z/ => [3,4])     # Mobile
 
   # Lithuania
   #
@@ -735,7 +743,13 @@ Phony.define do
 
   # country '382' # Montenegro, see special file
 
-  country '383', todo # -
+  # Kosovo
+  #
+  # Note: https://en.wikipedia.org/wiki/Telephone_numbers_in_Kosovo
+  country '383',
+          trunk('0') |
+          fixed(2) >> split(3,3)
+
   country '384', todo # -
 
   # country '385' # Croatia, see special file.

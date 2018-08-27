@@ -417,6 +417,19 @@ describe 'plausibility' do
         Phony.plausible?('+51 9 1234 1234').should be_truthy # mobile
         Phony.plausible?('+51 84 123 123').should be_truthy # Cuzco, best effort
       end
+      
+      it 'is correct for Kosovo' do
+        Phony.plausible?('+383 29 000 000').should be_truthy # Landline
+        Phony.plausible?('+383 44 000 000').should be_truthy # Mobile
+      end
+      
+      it 'is correct for Bulgaria' do
+        Phony.plausible?('+359 2 123 123').should be_truthy     # Landline Sofia
+        Phony.plausible?('+359 2 123 1234').should be_truthy    # Landline Sofia
+        Phony.plausible?('+359 30 123 12').should be_truthy     # Landline
+        Phony.plausible?('+359 30 123 123').should be_truthy    # Landline
+        Phony.plausible?('+359 89 123 1234').should be_truthy   # Mobile
+      end
     end
   end
 end
