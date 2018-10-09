@@ -430,6 +430,10 @@ describe 'plausibility' do
         Phony.plausible?('+359 30 123 123').should be_truthy    # Landline
         Phony.plausible?('+359 89 123 1234').should be_truthy   # Mobile
       end
+
+      it 'is correct for Malaysia' do
+        Phony.plausible?('+60 5 123 1234').should be_truthy     # Non Selangor Landline
+      end
     end
   end
 end
