@@ -1308,6 +1308,7 @@ describe 'country descriptions' do
     describe 'United Arab Emirates' do
       it_splits '97180012', %w(971 800 12)
       it_splits '971800123456789', %w(971 800 12 345 6789)
+      it_splits '9718001234567', %w(971 800 12 345 67)
       it_splits '97121234567', %w(971 2 123 4567)
       it_splits '971506412345', %w(971 50 641 2345)
       it_splits '971600641234', %w(971 600 641 234)
