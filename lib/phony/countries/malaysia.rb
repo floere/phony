@@ -4,7 +4,6 @@
 #
 ndcs = [
   '2', # Singapore
-  '3', # Selangor & Federal Territories of Kuala Lumpur & Putrajaya & also Genting Highlands, Pahang
   '4', # Kedah, Penang & Perlis
   '5', # Perak & Cameron Highlands (Pahang)
   '6', # Melaka, Negeri Sembilan & Muar (Johor)
@@ -14,6 +13,9 @@ ndcs = [
 mobile = %w{ 10 11 12 13 14 153 154 156 158 16 17 18 19 }
 # service = %w{ 100 101 102 103 104 108 991 994 995 999 }  # Emergeny and Service numbers, only 3 digits long
 freephone = %w{ 300 700 800 }
+ndcs_eight = [
+  '3' # Selangor & Federal Territories of Kuala Lumpur & Putrajaya & also Genting Highlands, Pahang
+]
 
 Phony.define do
   country '60',
@@ -21,6 +23,7 @@ Phony.define do
     one_of(freephone) >> split(2,4) | # Freephone, Tollfree, Forwarding
     # one_of(service) >>  none  | # Service
     one_of(mobile)  >> split(3,4..5)   | # Mobile
-    one_of(ndcs)    >> split(8)     | # 1-digit NDCs
+    one_of(ndcs)    >> split(7)     | # 1-digit NDCs
+    one_of(ndcs_eight)    >> split(8)     | # 1-digit NDCs
     fixed(2)        >> split(8)       # 2-digit NDCs (Also, fallback)
 end
