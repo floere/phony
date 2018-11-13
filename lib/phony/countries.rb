@@ -685,13 +685,24 @@ Phony.define do
   # Note: https://en.wikipedia.org/wiki/Telephone_numbers_in_Bulgaria
   country '359',
           trunk('0') |
-          one_of('2') >> matched_split(
-            /\A\d{6}\z/ => [3,3],     # Landline Sofia (optional last digit)
-            /\A\d{7}\z/ => [3,4]) |   # Landline Sofia
-          fixed(2) >> matched_split(
-            /\A\d{5}\z/ => [3,2],     # Landline (optional last digit)
-            /\A\d{6}\z/ => [3,3],     # Landline
-            /\A\d{7}\z/ => [3,4])     # Mobile
+          match(/^(2)\d{6}$/) >> split(3,3)  | # Landline Sofia (optional last digit)
+          match(/^(2)\d{7}$/) >> split(3,4)  | # Landline Sofia (optional last digit)
+          match(/^(30|31|33|36|37|39|41|43\d|45|47|51|53|55|57|59)\d{5}$/) >> split(5) |
+          match(/^(30|31|32|33|34|35|36|37|38|39|41|42|44|45|46|47|51|52|53|54|55|56|57|58|59)\d{6}$/) >> split(2,4) |
+
+          match(/^(60|61|63|65|66|69)\d{5}$/) >> split(5) |
+          match(/^(60|61|62|63|64|65|66|68|69)\d{6}$/) >> split(6) |
+
+          match(/^(700|701|703|704|705|706|707|708|709)\d{5}$/) >> split(5) |
+          match(/^(701|702|703|704|705|706|707|708|709)\d{4}$/) >> split(4) |
+
+          match(/^(71|72|74|75|77)\d{5}$/) >> split(5) |
+          match(/^(71|72|73|74|75|76|77|78|79)\d{6}$/) >> split(6) |
+
+          match(/^(80\d|81|91|93|95|97)\d{5}$/) >> split(5) |
+          match(/^(81|82|84|86)\d{6}$/) >> split(6) |
+          match(/^(87|88|89)\d{7}$/) >> split(4,3) |
+          match(/^(90|91|92|93|94|95|96|97|98\d|99\d)\d{6}$/) >> split(6)
 
   # Lithuania
   #
