@@ -367,6 +367,7 @@ describe 'plausibility' do
                                               ]
       it_is_correct_for 'United Arab Emirates', :samples => ['+971 800 12',
                                                              '+971 800 12 345 6789',
+                                                             '+971 800 12 345 67',
                                                              '+971 2 123 4567',
                                                              '+971 50 641 2345',
                                                              '+971 600 641 234',
