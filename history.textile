@@ -1,3 +1,9 @@
+h2. Version 2.16.6
+
+* Bulgaria (#17)
+* Malaysia (#414)
+* UAE (#416)
+
 h2. Version 2.16.5
 
 * Bulgaria (#407)
