@@ -1166,7 +1166,8 @@ Phony.define do
           one_of(%w(500 700 900)) >> split(3,3) | # premium rate
           one_of('800') >> matched_split(
               /\A\d{2}\z/ => [2],
-              /\A\d+\z/ => [2,3,4])| # freephone
+              /\A\d{2}\d{3}\d{2}\z/ => [2,3,2],
+              /\A\d+\z/ => [2,3,4]) | # freephone
           one_of(%w(50 52 54 55 56 58)) >> split(3,4) | # mobile
           one_of(%w(2 3 4 6 7 9)) >> split(3,4) |
           fixed(1) >> split(3,4)
