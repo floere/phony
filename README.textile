@@ -13,7 +13,7 @@ Used in: "airbnb.com":http://airbnb.com, "socialcam.com":http://socialcam.com, "
 
 h2. Runtime Memory Usage
 
-According to "memory_profiler":https://github.com/SamSaffron/memory_profiler, the Phony gem uses roughly 1 MB of memory per Ruby process.
+According to "memory_profiler":https://github.com/SamSaffron/memory_profiler, the Phony gem uses roughly 2 MBs of memory per Ruby process.
 Usage was generated using: @ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony" }.pretty_print'@
 
 h2. Description
