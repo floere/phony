@@ -915,7 +915,14 @@ Phony.define do
           one_of('115') >> split(4,4) | # voicemail (mobile)
           one_of(%w(28 29)) >> split(3,2) | # pager
           one_of(%w(16 18)) >> split(3,2) | # ISP
-          one_of(%w(71 72 73 76)) >> split(3,3) | # mobile
+          one_of(%w(70 71 72 74 75 76 78 79)) >> split(3,3) | # mobile
+          one_of(%w(731 732 733 734 735 736 738 739)) >> split(2,3) | # mobile
+          one_of(%w(770)) >> split(2,3) | # wireless geographic; Port Moresby, National Capital District
+          one_of(%w(771)) >> split(2,3) | # wireless geographic; Momase region
+          one_of(%w(772)) >> split(2,3) | # wireless geographic; Highlands region
+          one_of(%w(7730)) >> split(1,3) | # wireless geographic; Southern region
+          one_of(%w(774)) >> split(2,3) | # wireless geographic; Islands region
+          one_of(%w(775)) >> split(2,3) | # mobile
           one_of(%w(80 81 82 83)) >> split(3,3) | # freephone
           one_of(%w(90 91 92 93)) >> split(3,3) | # geographic, ISDN
           one_of(%w(3 4 5 6 7 8 9)) >> split(3,3) # geographic
