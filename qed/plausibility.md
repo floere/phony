@@ -865,7 +865,7 @@ With regexp constraints.
     Phony.assert.plausible?('+84 8 3827 9666')
     Phony.assert.plausible?('+84 4 3926 1720')
     Phony.assert.plausible?('+84 091 123-4567')
-    Phony.assert.plausible?('+84 0167 123456')
+    Phony.assert.plausible?('+84 034 123456')
     Phony.refute.plausible?('+84 1 1234') # too short
     Phony.refute.plausible?('+84 12 3456 7891 0111213') # too long
 
