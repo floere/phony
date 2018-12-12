@@ -16,6 +16,7 @@ ndcs_with_7_subscriber_digits = [
   '22',  # Sơn La Province
   '230', # Điện Biên Province (23 before 24 Nov 2007)
   '231', # Lai Châu Province (23 before 24 Nov 2007)
+  '236', # Đà-Nẵng City
   '240', # Bắc Giang Province
   '241', # Bắc Ninh Province
   '25',  # Lạng Sơn Province
