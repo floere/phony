@@ -537,6 +537,9 @@ describe 'plausibility' do
                                                                       '+598 93 123 456',
                                                                       '+598 908 123 45',
                                                                       '+598 805 123 45']
+      it_is_correct_for 'Vietnam', :samples => ['+84 244 1234567',
+                                                '+84 284 1234567',
+                                                '+84 236 1234567']
       it_is_correct_for 'Yemen', :samples => [['+967 1 234 567', '+967 1 234 5678'],
                                               '+967 7 234 567',
                                               '+967 77 123 4567',
@@ -570,12 +573,12 @@ describe 'plausibility' do
         Phony.plausible?('+51 9 1234 1234').should be_truthy # mobile
         Phony.plausible?('+51 84 123 123').should be_truthy # Cuzco, best effort
       end
-      
+
       it 'is correct for Kosovo' do
         Phony.plausible?('+383 29 000 000').should be_truthy # Landline
         Phony.plausible?('+383 44 000 000').should be_truthy # Mobile
       end
-      
+
       it 'is correct for Bulgaria' do
         Phony.plausible?('+359 2 123 123').should be_truthy     # Landline Sofia
         Phony.plausible?('+359 2 123 1234').should be_truthy    # Landline Sofia
