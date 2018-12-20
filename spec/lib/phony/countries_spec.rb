@@ -446,6 +446,7 @@ describe 'country descriptions' do
     describe 'Japan' do
       it_splits '81312345678', %w(81 3 1234 5678) # Tokyo
       it_splits '81612345678', %w(81 6 1234 5678) # Osaka
+      it_splits '818001001234', %w(81 800 100 1234) # Freephone
       it_splits '81120123456', %w(81 120 123 456) # Freephone
       it_splits '81111234567', %w(81 11 123 4567)
       it_splits '81123123456', %w(81 123 12 3456)
