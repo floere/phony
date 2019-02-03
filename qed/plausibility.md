@@ -459,7 +459,8 @@ Mobile.
     # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/0800/0800_Nummernplan.pdf?__blob=publicationFile&v=1
     Phony.assert.plausible?('+49 800 222 3400 10')
     Phony.assert.plausible?('+49 800 222 3400 100')
-    Phony.refute.plausible?('+49 800 222 3400 1000')
+    Phony.assert.plausible?('+49 800 222 3400 1000')
+    Phony.refute.plausible?('+49 800 222 3400 10000')
 
     # Following tests implement specifications from
     # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
