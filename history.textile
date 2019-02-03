@@ -1,3 +1,10 @@
+h2. Version 2.16.10
+
+* Russia & Ukraine (#420)
+* Vietnam (#423)
+* Japan (#424)
+* Germany (#425)
+
 h2. Version 2.16.9
 
 * Vietnam (#421)
