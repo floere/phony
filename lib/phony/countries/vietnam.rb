@@ -40,7 +40,6 @@ ndcs_with_7_subscriber_digits = [
   '237', # Thanh Hóa Province
   '238', # Nghệ An Province
   '239', # Hà Tĩnh Province
-  '24',  # Hà Nội Province
   '251', # Đồng Nai Province
   '252', # Bình Thuận Province
   '254', # Bà Rịa Vũng Tàu Province
@@ -62,7 +61,6 @@ ndcs_with_7_subscriber_digits = [
   '275', # Bến Tre Province
   '276', # Tây Ninh Province
   '277', # Đồng Tháp Province
-  '28',  # Hồ Chí Minh Province
   '290', # Cà Mau Province
   '291', # Bạc Liêu Province
   '292', # Cần Thơ Province
@@ -71,6 +69,13 @@ ndcs_with_7_subscriber_digits = [
   '296', # An Giang Province
   '297', # Kiên Giang Province
   '299', # Sóc Trăng Province
+]
+
+ndcs_with_8_subscriber_digits = [
+  '4',  # Hà Nội Province
+  '24', # Hà Nội Province
+  '28', # Hồ Chí Minh Province
+  '8',  # Hồ Chí Minh Province
 ]
 
 mobile = [
@@ -117,6 +122,7 @@ Phony.define do
     trunk('0') |
     one_of(mobile)                        >> split(4..8)|
     one_of(ndcs_with_7_subscriber_digits) >> split(3,4) |
+    one_of(ndcs_with_8_subscriber_digits) >> split(4,4) |
     one_of(mobile_with_trunk)             >> split(5..8)|
     # Govt reserved
     fixed(80)                             >> split(5)   |
