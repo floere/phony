@@ -10,6 +10,10 @@ group :test do
   gem 'pippi', platforms: [:mri_20, :mri_21]
 end
 
+group :release do
+  gem 'gem-release'
+end
+
 platforms :rbx do
   gem 'rubysl', '~> 2.0'
   gem 'json'

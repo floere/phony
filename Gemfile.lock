@@ -14,6 +14,7 @@ GEM
     diff-lcs (1.3)
     docile (1.1.5)
     ffi2-generators (0.1.1)
+    gem-release (2.0.1)
     json (2.1.0)
     pippi (0.0.14)
     qed (2.9.2)
@@ -253,6 +254,7 @@ PLATFORMS
 DEPENDENCIES
   ae
   coveralls
+  gem-release
   json
   pippi
   qed
@@ -262,4 +264,4 @@ DEPENDENCIES
   rubysl (~> 2.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.6
