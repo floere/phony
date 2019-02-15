@@ -641,7 +641,7 @@ describe 'country descriptions' do
       it_splits '79991234567',   ['7', '999', '123', '45', '67'] # Russia 3-digit
       it_splits '7840121212',    ['7', '840', '12', '1212']  # Abhasia
       it_splits '7799121212',    ['7', '799', '12', '1212']  # Kazachstan
-      it_splits '7995344121212', ['7','995344','12','1212']  # South Osetia
+      it_splits '7995344121212', ['7', '995', '344','12','1212']  # South Osetia
       it_splits '7209175276',    ['7', '209', '17', '5276']  # Fantasy number
     end
 
