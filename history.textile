@@ -1,3 +1,7 @@
+h2. Version 2.16.11
+
+* Malaysia (#427)
+
 h2. Version 2.16.10
 
 * Russia & Ukraine (#420)
