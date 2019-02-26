@@ -185,6 +185,10 @@ module Phony
       #
       ndc_needed = hints[:ndc]
       return false if ndc_needed && !(ndc_needed === ndc)
+      
+      # If there is no local part, we can assume it's not a plausible number.
+      # (Or, not defined correctly in Phony yet)
+      return false unless local
 
       # Local code specific checks.
       #
