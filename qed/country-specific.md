@@ -41,3 +41,13 @@ Yep. This turns out to be wrong. Only expects and handles normalized national nu
   japan.normalize("80 1234 5634").assert == '8012345634'
   japan.normalize("Hello    80 1234 5634").assert == '8012345634'
 ```
+
+#### Italy
+
+This is an error case from issue #428.
+
+```ruby
+  italy = Phony["39"]
+  
+  italy.plausible?('12345').assert == false
+```
