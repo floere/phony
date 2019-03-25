@@ -1025,6 +1025,7 @@ Phony.define do
   # Hong Kong, China
 
   country '852',
+          match(/^(800)\d+$/) >> split(2, 4) |
           none >> split(4,4)
 
   # Macao, China

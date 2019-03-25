@@ -499,6 +499,12 @@ Mobile.
       '+30 909 123 4565'
     ]
 
+#### Hong Kong
+    plausible? true: [
+        '+852800121234',    # Toll Free
+        '+85212341234',     # Other Numbers
+    ]
+
 #### Hungary
 
     plausible? true: [

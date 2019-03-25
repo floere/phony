@@ -329,7 +329,8 @@ describe 'country descriptions' do
     end
 
     describe 'Hong Kong' do
-      it_splits '85212341234', ['852', false, '1234', '1234']     #
+      it_splits '85212341234', ['852', false, '1234', '1234']    #Other Numbers
+      it_splits '852800121234', ['852', '800', '12', '1234']     #Toll Free
     end
 
     describe 'Hungary' do
