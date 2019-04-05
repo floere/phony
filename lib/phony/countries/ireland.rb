@@ -15,7 +15,6 @@ ndcs_with_5_subscriber_digits = [
   '402',  # Arklow
   '404',  # Wicklow
   '43',   # Longford, Granard
-  '44',   # Mullingar, Castlepollard, Tyrellspass
   '47',   # Monaghan, Clones
   '48',   # Northern Ireland
   '502',  # Portlaoise, Abbeyleix
@@ -48,6 +47,7 @@ ndcs_with_7_subscriber_digits = [
   '21', # Cork, Coachford, Kinsale
   '41', # Ardee
   '42', # Dundalk, Carrickmacross, Castleblaney
+  '44', # Mullingar, Castlepollard, Tyrellspass
   '46', # Navan, Kells, Trim, Enfield, Edenderry
   '49', # Cavan, Cootehill, Oldcastle, Belturbet
   '53', # Wexford, Enniscorthy, Ferns, Gorey, Craanford
