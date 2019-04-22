@@ -410,15 +410,16 @@ describe 'country descriptions' do
     end
 
     describe 'Israel (972)' do
-      it_splits '972100',       ['972', '1', '00']  # Police
-      it_splits '97221231234',  ['972', '2', '123', '1234']  # Jerusalem Area
-      it_splits '97282411234',  ['972', '8', '241', '1234']  # Gaza Strip (Palestine)
-      it_splits '97291231234',  ['972', '9', '123', '1234']  # Sharon Area
-      it_splits '972501231234', ['972', '50', '123', '1234']  # Mobile (Pelephone)
-      it_splits '972591231234', ['972', '59', '123', '1234']  # Mobile Jawwal (Palestine)
-      it_splits '972771231234', ['972', '77', '123', '1234']  # Cable Phone Services
+      it_splits '972100',       ['972', '1', '00']                  # Police
+      it_splits '97221231234',  ['972', '2', '123', '1234']         # Jerusalem Area
+      it_splits '97282411234',  ['972', '8', '241', '1234']         # Gaza Strip (Palestine)
+      it_splits '97291231234',  ['972', '9', '123', '1234']         # Sharon Area
+      it_splits '972501231234', ['972', '50', '123', '1234']        # Mobile (Pelephone)
+      it_splits '972591231234', ['972', '59', '123', '1234']        # Mobile Jawwal (Palestine)
+      it_splits '972771231234', ['972', '77', '123', '1234']        # Cable Phone Services
       it_splits '9721700123123', ['972', '1', '700', '123', '123']  # Cable Phone Services
-      it_splits '972511234567', ['972', '51', '123', '4567'] # Mobile (We4G)
+      it_splits '972511234567', ['972', '51', '123', '4567']        # Mobile (We4G)
+      it_splits '972791111111', ['972', '79', '111', '1111']        # Landline (Hallo, Cellact, Telzar)
     end
     describe 'Israel (970)' do
       it_splits '97021231234',  ['970', '2', '123', '1234']  # Jerusalem Area
