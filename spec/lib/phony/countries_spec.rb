@@ -418,6 +418,7 @@ describe 'country descriptions' do
       it_splits '972591231234', ['972', '59', '123', '1234']  # Mobile Jawwal (Palestine)
       it_splits '972771231234', ['972', '77', '123', '1234']  # Cable Phone Services
       it_splits '9721700123123', ['972', '1', '700', '123', '123']  # Cable Phone Services
+      it_splits '972511234567', ['972', '51', '123', '4567'] # Mobile (We4G)
     end
     describe 'Israel (970)' do
       it_splits '97021231234',  ['970', '2', '123', '1234']  # Jerusalem Area
