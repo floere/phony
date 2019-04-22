@@ -1185,7 +1185,7 @@ Phony.define do
     trunk('0') |
     one_of('1')                            >> split(3,3,3) | # special numbers
     one_of('2', '3', '4', '8', '9')        >> split(3,4)   | # 1 digit ndc
-    match(/^(5[023456789]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
+    match(/^(5[012345689]|7[23467])\d+$/)  >> split(3,4)     # 2 digit ndc
 
   country '973', none >> split(4,4..4) # Bahrain (Kingdom of) http://www.itu.int/oth/T0202000011/en
 
