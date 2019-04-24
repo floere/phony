@@ -558,8 +558,12 @@ Mobile.
 
 #### Israel
 
-    Phony.assert.plausible?('+972 2 123 1234')
-    Phony.assert.plausible?('+972 59 123 1234')
+    plausible? true: [
+      '+972 2 123 1234',
+      '+972 59 123 1234',
+      '+972 51 123 1234',
+      '+972 79 123 1234',
+    ]
 
 #### Italy
 
