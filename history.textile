@@ -1,3 +1,7 @@
+h2. Version 2.18.1
+
+* Freeze Strings where useful.
+
 h2. Version 2.18.0
 
 * Add @Phony::Config.load@ as an option to only load part of the CCs of the library. See the README for details.
