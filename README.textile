@@ -84,8 +84,8 @@ Use this in case you'd like to save "memory":#memory that is used by Phony's CC 
 
 "Phony::Config.load docs":./qed/config.md
 
-First, @require 'phony/config'@
-Then, one of the following, which will load the rest of Phony:
+First, @require 'phony/config'@.
+Then, one of the following, which will load the rest of Phony.
 
 Load only these CCs:
 @Phony::Config.load(only: ['41', '44'])@

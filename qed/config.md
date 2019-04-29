@@ -11,11 +11,6 @@ Allows for excluding CCs.
 
     Phony::Config.load(except: ['41', '44']).included_ccs.assert == []
     Phony::Config.load(except: ['41', '44']).excluded_ccs.assert == ['41', '44']
-
-Allows for both the above.
-
-    Phony::Config.load(only: ['41'], except: ['44']).included_ccs.assert == ['41']
-    Phony::Config.load(only: ['41'], except: ['44']).excluded_ccs.assert == ['44']
     
 Default is loading all.
 
