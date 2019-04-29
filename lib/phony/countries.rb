@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 # All countries, ordered by country code.
 #
 # Definitions are in the format:

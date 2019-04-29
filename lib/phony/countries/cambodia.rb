@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Cambodia (Kingdom of)
 # http://en.wikipedia.org/wiki/Telecommunications_in_Cambodia#Mobile_networks
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Cambodia

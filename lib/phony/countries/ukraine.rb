@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Ukraine
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 

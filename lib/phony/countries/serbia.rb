@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Serbia
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=RS
 

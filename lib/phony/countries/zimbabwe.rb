@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Zimbabwe, https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=ZW
 # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000E90002PDFE.pdf
 

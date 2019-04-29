@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # References:
 # http://www.itu.int/oth/T02020000B7/en
 # https://en.wikipedia.org/wiki/Telephone_numbers_in_Saudi_Arabia

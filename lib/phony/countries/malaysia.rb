@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Malaysian phone numbers.
 #
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Malaysia

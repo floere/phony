@@ -141,7 +141,7 @@ module Phony
       #
       ndcs = ndcs.first if Array === ndcs.first
 
-      NationalSplitters::Variable.new options[:max_length], ndcs
+      NationalSplitters::Variable.new options[:max_length], ndcs.map(&:freeze)
     end
     
     # If you have a number of (possibly) variable length NDCs

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Sweden uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 # Note: Sweden use a variable ndc format from length 2 to 3.

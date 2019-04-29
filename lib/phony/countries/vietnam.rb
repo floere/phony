@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Vietnamese phone numbers.
 #
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Vietnam
@@ -115,7 +117,7 @@ mobile = [
   '99', # Gmobile (traded as Beeline)
 ]
 
-mobile_with_trunk = (mobile).map{|num| "0#{num}" }
+mobile_with_trunk = (mobile).map{ |num| "0#{num}" }
 
 Phony.define do
   country '84',

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Myanmar: http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000920003PDFE.pdf
 #
 # formatting according to Google's libphonenumber library. (r680 7/30/2014)

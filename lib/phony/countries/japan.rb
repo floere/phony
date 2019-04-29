@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Japan
 # http://www.itu.int/oth/T020200006D/en
 

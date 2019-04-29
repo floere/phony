@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Austria uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 ndcs = [
