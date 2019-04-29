@@ -13,8 +13,8 @@ Used in: "airbnb.com":http://airbnb.com, "socialcam.com":http://socialcam.com, "
 
 h2(#memory). Runtime Memory Usage
 
-According to "memory_profiler":https://github.com/SamSaffron/memory_profiler, the Phony gem uses roughly 2 MBs of memory per Ruby process.
-Usage was generated using: @ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony" }.pretty_print'@
+According to "memory_profiler":https://github.com/SamSaffron/memory_profiler, the Phony gem uses roughly 1.2 MBs of memory per Ruby process.
+Usage was generated using (look for @Total retained@): @ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony" }.pretty_print'@
 
 h2. Description
 
@@ -78,7 +78,7 @@ NB If a country does not have an NDC, @#split@ will return @false@ in the NDC po
 
 @Phony.split('4512121212').assert == ['45', false, '12', '12', '12', '12']@
 
-h3(#loading). Loading only a country subset.
+h3(#loading). Loading only a country subset (Phony 2.18.0+).
 
 Use this in case you'd like to save "memory":#memory that is used by Phony's CC rules.
 
@@ -98,6 +98,9 @@ Convenience form of @only@:
 
 Each of these loads the rest of Phony.
 
+Memory usage can be checked using (look for @Total retained@):
+@ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony/config"; Phony::Config.load("1") }.pretty_print'@
+For example, when just loading the NANP CC, the retained memory usage is ~63kB.
 
 h2. List of Handled Countries
 
