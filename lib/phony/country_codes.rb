@@ -1,6 +1,6 @@
 module Phony
 
-  EMPTY_STRING = ''
+  EMPTY_STRING = '' unless defined?(EMPTY_STRING)
 
   # Handles determining the correct national code handler.
   #
