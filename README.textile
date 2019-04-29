@@ -11,7 +11,7 @@ The (admittedly crazy) goal of this Gem is to be able to normalize/format/split 
 
 Used in: "airbnb.com":http://airbnb.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
 
-h2. Runtime Memory Usage
+h2(#memory). Runtime Memory Usage
 
 According to "memory_profiler":https://github.com/SamSaffron/memory_profiler, the Phony gem uses roughly 2 MBs of memory per Ruby process.
 Usage was generated using: @ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony" }.pretty_print'@
@@ -77,6 +77,27 @@ Split a number into its parts: CC, NDC, local.
 NB If a country does not have an NDC, @#split@ will return @false@ in the NDC position, for example for Denmark:
 
 @Phony.split('4512121212').assert == ['45', false, '12', '12', '12', '12']@
+
+h3(#loading). Loading only a country subset.
+
+Use this in case you'd like to save "memory":#memory that is used by Phony's CC rules.
+
+"Phony::Config.load docs":./qed/config.md
+
+First, @require 'phony/config'@
+Then, one of the following, which will load the rest of Phony:
+
+Load only these CCs:
+@Phony::Config.load(only: ['41', '44'])@
+
+Loads everything except these CCs:
+@Phony::Config.load(except: ['41', '44'])@
+
+Convenience form of @only@:
+@Phony::Config.load('41', '44')@
+
+Each of these loads the rest of Phony.
+
 
 h2. List of Handled Countries
 
