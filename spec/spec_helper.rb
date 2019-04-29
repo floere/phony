@@ -17,7 +17,5 @@ end
 require 'coveralls'
 Coveralls.wear!
 
-require File.expand_path '../../lib/phony', __FILE__
-
-require 'spec_helper_extensions'
-include SpecHelperExtensions
+# NOTE We use Kernel.load here, as we do have specs which test Phony::Config.
+load File.expand_path('../../lib/phony.rb', __FILE__)
