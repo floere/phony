@@ -13,7 +13,8 @@ module SpecHelperExtensions
   begin
     require File.expand_path '../performance_ratio', __FILE__
   rescue LoadError
-    Phony::PerformanceRatio = 0 # Ignore speed tests by default.
+    # Ignore speed tests by default.
+    Phony::PerformanceRatio = 0 unless Phony.constants.include?(:PerformanceRatio)
   end
   def performance_of &block
     GC.disable
