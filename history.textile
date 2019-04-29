@@ -1,3 +1,7 @@
+h2. Version 2.18.0
+
+* Add @Phony::Config.load@ as an option to only load part of the CCs of the library. See the README for details.
+
 h2. Version 2.17.3
 
 * Israel (#437)
