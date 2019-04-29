@@ -41,6 +41,8 @@ module Phony
     #   country '27', # CC, followed by rules, for example fixed(2) >> ...
     #
     def country country_code, definition, options = {}
+      return unless Phony.config.load?(country_code)
+      
       definition.with country_code, options
       Phony::CountryCodes.instance.add country_code, definition
     end
