@@ -27,7 +27,7 @@ E164 numbers are international numbers with a country dial prefix, usually an ar
 
 It currently handles the countries listed at the end of this README.
 
-It is covered by roughly 2,000 tests (January 2016).
+It is covered by roughly 2,250 tests that run in 2 seconds (April 2019).
 If it doesn't work, please "enter an issue":http://github.com/floere/phony/issues or better, fork and "send a pull request":http://github.com/floere/phony/pulls.
 
 h2. Installation
