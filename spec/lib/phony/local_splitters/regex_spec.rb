@@ -1,6 +1,13 @@
 require 'spec_helper'
 
+main = self
+
 describe Phony::LocalSplitters::Regex do
+  
+  before do
+    load 'spec_helper_extensions.rb'
+    main.send :include, SpecHelperExtensions
+  end
   
   describe 'instance_for' do
     it 'does not cache' do
