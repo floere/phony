@@ -598,6 +598,11 @@ describe 'plausibility' do
         Phony.plausible?('+81 120 123 123').should be_truthy
         Phony.plausible?('+81 800 123 1234').should be_truthy
       end
+
+      it 'is correct for Philippine' do
+        Phony.plausible?('+63 976 1234567').should be_truthy # mobile phone with area code 9
+        Phony.plausible?('+63 876 1234567').should be_truthy # mobile phone with area code 8
+      end
     end
   end
 end
