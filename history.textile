@@ -1,3 +1,7 @@
+h2. Version 2.18.2
+
+* Philippines (#438).
+
 h2. Version 2.18.1
 
 * Freeze Strings where useful.

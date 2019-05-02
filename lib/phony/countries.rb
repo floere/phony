@@ -266,8 +266,7 @@ Phony.define do
     match(/\A(2)\d{10}\z/) >> split(10) |
     one_of('2') >> split(7) |
     # mobile
-    match(/\A(9\d\d)\d{7}\z/) >> split(7) |
-    match(/\A(8\d\d)\d{7}\z/) >> split(7) |
+    match(/\A([89]\d\d)\d{7}\z/) >> split(7) |
     match(/\A(9\d\d)\d+\z/) >> split(6) |
     #
     fixed(2) >> split(7)
