@@ -291,7 +291,7 @@ describe 'country descriptions' do
       it_splits '49800222340010',  ['49', '800', '222', '340010'] # Service number
 
       it_splits '4915111231234',   ['49', '151', '1123', '1234']  # Mobile number
-      it_splits '4915771231234',   ['49', '157', '7123', '1234']  # Mobile number
+      it_splits '4915771231234',   ['49', '1577', '123', '1234']  # Mobile number
       it_splits '491601234567',    ['49', '160', '1234', '567']   # Mobile number
       it_splits '4916312345678',   ['49', '163', '1234', '5678']  # Mobile number
       it_splits '4915211231234',   ['49', '1521', '123', '1234']  # Mobile number

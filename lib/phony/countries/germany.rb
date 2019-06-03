@@ -4021,8 +4021,9 @@ mobile_4digits = [
 '1520', # Vodafone
 '1521', # Lycamobile
 '1522', # Vodafone
+'1523', # Vodafone
 '1570', # vistream
-'1527', # E-Plus
+'1577', # E-Plus
 '1672', # Dolphin Telecom
 ]
 

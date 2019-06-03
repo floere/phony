@@ -170,7 +170,7 @@ module Phony
     #
     def plausible? rest, hints = {}
       local, _, ndc, *rest = internal_split rest
-
+      
       # Element based checking.
       #
       # Note: ndc == false means the country has none.
