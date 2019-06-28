@@ -24,6 +24,7 @@ load File.expand_path '../phony/dsl.rb', __FILE__
 #
 # The ones that need more space to define.
 #
+load File.expand_path '../phony/countries/argentina.rb', __FILE__
 load File.expand_path '../phony/countries/austria.rb', __FILE__
 load File.expand_path '../phony/countries/bangladesh.rb', __FILE__
 load File.expand_path '../phony/countries/belarus.rb', __FILE__
