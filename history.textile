@@ -1,3 +1,7 @@
+h2. Version 2.18.4
+
+* Egypt (#442).
+
 h2. Version 2.18.3
 
 * Germany (E-Plus has NDC 1577).
