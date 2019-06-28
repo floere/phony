@@ -69,7 +69,7 @@ Phony.define do
   country '20', one_of('800')    >> split(7..7) | # Egypt toll free
                 one_of('3')      >> split(7..7) | # Alexandria
                 one_of('2')      >> split(8..8) | # Cairo/Giza
-                one_of('10', '11', '12') >> split(8..8) | # the 3 mobile operators
+                one_of('10', '11', '12', '15') >> split(8..8) | # the 4 mobile operators
                 fixed(2)         >> split(7..7) # all the other 24 provinces
 
   # South Africa.
