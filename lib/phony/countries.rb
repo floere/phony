@@ -213,14 +213,7 @@ Phony.define do
           fixed(3)                           >> split(7)   # 3-digit NDCs
 
   # Argentine Republic.
-  #
-  country '54',
-          one_of('11', '911') >> split(4,4) | # Fixed & Mobile
-          match(/^(22[0137]|237|26[14]|29[179]|34[1235]|35[138]|38[1578])/) >> split(3,4) |        # Fixed
-          match(/^(922[0137]|9237|926[14]|929[179]|934[1235]|935[138]|938[1578])/) >> split(3,4) | # Mobile
-          match(/^(9\d{4})/) >> split(2,4) | # Mobile
-          match(/^([68]\d{2})/) >> split(3,4) | # Service
-          fixed(4) >> split(2,4) # Fixed
+  # country '54' # argentina, see special file.
 
   # Brazil (Federative Republic of).
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Brazil

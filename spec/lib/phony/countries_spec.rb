@@ -33,13 +33,13 @@ describe 'country descriptions' do
     end
 
     describe 'Argentina' do
-      it_splits '541112345678', ['54', '11', '1234', '5678']
-      it_splits '542911234567', ['54', '291', '123', '4567']
-      it_splits '542965123456', ['54', '2965', '12', '3456']
-      it_splits '5491112345678', ['54', '911', '1234', '5678']
-      it_splits '5492201234567', ['54', '9220', '123', '4567']
-      it_splits '5492221123456', ['54', '92221', '12', '3456']
-      it_splits '548001234567', ['54', '800', '123', '4567']
+      it_splits '541112345678', ['54', '11', '1234', '5678']    # 2-digit area code / landline
+      it_splits '542911234567', ['54', '291', '123', '4567']    # 3-digit area code / landline
+      it_splits '542903123456', ['54', '2903', '12', '3456']    # 4-digit area code / landline
+      it_splits '5491112345678', ['54', '911', '1234', '5678']  # 2-digit area code / international mobile
+      it_splits '5492201234567', ['54', '9220', '123', '4567']  # 3-digit area code / international mobile
+      it_splits '5492221123456', ['54', '92221', '12', '3456']  # 4-digit area code / international mobile
+      it_splits '548001234567', ['54', '800', '123', '4567']    # Non-geographic number
     end
 
     describe 'Austria' do
