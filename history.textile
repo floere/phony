@@ -1,14 +1,18 @@
+h2. Version 2.18.5
+
+* Argentina (#443)
+
 h2. Version 2.18.4
 
-* Egypt (#442).
+* Egypt (#442)
 
 h2. Version 2.18.3
 
-* Germany (E-Plus has NDC 1577).
+* Germany (E-Plus has NDC 1577)
 
 h2. Version 2.18.2
 
-* Philippines (#438).
+* Philippines (#438)
 
 h2. Version 2.18.1
 
