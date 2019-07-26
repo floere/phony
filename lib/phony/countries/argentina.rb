@@ -348,8 +348,8 @@ Phony.define do
       one_of(area_codes_4digits) >> split(2, 4) | # landline
       one_of(area_codes_3digits) >> split(3, 4) | # landline
       one_of(area_codes_2digits) >> split(4, 4) | # landline
-      one_of(area_codes_2digits.map{|x| "9#{x}" }) >> split(4, 5) | # mobile
-      one_of(area_codes_3digits.map{|x| "9#{x}" }) >> split(3, 5) | # mobile
-      one_of(area_codes_4digits.map{|x| "9#{x}" }) >> split(2, 5) | # mobile
+      one_of(area_codes_2digits.map{|x| "9#{x}" }) >> split(4, 4) | # mobile
+      one_of(area_codes_3digits.map{|x| "9#{x}" }) >> split(3, 4) | # mobile
+      one_of(area_codes_4digits.map{|x| "9#{x}" }) >> split(2, 4) | # mobile
       one_of(special_numbers)            >> split(3, 4)
 end
