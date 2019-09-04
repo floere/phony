@@ -56,6 +56,18 @@ Some of the examples use `plausible? true: [some numbers]`.
     Phony.refute.plausible?('+355 85 12345') # too short
     Phony.refute.plausible?('+355 85 1234567') # too long
 
+#### Argentina
+
+    Phony.assert.plausible?('+54 11 1234 5678') # 2-digit area code / landline
+    Phony.assert.plausible?('+54 291 123 4567') # 3-digit area code / landline
+    Phony.assert.plausible?('+54 2903 12 3456') # 4-digit area code / landline
+    Phony.assert.plausible?('+54 911 1234 5678') # 2-digit area code / international mobile
+    Phony.assert.plausible?('+54 9220 123 4567') # 3-digit area code / international mobile
+    Phony.assert.plausible?('+54 92221 12 3456') # 4-digit area code / international mobile
+    Phony.assert.plausible?('+54 800 123 4567') # Non-geographic number
+    Phony.refute.plausible?('+54 800 123 456')   # too short
+    Phony.refute.plausible?('+54 800 123 45678') # too long
+
 #### Armenia
 
     Phony.assert.plausible?('+374 12345678')
