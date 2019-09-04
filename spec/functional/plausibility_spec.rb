@@ -251,6 +251,7 @@ describe 'plausibility' do
       it_is_correct_for 'Gabonese Republic', :samples => '+241 1 627 739'
       it_is_correct_for 'Gambia', :samples => '+220  989 5148'
       it_is_correct_for 'Germany', :samples => [
+        '+49 69 155 1',
         '+49 1577 536 8701'
       ]
       it_is_correct_for 'Georgia', :samples => ['+995 220 123 45',
