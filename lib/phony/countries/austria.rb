@@ -85,7 +85,7 @@ service = [
  '939'
 ]
 
-# https://www.rtr.at/en/tk/E129/2312_Austrian_Numbering_Plan_2011-03-30.pdf
+# https://www.rtr.at/en/tk/E129/Austrian_Numbering_Plan_2011-03-30.pdf
 #
 # TODO Add more details.
 #
@@ -97,7 +97,7 @@ Phony.define do
                 one_of('800')            >> split(6..10)  | # Free number length is 9..13
                 one_of(corporate_2digit) >> split(3..11)  | # Corporate number length is 5..13
                 one_of(corporate)        >> split(2..10)  | # Corporate number length is 5..13
-                one_of(ndcs)             >> split(6..10)  |
+                one_of(ndcs)             >> split(5..10)  |
                 one_of('663')            >> split(6..8)   | # 6..8 digit mobile.
                 one_of(mobile)           >> split(4,3..9) |
                 one_of(mobile_2digit)    >> split(7..7)   | # Separate as mobile contains 676 - 67 violates the prefix rule.

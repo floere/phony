@@ -46,7 +46,8 @@ describe 'plausibility' do
     end
 
     context 'specific countries' do
-      it_is_correct_for 'Austria', :samples => '+43 720 116987' # VoIP
+      it_is_correct_for 'Austria', :samples => ['+43 720 116987', # VoIP
+                                                '+43 463 12345'] # Klagenfurt
       it_is_correct_for 'Bosnia and Herzegovina', :samples => ['+387 66 666 666',
                                                                '+387 37 123 456',
                                                                '+387 33 222 111']
