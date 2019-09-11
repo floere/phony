@@ -1,3 +1,7 @@
+h2. Version 2.18.8
+
+* Austria (#448)
+
 h2. Version 2.18.7
 
 * Germany (#447)
