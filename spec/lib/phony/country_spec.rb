@@ -23,7 +23,7 @@ describe Phony::Country do
   end
   
   context 'regression' do
-    describe 'iceland' do
+    describe 'Iceland' do
       let(:country) do
         national_splitter = Phony::NationalSplitters::None.instance_for
         local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 4]
@@ -33,6 +33,14 @@ describe Phony::Country do
       end
       it 'splits correctly' do
         country.split('112').should == [nil, false, '112']
+      end
+    end
+    describe 'San Marino' do
+      it 'normalizes correctly' do
+        Phony.normalize('+3780549903549').should == '3780549903549'
+      end
+      xit 'automatically adds the sole NC' do
+        Phony.normalize('+378903549').should == '3780549903549'
       end
     end
   end

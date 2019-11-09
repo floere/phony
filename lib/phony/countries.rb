@@ -731,11 +731,12 @@ Phony.define do
   # Monaco
   #
   country '377',
-          one_of('6')  >> split(2,2,2,2) | # mobile
+          one_of('6') >> split(2,2,2,2) | # mobile
           fixed(2) >> split(2,2,2)
 
   # San Marino
   country '378',
+          trunk('', :normalize => false) |
           none >> matched_split(
               /\A\d{6}\z/ => [3,3],
               /\A\d+\z/ => [3,3,4]
