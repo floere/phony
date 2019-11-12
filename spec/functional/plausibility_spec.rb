@@ -355,6 +355,11 @@ describe 'plausibility' do
       end
       it_is_correct_for 'Nicaragua', :samples => '+505 12 345 678'
       it_is_correct_for 'Niger', :samples => '+227  1234 5678'
+      it_is_correct_for 'Nigeria', :samples => ['+234 807 059 1111',
+                                              '+234 811 234 5678',
+                                              '+234 64 830 00',
+                                              '+234 1 280 444',
+                                              '+234 85 123 456']
       it_is_correct_for 'Niue', :samples => '+683  3791'
       it_is_correct_for 'Oman', :samples => ['+968 24 423 123',
                                              '+968 25 423 123']
