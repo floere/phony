@@ -1103,6 +1103,8 @@ describe 'country descriptions' do
     describe 'Nigeria' do
       it_splits '23411231234', %w(234 1 123 1234) # Lagos
 
+      it_splits '23445123456', %w(234 45 123 456) # Ogoja
+
       # mobile numbers
       it_splits '2347007661234', %w(234 700 766 1234)
       it_splits '2347017661234', %w(234 701 766 1234)

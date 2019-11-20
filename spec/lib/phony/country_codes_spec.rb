@@ -147,8 +147,11 @@ describe Phony::CountryCodes do
       it "should format luxembourgian numbers" do
         @countries.formatted('35227855', :format => :international).should eql '+352 27 85 5'
       end
-      it "should format nigerian numbers" do
+      it "should format nigerian lagosian numbers" do
         @countries.formatted('23414480000', :format => :international).should eql '+234 1 448 0000'
+      end
+      it "should format nigerian beninese numbers" do
+        @countries.formatted('23452123456', :format => :international).should eql '+234 52 123 456'
       end
       it "should format nigerian mobile numbers" do
         @countries.formatted('2347061234567', :format => :international).should eql '+234 706 123 4567'
