@@ -12,9 +12,9 @@ module Phony
   #
   # Phony.define.country ...
   #
-  def self.define
+  def self.define(&block)
     dsl = DSL.new
-    dsl.instance_eval(&Proc.new) if block_given?
+    dsl.instance_eval(&block) if block_given?
     dsl
   end
 
