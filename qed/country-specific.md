@@ -31,15 +31,38 @@ Yep. This turns out to be wrong. Only expects and handles normalized national nu
 
 #### Japan
 
+The domestic Telephone number in Japan has to have Trunk prefix.
+
+in Tokyo
+
 ```ruby
   japan = Phony["81"]
   
-  japan.format('8012345634', :format => :international).assert == '+81-80-1234-5634'
-  japan.format('8012345634', :format => :national).assert ==      '080-1234-5634'
-  japan.format('8012345634', :format => :local).assert ==         '1234-5634'
+  japan.format('0312345634', :format => :international).assert == '+81-3-1234-5634'
+  japan.format('0312345634', :format => :national).assert ==      '03-1234-5634'
+  japan.format('0312345634', :format => :local).assert ==         '1234-5634'
   
-  japan.normalize("80 1234 5634").assert == '8012345634'
-  japan.normalize("Hello    80 1234 5634").assert == '8012345634'
+  japan.normalize("03 1234 5634").assert == '0312345634'
+  japan.normalize("03-1234-5634").assert == '0312345634'
+  japan.normalize("03(1234)5634").assert == '0312345634'
+  japan.normalize("Hello    03-1234-5634").assert == '0312345634'
+  
+  japan.assert.plausible?('0312345678')
+```
+
+in Shihoro Town, Hokkaido
+
+```ruby
+  japan.format('0156452211', :format => :international).assert == '+81-1564-5-2211'
+  japan.format('0156452211', :format => :national).assert ==      '01564-5-2211'
+  japan.format('0156452211', :format => :local).assert ==         '5-2211'
+  
+  japan.normalize("01564 5 2211").assert == '0156452211'
+  japan.normalize("01564-5-2211").assert == '0156452211'
+  japan.normalize("01564(5)2211").assert == '0156452211'
+  japan.normalize("Hello   01564-5-2211 ").assert == '0156452211'
+  
+  japan.assert.plausible?('0156452211')
 ```
 
 #### Italy
