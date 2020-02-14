@@ -403,7 +403,7 @@ ndcs_with_5_subscriber_numbers = %w(
 
 Phony.define do
   country '81',
-    trunk('0', :normalize => false, :format => true, :split => true) |
+    trunk('0') |
     one_of('20', '50', '60', '70', '90')   >> split(4,4) | # mobile, VoIP telephony
     one_of(ndcs_with_5_subscriber_numbers) >> split(1,4) |
     one_of(ndcs_with_6_subscriber_numbers) >> split(2,4) |
