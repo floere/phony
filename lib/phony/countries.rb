@@ -382,8 +382,9 @@ Phony.define do
   # Ghana
   #
   # From http://www.itu.int/oth/T0202000052/en
+  # https://en.wikipedia.org/wiki/Telephone_numbers_in_Ghana
   #
-  country '233', fixed(2) >> split(3,4)
+  country '233', trunk('0') | fixed(2) >> split(3,4)
 
   # Nigeria
   # 3 4 split for mobile and 1 digit NDC, 3 2 or 3 3 otherwise

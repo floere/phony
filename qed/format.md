@@ -18,7 +18,7 @@ It is aliased as `#formatted`, if that floats your boat.
     Phony.formatted('41443643532').assert == '+41 44 364 35 32'
 
 This is a very nice page for country specific formats:
-http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers 
+http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
 
 ### Options
 
@@ -104,9 +104,12 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     Phony.format('33142278186', :format => :+, :spaces => '').assert == '+33142278186'
     Phony.format('33142278186', :format => :+, :spaces => :-).assert == '+33-1-42-27-81-86'
 
+#### Ghana
+
+    Phony.format("233232437103", format: :national).assert == "023 243 7103"
 
 #### India
-      
+
     Phony.format('914433993939').assert == '+91 44 339 93 939'
 
 #### Italy
@@ -136,7 +139,7 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     Phony.format('95930123456').assert == '+95 9 3012 3456'
     Phony.format('959250233059').assert == '+95 9 250 233 059'
     Phony.format('959427123456').assert == '+95 9 427 123 456'
-    
+
     Phony.format('959427123456', :format => :national).assert == '9 427 123 456'
     Phony.format('959427123456', :format => :local).assert == '427 123 456'
 
@@ -194,7 +197,7 @@ With forced trunk.
     Phony.format('41800112233', :format => :national).assert == '0800 112 233'
     Phony.format('41443643532', :format => :local).assert == '364 35 32'
     Phony.format('493038625454', :format => :local).assert == '386 25454'
-    
+
 #### Zimbabwe
 
 ##### Mobile numbers
