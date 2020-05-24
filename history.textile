@@ -1,3 +1,7 @@
+h2. Version 2.18.13
+
+* China (#462)
+
 h2. Version 2.18.12
 
 * Remove an issue with the DSL code in Ruby 2.7 (#452 and #454).
