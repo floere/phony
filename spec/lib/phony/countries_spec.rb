@@ -215,6 +215,20 @@ describe 'country descriptions' do
     describe 'China' do
       it_splits '862112345678', ['86', '21', '1234', '5678']   # Shanghai
       it_splits '8675582193447', ['86', '755', '8219', '3447'] # Shenzhen
+
+      context 'mobile numbers' do
+        %w{
+          130 131 132 133 134 135 136 137 138 139
+          145 146 147 148 149
+          150 151 152 153 155 156 157 158 159
+          162 165 166 167
+          170 171 172 173 174 175 176 177 178
+          180 181 182 183 184 185 186 187 188 189
+          190 191 192 193 195 196 197 198 199
+        }.each do |prefix|
+          it_splits "86#{prefix}12345678", ['86', prefix, '1234', '5678']
+        end
+      end
     end
     describe 'Colombia' do
       it_splits '5711234567', ['57', '1', '123', '4567']
