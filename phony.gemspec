@@ -1,6 +1,8 @@
+require_relative 'lib/phony/version'
+
 Gem::Specification.new do |s|
   s.name = 'phony'
-  s.version = '2.18.12'
+  s.version = Phony::VERSION
   s.authors = ['Florian Hanke']
   s.email = 'florian.hanke+phony@gmail.com'
   s.homepage = 'http://github.com/floere/phony'
