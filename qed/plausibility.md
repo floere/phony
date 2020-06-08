@@ -830,6 +830,8 @@ With regexp constraints.
       ['+63 920 123456', '+63 920 1234567']
     ]
 
+    Phony.assert.plausible?('+63 2 89889999')
+
 #### Qatar
 
     plausible? true: [
