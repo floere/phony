@@ -257,6 +257,7 @@ Phony.define do
     trunk('0') |
     # 7/10 digits for area code '2'.
     match(/\A(2)\d{10}\z/) >> split(10) |
+    match(/\A(2)\d{8}\z/) >> split(8) |
     one_of('2') >> split(7) |
     # mobile
     match(/\A([89]\d\d)\d{7}\z/) >> split(7) |
