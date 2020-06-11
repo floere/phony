@@ -215,6 +215,7 @@ describe 'country descriptions' do
     describe 'China' do
       it_splits '862112345678', ['86', '21', '1234', '5678']   # Shanghai
       it_splits '8675582193447', ['86', '755', '8219', '3447'] # Shenzhen
+      it_splits '869511234567', ['86', '951', '123', '4567']   # Yinchuan
 
       context 'mobile numbers' do
         %w{
