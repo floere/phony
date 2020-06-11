@@ -1,3 +1,8 @@
+h2. Version 2.18.14
+
+* Philippines (#464)
+* China (#465)
+
 h2. Version 2.18.13
 
 * China (#462)
