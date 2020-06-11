@@ -613,6 +613,7 @@ describe 'country descriptions' do
     end
     describe 'Philippines' do
       it_splits '6321234567', ['63', '2', '1234567']
+      it_splits '63289889999', ['63', '2', '89889999']
       it_splits '6321234567890', ['63', '2', '1234567890']
       it_splits '632123456789012', ['63', '2', '123456789012']
       it_splits '639121234567', ['63', '912', '1234567']

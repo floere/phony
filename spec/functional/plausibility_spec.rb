@@ -607,6 +607,7 @@ describe 'plausibility' do
       end
 
       it 'is correct for Philippine' do
+        Phony.plausible?('+63 2 89889999').should be_truthy
         Phony.plausible?('+63 976 1234567').should be_truthy # mobile phone with area code 9
         Phony.plausible?('+63 876 1234567').should be_truthy # mobile phone with area code 8
       end
