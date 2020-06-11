@@ -360,6 +360,14 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
 
     plausible? true: '+235 1234 5678'
 
+#### China
+
+    # Land lines can be 7 or 8 digits long.
+    Phony.refute.plausible?('+86 951 123 456') # Too short
+    Phony.assert.plausible?('+86 951 123 4567')
+    Phony.assert.plausible?('+86 755 8219 3447')
+    Phony.refute.plausible?('+86 755 8219 34471') # Too long
+
 #### Comoros
 
     plausible? true: [
