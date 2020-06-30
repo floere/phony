@@ -103,9 +103,16 @@ describe 'country descriptions' do
       it_splits '3295551914', ['32', '9', '555', '19', '14']   # Gent
       it_splits '3245551414', ['32', '4', '555', '14', '14']   # Liège
       it_splits '3216473200', ['32', '16', '47', '32', '00']   # Leuven
-      it_splits '32475279584', ['32', '475', '27', '95', '84'] # mobile
-      it_splits '32468279584', ['32', '468', '27', '95', '84'] # mobile (Telenet)
       it_splits '32455123456', ['32', '455', '12', '34', '56'] # mobile (Voo)
+      it_splits '32456123456', ['32', '456', '12', '34', '56'] # mobile (MobileViking)
+      it_splits '32460123456', ['32', '460', '12', '34', '56'] # mobile (Proximus)
+      it_splits '32465123456', ['32', '465', '12', '34', '56'] # mobile (Lycamobile)
+      it_splits '32466123456', ['32', '466', '12', '34', '56'] # mobile (Vectone)
+      it_splits '32467123456', ['32', '467', '12', '34', '56'] # mobile (Telenet)
+      it_splits '32468123456', ['32', '468', '12', '34', '56'] # mobile (Telenet)
+      it_splits '32475123456', ['32', '475', '12', '34', '56'] # mobile (Proximus)
+      it_splits '32485123456', ['32', '485', '12', '34', '56'] # mobile (Telenet)
+      it_splits '32495123456', ['32', '495', '12', '34', '56'] # mobile (Orange)
       it_splits '3270123123', ['32', '70', '123', '123']       # Bus Service?
       it_splits '3278123123', ['32', '78', '123', '123']       # National rate service
       it_splits '3290123123', ['32', '901', '23', '123']       # National rate service
