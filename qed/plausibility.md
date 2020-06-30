@@ -182,13 +182,18 @@ NDC with several subscriber number length.
     Phony.assert.plausible?('0032 3 241 11 32')
     Phony.assert.plausible?('0032 (0) 3 241 11 32')
     Phony.assert.plausible?('+32 455 12 34 56')
+    Phony.assert.plausible?('+32 456 12 34 56')
     Phony.assert.plausible?('+32 460 12 34 56')
     Phony.assert.plausible?('+32 465 12 34 56')
     Phony.assert.plausible?('+32 466 12 34 56')
+    Phony.assert.plausible?('+32 467 12 34 56')
     Phony.assert.plausible?('+32 468 12 34 56')
-    Phony.assert.plausible?('+32 471 12 34 56')
-    Phony.assert.plausible?('+32 481 12 34 56')
+    Phony.assert.plausible?('+32 470 12 34 56')
+    Phony.assert.plausible?('+32 479 12 34 56')
+    Phony.assert.plausible?('+32 480 12 34 56')
     Phony.assert.plausible?('+32 489 12 34 56')
+    Phony.assert.plausible?('+32 490 12 34 56')
+    Phony.assert.plausible?('+32 499 12 34 56')
 
 #### Benin
 
