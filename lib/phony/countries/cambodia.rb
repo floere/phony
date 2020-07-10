@@ -71,6 +71,7 @@ six_digit_extended_range_mobile_prefixes = [
 ]
 
 seven_digit_mobile_prefixes = [
+  '18', # Seatel
   '31', # Metfone
   '38', # CooTel
   '39', # EMAXX
@@ -83,10 +84,6 @@ seven_digit_mobile_prefixes = [
 
 variable_length_extended_range_mobile_prefixes = [
   '12' # Mobitel
-]
-
-mobile_prefixes_with_variable_length = [
-  '18' # Seatel
 ]
 
 six_digit_total_single_digit_fixed_line_prefixes = [
@@ -126,7 +123,6 @@ seven_digit_total_double_digit_fixed_line_prefixes = [
 
 Phony.define do
   country '855', trunk('0', :normalize => true) |
-                 one_of(mobile_prefixes_with_variable_length) >> matched_split(/^9/ => [3, 4], /^[2-8]/ => [3, 3]) |
                  one_of(variable_length_extended_range_mobile_prefixes) >> matched_split(/^1/ => [3, 4], /^[2-9]/ => [3, 3]) |
                  one_of(six_digit_mobile_prefixes)   >> matched_split(/^[2-9]/ => [3, 3]) |
                  one_of(six_digit_extended_range_mobile_prefixes) >> matched_split(/^[1-9]/ => [3, 3]) |
