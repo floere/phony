@@ -255,9 +255,6 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.assert.plausible?("+855383001801")    # CooTel (7 digit id)
     Phony.refute.plausible?("+85538300180")     # CooTel (too short)
 
-    Phony.assert.plausible?("+85518234567")     # Excell (6 digit id)
-    Phony.refute.plausible?("+855182345678")    # Excell (too long)
-
     Phony.assert.plausible?("+855882345678")    # Metfone (7 digit id)
     Phony.refute.plausible?("+85588234567")     # Metfone (too short)
     Phony.assert.plausible?("+855972345678")    # Metfone (7 digit id)
@@ -273,9 +270,7 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.assert.plausible?("+85510234567")     # Smart (6 digit id)
     Phony.refute.plausible?("+855102345678")    # Smart (too long)
 
-    Phony.assert.plausible?("+85518870054")     # Excell (6 digit id)
     Phony.assert.plausible?("+855189700541")    # Seatel (7 digit id)
-    Phony.refute.plausible?("+855188700545")    # Excell (too long)
     Phony.refute.plausible?("+85518970054")     # Seatel (too short)
 
     Phony.assert.plausible?("+855399999898")    # Kingtel  (7 digit id)
