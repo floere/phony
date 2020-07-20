@@ -56,6 +56,18 @@ Some of the examples use `plausible? true: [some numbers]`.
     Phony.refute.plausible?('+355 85 12345') # too short
     Phony.refute.plausible?('+355 85 1234567') # too long
 
+#### Argentina
+
+    Phony.assert.plausible?('+54 11 1234 5678') # 2-digit area code / landline
+    Phony.assert.plausible?('+54 291 123 4567') # 3-digit area code / landline
+    Phony.assert.plausible?('+54 2903 12 3456') # 4-digit area code / landline
+    Phony.assert.plausible?('+54 911 1234 5678') # 2-digit area code / international mobile
+    Phony.assert.plausible?('+54 9220 123 4567') # 3-digit area code / international mobile
+    Phony.assert.plausible?('+54 92221 12 3456') # 4-digit area code / international mobile
+    Phony.assert.plausible?('+54 800 123 4567') # Non-geographic number
+    Phony.refute.plausible?('+54 800 123 456')   # too short
+    Phony.refute.plausible?('+54 800 123 45678') # too long
+
 #### Armenia
 
     Phony.assert.plausible?('+374 12345678')
@@ -169,13 +181,19 @@ NDC with several subscriber number length.
     Phony.assert.plausible?('+32 3 241 11 32')
     Phony.assert.plausible?('0032 3 241 11 32')
     Phony.assert.plausible?('0032 (0) 3 241 11 32')
+    Phony.assert.plausible?('+32 455 12 34 56')
+    Phony.assert.plausible?('+32 456 12 34 56')
     Phony.assert.plausible?('+32 460 12 34 56')
     Phony.assert.plausible?('+32 465 12 34 56')
     Phony.assert.plausible?('+32 466 12 34 56')
+    Phony.assert.plausible?('+32 467 12 34 56')
     Phony.assert.plausible?('+32 468 12 34 56')
-    Phony.assert.plausible?('+32 471 12 34 56')
-    Phony.assert.plausible?('+32 481 12 34 56')
+    Phony.assert.plausible?('+32 470 12 34 56')
+    Phony.assert.plausible?('+32 479 12 34 56')
+    Phony.assert.plausible?('+32 480 12 34 56')
     Phony.assert.plausible?('+32 489 12 34 56')
+    Phony.assert.plausible?('+32 490 12 34 56')
+    Phony.assert.plausible?('+32 499 12 34 56')
 
 #### Benin
 
@@ -203,6 +221,10 @@ NDC with several subscriber number length.
 #### Brunei
 
     plausible? true: '+673 5 523 876'
+
+#### Bulgaria
+    plausible? true: '+359 2 492840'
+    plausible? true: '+359 87 8357523'
 
 #### Burkina Faso
 
@@ -233,9 +255,6 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.assert.plausible?("+855383001801")    # CooTel (7 digit id)
     Phony.refute.plausible?("+85538300180")     # CooTel (too short)
 
-    Phony.assert.plausible?("+85518234567")     # Excell (6 digit id)
-    Phony.refute.plausible?("+855182345678")    # Excell (too long)
-
     Phony.assert.plausible?("+855882345678")    # Metfone (7 digit id)
     Phony.refute.plausible?("+85588234567")     # Metfone (too short)
     Phony.assert.plausible?("+855972345678")    # Metfone (7 digit id)
@@ -251,9 +270,7 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
     Phony.assert.plausible?("+85510234567")     # Smart (6 digit id)
     Phony.refute.plausible?("+855102345678")    # Smart (too long)
 
-    Phony.assert.plausible?("+85518870054")     # Excell (6 digit id)
     Phony.assert.plausible?("+855189700541")    # Seatel (7 digit id)
-    Phony.refute.plausible?("+855188700545")    # Excell (too long)
     Phony.refute.plausible?("+85518970054")     # Seatel (too short)
 
     Phony.assert.plausible?("+855399999898")    # Kingtel  (7 digit id)
@@ -342,6 +359,14 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
 #### Chad
 
     plausible? true: '+235 1234 5678'
+
+#### China
+
+    # Land lines can be 7 or 8 digits long.
+    Phony.refute.plausible?('+86 951 123 456') # Too short
+    Phony.assert.plausible?('+86 951 123 4567')
+    Phony.assert.plausible?('+86 755 8219 3447')
+    Phony.refute.plausible?('+86 755 8219 34471') # Too long
 
 #### Comoros
 
@@ -455,7 +480,8 @@ Mobile.
     # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/0800/0800_Nummernplan.pdf?__blob=publicationFile&v=1
     Phony.assert.plausible?('+49 800 222 3400 10')
     Phony.assert.plausible?('+49 800 222 3400 100')
-    Phony.refute.plausible?('+49 800 222 3400 1000')
+    Phony.assert.plausible?('+49 800 222 3400 1000')
+    Phony.refute.plausible?('+49 800 222 3400 10000')
 
     # Following tests implement specifications from
     # http://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/NummernplanOrtsnetzrufnummern.pdf?__blob=publicationFile&v=2 (04.24.2014)
@@ -492,6 +518,12 @@ Mobile.
       '+30 896 100 1234',
       '+30 901 123 4565',
       '+30 909 123 4565'
+    ]
+
+#### Hong Kong
+    plausible? true: [
+        '+852800121234',    # Toll Free
+        '+85212341234',     # Other Numbers
     ]
 
 #### Hungary
@@ -547,8 +579,12 @@ Mobile.
 
 #### Israel
 
-    Phony.assert.plausible?('+972 2 123 1234')
-    Phony.assert.plausible?('+972 59 123 1234')
+    plausible? true: [
+      '+972 2 123 1234',
+      '+972 59 123 1234',
+      '+972 51 123 1234',
+      '+972 79 123 1234',
+    ]
 
 #### Italy
 
@@ -576,6 +612,7 @@ Mobile.
     plausible? true:[
       '+81 3 1234 5678',
       '+81 120 123 456',
+      '+81 800 123 4567',
       '+81 11 1234 567',
       '+81 123 123 456',
       '+81 1267 123 45',
@@ -702,8 +739,8 @@ With regexp constraints.
     Phony.assert.plausible?('+64 21 123 4567')
     Phony.assert.plausible?('+64 9 379 1234')
     Phony.assert.plausible?('+64 21 12 345 678')
-    Phony.refute.plausible?('+64 21 1234 56789') # to long
-    Phony.refute.plausible?('+64 21 12345') # to short
+    Phony.refute.plausible?('+64 21 1234 56789') # too long
+    Phony.refute.plausible?('+64 21 12345') # too short
 
 #### Nigeria
 
@@ -772,7 +809,16 @@ With regexp constraints.
       '+675 270 1234',
       '+675 275 1234',
       '+675 279 12',
-      '+675 115 1234 5678'
+      '+675 115 1234 5678',
+      '+675 711 23 456',
+      '+675 731 23 456',
+      '+675 741 23 456',
+      '+675 770 12 345',
+      '+675 771 12 345',
+      '+675 772 12 345',
+      '+675 773 01 234',
+      '+675 774 12 345',
+      '+675 775 12 345'
     ]
 
 #### Paraguay (Republic of)
@@ -791,6 +837,8 @@ With regexp constraints.
       '+63 88 1234567',
       ['+63 920 123456', '+63 920 1234567']
     ]
+
+    Phony.assert.plausible?('+63 2 89889999')
 
 #### Qatar
 
@@ -863,9 +911,9 @@ With regexp constraints.
 #### Vietnam
 
     Phony.assert.plausible?('+84 8 3827 9666')
-    Phony.assert.plausible?('+84 4 3926 1720')
+    Phony.assert.plausible?('+84 24 1234 5678')
     Phony.assert.plausible?('+84 091 123-4567')
-    Phony.assert.plausible?('+84 0167 123456')
+    Phony.assert.plausible?('+84 034 123456')
     Phony.refute.plausible?('+84 1 1234') # too short
     Phony.refute.plausible?('+84 12 3456 7891 0111213') # too long
 

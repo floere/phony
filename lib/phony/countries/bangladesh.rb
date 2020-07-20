@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Bangladesh (People's Republic of)
 # https://www.numberingplans.com
 

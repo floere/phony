@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Taiwan
 # https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E9%95%B7%E9%80%94%E9%9B%BB%E8%A9%B1%E5%8D%80%E8%99%9F%E8%A1%A8
 # https://en.wikipedia.org/wiki/Telephone_numbers_in_Taiwan

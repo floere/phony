@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Tajikistan (Republic of)
 
 ndcs_with_6_subscriber_digits = %w(372)

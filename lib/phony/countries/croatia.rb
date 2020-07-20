@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Croatia
 #
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Croatia

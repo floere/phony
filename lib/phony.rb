@@ -1,70 +1,75 @@
+# frozen_string_literal: true
+
+# NOTE We use Kernel.load here, as it's possible to redefine Phony via Phony::Config.
+
 # Framework.
 #
-require File.expand_path '../phony/vanity', __FILE__
-require File.expand_path '../phony/local_splitters/fixed', __FILE__
-require File.expand_path '../phony/local_splitters/regex', __FILE__
-require File.expand_path '../phony/national_splitters/dsl', __FILE__
-require File.expand_path '../phony/national_splitters/fixed', __FILE__
-require File.expand_path '../phony/national_splitters/variable', __FILE__
-require File.expand_path '../phony/national_splitters/regex', __FILE__
-require File.expand_path '../phony/national_splitters/default', __FILE__
-require File.expand_path '../phony/national_splitters/none', __FILE__
-require File.expand_path '../phony/national_code', __FILE__
-require File.expand_path '../phony/country', __FILE__
-require File.expand_path '../phony/trunk_code', __FILE__
-require File.expand_path '../phony/country_codes', __FILE__
-
-require File.expand_path '../phony/dsl', __FILE__
+load File.expand_path '../phony/config.rb', __FILE__
+load File.expand_path '../phony/vanity.rb', __FILE__
+load File.expand_path '../phony/local_splitters/fixed.rb', __FILE__
+load File.expand_path '../phony/local_splitters/regex.rb', __FILE__
+load File.expand_path '../phony/national_splitters/dsl.rb', __FILE__
+load File.expand_path '../phony/national_splitters/fixed.rb', __FILE__
+load File.expand_path '../phony/national_splitters/variable.rb', __FILE__
+load File.expand_path '../phony/national_splitters/regex.rb', __FILE__
+load File.expand_path '../phony/national_splitters/default.rb', __FILE__
+load File.expand_path '../phony/national_splitters/none.rb', __FILE__
+load File.expand_path '../phony/national_code.rb', __FILE__
+load File.expand_path '../phony/country.rb', __FILE__
+load File.expand_path '../phony/trunk_code.rb', __FILE__
+load File.expand_path '../phony/country_codes.rb', __FILE__
+load File.expand_path '../phony/dsl.rb', __FILE__
 
 # Countries.
 #
 # The ones that need more space to define.
 #
-require File.expand_path '../phony/countries/austria', __FILE__
-require File.expand_path '../phony/countries/bangladesh', __FILE__
-require File.expand_path '../phony/countries/belarus', __FILE__
-require File.expand_path '../phony/countries/brazil', __FILE__
-require File.expand_path '../phony/countries/cambodia', __FILE__
-require File.expand_path '../phony/countries/croatia', __FILE__
-require File.expand_path '../phony/countries/china', __FILE__
-require File.expand_path '../phony/countries/georgia', __FILE__
-require File.expand_path '../phony/countries/germany', __FILE__
-require File.expand_path '../phony/countries/guinea', __FILE__
-require File.expand_path '../phony/countries/india', __FILE__
-require File.expand_path '../phony/countries/indonesia', __FILE__
-require File.expand_path '../phony/countries/ireland', __FILE__
-require File.expand_path '../phony/countries/italy', __FILE__
-require File.expand_path '../phony/countries/japan', __FILE__
-require File.expand_path '../phony/countries/kyrgyzstan', __FILE__
-require File.expand_path '../phony/countries/latvia', __FILE__
-require File.expand_path '../phony/countries/libya', __FILE__
-require File.expand_path '../phony/countries/malaysia', __FILE__
-require File.expand_path '../phony/countries/moldova', __FILE__
-require File.expand_path '../phony/countries/montenegro', __FILE__
-require File.expand_path '../phony/countries/myanmar', __FILE__
-require File.expand_path '../phony/countries/namibia', __FILE__
-require File.expand_path '../phony/countries/nepal', __FILE__
-require File.expand_path '../phony/countries/netherlands', __FILE__
-require File.expand_path '../phony/countries/pakistan', __FILE__
-require File.expand_path '../phony/countries/paraguay', __FILE__
-require File.expand_path '../phony/countries/russia_kazakhstan_abkhasia_south_ossetia', __FILE__
-require File.expand_path '../phony/countries/saudi_arabia', __FILE__
-require File.expand_path '../phony/countries/serbia', __FILE__
-require File.expand_path '../phony/countries/somalia', __FILE__
-require File.expand_path '../phony/countries/south_korea', __FILE__
-require File.expand_path '../phony/countries/sweden', __FILE__
-require File.expand_path '../phony/countries/taiwan', __FILE__
-require File.expand_path '../phony/countries/tajikistan', __FILE__
-require File.expand_path '../phony/countries/turkmenistan', __FILE__
-require File.expand_path '../phony/countries/vietnam', __FILE__
-require File.expand_path '../phony/countries/ukraine', __FILE__
-require File.expand_path '../phony/countries/united_kingdom', __FILE__
-require File.expand_path '../phony/countries/uruguay', __FILE__
-require File.expand_path '../phony/countries/zimbabwe', __FILE__
+load File.expand_path '../phony/countries/argentina.rb', __FILE__
+load File.expand_path '../phony/countries/austria.rb', __FILE__
+load File.expand_path '../phony/countries/bangladesh.rb', __FILE__
+load File.expand_path '../phony/countries/belarus.rb', __FILE__
+load File.expand_path '../phony/countries/brazil.rb', __FILE__
+load File.expand_path '../phony/countries/cambodia.rb', __FILE__
+load File.expand_path '../phony/countries/croatia.rb', __FILE__
+load File.expand_path '../phony/countries/china.rb', __FILE__
+load File.expand_path '../phony/countries/georgia.rb', __FILE__
+load File.expand_path '../phony/countries/germany.rb', __FILE__
+load File.expand_path '../phony/countries/guinea.rb', __FILE__
+load File.expand_path '../phony/countries/india.rb', __FILE__
+load File.expand_path '../phony/countries/indonesia.rb', __FILE__
+load File.expand_path '../phony/countries/ireland.rb', __FILE__
+load File.expand_path '../phony/countries/italy.rb', __FILE__
+load File.expand_path '../phony/countries/japan.rb', __FILE__
+load File.expand_path '../phony/countries/kyrgyzstan.rb', __FILE__
+load File.expand_path '../phony/countries/latvia.rb', __FILE__
+load File.expand_path '../phony/countries/libya.rb', __FILE__
+load File.expand_path '../phony/countries/malaysia.rb', __FILE__
+load File.expand_path '../phony/countries/moldova.rb', __FILE__
+load File.expand_path '../phony/countries/montenegro.rb', __FILE__
+load File.expand_path '../phony/countries/myanmar.rb', __FILE__
+load File.expand_path '../phony/countries/namibia.rb', __FILE__
+load File.expand_path '../phony/countries/nepal.rb', __FILE__
+load File.expand_path '../phony/countries/netherlands.rb', __FILE__
+load File.expand_path '../phony/countries/pakistan.rb', __FILE__
+load File.expand_path '../phony/countries/paraguay.rb', __FILE__
+load File.expand_path '../phony/countries/russia_kazakhstan_abkhasia_south_ossetia.rb', __FILE__
+load File.expand_path '../phony/countries/saudi_arabia.rb', __FILE__
+load File.expand_path '../phony/countries/serbia.rb', __FILE__
+load File.expand_path '../phony/countries/somalia.rb', __FILE__
+load File.expand_path '../phony/countries/south_korea.rb', __FILE__
+load File.expand_path '../phony/countries/sweden.rb', __FILE__
+load File.expand_path '../phony/countries/taiwan.rb', __FILE__
+load File.expand_path '../phony/countries/tajikistan.rb', __FILE__
+load File.expand_path '../phony/countries/turkmenistan.rb', __FILE__
+load File.expand_path '../phony/countries/vietnam.rb', __FILE__
+load File.expand_path '../phony/countries/ukraine.rb', __FILE__
+load File.expand_path '../phony/countries/united_kingdom.rb', __FILE__
+load File.expand_path '../phony/countries/uruguay.rb', __FILE__
+load File.expand_path '../phony/countries/zimbabwe.rb', __FILE__
 
 # All other countries.
 #
-require File.expand_path '../phony/countries', __FILE__
+load File.expand_path '../phony/countries.rb', __FILE__
 
 # Phony is the main module and is generally used to process
 # E164 phone numbers directly.
@@ -89,7 +94,7 @@ module Phony
   #
   class SplittingError < ArgumentError
     def initialize number
-      super %Q{Phony could not split the given number. Is #{number.blank? ? 'it' : number.inspect} a phone number?}
+      super %Q{Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?}
     end
   end
   

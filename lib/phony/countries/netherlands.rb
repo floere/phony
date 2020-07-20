@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # The Netherlands use a variable-length ndc code, thus we use a separate file to not let all_other.rb explode. The
 # latest version of the numbering plan is available at http://wetten.overheid.nl/BWBR0010198/
 #

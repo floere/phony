@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # The Republic of Ireland has variable-length NDCs from 2-3 digits in length.  Depending on the NDC, the length of the subscriber number varies from 5-7 characters in length.  There does not appear to be any pattern that relates NDCs to subscriber number length.
 #
 # 7 digit subscriber numbers follow a 3-4 split pattern.
@@ -11,29 +13,28 @@
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_the_Republic_of_Ireland
 #
 ndcs_with_5_subscriber_digits = [
-  ('22'..'29').to_a, # Mallow, Bandon, Youghal, Fermoy, Macroom, Bantry, Skibbereen, Kanturk
-  '402',  # Arklow
-  '404',  # Wicklow
-  '43',   # Longford, Granard
-  '44',   # Mullingar, Castlepollard, Tyrellspass
-  '47',   # Monaghan, Clones
-  '48',   # Northern Ireland
-  '502',  # Portlaoise, Abbeyleix
-  '504',  # Thurles
-  '505',  # Roscrea
-  '506',  # Tullamore
-  '509',  # Bin-
-  '52',   # Killenaule
-  '54',   # Legacy Ferns, Enniscorthy
-  '55',   # Legacy Gorey
-  '62',   # Tipperary, Cashel
-  '63',   # Charleville
-  '64',   # Killarney, Rathmore
-  '67',   # Nenagh
-  '68',   # Listowel
-  '69',   # Newcastle West
-  '93',   # Tuam
-  ('94'..'99').to_a # Castlebar, Castlerea, Claremorris, Clifden, Ballina, Belmullet, Westport, Kilronan
+  '22', '23', '24', '25', '26', '27', '28', '29', # Mallow, Bandon, Youghal, Fermoy, Macroom, Bantry, Skibbereen, Kanturk
+  '402', # Arklow
+  '404', # Wicklow
+  '43',  # Longford, Granard
+  '47',  # Monaghan, Clones
+  '48',  # Northern Ireland
+  '502', # Portlaoise, Abbeyleix
+  '504', # Thurles
+  '505', # Roscrea
+  '506', # Tullamore
+  '509', # Bin-
+  '52',  # Killenaule
+  '54',  # Legacy Ferns, Enniscorthy
+  '55',  # Legacy Gorey
+  '62',  # Tipperary, Cashel
+  '63',  # Charleville
+  '64',  # Killarney, Rathmore
+  '67',  # Nenagh
+  '68',  # Listowel
+  '69',  # Newcastle West
+  '93',  # Tuam
+  '94', '95', '96', '97', '98', '99' # Castlebar, Castlerea, Claremorris, Clifden, Ballina, Belmullet, Westport, Kilronan
 ].flatten
 
 ndcs_with_6_subscriber_digits = [
@@ -48,6 +49,7 @@ ndcs_with_7_subscriber_digits = [
   '21', # Cork, Coachford, Kinsale
   '41', # Ardee
   '42', # Dundalk, Carrickmacross, Castleblaney
+  '44', # Mullingar, Castlepollard, Tyrellspass
   '46', # Navan, Kells, Trim, Enfield, Edenderry
   '49', # Cavan, Cootehill, Oldcastle, Belturbet
   '53', # Wexford, Enniscorthy, Ferns, Gorey, Craanford

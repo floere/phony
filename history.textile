@@ -1,3 +1,127 @@
+h2. Version 2.18.15
+
+* Cambodia (#469)
+
+h2. Version 2.18.14
+
+* Philippines (#464)
+* China (#465)
+
+h2. Version 2.18.13
+
+* China (#462)
+
+h2. Version 2.18.12
+
+* Remove an issue with the DSL code in Ruby 2.7 (#452 and #454).
+
+h2. Version 2.18.11
+
+* Japan (#453)
+
+h2. Version 2.18.10
+
+* Nigeria (#451)
+
+h2. Version 2.18.9
+
+* San Marino (#449)
+
+h2. Version 2.18.8
+
+* Austria (#448)
+
+h2. Version 2.18.7
+
+* Germany (#447)
+
+h2. Version 2.18.6
+
+* Argentina (#444)
+
+h2. Version 2.18.5
+
+* Argentina (#443)
+
+h2. Version 2.18.4
+
+* Egypt (#442)
+
+h2. Version 2.18.3
+
+* Germany (E-Plus has NDC 1577)
+
+h2. Version 2.18.2
+
+* Philippines (#438)
+
+h2. Version 2.18.1
+
+* Freeze Strings where useful.
+
+h2. Version 2.18.0
+
+* Add @Phony::Config.load@ as an option to only load part of the CCs of the library. See the README for details.
+
+h2. Version 2.17.3
+
+* Israel (#437)
+
+h2. Version 2.17.2
+
+* Ireland (#433 and #434)
+
+h2. Version 2.17.1
+
+* Hong Kong (#432)
+
+h2. Version 2.17.0
+
+* Fix issue reported in #428 where a missing local part caused an error.
+
+h2. Version 2.16.11
+
+* Malaysia (#427)
+
+h2. Version 2.16.10
+
+* Russia & Ukraine (#420)
+* Vietnam (#423)
+* Japan (#424)
+* Germany (#425)
+
+h2. Version 2.16.9
+
+* Vietnam (#421)
+
+h2. Version 2.16.8
+
+* PNG (#419)
+
+h2. Version 2.16.7
+
+* UAE (#418)
+
+h2. Version 2.16.6
+
+* Bulgaria (#17)
+* Malaysia (#414)
+* UAE (#416)
+
+h2. Version 2.16.5
+
+* Bulgaria (#407)
+* Kosovo (#410)
+* Peru (#411)
+
+h2. Version 2.16.4
+
+* Madagascar (#399)
+* New Zealand (#401)
+* South Korea (#402)
+* Remove dependency on #blank? (#403)
+* Satellite phone support (#404, #405)
+
 h2. Version 2.16.3
 
 * Improvements for Austria (#397)

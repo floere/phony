@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Belarus
 # http://www.eng.beltelecom.by/en/subscribers/phone-codes
 # https://www.numberingplans.com

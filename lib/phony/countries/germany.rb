@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Germany uses a variable-length ndc code, thus we use a separate file to not let countries.rb explode.
 #
 # Note: Germany uses a variable ndc format from length 2 to 5.
@@ -4019,8 +4021,9 @@ mobile_4digits = [
 '1520', # Vodafone
 '1521', # Lycamobile
 '1522', # Vodafone
+'1523', # Vodafone
 '1570', # vistream
-'1527', # E-Plus
+'1577', # E-Plus
 '1672', # Dolphin Telecom
 ]
 
@@ -4087,7 +4090,7 @@ Phony.define do
      one_of(*service)        >> split(3,1..9) |
      one_of(*mobile_4digits) >> split(3,4) |
      one_of(*mobile_3digits) >> split(4,3..4) |
-     one_of(*ndcs2)          >> split(3,2..10) |
+     one_of(*ndcs2)          >> split(3,1..10) |
      one_of(*ndcs3)          >> split(3,1..9) |
      one_of(*ndcs4)          >> split(3,0..8) |
      fixed(5)                >> split(3,0..7)

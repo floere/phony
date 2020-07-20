@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Phony.define do
   # Somali Democratic Republic http://www.wtng.info/wtng-252-so.html
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=SO

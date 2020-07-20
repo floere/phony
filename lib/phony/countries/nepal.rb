@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Nepal
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=NP

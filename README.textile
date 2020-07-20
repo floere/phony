@@ -5,16 +5,16 @@
 
 h1. Phony
 
-Disclaimer: Phony works with international numbers only, such as @+61 412 345 678@!
+Disclaimer: Phony works with international numbers only, such as @61 412 345 678@!
 
 The (admittedly crazy) goal of this Gem is to be able to normalize/format/split all phone numbers in the world.
 
 Used in: "airbnb.com":http://airbnb.com, "socialcam.com":http://socialcam.com, "zendesk.com":http://www.zendesk.com/ (and many, many others).
 
-h2. Runtime Memory Usage
+h2(#memory). Runtime Memory Usage
 
-According to "memory_profiler":https://github.com/SamSaffron/memory_profiler, the Phony gem uses roughly 1 MB of memory per Ruby process.
-Usage was generated using: @ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony" }.pretty_print'@
+According to "memory_profiler":https://github.com/SamSaffron/memory_profiler, the Phony gem uses roughly 1MB of memory per Ruby process.
+Usage was generated using (look for @Total retained@): @ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony" }.pretty_print'@
 
 h2. Description
 
@@ -27,7 +27,7 @@ E164 numbers are international numbers with a country dial prefix, usually an ar
 
 It currently handles the countries listed at the end of this README.
 
-It is covered by roughly 2,000 tests (January 2016).
+It is covered by roughly 2,250 tests that run in 2 seconds (April 2019).
 If it doesn't work, please "enter an issue":http://github.com/floere/phony/issues or better, fork and "send a pull request":http://github.com/floere/phony/pulls.
 
 h2. Installation
@@ -77,6 +77,30 @@ Split a number into its parts: CC, NDC, local.
 NB If a country does not have an NDC, @#split@ will return @false@ in the NDC position, for example for Denmark:
 
 @Phony.split('4512121212').assert == ['45', false, '12', '12', '12', '12']@
+
+h3(#loading). Loading only a country subset (Phony 2.18.0+).
+
+Use this in case you'd like to save "memory":#memory that is used by Phony's CC rules.
+
+"Phony::Config.load docs":./qed/config.md
+
+First, @require 'phony/config'@.
+Then, one of the following, which will load the rest of Phony.
+
+Load only these CCs:
+@Phony::Config.load(only: ['41', '44'])@
+
+Loads everything except these CCs:
+@Phony::Config.load(except: ['41', '44'])@
+
+Convenience form of @only@:
+@Phony::Config.load('41', '44')@
+
+Each of these loads the rest of Phony.
+
+Memory usage can be checked using (look for @Total retained@):
+@ruby -e 'require "memory_profiler"; MemoryProfiler.report(allow_files: "phony"){ require "phony/config"; Phony::Config.load("1") }.pretty_print'@
+For example, when just loading the NANP CC, the retained memory usage is ~63kB.
 
 h2. List of Handled Countries
 

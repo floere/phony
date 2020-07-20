@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Namibia
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=NA

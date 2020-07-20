@@ -1,6 +1,6 @@
 module Phony
 
-  EMPTY_STRING = ''
+  EMPTY_STRING = '' unless defined?(EMPTY_STRING)
 
   # Handles determining the correct national code handler.
   #
@@ -97,7 +97,7 @@ module Phony
 
       # False if it fails the basic check.
       #
-      return false unless (4..15) === normalized.size
+      return false unless (4..16) === normalized.size
 
       country, cc, rest = partial_split normalized
 
