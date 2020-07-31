@@ -409,7 +409,9 @@ Phony.define do
   country '239', fixed(1) >> split(3,3) # Sao Tome and Principe, http://www.wtng.info/wtng-239-st.html
 
   country '240', none >> split(3,3,3) # Equatorial Guinea
-  country '241', fixed(1) >> split(3,3) # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
+  country '241',
+    fixed(1) >> split(3,3) |  # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
+    fixed(2) >> split(2,2,2)    # 2019 update https://en.wikipedia.org/wiki/Telephone_numbers_in_Gabon
   country '242', # Congo http://www.wtng.info/wtng-242-cg.html
     trunk('', :normalize => false) |
     none >> split(4,5)

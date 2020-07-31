@@ -959,6 +959,7 @@ describe 'country descriptions' do
     end
     describe 'Gabonese Republic' do
       it_splits '2411834375', ['241', '1', '834', '375']
+      it_splits '24174012345', ['241', '74', '01', '23', '45']
     end
     describe 'Gambia' do
       it_splits '2206683355', ['220', false, '668', '3355']
