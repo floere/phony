@@ -410,8 +410,8 @@ Phony.define do
 
   country '240', none >> split(3,3,3) # Equatorial Guinea
   country '241',
-    fixed(1) >> split(3,3) |  # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
-    fixed(2) >> split(2,2,2)    # 2019 update https://en.wikipedia.org/wiki/Telephone_numbers_in_Gabon
+    match(/^(\d)\d{6}$/) >> split(3,3) |  # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
+    match(/^(\d\d)\d{6}$/) >> split(2,2,2)    # 2019 update https://en.wikipedia.org/wiki/Telephone_numbers_in_Gabon
   country '242', # Congo http://www.wtng.info/wtng-242-cg.html
     trunk('', :normalize => false) |
     none >> split(4,5)
