@@ -397,6 +397,7 @@ Phony.define do
   country '234',
     match(/^([7-9]0\d)\d+$/)            >> split(3,4)    | # Mobile
     match(/^(81\d)\d+$/)                >> split(3,4)    | # Mobile
+    match(/^(91\d)\d+$/)                >> split(3,4)    | # Mobile
     one_of('1', '2')                    >> split(3,3..4) | # Lagos, Ibadan
     one_of('9')                         >> split(3,4)    | # Abuja
     one_of((30..79).map(&:to_s))        >> split(3,2..3) | # 2-digit NDC
