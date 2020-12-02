@@ -1,7 +1,10 @@
+h2. Version 2.18.18
+
+* Nigeria (#475)
+
 h2. Version 2.18.17
 
 * Vietnam (#474)
-* Nigeria (#475)
 
 h2. Version 2.18.16
 
