@@ -49,7 +49,7 @@ describe 'plausibility' do
       it_is_correct_for 'Congo', :samples => '+242 1234 56789'
       it_is_correct_for 'Cook Islands', :samples => '+682  71928'
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'
-      it_is_correct_for "Côte d'Ivoire", :samples => '+225  9358 8764'
+      it_is_correct_for "Côte d'Ivoire", :samples => '+225 01 9358 8764'
       it_is_correct_for 'Democratic Republic of Timor-Leste', :samples => ['+670 465 7886', '+670 7465 7886']
       it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 8 864 9794'
       it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
