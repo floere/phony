@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Ukraine
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 
@@ -28,6 +30,7 @@ ndcs_with_7_subscriber_numbers = %w(
 64
 65
 69
+72
 )
 
 ndcs_with_6_subscriber_numbers = %w(
@@ -601,9 +604,9 @@ ndcs_with_4_subscriber_numbers = %w(
 )
 
 seven_digit_mobile_prefixes = [
-  '50', '66', '95', '99',  # MTS-UKR
+  '50', '66', '95', '99',  # Vodafone
   '67', '96', '97', '98',  # Kyivstar
-  '63', '93', # Life:)
+  '63', '93', '73',        # Lifecell
   '39', # Kyivstar(Golden Telecom)
   '68', # Kyivstar(Beeline)
   '91', # UTEL

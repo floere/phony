@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Phony
 
   #
@@ -168,7 +170,7 @@ module Phony
     #
     def plausible? rest, hints = {}
       local, _, ndc, *rest = internal_split rest
-
+      
       # Element based checking.
       #
       # Note: ndc == false means the country has none.
@@ -185,6 +187,10 @@ module Phony
       #
       ndc_needed = hints[:ndc]
       return false if ndc_needed && !(ndc_needed === ndc)
+      
+      # If there is no local part, we can assume it's not a plausible number.
+      # (Or, not defined correctly in Phony yet)
+      return false unless local
 
       # Local code specific checks.
       #

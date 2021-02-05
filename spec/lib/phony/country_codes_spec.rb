@@ -5,6 +5,57 @@ describe Phony::CountryCodes do
   before(:all) do
     @countries = Phony::CountryCodes.instance
   end
+  
+  describe '#[]' do
+    it 'returns a country' do
+      @countries['41'].class.should eql Phony::Country
+    end
+  end
+  
+  describe '#country_for' do
+    it 'returns a country' do
+      @countries.send(:country_for, '41').class.should eql Phony::Country
+    end
+  end
+  
+  describe '#countrify' do
+    it 'returns a country' do
+      @countries.send(:countrify, '441231212', '41').should eql '41441231212'
+    end
+  end
+  describe '#countrify!' do
+    it 'in-place replaces the number' do
+      number = '441231212'
+      @countries.send(:countrify!, number, '41').should eql number
+      
+      number.should == '41441231212'
+    end
+  end
+  
+  describe '#vanity?' do
+    it 'returns true if so' do
+      @countries.vanity?('1800HELLOES').should eql true
+    end
+    it 'returns false if not' do
+      @countries.vanity?('18001234567').should eql false
+    end
+  end
+
+  describe 'normalize' do
+    it 'normalizes correctly' do
+      @countries.normalize('0041-44-364-35-32').should eql '41443643532'
+    end
+    it 'normalizes correctly with CC option' do
+      @countries.normalize('044-364-35-32', cc: '41').should eql '41443643532'
+    end
+
+    context 'specific countries' do
+      it 'handles Congo correctly' do
+        @countries.normalize('+242 0571 73992').should eql '242057173992'
+        @countries.normalize('+242 2221 15932').should eql '242222115932'
+      end
+    end
+  end
 
   describe 'formatted' do
     it 'formats correctly' do
@@ -96,8 +147,11 @@ describe Phony::CountryCodes do
       it "should format luxembourgian numbers" do
         @countries.formatted('35227855', :format => :international).should eql '+352 27 85 5'
       end
-      it "should format nigerian numbers" do
+      it "should format nigerian lagosian numbers" do
         @countries.formatted('23414480000', :format => :international).should eql '+234 1 448 0000'
+      end
+      it "should format nigerian beninese numbers" do
+        @countries.formatted('23452123456', :format => :international).should eql '+234 52 123 456'
       end
       it "should format nigerian mobile numbers" do
         @countries.formatted('2347061234567', :format => :international).should eql '+234 706 123 4567'

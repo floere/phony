@@ -19,7 +19,7 @@ describe Phony::NationalSplitters::Default do
     
     describe 'plausible?' do
       it 'is always plausible' do
-        splitter.plausible?(:anything, :anything).should be_true
+        splitter.plausible?(:anything, :anything).should be_truthy
       end
     end
     

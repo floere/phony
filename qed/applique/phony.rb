@@ -1,4 +1,4 @@
-require 'phony'
+require 'phony/config'
 
 # Plausibility Helpers
 

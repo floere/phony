@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name = 'phony'
-  s.version = '2.15.21'
+  s.version = '2.18.18'
   s.authors = ['Florian Hanke']
   s.email = 'florian.hanke+phony@gmail.com'
-  s.homepage = 'http://github.com/floere/phony'
+  s.homepage = 'https://github.com/floere/phony'
   s.license = 'MIT'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Fast international phone number (E164 standard) normalizing, splitting and formatting.'

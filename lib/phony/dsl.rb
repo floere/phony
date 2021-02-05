@@ -12,9 +12,9 @@ module Phony
   #
   # Phony.define.country ...
   #
-  def self.define
+  def self.define(&block)
     dsl = DSL.new
-    dsl.instance_eval(&Proc.new) if block_given?
+    dsl.instance_eval(&block) if block_given?
     dsl
   end
 
@@ -41,6 +41,8 @@ module Phony
     #   country '27', # CC, followed by rules, for example fixed(2) >> ...
     #
     def country country_code, definition, options = {}
+      return unless Phony.config.load?(country_code)
+      
       definition.with country_code, options
       Phony::CountryCodes.instance.add country_code, definition
     end
@@ -139,7 +141,7 @@ module Phony
       #
       ndcs = ndcs.first if Array === ndcs.first
 
-      NationalSplitters::Variable.new options[:max_length], ndcs
+      NationalSplitters::Variable.new options[:max_length], ndcs.map(&:freeze)
     end
     
     # If you have a number of (possibly) variable length NDCs

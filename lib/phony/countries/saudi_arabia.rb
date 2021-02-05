@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # References:
 # http://www.itu.int/oth/T02020000B7/en
 # https://en.wikipedia.org/wiki/Telephone_numbers_in_Saudi_Arabia
@@ -11,6 +13,7 @@ ndcs_with_7_subscriber_digits = [
   '17', # Southern regions like Asir, Al-Baha, Jizan, Najran & Khamis Mushait
   '50', # Mobile: STC
   '51', # Mobile: Trunking services
+  '52', # Mobile: Reserved for future use
   '53', # Mobile: STC
   '54', # Mobile: Mobily
   '55', # Mobile: STC

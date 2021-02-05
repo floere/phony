@@ -20,7 +20,7 @@ module Phony
     end
     
     # Returns true if there is a character in the number
-    # after the first four numbers.
+    # after the first three numbers.
     #
     @@vanity_regexp = /\A\d{3}[a-zA-Z]{6,12}\Z/
     def self.vanity? number

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Sweden uses a variable-length ndc code, thus we use a separate file to not let all_other.rb explode.
 #
 # Note: Sweden use a variable ndc format from length 2 to 3.
@@ -25,7 +27,6 @@ ndcs = [
   '35', # Halmstad
   '36', # Jönköping-Huskvarna
   '40', # Malmö
- '417', # Tomelilla
   '42', # Helsingborg-Höganäs
   '44', # Kristianstad
   '46', # Lund
@@ -33,8 +34,7 @@ ndcs = [
   '60', # Sundsvall-Timrå
   '63', # Östersund
   '90', # Umeå
- '522', # Uddevalla
-  '77', #Dalarna
+  '77', # Dalarna
 ]
 mobile = [
  '70', # Mobile
@@ -45,24 +45,36 @@ mobile = [
  '76', # Mobile
  '79', # Mobile
 ]
-service = [
-    '99', # Premium Rate
-   '112', # Emergency Service
-   '116', # Psychological Help
-   '118', # Number enquiries
-   '900', # Premium Rate
-   '939', # Premium Rate
-   '944', # Premium Rate
-  '1177', # Health Care Advice
- '11414', # Police
+services = [
+    '112', # Emergency Service
+   '1177', # Health Care Advice
+  '11414', # Police
+]
+service_ndcs = [
+  '99',  # Premium Rate
+  '900', # Premium Rate
+  '939', # Premium Rate
+  '944', # Premium Rate
+]
+three_digit_service = [
+  '116', # Psychological Help (116 xxx)
+  '118', # Number enquiries (118 xxx)
 ]
 
 Phony.define do
   country '46',
     trunk('0') |
-    one_of(service)       >> split(3,3)   |
-    one_of(ndcs + mobile) >> matched_split(
-      /^\d{5}$/ => [3, 2], /^\d{6}$/ => [2, 2, 2], /^\d{7}$/ => [3, 2, 2], /^\d{8}$/ => [3, 2, 3]
+    match(/^(#{services.join('|')})$/) >> split(0) |
+    one_of(service_ndcs)       >> split(3,3) |
+    match(/^(#{three_digit_service.join('|')})\d{3}$/) >> split(3) |
+    one_of(ndcs + mobile)      >> matched_split(
+      /^\d{5}$/ => [3, 2],
+      /^\d{6}$/ => [2, 2, 2],
+      /^\d{7}$/ => [3, 2, 2],
+      /^\d{8}$/ => [3, 2, 3]
     ) |
-    fixed(3)              >> split(3,3,2)   # catchall
+    fixed(3)                   >> matched_split(
+      /^\d{5}$/ => [3, 2],
+      /^\d{6}$/ => [2, 2, 2]
+    )
 end

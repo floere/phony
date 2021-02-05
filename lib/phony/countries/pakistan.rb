@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Pakistan (Islamic Republic of)
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PK
 

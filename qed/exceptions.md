@@ -10,13 +10,13 @@ If a nil number is given, Phony will tell a user specifically.
 
 Raises if number starts with reserved zero code.
 
-    expect Phony::NormalizationError, 'Phony could not normalize the given number. Is it a phone number?' do
+    expect Phony::NormalizationError, 'Phony could not normalize the given number. Is "+00 00 00 00 01" a phone number?' do
       Phony.normalize '+00 00 00 00 01'
     end
 
 Raises a nice error message.
 
-    expect Phony::NormalizationError, 'Phony could not normalize the given number. Is it a phone number?' do
+    expect Phony::NormalizationError, 'Phony could not normalize the given number. Is "test" a phone number?' do
       Phony.normalize 'test'
     end
 
