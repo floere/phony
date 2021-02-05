@@ -374,6 +374,11 @@ http://www.khmerdigitalpost.com/mobile-operators-in-cambodia-by-2015/
       ['+269 3901 234', '+269 3401 234']
     ]
 
+#### Côte d'Ivoire
+
+    Phony.assert.plausible?('+225 01 23 45 56 89')
+    Phony.refute.plausible?('+225 23 45 56 89')
+
 #### Croatia
 
 Landline.

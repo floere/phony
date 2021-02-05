@@ -192,7 +192,7 @@ describe 'plausibility' do
           Phony.plausible?('+385 60 12 345').should be_truthy   # Premium rate
           Phony.plausible?('+385 62 123 456').should be_truthy  # Premium, personal and UAN
       end
-      it_is_correct_for "Côte d'Ivoire", :samples => '+225  9358 8764'
+      it_is_correct_for "Côte d'Ivoire", :samples => '+225 01 9358 8764'
       it_is_correct_for 'Democratic Republic of Timor-Leste', :samples => ['+670 465 7886', '+670 7465 7886']
       it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 80 864 9794'
       it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
