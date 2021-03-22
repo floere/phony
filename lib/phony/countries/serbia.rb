@@ -8,6 +8,9 @@ Phony.define do
     trunk('0') |
     one_of(%w(800)) >> split(3,2) | # freephone
     one_of(%w(808)) >> split(3,2) | # payphone
+    one_of(%w(677 678)) >> matched_split(
+        /\A\d{4}\z/ => [3],
+        /\A\d+\z/ => [3,3]) |
     one_of(%w(230)) >> matched_split(
         /\A\d{4}\z/ => [4],
         /\A\d+\z/ => [3,2]) |
