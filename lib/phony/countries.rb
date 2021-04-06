@@ -432,9 +432,9 @@ Phony.define do
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
   country '250',
     trunk('0') |
-    one_of('25')       >> split(7) | # Geographic, fixed
-    match(/^(7[238])/) >> split(7) | # Non-geographic, mobile
-    one_of('06')       >> split(6)   # Satellite
+    one_of('25')        >> split(7) | # Geographic, fixed
+    match(/^(7[2389])/) >> split(7) | # Non-geographic, mobile
+    one_of('06')        >> split(6)   # Satellite
 
   country '251', fixed(2) >> split(3, 4) # Ethiopia http://www.wtng.info/wtng-251-et.html
 
