@@ -1,3 +1,7 @@
+h2. Version 2.18.22
+
+* Rwanda (#483)
+
 h2. Version 2.18.21
 
 * Serbia (#482)
