@@ -399,6 +399,12 @@ describe 'plausibility' do
                                                              '+507 6 123 4567',
                                                              '+507 2 123 456']
       it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262 295 276 964'
+      it_is_correct_for 'Rwanda', :samples => ['+250 72 1234567',
+                                               '+250 73 1234567',
+                                               '+250 78 1234567',
+                                               '+250 79 1234567',
+                                               '+250 25 1234567',
+                                               '+250 06 123456']
       it_is_correct_for 'Saint Helena', :samples => '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
       it_is_correct_for 'Salvador (El)', :samples => [
