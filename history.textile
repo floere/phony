@@ -1,3 +1,7 @@
+h2. Version 2.18.23
+
+* Japan (revert #453, see #457)
+
 h2. Version 2.18.22
 
 * Rwanda (#483)
