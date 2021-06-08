@@ -44,6 +44,7 @@ in Tokyo
     japan.normalize("03 1234 5634").assert == '0312345634'
     japan.normalize("03-1234-5634").assert == '0312345634'
     japan.normalize("03(1234)5634").assert == '0312345634'
+    japan.normalize("+81 3-1234-5634").assert == '0312345634'
     japan.normalize("Hello    03-1234-5634").assert == '0312345634'
   
     japan.assert.plausible?('0312345678')
@@ -57,6 +58,7 @@ in Shihoro Town, Hokkaido
     japan.normalize("01564 5 2211").assert == '0156452211'
     japan.normalize("01564-5-2211").assert == '0156452211'
     japan.normalize("01564(5)2211").assert == '0156452211'
+    japan.normalize("+81 1564-5-2211").assert == '0156452211'
     japan.normalize("Hello   01564-5-2211 ").assert == '0156452211'
     
     japan.assert.plausible?('0156452211')
