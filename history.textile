@@ -1,3 +1,7 @@
+h2. Version 2.19.0
+
+* Trunk codes will by default only be removed when working with international numbers.
+
 h2. Version 2.18.23
 
 * Japan (revert #453, see #457)
