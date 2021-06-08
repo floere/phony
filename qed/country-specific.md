@@ -21,7 +21,7 @@
   nanp.assert.plausible?('4159224711')
 ```
 
-It is not expected to handle an intl number correctly.
+Important: It is not expected to handle an international number correctly.
 
 ```ruby
   Phony["1"].format('15551234567890', :format => :international).assert == '+1 (155) 512-34567890'
@@ -44,7 +44,6 @@ in Tokyo
     japan.normalize("03 1234 5634").assert == '0312345634'
     japan.normalize("03-1234-5634").assert == '0312345634'
     japan.normalize("03(1234)5634").assert == '0312345634'
-    japan.normalize("+81 3-1234-5634").assert == '0312345634'
     japan.normalize("Hello    03-1234-5634").assert == '0312345634'
   
     japan.assert.plausible?('0312345678')
@@ -58,7 +57,6 @@ in Shihoro Town, Hokkaido
     japan.normalize("01564 5 2211").assert == '0156452211'
     japan.normalize("01564-5-2211").assert == '0156452211'
     japan.normalize("01564(5)2211").assert == '0156452211'
-    japan.normalize("+81 1564-5-2211").assert == '0156452211'
     japan.normalize("Hello   01564-5-2211 ").assert == '0156452211'
     
     japan.assert.plausible?('0156452211')
