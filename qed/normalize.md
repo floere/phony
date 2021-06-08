@@ -26,23 +26,19 @@ Always use it with a country code, as Phony needs it to know what country to nor
 
 #### NANP
 
-Handles a cc.
+Handles a CC.
 
     Phony.normalize('+1 724 999 9999').assert == '17249999999'
 
-Handles a cc with cc option.
-
-    Phony.normalize('+1 724 999 9999', cc: '1').assert == '17249999999'
-
-Handles missing cc correctly.
+Allows for providing a missing CC.
     
     Phony.normalize('(310) 555-2121', cc: '1').assert == '13105552121'
     
-Normalizes one of these crazy numbers.
+Normalizes numbers with special characters.
 
     Phony.normalize('1 (703) 451-5115').assert == '17034515115'
 
-Normalizes another one of these crazy numbers.
+Normalizes numbers with special characters.
 
     Phony.normalize('1-888-407-4747').assert == '18884074747'
 
