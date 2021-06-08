@@ -156,10 +156,12 @@ module Phony
     #
     # In some cases it doesn't, like Italy.
     #
-    def normalize national_number
+    # Note: Options such as CC
+    #
+    def normalize national_number, options = {}
       clean! national_number
       normalized = @codes.reduce national_number do |number, code|
-        result = code.normalize number
+        result = code.normalize number, options
         break result if result
         number
       end

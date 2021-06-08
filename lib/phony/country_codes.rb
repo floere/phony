@@ -66,7 +66,7 @@ module Phony
         country, cc, number = partial_split number
         country
       end
-      number = country.normalize number
+      number = country.normalize number, cc: cc
       countrify! number, cc
     end
 
