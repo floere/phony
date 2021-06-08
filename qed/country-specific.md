@@ -37,38 +37,34 @@ in Tokyo
 
     japan = Phony["81"]
   
-    # TODO japan.format('0312345634', :format => :international).assert == '+81-3-1234-5634'
-    # TODO japan.format('0312345634', :format => :national).assert ==      '03-1234-5634'
+    japan.format('0312345634', :format => :international).assert == '+81-3-1234-5634'
+    japan.format('0312345634', :format => :national).assert ==      '03-1234-5634'
     japan.format('0312345634', :format => :local).assert ==         '1234-5634'
     
-    # TODO japan.normalize("03 1234 5634").assert == '0312345634'
-    # TODO japan.normalize("03-1234-5634").assert == '0312345634'
-    # TODO japan.normalize("03(1234)5634").assert == '0312345634'
-    # TODO japan.normalize("Hello    03-1234-5634").assert == '0312345634'
+    japan.normalize("03 1234 5634").assert == '0312345634'
+    japan.normalize("03-1234-5634").assert == '0312345634'
+    japan.normalize("03(1234)5634").assert == '0312345634'
+    japan.normalize("Hello    03-1234-5634").assert == '0312345634'
   
     japan.assert.plausible?('0312345678')
 
 in Shihoro Town, Hokkaido
 
-```ruby
-  # TODO japan.format('0156452211', :format => :international).assert == '+81-1564-5-2211'
-  # TODO japan.format('0156452211', :format => :national).assert ==      '01564-5-2211'
-  # TODO japan.format('0156452211', :format => :local).assert ==         '5-2211'
-  
-  # TODO japan.normalize("01564 5 2211").assert == '0156452211'
-  # TODO japan.normalize("01564-5-2211").assert == '0156452211'
-  # TODO japan.normalize("01564(5)2211").assert == '0156452211'
-  # TODO japan.normalize("Hello   01564-5-2211 ").assert == '0156452211'
-  
-  japan.assert.plausible?('0156452211')
-```
+    japan.format('0156452211', :format => :international).assert == '+81-1564-5-2211'
+    japan.format('0156452211', :format => :national).assert ==      '01564-5-2211'
+    japan.format('0156452211', :format => :local).assert ==         '5-2211'
+    
+    japan.normalize("01564 5 2211").assert == '0156452211'
+    japan.normalize("01564-5-2211").assert == '0156452211'
+    japan.normalize("01564(5)2211").assert == '0156452211'
+    japan.normalize("Hello   01564-5-2211 ").assert == '0156452211'
+    
+    japan.assert.plausible?('0156452211')
 
 #### Italy
 
 This is an error case from issue #428.
 
-```ruby
-  italy = Phony["39"]
+    italy = Phony["39"]
   
-  italy.plausible?('12345').assert == false
-```
+    italy.plausible?('12345').assert == false
