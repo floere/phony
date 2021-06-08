@@ -66,6 +66,10 @@ Handles a number with extra 0.
 #### Hungary
 
     Phony.normalize('36 0630245506').assert == '360630245506'
+    
+#### Japan
+
+    # TODO Phony.normalize('03-1234-5634', cc: '81').assert == '81312345634'
 
 #### Lithuania
 
