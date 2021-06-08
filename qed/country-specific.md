@@ -21,19 +21,19 @@
   nanp.assert.plausible?('4159224711')
 ```
 
-Important: It is not expected to handle an international number correctly.
+Important: It is not expected to handle an international number correctly. This fails:
 
-```ruby
-  Phony["1"].format('15551234567890', :format => :international).assert == '+1 (155) 512-34567890'
-```
+    Phony["81"].format('81312345634', :format => :international).refute == '+81 3-1234-5634'
 
-Yep. This turns out to be wrong. Only expects and handles normalized national numbers.
+Only expects and handles normalized national numbers:
+
+    Phony["81"].format('312345634', :format => :international).assert == '+81 3-1234-5634'
 
 #### Japan
 
 The domestic Telephone number in Japan has to have Trunk prefix.
 
-in Tokyo
+In Tokyo
 
     japan = Phony["81"]
   
@@ -48,7 +48,7 @@ in Tokyo
   
     japan.assert.plausible?('0312345678')
 
-in Shihoro Town, Hokkaido
+In Shihoro Town, Hokkaido
 
     japan.format('0156452211', :format => :international).assert == '+81-1564-5-2211'
     japan.format('0156452211', :format => :national).assert ==      '01564-5-2211'
