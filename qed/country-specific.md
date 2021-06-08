@@ -6,20 +6,14 @@
 
 #### NANP
 
-```ruby
-  nanp = Phony['1']
-  
-  nanp.format('5551234567890', :format => :international).assert == '+1 (555) 123-4567890'
-  nanp.format('5551234567890', :format => :national).assert ==      '(555) 123-4567890'
-  nanp.format('5551234567890', :format => :local).assert ==         '123-4567890'
-  
-  nanp.normalize("555 1234567890").assert == '5551234567890'
-  nanp.normalize("+1 555 1234567890").assert == '5551234567890'
-  nanp.normalize("+1 (0) 555 1234567890").assert == '5551234567890'
-  nanp.normalize('4159224711').assert == '4159224711'
-  
-  nanp.assert.plausible?('4159224711')
-```
+    nanp = Phony['1']
+    
+    nanp.format('5551234567890', :format => :international).assert == '+1 (555) 123-4567890'
+    nanp.format('5551234567890', :format => :national).assert ==      '(555) 123-4567890'
+    nanp.format('5551234567890', :format => :local).assert ==         '123-4567890'
+    
+    nanp.normalize("555 1234567890").assert == '5551234567890'
+    nanp.normalize('4159224711').assert == '4159224711'
 
 Important: It is not expected to handle an international number correctly. This fails:
 
@@ -28,6 +22,11 @@ Important: It is not expected to handle an international number correctly. This 
 Only expects and handles normalized national numbers:
 
     Phony["81"].format('312345634', :format => :international).assert == '+81 3-1234-5634'
+
+But note that these will not fail, as the contained numbers are still a NANP number.
+
+    nanp.normalize("+1 555 1234567890").assert == '15551234567890'
+    nanp.normalize("+1 (0) 555 1234567890").assert == '15551234567890'
 
 #### Japan
 

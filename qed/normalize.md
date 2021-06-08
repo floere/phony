@@ -74,6 +74,7 @@ Handles a number with extra 0.
 #### Japan
 
     Phony.normalize('+81 3-1234-5634').assert == '81312345634'
+    Phony.normalize('3-1234-5634', cc: '81').assert == '81312345634'
     Phony.normalize('03-1234-5634', cc: '81').assert == '81312345634'
 
 #### Lithuania

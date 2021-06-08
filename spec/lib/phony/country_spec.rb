@@ -43,6 +43,11 @@ describe Phony::Country do
         Phony.normalize('+378903549').should == '3780549903549'
       end
     end
+    describe 'Japan' do
+      it 'normalizes correctly' do
+        Phony.normalize('03-1234-5634', cc: '81').should == '81312345634'
+      end
+    end
   end
   
   context "without special cases (with switzerland)" do
