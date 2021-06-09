@@ -404,11 +404,14 @@ ndcs_with_5_subscriber_numbers = %w(
 Phony.define do
   country '81',
     trunk('0', normalize: true, format: true, split: true) |
-    one_of('20', '50', '60', '70', '90')   >> split(4,4) | # mobile, VoIP telephony
+    one_of(%w(20 50 60 70 90))             >> split(4,4) | # mobile, VoIP telephony
     one_of(ndcs_with_5_subscriber_numbers) >> split(1,4) |
     one_of(ndcs_with_6_subscriber_numbers) >> split(2,4) |
     one_of(%w(120))                        >> split(3,3) | # freephone
-    one_of(%w(120 800))                    >> split(3,4) | # freephone
+    one_of(%w(800))                        >> split(3,4) | # freephone
+    one_of(%w(180 570))                    >> split(3,3) | # Tele-gong/Tele-dome, Navi-dial
+    one_of(%w(170 990))                    >> split(2,4) | # Dengon-dial, Dial Q2 (discontinued)
+    one_of(%w(80))                         >> split(4,4) | # mobile
     one_of(ndcs_with_7_subscriber_numbers) >> split(3,4) |
     one_of(ndcs_with_8_subscriber_numbers) >> split(4,4) |
     # TODO: 91(NDC) N(S)N length: 5-13 - Non-geographic number (Direct subscriber telephone service (legacy))

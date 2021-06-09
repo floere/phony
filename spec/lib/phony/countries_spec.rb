@@ -484,6 +484,8 @@ describe 'country descriptions' do
       it_splits '817012345678', %w(81 70 1234 5678) # PHS
       it_splits '818012345678', %w(81 80 1234 5678) # Cellular
       it_splits '819012345678', %w(81 90 1234 5678) # Cellular
+      it_splits '810570123456', %w(81 570 123 456)  # Navi-dial
+      it_splits '810180123456', %w(81 180 123 456)  # Tele-gong/Tele-dome
     end
     describe 'Kenya' do
       it_splits '254201234567', ['254', '20', '1234567'] # Nairobi
