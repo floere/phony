@@ -166,6 +166,7 @@ ndcs_with_6_subscriber_numbers = %w(
 422
 428
 436
+438
 439
 460
 463
@@ -281,7 +282,6 @@ ndcs_with_6_subscriber_numbers = %w(
 846
 847
 848
-849
 852
 853
 854
@@ -361,7 +361,6 @@ ndcs_with_5_subscriber_numbers = %w(
 1374
 1377
 1392
-1394
 1397
 1398
 1456
@@ -393,7 +392,6 @@ ndcs_with_5_subscriber_numbers = %w(
 8477
 8512
 8514
-8636
 9496
 9802
 9912
