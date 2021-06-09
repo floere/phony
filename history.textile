@@ -1,3 +1,7 @@
+h2. Version 2.19.1
+
+* Japan (#485)
+
 h2. Version 2.19.0
 
 * Trunk codes will by default only be removed when working with international numbers.
