@@ -1,3 +1,7 @@
+h2. Version 2.19.2
+
+* Zambia (#486)
+
 h2. Version 2.19.1
 
 * Japan (#485)
