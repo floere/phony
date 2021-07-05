@@ -255,7 +255,7 @@ describe 'plausibility' do
       end
       # it_is_correct_for 'Gabonese Republic', :samples => [
       #   '+241 1 627 739',
-      #   '+241 12 34 56 78', 
+      #   '+241 12 34 56 78',
       # ]
       it_is_correct_for 'Gambia', :samples => '+220  989 5148'
       it_is_correct_for 'Germany', :samples => [
@@ -568,6 +568,9 @@ describe 'plausibility' do
                                               '+967 58 1234']
       it 'is correct for Zambia' do
         Phony.plausible?('+260 211 123456').should be_truthy  # Fixed
+        Phony.plausible?('+260 761 123456').should be_truthy  # Mobile
+        Phony.plausible?('+260 772 123456').should be_truthy  # Mobile
+        Phony.plausible?('+260 783 123456').should be_truthy  # Mobile
         Phony.plausible?('+260 955 123456').should be_truthy  # Mobile
         Phony.plausible?('+260 967 123456').should be_truthy  # Mobile
         Phony.plausible?('+260 978 123456').should be_truthy  # Mobile
