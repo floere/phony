@@ -31,9 +31,7 @@ module Phony
       # since using nil is dangerous and breaks
       # abstraction)
       #
-      # Note: Actually, it might stay in.
-      #
-      # TODO Flip nil/false?
+      # Note: Decided it stays in. When formatting, it's turned into nil.
       #
       def split national_number
         [nil, false, national_number]
