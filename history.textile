@@ -1,3 +1,7 @@
+h2. Version 2.19.4
+
+* Switzerland voice mail and Taiwan tollfree (#488)
+
 h2. Version 2.19.3
 
 * Fix for NDC false issue (#487)
