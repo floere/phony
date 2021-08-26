@@ -762,6 +762,7 @@ describe 'country descriptions' do
     describe 'Switzerland' do
       it_splits '41443643532', ['41', '44', '364', '35', '32'] # Zurich (usually)
       it_splits '41800334455', ['41', '800', '334', '455']     # Service number
+      it_splits '41860443643532', ['41', '860', '44', '364', '35', '32'] # Voicemail access
       it_splits '41900123456', ['41', '900', '123', '456']     # Business Number
       it_splits '41901123456', ['41', '901', '123', '456']     # Business Number Entertainment
       it_splits '41906123456', ['41', '906', '123', '456']     # Business Number Adult Entertainment
@@ -1317,6 +1318,7 @@ describe 'country descriptions' do
       it_splits '88633123456', %w(886 3 312 3456)
       it_splits '88637123456', %w(886 37 12 3456)
       it_splits '88682712345', %w(886 82 71 2345)
+      it_splits '886801123123', %w(886 801 123 123)
       it_splits '88689712345', %w(886 89 71 2345)
       it_splits '88682672345', %w(886 826 7 2345)
       it_splits '88683672345', %w(886 836 7 2345)

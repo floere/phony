@@ -154,6 +154,7 @@ Phony.define do
   #
   country '41',
           trunk('0', normalize: true) |
+          match(/^(860)\d+$/) >> split(2, 3, 2, 2) | # Voice Mail access
           match(/^(8(?:00|4[0248]))\d+$/) >> split(3,3) |  # Freecall/Shared Cost
           match(/^(90[016])\d+$/)       >> split(3,3) |  # Business
           fixed(2)                      >> split(3,2,2)
