@@ -993,7 +993,11 @@ Phony.define do
   country '698', todo # -
   country '699', todo # -
 
-  country '800', todo # International Freephone Service
+  # International Freephone Service
+  # https://www.itu.int/en/ITU-T/inr/unum/Pages/uifn.aspx
+  country '800',
+    none >> split(8)
+
   country '801', todo # -
   country '802', todo # -
   country '803', todo # -
