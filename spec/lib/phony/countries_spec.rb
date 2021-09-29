@@ -1433,6 +1433,10 @@ describe 'country descriptions' do
     describe 'Universal International Freephone' do
       it_splits '80012345678', ['800', false, '12345678']
     end
+    
+    describe 'Shared-Cost Service' do
+      it_splits '80812345678', ['808', false, '12345678']
+    end
   end
 
 end

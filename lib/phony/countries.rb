@@ -995,8 +995,7 @@ Phony.define do
 
   # International Freephone Service
   # https://www.itu.int/en/ITU-T/inr/unum/Pages/uifn.aspx
-  country '800',
-    none >> split(8)
+  country '800', none >> split(8)
 
   country '801', todo # -
   country '802', todo # -
@@ -1005,7 +1004,7 @@ Phony.define do
   country '805', todo # -
   country '806', todo # -
   country '807', todo # -
-  country '808', todo # International Shared Cost Service (ISCS)
+  country '808', none >> split(12) # International Shared Cost Service (ISCS)
   country '809', todo # -
 
   country '830', todo # -
