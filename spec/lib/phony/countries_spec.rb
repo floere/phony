@@ -1429,6 +1429,10 @@ describe 'country descriptions' do
         it_splits  number, ['263', prefix, '234', '5678']
       end
     end
+
+    describe 'Universal International Freephone' do
+      it_splits '80012345678', ['800', false, '12345678']
+    end
   end
 
 end
