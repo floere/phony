@@ -1,3 +1,8 @@
+h2. Version 2.19.5
+
+* International Freephone Service (#489)
+* Shared-Cost Service
+
 h2. Version 2.19.4
 
 * Switzerland voice mail and Taiwan tollfree (#488)
