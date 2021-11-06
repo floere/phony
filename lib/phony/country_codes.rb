@@ -97,7 +97,7 @@ module Phony
 
       # False if it fails the basic check.
       #
-      return false unless (4..16) === normalized.size
+      return false unless (4..16) === normalized.size # unless hints[:check_length] == false
 
       country, cc, rest = partial_split normalized
 

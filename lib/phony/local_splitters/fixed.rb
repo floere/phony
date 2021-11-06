@@ -62,6 +62,8 @@ module Phony
       #
       #
       def plausible? rest, hints = {}
+        return true if hints[:check_length] == false
+        
         @length === rest.inject(0) { |total, part| total + part.size }
       end
       

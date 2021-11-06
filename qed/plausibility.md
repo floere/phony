@@ -194,6 +194,10 @@ NDC with several subscriber number length.
     Phony.assert.plausible?('+32 489 12 34 56')
     Phony.assert.plausible?('+32 490 12 34 56')
     Phony.assert.plausible?('+32 499 12 34 56')
+    
+    # Edge cases with too long/short numbers (check_length option).
+    Phony.refute.plausible?('+s32 470 12 34 56 79')
+    Phony.assert.plausible?('+32 470 12 34 56 79', check_length: false)
 
 #### Benin
 
@@ -508,6 +512,12 @@ Mobile.
     Phony.assert.plausible?('+49 6421 123456789')
     Phony.assert.plausible?('+49 209 1234567890')
     Phony.assert.plausible?('+49 40 12345678901')
+    
+    # Edge cases with too short numbers (check_length option).
+    Phony.refute.plausible?('49214301')
+    Phony.refute.plausible?('49251830')
+    Phony.assert.plausible?('49214301', check_length: false)
+    Phony.assert.plausible?('49251830', check_length: false)
 
 #### Greece
 
@@ -515,7 +525,7 @@ Mobile.
       '+30 21 4234 5678',
       '+30 24 4234 5678',
       '+30 50 3457 1234',
-      '+30 69 0123 4567',
+      '+30 690 123 4567',
       '+30 70 0123 4567',
       '+30 800 100 1234',
       '+30 801 100 1234',
@@ -524,6 +534,12 @@ Mobile.
       '+30 901 123 4565',
       '+30 909 123 4565'
     ]
+    
+    # Testing check_length option.
+    Phony.refute.plausible?('+30 690 123 127')
+    Phony.assert.plausible?('+30 690 123 127', check_length: false)
+    Phony.refute.plausible?('+30 690 123 12347')
+    Phony.assert.plausible?('+30 690 123 12347', check_length: false)
 
 #### Hong Kong
     plausible? true: [
