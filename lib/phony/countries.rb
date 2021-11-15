@@ -486,8 +486,10 @@ Phony.define do
   # Zambia
   # http://www.wtng.info/wtng-260-zm.html
   # https://github.com/googlei18n/libphonenumber/
+  # https://en.wikipedia.org/wiki/Telephone_numbers_in_Zambia
   country '260',
-    match(/^([79][5678]\d)/) >> split(6)   | # Mobile
+    trunk('0') |
+    match(/^(76|77|95|96|97)/) >> split(3, 4) | # Mobile
     match(/^(800)/)          >> split(3,3) | # Toll free
     match(/^(21[1-8])/)      >> split(6)     # Fixed
 

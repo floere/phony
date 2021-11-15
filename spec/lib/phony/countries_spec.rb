@@ -851,9 +851,9 @@ describe 'country descriptions' do
     end
     describe 'Zambia' do
       it_splits '260211123456', ['260', '211', '123456']     # Fixed
-      it_splits '260955123456', ['260', '955', '123456']     # Mobile
-      it_splits '260967123456', ['260', '967', '123456']     # Mobile
-      it_splits '260978123456', ['260', '978', '123456']     # Mobile
+      it_splits '260955123456', ['260', '95', '512', '3456'] # Mobile
+      it_splits '260967123456', ['260', '96', '712', '3456'] # Mobile
+      it_splits '260978123456', ['260', '97', '812', '3456'] # Mobile
       it_splits '260800123456', ['260', '800', '123', '456'] # Toll free
     end
     describe 'New Zealand' do
@@ -1433,7 +1433,7 @@ describe 'country descriptions' do
     describe 'Universal International Freephone' do
       it_splits '80012345678', ['800', false, '12345678']
     end
-    
+
     describe 'Shared-Cost Service' do
       it_splits '80812345678', ['808', false, '12345678']
     end
