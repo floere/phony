@@ -199,6 +199,11 @@ With forced trunk.
     Phony.format('41443643532', :format => :local).assert == '364 35 32'
     Phony.format('493038625454', :format => :local).assert == '386 25454'
 
+#### Zambia
+
+    Phony.format('260970212078').assert == '+260 97 021 2078'
+    Phony.format('260970212078', :format => :national).assert == '097 021 2078'
+
 #### Zimbabwe
 
 ##### Mobile numbers

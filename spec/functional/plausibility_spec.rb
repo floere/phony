@@ -568,12 +568,12 @@ describe 'plausibility' do
                                               '+967 58 1234']
       it 'is correct for Zambia' do
         Phony.plausible?('+260 211 123456').should be_truthy  # Fixed
-        Phony.plausible?('+260 761 123456').should be_truthy  # Mobile
-        Phony.plausible?('+260 772 123456').should be_truthy  # Mobile
-        Phony.plausible?('+260 783 123456').should be_truthy  # Mobile
-        Phony.plausible?('+260 955 123456').should be_truthy  # Mobile
-        Phony.plausible?('+260 967 123456').should be_truthy  # Mobile
-        Phony.plausible?('+260 978 123456').should be_truthy  # Mobile
+        Phony.plausible?('+260 96 512 4567').should be_truthy # MTN Mobile
+        Phony.plausible?('+260 97 712 3456').should be_truthy # Airtel Mobile
+        Phony.plausible?('+260 95 512 4567').should be_truthy # Zamtel Mobile
+        Phony.plausible?('+260 96 512 456').should be_falsy   # MTN Mobile (Too short)
+        Phony.plausible?('+260 97 812 345').should be_falsy   # Airtel Mobile (Too short)
+        Phony.plausible?('+260 95 512 345').should be_falsy   # Zamtel Mobile (Too short)
         Phony.plausible?('+260 800 123 456').should be_truthy # Toll free
       end
       it_is_correct_for 'Zimbabwe', :samples => [['+263 2582 123 456', '+263 2582 123'],
