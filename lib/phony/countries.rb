@@ -487,26 +487,26 @@ Phony.define do
     match(/^(800)/)                 >> split(3,3) | # Toll free
     match(/^(21[1-8])/)             >> split(6)     # Fixed
 
-  # Madagascar http://www.wtng.info/wtng-261-mg.html
+  # Madagascar 
+  # http://www.wtng.info/wtng-261-mg.html [very old and not up to date]
   # http://www.itu.int/oth/T020200007F/en
   country '261',
           # none >> matched_split(
           #     /\A200\d+\z/ => [2,3,3,3], # Telecom Malagasy (Telma)
           #     /\A20\d+\z/ => [2,3,4], # Telecom Malagasy (Telma)
           #     /\A23\d+\z/ => [2,3,4], # Digitel
-          #     /\A30\d+\z/ => [2,3,4], # mobile Madamobil (CDMA2000)
-          #     /\A31\d+\z/ => [2,3,4], # mobile Airtel Madagascar
           #     /\A32\d+\z/ => [2,3,4], # mobile Orange Madagascar
           #     /\A33\d+\z/ => [2,3,4], # mobile Airtel Madagascar
           #     /\A34\d+\z/ => [2,3,4], # mobile Telecom Malagasy (Telma)
+          #     /\A38\d+\z/ => [2,3,4], # mobile Telecom Malagasy (Telma)
           #     /\A5\d+\z/ => [3,3,3],  # pager
           #     /\A22\d+\z/ => [3,3,3], # satellite GULFSAT Téléphonie
           #     /\A6\d+\z/ => [3,3,3]   # satellite
           # ),
-          match(/\A(31)\d+\z/) >> split(3,4) | # mobile Airtel Madagascar
           match(/\A(32)\d+\z/) >> split(3,4) | # mobile Orange Madagascar
           match(/\A(33)\d+\z/) >> split(3,4) | # mobile Airtel Madagascar
-          match(/\A(34)\d+\z/) >> split(3,4)   # mobile Telecom Malagasy (Telma)
+          match(/\A(34)\d+\z/) >> split(3,4) | # mobile Telecom Malagasy (Telma)
+          match(/\A(38)\d+\z/) >> split(3,4)   # mobile Telecom Malagasy (Telma)
 
   country '262', # Reunion / Mayotte (new) http://www.wtng.info/wtng-262-fr.html
     trunk('0') |
