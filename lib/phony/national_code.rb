@@ -26,7 +26,7 @@ module Phony
     #
     # Note: Some cases, like Italy, don't remove the relative zero.
     #
-    def normalize national_number
+    def normalize national_number, options = {}
       national_number.gsub(/\A0+/, EMPTY_STRING)
     end
 

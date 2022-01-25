@@ -48,11 +48,12 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
 
 #### :format => String template
 
-    Phony.format('41443643532', :format => 'A%{cc}B%{trunk}C%{ndc}D%{local}').assert == 'A41B0C44D364 35 32'
-    Phony.format('41443643532', :format => '%{local} %{ndc} %{trunk} %{cc}', :local_spaces => '').assert == '3643532 44 0 41'
-    Phony.format('41443643532', :format => 'A%{cc}B%{ndc}C%{local}', :local_spaces => '/').assert == 'A41B44C364/35/32'
-    Phony.format('71234567890', :format => '+%{cc} (%{trunk}%{ndc}) %{local}', :local_spaces => '-').assert == '+7 (8123) 45-67890'
-    Phony.format('13015550100', :format => '+%{cc} %{trunk}%{ndc} %{local}', :local_spaces => '-').assert == '+1 301 555-0100'
+    Phony.format('4512121212',  format: '+%{cc}.%{ndc}%{local}', local_spaces: '').assert == '+45.12121212'
+    Phony.format('41443643532', format: 'A%{cc}B%{trunk}C%{ndc}D%{local}').assert == 'A41B0C44D364 35 32'
+    Phony.format('41443643532', format: '%{local} %{ndc} %{trunk} %{cc}', :local_spaces => '').assert == '3643532 44 0 41'
+    Phony.format('41443643532', format: 'A%{cc}B%{ndc}C%{local}', :local_spaces => '/').assert == 'A41B44C364/35/32'
+    Phony.format('71234567890', format: '+%{cc} (%{trunk}%{ndc}) %{local}', :local_spaces => '-').assert == '+7 (8123) 45-67890'
+    Phony.format('13015550100', format: '+%{cc} %{trunk}%{ndc} %{local}', :local_spaces => '-').assert == '+1 301 555-0100'
 
 #### :spaces => String
 
@@ -197,6 +198,11 @@ With forced trunk.
     Phony.format('41800112233', :format => :national).assert == '0800 112 233'
     Phony.format('41443643532', :format => :local).assert == '364 35 32'
     Phony.format('493038625454', :format => :local).assert == '386 25454'
+
+#### Zambia
+
+    Phony.format('260970212078').assert == '+260 97 021 2078'
+    Phony.format('260970212078', :format => :national).assert == '097 021 2078'
 
 #### Zimbabwe
 

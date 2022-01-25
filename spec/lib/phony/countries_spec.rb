@@ -484,6 +484,8 @@ describe 'country descriptions' do
       it_splits '817012345678', %w(81 70 1234 5678) # PHS
       it_splits '818012345678', %w(81 80 1234 5678) # Cellular
       it_splits '819012345678', %w(81 90 1234 5678) # Cellular
+      it_splits '810570123456', %w(81 570 123 456)  # Navi-dial
+      it_splits '810180123456', %w(81 180 123 456)  # Tele-gong/Tele-dome
     end
     describe 'Kenya' do
       it_splits '254201234567', ['254', '20', '1234567'] # Nairobi
@@ -677,6 +679,7 @@ describe 'country descriptions' do
       it_splits '250781234567', ['250', '78', '1234567'] # mobile
       it_splits '250721234567', ['250', '72', '1234567'] # mobile
       it_splits '250731234567', ['250', '73', '1234567'] # mobile
+      it_splits '250791234567', ['250', '79', '1234567'] # mobile
       it_splits '250251234567', ['250', '25', '1234567'] # fixed
       it_splits '25006123456',  ['250', '06', '123456']  # fixed
     end
@@ -759,6 +762,7 @@ describe 'country descriptions' do
     describe 'Switzerland' do
       it_splits '41443643532', ['41', '44', '364', '35', '32'] # Zurich (usually)
       it_splits '41800334455', ['41', '800', '334', '455']     # Service number
+      it_splits '41860443643532', ['41', '860', '44', '364', '35', '32'] # Voicemail access
       it_splits '41900123456', ['41', '900', '123', '456']     # Business Number
       it_splits '41901123456', ['41', '901', '123', '456']     # Business Number Entertainment
       it_splits '41906123456', ['41', '906', '123', '456']     # Business Number Adult Entertainment
@@ -847,9 +851,9 @@ describe 'country descriptions' do
     end
     describe 'Zambia' do
       it_splits '260211123456', ['260', '211', '123456']     # Fixed
-      it_splits '260955123456', ['260', '955', '123456']     # Mobile
-      it_splits '260967123456', ['260', '967', '123456']     # Mobile
-      it_splits '260978123456', ['260', '978', '123456']     # Mobile
+      it_splits '260955123456', ['260', '95', '512', '3456'] # Mobile
+      it_splits '260967123456', ['260', '96', '712', '3456'] # Mobile
+      it_splits '260978123456', ['260', '97', '812', '3456'] # Mobile
       it_splits '260800123456', ['260', '800', '123', '456'] # Toll free
     end
     describe 'New Zealand' do
@@ -895,8 +899,8 @@ describe 'country descriptions' do
       it_splits '50622345678', %w(506 2 234 5678)
     end
     describe "Côte d'Ivoire" do
-      it_splits '22507335518', ['225', '07', '33', '55', '18']
-      it_splits '22537335518', ['225', '37', '33', '55', '18']
+      it_splits '2250107335518', ['225', '01', '07', '33', '55', '18']
+      it_splits '2250237335518', ['225', '02', '37', '33', '55', '18']
     end
     describe 'Democratic Republic of Timor-Leste' do
       it_splits '6701742945', ['670', false, '174', '2945']
@@ -959,6 +963,7 @@ describe 'country descriptions' do
     end
     describe 'Gabonese Republic' do
       it_splits '2411834375', ['241', '1', '834', '375']
+      it_splits '24174012345', ['241', '74', '01', '23', '45']
     end
     describe 'Gambia' do
       it_splits '2206683355', ['220', false, '668', '3355']
@@ -1164,6 +1169,17 @@ describe 'country descriptions' do
       it_splits '2349087661234', %w(234 908 766 1234)
       it_splits '2349097661234', %w(234 909 766 1234)
 
+      it_splits '2349107661234', %w(234 910 766 1234)
+      it_splits '2349117661234', %w(234 911 766 1234)
+      it_splits '2349127661234', %w(234 912 766 1234)
+      it_splits '2349137661234', %w(234 913 766 1234)
+      it_splits '2349147661234', %w(234 914 766 1234)
+      it_splits '2349157661234', %w(234 915 766 1234)
+      it_splits '2349167661234', %w(234 916 766 1234)
+      it_splits '2349177661234', %w(234 917 766 1234)
+      it_splits '2349187661234', %w(234 918 766 1234)
+      it_splits '2349197661234', %w(234 919 766 1234)
+
       it_splits '2348107661234', %w(234 810 766 1234)
       it_splits '2348117661234', %w(234 811 766 1234)
       it_splits '2348127661234', %w(234 812 766 1234)
@@ -1303,6 +1319,7 @@ describe 'country descriptions' do
       it_splits '88633123456', %w(886 3 312 3456)
       it_splits '88637123456', %w(886 37 12 3456)
       it_splits '88682712345', %w(886 82 71 2345)
+      it_splits '886801123123', %w(886 801 123 123)
       it_splits '88689712345', %w(886 89 71 2345)
       it_splits '88682672345', %w(886 826 7 2345)
       it_splits '88683672345', %w(886 836 7 2345)
@@ -1412,6 +1429,14 @@ describe 'country descriptions' do
         number = "263#{prefix}2345678"
         it_splits  number, ['263', prefix, '234', '5678']
       end
+    end
+
+    describe 'Universal International Freephone' do
+      it_splits '80012345678', ['800', false, '12345678']
+    end
+
+    describe 'Shared-Cost Service' do
+      it_splits '80812345678', ['808', false, '12345678']
     end
   end
 

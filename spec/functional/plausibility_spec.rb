@@ -192,7 +192,7 @@ describe 'plausibility' do
           Phony.plausible?('+385 60 12 345').should be_truthy   # Premium rate
           Phony.plausible?('+385 62 123 456').should be_truthy  # Premium, personal and UAN
       end
-      it_is_correct_for "Côte d'Ivoire", :samples => '+225  9358 8764'
+      it_is_correct_for "Côte d'Ivoire", :samples => '+225 01 9358 8764'
       it_is_correct_for 'Democratic Republic of Timor-Leste', :samples => ['+670 465 7886', '+670 7465 7886']
       it_is_correct_for 'Democratic Republic of the Congo', :samples => '+243 80 864 9794'
       it_is_correct_for 'Diego Garcia', :samples => '+246  123 7686'
@@ -249,7 +249,14 @@ describe 'plausibility' do
       end
       it_is_correct_for 'French Guiana (French Department of)', :samples => '+594 594 123 456'
       it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", :samples => '+689 87 27 84 00'
-      it_is_correct_for 'Gabonese Republic', :samples => '+241 1 627 739'
+      it 'is correct for Gabon' do
+        Phony.plausible?('+241 1 627 739').should be_truthy
+        Phony.plausible?('+241 12 34 56 78').should be_truthy
+      end
+      # it_is_correct_for 'Gabonese Republic', :samples => [
+      #   '+241 1 627 739',
+      #   '+241 12 34 56 78',
+      # ]
       it_is_correct_for 'Gambia', :samples => '+220  989 5148'
       it_is_correct_for 'Germany', :samples => [
         '+49 69 155 1',
@@ -401,6 +408,12 @@ describe 'plausibility' do
                                                              '+507 6 123 4567',
                                                              '+507 2 123 456']
       it_is_correct_for 'Reunion / Mayotte (new)', :samples => '+262 295 276 964'
+      it_is_correct_for 'Rwanda', :samples => ['+250 72 1234567',
+                                               '+250 73 1234567',
+                                               '+250 78 1234567',
+                                               '+250 79 1234567',
+                                               '+250 25 1234567',
+                                               '+250 06 123456']
       it_is_correct_for 'Saint Helena', :samples => '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', :samples => '+508  474 714'
       it_is_correct_for 'Salvador (El)', :samples => [
@@ -429,8 +442,10 @@ describe 'plausibility' do
                                                ['+381 11 123 456', '+381 11 123 4567'],
                                                '+381 72 123 456',
                                                '+381 60 123',
-                                               '+381 60 123 4567',
+                                               ['+381 60 123 4567', '+381 69 123 456'],
                                                '+381 42 123 456',
+                                               '+381 677 123 456',
+                                               '+381 678 123 456',
                                                '+381 9 123 4567',
                                                '+381 60 123',
                                                '+381 60 123 456 7890',
@@ -562,9 +577,12 @@ describe 'plausibility' do
                                               '+967 58 1234']
       it 'is correct for Zambia' do
         Phony.plausible?('+260 211 123456').should be_truthy  # Fixed
-        Phony.plausible?('+260 955 123456').should be_truthy  # Mobile
-        Phony.plausible?('+260 967 123456').should be_truthy  # Mobile
-        Phony.plausible?('+260 978 123456').should be_truthy  # Mobile
+        Phony.plausible?('+260 96 512 4567').should be_truthy # MTN Mobile
+        Phony.plausible?('+260 97 712 3456').should be_truthy # Airtel Mobile
+        Phony.plausible?('+260 95 512 4567').should be_truthy # Zamtel Mobile
+        Phony.plausible?('+260 96 512 456').should be_falsy   # MTN Mobile (Too short)
+        Phony.plausible?('+260 97 812 345').should be_falsy   # Airtel Mobile (Too short)
+        Phony.plausible?('+260 95 512 345').should be_falsy   # Zamtel Mobile (Too short)
         Phony.plausible?('+260 800 123 456').should be_truthy # Toll free
       end
       it_is_correct_for 'Zimbabwe', :samples => [['+263 2582 123 456', '+263 2582 123'],

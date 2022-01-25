@@ -97,6 +97,9 @@ module Phony
       end
     end
     def format_cc_ndc trunk, ndc, local, type, space, parentheses, use_trunk
+      # Note: We mark NDCs that are of type "none" with false (nil trips plausible?). This would result in false being printed.
+      #       Therefore we set NDC to nil when formatting.
+      ndc = nil if ndc == false
       case type
       when String
         trunk &&= trunk.format(space, use_trunk)
@@ -125,6 +128,7 @@ module Phony
       end
     end
     def format_ndc ndc, parentheses
+      ndc = nil if ndc == false # TODO
       parentheses ? "(#{ndc})" : ndc
     end
     def format_with_ndc format, cc, ndc, local, space
@@ -156,10 +160,12 @@ module Phony
     #
     # In some cases it doesn't, like Italy.
     #
-    def normalize national_number
+    # Note: Options such as CC
+    #
+    def normalize national_number, options = {}
       clean! national_number
       normalized = @codes.reduce national_number do |number, code|
-        result = code.normalize number
+        result = code.normalize number, options
         break result if result
         number
       end

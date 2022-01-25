@@ -154,6 +154,7 @@ Phony.define do
   #
   country '41',
           trunk('0', normalize: true) |
+          match(/^(860)\d+$/) >> split(2, 3, 2, 2) | # Voice Mail access
           match(/^(8(?:00|4[0248]))\d+$/) >> split(3,3) |  # Freecall/Shared Cost
           match(/^(90[016])\d+$/)       >> split(3,3) |  # Business
           fixed(2)                      >> split(3,2,2)
@@ -352,13 +353,13 @@ Phony.define do
 
   # Côte d'Ivoire
   # http://www.wtng.info/wtng-225-ci.html
-  # http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310001PDFE.pdf
+  # https://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000310006PDFE.pdf
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Ivory_Coast
   #
   # There is no trunk code for this country and several of the mobile prefixes start with 0
   country '225',
     trunk('', :normalize => false) |
-    fixed(2) >> split(2,2,2)
+    fixed(2) >> split(2,2,2,2)
 
   country '226', none >> split(4,4) # Burkina Faso http://www.wtng.info/wtng-226-bf.html
   country '227', none >> split(4,4) # Niger http://www.wtng.info/wtng-227-ne.html
@@ -397,6 +398,7 @@ Phony.define do
   country '234',
     match(/^([7-9]0\d)\d+$/)            >> split(3,4)    | # Mobile
     match(/^(81\d)\d+$/)                >> split(3,4)    | # Mobile
+    match(/^(91\d)\d+$/)                >> split(3,4)    | # Mobile
     one_of('1', '2')                    >> split(3,3..4) | # Lagos, Ibadan
     one_of('9')                         >> split(3,4)    | # Abuja
     one_of((30..79).map(&:to_s))        >> split(3,2..3) | # 2-digit NDC
@@ -409,7 +411,9 @@ Phony.define do
   country '239', fixed(1) >> split(3,3) # Sao Tome and Principe, http://www.wtng.info/wtng-239-st.html
 
   country '240', none >> split(3,3,3) # Equatorial Guinea
-  country '241', fixed(1) >> split(3,3) # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
+  country '241',
+    match(/^(\d)\d{6}$/) >> split(3,3) |  # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
+    match(/^(\d\d)\d{6}$/) >> split(2,2,2)    # 2019 update https://en.wikipedia.org/wiki/Telephone_numbers_in_Gabon
   country '242', # Congo http://www.wtng.info/wtng-242-cg.html
     trunk('', :normalize => false) |
     none >> split(4,5)
@@ -429,9 +433,9 @@ Phony.define do
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Rwanda
   country '250',
     trunk('0') |
-    one_of('25')       >> split(7) | # Geographic, fixed
-    match(/^(7[238])/) >> split(7) | # Non-geographic, mobile
-    one_of('06')       >> split(6)   # Satellite
+    one_of('25')        >> split(7) | # Geographic, fixed
+    match(/^(7[2389])/) >> split(7) | # Non-geographic, mobile
+    one_of('06')        >> split(6)   # Satellite
 
   country '251', fixed(2) >> split(3, 4) # Ethiopia http://www.wtng.info/wtng-251-et.html
 
@@ -482,10 +486,12 @@ Phony.define do
   # Zambia
   # http://www.wtng.info/wtng-260-zm.html
   # https://github.com/googlei18n/libphonenumber/
+  # https://en.wikipedia.org/wiki/Telephone_numbers_in_Zambia
   country '260',
-    match(/^(9(5[034589]|[67]\d))/) >> split(6)   | # Mobile
-    match(/^(800)/)                 >> split(3,3) | # Toll free
-    match(/^(21[1-8])/)             >> split(6)     # Fixed
+    trunk('0') |
+    match(/^(76|77|95|96|97)/) >> split(3, 4) | # Mobile
+    match(/^(800)/)          >> split(3,3) | # Toll free
+    match(/^(21[1-8])/)      >> split(6)     # Fixed
 
   # Madagascar 
   # https://en.wikipedia.org/wiki/Telephone_numbers_in_Madagascar
@@ -991,7 +997,10 @@ Phony.define do
   country '698', todo # -
   country '699', todo # -
 
-  country '800', todo # International Freephone Service
+  # International Freephone Service
+  # https://www.itu.int/en/ITU-T/inr/unum/Pages/uifn.aspx
+  country '800', none >> split(8)
+
   country '801', todo # -
   country '802', todo # -
   country '803', todo # -
@@ -999,7 +1008,7 @@ Phony.define do
   country '805', todo # -
   country '806', todo # -
   country '807', todo # -
-  country '808', todo # International Shared Cost Service (ISCS)
+  country '808', none >> split(12) # International Shared Cost Service (ISCS)
   country '809', todo # -
 
   country '830', todo # -

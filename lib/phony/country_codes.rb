@@ -66,7 +66,7 @@ module Phony
         country, cc, number = partial_split number
         country
       end
-      number = country.normalize number
+      number = country.normalize number, cc: cc
       countrify! number, cc
     end
 
@@ -97,7 +97,7 @@ module Phony
 
       # False if it fails the basic check.
       #
-      return false unless (4..16) === normalized.size
+      return false unless (4..16) === normalized.size # unless hints[:check_length] == false
 
       country, cc, rest = partial_split normalized
 

@@ -11,6 +11,7 @@ Phony.define do
     match(/\A(836)\d{5}\z/) >> split(1,4) | # 馬祖, start with 0836, plus 5 digits
     match(/\A(82)\d{6}\z/)  >> split(2,4) | # 金門, start with 082, plus 6 digits
     match(/\A(89)\d{6}\z/)  >> split(2,4) | # 臺東, start with 089, plus 6 digits
+    match(/\A(80\d)\d{6}\z/)>> split(3,4) | # Toll-free number
     match(/\A(8)\d{7}\z/)   >> split(3,4) | # 屏東, start with 08, plus 7 digits
     match(/\A(49)\d{7}\z/)  >> split(3,4) | # 南投, start with 049, plus 7 digits
     one_of(%w(4)) >> matched_split(

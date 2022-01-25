@@ -6,9 +6,9 @@ module Phony
     #  * code: The trunk code, e.g. 0.
     #
     # Options:
-    #  * normalize: Remove the trunk code when normalizing (only use if number scheme is defined unambiguously).
-    #  * split: Remove the trunk code when splitting (only use if number scheme is defined unambiguously).
-    #  * format: Add the trunk code when formatting (passing `false` will not add it).
+    #  * normalize: [true (default), false] Remove the trunk code when normalizing (only use if number scheme is defined unambiguously).
+    #  * split: [true, false (default)] Remove the trunk code when splitting (only use if number scheme is defined unambiguously).
+    #  * format: [true (default), false] Add the trunk code when formatting (passing `false` will not add it).
     #
     def initialize code, options = {}
       @code = code
@@ -35,8 +35,8 @@ module Phony
     
     # Normalize normalizes the given national number.
     #
-    def normalize national_number
-      national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @normalize
+    def normalize national_number, options = {}
+      national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @normalize && options[:cc]
       return national_number
     end
     

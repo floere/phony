@@ -1,3 +1,69 @@
+h2. Version 2.19.7
+
+* Zambia (#491)
+
+h2. Version 2.19.6
+
+* Add plausible? check_length: false option for testing.
+
+h2. Version 2.19.5
+
+* International Freephone Service (#489)
+* Shared-Cost Service
+
+h2. Version 2.19.4
+
+* Switzerland voice mail and Taiwan tollfree (#488)
+
+h2. Version 2.19.3
+
+* Fix for NDC false issue (#487)
+
+h2. Version 2.19.2
+
+* Zambia (#486)
+
+h2. Version 2.19.1
+
+* Japan (#485)
+
+h2. Version 2.19.0
+
+* Trunk codes will by default only be removed when working with international numbers.
+
+h2. Version 2.18.23
+
+* Japan (revert #453, see #457)
+
+h2. Version 2.18.22
+
+* Rwanda (#483)
+
+h2. Version 2.18.21
+
+* Serbia (#482)
+
+h2. Version 2.18.20
+
+* Serbia (#480)
+
+h2. Version 2.18.19
+
+* Côté d'Ivoire (#478)
+
+h2. Version 2.18.18
+
+* Nigeria (#475)
+
+h2. Version 2.18.17
+
+* Vietnam (#474)
+
+h2. Version 2.18.16
+
+* Gabon (#470)
+* Ireland (#471)
+
 h2. Version 2.18.15
 
 * Cambodia (#469)
