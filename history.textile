@@ -1,3 +1,7 @@
+h2. Version 2.19.8
+
+* Madagascar (#493)
+
 h2. Version 2.19.7
 
 * Zambia (#491)
