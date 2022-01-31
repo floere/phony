@@ -110,6 +110,7 @@ describe 'country descriptions' do
       it_splits '32466123456', ['32', '466', '12', '34', '56'] # mobile (Vectone)
       it_splits '32467123456', ['32', '467', '12', '34', '56'] # mobile (Telenet)
       it_splits '32468123456', ['32', '468', '12', '34', '56'] # mobile (Telenet)
+      it_splits '32469123456', ['32', '469', '12', '34', '56'] # mobile ()
       it_splits '32475123456', ['32', '475', '12', '34', '56'] # mobile (Proximus)
       it_splits '32485123456', ['32', '485', '12', '34', '56'] # mobile (Telenet)
       it_splits '32495123456', ['32', '495', '12', '34', '56'] # mobile (Orange)

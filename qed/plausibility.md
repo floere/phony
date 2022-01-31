@@ -188,6 +188,7 @@ NDC with several subscriber number length.
     Phony.assert.plausible?('+32 466 12 34 56')
     Phony.assert.plausible?('+32 467 12 34 56')
     Phony.assert.plausible?('+32 468 12 34 56')
+    Phony.assert.plausible?('+32 469 12 34 56')
     Phony.assert.plausible?('+32 470 12 34 56')
     Phony.assert.plausible?('+32 479 12 34 56')
     Phony.assert.plausible?('+32 480 12 34 56')

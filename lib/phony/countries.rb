@@ -96,15 +96,16 @@ Phony.define do
   # Belgium.
   #
   # http://en.wikipedia.org/wiki/Telephone_numbers_in_Belgium
+  # https://www.bipt.be/operators/publication/national-numbering-plan
   #
   country '32', trunk('0') |
-                match(/^(7[08])\d+$/)       >> split(3,3)   | # Premium and national rate Services
-                match(/^(800|90\d)\d+$/)    >> split(2,3)   | # Toll free service and premium numbers
-                match(/^(46[05678])\d{6}$/) >> split(2,2,2) | # Mobile (Lycamobile, Telenet, Join Experience, Proximus 0460)
-                match(/^(4[789]\d)\d{6}$/)  >> split(2,2,2) | # Mobile
-                match(/^(45[56])\d{6}$/)    >> split(2,2,2) | # Mobile Vikings and Voo
-                one_of('2','3','4','9')     >> split(3,2,2) | # Short NDCs
-                fixed(2)                    >> split(2,2,2)   # 2-digit NDCs
+                match(/^(7[08])\d+$/)        >> split(3,3)   | # Premium and national rate Services
+                match(/^(800|90\d)\d+$/)     >> split(2,3)   | # Toll free service and premium numbers
+                match(/^(46[056789])\d{6}$/) >> split(2,2,2) | # Mobile (Lycamobile, Telenet, Join Experience, Proximus 0460)
+                match(/^(4[789]\d)\d{6}$/)   >> split(2,2,2) | # Mobile
+                match(/^(45[56])\d{6}$/)     >> split(2,2,2) | # Mobile Vikings and Voo
+                one_of('2','3','4','9')      >> split(3,2,2) | # Short NDCs
+                fixed(2)                     >> split(2,2,2)   # 2-digit NDCs
 
   # France.
   #
