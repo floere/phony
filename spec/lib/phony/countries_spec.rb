@@ -1052,6 +1052,8 @@ describe 'country descriptions' do
       it_splits '21822123456', %w(218 22 123 456)
       it_splits '218211234456', %w(218 21 1234 456)
       it_splits '218911234456', %w(218 91 1234 456)
+      it_splits '218941234456', %w(218 94 1234 456)
+      it_splits '218951234456', %w(218 95 1234 456)
     end
     describe 'Madagascar' do
       it_splits '261202254716', ['261', '20', *%w(22 547 16)]
