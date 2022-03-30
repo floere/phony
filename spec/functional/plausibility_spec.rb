@@ -280,6 +280,7 @@ describe 'plausibility' do
       it_is_correct_for 'Guinea-Bissau', :samples => '+245 44 728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
+      it_is_correct_for 'Italy', :samples => ['+39 0574 1234']
       it_is_correct_for 'Iraq', :samples => ['+964 1 123 4567',
                                              '+964 21 113 456',
                                              '+964 71 1234 5678']
@@ -516,7 +517,10 @@ describe 'plausibility' do
       it_is_correct_for 'Lybia', :samples => ['+218 205 123 45',
                                               '+218 22 123 456',
                                               '+218 21 1234 456',
-                                              '+218 91 1234 456']
+                                              '+218 91 1234 456',
+                                              '+218 92 1234 456',
+                                              '+218 94 1234 456',
+                                              '+218 95 1234 456']
       it_is_correct_for 'Mongolia', :samples => ['+976 11 123 45',
                                                  ['+976 121 12 34', '+976 121 12 345'],
                                                  '+976 70 123 456',
