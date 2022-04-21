@@ -977,7 +977,7 @@ Phony.define do
               /\A800\d+\z/ => [3,3], # freephone
               /\A830\d+\z/ => [3,3], # shared cost
               /\A60\d+\z/ => [3,3], # wireless geographic
-              /\A(72|75|76|77)\d+\z/ => [3,4], # mobile
+              /\A(71|72|75|76|77)\d+\z/ => [3,4], # mobile
               /\A84\d+\z/ => [3,4], # wireless geographic
               /\A\d+\z/ => [2,3] # geographic
           )

@@ -1235,6 +1235,7 @@ describe 'country descriptions' do
     describe 'Samoa (Independent State of)' do
       it_splits '685800123', ['685', false, '800', '123']
       it_splits '68561123', ['685', false, '61', '123']
+      it_splits '6857112345', ['685', false, '711', '2345']
       it_splits '6857212345', ['685', false, '721', '2345']
       it_splits '685830123', ['685', false, '830', '123']
       it_splits '685601234', ['685', false, '601', '234']

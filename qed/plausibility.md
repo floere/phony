@@ -899,6 +899,16 @@ With regexp constraints.
     Phony.refute.plausible?('+7 800 2000 60') # too short
     Phony.refute.plausible?('796030123451') # too long
 
+#### Samoa (Independent State of)
+
+    Phony.assert.plausible?('+685 800 123')
+    Phony.assert.plausible?('+685 61 123')
+    Phony.assert.plausible?('+685 711 2345')
+    Phony.assert.plausible?('+685 721 2345')
+    Phony.assert.plausible?('+685 830 123')
+    Phony.assert.plausible?('+685 601 234')
+    Phony.assert.plausible?('+685 841 2345')
+
 #### Slovenia
 
     Phony.assert.plausible?('+386 41 123 456')
