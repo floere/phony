@@ -892,6 +892,16 @@ With regexp constraints.
       '+40 249 123 123'
     ]
 
+#### Samoa (Independent State of)
+
+    Phony.assert.plausible?('+685 800 123')
+    Phony.assert.plausible?('+685 61 123')
+    Phony.assert.plausible?('+685 711 2345')
+    Phony.assert.plausible?('+685 721 2345')
+    Phony.assert.plausible?('+685 830 123')
+    Phony.assert.plausible?('+685 601 234')
+    Phony.assert.plausible?('+685 841 2345')
+
 #### Russia
 
     Phony.assert.plausible?('+7 800 2000 600')
