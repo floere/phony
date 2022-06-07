@@ -272,7 +272,12 @@ Phony.define do
   country '39', trunk('', normalize: false) |
                 one_of(*service)     >> split(3,3) |
                 one_of(*mobile)      >> split(3,4,-1..1) |
-                one_of(*ndcs_2digit) >> split(4, 2..4) |
+                one_of(*ndcs_2digit) >> matched_split(
+                  /\A\d{5}\z/ => [5],
+                  /\A\d{6}\z/ => [4,2],
+                  /\A\d{7}\z/ => [4,3],
+                  /\A\d{8}\z/ => [4,4],
+                ) |
                 one_of(*ndcs_3digit) >> matched_split(
                   /^1\d{6}$/ => [7],
                   /^1\d{7}$/ => [8],

@@ -460,8 +460,9 @@ describe 'country descriptions' do
       it_splits '3934869528123',['39', '348', '695', '2812', '3']  # Mobile (8-digit subscriber no - new)
       it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
       it_splits '393248644272', ['39', '324', '864', '4272'] # Mobile
-      it_splits '3906123412',   ['39', '06', '1234', '12'] # Roma 6 digit
-      it_splits '39061234123',  ['39', '06', '1234', '123'] # Roma 7 digit
+      it_splits '390612341',    ['39', '06', '12341']        # Roma 5 digit
+      it_splits '3906123412',   ['39', '06', '1234', '12']   # Roma 6 digit
+      it_splits '39061234123',  ['39', '06', '1234', '123']  # Roma 7 digit
       it_splits '390612341234', ['39', '06', '1234', '1234'] # Roma 8 digit
       it_splits '3902888388',   ['39', '02', '8883', '88'] # Milano 6 digit
       it_splits '39028883888',  ['39', '02', '8883', '888'] # Milano 7 digit
