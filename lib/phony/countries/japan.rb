@@ -414,6 +414,6 @@ Phony.define do
     one_of(ndcs_with_8_subscriber_numbers) >> split(4,4) |
     # TODO: 91(NDC) N(S)N length: 5-13 - Non-geographic number (Direct subscriber telephone service (legacy))
     fixed(2) >> split(4,4),
-    :local_space => :- ,
-    :space => :-
+    local_space: :-,
+    space: :-
 end
