@@ -179,6 +179,14 @@ describe 'plausibility' do
           Phony.plausible?('+359 998 123456').should be_truthy
           Phony.plausible?('+359 999 123456').should be_truthy
       end
+      it_is_correct_for 'Colombia', :samples => ['+57 601 411 1899',
+                                                 '+57 602 111 2222',
+                                                 '+57 603 111 2222',
+                                                 '+57 604 111 2222',
+                                                 '+57 605 111 2222',
+                                                 '+57 606 111 2222',
+                                                 '+57 607 111 2222',
+                                                 '+57 608 111 2222']
       it_is_correct_for 'Congo', :samples => '+242 1234 56789'
       it_is_correct_for 'Cook Islands', :samples => '+682  71928'
       it_is_correct_for 'Costa Rica', :samples => '+506 2 234 5678'

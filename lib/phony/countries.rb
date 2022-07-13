@@ -232,7 +232,7 @@ Phony.define do
   # http://www.itu.int/oth/T020200002C/en
   country '57',
     match(/\A(3\d\d)\d+\z/) >> split(3,4) | # mobile (300 310 311 312 313 315 316)
-    fixed(1) >> split(3,4)
+    match(/\A(60\d)\d+\z/) >> split(3,4)
 
   # Venezuela (Bolivarian Republic of)
   #
