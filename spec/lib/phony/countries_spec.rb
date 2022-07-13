@@ -240,7 +240,7 @@ describe 'country descriptions' do
       end
     end
     describe 'Colombia' do
-      it_splits '5711234567', ['57', '1', '123', '4567']
+      it_splits '5711234567', ['57', '1', '123', '4567'] # Outdated.
       it_splits '573101234567', ['57', '310', '123', '4567'] # mobile
     end
     describe 'Croatia' do
