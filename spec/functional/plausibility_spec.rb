@@ -288,8 +288,6 @@ describe 'plausibility' do
       it_is_correct_for 'Guinea-Bissau', :samples => '+245 44 728 6998'
       it_is_correct_for 'Guyana', :samples => '+592 263 1234'
       it_is_correct_for 'Honduras (Republic of)', :samples => '+504 12 961 637'
-      it_is_correct_for 'Italy', :samples => ['+39 0574 1234',
-                                              '+39 06 49911']
       it_is_correct_for 'Iraq', :samples => ['+964 1 123 4567',
                                              '+964 21 113 456',
                                              '+964 71 1234 5678']
@@ -609,6 +607,20 @@ describe 'plausibility' do
         Phony.plausible?('+62 22 000 0000').should be_truthy
         Phony.plausible?('+62 22 0000 0000').should be_truthy
         Phony.plausible?('+62 22 000 000 000').should be_truthy
+      end
+      
+      it 'is correct for Italy' do
+        Phony.plausible?('+39 0574 123').should be_falsy
+        Phony.plausible?('+39 0574 1234').should be_truthy
+        Phony.plausible?('+39 0574 12345').should be_falsy
+        
+        Phony.plausible?('+39 085 541').should be_falsy
+        Phony.plausible?('+39 085 5410').should be_truthy
+        Phony.plausible?('+39 085 54105').should be_truthy
+        
+        Phony.plausible?('+39 06 4991').should be_falsy
+        Phony.plausible?('+39 06 49911').should be_truthy
+        Phony.plausible?('+39 06 499112').should be_truthy
       end
 
       it 'is correct for Russia' do

@@ -613,8 +613,10 @@ Mobile.
     Phony.assert.plausible?('+39 06 1234 45')
     Phony.assert.plausible?('+39 06 1234 456')
     Phony.assert.plausible?('+39 06 1234 4567')
-
-    Phony.refute.plausible?('+39 035 00000')
+    
+    Phony.refute.plausible?('+39 035 000') # 5 NSN length is too short.
+    Phony.assert.plausible?('+39 035 0000')
+    Phony.assert.plausible?('+39 035 00000') # See https://github.com/floere/phony/issues/502.
     Phony.assert.plausible?('+39 035 000000')
     Phony.assert.plausible?('+39 015 8407324')
 
