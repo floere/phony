@@ -3,14 +3,14 @@
 # Italian phone numbers.
 #
 # http://en.wikipedia.org/wiki/Telephone_numbers_in_Italy
-#
+# https://www.itu.int/dms_pub/itu-t/oth/02/02/T020200006B0001PDFE.pdf
 
-ndcs_2digit = [
+ndcs_1digit = [
   '02', # Milan
   '06', # Rome (including State of Vatican City) and Aprilia
 ]
 
-ndcs_3digit = [
+ndcs_2digit = [
  '010', # Genoa
  '011', # Turin
  '015', # Biella
@@ -42,7 +42,7 @@ ndcs_3digit = [
  '099', # Taranto
 ]
 
-ndcs_4digit = [
+ndcs_3digit = [
   '0121', # Pinerolo
   '0122', # Sestrieres, Bardonecchia and other Susa Valley mountain resorts
   '0123', # Lanzo Torinese
@@ -269,26 +269,28 @@ service = [ # Not exhaustive.
 ]
 
 Phony.define do
+  # Note: The 0 does not count towards NDC number length.
   country '39', trunk('', normalize: false) |
                 one_of(*service)     >> split(3,3) |
                 one_of(*mobile)      >> split(3,4,-1..1) |
-                one_of(*ndcs_2digit) >> matched_split(
+                one_of(*ndcs_1digit) >> matched_split(
                   /\A\d{5}\z/ => [5],
                   /\A\d{6}\z/ => [4,2],
                   /\A\d{7}\z/ => [4,3],
                   /\A\d{8}\z/ => [4,4],
                 ) |
-                one_of(*ndcs_3digit) >> matched_split(
-                  /^1\d{6}$/ => [7],
-                  /^1\d{7}$/ => [8],
-                  /^[^1]\d{5}$/ => [6],
-                  /^[^1]\d{6}$/ => [7]
+                one_of(*ndcs_2digit) >> matched_split(
+                  /\A\d{4}\z/ => [4],
+                  /\A\d{5}\z/ => [5],
+                  /\A\d{6}\z/ => [6],
+                  /\A\d{7}\z/ => [7],
+                  /\A\d{8}\z/ => [8]
                 ) |
-                one_of(*ndcs_4digit) >> matched_split(
-                /\A\d{4}\z/ => [4],
-                /^1\d{5}$/ => [6],
-                /^1\d{6}$/ => [7],
-                /^[^1]\d{4}$/ => [5],
-                /^[^1]\d{5}$/ => [3,3]
+                one_of(*ndcs_3digit) >> matched_split(
+                  /\A\d{4}\z/ => [4],
+                  /\A1\d{5}\z/ => [6],
+                  /\A1\d{6}\z/ => [7],
+                  /\A[^1]\d{4}\z/ => [5],
+                  /\A[^1]\d{5}\z/ => [3,3]
                 )
 end
