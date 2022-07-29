@@ -100,6 +100,17 @@ module Phony
       return false unless (4..16) === normalized.size # unless hints[:check_length] == false
 
       country, cc, rest = partial_split normalized
+      
+      # Was a country calling code given?
+      #
+      if ccc = hints[:ccc]
+        cc, ndc, *local = split ccc
+        
+        raise ArgumentError.new("The provided ccc option is too long and includes more than a cc ('#{cc}') and ndc ('#{ndc}'). It also includes '#{local.join}'.") unless local.size == 1 && local[0].empty?
+        
+        hints[:cc] = cc
+        hints[:ndc] = ndc
+      end
 
       # Country code plausible?
       #
@@ -109,6 +120,8 @@ module Phony
       # Country specific tests.
       #
       country.plausible? rest, hints
+    rescue ArgumentError
+      raise
     rescue StandardError
       return false
     end

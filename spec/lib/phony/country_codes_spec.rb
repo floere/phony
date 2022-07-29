@@ -4,6 +4,27 @@ describe Phony::CountryCodes do
   
   let(:countries) { Phony::CountryCodes.instance }
   
+  describe '#plausible?' do
+    it 'raises an error on a too long ccc' do
+      expect do
+        countries.plausible?('+1 868 7620266', ccc: '1868123')
+      end.to raise_error(ArgumentError, %Q{The provided ccc option is too long and includes more than a cc ('1') and ndc ('868'). It also includes '123'.})
+    end
+  end
+  
+  describe 'ccc handling' do
+    it 'splits a ccc correctly' do
+      cc, ndc, *local = countries.split('1868')
+      cc.should eq('1')
+      ndc.should eq('868')
+    end
+    it 'splits a ccc correctly' do
+      cc, ndc, *local = countries.split('1868')
+      cc.should eq('1')
+      ndc.should eq('868')
+    end
+  end
+  
   describe '#[]' do
     it 'returns a country' do
       countries['41'].class.should eql Phony::Country

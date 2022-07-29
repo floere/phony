@@ -1,3 +1,7 @@
+h2. Version 2.20.0
+
+* ccc option for plausible? (#479)
+
 h2. Version 2.19.15
 
 * Italy

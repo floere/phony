@@ -24,6 +24,12 @@
     Phony.refute.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/)
     Phony.assert.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/)
 
+#### ccc (country calling code)
+
+    Phony.assert.plausible?('+1 868 7620266', ccc: '1868')
+    Phony.refute.plausible?('+1 868 7620266', ccc: '1869')
+    Phony.refute.plausible?('+1 869 7620266', ccc: '1868')
+
 ### Example countries
 
 Some of the examples use `plausible? true: [some numbers]`.
