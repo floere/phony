@@ -7,24 +7,35 @@
 
 #### cc
 
+The number is not considered plausible if it does not contain given `cc`.
+
     Phony.assert.plausible?('+41 44 111 22 33', cc: '41')
     Phony.refute.plausible?('+41 44 111 22 33', cc: '1')
 
 #### ndc
+
+The number is not considered plausible if it does not contain given `ndc`.
 
     Phony.assert.plausible?('+41 44 111 22 33', ndc: '44')
     Phony.refute.plausible?('+41 44 111 22 33', ndc: '43')
 
 #### cc & ndc String
 
+The number is not considered plausible if it does not contain given `cc` and `ndc`.
+
     Phony.assert.plausible?('+41 44 111 22 33', cc: '41', ndc: '44')
 
 #### cc & ndc Regex
 
+The number is not considered plausible if it does not contain given `cc` and `ndc` regexes.
+Can be mixed and matched with the String versions, above.
+
     Phony.refute.plausible?('+41 44 111 22 33', cc: /4(0|2)/, ndc: /4(4|5)/)
     Phony.assert.plausible?('+41 44 111 22 33', cc: /4(0|1)/, ndc: /4(4|5)/)
 
-#### ccc (country calling code)
+#### ccc (country calling code), version 2.20+
+
+The number is not considered plausible if it does not contain given `ccc`.
 
     Phony.assert.plausible?('+1 868 7620266', ccc: '1868')
     Phony.refute.plausible?('+1 868 7620266', ccc: '1869')
