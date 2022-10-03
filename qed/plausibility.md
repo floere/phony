@@ -970,11 +970,10 @@ With regexp constraints.
 
 #### Zambia
     Phony.assert.plausible?('+260 75 027 3500') # Zamtel Mobile 075
-    Phony.assert.plausible?('+260 75 027 3500') # Zamtel Mobile 075
     Phony.assert.plausible?('+260 94 027 3500') # Zamtel Mobile 094
     Phony.assert.plausible?('+260 95 027 3500') # Zamtel Mobile 095
     Phony.refute.plausible?('+260 95 027 350')  # Zamtel too short
-    Phony.refute.plausible?('+260 95 027 35000')  # Zamtel too long
+    Phony.refute.plausible?('+260 95 027 35000') # Zamtel too long
 
 #### Zimbabwe
 
