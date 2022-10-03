@@ -212,7 +212,7 @@ NDC with several subscriber number length.
     Phony.assert.plausible?('+32 489 12 34 56')
     Phony.assert.plausible?('+32 490 12 34 56')
     Phony.assert.plausible?('+32 499 12 34 56')
-    
+
     # Edge cases with too long/short numbers (check_length option).
     Phony.refute.plausible?('+s32 470 12 34 56 79')
     Phony.assert.plausible?('+32 470 12 34 56 79', check_length: false)
@@ -530,7 +530,7 @@ Mobile.
     Phony.assert.plausible?('+49 6421 123456789')
     Phony.assert.plausible?('+49 209 1234567890')
     Phony.assert.plausible?('+49 40 12345678901')
-    
+
     # Edge cases with too short numbers (check_length option).
     Phony.refute.plausible?('49214301')
     Phony.refute.plausible?('49251830')
@@ -552,7 +552,7 @@ Mobile.
       '+30 901 123 4565',
       '+30 909 123 4565'
     ]
-    
+
     # Testing check_length option.
     Phony.refute.plausible?('+30 690 123 127')
     Phony.assert.plausible?('+30 690 123 127', check_length: false)
@@ -630,7 +630,7 @@ Mobile.
     Phony.assert.plausible?('+39 06 1234 45')
     Phony.assert.plausible?('+39 06 1234 456')
     Phony.assert.plausible?('+39 06 1234 4567')
-    
+
     Phony.refute.plausible?('+39 035 000') # 5 NSN length is too short.
     Phony.assert.plausible?('+39 035 0000')
     Phony.assert.plausible?('+39 035 00000') # See https://github.com/floere/phony/issues/502.
@@ -967,6 +967,14 @@ With regexp constraints.
     Phony.assert.plausible?('+84 034 123456')
     Phony.refute.plausible?('+84 1 1234') # too short
     Phony.refute.plausible?('+84 12 3456 7891 0111213') # too long
+
+#### Zambia
+    Phony.assert.plausible?('+260 75 027 3500') # Zamtel Mobile 075
+    Phony.assert.plausible?('+260 75 027 3500') # Zamtel Mobile 075
+    Phony.assert.plausible?('+260 94 027 3500') # Zamtel Mobile 094
+    Phony.assert.plausible?('+260 95 027 3500') # Zamtel Mobile 095
+    Phony.refute.plausible?('+260 95 027 350')  # Zamtel too short
+    Phony.refute.plausible?('+260 95 027 35000')  # Zamtel too long
 
 #### Zimbabwe
 
