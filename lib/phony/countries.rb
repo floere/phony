@@ -489,13 +489,14 @@ Phony.define do
   # http://www.wtng.info/wtng-260-zm.html
   # https://github.com/googlei18n/libphonenumber/
   # https://en.wikipedia.org/wiki/Telephone_numbers_in_Zambia
+
   country '260',
     trunk('0') |
-    match(/^(76|77|95|96|97)/) >> split(3, 4) | # Mobile
+    match(/^(75|76|77|94|95|96|97)/) >> split(3, 4) | # Mobile
     match(/^(800)/)          >> split(3,3) | # Toll free
     match(/^(21[1-8])/)      >> split(6)     # Fixed
 
-  # Madagascar 
+  # Madagascar
   # https://en.wikipedia.org/wiki/Telephone_numbers_in_Madagascar
   # http://www.itu.int/oth/T020200007F/en
   country '261',
