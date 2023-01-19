@@ -621,6 +621,12 @@ describe 'plausibility' do
         Phony.plausible?('+39 06 4991').should be_falsy
         Phony.plausible?('+39 06 49911').should be_truthy
         Phony.plausible?('+39 06 499112').should be_truthy
+
+        Phony.plausible?('+39 800 081631').should be_truthy
+        Phony.plausible?('+39 800 0816311').should be_falsy
+
+        Phony.plausible?('+39 803 08163').should be_falsy
+        Phony.plausible?('+39 803 081').should be_truthy
       end
 
       it 'is correct for Russia' do

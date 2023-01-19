@@ -268,11 +268,18 @@ service = [ # Not exhaustive.
  '1530'
 ]
 
+free_of_charge_services = [ # Not exhaustive.
+  '800',
+  '803'
+]
+
 Phony.define do
   # Note: The 0 does not count towards NDC number length.
   country '39', trunk('', normalize: false) |
                 one_of(*service)     >> split(3,3) |
                 one_of(*mobile)      >> split(3,4,-1..1) |
+                match(/^(800)\d{6}$/) >> split(6) | # 3-6, Special handling for 800 numbers.
+                match(/^(803)\d{3}$/) >> split(3) | # 3-3, Special handling for 803 numbers.
                 one_of(*ndcs_1digit) >> matched_split(
                   /\A\d{5}\z/ => [5],
                   /\A\d{6}\z/ => [4,2],
