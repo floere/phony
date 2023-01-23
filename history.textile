@@ -1,3 +1,7 @@
+h2. Version 2.20.2
+
+* Italy (#505)
+
 h2. Version 2.20.1
 
 * Zambia (#503)
