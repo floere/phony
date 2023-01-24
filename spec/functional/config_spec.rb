@@ -18,27 +18,27 @@ describe 'Phony::Config' do
     it 'does not fail when loading all' do
       Phony::Config.load
       
-      Phony.split('15551115511').should == ['1', '555', '111', '5511']
+      expect(Phony.split('15551115511')).to eq ['1', '555', '111', '5511']
     end
     it 'raises when a CC is used that has not been loaded.' do
       Phony::Config.load('41')
       
-      expect { Phony.split('15551115511') }.to raise_error
+      expect { Phony.split('15551115511') }.to raise_error(Phony::SplittingError)
     end
     it 'raises when a CC is used that has not been loaded.' do
       Phony::Config.load(only: ['41'])
       
-      expect { Phony.split('15551115511') }.to raise_error
+      expect { Phony.split('15551115511') }.to raise_error(Phony::SplittingError)
     end
     it 'raises when a CC is used that has not been loaded.' do
       Phony::Config.load(except: ['1'])
       
-      expect { Phony.split('15551115511') }.to raise_error
+      expect { Phony.split('15551115511') }.to raise_error(Phony::SplittingError)
     end
     it 'does not raise when a CC is used that has been loaded.' do
       Phony::Config.load(except: ['41'])
       
-      Phony.split('15551115511').should == ['1', '555', '111', '5511']
+      expect(Phony.split('15551115511')).to eq ['1', '555', '111', '5511']
     end
   end
 end

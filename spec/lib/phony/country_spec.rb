@@ -12,12 +12,12 @@ describe Phony::Country do
     end
     describe '#clean' do
       it 'cleans the number' do
-        country.clean('+41-44-123-12-12').should eql '41441231212'
+        expect(country.clean('+41-44-123-12-12')).to eq '41441231212'
       end
     end
     describe '#vanity_to_number' do
       it 'turns the vanity number into a number' do
-        country.vanity_to_number('1-800-HELLO').should eql '1-800-43556'
+        expect(country.vanity_to_number('1-800-HELLO')).to eq '1-800-43556'
       end
     end
   end
@@ -32,27 +32,27 @@ describe Phony::Country do
         described_class.new national_code
       end
       it 'splits correctly' do
-        country.split('112').should == [nil, false, '112']
+        expect(country.split('112')).to eq [nil, false, '112']
       end
     end
     describe 'San Marino' do
       it 'normalizes correctly' do
-        Phony.normalize('+3780549903549').should == '3780549903549'
+        expect(Phony.normalize('+3780549903549')).to eq '3780549903549'
       end
       xit 'automatically adds the sole NC' do
-        Phony.normalize('+378903549').should == '3780549903549'
+        expect(Phony.normalize('+378903549')).to eq '3780549903549'
       end
     end
     describe 'Japan' do
       it 'normalizes correctly' do
-        Phony.normalize('+81-03-1234-5634').should == '81312345634'
-        Phony.normalize('03-1234-5634', cc: '81').should == '81312345634'
+        expect(Phony.normalize('+81-03-1234-5634')).to eq '81312345634'
+        expect(Phony.normalize('03-1234-5634', cc: '81')).to eq '81312345634'
       end
       it 'formats correctly' do
-        Phony.format('81312345634').should == '+81-3-1234-5634'
+        expect(Phony.format('81312345634')).to eq '+81-3-1234-5634'
       end
       it 'splits correctly' do
-        Phony.split('81312345634').should == %w(81 3 1234 5634)
+        expect(Phony.split('81312345634')).to eq %w(81 3 1234 5634)
       end
     end
   end
@@ -68,12 +68,12 @@ describe Phony::Country do
     
     describe "split" do
       it "should handle ZH" do
-        country.split('443643532').should == [nil, '44', '364', '35', '32']
+        expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
       end
     end
     describe 'normalize' do
       it "should handle ZH" do
-        country.normalize('0443643532').should == '443643532'
+        expect(country.normalize('0443643532')).to eq '443643532'
       end
     end
   end
@@ -93,10 +93,10 @@ describe Phony::Country do
     
     describe "split" do
       it "should handle ZH" do
-        country.split('443643532').should == [nil, '44', '364', '35', '32']
+        expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
       end
       it "should handle 800" do
-        country.split('800333666').should == [nil, '800', '333', '666']
+        expect(country.split('800333666')).to eq [nil, '800', '333', '666']
       end
     end
   end

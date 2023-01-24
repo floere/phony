@@ -25,11 +25,11 @@ describe 'plausibility' do
           incorrect = [shortest.sub(/\d\s*\z/, '')] # , longest + '0']
 
           correct.each do |value|
-            Phony.plausible?(value).should be_truthy,
+            expect(Phony.plausible?(value)).to be_truthy,
               "It should validate #{value}, but does not."
           end
           incorrect.each do |value|
-            Phony.plausible?(value).should be_falsey,
+            expect(Phony.plausible?(value)).to be_falsey,
               "It should not validate #{value}, but does."
           end
         end
@@ -38,7 +38,7 @@ describe 'plausibility' do
           invalid = [*sample]
 
           invalid.each do |value|
-            Phony.plausible?(value).should be_falsey,
+            expect(Phony.plausible?(value)).to be_falsey,
               "It should not validate #{value}, but does."
           end
         end

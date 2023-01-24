@@ -4,7 +4,7 @@ describe Phony::NationalSplitters::None do
   
   describe 'instance_for' do
     it 'caches' do
-      described_class.instance_for.should equal(described_class.instance_for)
+      expect(described_class.instance_for).to eq described_class.instance_for
     end
   end
   
@@ -13,13 +13,13 @@ describe Phony::NationalSplitters::None do
   
     describe 'split' do
       it 'splits correctly into ndc and rest' do
-        splitter.split('123456789').should == [nil, false, '123456789']
+        expect(splitter.split('123456789')).to eq [nil, false, '123456789']
       end
     end
     
     describe 'length' do
       it 'is always 0' do
-        splitter.length.should be_zero
+        expect(splitter.length).to be_zero
       end
     end
     

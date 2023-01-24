@@ -8,22 +8,22 @@ describe Phony::Vanity do
 
   describe '.replace' do
     it 'replaces letters with digits' do
-      vanity.replace('1-800-HELLO').should == '1-800-43556'
+      expect(vanity.replace('1-800-HELLO')).to eq '1-800-43556'
     end
   end
   
   describe '.vanity?' do
     it 'returns true on a vanity number' do
-      vanity.vanity?('800HELLOES').should == true
+      expect(vanity.vanity?('800HELLOES')).to eq true
     end
     it 'returns false on a non-vanity number' do
-      vanity.vanity?('8004355637').should == false
+      expect(vanity.vanity?('8004355637')).to eq false
     end
   end
   
   describe '.normalized' do
     it 'normalizes the vanity number' do
-      vanity.normalized('1-800-HELLO').should == '1800HELLO'
+      expect(vanity.normalized('1-800-HELLO')).to eq '1800HELLO'
     end
   end
 

@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'country descriptions' do
 
   def self.it_splits number, expected
-    it { Phony.split(number).should == expected }
+    it { expect(Phony.split(number)).to eq expected }
   end
 
   describe 'regression' do
