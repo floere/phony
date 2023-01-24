@@ -16,40 +16,37 @@ describe Phony::LocalSplitters::Regex do
   end
   
   describe 'split' do
-    before(:each) do
-      # Norway as example.
-      #
-      @splitter = described_class.instance_for(/^[489].*$/ => [3,2,3], :fallback => [2,2,2,2])
+    # Norway.
+    let(:splitter) { described_class.instance_for(/^[489].*$/ => [3,2,3], :fallback => [2,2,2,2]) }
+    it 'splits a number correctly' do
+      expect(splitter.split('21234567')).to eq ['21','23','45','67']
     end
     it 'splits a number correctly' do
-      expect(@splitter.split('21234567')).to eq ['21','23','45','67']
+      expect(splitter.split('31234567')).to eq ['31','23','45','67']
     end
     it 'splits a number correctly' do
-      expect(@splitter.split('31234567')).to eq ['31','23','45','67']
+      expect(splitter.split('41234567')).to eq ['412','34','567']
     end
     it 'splits a number correctly' do
-      expect(@splitter.split('41234567')).to eq ['412','34','567']
+      expect(splitter.split('51234567')).to eq ['51','23','45','67']
     end
     it 'splits a number correctly' do
-      expect(@splitter.split('51234567')).to eq ['51','23','45','67']
+      expect(splitter.split('61234567')).to eq ['61','23','45','67']
     end
     it 'splits a number correctly' do
-      expect(@splitter.split('61234567')).to eq ['61','23','45','67']
+      expect(splitter.split('71234567')).to eq ['71','23','45','67']
     end
     it 'splits a number correctly' do
-      expect(@splitter.split('71234567')).to eq ['71','23','45','67']
+      expect(splitter.split('81234567')).to eq ['812','34','567']
     end
     it 'splits a number correctly' do
-      expect(@splitter.split('81234567')).to eq ['812','34','567']
-    end
-    it 'splits a number correctly' do
-      expect(@splitter.split('91234567')).to eq ['912','34','567']
+      expect(splitter.split('91234567')).to eq ['912','34','567']
     end
     it 'splits it fast' do
-      performance_of { @splitter.split('21234567').should == ['21','23','45','67'] }.should < 0.00005
+      expect(performance_of { splitter.split('21234567') }).to be < 0.00005
     end
     it 'splits it fast' do
-      performance_of { @splitter.split('91234567').should == ['912','34','567'] }.should < 0.00004
+      expect(performance_of { splitter.split('91234567') }).to be < 0.00004
     end
   end
 
