@@ -872,6 +872,7 @@ describe 'country descriptions' do
     end
     describe 'Burkina Faso' do
       it_splits '22667839323', ['226', false, '67', '83', '93', '23']
+      it_splits '22601234567', ['226', false, '01', '23', '45', '67'] # 0 not removed.
     end
     describe 'Burundi' do
       it_splits '25712345678', ['257', false, '1234', '5678']
