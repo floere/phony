@@ -1,3 +1,7 @@
+h2. Version 2.20.3
+
+* Burkina Faso (#506)
+
 h2. Version 2.20.2
 
 * Italy (#505)
