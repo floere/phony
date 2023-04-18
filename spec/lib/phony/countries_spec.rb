@@ -871,7 +871,7 @@ describe 'country descriptions' do
       it_splits '6737932744', %w(673 7 932 744)
     end
     describe 'Burkina Faso' do
-      it_splits '22667839323', ['226', false, '6783', '9323']
+      it_splits '22667839323', ['226', false, '67', '83', '93', '23']
     end
     describe 'Burundi' do
       it_splits '25712345678', ['257', false, '1234', '5678']
