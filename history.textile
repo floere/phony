@@ -1,3 +1,7 @@
+h2. Version 2.20.4
+
+* Kiribati (#507)
+
 h2. Version 2.20.3
 
 * Burkina Faso (#506)
