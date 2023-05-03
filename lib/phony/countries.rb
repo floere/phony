@@ -992,7 +992,7 @@ Phony.define do
               /\A\d+\z/ => [2,3] # geographic
           )
 
-  country '686', none >> split(2,3) # Kiribati (Republic of) http://www.wtng.info/wtng-686-ki.html
+  country '686', none >> split(8) # Kiribati (Republic of) https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=KI
   country '687', none >> split(3,3) # New Caledonia (Territoire français d'outre-mer) http://www.wtng.info/wtng-687-nc.html
   country '688', none >> split(5) # Tuvalu http://www.wtng.info/wtng-688-tv.html
   country '689', none >> split(2,2,2,2) # French Polynesia (Territoire français d'outre-mer) http://www.wtng.info/wtng-689-pf.html
