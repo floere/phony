@@ -593,6 +593,10 @@ describe 'country descriptions' do
       it_splits '31222123456', ['31', '222', '123', '456']
       it_splits '3197012345678', ['31', '970', '1234', '5678'] # machine-to-machine
     end
+    describe 'Norfolk Island' do
+      it_splits '672321234', ['672', '3', '21', '234'] # fixed
+      it_splits '672351234', ['672', '3', '51', '234'] # mobile
+    end
     describe 'Norway' do
       it_splits '4721234567', ['47',false,'21','23','45','67']
       it_splits '4731234567', ['47',false,'31','23','45','67']
