@@ -925,8 +925,8 @@ Phony.define do
   # Norfolk Island
   country '672',
           fixed(1) >> split(2,3) |
-          match(/^(2\d\d\d\d).+$/) >> split(3) | # Fixed
-          match(/^(5\d\d\d\d).+$/) >> split(3) # Mobile
+          match(/^(2\d+)$/) >> split(3) | # Fixed
+          match(/^(5\d+)$/) >> split(3) # Mobile
 
   country '673', fixed(1) >> split(3, 3) # Brunei Darussalam http://www.wtng.info/wtng-673-bn.html
   country '674', none >> split(3, 4) # Nauru (Republic of) http://www.wtng.info/wtng-674-nr.html
