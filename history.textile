@@ -1,3 +1,7 @@
+h2. Version 2.20.6
+
+* Mauritius (#509)
+
 h2. Version 2.20.5
 
 * Norfolk Island (#508)
