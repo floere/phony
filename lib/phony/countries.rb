@@ -376,7 +376,16 @@ Phony.define do
   country '228', none >> split(4,4) # Togolese Republic http://www.wtng.info/wtng-228-tg.html
   country '229', none >> split(4,4) # Benin http://www.itu.int/oth/T0202000017/en
 
-  country '230', none >> split(4,4) # Mauritius http://www.wtng.info/wtng-230-mu.html
+  # Mauritius
+  # http://www.wtng.info/wtng-230-mu.html
+  # https://en.wikipedia.org/wiki/Telephone_numbers_in_Mauritius
+  #
+  # There is no trunk code for this country.
+  country '230',
+    none >> matched_split(
+      /^5\d{7}$/ => [1,3,4], # Mobile
+      /^[246]\d{6}$/ => [3,4], # Landline
+    )
 
   # Liberia
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LR

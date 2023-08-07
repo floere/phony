@@ -694,6 +694,15 @@ Mobile.
     Phony.refute.plausible?('+60 14 1234 12')     # too short
     Phony.refute.plausible?('+60 14 1234 12345')  # too long
 
+#### Mauritius
+
+    Phony.assert.plausible?('+230 5 123 4567') # mobile number
+    Phony.assert.plausible?('+230 260 0070') # landline
+    Phony.refute.plausible?('+230 2 123 4567') # too long for landline
+    Phony.refute.plausible?('+230 212 456') # too short for landline
+    Phony.refute.plausible?('+230 5 1234 5678') # too long for mobile
+    Phony.refute.plausible?('+230 5 123 567') # too short for mobile
+
 #### Mexico
 
     Phony.assert.plausible?('+52 1 55 1212 1212')
