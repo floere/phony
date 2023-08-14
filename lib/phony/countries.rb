@@ -1079,6 +1079,7 @@ Phony.define do
 
   # Lao People's Democratic Republic http://www.wtng.info/wtng-856-la.html, https://www.numberingplans.com
   country '856',
+          trunk('0') |
           one_of('30') >> split(3,4) | # geographic
           one_of('20') >> split(4,4) | # mobile
           fixed(2) >> split(3,3) # geographic

@@ -120,6 +120,11 @@ http://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     Phony.format('393333337647', :format => :national).assert == '333 333 7647'
     Phony.format('390108480161', :format => :national).assert == '010 8480161'
 
+#### Laos
+
+    Phony.format('8562092960311', :format => :international).assert == '+856 20 9296 0311'
+    Phony.format('8562092960311', :format => :national).assert == '020 9296 0311'
+
 #### Liechtenstein
 
     Phony.format('4233841148', :format => :international_relative).assert == '00423 384 11 48'
