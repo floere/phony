@@ -1,3 +1,7 @@
+h2. Version 2.20.7
+
+* Laos (#510)
+
 h2. Version 2.20.6
 
 * Mauritius (#509)
