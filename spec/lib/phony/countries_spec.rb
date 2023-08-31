@@ -147,9 +147,9 @@ describe 'country descriptions' do
     end
 
     describe 'Brazil' do
-      it_splits '551112341234', ['55', '11', '1234', '1234']
+      it_splits '551122341234', ['55', '11', '2234', '1234']
       it_splits '5511981231234', ['55', '11', '98123', '1234'] # São Paulo's 9 digits mobile
-      it_splits '552181231234', ['55', '21', '8123', '1234']
+      it_splits '5521981231234', ['55', '21', '98123', '1234']
       it_splits '5521981231234', ['55', '21', '98123', '1234'] # Rio de Janeiro's 9 digits mobile
       it_splits '551931311234', ['55', '19', '3131', '1234']
       it_splits '5531991311234', ['55', '31', '99131', '1234'] # Belo Horizonte's 9th digit
@@ -157,6 +157,7 @@ describe 'country descriptions' do
       it_splits '5579991311234', ['55', '79', '99131', '1234'] # Sergipe's 9th digit
       it_splits '5547991311234', ['55', '47', '99131', '1234'] # Santa Catarina's 9th digit
       it_splits '5541991311234', ['55', '41', '99131', '1234'] # Parana's 9th digit
+      it_splits '556734212121', ['55', '67', '3421', '2121']
 
       context 'mobile numbers' do
         %w{
