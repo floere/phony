@@ -149,7 +149,6 @@ describe 'country descriptions' do
     describe 'Brazil' do
       it_splits '551122341234', ['55', '11', '2234', '1234']
       it_splits '5511981231234', ['55', '11', '98123', '1234'] # São Paulo's 9 digits mobile
-      it_splits '5521981231234', ['55', '21', '98123', '1234']
       it_splits '5521981231234', ['55', '21', '98123', '1234'] # Rio de Janeiro's 9 digits mobile
       it_splits '551931311234', ['55', '19', '3131', '1234']
       it_splits '5531991311234', ['55', '31', '99131', '1234'] # Belo Horizonte's 9th digit
