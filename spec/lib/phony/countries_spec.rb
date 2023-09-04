@@ -443,6 +443,7 @@ describe 'country descriptions' do
       it_splits '972771231234', ['972', '77', '123', '1234']        # Cable Phone Services
       it_splits '9721700123123', ['972', '1', '700', '123', '123']  # Cable Phone Services
       it_splits '972511234567', ['972', '51', '123', '4567']        # Mobile (We4G)
+      it_splits '9720541234567', ['972', '054', '123', '4567']      # Mobile (Partner)
       it_splits '972791111111', ['972', '79', '111', '1111']        # Landline (Hallo, Cellact, Telzar)
     end
     describe 'Israel (970)' do
