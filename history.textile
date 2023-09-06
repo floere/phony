@@ -1,3 +1,7 @@
+h2. Version 2.20.8
+
+* Brazil (#512)
+
 h2. Version 2.20.7
 
 * Laos (#510)
