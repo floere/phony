@@ -51,6 +51,14 @@ describe 'plausibility' do
       it_is_correct_for 'Bosnia and Herzegovina', :samples => ['+387 66 666 666',
                                                                '+387 37 123 456',
                                                                '+387 33 222 111']
+      it 'is correct for Brasil' do
+        Phony.plausible?('+55 67 998280912').should be_truthy
+        Phony.plausible?('+55 67 98280912').should be_falsey
+        Phony.plausible?('+55 11 12345678').should be_falsey
+        Phony.plausible?('+55 11 123456789').should be_falsey
+        Phony.plausible?('+55 11 023456789').should be_falsey
+        Phony.plausible?('+55 11 22345678').should be_truthy
+      end
       it 'is correct for Bulgaria' do
           Phony.plausible?('+359 2 1234567').should be_truthy
           Phony.plausible?('+359 30 12345').should be_truthy
