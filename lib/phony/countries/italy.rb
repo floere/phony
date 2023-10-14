@@ -287,6 +287,7 @@ Phony.define do
                   /\A\d{6}\z/ => [4,2],
                   /\A\d{7}\z/ => [4,3],
                   /\A\d{8}\z/ => [4,4],
+                  /\A\d{9}\z/ => [4,5]
                 ) |
                 one_of(*ndcs_2digit) >> matched_split(
                   /\A\d{4}\z/ => [4],
