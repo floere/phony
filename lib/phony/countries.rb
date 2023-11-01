@@ -494,7 +494,7 @@ Phony.define do
     one_of('802') >> split(3,3) | # national rate
     one_of(%w(251 252 271 272 281 282 293)) >> split(3,2) |
     one_of(%w(21 23 24 26)) >> split(3,3) |
-    one_of(%w(82 84 86)) >> split(4,3) | # mobile
+    one_of(%w(82 83 84 85 86 87)) >> split(4,3) | # mobile
     one_of('89') >> split(4,3) | # satellite GMPCS
     one_of('7') >> split(4,4) | # universal access
     one_of('9') >> split(4,4) | # premium rate
