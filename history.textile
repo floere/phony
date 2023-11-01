@@ -1,3 +1,7 @@
+h2. Version 2.20.10
+
+* Mozambique (#517)
+
 h2. Version 2.20.9
 
 * Italy (#516)
