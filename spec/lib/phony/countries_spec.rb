@@ -855,6 +855,8 @@ describe 'country descriptions' do
       it_splits '842841234567', ['84', '28', '4123', '4567'] # Ho Chi Minh City
       it_splits '84341234567', ['84', '34', '1234567'] # Viettel
       it_splits '84841234567', ['84', '84', '1234567'] # Vinaphone
+      it_splits '8419001212', ['84', '1900', '1212'] # Vinaphone
+      it_splits '841900541234', ['84', '1900', '541234'] # Vinaphone
     end
     describe 'Zambia' do
       it_splits '260211123456', ['260', '211', '123456']     # Fixed

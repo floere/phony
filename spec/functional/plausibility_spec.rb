@@ -590,7 +590,9 @@ describe 'plausibility' do
                                                                       '+598 805 123 45']
       it_is_correct_for 'Vietnam', :samples => ['+84 24 41234567',
                                                 '+84 28 41234567',
-                                                '+84 23 61234567']
+                                                '+84 23 61234567',
+                                                '+84 1900 1212',
+                                                '+84 1900 541234']
       it_is_correct_for 'Yemen', :samples => [['+967 1 234 567', '+967 1 234 5678'],
                                               '+967 7 234 567',
                                               '+967 77 123 4567',
@@ -617,16 +619,16 @@ describe 'plausibility' do
         Phony.plausible?('+62 22 0000 0000').should be_truthy
         Phony.plausible?('+62 22 000 000 000').should be_truthy
       end
-      
+
       it 'is correct for Italy' do
         Phony.plausible?('+39 0574 123').should be_falsy
         Phony.plausible?('+39 0574 1234').should be_truthy
         Phony.plausible?('+39 0574 12345').should be_falsy
-        
+
         Phony.plausible?('+39 085 541').should be_falsy
         Phony.plausible?('+39 085 5410').should be_truthy
         Phony.plausible?('+39 085 54105').should be_truthy
-        
+
         Phony.plausible?('+39 06 4991').should be_falsy
         Phony.plausible?('+39 06 49911').should be_truthy
         Phony.plausible?('+39 06 499112').should be_truthy
