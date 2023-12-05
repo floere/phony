@@ -1,3 +1,7 @@
+h2. Version 2.20.11
+
+* Vietnam (#519)
+
 h2. Version 2.20.10
 
 * Mozambique (#517)
