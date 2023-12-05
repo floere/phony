@@ -127,6 +127,9 @@ Phony.define do
     one_of(ndcs_with_7_subscriber_digits) >> split(3,4) |
     one_of(ndcs_with_8_subscriber_digits) >> split(4,4) |
     one_of(mobile_with_trunk)             >> split(5..8)|
+    one_of('1900')                        >> matched_split(
+      /\A\d{4}\z/ => [4],
+      /\A\d{6}\z/ => [6]) | # Premium rate
     # Govt reserved
     fixed(80)                             >> split(5)   |
     fixed(69)                             >> split(1,5)

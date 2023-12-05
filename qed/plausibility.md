@@ -987,8 +987,12 @@ With regexp constraints.
     Phony.assert.plausible?('+84 24 1234 5678')
     Phony.assert.plausible?('+84 091 123-4567')
     Phony.assert.plausible?('+84 034 123456')
+    Phony.assert.plausible?('+84 1900 1212')
+    Phony.assert.plausible?('+84 1900 541234')
     Phony.refute.plausible?('+84 1 1234') # too short
     Phony.refute.plausible?('+84 12 3456 7891 0111213') # too long
+    Phony.refute.plausible?('+84 1900 5412345') # Premium, too long
+
 
 #### Zambia
     Phony.assert.plausible?('+260 75 027 3500') # Zamtel Mobile 075
