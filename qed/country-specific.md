@@ -103,3 +103,13 @@ This is an error case from issue #428.
     italy = Phony["39"]
   
     italy.plausible?('12345').assert == false
+
+
+#### Luxembourg
+
+Error from issue #520.
+
+    luxembourg = Phony["352"]
+
+    luxembourg.assert.plausible?('2634731')
+    luxembourg.assert.plausible?('264412701')
