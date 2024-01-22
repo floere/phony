@@ -1,3 +1,7 @@
+h2. Version 2.20.12
+
+* Luxembourg (#521)
+
 h2. Version 2.20.11
 
 * Vietnam (#519)
