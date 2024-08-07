@@ -344,6 +344,7 @@ describe 'plausibility' do
                                                    '+261 32 34 546 78',
                                                    '+261 33 34 546 78',
                                                    '+261 34 34 546 78',
+                                                   '+261 37 34 546 78',
                                                    '+261 38 34 546 78']
       it 'is incorrect for Madagascar' do
         Phony.plausible?('+261 20 012 345 678').should be_falsey
