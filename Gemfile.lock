@@ -48,6 +48,7 @@ GEM
 PLATFORMS
   -darwin-21
   arm64-darwin-22
+  arm64-darwin-23
 
 DEPENDENCIES
   ae
