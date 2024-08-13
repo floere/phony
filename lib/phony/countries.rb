@@ -517,18 +517,11 @@ Phony.define do
   # https://en.wikipedia.org/wiki/Telephone_numbers_in_Madagascar
   # http://www.itu.int/oth/T020200007F/en
   country '261',
-          # none >> matched_split(
-          #     /\A20\d+\z/ => [2,2,3,2], # Telecom Malagasy (Telma)
-          #     /\A32\d+\z/ => [2,2,3,2], # mobile Orange Madagascar
-          #     /\A33\d+\z/ => [2,2,3,2], # mobile Airtel Madagascar
-          #     /\A34\d+\z/ => [2,2,3,2], # mobile Telecom Malagasy (Telma)
-          #     /\A38\d+\z/ => [2,2,3,2], # mobile Telecom Malagasy (Telma)
-          #     /\A39\d+\z  => [2,2,3,2]  # mobile Blueline
-          # ),
           match(/\A(20)\d+\z/) >> split(2,3,2) | # fix Telecom Malagasy (Telma)
           match(/\A(32)\d+\z/) >> split(2,3,2) | # mobile Orange Madagascar
           match(/\A(33)\d+\z/) >> split(2,3,2) | # mobile Airtel Madagascar
           match(/\A(34)\d+\z/) >> split(2,3,2) | # mobile Telecom Malagasy (Telma)
+          match(/\A(37)\d+\z/) >> split(2,3,2) | # mobile Orange Madagascar
           match(/\A(38)\d+\z/) >> split(2,3,2) | # mobile Telecom Malagasy (Telma)
           match(/\A(39)\d+\z/) >> split(2,3,2)   # mobile Blueline Madagascar
 
