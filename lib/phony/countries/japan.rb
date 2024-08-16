@@ -402,7 +402,7 @@ ndcs_with_5_subscriber_numbers = %w(
 Phony.define do
   country '81',
     trunk('0', normalize: true, format: true, split: true) |
-    one_of(%w(20 50 60 70 90))             >> split(4,4) | # mobile, VoIP telephony
+    one_of(%w(20 50 60 70 80 90))          >> split(4,4) | # mobile, VoIP telephony
     match(/\A(597)9[0178]\d+\z/)           >> split(2,4) |
     one_of(ndcs_with_5_subscriber_numbers) >> split(1,4) |
     match(/\A(4)70[019]\d+\z/)             >> split(4,4) |
