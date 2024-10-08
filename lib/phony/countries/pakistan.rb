@@ -112,7 +112,7 @@ Phony.define do
 
   country '92',
           one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) |
-          one_of('122') >> split(3,3) | # universal access
+          one_of('111') >> split(3,3) | # universal access number
           one_of(ndcs_with_7_subscriber_numbers) >> split(4,3) |
           one_of(ndcs_with_8_subscriber_numbers) >> split(4,4) |
           one_of(%w(30 31 32 33 34 35 36)) >> split(4,4) | # mobile

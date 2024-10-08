@@ -113,3 +113,11 @@ Error from issue #520.
 
     luxembourg.assert.plausible?('2634731')
     luxembourg.assert.plausible?('264412701')
+
+#### Pakistan
+
+Error from issue #527.
+
+    pakistan = Phony["92"]
+
+    pakistan.assert.plausible?('111332211')

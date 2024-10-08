@@ -618,6 +618,7 @@ describe 'country descriptions' do
       it_splits '92221234567', %w(92 22 1234 567)
       it_splits '92232123456', %w(92 232 123 456)
       it_splits '923012345678', %w(92 30 1234 5678)
+      it_splits '92111332211', %w(92 111 332 211)
     end
     describe 'Paraguay (Republic of)' do
       it_splits '59521123456', %w(595 21 123 456)
