@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Phony
   
   # Helper module that maps vanity numbers to digit numbers.
