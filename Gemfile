@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'coveralls', require: false
 gem 'rake', require: false
 gem 'rubocop', '~> 1.66'
 gem 'rubocop-performance'
