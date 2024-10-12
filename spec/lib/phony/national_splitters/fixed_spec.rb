@@ -22,7 +22,7 @@ describe Phony::NationalSplitters::Fixed do
     end
 
     it 'splits correctly even when the number is too short' do
-      expect(splitter.split('443')).to eq [nil, '44','3']
+      expect(splitter.split('443')).to eq [nil, '44', '3']
     end
 
     it 'has a length of 2' do

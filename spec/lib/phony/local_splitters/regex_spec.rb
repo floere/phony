@@ -16,37 +16,37 @@ describe Phony::LocalSplitters::Regex do
 
   describe 'split' do
     # Norway.
-    let(:splitter) { described_class.instance_for(/^[489].*$/ => [3,2,3], :fallback => [2,2,2,2]) }
+    let(:splitter) { described_class.instance_for(/^[489].*$/ => [3, 2, 3], :fallback => [2, 2, 2, 2]) }
     it 'splits a number correctly' do
-      expect(splitter.split('21234567')).to eq ['21','23','45','67']
+      expect(splitter.split('21234567')).to eq ['21', '23', '45', '67']
     end
 
     it 'splits a number correctly' do
-      expect(splitter.split('31234567')).to eq ['31','23','45','67']
+      expect(splitter.split('31234567')).to eq ['31', '23', '45', '67']
     end
 
     it 'splits a number correctly' do
-      expect(splitter.split('41234567')).to eq ['412','34','567']
+      expect(splitter.split('41234567')).to eq ['412', '34', '567']
     end
 
     it 'splits a number correctly' do
-      expect(splitter.split('51234567')).to eq ['51','23','45','67']
+      expect(splitter.split('51234567')).to eq ['51', '23', '45', '67']
     end
 
     it 'splits a number correctly' do
-      expect(splitter.split('61234567')).to eq ['61','23','45','67']
+      expect(splitter.split('61234567')).to eq ['61', '23', '45', '67']
     end
 
     it 'splits a number correctly' do
-      expect(splitter.split('71234567')).to eq ['71','23','45','67']
+      expect(splitter.split('71234567')).to eq ['71', '23', '45', '67']
     end
 
     it 'splits a number correctly' do
-      expect(splitter.split('81234567')).to eq ['812','34','567']
+      expect(splitter.split('81234567')).to eq ['812', '34', '567']
     end
 
     it 'splits a number correctly' do
-      expect(splitter.split('91234567')).to eq ['912','34','567']
+      expect(splitter.split('91234567')).to eq ['912', '34', '567']
     end
 
     it 'splits it fast' do
@@ -70,28 +70,28 @@ describe Phony::LocalSplitters::Regex do
     end
 
     context 'Mapping does not exist for a number' do
-      let(:local_splitter) { described_class.instance_for(/\A5/ => [1,2,3])}
+      let(:local_splitter) { described_class.instance_for(/\A5/ => [1, 2, 3])}
       it 'returns false' do
         result.should be_falsey
       end
     end
 
     context 'Mapping exists, but the length is greater' do
-      let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2])}
+      let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2])}
       it 'returns false' do
         result.should be_falsey
       end
     end
 
     context 'Mapping exists, but the length is less' do
-      let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2,3])}
+      let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2, 3])}
       it 'returns false' do
         result.should be_falsey
       end
     end
 
     context 'Mapping exists and the length is equal' do
-      let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2,2])}
+      let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2, 2])}
       it 'returns true' do
         result.should be_truthy
       end

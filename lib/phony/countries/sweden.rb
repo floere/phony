@@ -65,7 +65,7 @@ Phony.define do
   country '46',
     trunk('0') |
     match(/^(#{services.join('|')})$/) >> split(0) |
-    one_of(service_ndcs)       >> split(3,3) |
+    one_of(service_ndcs)       >> split(3, 3) |
     match(/^(#{three_digit_service.join('|')})\d{3}$/) >> split(3) |
     one_of(ndcs + mobile)      >> matched_split(
       /^\d{5}$/ => [3, 2],

@@ -305,8 +305,8 @@ describe 'country descriptions' do
     end
 
     describe 'France' do
-      it_splits '33112345678', ['33', '1', '12','34','56','78'] # Paris
-      it_splits '33812345678', ['33', '8', '12','34','56','78'] # Service number
+      it_splits '33112345678', ['33', '1', '12', '34', '56', '78'] # Paris
+      it_splits '33812345678', ['33', '8', '12', '34', '56', '78'] # Service number
     end
 
     describe 'Georgia' do
@@ -479,7 +479,7 @@ describe 'country descriptions' do
     describe 'Italy' do
       it_splits '39348695281',  ['39', '348', '695', '281']        # Mobile (6-digit subscriber no. - rare, but still used)
       it_splits '393486952812', ['39', '348', '695', '2812']       # Mobile (7-digit subscriber no. - common)
-      it_splits '3934869528123',['39', '348', '695', '2812', '3']  # Mobile (8-digit subscriber no - new)
+      it_splits '3934869528123', ['39', '348', '695', '2812', '3']  # Mobile (8-digit subscriber no - new)
       it_splits '393357210488', ['39', '335', '721', '0488'] # Mobile
       it_splits '393248644272', ['39', '324', '864', '4272'] # Mobile
       it_splits '390612341',    ['39', '06', '12341']        # Roma 5 digit
@@ -639,14 +639,14 @@ describe 'country descriptions' do
     end
 
     describe 'Norway' do
-      it_splits '4721234567', ['47',false,'21','23','45','67']
-      it_splits '4731234567', ['47',false,'31','23','45','67']
-      it_splits '4741234567', ['47',false,'412','34','567']
-      it_splits '4751234567', ['47',false,'51','23','45','67']
-      it_splits '4761234567', ['47',false,'61','23','45','67']
-      it_splits '4771234567', ['47',false,'71','23','45','67']
-      it_splits '4781234567', ['47',false,'812','34','567']
-      it_splits '4791234567', ['47',false,'912','34','567']
+      it_splits '4721234567', ['47', false, '21', '23', '45', '67']
+      it_splits '4731234567', ['47', false, '31', '23', '45', '67']
+      it_splits '4741234567', ['47', false, '412', '34', '567']
+      it_splits '4751234567', ['47', false, '51', '23', '45', '67']
+      it_splits '4761234567', ['47', false, '61', '23', '45', '67']
+      it_splits '4771234567', ['47', false, '71', '23', '45', '67']
+      it_splits '4781234567', ['47', false, '812', '34', '567']
+      it_splits '4791234567', ['47', false, '912', '34', '567']
     end
 
     describe 'Oman' do
@@ -729,7 +729,7 @@ describe 'country descriptions' do
       it_splits '79991234567',   ['7', '999', '123', '45', '67'] # Russia 3-digit
       it_splits '7840121212',    ['7', '840', '12', '1212']  # Abhasia
       it_splits '7799121212',    ['7', '799', '12', '1212']  # Kazachstan
-      it_splits '7995344121212', ['7', '995', '344','12','1212']  # South Osetia
+      it_splits '7995344121212', ['7', '995', '344', '12', '1212']  # South Osetia
       it_splits '7209175276',    ['7', '209', '17', '5276']  # Fantasy number
     end
 
@@ -1189,7 +1189,7 @@ describe 'country descriptions' do
 
     describe 'Malawi' do
       it_splits '2651725123', ['265', false, '1725', '123']
-      it_splits '265213456789',[ '265', false, '213', '456', '789']
+      it_splits '265213456789', [ '265', false, '213', '456', '789']
       it_splits '2659123456', ['265', false, '9123', '456']
       it_splits '265991123456', ['265', false, '991', '123', '456']
     end

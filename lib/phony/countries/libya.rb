@@ -108,9 +108,9 @@ ndcs_with_5_subscriber_numbers = %w[
 
 Phony.define do
   country '218',
-          one_of(ndcs_with_5_subscriber_numbers) >> split(3,2) |
-          one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) |
-          one_of(ndcs_with_7_subscriber_numbers) >> split(4,3) |
-          one_of(%w[91 92 94 95]) >> split(4,3) | # mobile
-          fixed(2) >> split(3,3)
+          one_of(ndcs_with_5_subscriber_numbers) >> split(3, 2) |
+          one_of(ndcs_with_6_subscriber_numbers) >> split(3, 3) |
+          one_of(ndcs_with_7_subscriber_numbers) >> split(4, 3) |
+          one_of(%w[91 92 94 95]) >> split(4, 3) | # mobile
+          fixed(2) >> split(3, 3)
 end

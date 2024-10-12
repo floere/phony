@@ -402,67 +402,67 @@ ndcs_with_5_subscriber_numbers = %w[
 Phony.define do
   country '81',
     trunk('0', normalize: true, format: true, split: true) |
-    one_of(%w[20 50 60 70 90])             >> split(4,4) | # mobile, VoIP telephony
-    match(/\A(597)9[0178]\d+\z/)           >> split(2,4) |
-    one_of(ndcs_with_5_subscriber_numbers) >> split(1,4) |
-    match(/\A(4)70[019]\d+\z/)             >> split(4,4) |
-    match(/\A(4)71\d+\z/)                  >> split(4,4) |
-    match(/\A(4)20\d+\z/)                  >> split(4,4) |
-    match(/\A(4)29[02-69]\d+\z/)           >> split(4,4) |
-    match(/\A(15)4[018]\d+\z/)             >> split(3,4) |
-    match(/\A(22)3[014-9]\d+\z/)           >> split(3,4) |
-    match(/\A(25)[04][01]\d+\z/)           >> split(3,4) |
-    match(/\A(25)5[0-69]\d+\z/)            >> split(3,4) |
-    match(/\A(25)[68][01]\d+\z/)           >> split(3,4) |
-    match(/\A(25)7[015-9]\d+\z/)           >> split(3,4) |
-    match(/\A(25)917\d+\z/)                >> split(3,4) |
-    match(/\A(25)999\d+\z/)                >> split(3,4) |
-    match(/\A(26)4[016-9]\d+\z/)           >> split(3,4) |
-    match(/\A(28)3[0134]\d+\z/)            >> split(3,4) |
-    match(/\A(28)9[0-5]\d+\z/)             >> split(3,4) |
-    match(/\A(29)17\d+\z/)                 >> split(3,4) |
-    match(/\A(29)3[015-9]\d+\z/)           >> split(3,4) |
-    match(/\A(42)21\d+\z/)                 >> split(3,4) |
-    match(/\A(42)8[01456]\d+\z/)           >> split(3,4) |
-    match(/\A(47)5[019]\d+\z/)             >> split(3,4) |
-    match(/\A(47)9[019]\d+\z/)             >> split(3,4) |
-    match(/\A(59)8[019]\d+\z/)             >> split(3,4) |
-    match(/\A(59)9[01]\d+\z/)              >> split(3,4) |
-    match(/\A(79)4[0-59]\d+\z/)            >> split(3,4) |
-    match(/\A(79)5[01569]\d+\z/)           >> split(3,4) |
-    match(/\A(79)6[0167]\d+\z/)            >> split(3,4) |
-    match(/\A(82)4[0-39]\d+\z/)            >> split(3,4) |
-    match(/\A(82)9[019]\d+\z/)             >> split(3,4) |
-    match(/\A(82)92[1-9]\d+\z/)            >> split(3,4) |
-    match(/\A(82)94[1-3]\d+\z/)            >> split(3,4) |
-    match(/\A(82)96[0-47-9]\d+\z/)         >> split(3,4) |
-    match(/\A(82)965[01346-9]\d+\z/)       >> split(3,4) |
-    match(/\A(82)966[1-9]\d+\z/)           >> split(3,4) |
-    match(/\A(83)76[6-8]\d+\z/)            >> split(3,4) |
-    match(/\A(83)7[01789]\d+\z/)           >> split(3,4) |
-    match(/\A(83)8[01]\d+\z/)              >> split(3,4) |
-    match(/\A(86)36[23]\d+\z/)             >> split(3,4) |
-    match(/\A(86)5[0-389]\d+\z/)           >> split(3,4) |
-    match(/\A(86)55[23]\d+\z/)             >> split(3,4) |
-    match(/\A(86)[01]\d+\z/)               >> split(3,4) |
-    match(/\A(86)9[178]\d+\z/)             >> split(3,4) |
-    match(/\A(86)72\d+\z/)                 >> split(3,4) |
-    match(/\A(86)8[019]\d+\z/)             >> split(3,4) |
-    match(/\A(86)9[0145]\d+\z/)            >> split(3,4) |
-    match(/\A(86)99[014-9]\d+\z/)          >> split(3,4) |
-    match(/\A(99)331\d+\z/)                >> split(3,4) |
-    match(/\A(99)34[357]\d+\z/)            >> split(3,4) |
-    match(/\A(99)4[0178]\d+\z/)            >> split(3,4) |
-    one_of(ndcs_with_6_subscriber_numbers) >> split(2,4) |
-    one_of(%w[120])                        >> split(3,3) | # freephone
-    one_of(%w[800])                        >> split(3,4) | # freephone
-    one_of(%w[180 570])                    >> split(3,3) | # Tele-gong/Tele-dome, Navi-dial
-    one_of(%w[170 990])                    >> split(2,4) | # Dengon-dial, Dial Q2 (discontinued)
-    one_of(%w[80])                         >> split(4,4) | # mobile
-    one_of(ndcs_with_7_subscriber_numbers) >> split(3,4) |
-    one_of(ndcs_with_8_subscriber_numbers) >> split(4,4) |
+    one_of(%w[20 50 60 70 90])             >> split(4, 4) | # mobile, VoIP telephony
+    match(/\A(597)9[0178]\d+\z/)           >> split(2, 4) |
+    one_of(ndcs_with_5_subscriber_numbers) >> split(1, 4) |
+    match(/\A(4)70[019]\d+\z/)             >> split(4, 4) |
+    match(/\A(4)71\d+\z/)                  >> split(4, 4) |
+    match(/\A(4)20\d+\z/)                  >> split(4, 4) |
+    match(/\A(4)29[02-69]\d+\z/)           >> split(4, 4) |
+    match(/\A(15)4[018]\d+\z/)             >> split(3, 4) |
+    match(/\A(22)3[014-9]\d+\z/)           >> split(3, 4) |
+    match(/\A(25)[04][01]\d+\z/)           >> split(3, 4) |
+    match(/\A(25)5[0-69]\d+\z/)            >> split(3, 4) |
+    match(/\A(25)[68][01]\d+\z/)           >> split(3, 4) |
+    match(/\A(25)7[015-9]\d+\z/)           >> split(3, 4) |
+    match(/\A(25)917\d+\z/)                >> split(3, 4) |
+    match(/\A(25)999\d+\z/)                >> split(3, 4) |
+    match(/\A(26)4[016-9]\d+\z/)           >> split(3, 4) |
+    match(/\A(28)3[0134]\d+\z/)            >> split(3, 4) |
+    match(/\A(28)9[0-5]\d+\z/)             >> split(3, 4) |
+    match(/\A(29)17\d+\z/)                 >> split(3, 4) |
+    match(/\A(29)3[015-9]\d+\z/)           >> split(3, 4) |
+    match(/\A(42)21\d+\z/)                 >> split(3, 4) |
+    match(/\A(42)8[01456]\d+\z/)           >> split(3, 4) |
+    match(/\A(47)5[019]\d+\z/)             >> split(3, 4) |
+    match(/\A(47)9[019]\d+\z/)             >> split(3, 4) |
+    match(/\A(59)8[019]\d+\z/)             >> split(3, 4) |
+    match(/\A(59)9[01]\d+\z/)              >> split(3, 4) |
+    match(/\A(79)4[0-59]\d+\z/)            >> split(3, 4) |
+    match(/\A(79)5[01569]\d+\z/)           >> split(3, 4) |
+    match(/\A(79)6[0167]\d+\z/)            >> split(3, 4) |
+    match(/\A(82)4[0-39]\d+\z/)            >> split(3, 4) |
+    match(/\A(82)9[019]\d+\z/)             >> split(3, 4) |
+    match(/\A(82)92[1-9]\d+\z/)            >> split(3, 4) |
+    match(/\A(82)94[1-3]\d+\z/)            >> split(3, 4) |
+    match(/\A(82)96[0-47-9]\d+\z/)         >> split(3, 4) |
+    match(/\A(82)965[01346-9]\d+\z/)       >> split(3, 4) |
+    match(/\A(82)966[1-9]\d+\z/)           >> split(3, 4) |
+    match(/\A(83)76[6-8]\d+\z/)            >> split(3, 4) |
+    match(/\A(83)7[01789]\d+\z/)           >> split(3, 4) |
+    match(/\A(83)8[01]\d+\z/)              >> split(3, 4) |
+    match(/\A(86)36[23]\d+\z/)             >> split(3, 4) |
+    match(/\A(86)5[0-389]\d+\z/)           >> split(3, 4) |
+    match(/\A(86)55[23]\d+\z/)             >> split(3, 4) |
+    match(/\A(86)[01]\d+\z/)               >> split(3, 4) |
+    match(/\A(86)9[178]\d+\z/)             >> split(3, 4) |
+    match(/\A(86)72\d+\z/)                 >> split(3, 4) |
+    match(/\A(86)8[019]\d+\z/)             >> split(3, 4) |
+    match(/\A(86)9[0145]\d+\z/)            >> split(3, 4) |
+    match(/\A(86)99[014-9]\d+\z/)          >> split(3, 4) |
+    match(/\A(99)331\d+\z/)                >> split(3, 4) |
+    match(/\A(99)34[357]\d+\z/)            >> split(3, 4) |
+    match(/\A(99)4[0178]\d+\z/)            >> split(3, 4) |
+    one_of(ndcs_with_6_subscriber_numbers) >> split(2, 4) |
+    one_of(%w[120])                        >> split(3, 3) | # freephone
+    one_of(%w[800])                        >> split(3, 4) | # freephone
+    one_of(%w[180 570])                    >> split(3, 3) | # Tele-gong/Tele-dome, Navi-dial
+    one_of(%w[170 990])                    >> split(2, 4) | # Dengon-dial, Dial Q2 (discontinued)
+    one_of(%w[80])                         >> split(4, 4) | # mobile
+    one_of(ndcs_with_7_subscriber_numbers) >> split(3, 4) |
+    one_of(ndcs_with_8_subscriber_numbers) >> split(4, 4) |
     # TODO: 91(NDC) N(S)N length: 5-13 - Non-geographic number (Direct subscriber telephone service (legacy))
-    fixed(2) >> split(4,4),
+    fixed(2) >> split(4, 4),
     local_space: :-,
     space: :-
 end

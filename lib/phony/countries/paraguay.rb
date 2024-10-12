@@ -132,14 +132,14 @@ ndcs_with_6_subscriber_numbers = %w[
 
 Phony.define do
   country '595',
-          one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) | # geographic
+          one_of(ndcs_with_6_subscriber_numbers) >> split(3, 3) | # geographic
           one_of(ndcs_with_6_7_subscriber_numbers) >>
               matched_split(
-                  /\A\d{6}\z/ => [3,3],
-                  /\A\d+\z/ => [3,4]) | # geographic
-          one_of(%w[96 97 98 99]) >> split(3,4) | # mobile
+                  /\A\d{6}\z/ => [3, 3],
+                  /\A\d+\z/ => [3, 4]) | # geographic
+          one_of(%w[96 97 98 99]) >> split(3, 4) | # mobile
           fixed(2) >>
               matched_split(
-                  /\A\d{6}\z/ => [3,3],
-                  /\A\d+\z/ => [3,4])
+                  /\A\d{6}\z/ => [3, 3],
+                  /\A\d+\z/ => [3, 4])
 end
