@@ -27,8 +27,10 @@ module Phony
         #
         @mapped_ndc_min_length.upto @mapped_ndc_max_length do |i|
           ndcs_of_size_i = @ndcs[i]
-          return [@zero, presumed_code,
-                  national_number] unless ndcs_of_size_i && !ndcs_of_size_i.include?(presumed_code)
+          unless ndcs_of_size_i && !ndcs_of_size_i.include?(presumed_code)
+            return [@zero, presumed_code,
+                    national_number]
+          end
 
           presumed_code << national_number.slice!(0..0)
         end
