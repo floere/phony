@@ -575,11 +575,11 @@ describe 'country descriptions' do
 
     describe 'Malaysia' do
        it_splits '6082123456',   %w[60 82 123456] # Kuching
-      it_splits '60312345678',  %w[60 3 12345678] # Kuala Lumpur
-      it_splits '60212345678',  %w[60 2 12345678] # Singapore
-      it_splits '60111231234', %w[60 11 123 1234] # Mobile
-      it_splits '601112312345', %w[60 11 123 12345] # Mobile
-      it_splits '60800121234',  %w[60 800 12 1234] # Freephone
+       it_splits '60312345678',  %w[60 3 12345678] # Kuala Lumpur
+       it_splits '60212345678',  %w[60 2 12345678] # Singapore
+       it_splits '60111231234', %w[60 11 123 1234] # Mobile
+       it_splits '601112312345', %w[60 11 123 12345] # Mobile
+       it_splits '60800121234',  %w[60 800 12 1234] # Freephone
       # it_splits '60112',       ['60', '112'] # Service
     end
 

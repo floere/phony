@@ -955,7 +955,7 @@ Phony.define do
           one_of(%w[80 81 82 83]) >> split(3, 3) | # freephone
           one_of(%w[90 91 92 93]) >> split(3, 3) | # geographic, ISDN
           one_of(%w[3 4 5 6 7 8 9]) >> split(3, 3) # geographic
-          fixed(1) >> split(3, 3) # geographic
+  fixed(1) >> split(3, 3) # geographic
 
   # Tonga (Kingdom of)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=TO
