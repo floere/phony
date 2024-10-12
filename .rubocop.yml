@@ -7,7 +7,7 @@ Bundler/OrderedGems:
   Enabled: false
 
 Layout/LineLength:
-  Max: 120
+  Max: 180
 
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
