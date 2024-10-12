@@ -309,7 +309,7 @@ describe 'plausibility' do
                                                                            '+850 2 381 2356',
                                                                               # '+850 2 8801 1234 5678 1256',
                                                                            '+850 191 123 4567']
-      it_is_correct_for 'Kuwait (State of)', samples: ['+965 2345 6789', '+965 181 2345' ]
+      it_is_correct_for 'Kuwait (State of)', samples: ['+965 2345 6789', '+965 181 2345']
       it_is_correct_for 'Kenya', samples: [
         '254201234567',
         '254111234567',

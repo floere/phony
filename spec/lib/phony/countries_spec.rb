@@ -348,7 +348,7 @@ describe 'country descriptions' do
       it_splits '35057123456', %w[350 57 123456] # Mobile
       it_splits '35058123456', %w[350 58 123456] # Mobile
       it_splits '35060123456', %w[350 60 123456] # Mobile
-      it_splits '3508012', ['350', '8012', '' ] # Freephone
+      it_splits '3508012', ['350', '8012', ''] # Freephone
     end
 
     describe 'Greece' do
@@ -1188,7 +1188,7 @@ describe 'country descriptions' do
 
     describe 'Malawi' do
       it_splits '2651725123', ['265', false, '1725', '123']
-      it_splits '265213456789', [ '265', false, '213', '456', '789']
+      it_splits '265213456789', ['265', false, '213', '456', '789']
       it_splits '2659123456', ['265', false, '9123', '456']
       it_splits '265991123456', ['265', false, '991', '123', '456']
     end
