@@ -10,7 +10,7 @@ describe Phony::LocalSplitters::Regex do
 
   describe 'instance_for' do
     it 'does not cache' do
-      described_class.instance_for({}).should_not equal(described_class.instance_for({}))
+      expect(described_class.instance_for({})).not_to equal(described_class.instance_for({}))
     end
   end
 

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Phony::NationalSplitters::Default do
   describe 'instance_for' do
     it 'caches' do
-      described_class.instance_for.should equal(described_class.instance_for)
+      expect(described_class.instance_for).to equal(described_class.instance_for)
     end
   end
 
@@ -12,19 +12,19 @@ describe Phony::NationalSplitters::Default do
 
     describe 'split' do
       it 'does only pretend split' do
-        splitter.split(:anything).should == [nil, :anything]
+        expect(splitter.split(:anything)).to eq [nil, :anything]
       end
     end
 
     describe 'plausible?' do
       it 'is always plausible' do
-        splitter.plausible?(:anything, :anything).should be_truthy
+        expect(splitter.plausible?(:anything, :anything)).to be_truthy
       end
     end
 
     describe 'length' do
       it 'needs to be at least 3' do
-        splitter.length.should == 3
+        expect(splitter.length).to eq 3
       end
     end
   end
