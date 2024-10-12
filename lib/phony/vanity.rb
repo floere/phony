@@ -8,8 +8,8 @@ module Phony
     #
     def self.mapping
       @@mapping ||= [
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.freeze,
-        '2223334445556667777888999922233344455566677778889999'.freeze
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+        '2223334445556667777888999922233344455566677778889999'
       ]
     end
 
