@@ -581,7 +581,7 @@ describe 'country descriptions' do
       it_splits '601112312345', %w[60 11 123 12345] # Mobile
       it_splits '60800121234',  %w[60 800 12 1234] # Freephone
       # it_splits '60112',       ['60', '112'] # Service
-     end
+    end
 
     describe 'Malta' do
       it_splits '35621231234', %w[356 2123 1234] # Fixed

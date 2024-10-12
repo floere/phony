@@ -127,7 +127,7 @@ ndcs_with_7_subscriber_digits = %w[342 343 347 351 365 383 391 423 473 495 496 4
 
 Phony.define do
   country '7',
-    # trunk('8', normalize: true, split: true) | # TODO Figure out if this is the way to go.
+          # trunk('8', normalize: true, split: true) | # TODO Figure out if this is the way to go.
           trunk('8', normalize: false) |
           one_of(ndcs_with_5_subscriber_digits)  >> split(1, 2, 2) |
           one_of(ndcs_with_6_subscriber_digits)  >> split(2, 2, 2) |

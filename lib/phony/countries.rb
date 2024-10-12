@@ -50,7 +50,7 @@ Phony.define do
   # USA, Canada, etc.
   #
   country '1',
-    # The US has a delimiter between NDC and local number.
+          # The US has a delimiter between NDC and local number.
           trunk('1%s', normalize: true, format: false) | # http://en.wikipedia.org/wiki/Trunk_prefix
           fixed(3) >> split(3, 4),
           invalid_ndcs: /[0-1]\d{2}|[3-9]11/,
@@ -250,7 +250,7 @@ Phony.define do
           match(/^(13)\d+$/)    >> split(2, 2) | # 13 local rate
           fixed(1)              >> split(4, 4)   # Rest
 
-	# country '62' # Indonesia (Republic of), see special file
+	 # country '62' # Indonesia (Republic of), see special file
 
   # Philippines (Republic of the)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
@@ -833,7 +833,7 @@ Phony.define do
           one_of('19') >> split(3, 3, 3) | # premium rate
           fixed(1) >> split(3, 4)
 
-   # El Salvador (Republic of)
+  # El Salvador (Republic of)
   country '503', fixed(4) >> split(4)
 
   # Honduras (Republic of) http://www.wtng.info/wtng-504-hn.html

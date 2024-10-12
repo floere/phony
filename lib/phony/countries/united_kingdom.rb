@@ -42,10 +42,10 @@ two_digit_ndc = [
 ]
 
 # three_digit_ndc_with_nine_digits
-  # Non-geographic [3+6].
-  #
-  # '500', # Freephone (9 digits) handled in specific rule, see below.
-  # '800', # Freephone (9 digits) handled in specific rule, see below.
+# Non-geographic [3+6].
+#
+# '500', # Freephone (9 digits) handled in specific rule, see below.
+# '800', # Freephone (9 digits) handled in specific rule, see below.
 
 three_digit_ndc = [
   # Geographic [3+7] - includes (01xx) 0 and (01xx) 1 as NDO.
@@ -129,10 +129,10 @@ three_digit_ndc = [
 ]
 
 # five_digit_ndc_with_nine_digits
-  # Geographic [5+4] - includes (016977) 0 and (016977) 1 as NDO.
-  #
-  # '16977', # Brampton (contains both 4 and 5 digit numbers)
-  #          # 9 digits handled in specific rule, see below.
+# Geographic [5+4] - includes (016977) 0 and (016977) 1 as NDO.
+#
+# '16977', # Brampton (contains both 4 and 5 digit numbers)
+#          # 9 digits handled in specific rule, see below.
 
 five_digit_ndc = [
   # Geographic [5+5] - includes (01xxxx) 0 and (01xxxx) 1 as NDO.

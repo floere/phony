@@ -144,15 +144,15 @@ module Phony
 
     private
 
-      # Return a country for the number.
-      #
+    # Return a country for the number.
+    #
     def country_for(number)
       country, _ = partial_split number
       country
     end
 
-      # Split off the country and the cc, and also return the national number part.
-      #
+    # Split off the country and the cc, and also return the national number part.
+    #
     def partial_split(number)
       cc = +''
       1.upto(3) do |i|
@@ -163,11 +163,11 @@ module Phony
       # This line is never reached as CCs are in prefix code.
     end
 
-      # Adds the country code to the front
-      # if it does not already start with it.
-      #
-      # Note: This won't be correct in some cases, but it is the best we can do.
-      #
+    # Adds the country code to the front
+    # if it does not already start with it.
+    #
+    # Note: This won't be correct in some cases, but it is the best we can do.
+    #
     def countrify(number, cc)
       countrify!(number, cc) || number
     end

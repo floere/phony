@@ -47,8 +47,8 @@ module Phony
 
       private
 
-        # Optimizes and restructures the given ndcs array.
-        #
+      # Optimizes and restructures the given ndcs array.
+      #
       def optimize(ndc_ary)
         ndcs = {}
         ndc_ary.each do |ndc|
