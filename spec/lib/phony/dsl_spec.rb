@@ -15,7 +15,8 @@ describe Phony::DSL do
 
   describe 'match' do
     it 'checks for ( in regex' do
-      expect { dsl.match(/123/) }.to raise_error('Regexp /123/ needs a group in it that defines which digits belong to the NDC.')
+      expect {
+ dsl.match(/123/) }.to raise_error('Regexp /123/ needs a group in it that defines which digits belong to the NDC.')
     end
 
     it 'returns a Phony::NationalSplitters::Regex' do
