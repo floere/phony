@@ -12,34 +12,34 @@ ndcs_1digit = [
 
 ndcs_2digit = [
   '010', # Genoa
- '011', # Turin
- '015', # Biella
- '019', # Savona
- '030', # Brescia
- '031', # Como
- '035', # Bergamo
- '039', # Monza
- '040', # Trieste
- '041', # Venice
- '045', # Verona
- '049', # Padua
- '050', # Pisa
- '051', # Bologna
- '055', # Florence
- '059', # Modena
- '070', # Cagliari
- '071', # Ancona
- '075', # Perugia
- '079', # Sassari
- '080', # Bari
- '081', # Naples
- '085', # Pescara
- '089', # Salerno
- '090', # Messina
- '091', # Palermo
- '092', # Agrigento
- '095', # Catania
- '099', # Taranto
+  '011', # Turin
+  '015', # Biella
+  '019', # Savona
+  '030', # Brescia
+  '031', # Como
+  '035', # Bergamo
+  '039', # Monza
+  '040', # Trieste
+  '041', # Venice
+  '045', # Verona
+  '049', # Padua
+  '050', # Pisa
+  '051', # Bologna
+  '055', # Florence
+  '059', # Modena
+  '070', # Cagliari
+  '071', # Ancona
+  '075', # Perugia
+  '079', # Sassari
+  '080', # Bari
+  '081', # Naples
+  '085', # Pescara
+  '089', # Salerno
+  '090', # Messina
+  '091', # Palermo
+  '092', # Agrigento
+  '095', # Catania
+  '099', # Taranto
 ]
 
 ndcs_3digit = [
@@ -259,14 +259,14 @@ mobile = %w[300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 
 # Not exhaustive.
 service = %w[
   112
- 113
- 115
- 116
- 117
- 118
- 1515
- 1518
- 1530
+  113
+  115
+  116
+  117
+  118
+  1515
+  1518
+  1530
 ]
 
 # Not exhaustive. Unused below - just for info purposes.

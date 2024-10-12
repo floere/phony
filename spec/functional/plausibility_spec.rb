@@ -442,7 +442,7 @@ describe 'plausibility' do
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', samples: '+508  474 714'
       it_is_correct_for 'Salvador (El)', samples: [
         '+503 2112 1234',
-                                                       '+503 6112 1234'
+        '+503 6112 1234'
       ]
       it_is_correct_for 'Samoa (Independent State of)', samples: ['+685 800 123',
                                                                   '+685 61 123',
