@@ -43,13 +43,13 @@ area_codes = %w[
 Phony.define do
   country '95',
           one_of(area_codes) >> matched_split(
-              /\A\d{5}\z/ => [2, 3],
-              /\A\d{6}\z/ => [3, 3],
-              /\A\d{7}\z/ => [3, 4]
+            /\A\d{5}\z/ => [2, 3],
+            /\A\d{6}\z/ => [3, 3],
+            /\A\d{7}\z/ => [3, 4]
           ) |
           one_of('9') >> matched_split( # mobile operators
-              /\A\d{7}\z/ => [3, 4],
-              /\A\d{8}\z/ => [4, 4],
-              /\A\d{9}\z/ => [3, 3, 3]
+            /\A\d{7}\z/ => [3, 4],
+            /\A\d{8}\z/ => [4, 4],
+            /\A\d{9}\z/ => [3, 3, 3]
           )
 end

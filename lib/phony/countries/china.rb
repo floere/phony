@@ -29,7 +29,7 @@ Phony.define do
           one_of(mobile)  >> split(4, 4) |
           one_of(ndcs)    >> split(4, 4) |
           fixed(3)        >> matched_split(
-              /\A\d{7}\z/ => [3, 4],
-              /\A\d{8}\z/ => [4, 4]
+            /\A\d{7}\z/ => [3, 4],
+            /\A\d{8}\z/ => [4, 4]
           )
 end
