@@ -381,7 +381,7 @@ Phony.define do
   country '230',
           none >> matched_split(
             /^5\d{7}$/ => [1, 3, 4], # Mobile
-            /^[246]\d{6}$/ => [3, 4], # Landline
+            /^[246]\d{6}$/ => [3, 4] # Landline
           )
 
   # Liberia
@@ -392,7 +392,7 @@ Phony.define do
             /\A[4568]\d+\z/ => [4, 3], # mobile Lonestar, Libercell, Comium Liberia Inc.
             /\A77\d+\z/ => [2, 3, 4], # http://monrovia.usembassy.gov/contact.html
             /\A7\d+\z/ => [4, 4], # mobile Cellcom
-            /\A9\d+\z/ => [4, 4], # premium rate Telelinks International SAL, Interactive Media Corporation
+            /\A9\d+\z/ => [4, 4] # premium rate Telelinks International SAL, Interactive Media Corporation
           )
 
   country '232', fixed(2) >> split(3, 3) # Sierra Leone http://www.wtng.info/wtng-232-sl.html
@@ -567,7 +567,7 @@ Phony.define do
             /\A(550|551)\d+\z/ => [3, 4], # wireless geographic Swaziland Posts and Telecommunications Corporation (SPTC)
             /\A(22|23|24|25)\d+\z/ => [4, 4], # geographic SPTC
             /\A77\d+\z/ => [4, 4], # mobile Swaziland Posts and Telecommunications Corporation (SPTC) (CDMA)
-            /\A78\d+\z/ => [4, 4], # mobile Swazi MTN Ltd
+            /\A78\d+\z/ => [4, 4] # mobile Swazi MTN Ltd
           )
 
   # Comoros http://www.wtng.info/wtng-269-km.html
@@ -899,7 +899,7 @@ Phony.define do
   country '597',
           none >> matched_split(
             /\A[6789]\d+\z/ => [3, 4], # freephone, mobile
-            /\A[2345]\d+\z/ => [3, 3], # geographic, VoIP telephony
+            /\A[2345]\d+\z/ => [3, 3] # geographic, VoIP telephony
           )
 
   # country '598' # Uruguay (Eastern Republic of), see special file
@@ -1168,7 +1168,7 @@ Phony.define do
             /\A1\d+\z/ => [3, 4], # geographic
             /\A2\d+\z/ => [4, 4], # geographic
             /\A[569]\d+\z/ => [4, 4], # mobile
-            /\A8\d+\z/ => [3, 3], # geographic
+            /\A8\d+\z/ => [3, 3] # geographic
           )
 
   # country '966' # Saudi Arabia (Kingdom of), see special file.
