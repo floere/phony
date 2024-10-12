@@ -60,7 +60,7 @@ module Phony
     #  * Non-digits.
     #
     def normalize(number, options = {})
-      country = if cc = options[:cc]
+      country = if (cc = options[:cc])
                   self[cc]
                 else
                   clean! number
@@ -104,7 +104,7 @@ module Phony
 
       # Was a country calling code given?
       #
-      if ccc = hints[:ccc]
+      if (ccc = hints[:ccc])
         cc, ndc, *local = split ccc
 
         raise ArgumentError.new("The provided ccc option is too long and includes more than a cc ('#{cc}') and ndc ('#{ndc}'). It also includes '#{local.join}'.") unless local.size == 1 && local[0].empty?
