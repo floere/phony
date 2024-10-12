@@ -170,7 +170,6 @@ module Phony
       @codes.each_with_object national_number do |code, number|
         result = code.normalize number, options
         break result if result
-
       end
 
     end
