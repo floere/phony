@@ -9,7 +9,7 @@ describe 'country descriptions' do
   end
 
   describe 'regression' do
-    it_splits '33630588659', ["33", "6", "30", "58", "86", "59"]
+    it_splits '33630588659', ['33', '6', '30', '58', '86', '59']
   end
 
   describe 'splitting' do
@@ -175,7 +175,7 @@ describe 'country descriptions' do
         end
       end
 
-      context "special numbers" do
+      context 'special numbers' do
         it_splits '5508002221234', ['55', '0800', '222', '1234']
         it_splits '5530032221', ['55', '3003', '2221']
         it_splits '5540209999', ['55', '4020', '9999']
@@ -183,13 +183,13 @@ describe 'country descriptions' do
         it_splits '5540048999', ['55', '4004', '8999']
       end
 
-      context "service numbers" do
-        it_splits '55100', ['55', '100', ""]
-        it_splits '55199', ['55', '199', ""]
+      context 'service numbers' do
+        it_splits '55100', ['55', '100', '']
+        it_splits '55199', ['55', '199', '']
       end
     end
 
-    describe "Bulgaria" do
+    describe 'Bulgaria' do
       it_splits '35929284000', ['359', '2', '928', '4000']   # Sofia
       it_splits '359878357523', ['359', '87', '8357', '523']
       it_splits '3593012345', ['359', '30', '12345']
@@ -211,10 +211,10 @@ describe 'country descriptions' do
     end
 
     describe 'Cambodia' do
-      it_splits '85512236142', ["855", "12", "236", "142"]   # mobile (Mobitel)
-      it_splits '855977100872', ["855", "97", "710", "0872"] # mobile (Metfone)
-      it_splits '855234601183', ["855", "23", "460", "1183"] # Long fixed line (Phnom Penh)
-      it_splits '85533234567', ["855", "33", "234", "567"]   # Regular fixed line (Kampot)
+      it_splits '85512236142', ['855', '12', '236', '142']   # mobile (Mobitel)
+      it_splits '855977100872', ['855', '97', '710', '0872'] # mobile (Metfone)
+      it_splits '855234601183', ['855', '23', '460', '1183'] # Long fixed line (Phnom Penh)
+      it_splits '85533234567', ['855', '33', '234', '567']   # Regular fixed line (Kampot)
     end
 
     describe 'Chile' do
@@ -389,7 +389,7 @@ describe 'country descriptions' do
     end
 
     describe 'Indonesia' do
-      it_splits '6242323032', ["62", "4", "2323", "032"]
+      it_splits '6242323032', ['62', '4', '2323', '032']
       it_splits '6285220119289', ['62', '852', '2011', '9289']
       it_splits '62217815263', %w[62 21 781 5263]
       it_splits '6213123', %w[62 13 123]
@@ -570,9 +570,9 @@ describe 'country descriptions' do
     end
 
     describe 'Macao' do
-      it_splits '85328123456', ["853", "28", "12", "3456"] # Landline
-      it_splits '85381234567', ["853", "8", "123", "4567"] # Landline
-      it_splits '85361234567', ["853", "6", "123", "4567"] # Mobile
+      it_splits '85328123456', ['853', '28', '12', '3456'] # Landline
+      it_splits '85381234567', ['853', '8', '123', '4567'] # Landline
+      it_splits '85361234567', ['853', '6', '123', '4567'] # Mobile
     end
 
     describe 'Malaysia' do

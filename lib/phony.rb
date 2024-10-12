@@ -147,7 +147,7 @@ module Phony
     #   Phony.normalize("301 555 0100", cc: '1') # => "13015550100"
     #
     def normalize phone_number, options = {}
-      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
+      raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.normalize(number).' unless phone_number
 
       normalize! phone_number.dup, options
     end
@@ -189,7 +189,7 @@ module Phony
     #   Phony.split("13015550100") # => ["1", "301", "555", "0100"]
     #
     def split phone_number
-      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number)." unless phone_number
+      raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.split(number).' unless phone_number
 
       split! phone_number.dup, phone_number
     end
@@ -236,7 +236,7 @@ module Phony
     #   Phony.format("13015550100", :format => '%{cc} (%{trunk}%{ndc}) %{local}') # => "555 0100"
     #
     def format phone_number, options = {}
-      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number)." unless phone_number
+      raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.format(number).' unless phone_number
       format! phone_number.dup, options
     end
     # A destructive version of {#format}.

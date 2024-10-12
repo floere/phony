@@ -77,14 +77,14 @@ describe Phony::LocalSplitters::Regex do
       end
     end
 
-    context "Mapping exists, but the length is greater" do
+    context 'Mapping exists, but the length is greater' do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2])}
       it 'returns false' do
         result.should be_falsey
       end
     end
 
-    context "Mapping exists, but the length is less" do
+    context 'Mapping exists, but the length is less' do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2,2,3])}
       it 'returns false' do
         result.should be_falsey

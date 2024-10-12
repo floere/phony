@@ -5,19 +5,19 @@ describe Phony::NationalSplitters::Variable do
   describe 'split' do
     context 'normal' do
       let(:splitter) { Phony::NationalSplitters::Variable.new 4, ['1', '316', '67', '68', '669', '711'] }
-      it "handles Vienna" do
+      it 'handles Vienna' do
         expect(splitter.split('198110')).to eq [nil, '1', '98110']
       end
 
-      it "handles some mobile services" do
+      it 'handles some mobile services' do
         expect(splitter.split('66914093902')).to eq [nil, '669', '14093902']
       end
 
-      it "handles Graz" do
+      it 'handles Graz' do
         expect(splitter.split('3161234567891')).to eq [nil, '316', '1234567891']
       end
 
-      it "handles Rohrau" do
+      it 'handles Rohrau' do
         expect(splitter.split('2164123456789')).to eq [nil, '2164', '123456789']
       end
 
@@ -28,7 +28,7 @@ describe Phony::NationalSplitters::Variable do
 
     context 'special handling for using the variable size splitter for Swiss service numbers' do
       let(:splitter) { Phony::NationalSplitters::Variable.new 2, ['800'] }
-      it "should handle swiss service numbers" do
+      it 'should handle swiss service numbers' do
         expect(splitter.split('800223344')).to eq [nil, '800', '223344']
       end
 

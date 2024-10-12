@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
 gem 'rake', require: false
 gem 'coveralls', require: false
