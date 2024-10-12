@@ -5,7 +5,7 @@
 # https://www.numberingplans.com
 
 ndcs_with_5_subscriber_digits = %w[
-1511
+  1511
 1512
 1513
 1514

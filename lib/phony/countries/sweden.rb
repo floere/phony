@@ -37,7 +37,7 @@ ndcs = [
   '77', # Dalarna
 ]
 mobile = [
- '70', # Mobile
+  '70', # Mobile
  '71', # Telematics
  '72', # Mobile
  '73', # Mobile
@@ -46,7 +46,7 @@ mobile = [
  '79', # Mobile
 ]
 services = [
-    '112', # Emergency Service
+  '112', # Emergency Service
     '1177', # Health Care Advice
     '11414', # Police
 ]

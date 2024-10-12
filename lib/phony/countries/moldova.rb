@@ -6,7 +6,7 @@
 
 ndcs_with_6_subscriber_numbers = %w[22]
 ndcs_with_5_subscriber_numbers = %w[
-230
+  230
 231
 235
 236

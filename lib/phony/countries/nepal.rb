@@ -7,7 +7,7 @@
 ndcs_with_7_subscriber_digits = %w[1]
 
 ndcs_with_6_subscriber_digits = %w[
-10
+  10
 11
 21
 23

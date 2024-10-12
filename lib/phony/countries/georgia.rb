@@ -6,7 +6,7 @@
 
 ndcs_with_7_subscriber_digits = %w[32]
 ndcs_with_6_subscriber_digits = %w[
-341
+  341
 342
 344
 345

@@ -11,7 +11,7 @@ ndcs_1digit = [
 ]
 
 ndcs_2digit = [
- '010', # Genoa
+  '010', # Genoa
  '011', # Turin
  '015', # Biella
  '019', # Savona
@@ -258,7 +258,7 @@ mobile = %w[300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 
 
 # Not exhaustive.
 service = %w[
- 112
+  112
  113
  115
  116

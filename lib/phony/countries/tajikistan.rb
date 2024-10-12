@@ -5,7 +5,7 @@
 ndcs_with_6_subscriber_digits = %w[372]
 
 ndcs_with_5_subscriber_digits = %w[
-3130
+  3130
 3131
 3132
 3133

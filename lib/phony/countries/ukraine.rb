@@ -4,7 +4,7 @@
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 
 ndcs_with_7_subscriber_numbers = %w[
-32
+  32
 33
 34
 35
@@ -34,7 +34,7 @@ ndcs_with_7_subscriber_numbers = %w[
 ]
 
 ndcs_with_6_subscriber_numbers = %w[
-312
+  312
 322
 332
 342
@@ -65,7 +65,7 @@ ndcs_with_6_subscriber_numbers = %w[
 ]
 
 ndcs_with_5_subscriber_numbers = %w[
-3122
+  3122
 3131
 3132
 3133
@@ -583,7 +583,7 @@ ndcs_with_5_subscriber_numbers = %w[
 ]
 
 ndcs_with_4_subscriber_numbers = %w[
-31422
+  31422
 32606
 34342
 36522

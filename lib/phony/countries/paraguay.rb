@@ -5,7 +5,7 @@
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PY
 
 ndcs_with_6_7_subscriber_numbers = %w[
-21
+  21
 24
 25
 26
@@ -40,7 +40,7 @@ ndcs_with_6_7_subscriber_numbers = %w[
 ]
 
 ndcs_with_6_subscriber_numbers = %w[
-271
+  271
 275
 291
 292

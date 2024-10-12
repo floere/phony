@@ -7,7 +7,7 @@
 # Note: Tibet partially uses 4-digit NDC codes. This is NOT YET reflected here.
 #
 ndcs = [
- '10', # Beijing, TODO Confirm – is it 10 or 1?
+  '10', # Beijing, TODO Confirm – is it 10 or 1?
  '20', # Guangzhou
  '21', # Shanghai
  '22', # Tianjin

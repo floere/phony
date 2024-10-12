@@ -4,7 +4,7 @@
 #
 ndcs = [
   # '1', # Vienna
- '89',  # Routing Number
+  '89',  # Routing Number
  '316', # Graz
  '463', # Klagenfurt
  '512', # Innsbruck
@@ -31,7 +31,7 @@ corporate = %w[
 ]
 
 mobile = %w[
- 644
+  644
  650
  651
  652
@@ -59,14 +59,14 @@ mobile = %w[
 ]
 
 mobile_2digit = %w[
- 67
+  67
  68
  69
 ]
 
 
 service = %w[
- 710
+  710
  711
  718
  730

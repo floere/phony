@@ -5,7 +5,7 @@
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 
 ndcs_with_5_subscriber_numbers = %w[
-630
+  630
 631
 632
 633

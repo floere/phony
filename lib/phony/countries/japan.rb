@@ -6,7 +6,7 @@
 ndcs_with_8_subscriber_numbers = %w[3 6]
 
 ndcs_with_7_subscriber_numbers = %w[
-11
+  11
 15
 17
 18
@@ -57,7 +57,7 @@ ndcs_with_7_subscriber_numbers = %w[
 ]
 
 ndcs_with_6_subscriber_numbers = %w[
-123
+  123
 124
 125
 126
@@ -356,7 +356,7 @@ ndcs_with_6_subscriber_numbers = %w[
 ]
 
 ndcs_with_5_subscriber_numbers = %w[
-1267
+  1267
 1372
 1374
 1377

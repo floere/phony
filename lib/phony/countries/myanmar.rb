@@ -7,7 +7,7 @@
 # not correctly handled by the google library
 
 area_codes = %w[
-    1
+  1
     2
     42
     43

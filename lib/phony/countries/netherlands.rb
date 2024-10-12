@@ -38,7 +38,7 @@ ndcs = [
   '77', # Venlo
   '78', # Dordrecht
   '79', # Zoetermeer
- ]
+]
 
 service = [
   '84',  # Persoonlijke-assistentdiensten, zoals voicemail en faxmail
@@ -54,7 +54,7 @@ service3 = [
   '900', # Betaalde informatienummers
   '906', # Betaalde informatienummers
   '909', # Betaalde informatienummers
- ]
+]
 
 Phony.define do
   country '31',

@@ -5,7 +5,7 @@
 # Note: Germany uses a variable ndc format from length 2 to 5.
 #
 ndcs2 = [
-'10',  # Call-By-Call
+  '10',  # Call-By-Call
 '11',  # formerly Value Added Services
 '13',  # Voting and Lottery Numbers
 '30',  # Berlin
@@ -15,7 +15,7 @@ ndcs2 = [
 '89',  # München
 ]
 ndcs3 = [
-'201', # Essen
+  '201', # Essen
 '202', # Wuppertal
 '203', # Duisburg
 '208', # Mühlheim an der Ruhr
@@ -105,7 +105,7 @@ ndcs3 = [
 # 4-digit NDCs from now on.
 #
 ndcs4 = %w[
-2041
+  2041
 2043
 2045
 2051
@@ -3989,7 +3989,7 @@ ndcs4 = %w[
 9978
 ]
 mobile_3digits = [
-'150', # Group3G/Quam
+  '150', # Group3G/Quam
 '151', # T-Mobile
 '152', # Vodafone
 '155', # E-Plus
@@ -4018,7 +4018,7 @@ mobile_3digits = [
 ]
 
 mobile_4digits = [
-'1520', # Vodafone
+  '1520', # Vodafone
 '1521', # Lycamobile
 '1522', # Vodafone
 '1523', # Vodafone
@@ -4028,7 +4028,7 @@ mobile_4digits = [
 ]
 
 service = [
-'12',  # Innovative Services
+  '12',  # Innovative Services
 '130',
 '180', #
 '181', # IVPNs

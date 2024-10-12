@@ -10,11 +10,11 @@
 
 # Landline
 area_codes_2digits = [
-    '11',
+  '11',
 ]
 
 area_codes_3digits = %w[
-    220
+  220
     221
     223
     230
@@ -55,7 +55,7 @@ area_codes_3digits = %w[
 ]
 
 area_codes_4digits = %w[
-    2202
+  2202
     2221
     2223
     2224
