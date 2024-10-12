@@ -37,11 +37,11 @@ module Phony
       def extract_params(format)
         if format.last.respond_to? :max
           last = format.pop
-          length = format.inject(0) { |total, part| total + part }
+          length = format.sum
           length = (length+last.min..length+last.max)
           format << last.min
         else
-          length = format.inject(0) { |total, part| total + part }
+          length = format.sum
         end
         [format, length]
       end

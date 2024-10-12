@@ -43,7 +43,7 @@ module Phony
       end
 
       def plausible?(rest, hints = {})
-        number = rest.inject('', :+)
+        number = rest.sum('')
         mapping.each do |regex, format|
           next unless number =~ regex
           return plausible_with? number, format
@@ -62,7 +62,7 @@ module Phony
         end
 
         def plausible_with?(number, format)
-          length = format.inject 0, :+
+          length = format.sum
           number.length == length
         end
 
