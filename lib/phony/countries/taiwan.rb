@@ -15,8 +15,8 @@ Phony.define do
           match(/\A(8)\d{7}\z/)   >> split(3, 4) | # 屏東, start with 08, plus 7 digits
           match(/\A(49)\d{7}\z/)  >> split(3, 4) | # 南投, start with 049, plus 7 digits
           one_of(%w[4]) >> matched_split(
-             /\A\d{7}\z/          =>      [3, 4],  # 彰化, start with 04, plus 7 digits
-             /\A\d+\z/            =>      [4, 4])| # 臺中, start with 04, plus 8 digits
+             /\A\d{7}\z/ => [3, 4],  # 彰化, start with 04, plus 7 digits
+             /\A\d+\z/ => [4, 4])| # 臺中, start with 04, plus 8 digits
           match(/\A(37)\d{6}\z/)  >> split(2, 4) | # 苗栗, start with 037, plus 6 digits
           match(/\A(3)\d{7}\z/)   >> split(3, 4) | # 桃園 新竹 花蓮 宜蘭, start with 03, plus 7 digits
           match(/\A(5)\d{7}\z/)   >> split(3, 4) | # 嘉義 雲林, start with 05, plus 7 digits

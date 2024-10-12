@@ -171,9 +171,9 @@ Phony.define do
   # Norway.
   #
   country '47',
-          none >> matched_split(/^[1].*$/   => [3],
+          none >> matched_split(/^[1].*$/ => [3],
                                 /^[489].*$/ => [3, 2, 3],
-                                :fallback   => [2, 2, 2, 2])
+                                :fallback => [2, 2, 2, 2])
 
   # Poland (Republic of)
   # Although the NDCs are 2 digits, the representation is 3 digits.
