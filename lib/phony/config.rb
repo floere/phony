@@ -36,9 +36,11 @@ module Phony
         true
       end
     end
+
     def has_included?
       !included_ccs.empty?
     end
+
     def has_excluded?
       !excluded_ccs.empty?
     end

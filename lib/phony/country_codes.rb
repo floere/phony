@@ -42,6 +42,7 @@ module Phony
     def clean(number)
       clean! number && number.dup
     end
+
     # Clean number of all non-numeric characters, initial zeros or (0 and return a copy.
     #
     def clean!(number)
@@ -133,6 +134,7 @@ module Phony
       country, _, national = partial_split number
       country.vanity? national
     end
+
     # Converts a vanity number into a normalized E164 number.
     #
     def vanity_to_number(vanity_number)
@@ -169,6 +171,7 @@ module Phony
     def countrify(number, cc)
       countrify!(number, cc) || number
     end
+
     def countrify!(number, cc)
       number.sub!(/\A/, cc) # @countrify_regex, @cc
     end

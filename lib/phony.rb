@@ -150,6 +150,7 @@ module Phony
 
       normalize! phone_number.dup, options
     end
+
     # A destructive version of {#normalize}.
     #
     # @see #normalize
@@ -192,6 +193,7 @@ module Phony
 
       split! phone_number.dup, phone_number
     end
+
     # A destructive version of {#split}.
     #
     # @see #split
@@ -238,6 +240,7 @@ module Phony
       raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.format(number).' unless phone_number
       format! phone_number.dup, options
     end
+
     # A destructive version of {#format}.
     #
     # @see #format

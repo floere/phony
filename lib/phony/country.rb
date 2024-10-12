@@ -55,6 +55,7 @@ module Phony
       _, trunk, ndc, *rest = internal_split national_number
       [trunk, ndc, *rest]
     end
+
     #
     #
     # @return [Splitters::Local, Trunk, String (ndc), Array<String> (national pieces)]
@@ -87,6 +88,7 @@ module Phony
 
       format_cc_ndc trunk, ndc, local, type, space, parentheses, use_trunk
     end
+
     def format_local(local, local_space)
       if local.empty?
         EMPTY_STRING
@@ -95,6 +97,7 @@ module Phony
         local.join local_space.to_s
       end
     end
+
     def format_cc_ndc(trunk, ndc, local, type, space, parentheses, use_trunk)
       # NOTE: We mark NDCs that are of type "none" with false (nil trips plausible?). This would result in false being printed.
       #       Therefore we set NDC to nil when formatting.
@@ -126,13 +129,16 @@ module Phony
         local
       end
     end
+
     def format_ndc(ndc, parentheses)
       ndc = nil if ndc == false # TODO
       parentheses ? "(#{ndc})" : ndc
     end
+
     def format_with_ndc(format, cc, ndc, local, space)
       format % [cc, space, ndc, space, local]
     end
+
     def format_without_ndc(format, cc, local, space)
       format % [cc, space, local, nil, nil]
     end
@@ -145,6 +151,7 @@ module Phony
     def clean(number)
       clean! number && number.dup
     end
+
     # Clean number of all non-numeric characters and return it.
     #
     def clean!(number)
@@ -207,6 +214,7 @@ module Phony
     def vanity?(national_number)
       Vanity.vanity? national_number
     end
+
     #
     #
     def vanity_to_number(vanity_number)
