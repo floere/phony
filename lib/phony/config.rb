@@ -61,10 +61,10 @@ module Phony
       last = options.last
       only, except = if last.respond_to?(:to_hash)
         # We have the explicit form.
-        [last[:only], last[:except]]
+                       [last[:only], last[:except]]
                      elsif options.respond_to?(:to_ary)
         # We have the convenience short forms.
-        [options, []]
+                       [options, []]
                      end
 
       # Set defaults.

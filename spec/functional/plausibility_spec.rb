@@ -58,7 +58,7 @@ describe 'plausibility' do
       end
 
       it 'is correct for Bulgaria' do
-          Phony.plausible?('+359 2 1234567').should be_truthy
+        Phony.plausible?('+359 2 1234567').should be_truthy
           Phony.plausible?('+359 30 12345').should be_truthy
           Phony.plausible?('+359 30 123456').should be_truthy
           Phony.plausible?('+359 31 12345').should be_truthy
@@ -198,7 +198,7 @@ describe 'plausibility' do
       it_is_correct_for 'Cook Islands', samples: '+682  71928'
       it_is_correct_for 'Costa Rica', samples: '+506 2 234 5678'
       it 'is correct for Croatia' do
-          Phony.plausible?('+385 21 695 900').should be_truthy  # Landline
+        Phony.plausible?('+385 21 695 900').should be_truthy  # Landline
           Phony.plausible?('+385 1 4566 666').should be_truthy  # Landline (Zagreb)
           Phony.plausible?('+385 99 444 999').should be_truthy  # Mobile
           Phony.plausible?('+385 91 896 7509').should be_truthy # Mobile

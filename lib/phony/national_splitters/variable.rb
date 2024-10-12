@@ -21,9 +21,9 @@ module Phony
         # This if can possibly be removed.
         #
         presumed_code = if @mapped_ndc_min_length > 0
-          presumed_code = national_number.slice!(0..@mapped_ndc_min_length-1)
+                          presumed_code = national_number.slice!(0..@mapped_ndc_min_length-1)
                         else
-          ''
+                          ''
                         end
 
         # Try for all possible mapped.
@@ -49,17 +49,17 @@ module Phony
 
         # Optimizes and restructures the given ndcs array.
         #
-        def optimize(ndc_ary)
-          ndcs = {}
-          ndc_ary.each do |ndc|
-            ndcs[ndc.length] ||= []
-            ndcs[ndc.length] << ndc
-          end
-          keys = ndcs.keys
-          @mapped_ndc_min_length = keys.min # || 1
-          @mapped_ndc_max_length = keys.max
-          ndcs
+      def optimize(ndc_ary)
+        ndcs = {}
+        ndc_ary.each do |ndc|
+          ndcs[ndc.length] ||= []
+          ndcs[ndc.length] << ndc
         end
+        keys = ndcs.keys
+        @mapped_ndc_min_length = keys.min # || 1
+        @mapped_ndc_max_length = keys.max
+        ndcs
+      end
 
     end
   end

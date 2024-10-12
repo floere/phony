@@ -61,9 +61,9 @@ module Phony
     #
     def normalize(number, options = {})
       country = if cc = options[:cc]
-        self[cc]
+                  self[cc]
                 else
-        clean! number
+                  clean! number
         country, cc, number = partial_split number
         country
                 end
@@ -144,34 +144,34 @@ module Phony
 
       # Return a country for the number.
       #
-      def country_for(number)
-        country, _ = partial_split number
-        country
-      end
+    def country_for(number)
+      country, _ = partial_split number
+      country
+    end
 
       # Split off the country and the cc, and also return the national number part.
       #
-      def partial_split(number)
-        cc = +''
-        1.upto(3) do |i|
-          cc << number.slice!(0..0)
-          country = countries[i][cc]
-          return [country, cc, number] if country
-        end
-        # This line is never reached as CCs are in prefix code.
+    def partial_split(number)
+      cc = +''
+      1.upto(3) do |i|
+        cc << number.slice!(0..0)
+        country = countries[i][cc]
+        return [country, cc, number] if country
       end
+      # This line is never reached as CCs are in prefix code.
+    end
 
       # Adds the country code to the front
       # if it does not already start with it.
       #
       # Note: This won't be correct in some cases, but it is the best we can do.
       #
-      def countrify(number, cc)
-        countrify!(number, cc) || number
-      end
-      def countrify!(number, cc)
-        number.sub!(/\A/, cc) # @countrify_regex, @cc
-      end
+    def countrify(number, cc)
+      countrify!(number, cc) || number
+    end
+    def countrify!(number, cc)
+      number.sub!(/\A/, cc) # @countrify_regex, @cc
+    end
 
   end
 end

@@ -53,18 +53,18 @@ module Phony
 
       private
 
-        def split_with(number, format)
-          format.inject([]) do |result, size|
-            result << number.slice!(0..size-1)
-            return result if number.empty?
-            result
-          end << number
-        end
+      def split_with(number, format)
+        format.inject([]) do |result, size|
+          result << number.slice!(0..size-1)
+          return result if number.empty?
+          result
+        end << number
+      end
 
-        def plausible_with?(number, format)
-          length = format.sum
-          number.length == length
-        end
+      def plausible_with?(number, format)
+        length = format.sum
+        number.length == length
+      end
 
     end
   end
