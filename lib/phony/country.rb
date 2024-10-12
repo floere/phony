@@ -23,7 +23,7 @@ module Phony
     # Chain two codes together.
     #
     def |(other)
-      self.codes = self.codes + other.codes
+      self.codes = codes + other.codes
       self
     end
 
