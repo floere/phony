@@ -22,9 +22,9 @@ module Phony
         #
         presumed_code = if @mapped_ndc_min_length > 0
           presumed_code = national_number.slice!(0..@mapped_ndc_min_length-1)
-        else
+                        else
           ''
-        end
+                        end
 
         # Try for all possible mapped.
         #

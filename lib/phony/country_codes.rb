@@ -62,11 +62,11 @@ module Phony
     def normalize(number, options = {})
       country = if cc = options[:cc]
         self[cc]
-      else
+                else
         clean! number
         country, cc, number = partial_split number
         country
-      end
+                end
       number = country.normalize number, cc: cc
       countrify! number, cc
     end

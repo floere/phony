@@ -62,10 +62,10 @@ module Phony
       only, except = if last.respond_to?(:to_hash)
         # We have the explicit form.
         [last[:only], last[:except]]
-      elsif options.respond_to?(:to_ary)
+                     elsif options.respond_to?(:to_ary)
         # We have the convenience short forms.
         [options, []]
-      end
+                     end
 
       # Set defaults.
       only, except = [only || [], except || []]
