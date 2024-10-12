@@ -18,7 +18,7 @@ describe Phony::NationalSplitters::Default do
 
     describe 'plausible?' do
       it 'is always plausible' do
-        expect(splitter.plausible?(:anything, :anything)).to be_truthy
+        expect(splitter).to be_plausible(:anything, :anything)
       end
     end
 
