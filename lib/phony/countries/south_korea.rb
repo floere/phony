@@ -24,9 +24,9 @@ Phony.define do
           one_of('2') >> matched_split(
             /\A\d{7}\z/ => [3, 4],
             /\A\d{8}\z/ => [4, 4]
-) | # Seoul, also includes "services".
+          ) | # Seoul, also includes "services".
           fixed(2) >> matched_split(
             /\A\d{7}\z/ => [3, 4],
             /\A\d{8}\z/ => [4, 4]
-) # Rest of cities
+          ) # Rest of cities
 end

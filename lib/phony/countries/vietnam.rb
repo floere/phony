@@ -130,7 +130,7 @@ Phony.define do
           one_of('1900')                        >> matched_split(
             /\A\d{4}\z/ => [4],
             /\A\d{6}\z/ => [6]
-) | # Premium rate
+          ) | # Premium rate
           # Govt reserved
           fixed(80)                             >> split(5) |
           fixed(69)                             >> split(1, 5)

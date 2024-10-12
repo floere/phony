@@ -16,7 +16,7 @@ Phony.define do
                  match(/^(80[01])/)  >> matched_split(
                    /\A\d{4}\z/ => [4],
                    /\A\d{6}\z/ => [3, 3]
-) | # Toll free
+                 ) | # Toll free
                  match(/^(9\d)/)     >> split(3, 3..4)    | # Mobile
                  match(landline)     >> split(3, 3..4)    | # Landline
                  match(/^(6[01])/)   >> split(2, 2..3) | # Premium rate
