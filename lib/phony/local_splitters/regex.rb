@@ -42,7 +42,7 @@ module Phony
         split_with number, fallback
       end
 
-      def plausible?(rest, hints = {})
+      def plausible?(rest, _hints = {})
         number = rest.sum('')
         mapping.each do |regex, format|
           next unless number&.match?(regex)

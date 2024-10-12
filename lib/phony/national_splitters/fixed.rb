@@ -17,7 +17,7 @@ module Phony
         @mapping[parameters] ||= new(*parameters)
       end
 
-      def initialize(size, options = {})
+      def initialize(size, _options = {})
         @size = size
         @zero = nil # options[:zero] == false ? nil : '0'
       end

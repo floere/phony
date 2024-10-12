@@ -33,7 +33,7 @@ module Phony
       # @example Split the national part of a Swiss number.
       #   Phony.plausible?("1234567") # => true
       #
-      def plausible?(rest, size, hints = {})
+      def plausible?(_rest, _size, _hints = {})
         true
       end
 
