@@ -45,7 +45,7 @@ describe Phony::NationalSplitters::Fixed do
     end
 
     it 'has a length of nil' do
-      expect(splitter.length).to be nil
+      expect(splitter.length).to be_nil
     end
   end
 end
