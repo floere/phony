@@ -43,7 +43,6 @@
 #   )
 #
 Phony.define do
-
   # Reserved.
   #
   reserved '0'

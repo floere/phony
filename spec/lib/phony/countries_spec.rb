@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe 'country descriptions' do
-
   def self.it_splits number, expected
     it { expect(Phony.split(number)).to eq expected }
   end
@@ -1619,5 +1618,4 @@ describe 'country descriptions' do
       it_splits '80812345678', ['808', false, '12345678']
     end
   end
-
 end

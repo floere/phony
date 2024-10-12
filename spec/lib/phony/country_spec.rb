@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::Country do
-
   describe 'general' do
     let(:country) do
       national_splitter = Phony::NationalSplitters::Variable.new 4, ['44']
@@ -108,5 +107,4 @@ describe Phony::Country do
       end
     end
   end
-
 end

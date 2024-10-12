@@ -3,7 +3,6 @@ require 'spec_helper'
 main = self
 
 describe Phony::LocalSplitters::Regex do
-
   before do
     load 'spec_helper_extensions.rb'
     main.send :include, SpecHelperExtensions
@@ -97,7 +96,5 @@ describe Phony::LocalSplitters::Regex do
         result.should be_truthy
       end
     end
-
   end
-
 end

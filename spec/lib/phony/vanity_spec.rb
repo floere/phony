@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe Phony::Vanity do
-
   let(:vanity) { described_class }
 
   describe '.replace' do
@@ -27,5 +26,4 @@ describe Phony::Vanity do
       expect(vanity.normalized('1-800-HELLO')).to eq '1800HELLO'
     end
   end
-
 end

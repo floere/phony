@@ -3,9 +3,7 @@
 require 'spec_helper'
 
 describe 'plausibility' do
-
   describe 'plausible?' do
-
     # Validations test helper.
     # @param country_name [String]
     # @param options [Hash]

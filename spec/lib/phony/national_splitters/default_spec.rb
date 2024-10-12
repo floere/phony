@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::NationalSplitters::Default do
-
   describe 'instance_for' do
     it 'caches' do
       described_class.instance_for.should equal(described_class.instance_for)
@@ -28,7 +27,5 @@ describe Phony::NationalSplitters::Default do
         splitter.length.should == 3
       end
     end
-
   end
-
 end

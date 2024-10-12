@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::TrunkCode do
-
   describe '#format' do
     it 'is correct' do
       code = described_class.new('0')

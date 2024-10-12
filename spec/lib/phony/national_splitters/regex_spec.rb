@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::NationalSplitters::Regex do
-
   describe 'instance_for' do
     it 'caches correctly (not)' do
       described_class.instance_for(//).should_not equal(described_class.instance_for(//))
@@ -20,5 +19,4 @@ describe Phony::NationalSplitters::Regex do
       end
     end
   end
-
 end

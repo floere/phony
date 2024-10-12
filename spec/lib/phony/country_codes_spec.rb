@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::CountryCodes do
-
   let(:countries) { Phony::CountryCodes.instance }
 
   describe '#plausible?' do
@@ -266,9 +265,7 @@ describe Phony::CountryCodes do
         it 'formats liechtensteiner numbers' do
           expect(Phony.formatted('4233841148', format: :international_relative, spaces: :-)).to eq '00423-384-11-48'
         end
-
       end
     end
   end
-
 end

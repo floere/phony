@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::NationalCode do
-
   describe 'split' do
     context 'regression' do
       describe 'iceland' do
@@ -65,5 +64,4 @@ describe Phony::NationalCode do
       end
     end
   end
-
 end

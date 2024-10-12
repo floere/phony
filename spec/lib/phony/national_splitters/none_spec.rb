@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::NationalSplitters::None do
-
   describe 'instance_for' do
     it 'caches' do
       expect(described_class.instance_for).to eq described_class.instance_for
@@ -22,7 +21,5 @@ describe Phony::NationalSplitters::None do
         expect(splitter.length).to be_zero
       end
     end
-
   end
-
 end

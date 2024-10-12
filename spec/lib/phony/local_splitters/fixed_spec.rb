@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Phony::LocalSplitters::Fixed do
-
   describe 'instance_for' do
     it 'caches' do
       described_class.instance_for([3,2,2]).should equal(described_class.instance_for([3,2,2]))
@@ -60,5 +59,4 @@ describe Phony::LocalSplitters::Fixed do
       end
     end
   end
-
 end

@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe Phony::DSL do
-
   let(:dsl) { described_class.new }
 
   it 'has a todo' do
@@ -25,5 +24,4 @@ describe Phony::DSL do
       expect(dsl.match(/(123)/).class.name).to eq Phony::NationalSplitters::Regex.name
     end
   end
-
 end
