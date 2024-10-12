@@ -7,7 +7,7 @@ module Phony
       #
       #
       def initialize(fallback, ndcs, options = {})
-        super fallback, options
+        super(fallback, options)
         @ndcs = optimize ndcs
       end
 
@@ -36,7 +36,7 @@ module Phony
 
         # Not found.
         #
-        super fallback_number
+        super(fallback_number)
       end
 
       # A valid length.

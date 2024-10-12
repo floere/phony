@@ -22,7 +22,7 @@ module Phony
       end
 
       def initialize(regex, on_fail_take = nil, options = {})
-        super on_fail_take, options
+        super(on_fail_take, options)
 
         @regex = regex
       end
@@ -39,7 +39,7 @@ module Phony
 
         # Not found.
         #
-        super national_number
+        super(national_number)
       end
 
       # A valid length.
