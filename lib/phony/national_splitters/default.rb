@@ -5,7 +5,6 @@ module Phony
     # TODO: Default = Fixed.new(...)?
     #
     class Default < DSL
-
       def self.instance_for
         @instance ||= new
       end
@@ -43,7 +42,6 @@ module Phony
       def length
         3
       end
-
     end
   end
 end

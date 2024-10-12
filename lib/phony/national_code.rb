@@ -4,7 +4,6 @@ module Phony
   # NationalCodes have a special numbers splitter, a national code splitter and a local code splitter.
   #
   class NationalCode
-
     attr_reader :local_splitter
 
     def initialize(national_splitter, local_splitter)
@@ -28,6 +27,5 @@ module Phony
     def normalize(national_number, options = {})
       national_number.gsub(/\A0+/, EMPTY_STRING)
     end
-
   end
 end

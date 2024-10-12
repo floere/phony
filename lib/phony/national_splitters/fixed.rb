@@ -5,7 +5,6 @@ module Phony
     # TODO
     #
     class Fixed < DSL
-
       attr_writer :special_splitter
 
       @mapping = {}
@@ -35,7 +34,6 @@ module Phony
       def length
         @size
       end
-
     end
   end
 end

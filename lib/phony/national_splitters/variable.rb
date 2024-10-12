@@ -3,7 +3,6 @@
 module Phony
   module NationalSplitters
     class Variable < Fixed
-
       def initialize(fallback, ndcs, options = {})
         super(fallback, options)
         @ndcs = optimize ndcs
@@ -58,7 +57,6 @@ module Phony
         @mapped_ndc_max_length = keys.max
         ndcs
       end
-
     end
   end
 end

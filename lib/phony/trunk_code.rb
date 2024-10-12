@@ -2,7 +2,6 @@
 
 module Phony
   class TrunkCode
-
     # Parameters:
     #  * code: The trunk code, e.g. 0.
     #
@@ -52,6 +51,5 @@ module Phony
         end
       end
     end
-
   end
 end

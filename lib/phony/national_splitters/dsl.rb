@@ -5,7 +5,6 @@ module Phony
     # TODO
     #
     class DSL
-
       def >>(local_splitter)
         country_for local_splitter
       end
@@ -19,7 +18,6 @@ module Phony
       def reserved
 
       end
-
     end
   end
 end

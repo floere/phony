@@ -10,7 +10,6 @@ module Phony
     #       to avoid getting new local splitter instances.
     #
     class Regex < Fixed
-
       attr_reader :on_fail_take, :regex
 
       # Get a splitter for the given format.
@@ -47,7 +46,6 @@ module Phony
       def length
         # raise "#{self.class.name} has no length that can be automatically extracted."
       end
-
     end
   end
 end

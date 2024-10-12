@@ -15,7 +15,6 @@ module Phony
   # subsets of CCs.
   #
   class Config
-
     attr_reader :included_ccs, :excluded_ccs
 
     def initialize(included_ccs, excluded_ccs)
@@ -87,6 +86,5 @@ module Phony
       # Return the stored config data.
       Phony.config
     end
-
   end
 end

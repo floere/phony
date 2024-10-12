@@ -6,7 +6,6 @@ module Phony
     # which have no NDC / Area Code.
     #
     class None < Default
-
       # Get a splitter. Caches.
       #
       def self.instance_for(*)
@@ -42,7 +41,6 @@ module Phony
       def length
         0
       end
-
     end
   end
 end

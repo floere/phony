@@ -6,7 +6,6 @@ module Phony
   # Handles determining the correct national code handler.
   #
   class CountryCodes
-
     attr_reader   :countries
     attr_accessor :international_absolute_format, :international_relative_format, :national_format
 
@@ -175,6 +174,5 @@ module Phony
     def countrify!(number, cc)
       number.sub!(/\A/, cc) # @countrify_regex, @cc
     end
-
   end
 end

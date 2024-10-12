@@ -2,7 +2,6 @@
 
 module Phony
   class Country
-
     attr_accessor :codes
 
     @@international_absolute_format = '+%s%s%s%s%s'
@@ -217,6 +216,5 @@ module Phony
       _, ndc, *rest = split vanity_number
       "#{ndc}#{Vanity.replace(rest.join)}"
     end
-
   end
 end

@@ -11,7 +11,6 @@ module Phony
     #       to avoid getting new local splitter instances.
     #
     class Regex
-
       attr_reader :fallback, :mapping
 
       # Get a splitter for the given format.
@@ -65,7 +64,6 @@ module Phony
         length = format.sum
         number.length == length
       end
-
     end
   end
 end

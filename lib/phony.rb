@@ -113,7 +113,6 @@ module Phony
   @codes = CountryCodes.instance
 
   class << self
-
     # Get the Country for the given CC.
     #
     # @param [String] cc A valid country code.
@@ -301,6 +300,5 @@ module Phony
     def vanity_to_number(vanity_number)
       @codes.vanity_to_number vanity_number.dup
     end
-
   end
 end

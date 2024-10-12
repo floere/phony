@@ -28,7 +28,6 @@ module Phony
   #   Phony.define { ... }
   #
   class DSL
-
     # Define a country's rules.
     #
     # Use the other DSL methods to define the country's rules.
@@ -221,6 +220,5 @@ module Phony
     def invalid_ndcs *ndc
       Validators::NDC.new invalid: ndc
     end
-
   end
 end
