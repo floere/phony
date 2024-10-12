@@ -867,7 +867,7 @@ Phony.define do
   # Guadeloupe (French Department of) http://www.wtng.info/wtng-590-fr.html
   # https://www.numberingplans.com/?page=dialling&sub=areacodes
   country '590', trunk('0') |
-    fixed(3) >> split(2, 2, 2)
+                 fixed(3) >> split(2, 2, 2)
 
   country '591', # Bolivia (Republic of) http://www.itu.int/oth/T020200001A/en
           fixed(1) >> split(3, 4)
@@ -893,7 +893,7 @@ Phony.define do
 
   # Martinique (French Department of) http://www.wtng.info/wtng-596-mq.html, https://www.numberingplans.com
   country '596', trunk('0') |
-    fixed(3) >> split(2, 2, 2)
+                 fixed(3) >> split(2, 2, 2)
 
   # Suriname (Republic of) http://www.wtng.info/wtng-597-sr.html, https://www.numberingplans.com
   country '597',
