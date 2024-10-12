@@ -16,6 +16,7 @@ describe Phony::NationalCode do
         end
       end
     end
+
     context 'with fixed ndc (Swiss)' do
       let(:national) do
         national_splitter = Phony::NationalSplitters::Fixed.instance_for 2
@@ -36,6 +37,7 @@ describe Phony::NationalCode do
         expect(national.normalize('44364353')).to eq '44364353'
       end
     end
+
     context 'with fixed ndc (French)' do
       let(:national) do
         national_splitter = Phony::NationalSplitters::Fixed.instance_for 1

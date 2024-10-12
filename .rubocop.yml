@@ -19,8 +19,8 @@ Style/Documentation:
 
 Style/MixinUsage:
   Exclude:
-    - 'bin/setup'
-    - 'bin/update'
+    - 'bin/release'
+    - 'bin/tag'
 
 Style/NonNilCheck:
   IncludeSemanticChanges: true
@@ -139,10 +139,4 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'bin/**/*'
-    - 'script/**/*'
-    - 'log/**/*'
-    - 'public/**/*'
     - 'tmp/**/*'
-    - 'db/schema.rb'
-    - 'vendor/**/*'
-    - 'node_modules/**/*'

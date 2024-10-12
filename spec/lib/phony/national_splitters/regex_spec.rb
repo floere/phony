@@ -12,6 +12,7 @@ describe Phony::NationalSplitters::Regex do
     context 'without on_fail' do
       let(:splitter) { described_class.instance_for(/^(123)\d+$/) }
     end
+
     context 'with on_fail 2' do
       let(:splitter) { described_class.instance_for(/^(123)\d+$/, 2) }
       it 'uses the on_fail_take' do

@@ -44,6 +44,7 @@ describe Phony::CountryCodes do
       expect(countries.send(:countrify, '441231212', '41')).to eq '41441231212'
     end
   end
+
   describe '#countrify!' do
     it 'in-place replaces the number' do
       number = '441231212'
@@ -108,6 +109,7 @@ describe Phony::CountryCodes do
         expect(countries.formatted('18005551212', :format => :national, :spaces => :-)).to eq '(800)-555-1212'
       end
     end
+
     context 'default' do
       it "should format swiss numbers" do
         expect(countries.formatted('41443643532')).to eq '+41 44 364 35 32'
@@ -125,6 +127,7 @@ describe Phony::CountryCodes do
         expect(countries.formatted('35311234567')).to eq '+353 1 123 4567'
       end
     end
+
     describe "international" do
       it "should format north american numbers" do
         expect(countries.formatted('18091231234', :format => :international)).to eq '+1 (809) 123-1234'
@@ -197,6 +200,7 @@ describe Phony::CountryCodes do
           expect(Phony.formatted('4233841148', :format => :international_relative, :spaces => '')).to eq '004233841148'
         end
       end
+
       context 'with special spaces' do
         it "should format swiss numbers" do
           expect(Phony.formatted('41443643532', :format => :international)).to eq '+41 44 364 35 32'

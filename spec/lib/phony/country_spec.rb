@@ -15,6 +15,7 @@ describe Phony::Country do
         expect(country.clean('+41-44-123-12-12')).to eq '41441231212'
       end
     end
+
     describe '#vanity_to_number' do
       it 'turns the vanity number into a number' do
         expect(country.vanity_to_number('1-800-HELLO')).to eq '1-800-43556'
@@ -35,6 +36,7 @@ describe Phony::Country do
         expect(country.split('112')).to eq [nil, false, '112']
       end
     end
+
     describe 'San Marino' do
       it 'normalizes correctly' do
         expect(Phony.normalize('+3780549903549')).to eq '3780549903549'
@@ -43,6 +45,7 @@ describe Phony::Country do
         expect(Phony.normalize('+378903549')).to eq '3780549903549'
       end
     end
+
     describe 'Japan' do
       it 'normalizes correctly' do
         expect(Phony.normalize('+81-03-1234-5634')).to eq '81312345634'
@@ -71,6 +74,7 @@ describe Phony::Country do
         expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
       end
     end
+
     describe 'normalize' do
       it "should handle ZH" do
         expect(country.normalize('0443643532')).to eq '443643532'

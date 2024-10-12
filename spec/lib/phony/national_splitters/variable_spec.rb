@@ -21,6 +21,7 @@ describe Phony::NationalSplitters::Variable do
         expect(splitter.length).to eq (1..3)
       end
     end
+
     context 'special handling for using the variable size splitter for Swiss service numbers' do
       let(:splitter) { Phony::NationalSplitters::Variable.new 2, ['800'] }
       it "should handle swiss service numbers" do

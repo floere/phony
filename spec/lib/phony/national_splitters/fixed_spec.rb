@@ -26,6 +26,7 @@ describe Phony::NationalSplitters::Fixed do
       expect(splitter.length).to eq 2
     end
   end
+
   describe 'split' do
     let(:splitter) { Phony::NationalSplitters::Fixed.new(nil) }
     it 'splits correctly' do
