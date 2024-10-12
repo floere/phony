@@ -43,13 +43,13 @@ module Phony
     # Format the trunk code using the spaces given.
     #
     def format(space, force = nil)
-      if force || @format
+      return unless force || @format
         if @code.size > 1
           (@code % space).gsub(/\D/, ' ')
         else
           @code
         end
-      end
+      
     end
   end
 end
