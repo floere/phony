@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Phony
-
   class TrunkCode
 
     # Parameters:
@@ -55,5 +54,4 @@ module Phony
     end
 
   end
-
 end

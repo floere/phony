@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Phony
-
   module NationalSplitters
-
     # This is a national splitter for countries
     # which have no NDC / Area Code.
     #
@@ -46,7 +44,5 @@ module Phony
       end
 
     end
-
   end
-
 end

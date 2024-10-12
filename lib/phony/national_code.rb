@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Phony
-
   # NationalCodes have a special numbers splitter, a national code splitter and a local code splitter.
   #
   class NationalCode
@@ -33,5 +32,4 @@ module Phony
     end
 
   end
-
 end

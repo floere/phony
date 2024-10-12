@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 module Phony
-
   # Helper module that maps vanity numbers to digit numbers.
   #
   module Vanity
-
     # Returns a char to number mapping string for the String#tr method.
     #
     def self.mapping
@@ -35,6 +33,5 @@ module Phony
     def self.normalized(number)
       number.gsub @@vanity_normalizing_regexp, ''
     end
-
   end
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Phony
-
   #
   #
   class Country
@@ -216,5 +215,4 @@ module Phony
     end
 
   end
-
 end

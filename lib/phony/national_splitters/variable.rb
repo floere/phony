@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Phony
-
   module NationalSplitters
-
     class Variable < Fixed
 
       #
@@ -64,7 +62,5 @@ module Phony
         end
 
     end
-
   end
-
 end

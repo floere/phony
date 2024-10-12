@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Phony
-
   # Add config.
   class << self
     attr_writer :config

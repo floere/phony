@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Phony
-
   module NationalSplitters
-
     # TODO
     #
     class DSL
@@ -27,7 +25,5 @@ module Phony
       end
 
     end
-
   end
-
 end

@@ -75,7 +75,6 @@ load File.expand_path 'phony/countries.rb', __dir__
 # E164 phone numbers directly.
 #
 module Phony
-
   # Raised in case Phony can't normalize a given number.
   #
   # @example
@@ -301,5 +300,4 @@ module Phony
     end
 
   end
-
 end

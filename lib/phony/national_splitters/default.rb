@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Phony
-
   module NationalSplitters
-
     # TODO: Default = Fixed.new(...)?
     #
     class Default < DSL

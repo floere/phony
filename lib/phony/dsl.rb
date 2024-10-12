@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Phony
-
   # For country definitions.
   #
   # There are two styles: With or without block.
@@ -225,5 +224,4 @@ module Phony
 
 
   end
-
 end

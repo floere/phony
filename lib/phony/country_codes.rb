@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Phony
-
   EMPTY_STRING = '' unless defined?(EMPTY_STRING)
 
   # Handles determining the correct national code handler.
@@ -175,5 +174,4 @@ module Phony
       end
 
   end
-
 end

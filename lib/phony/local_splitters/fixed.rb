@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Phony
-
   module LocalSplitters
-
     # Local splitter class to split the last part of
     # a number, i.e. minus cc or ndc.
     #
@@ -70,7 +68,5 @@ module Phony
       end
 
     end
-
   end
-
 end

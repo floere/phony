@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Phony
-
   module NationalSplitters
-
     # National splitter class to split the ndc-local part of a number.
     #
     # Countries can create new instances according to their needs.
@@ -51,7 +49,5 @@ module Phony
       end
 
     end
-
   end
-
 end
