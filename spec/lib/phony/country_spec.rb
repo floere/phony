@@ -58,7 +58,7 @@ describe Phony::Country do
       end
 
       it 'splits correctly' do
-        expect(Phony.split('81312345634')).to eq %w(81 3 1234 5634)
+        expect(Phony.split('81312345634')).to eq %w[81 3 1234 5634]
       end
     end
   end

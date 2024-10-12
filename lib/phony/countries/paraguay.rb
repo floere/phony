@@ -4,7 +4,7 @@
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PY
 
-ndcs_with_6_7_subscriber_numbers = %w(
+ndcs_with_6_7_subscriber_numbers = %w[
 21
 24
 25
@@ -37,9 +37,9 @@ ndcs_with_6_7_subscriber_numbers = %w(
 92
 93
 94
-)
+]
 
-ndcs_with_6_subscriber_numbers = %w(
+ndcs_with_6_subscriber_numbers = %w[
 271
 275
 291
@@ -128,7 +128,7 @@ ndcs_with_6_subscriber_numbers = %w(
 918
 951
 952
-)
+]
 
 Phony.define do
 
@@ -138,7 +138,7 @@ Phony.define do
               matched_split(
                   /\A\d{6}\z/ => [3,3],
                   /\A\d+\z/ => [3,4]) | # geographic
-          one_of(%w(96 97 98 99)) >> split(3,4) | # mobile
+          one_of(%w[96 97 98 99]) >> split(3,4) | # mobile
           fixed(2) >>
               matched_split(
                   /\A\d{6}\z/ => [3,3],

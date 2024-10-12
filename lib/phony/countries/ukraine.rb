@@ -3,7 +3,7 @@
 # Ukraine
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 
-ndcs_with_7_subscriber_numbers = %w(
+ndcs_with_7_subscriber_numbers = %w[
 32
 33
 34
@@ -31,9 +31,9 @@ ndcs_with_7_subscriber_numbers = %w(
 65
 69
 72
-)
+]
 
-ndcs_with_6_subscriber_numbers = %w(
+ndcs_with_6_subscriber_numbers = %w[
 312
 322
 332
@@ -62,9 +62,9 @@ ndcs_with_6_subscriber_numbers = %w(
 652
 654
 692
-)
+]
 
-ndcs_with_5_subscriber_numbers = %w(
+ndcs_with_5_subscriber_numbers = %w[
 3122
 3131
 3132
@@ -580,9 +580,9 @@ ndcs_with_5_subscriber_numbers = %w(
 6565
 6566
 6569
-)
+]
 
-ndcs_with_4_subscriber_numbers = %w(
+ndcs_with_4_subscriber_numbers = %w[
 31422
 32606
 34342
@@ -601,7 +601,7 @@ ndcs_with_4_subscriber_numbers = %w(
 56510
 57442
 57572
-)
+]
 
 seven_digit_mobile_prefixes = [
   '50', '66', '95', '99',  # Vodafone
@@ -614,7 +614,7 @@ seven_digit_mobile_prefixes = [
   '94'  # Intertelecom
 ]
 
-ndcs_with_3_subscriber_numbers = %w(433861)
+ndcs_with_3_subscriber_numbers = %w[433861]
 
 Phony.define do
   country '380',

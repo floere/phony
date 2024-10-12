@@ -4,8 +4,8 @@
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=GE
 
-ndcs_with_7_subscriber_digits = %w(32)
-ndcs_with_6_subscriber_digits = %w(
+ndcs_with_7_subscriber_digits = %w[32]
+ndcs_with_6_subscriber_digits = %w[
 341
 342
 344
@@ -81,13 +81,13 @@ ndcs_with_6_subscriber_digits = %w(
 495
 496
 497
-)
+]
 
 Phony.define do
   country '995',
           trunk('0') |
           one_of('220') >> split(3,2) |
-          one_of(%w(514 550 551 555 557 558 568 571 574 577 578 579 591 592 593 595 596 597 598 599 770 790)) >> split(3,3) | # mobile
+          one_of(%w[514 550 551 555 557 558 568 571 574 577 578 579 591 592 593 595 596 597 598 599 770 790]) >> split(3,3) | # mobile
           one_of(ndcs_with_6_subscriber_digits) >> split(3,3) |
           one_of(ndcs_with_7_subscriber_digits) >> split(3,4) |
           fixed(3) >> split(3,3)

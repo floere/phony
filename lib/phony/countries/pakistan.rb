@@ -3,9 +3,9 @@
 # Pakistan (Islamic Republic of)
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PK
 
-ndcs_with_8_subscriber_numbers = %w(21 42 58)
+ndcs_with_8_subscriber_numbers = %w[21 42 58]
 
-ndcs_with_7_subscriber_numbers = %w(
+ndcs_with_7_subscriber_numbers = %w[
 22
 25
 40
@@ -34,9 +34,9 @@ ndcs_with_7_subscriber_numbers = %w(
 81
 86
 91
-)
+]
 
-ndcs_with_6_subscriber_numbers = %w(
+ndcs_with_6_subscriber_numbers = %w[
 232
 233
 235
@@ -106,7 +106,7 @@ ndcs_with_6_subscriber_numbers = %w(
 996
 997
 998
-)
+]
 
 Phony.define do
 
@@ -115,7 +115,7 @@ Phony.define do
           one_of('111') >> split(3,3) | # universal access number
           one_of(ndcs_with_7_subscriber_numbers) >> split(4,3) |
           one_of(ndcs_with_8_subscriber_numbers) >> split(4,4) |
-          one_of(%w(30 31 32 33 34 35 36)) >> split(4,4) | # mobile
+          one_of(%w[30 31 32 33 34 35 36]) >> split(4,4) | # mobile
           fixed(2) >> split(4,4)
 
 end

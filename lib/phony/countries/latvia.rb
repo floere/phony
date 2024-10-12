@@ -4,7 +4,7 @@
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LV
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 
-ndcs_with_5_subscriber_numbers = %w(
+ndcs_with_5_subscriber_numbers = %w[
 630
 631
 632
@@ -30,9 +30,9 @@ ndcs_with_5_subscriber_numbers = %w(
 654
 656
 657
-)
+]
 
-ndcs_with_6_subscriber_numbers = %w(67)
+ndcs_with_6_subscriber_numbers = %w[67]
 
 Phony.define do
   country '371', 

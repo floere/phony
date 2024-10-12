@@ -4,9 +4,9 @@
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=KG
 
-ndcs_with_6_subscriber_digits = %w(312 315)
+ndcs_with_6_subscriber_digits = %w[312 315]
 
-ndcs_with_5_subscriber_digits = %w(
+ndcs_with_5_subscriber_digits = %w[
 3131
 3132
 3133
@@ -107,14 +107,14 @@ ndcs_with_5_subscriber_digits = %w(
 3966
 3967
 3968
-)
+]
 
 Phony.define do
   country '996',
           one_of(ndcs_with_5_subscriber_digits) >> split(3,2) |
           one_of(ndcs_with_6_subscriber_digits) >> split(3,3) |
-          one_of(%w(800)) >> split(3,3) | # freephone
-          one_of(%w(50 51 54 55 56 57 58 60 61 62 70 77)) >> split(3,4) | # mobile
-          one_of(%w(52)) >> split(3,4) | # satellite
+          one_of(%w[800]) >> split(3,3) | # freephone
+          one_of(%w[50 51 54 55 56 57 58 60 61 62 70 77]) >> split(3,4) | # mobile
+          one_of(%w[52]) >> split(3,4) | # satellite
           fixed(3) >> split(3,3)
 end

@@ -3,9 +3,9 @@
 # Lybia, https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LY
 
-ndcs_with_7_subscriber_numbers = %w(21)
+ndcs_with_7_subscriber_numbers = %w[21]
 
-ndcs_with_6_subscriber_numbers = %w(
+ndcs_with_6_subscriber_numbers = %w[
 22
 23
 24
@@ -26,9 +26,9 @@ ndcs_with_6_subscriber_numbers = %w(
 82
 84
 87
-)
+]
 
-ndcs_with_5_subscriber_numbers = %w(
+ndcs_with_5_subscriber_numbers = %w[
 205
 206
 224
@@ -104,13 +104,13 @@ ndcs_with_5_subscriber_numbers = %w(
 852
 854
 884
-)
+]
 
 Phony.define do
   country '218',
           one_of(ndcs_with_5_subscriber_numbers) >> split(3,2) |
           one_of(ndcs_with_6_subscriber_numbers) >> split(3,3) |
           one_of(ndcs_with_7_subscriber_numbers) >> split(4,3) |
-          one_of(%w(91 92 94 95)) >> split(4,3) | # mobile
+          one_of(%w[91 92 94 95]) >> split(4,3) | # mobile
           fixed(2) >> split(3,3)
 end

@@ -4,9 +4,9 @@
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=TM
 
-ndcs_with_6_subscriber_digits = %w(12)
+ndcs_with_6_subscriber_digits = %w[12]
 
-ndcs_with_5_subscriber_digits = %w(
+ndcs_with_5_subscriber_digits = %w[
 131
 132
 133
@@ -61,9 +61,9 @@ ndcs_with_5_subscriber_digits = %w(
 566
 568
 569
-)
+]
 
-ndcs_with_4_subscriber_digits = %w(1392)
+ndcs_with_4_subscriber_digits = %w[1392]
 
 Phony.define do
   country '993',

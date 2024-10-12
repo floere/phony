@@ -83,7 +83,7 @@ module Phony
   #
   class NormalizationError < ArgumentError
     def initialize
-      super %Q{Phony could not normalize the given number. Is it a phone number?}
+      super %Q(Phony could not normalize the given number. Is it a phone number?)
     end
   end
   
@@ -94,7 +94,7 @@ module Phony
   #
   class SplittingError < ArgumentError
     def initialize number
-      super %Q{Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?}
+      super %Q(Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?)
     end
   end
   
@@ -105,7 +105,7 @@ module Phony
   #
   class FormattingError < ArgumentError
     def initialize
-      super %Q{Phony could not format the given number. Is it a phone number?}
+      super %Q(Phony could not format the given number. Is it a phone number?)
     end
   end
 

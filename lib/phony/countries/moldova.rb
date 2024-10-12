@@ -4,8 +4,8 @@
 # https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=MD
 
-ndcs_with_6_subscriber_numbers = %w(22)
-ndcs_with_5_subscriber_numbers = %w(
+ndcs_with_6_subscriber_numbers = %w[22]
+ndcs_with_5_subscriber_numbers = %w[
 230
 231
 235
@@ -42,7 +42,7 @@ ndcs_with_5_subscriber_numbers = %w(
 297
 298
 299
-)
+]
 
 Phony.define do
   country '373',

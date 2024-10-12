@@ -2,9 +2,9 @@
 
 # Tajikistan (Republic of)
 
-ndcs_with_6_subscriber_digits = %w(372)
+ndcs_with_6_subscriber_digits = %w[372]
 
-ndcs_with_5_subscriber_digits = %w(
+ndcs_with_5_subscriber_digits = %w[
 3130
 3131
 3132
@@ -63,9 +63,9 @@ ndcs_with_5_subscriber_digits = %w(
 3554
 3555
 3556
-)
+]
 
-ndcs_with_3_subscriber_digits = %w(331700)
+ndcs_with_3_subscriber_digits = %w[331700]
 
 Phony.define do
   country '992',
@@ -74,6 +74,6 @@ Phony.define do
     one_of(ndcs_with_5_subscriber_digits) >> split(3,2) |
     one_of(ndcs_with_6_subscriber_digits) >> split(3,3) |
     match(/\A(505|9\d\d)\d+\z/)           >> split(3,3) | # mobile
-    one_of(%w(446 474 487))               >> split(3,3) | # wireless geographic
+    one_of(%w[446 474 487])               >> split(3,3) | # wireless geographic
     fixed(3)                              >> split(3,3)
 end

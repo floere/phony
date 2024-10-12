@@ -11,12 +11,12 @@ def profile thing, &block
   puts `stackprof #{path}`
 end
 
-%w|cpu object|.each do |thing|
+%w[cpu object].each do |thing|
   profile thing do
     10000.times { Phony.normalize "+81-3-9999-9999" }
   end
 end
-%w|cpu object|.each do |thing|
+%w[cpu object].each do |thing|
   profile thing do
     10000.times { Phony.format "81399999999" }
   end

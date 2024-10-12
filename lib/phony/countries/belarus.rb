@@ -4,7 +4,7 @@
 # http://www.eng.beltelecom.by/en/subscribers/phone-codes
 # https://www.numberingplans.com
 
-ndcs_with_5_subscriber_digits = %w(
+ndcs_with_5_subscriber_digits = %w[
 1511
 1512
 1513
@@ -108,11 +108,11 @@ ndcs_with_5_subscriber_digits = %w(
 2355
 2356
 2357
-)
+]
 
-ndcs_with_6_subscriber_digits = %w(152 154 162 163 165 174 176 177 212 214 216 222 225 232 236 602)
+ndcs_with_6_subscriber_digits = %w[152 154 162 163 165 174 176 177 212 214 216 222 225 232 236 602]
 
-ndcs_with_7_subscriber_digits = %w(17 25 29 33 44)
+ndcs_with_7_subscriber_digits = %w[17 25 29 33 44]
 
 Phony.define do
   country '375',
@@ -121,9 +121,9 @@ Phony.define do
           one_of(ndcs_with_6_subscriber_digits) >> split(6) |
           one_of(ndcs_with_7_subscriber_digits) >> split(7) |
           # not available from abroad
-          one_of(%w(600)) >> split(3) |
-          one_of(%w(606 777 801 803 805 810 902)) >> split(7) |
-          one_of(%w(820)) >> split(8) |
+          one_of(%w[600]) >> split(3) |
+          one_of(%w[606 777 801 803 805 810 902]) >> split(7) |
+          one_of(%w[820]) >> split(8) |
           # Non-geographic number - Home country direct service
           # Assigned to Beltelecom - not available from abroad
           match(/\A(800)\d{3}\z/) >> split(3) |

@@ -3,9 +3,9 @@
 # Japan
 # http://www.itu.int/oth/T020200006D/en
 
-ndcs_with_8_subscriber_numbers = %w(3 6)
+ndcs_with_8_subscriber_numbers = %w[3 6]
 
-ndcs_with_7_subscriber_numbers = %w(
+ndcs_with_7_subscriber_numbers = %w[
 11
 15
 17
@@ -54,9 +54,9 @@ ndcs_with_7_subscriber_numbers = %w(
 97
 98
 99
-)
+]
 
-ndcs_with_6_subscriber_numbers = %w(
+ndcs_with_6_subscriber_numbers = %w[
 123
 124
 125
@@ -353,9 +353,9 @@ ndcs_with_6_subscriber_numbers = %w(
 995
 996
 997
-)
+]
 
-ndcs_with_5_subscriber_numbers = %w(
+ndcs_with_5_subscriber_numbers = %w[
 1267
 1372
 1374
@@ -397,12 +397,12 @@ ndcs_with_5_subscriber_numbers = %w(
 9912
 9913
 9969
-)
+]
 
 Phony.define do
   country '81',
     trunk('0', normalize: true, format: true, split: true) |
-    one_of(%w(20 50 60 70 90))             >> split(4,4) | # mobile, VoIP telephony
+    one_of(%w[20 50 60 70 90])             >> split(4,4) | # mobile, VoIP telephony
     match(/\A(597)9[0178]\d+\z/)           >> split(2,4) |
     one_of(ndcs_with_5_subscriber_numbers) >> split(1,4) |
     match(/\A(4)70[019]\d+\z/)             >> split(4,4) |
@@ -454,11 +454,11 @@ Phony.define do
     match(/\A(99)34[357]\d+\z/)            >> split(3,4) |
     match(/\A(99)4[0178]\d+\z/)            >> split(3,4) |
     one_of(ndcs_with_6_subscriber_numbers) >> split(2,4) |
-    one_of(%w(120))                        >> split(3,3) | # freephone
-    one_of(%w(800))                        >> split(3,4) | # freephone
-    one_of(%w(180 570))                    >> split(3,3) | # Tele-gong/Tele-dome, Navi-dial
-    one_of(%w(170 990))                    >> split(2,4) | # Dengon-dial, Dial Q2 (discontinued)
-    one_of(%w(80))                         >> split(4,4) | # mobile
+    one_of(%w[120])                        >> split(3,3) | # freephone
+    one_of(%w[800])                        >> split(3,4) | # freephone
+    one_of(%w[180 570])                    >> split(3,3) | # Tele-gong/Tele-dome, Navi-dial
+    one_of(%w[170 990])                    >> split(2,4) | # Dengon-dial, Dial Q2 (discontinued)
+    one_of(%w[80])                         >> split(4,4) | # mobile
     one_of(ndcs_with_7_subscriber_numbers) >> split(3,4) |
     one_of(ndcs_with_8_subscriber_numbers) >> split(4,4) |
     # TODO: 91(NDC) N(S)N length: 5-13 - Non-geographic number (Direct subscriber telephone service (legacy))
