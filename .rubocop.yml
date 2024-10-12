@@ -107,6 +107,9 @@ RSpec/DescribeClass:
 RSpec/DescribedClass:
   SkipBlocks: true
 
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
 RSpec/ExampleLength:
   Exclude:
     - 'spec/jobs/**/*'
@@ -125,6 +128,9 @@ RSpec/MultipleMemoizedHelpers:
   Enabled: false
 
 RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/RepeatedDescription:
   Enabled: false
 
 RSpec/SortMetadata:
