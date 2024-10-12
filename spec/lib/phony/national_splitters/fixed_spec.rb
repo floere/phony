@@ -13,6 +13,7 @@ describe Phony::NationalSplitters::Fixed do
 
   describe 'split' do
     let(:splitter) { Phony::NationalSplitters::Fixed.new(2) }
+
     it 'splits correctly' do
       expect(splitter.split('443643532')).to eq [nil, '44', '3643532']
     end
@@ -32,6 +33,7 @@ describe Phony::NationalSplitters::Fixed do
 
   describe 'split' do
     let(:splitter) { Phony::NationalSplitters::Fixed.new(nil) }
+
     it 'splits correctly' do
       expect(splitter.split('443643532')).to eq [nil, '443643532']
     end

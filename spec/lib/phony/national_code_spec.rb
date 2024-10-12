@@ -10,6 +10,7 @@ describe Phony::NationalCode do
 
           Phony::NationalCode.new national_splitter, local_splitter
         end
+
         it 'splits correctly' do
           expect(national.split('112')).to eq [nil, false, '112']
         end
@@ -23,6 +24,7 @@ describe Phony::NationalCode do
 
         Phony::NationalCode.new national_splitter, local_splitter
       end
+
       it 'splits correctly' do
         expect(national.split('443643532')).to eq [nil, '44', '364', '35', '32']
       end
@@ -47,6 +49,7 @@ describe Phony::NationalCode do
 
         Phony::NationalCode.new national_splitter, local_splitter
       end
+
       it 'splits correctly' do
         expect(national.split('142278186')).to eq [nil, '1', '42', '27', '81', '86']
       end

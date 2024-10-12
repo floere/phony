@@ -9,6 +9,7 @@ describe Phony::Country do
 
       Phony::Country.new national_code
     end
+
     describe '#clean' do
       it 'cleans the number' do
         expect(country.clean('+41-44-123-12-12')).to eq '41441231212'
@@ -31,6 +32,7 @@ describe Phony::Country do
         national_code     = Phony::NationalCode.new national_splitter, local_splitter
         described_class.new national_code
       end
+
       it 'splits correctly' do
         expect(country.split('112')).to eq [nil, false, '112']
       end

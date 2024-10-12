@@ -17,6 +17,7 @@ describe Phony::LocalSplitters::Regex do
   describe 'split' do
     # Norway.
     let(:splitter) { described_class.instance_for(/^[489].*$/ => [3, 2, 3], :fallback => [2, 2, 2, 2]) }
+
     it 'splits a number correctly' do
       expect(splitter.split('21234567')).to eq %w[21 23 45 67]
     end
@@ -64,6 +65,7 @@ describe Phony::LocalSplitters::Regex do
 
     context 'with local splitter without mappings' do
       let(:local_splitter) { described_class.instance_for({}) }
+
       it 'returns false' do
         result.should be_falsey
       end
@@ -71,6 +73,7 @@ describe Phony::LocalSplitters::Regex do
 
     context 'when mapping does not exist for a number' do
       let(:local_splitter) { described_class.instance_for(/\A5/ => [1, 2, 3]) }
+
       it 'returns false' do
         result.should be_falsey
       end
@@ -78,6 +81,7 @@ describe Phony::LocalSplitters::Regex do
 
     context 'when mapping exists, but the length is greater' do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2]) }
+
       it 'returns false' do
         result.should be_falsey
       end
@@ -85,6 +89,7 @@ describe Phony::LocalSplitters::Regex do
 
     context 'when mapping exists, but the length is less' do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2, 3]) }
+
       it 'returns false' do
         result.should be_falsey
       end
@@ -92,6 +97,7 @@ describe Phony::LocalSplitters::Regex do
 
     context 'when mapping exists and the length is equal' do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2, 2]) }
+
       it 'returns true' do
         result.should be_truthy
       end
