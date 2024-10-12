@@ -36,7 +36,7 @@ module Phony
       #
       def split(number)
         mapping.each do |regex, format|
-          next unless number =~ regex
+          next unless number&.match?(regex)
           return split_with(number, format)
         end
         split_with number, fallback
@@ -45,7 +45,7 @@ module Phony
       def plausible?(rest, hints = {})
         number = rest.sum('')
         mapping.each do |regex, format|
-          next unless number =~ regex
+          next unless number&.match?(regex)
           return plausible_with? number, format
         end
         plausible_with? number, fallback
