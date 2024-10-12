@@ -21,7 +21,7 @@ describe Phony::DSL do
       expect { dsl.match(/123/) }.to raise_error('Regexp /123/ needs a group in it that defines which digits belong to the NDC.')
     end
 
-    it 'should return a Phony::NationalSplitters::Regex' do
+    it 'returns a Phony::NationalSplitters::Regex' do
       expect(dsl.match(/(123)/).class.name).to eq Phony::NationalSplitters::Regex.name
     end
   end

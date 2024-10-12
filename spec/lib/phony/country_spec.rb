@@ -73,13 +73,13 @@ describe Phony::Country do
     end
 
     describe 'split' do
-      it 'should handle ZH' do
+      it 'handles ZH' do
         expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
       end
     end
 
     describe 'normalize' do
-      it 'should handle ZH' do
+      it 'handles ZH' do
         expect(country.normalize('0443643532')).to eq '443643532'
       end
     end
@@ -99,11 +99,11 @@ describe Phony::Country do
     end
 
     describe 'split' do
-      it 'should handle ZH' do
+      it 'handles ZH' do
         expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
       end
 
-      it 'should handle 800' do
+      it 'handles 800' do
         expect(country.split('800333666')).to eq [nil, '800', '333', '666']
       end
     end
