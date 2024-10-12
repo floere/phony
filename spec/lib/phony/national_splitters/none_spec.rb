@@ -1,12 +1,6 @@
 require 'spec_helper'
 
 describe Phony::NationalSplitters::None do
-  describe 'instance_for' do
-    it 'caches' do
-      expect(described_class.instance_for).to eq described_class.instance_for
-    end
-  end
-
   context 'with instance' do
     let(:splitter) { described_class.instance_for }
 

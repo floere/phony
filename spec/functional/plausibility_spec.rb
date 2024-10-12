@@ -48,141 +48,141 @@ describe 'plausibility' do
                                                             '+387 37 123 456',
                                                             '+387 33 222 111']
       it 'is correct for Brasil' do
-        Phony.plausible?('+55 67 998280912').should be_truthy
-        Phony.plausible?('+55 67 98280912').should be_falsey
-        Phony.plausible?('+55 11 12345678').should be_falsey
-        Phony.plausible?('+55 11 123456789').should be_falsey
-        Phony.plausible?('+55 11 023456789').should be_falsey
-        Phony.plausible?('+55 11 22345678').should be_truthy
+        expect(Phony.plausible?('+55 67 998280912')).to be_truthy
+        expect(Phony.plausible?('+55 67 98280912')).to be_falsey
+        expect(Phony.plausible?('+55 11 12345678')).to be_falsey
+        expect(Phony.plausible?('+55 11 123456789')).to be_falsey
+        expect(Phony.plausible?('+55 11 023456789')).to be_falsey
+        expect(Phony.plausible?('+55 11 22345678')).to be_truthy
       end
 
       it 'is correct for Bulgaria' do
-        Phony.plausible?('+359 2 1234567').should be_truthy
-        Phony.plausible?('+359 30 12345').should be_truthy
-        Phony.plausible?('+359 30 123456').should be_truthy
-        Phony.plausible?('+359 31 12345').should be_truthy
-        Phony.plausible?('+359 31 123456').should be_truthy
-        Phony.plausible?('+359 32 123456').should be_truthy
-        Phony.plausible?('+359 33 12345').should be_truthy
-        Phony.plausible?('+359 33 123456').should be_truthy
-        Phony.plausible?('+359 34 123456').should be_truthy
-        Phony.plausible?('+359 35 123456').should be_truthy
-        Phony.plausible?('+359 36 12345').should be_truthy
-        Phony.plausible?('+359 36 123456').should be_truthy
-        Phony.plausible?('+359 37 12345').should be_truthy
-        Phony.plausible?('+359 37 123456').should be_truthy
-        Phony.plausible?('+359 38 123456').should be_truthy
-        Phony.plausible?('+359 39 12345').should be_truthy
-        Phony.plausible?('+359 39 123456').should be_truthy
-        Phony.plausible?('+359 41 12345').should be_truthy
-        Phony.plausible?('+359 41 123456').should be_truthy
-        Phony.plausible?('+359 42 123456').should be_truthy
-        Phony.plausible?('+359 430 12345').should be_truthy
-        Phony.plausible?('+359 431 12345').should be_truthy
-        Phony.plausible?('+359 432 12345').should be_truthy
-        Phony.plausible?('+359 433 12345').should be_truthy
-        Phony.plausible?('+359 434 12345').should be_truthy
-        Phony.plausible?('+359 435 12345').should be_truthy
-        Phony.plausible?('+359 436 12345').should be_truthy
-        Phony.plausible?('+359 437 12345').should be_truthy
-        Phony.plausible?('+359 438 12345').should be_truthy
-        Phony.plausible?('+359 439 12345').should be_truthy
-        Phony.plausible?('+359 44 123456').should be_truthy
-        Phony.plausible?('+359 45 12345').should be_truthy
-        Phony.plausible?('+359 45 123456').should be_truthy
-        Phony.plausible?('+359 46 123456').should be_truthy
-        Phony.plausible?('+359 47 12345').should be_truthy
-        Phony.plausible?('+359 47 123456').should be_truthy
-        Phony.plausible?('+359 47 12345').should be_truthy
-        Phony.plausible?('+359 47 123456').should be_truthy
-        Phony.plausible?('+359 51 12345').should be_truthy
-        Phony.plausible?('+359 51 123456').should be_truthy
-        Phony.plausible?('+359 52 123456').should be_truthy
-        Phony.plausible?('+359 53 12345').should be_truthy
-        Phony.plausible?('+359 53 123456').should be_truthy
-        Phony.plausible?('+359 54 123456').should be_truthy
-        Phony.plausible?('+359 55 12345').should be_truthy
-        Phony.plausible?('+359 55 123456').should be_truthy
-        Phony.plausible?('+359 56 123456').should be_truthy
-        Phony.plausible?('+359 57 12345').should be_truthy
-        Phony.plausible?('+359 57 123456').should be_truthy
-        Phony.plausible?('+359 58 123456').should be_truthy
-        Phony.plausible?('+359 59 12345').should be_truthy
-        Phony.plausible?('+359 59 123456').should be_truthy
-        Phony.plausible?('+359 60 12345').should be_truthy
-        Phony.plausible?('+359 60 123456').should be_truthy
-        Phony.plausible?('+359 61 12345').should be_truthy
-        Phony.plausible?('+359 61 123456').should be_truthy
-        Phony.plausible?('+359 62 123456').should be_truthy
-        Phony.plausible?('+359 63 12345').should be_truthy
-        Phony.plausible?('+359 63 123456').should be_truthy
-        Phony.plausible?('+359 64 123456').should be_truthy
-        Phony.plausible?('+359 65 12345').should be_truthy
-        Phony.plausible?('+359 65 123456').should be_truthy
-        Phony.plausible?('+359 66 12345').should be_truthy
-        Phony.plausible?('+359 66 123456').should be_truthy
-        Phony.plausible?('+359 68 123456').should be_truthy
-        Phony.plausible?('+359 69 12345').should be_truthy
-        Phony.plausible?('+359 69 123456').should be_truthy
-        Phony.plausible?('+359 700 12345').should be_truthy
-        Phony.plausible?('+359 701 1234').should be_truthy
-        Phony.plausible?('+359 701 12345').should be_truthy
-        Phony.plausible?('+359 71 12345').should be_truthy
-        Phony.plausible?('+359 71 123456').should be_truthy
-        Phony.plausible?('+359 72 12345').should be_truthy
-        Phony.plausible?('+359 72 123456').should be_truthy
-        Phony.plausible?('+359 73 123456').should be_truthy
-        Phony.plausible?('+359 74 12345').should be_truthy
-        Phony.plausible?('+359 74 123456').should be_truthy
-        Phony.plausible?('+359 75 12345').should be_truthy
-        Phony.plausible?('+359 75 123456').should be_truthy
-        Phony.plausible?('+359 76 123456').should be_truthy
-        Phony.plausible?('+359 77 12345').should be_truthy
-        Phony.plausible?('+359 77 123456').should be_truthy
-        Phony.plausible?('+359 78 123456').should be_truthy
-        Phony.plausible?('+359 79 123456').should be_truthy
-        Phony.plausible?('+359 800 12345').should be_truthy
-        Phony.plausible?('+359 81 12345').should be_truthy
-        Phony.plausible?('+359 81 123456').should be_truthy
-        Phony.plausible?('+359 82 123456').should be_truthy
-        Phony.plausible?('+359 82 123456').should be_truthy
-        Phony.plausible?('+359 84 123456').should be_truthy
-        Phony.plausible?('+359 86 123456').should be_truthy
-        Phony.plausible?('+359 87 1234567').should be_truthy
-        Phony.plausible?('+359 88 1234567').should be_truthy
-        Phony.plausible?('+359 89 1234567').should be_truthy
-        Phony.plausible?('+359 90 123456').should be_truthy
-        Phony.plausible?('+359 91 12345').should be_truthy
-        Phony.plausible?('+359 91 123456').should be_truthy
-        Phony.plausible?('+359 92 123456').should be_truthy
-        Phony.plausible?('+359 93 12345').should be_truthy
-        Phony.plausible?('+359 93 123456').should be_truthy
-        Phony.plausible?('+359 94 123456').should be_truthy
-        Phony.plausible?('+359 95 12345').should be_truthy
-        Phony.plausible?('+359 95 123456').should be_truthy
-        Phony.plausible?('+359 96 123456').should be_truthy
-        Phony.plausible?('+359 97 12345').should be_truthy
-        Phony.plausible?('+359 97 123456').should be_truthy
-        Phony.plausible?('+359 980 123456').should be_truthy
-        Phony.plausible?('+359 981 123456').should be_truthy
-        Phony.plausible?('+359 982 123456').should be_truthy
-        Phony.plausible?('+359 983 123456').should be_truthy
-        Phony.plausible?('+359 984 123456').should be_truthy
-        Phony.plausible?('+359 985 123456').should be_truthy
-        Phony.plausible?('+359 986 123456').should be_truthy
-        Phony.plausible?('+359 987 123456').should be_truthy
-        Phony.plausible?('+359 988 123456').should be_truthy
-        Phony.plausible?('+359 989 123456').should be_truthy
-        Phony.plausible?('+359 990 123456').should be_truthy
-        Phony.plausible?('+359 991 123456').should be_truthy
-        Phony.plausible?('+359 992 123456').should be_truthy
-        Phony.plausible?('+359 993 123456').should be_truthy
-        Phony.plausible?('+359 994 123456').should be_truthy
-        Phony.plausible?('+359 995 123456').should be_truthy
-        Phony.plausible?('+359 996 123456').should be_truthy
-        Phony.plausible?('+359 997 123456').should be_truthy
-        Phony.plausible?('+359 998 123456').should be_truthy
-        Phony.plausible?('+359 999 123456').should be_truthy
+        expect(Phony.plausible?('+359 2 1234567')).to be_truthy
+        expect(Phony.plausible?('+359 30 12345')).to be_truthy
+        expect(Phony.plausible?('+359 30 123456')).to be_truthy
+        expect(Phony.plausible?('+359 31 12345')).to be_truthy
+        expect(Phony.plausible?('+359 31 123456')).to be_truthy
+        expect(Phony.plausible?('+359 32 123456')).to be_truthy
+        expect(Phony.plausible?('+359 33 12345')).to be_truthy
+        expect(Phony.plausible?('+359 33 123456')).to be_truthy
+        expect(Phony.plausible?('+359 34 123456')).to be_truthy
+        expect(Phony.plausible?('+359 35 123456')).to be_truthy
+        expect(Phony.plausible?('+359 36 12345')).to be_truthy
+        expect(Phony.plausible?('+359 36 123456')).to be_truthy
+        expect(Phony.plausible?('+359 37 12345')).to be_truthy
+        expect(Phony.plausible?('+359 37 123456')).to be_truthy
+        expect(Phony.plausible?('+359 38 123456')).to be_truthy
+        expect(Phony.plausible?('+359 39 12345')).to be_truthy
+        expect(Phony.plausible?('+359 39 123456')).to be_truthy
+        expect(Phony.plausible?('+359 41 12345')).to be_truthy
+        expect(Phony.plausible?('+359 41 123456')).to be_truthy
+        expect(Phony.plausible?('+359 42 123456')).to be_truthy
+        expect(Phony.plausible?('+359 430 12345')).to be_truthy
+        expect(Phony.plausible?('+359 431 12345')).to be_truthy
+        expect(Phony.plausible?('+359 432 12345')).to be_truthy
+        expect(Phony.plausible?('+359 433 12345')).to be_truthy
+        expect(Phony.plausible?('+359 434 12345')).to be_truthy
+        expect(Phony.plausible?('+359 435 12345')).to be_truthy
+        expect(Phony.plausible?('+359 436 12345')).to be_truthy
+        expect(Phony.plausible?('+359 437 12345')).to be_truthy
+        expect(Phony.plausible?('+359 438 12345')).to be_truthy
+        expect(Phony.plausible?('+359 439 12345')).to be_truthy
+        expect(Phony.plausible?('+359 44 123456')).to be_truthy
+        expect(Phony.plausible?('+359 45 12345')).to be_truthy
+        expect(Phony.plausible?('+359 45 123456')).to be_truthy
+        expect(Phony.plausible?('+359 46 123456')).to be_truthy
+        expect(Phony.plausible?('+359 47 12345')).to be_truthy
+        expect(Phony.plausible?('+359 47 123456')).to be_truthy
+        expect(Phony.plausible?('+359 47 12345')).to be_truthy
+        expect(Phony.plausible?('+359 47 123456')).to be_truthy
+        expect(Phony.plausible?('+359 51 12345')).to be_truthy
+        expect(Phony.plausible?('+359 51 123456')).to be_truthy
+        expect(Phony.plausible?('+359 52 123456')).to be_truthy
+        expect(Phony.plausible?('+359 53 12345')).to be_truthy
+        expect(Phony.plausible?('+359 53 123456')).to be_truthy
+        expect(Phony.plausible?('+359 54 123456')).to be_truthy
+        expect(Phony.plausible?('+359 55 12345')).to be_truthy
+        expect(Phony.plausible?('+359 55 123456')).to be_truthy
+        expect(Phony.plausible?('+359 56 123456')).to be_truthy
+        expect(Phony.plausible?('+359 57 12345')).to be_truthy
+        expect(Phony.plausible?('+359 57 123456')).to be_truthy
+        expect(Phony.plausible?('+359 58 123456')).to be_truthy
+        expect(Phony.plausible?('+359 59 12345')).to be_truthy
+        expect(Phony.plausible?('+359 59 123456')).to be_truthy
+        expect(Phony.plausible?('+359 60 12345')).to be_truthy
+        expect(Phony.plausible?('+359 60 123456')).to be_truthy
+        expect(Phony.plausible?('+359 61 12345')).to be_truthy
+        expect(Phony.plausible?('+359 61 123456')).to be_truthy
+        expect(Phony.plausible?('+359 62 123456')).to be_truthy
+        expect(Phony.plausible?('+359 63 12345')).to be_truthy
+        expect(Phony.plausible?('+359 63 123456')).to be_truthy
+        expect(Phony.plausible?('+359 64 123456')).to be_truthy
+        expect(Phony.plausible?('+359 65 12345')).to be_truthy
+        expect(Phony.plausible?('+359 65 123456')).to be_truthy
+        expect(Phony.plausible?('+359 66 12345')).to be_truthy
+        expect(Phony.plausible?('+359 66 123456')).to be_truthy
+        expect(Phony.plausible?('+359 68 123456')).to be_truthy
+        expect(Phony.plausible?('+359 69 12345')).to be_truthy
+        expect(Phony.plausible?('+359 69 123456')).to be_truthy
+        expect(Phony.plausible?('+359 700 12345')).to be_truthy
+        expect(Phony.plausible?('+359 701 1234')).to be_truthy
+        expect(Phony.plausible?('+359 701 12345')).to be_truthy
+        expect(Phony.plausible?('+359 71 12345')).to be_truthy
+        expect(Phony.plausible?('+359 71 123456')).to be_truthy
+        expect(Phony.plausible?('+359 72 12345')).to be_truthy
+        expect(Phony.plausible?('+359 72 123456')).to be_truthy
+        expect(Phony.plausible?('+359 73 123456')).to be_truthy
+        expect(Phony.plausible?('+359 74 12345')).to be_truthy
+        expect(Phony.plausible?('+359 74 123456')).to be_truthy
+        expect(Phony.plausible?('+359 75 12345')).to be_truthy
+        expect(Phony.plausible?('+359 75 123456')).to be_truthy
+        expect(Phony.plausible?('+359 76 123456')).to be_truthy
+        expect(Phony.plausible?('+359 77 12345')).to be_truthy
+        expect(Phony.plausible?('+359 77 123456')).to be_truthy
+        expect(Phony.plausible?('+359 78 123456')).to be_truthy
+        expect(Phony.plausible?('+359 79 123456')).to be_truthy
+        expect(Phony.plausible?('+359 800 12345')).to be_truthy
+        expect(Phony.plausible?('+359 81 12345')).to be_truthy
+        expect(Phony.plausible?('+359 81 123456')).to be_truthy
+        expect(Phony.plausible?('+359 82 123456')).to be_truthy
+        expect(Phony.plausible?('+359 82 123456')).to be_truthy
+        expect(Phony.plausible?('+359 84 123456')).to be_truthy
+        expect(Phony.plausible?('+359 86 123456')).to be_truthy
+        expect(Phony.plausible?('+359 87 1234567')).to be_truthy
+        expect(Phony.plausible?('+359 88 1234567')).to be_truthy
+        expect(Phony.plausible?('+359 89 1234567')).to be_truthy
+        expect(Phony.plausible?('+359 90 123456')).to be_truthy
+        expect(Phony.plausible?('+359 91 12345')).to be_truthy
+        expect(Phony.plausible?('+359 91 123456')).to be_truthy
+        expect(Phony.plausible?('+359 92 123456')).to be_truthy
+        expect(Phony.plausible?('+359 93 12345')).to be_truthy
+        expect(Phony.plausible?('+359 93 123456')).to be_truthy
+        expect(Phony.plausible?('+359 94 123456')).to be_truthy
+        expect(Phony.plausible?('+359 95 12345')).to be_truthy
+        expect(Phony.plausible?('+359 95 123456')).to be_truthy
+        expect(Phony.plausible?('+359 96 123456')).to be_truthy
+        expect(Phony.plausible?('+359 97 12345')).to be_truthy
+        expect(Phony.plausible?('+359 97 123456')).to be_truthy
+        expect(Phony.plausible?('+359 980 123456')).to be_truthy
+        expect(Phony.plausible?('+359 981 123456')).to be_truthy
+        expect(Phony.plausible?('+359 982 123456')).to be_truthy
+        expect(Phony.plausible?('+359 983 123456')).to be_truthy
+        expect(Phony.plausible?('+359 984 123456')).to be_truthy
+        expect(Phony.plausible?('+359 985 123456')).to be_truthy
+        expect(Phony.plausible?('+359 986 123456')).to be_truthy
+        expect(Phony.plausible?('+359 987 123456')).to be_truthy
+        expect(Phony.plausible?('+359 988 123456')).to be_truthy
+        expect(Phony.plausible?('+359 989 123456')).to be_truthy
+        expect(Phony.plausible?('+359 990 123456')).to be_truthy
+        expect(Phony.plausible?('+359 991 123456')).to be_truthy
+        expect(Phony.plausible?('+359 992 123456')).to be_truthy
+        expect(Phony.plausible?('+359 993 123456')).to be_truthy
+        expect(Phony.plausible?('+359 994 123456')).to be_truthy
+        expect(Phony.plausible?('+359 995 123456')).to be_truthy
+        expect(Phony.plausible?('+359 996 123456')).to be_truthy
+        expect(Phony.plausible?('+359 997 123456')).to be_truthy
+        expect(Phony.plausible?('+359 998 123456')).to be_truthy
+        expect(Phony.plausible?('+359 999 123456')).to be_truthy
       end
 
       it_is_correct_for 'Colombia', samples: ['+57 601 411 1899',
@@ -197,14 +197,14 @@ describe 'plausibility' do
       it_is_correct_for 'Cook Islands', samples: '+682  71928'
       it_is_correct_for 'Costa Rica', samples: '+506 2 234 5678'
       it 'is correct for Croatia' do
-        Phony.plausible?('+385 21 695 900').should be_truthy  # Landline
-        Phony.plausible?('+385 1 4566 666').should be_truthy  # Landline (Zagreb)
-        Phony.plausible?('+385 99 444 999').should be_truthy  # Mobile
-        Phony.plausible?('+385 91 896 7509').should be_truthy # Mobile
-        Phony.plausible?('+385 800 1234').should be_truthy    # Toll free
-        Phony.plausible?('+385 800 123 456').should be_truthy # Toll free
-        Phony.plausible?('+385 60 12 345').should be_truthy   # Premium rate
-        Phony.plausible?('+385 62 123 456').should be_truthy  # Premium, personal and UAN
+        expect(Phony.plausible?('+385 21 695 900')).to be_truthy  # Landline
+        expect(Phony.plausible?('+385 1 4566 666')).to be_truthy  # Landline (Zagreb)
+        expect(Phony.plausible?('+385 99 444 999')).to be_truthy  # Mobile
+        expect(Phony.plausible?('+385 91 896 7509')).to be_truthy # Mobile
+        expect(Phony.plausible?('+385 800 1234')).to be_truthy    # Toll free
+        expect(Phony.plausible?('+385 800 123 456')).to be_truthy # Toll free
+        expect(Phony.plausible?('+385 60 12 345')).to be_truthy   # Premium rate
+        expect(Phony.plausible?('+385 62 123 456')).to be_truthy  # Premium, personal and UAN
       end
 
       it_is_correct_for "Côte d'Ivoire", samples: '+225 01 9358 8764'
@@ -213,30 +213,30 @@ describe 'plausibility' do
       it_is_correct_for 'Diego Garcia', samples: '+246  123 7686'
       it_is_correct_for 'Djibouti', samples: '+253  3671 1431'
       it 'is correct for Ecuador' do
-        Phony.plausible?('+593 22 000 0000').should be_truthy
-        Phony.plausible?('+593 23 000 0000').should be_truthy
-        Phony.plausible?('+593 26 000 0000').should be_truthy
-        Phony.plausible?('+593 27 000 0000').should be_truthy
-        Phony.plausible?('+593 44 000 0000').should be_truthy
-        Phony.plausible?('+593 45 000 0000').should be_truthy
-        Phony.plausible?('+593 47 000 0000').should be_truthy
-        Phony.plausible?('+593 2 200 0000').should be_truthy
-        Phony.plausible?('+593 2 300 0000').should be_truthy
-        Phony.plausible?('+593 2 400 0000').should be_truthy
-        Phony.plausible?('+593 2 500 0000').should be_truthy
-        Phony.plausible?('+593 2 700 0000').should be_truthy
-        Phony.plausible?('+593 3 000 0000').should be_truthy
-        Phony.plausible?('+593 4 000 0000').should be_truthy
-        Phony.plausible?('+593 4 500 0000').should be_truthy
-        Phony.plausible?('+593 4 600 0000').should be_truthy
-        Phony.plausible?('+593 5 200 0000').should be_truthy
-        Phony.plausible?('+593 5 300 0000').should be_truthy
-        Phony.plausible?('+593 6 200 0000').should be_truthy
-        Phony.plausible?('+593 7 200 0000').should be_truthy
-        Phony.plausible?('+593 7 300 0000').should be_truthy
-        Phony.plausible?('+593 7 400 0000').should be_truthy
-        Phony.plausible?('+593 7 600 0000').should be_truthy
-        Phony.plausible?('+593 9 0000 0000').should be_truthy # mobile
+        expect(Phony.plausible?('+593 22 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 23 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 26 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 27 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 44 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 45 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 47 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 2 200 0000')).to be_truthy
+        expect(Phony.plausible?('+593 2 300 0000')).to be_truthy
+        expect(Phony.plausible?('+593 2 400 0000')).to be_truthy
+        expect(Phony.plausible?('+593 2 500 0000')).to be_truthy
+        expect(Phony.plausible?('+593 2 700 0000')).to be_truthy
+        expect(Phony.plausible?('+593 3 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 4 000 0000')).to be_truthy
+        expect(Phony.plausible?('+593 4 500 0000')).to be_truthy
+        expect(Phony.plausible?('+593 4 600 0000')).to be_truthy
+        expect(Phony.plausible?('+593 5 200 0000')).to be_truthy
+        expect(Phony.plausible?('+593 5 300 0000')).to be_truthy
+        expect(Phony.plausible?('+593 6 200 0000')).to be_truthy
+        expect(Phony.plausible?('+593 7 200 0000')).to be_truthy
+        expect(Phony.plausible?('+593 7 300 0000')).to be_truthy
+        expect(Phony.plausible?('+593 7 400 0000')).to be_truthy
+        expect(Phony.plausible?('+593 7 600 0000')).to be_truthy
+        expect(Phony.plausible?('+593 9 0000 0000')).to be_truthy # mobile
       end
 
       it_is_correct_for 'Equatorial Guinea', samples: ['+240 222 201 123',
@@ -247,28 +247,28 @@ describe 'plausibility' do
       it_is_correct_for 'Faroe Islands', samples: '+298  969 597'
       it_is_correct_for 'Fiji (Republic of)', samples: '+679  998 2441'
       it 'is correct for Finland' do
-        Phony.plausible?('+358 50 123 4').should be_truthy
-        Phony.plausible?('+358 50 123 45').should be_truthy
-        Phony.plausible?('+358 50 123 45 6').should be_truthy
-        Phony.plausible?('+358 50 123 45 67').should be_truthy
-        Phony.plausible?('+358 50 123 45 678').should be_truthy
-        Phony.plausible?('+358 49 123 456 789').should be_truthy
-        Phony.plausible?('+358 18 1234').should be_truthy
-        Phony.plausible?('+358 9 1234').should be_truthy
-        Phony.plausible?('+358 9 123 45').should be_truthy
-        Phony.plausible?('+358 9 123 456').should be_truthy
-        Phony.plausible?('+358 9 123 4567').should be_truthy
-        Phony.plausible?('+358 20 1470 740').should be_truthy
-        Phony.plausible?('+358 29 123 4567').should be_truthy
-        Phony.plausible?('+358 75323 1234').should be_truthy
-        Phony.plausible?('+358 50 123 456 789').should be_falsey
+        expect(Phony.plausible?('+358 50 123 4')).to be_truthy
+        expect(Phony.plausible?('+358 50 123 45')).to be_truthy
+        expect(Phony.plausible?('+358 50 123 45 6')).to be_truthy
+        expect(Phony.plausible?('+358 50 123 45 67')).to be_truthy
+        expect(Phony.plausible?('+358 50 123 45 678')).to be_truthy
+        expect(Phony.plausible?('+358 49 123 456 789')).to be_truthy
+        expect(Phony.plausible?('+358 18 1234')).to be_truthy
+        expect(Phony.plausible?('+358 9 1234')).to be_truthy
+        expect(Phony.plausible?('+358 9 123 45')).to be_truthy
+        expect(Phony.plausible?('+358 9 123 456')).to be_truthy
+        expect(Phony.plausible?('+358 9 123 4567')).to be_truthy
+        expect(Phony.plausible?('+358 20 1470 740')).to be_truthy
+        expect(Phony.plausible?('+358 29 123 4567')).to be_truthy
+        expect(Phony.plausible?('+358 75323 1234')).to be_truthy
+        expect(Phony.plausible?('+358 50 123 456 789')).to be_falsey
       end
 
       it_is_correct_for 'French Guiana (French Department of)', samples: '+594 594 123 456'
       it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", samples: '+689 87 27 84 00'
       it 'is correct for Gabon' do
-        Phony.plausible?('+241 1 627 739').should be_truthy
-        Phony.plausible?('+241 12 34 56 78').should be_truthy
+        expect(Phony.plausible?('+241 1 627 739')).to be_truthy
+        expect(Phony.plausible?('+241 12 34 56 78')).to be_truthy
       end
 
       # it_is_correct_for 'Gabonese Republic', :samples => [
@@ -331,9 +331,9 @@ describe 'plausibility' do
                                              '+961 81 123 456']
       it_is_correct_for 'Lesotho', samples: '+266  7612 6866'
       it 'is correct for Liberia' do
-        Phony.plausible?('+231 2 123 4567').should be_truthy
-        Phony.plausible?('+231 4 123 456').should be_truthy
-        Phony.plausible?('+231 77 123 4567').should be_truthy
+        expect(Phony.plausible?('+231 2 123 4567')).to be_truthy
+        expect(Phony.plausible?('+231 4 123 456')).to be_truthy
+        expect(Phony.plausible?('+231 77 123 4567')).to be_truthy
       end
 
       it_is_correct_for 'Macao', samples: ['+853 28 12 3456',
@@ -349,11 +349,11 @@ describe 'plausibility' do
                                                 '+261 37 34 546 78',
                                                 '+261 38 34 546 78']
       it 'is incorrect for Madagascar' do
-        Phony.plausible?('+261 20 012 345 678').should be_falsey
-        Phony.plausible?('+261 20 12 434 569').should be_falsey
-        Phony.plausible?('+261 51 23 4567 8').should be_falsey
-        Phony.plausible?('+261 34 345 46789').should be_falsey
-        Phony.plausible?('+261 34 345 467').should be_falsey
+        expect(Phony.plausible?('+261 20 012 345 678')).to be_falsey
+        expect(Phony.plausible?('+261 20 12 434 569')).to be_falsey
+        expect(Phony.plausible?('+261 51 23 4567 8')).to be_falsey
+        expect(Phony.plausible?('+261 34 345 46789')).to be_falsey
+        expect(Phony.plausible?('+261 34 345 467')).to be_falsey
       end
 
       it_is_correct_for 'Malawi', samples: ['+265 1725 123',
@@ -386,8 +386,8 @@ describe 'plausibility' do
                                            '+977 98 1234 5678']
       it_is_correct_for "New Caledonia (Territoire français d'outre-mer)", samples: '+687  546 835'
       it 'is correct for New Zealand' do
-        Phony.plausible?('+64800123123').should be_truthy # Free phone
-        Phony.plausible?('+648001231234').should be_truthy # Free phone
+        expect(Phony.plausible?('+64800123123')).to be_truthy # Free phone
+        expect(Phony.plausible?('+648001231234')).to be_truthy # Free phone
       end
 
       it_is_correct_for 'Nicaragua', samples: '+505 12 345 678'
@@ -488,12 +488,12 @@ samples: '+508  474 714'
                                                                 '+252 67 1234 567']
 
       it 'is correct for South Korea' do
-        Phony.plausible?('+82 2 1234 5678').should be_truthy
-        Phony.plausible?('+82 2 711 2222').should be_truthy
-        Phony.plausible?('+82 51 1234 5678').should be_truthy
-        Phony.plausible?('+82 51 123 5678').should be_truthy
-        Phony.plausible?('+82 10 2797 5588').should be_truthy
-        Phony.plausible?('+82 10 8797 1234').should be_truthy
+        expect(Phony.plausible?('+82 2 1234 5678')).to be_truthy
+        expect(Phony.plausible?('+82 2 711 2222')).to be_truthy
+        expect(Phony.plausible?('+82 51 1234 5678')).to be_truthy
+        expect(Phony.plausible?('+82 51 123 5678')).to be_truthy
+        expect(Phony.plausible?('+82 10 2797 5588')).to be_truthy
+        expect(Phony.plausible?('+82 10 8797 1234')).to be_truthy
       end
 
       it_is_correct_for 'South Sudan', samples: ['+211 123 212 345',
@@ -602,14 +602,14 @@ samples: '+508  474 714'
                                            '+967 77 123 4567',
                                            '+967 58 1234']
       it 'is correct for Zambia' do
-        Phony.plausible?('+260 211 123456').should be_truthy  # Fixed
-        Phony.plausible?('+260 96 512 4567').should be_truthy # MTN Mobile
-        Phony.plausible?('+260 97 712 3456').should be_truthy # Airtel Mobile
-        Phony.plausible?('+260 95 512 4567').should be_truthy # Zamtel Mobile
-        Phony.plausible?('+260 96 512 456').should be_falsy   # MTN Mobile (Too short)
-        Phony.plausible?('+260 97 812 345').should be_falsy   # Airtel Mobile (Too short)
-        Phony.plausible?('+260 95 512 345').should be_falsy   # Zamtel Mobile (Too short)
-        Phony.plausible?('+260 800 123 456').should be_truthy # Toll free
+        expect(Phony.plausible?('+260 211 123456')).to be_truthy  # Fixed
+        expect(Phony.plausible?('+260 96 512 4567')).to be_truthy # MTN Mobile
+        expect(Phony.plausible?('+260 97 712 3456')).to be_truthy # Airtel Mobile
+        expect(Phony.plausible?('+260 95 512 4567')).to be_truthy # Zamtel Mobile
+        expect(Phony.plausible?('+260 96 512 456')).to be_falsy   # MTN Mobile (Too short)
+        expect(Phony.plausible?('+260 97 812 345')).to be_falsy   # Airtel Mobile (Too short)
+        expect(Phony.plausible?('+260 95 512 345')).to be_falsy   # Zamtel Mobile (Too short)
+        expect(Phony.plausible?('+260 800 123 456')).to be_truthy # Toll free
       end
 
       it_is_correct_for 'Zimbabwe', samples: [['+263 2582 123 456', '+263 2582 123'],
@@ -618,75 +618,75 @@ samples: '+508  474 714'
                                               '+263 86 1235 4567']
 
       it 'is correct for Indonesia' do
-        Phony.plausible?('+62 22 000 0').should be_falsey
-        Phony.plausible?('+62 22 000 00').should be_truthy
-        Phony.plausible?('+62 22 000 0000').should be_truthy
-        Phony.plausible?('+62 22 0000 0000').should be_truthy
-        Phony.plausible?('+62 22 000 000 000').should be_truthy
+        expect(Phony.plausible?('+62 22 000 0')).to be_falsey
+        expect(Phony.plausible?('+62 22 000 00')).to be_truthy
+        expect(Phony.plausible?('+62 22 000 0000')).to be_truthy
+        expect(Phony.plausible?('+62 22 0000 0000')).to be_truthy
+        expect(Phony.plausible?('+62 22 000 000 000')).to be_truthy
       end
 
       it 'is correct for Italy' do
-        Phony.plausible?('+39 0574 123').should be_falsy
-        Phony.plausible?('+39 0574 1234').should be_truthy
-        Phony.plausible?('+39 0574 12345').should be_falsy
+        expect(Phony.plausible?('+39 0574 123')).to be_falsy
+        expect(Phony.plausible?('+39 0574 1234')).to be_truthy
+        expect(Phony.plausible?('+39 0574 12345')).to be_falsy
 
-        Phony.plausible?('+39 085 541').should be_falsy
-        Phony.plausible?('+39 085 5410').should be_truthy
-        Phony.plausible?('+39 085 54105').should be_truthy
+        expect(Phony.plausible?('+39 085 541')).to be_falsy
+        expect(Phony.plausible?('+39 085 5410')).to be_truthy
+        expect(Phony.plausible?('+39 085 54105')).to be_truthy
 
-        Phony.plausible?('+39 06 4991').should be_falsy
-        Phony.plausible?('+39 06 49911').should be_truthy
-        Phony.plausible?('+39 06 499112').should be_truthy
+        expect(Phony.plausible?('+39 06 4991')).to be_falsy
+        expect(Phony.plausible?('+39 06 49911')).to be_truthy
+        expect(Phony.plausible?('+39 06 499112')).to be_truthy
 
-        Phony.plausible?('+39 800 081631').should be_truthy
-        Phony.plausible?('+39 800 0816311').should be_falsy
+        expect(Phony.plausible?('+39 800 081631')).to be_truthy
+        expect(Phony.plausible?('+39 800 0816311')).to be_falsy
 
-        Phony.plausible?('+39 803 08163').should be_falsy
-        Phony.plausible?('+39 803 081').should be_truthy
+        expect(Phony.plausible?('+39 803 08163')).to be_falsy
+        expect(Phony.plausible?('+39 803 081')).to be_truthy
 
-        Phony.plausible?('+39 06 8323074181').should be_falsy
-        Phony.plausible?('+39 06 832307418').should be_truthy
+        expect(Phony.plausible?('+39 06 8323074181')).to be_falsy
+        expect(Phony.plausible?('+39 06 832307418')).to be_truthy
       end
 
       it 'is correct for Russia' do
-        Phony.plausible?('+7 3522 000 000').should be_truthy
+        expect(Phony.plausible?('+7 3522 000 000')).to be_truthy
       end
 
       it 'is correct for Peru' do
-        Phony.plausible?('+51 1 123 1234').should be_truthy # Lima
-        Phony.plausible?('+51 9 1234 1234').should be_truthy # mobile
-        Phony.plausible?('+51 84 123 123').should be_truthy # Cuzco, best effort
+        expect(Phony.plausible?('+51 1 123 1234')).to be_truthy # Lima
+        expect(Phony.plausible?('+51 9 1234 1234')).to be_truthy # mobile
+        expect(Phony.plausible?('+51 84 123 123')).to be_truthy # Cuzco, best effort
       end
 
       it 'is correct for Kosovo' do
-        Phony.plausible?('+383 29 000 000').should be_truthy # Landline
-        Phony.plausible?('+383 44 000 000').should be_truthy # Mobile
+        expect(Phony.plausible?('+383 29 000 000')).to be_truthy # Landline
+        expect(Phony.plausible?('+383 44 000 000')).to be_truthy # Mobile
       end
 
       it 'is correct for Bulgaria' do
-        Phony.plausible?('+359 2 123 123').should be_truthy     # Landline Sofia
-        Phony.plausible?('+359 2 123 1234').should be_truthy    # Landline Sofia
-        Phony.plausible?('+359 30 123 12').should be_truthy     # Landline
-        Phony.plausible?('+359 30 123 123').should be_truthy    # Landline
-        Phony.plausible?('+359 89 123 1234').should be_truthy   # Mobile
+        expect(Phony.plausible?('+359 2 123 123')).to be_truthy     # Landline Sofia
+        expect(Phony.plausible?('+359 2 123 1234')).to be_truthy    # Landline Sofia
+        expect(Phony.plausible?('+359 30 123 12')).to be_truthy     # Landline
+        expect(Phony.plausible?('+359 30 123 123')).to be_truthy    # Landline
+        expect(Phony.plausible?('+359 89 123 1234')).to be_truthy   # Mobile
       end
 
       it 'is correct for Malaysia' do
-        Phony.plausible?('+60 5 123 1234').should be_truthy     # Non Selangor Landline
-        Phony.plausible?('+60 3 1234 1234').should be_truthy # Selangor Landline
-        Phony.plausible?('+60 88 123 123').should be_truthy #  Landline Sabah – Kota Kinabalu and Kudat
+        expect(Phony.plausible?('+60 5 123 1234')).to be_truthy     # Non Selangor Landline
+        expect(Phony.plausible?('+60 3 1234 1234')).to be_truthy # Selangor Landline
+        expect(Phony.plausible?('+60 88 123 123')).to be_truthy #  Landline Sabah – Kota Kinabalu and Kudat
       end
 
       it 'is correct for Japan' do
-        Phony.plausible?('+81 90 1234 1234').should be_truthy
-        Phony.plausible?('+81 120 123 123').should be_truthy
-        Phony.plausible?('+81 800 123 1234').should be_truthy
+        expect(Phony.plausible?('+81 90 1234 1234')).to be_truthy
+        expect(Phony.plausible?('+81 120 123 123')).to be_truthy
+        expect(Phony.plausible?('+81 800 123 1234')).to be_truthy
       end
 
       it 'is correct for Philippine' do
-        Phony.plausible?('+63 2 89889999').should be_truthy
-        Phony.plausible?('+63 976 1234567').should be_truthy # mobile phone with area code 9
-        Phony.plausible?('+63 876 1234567').should be_truthy # mobile phone with area code 8
+        expect(Phony.plausible?('+63 2 89889999')).to be_truthy
+        expect(Phony.plausible?('+63 976 1234567')).to be_truthy # mobile phone with area code 9
+        expect(Phony.plausible?('+63 876 1234567')).to be_truthy # mobile phone with area code 8
       end
     end
   end

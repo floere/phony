@@ -7,6 +7,22 @@ end
 Bundler.setup :test
 Bundler.require
 
+unless ENV['NO_COVERAGE']
+  require 'simplecov'
+  require 'simplecov-console'
+  require 'simplecov-cobertura'
+
+  SimpleCov.minimum_coverage 100
+
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCov::Formatter::CoberturaFormatter,
+      SimpleCov::Formatter::Console
+    ]
+  )
+end
+
 # Pippi.
 #
 if ENV['PIPPI']
