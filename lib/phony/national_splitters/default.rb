@@ -6,7 +6,7 @@ module Phony
     #
     class Default < DSL
       def self.instance_for
-        @instance ||= new
+        @instance_for ||= new
       end
 
       # "Splits" the national part of a phone number into a single piece.

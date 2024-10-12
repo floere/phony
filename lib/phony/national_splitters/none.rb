@@ -9,7 +9,7 @@ module Phony
       # Get a splitter. Caches.
       #
       def self.instance_for(*)
-        @instance ||= new
+        @instance_for ||= new
       end
 
       # On false:
