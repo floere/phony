@@ -103,7 +103,7 @@ module Phony
       case type
       when String
         trunk &&= trunk.format(space, use_trunk)
-        type % { :trunk => trunk, :cc => @cc, :ndc => ndc, :local => local }
+        type % { trunk: trunk, cc: @cc, ndc: ndc, local: local }
       when nil, :international_absolute, :international, :+
         if ndc
           format_with_ndc(@@international_absolute_format, @cc, format_ndc(ndc, parentheses), local, space)

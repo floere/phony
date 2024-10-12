@@ -11,7 +11,7 @@ Bundler.require
 #
 if ENV['PIPPI']
   require 'pippi'
-  Pippi::AutoRunner.new(:checkset => ENV['PIPPI_CHECKSET'] || 'basic')
+  Pippi::AutoRunner.new(checkset: ENV['PIPPI_CHECKSET'] || 'basic')
 end
 
 require 'coveralls'

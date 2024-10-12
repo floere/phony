@@ -122,7 +122,7 @@ seven_digit_total_double_digit_fixed_line_prefixes = [
 ]
 
 Phony.define do
-  country '855', trunk('0', :normalize => true) |
+  country '855', trunk('0', normalize: true) |
                  one_of(variable_length_extended_range_mobile_prefixes) >> matched_split(/^1/ => [3, 4], /^[2-9]/ => [3, 3]) |
                  one_of(six_digit_mobile_prefixes)   >> matched_split(/^[2-9]/ => [3, 3]) |
                  one_of(six_digit_extended_range_mobile_prefixes) >> matched_split(/^[1-9]/ => [3, 3]) |

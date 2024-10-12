@@ -8,4 +8,4 @@ task :test do |t|
   abort unless system 'bundle exec qed && bundle exec rspec'
 end
 
-task :default => :test
+task default: :test

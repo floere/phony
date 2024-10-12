@@ -135,5 +135,5 @@ Phony.define do
     one_of(%w(800))                        >> split(3, 2, 2) | # Russia free number
     one_of(%w(995344 9971 99744 9976 997)) >> split(2, 4) | # South Osetia
     fixed(3)                               >> split(2, 5),
-    :local_space => :-
+    local_space: :-
 end

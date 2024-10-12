@@ -54,9 +54,9 @@ Phony.define do
     # The US has a delimiter between NDC and local number.
     trunk('1%s', normalize: true, format: false) | # http://en.wikipedia.org/wiki/Trunk_prefix
     fixed(3) >> split(3,4),
-    :invalid_ndcs => /[0-1]\d{2}|[3-9]11/,
-    :parentheses => true,
-    :local_space => :-
+    invalid_ndcs: /[0-1]\d{2}|[3-9]11/,
+    parentheses: true,
+    local_space: :-
 
   # Kazakhstan (Republic of) & Russsian Federation.
   # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
@@ -121,7 +121,7 @@ Phony.define do
     match(/^([89]0\d)\d+$/)   >> split(3,3)   | # Special 80X & 90X numbers
     one_of(%w(91 93))         >> split(3,2,2) | # Landline large regions
     match(/^(9\d{2})\d+$/)    >> split(2,2,2) | # Landline
-    fixed(3, :zero => false)  >> split(3,3)
+    fixed(3, zero: false)  >> split(3,3)
 
   # Hungary.
   #
@@ -359,7 +359,7 @@ Phony.define do
   #
   # There is no trunk code for this country and several of the mobile prefixes start with 0
   country '225',
-    trunk('', :normalize => false) |
+    trunk('', normalize: false) |
     fixed(2) >> split(2,2,2,2)
 
   # Burkina Faso
@@ -433,7 +433,7 @@ Phony.define do
     match(/^(\d)\d{6}$/) >> split(3,3) |  # Gabonese Republic http://www.wtng.info/wtng-241-ga.html
     match(/^(\d\d)\d{6}$/) >> split(2,2,2)    # 2019 update https://en.wikipedia.org/wiki/Telephone_numbers_in_Gabon
   country '242', # Congo http://www.wtng.info/wtng-242-cg.html
-    trunk('', :normalize => false) |
+    trunk('', normalize: false) |
     none >> split(4,5)
   country '243', fixed(2) >> split(3,4) # Democratic Republic of the Congo http://www.wtng.info/wtng-243-cd.html
   country '244', one_of('321', '348', '358', '363', '364', '485', '526', '535', '546', '612', '643', '652', '655', '722', '726', '728', '729', '777') >> split(3,3) | # Angola
@@ -763,7 +763,7 @@ Phony.define do
 
   # San Marino
   country '378',
-          trunk('', :normalize => false) |
+          trunk('', normalize: false) |
           none >> matched_split(
               /\A\d{6}\z/ => [3,3],
               /\A\d+\z/ => [3,3,4]
