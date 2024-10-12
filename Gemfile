@@ -8,7 +8,7 @@ gem 'rubocop-rspec'
 
 group :test do
   gem 'ae'
-  gem 'pippi', platforms: [:mri_20, :mri_21]
+  gem 'pippi', platforms: %i[mri_20 mri_21]
   gem 'qed'
   gem 'rspec'
   gem 'simplecov', require: false
