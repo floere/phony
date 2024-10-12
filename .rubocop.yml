@@ -48,6 +48,9 @@ Style/IfUnlessModifier:
 Style/TrailingCommaInHashLiteral:
   Enabled: false
 
+Style/FormatStringToken:
+  Enabled: false
+
 Metrics/BlockLength:
   Max: 30
   Exclude:

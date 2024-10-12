@@ -21,7 +21,7 @@ describe Phony::NationalSplitters::Variable do
       end
 
       it 'has an NDC length of 3' do
-        expect(splitter.length).to eq (1..3)
+        expect(splitter.length).to eq(1..3)
       end
     end
 
@@ -32,7 +32,7 @@ describe Phony::NationalSplitters::Variable do
       end
 
       it 'has an NDC length of 3' do
-        expect(splitter.length).to eq (3..3)
+        expect(splitter.length).to eq(3..3)
       end
     end
   end
