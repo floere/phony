@@ -1,6 +1,7 @@
 require:
   - rubocop-performance
   - rubocop-rspec
+  - rubocop-rake
 
 Bundler/OrderedGems:
   Enabled: false

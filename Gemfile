@@ -23,3 +23,4 @@ end
 gem 'rubocop', '~> 1.66'
 gem 'rubocop-performance'
 gem 'rubocop-rspec'
+gem 'rubocop-rake'

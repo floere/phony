@@ -57,6 +57,8 @@ GEM
     rubocop-performance (1.22.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-rake (0.6.0)
+      rubocop (~> 1.0)
     rubocop-rspec (3.1.0)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
@@ -88,6 +90,7 @@ DEPENDENCIES
   rspec
   rubocop (~> 1.66)
   rubocop-performance
+  rubocop-rake
   rubocop-rspec
 
 BUNDLED WITH
