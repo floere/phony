@@ -118,7 +118,7 @@ mobile = [
   '99' # Gmobile (traded as Beeline)
 ]
 
-mobile_with_trunk = mobile.map{ |num| "0#{num}" }
+mobile_with_trunk = mobile.map { |num| "0#{num}" }
 
 Phony.define do
   country '84',
