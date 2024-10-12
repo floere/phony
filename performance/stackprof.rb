@@ -15,9 +15,7 @@ end
   profile thing do
     10_000.times { Phony.normalize '+81-3-9999-9999' }
   end
-end
-%w[cpu object].each do |thing|
-  profile thing do
+profile thing do
     10_000.times { Phony.format '81399999999' }
   end
-end
+ end
