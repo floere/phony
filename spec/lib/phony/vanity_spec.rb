@@ -16,6 +16,7 @@ describe Phony::Vanity do
     it 'returns true on a vanity number' do
       expect(vanity.vanity?('800HELLOES')).to eq true
     end
+
     it 'returns false on a non-vanity number' do
       expect(vanity.vanity?('8004355637')).to eq false
     end

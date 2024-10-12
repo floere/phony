@@ -41,6 +41,7 @@ describe Phony::Country do
       it 'normalizes correctly' do
         expect(Phony.normalize('+3780549903549')).to eq '3780549903549'
       end
+
       xit 'automatically adds the sole NC' do
         expect(Phony.normalize('+378903549')).to eq '3780549903549'
       end
@@ -51,9 +52,11 @@ describe Phony::Country do
         expect(Phony.normalize('+81-03-1234-5634')).to eq '81312345634'
         expect(Phony.normalize('03-1234-5634', cc: '81')).to eq '81312345634'
       end
+
       it 'formats correctly' do
         expect(Phony.format('81312345634')).to eq '+81-3-1234-5634'
       end
+
       it 'splits correctly' do
         expect(Phony.split('81312345634')).to eq %w(81 3 1234 5634)
       end
@@ -99,6 +102,7 @@ describe Phony::Country do
       it "should handle ZH" do
         expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
       end
+
       it "should handle 800" do
         expect(country.split('800333666')).to eq [nil, '800', '333', '666']
       end

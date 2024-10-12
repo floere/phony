@@ -59,6 +59,7 @@ describe 'plausibility' do
         Phony.plausible?('+55 11 023456789').should be_falsey
         Phony.plausible?('+55 11 22345678').should be_truthy
       end
+
       it 'is correct for Bulgaria' do
           Phony.plausible?('+359 2 1234567').should be_truthy
           Phony.plausible?('+359 30 12345').should be_truthy
@@ -187,6 +188,7 @@ describe 'plausibility' do
           Phony.plausible?('+359 998 123456').should be_truthy
           Phony.plausible?('+359 999 123456').should be_truthy
       end
+
       it_is_correct_for 'Colombia', samples: ['+57 601 411 1899',
                                                  '+57 602 111 2222',
                                                  '+57 603 111 2222',
@@ -208,6 +210,7 @@ describe 'plausibility' do
           Phony.plausible?('+385 60 12 345').should be_truthy   # Premium rate
           Phony.plausible?('+385 62 123 456').should be_truthy  # Premium, personal and UAN
       end
+
       it_is_correct_for "Côte d'Ivoire", samples: '+225 01 9358 8764'
       it_is_correct_for 'Democratic Republic of Timor-Leste', samples: ['+670 465 7886', '+670 7465 7886']
       it_is_correct_for 'Democratic Republic of the Congo', samples: '+243 80 864 9794'
@@ -239,6 +242,7 @@ describe 'plausibility' do
         Phony.plausible?('+593 7 600 0000').should be_truthy
         Phony.plausible?('+593 9 0000 0000').should be_truthy # mobile
       end
+
       it_is_correct_for 'Equatorial Guinea', samples: ['+240 222 201 123',
                                                           '+240 335 201 123']
       it_is_correct_for 'Eritrea', samples: '+291 6 334 475'
@@ -263,12 +267,14 @@ describe 'plausibility' do
         Phony.plausible?('+358 75323 1234').should be_truthy
         Phony.plausible?('+358 50 123 456 789').should be_falsey
       end
+
       it_is_correct_for 'French Guiana (French Department of)', samples: '+594 594 123 456'
       it_is_correct_for "French Polynesia (Territoire français d'outre-mer)", samples: '+689 87 27 84 00'
       it 'is correct for Gabon' do
         Phony.plausible?('+241 1 627 739').should be_truthy
         Phony.plausible?('+241 12 34 56 78').should be_truthy
       end
+
       # it_is_correct_for 'Gabonese Republic', :samples => [
       #   '+241 1 627 739',
       #   '+241 12 34 56 78',
@@ -334,6 +340,7 @@ describe 'plausibility' do
         Phony.plausible?('+231 4 123 456').should be_truthy
         Phony.plausible?('+231 77 123 4567').should be_truthy
       end
+
       it_is_correct_for 'Macao', samples: ['+853 28 12 3456',
                                               '+853 8 123 4567',
                                               '+853 6 123 4567',]
@@ -387,6 +394,7 @@ describe 'plausibility' do
         Phony.plausible?('+64800123123').should be_truthy # Free phone
         Phony.plausible?('+648001231234').should be_truthy # Free phone
       end
+
       it_is_correct_for 'Nicaragua', samples: '+505 12 345 678'
       it_is_correct_for 'Niger', samples: '+227  1234 5678'
       it_is_correct_for 'Nigeria', samples: ['+234 807 059 1111',
@@ -608,6 +616,7 @@ describe 'plausibility' do
         Phony.plausible?('+260 95 512 345').should be_falsy   # Zamtel Mobile (Too short)
         Phony.plausible?('+260 800 123 456').should be_truthy # Toll free
       end
+
       it_is_correct_for 'Zimbabwe', samples: [['+263 2582 123 456', '+263 2582 123'],
                                                  ['+263 147 123 456', '+263 147 123'],
                                                  ['+263 270 123 456', '+263 270 123 45'],

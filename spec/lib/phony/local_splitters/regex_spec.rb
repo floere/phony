@@ -21,30 +21,39 @@ describe Phony::LocalSplitters::Regex do
     it 'splits a number correctly' do
       expect(splitter.split('21234567')).to eq ['21','23','45','67']
     end
+
     it 'splits a number correctly' do
       expect(splitter.split('31234567')).to eq ['31','23','45','67']
     end
+
     it 'splits a number correctly' do
       expect(splitter.split('41234567')).to eq ['412','34','567']
     end
+
     it 'splits a number correctly' do
       expect(splitter.split('51234567')).to eq ['51','23','45','67']
     end
+
     it 'splits a number correctly' do
       expect(splitter.split('61234567')).to eq ['61','23','45','67']
     end
+
     it 'splits a number correctly' do
       expect(splitter.split('71234567')).to eq ['71','23','45','67']
     end
+
     it 'splits a number correctly' do
       expect(splitter.split('81234567')).to eq ['812','34','567']
     end
+
     it 'splits a number correctly' do
       expect(splitter.split('91234567')).to eq ['912','34','567']
     end
+
     it 'splits it fast' do
       expect(performance_of { splitter.split('21234567') }).to be < 0.00005
     end
+
     it 'splits it fast' do
       expect(performance_of { splitter.split('91234567') }).to be < 0.00004
     end
