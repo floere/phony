@@ -7,9 +7,9 @@ module Phony
     # Returns a char to number mapping string for the String#tr method.
     #
     def self.mapping
-      @@mapping ||= [
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-        '2223334445556667777888999922233344455566677778889999'
+      @@mapping ||= %w[
+        ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+        2223334445556667777888999922233344455566677778889999
       ]
     end
 
