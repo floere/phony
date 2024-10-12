@@ -117,11 +117,7 @@ RSpec/EmptyExampleGroup:
   Enabled: false
 
 RSpec/ExampleLength:
-  Exclude:
-    - 'spec/jobs/**/*'
-    - 'spec/system/**/*'
-    - 'spec/requests/**/*'
-    - 'spec/views/**/*'
+  Enabled: false
 
 RSpec/InstanceVariable:
   Exclude:

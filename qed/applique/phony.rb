@@ -17,11 +17,7 @@ def plausible?(examples)
   # Generate failing examples.
   #
   fabricated_failing = succeeding.map do |s|
-    s = if s.respond_to?(:to_ary)
-          s.min_by { |x| x.scan(/\d/).length }
-        else
-          s
-        end
+    s = s.min_by { |x| x.scan(/\d/).length } if s.respond_to?(:to_ary)
     s.sub(/\d\s*\z/, '')
   end
 
