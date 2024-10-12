@@ -146,7 +146,7 @@ module Phony
     # Return a country for the number.
     #
     def country_for(number)
-      country, _ = partial_split number
+      country, = partial_split number
       country
     end
 
