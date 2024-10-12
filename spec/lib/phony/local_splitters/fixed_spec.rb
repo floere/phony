@@ -17,7 +17,7 @@ describe Phony::LocalSplitters::Fixed do
 
   describe 'split' do
     context 'without format' do
-      before(:each) do
+      before do
         @splitter = described_class.new
       end
       it 'splits correctly' do
@@ -34,7 +34,7 @@ describe Phony::LocalSplitters::Fixed do
     end
 
     context 'with format' do
-      before(:each) do
+      before do
         @splitter = described_class.new [3, 2, 2]
       end
       it 'splits correctly' do
@@ -51,7 +51,7 @@ describe Phony::LocalSplitters::Fixed do
     end
 
     context 'with hard number (iceland regression)' do
-      before(:each) do
+      before do
         @splitter = described_class.new [3, 4]
       end
       it 'splits correctly' do
