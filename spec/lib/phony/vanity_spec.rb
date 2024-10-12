@@ -11,11 +11,11 @@ describe Phony::Vanity do
 
   describe '.vanity?' do
     it 'returns true on a vanity number' do
-      expect(vanity.vanity?('800HELLOES')).to eq true
+      expect(vanity.vanity?('800HELLOES')).to be true
     end
 
     it 'returns false on a non-vanity number' do
-      expect(vanity.vanity?('8004355637')).to eq false
+      expect(vanity.vanity?('8004355637')).to be false
     end
   end
 

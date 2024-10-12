@@ -14,7 +14,7 @@ describe Phony::TrunkCode do
 
     it 'is correct' do
       code = described_class.new('0', format: false)
-      expect(code.format('%s %s')).to eq nil
+      expect(code.format('%s %s')).to be nil
     end
 
     it 'is correct' do
@@ -29,7 +29,7 @@ describe Phony::TrunkCode do
 
     it 'is correct' do
       code = described_class.new('06', format: false)
-      expect(code.format('%s %s')).to eq nil
+      expect(code.format('%s %s')).to be nil
     end
   end
 

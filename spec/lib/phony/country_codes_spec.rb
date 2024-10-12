@@ -57,11 +57,11 @@ describe Phony::CountryCodes do
 
   describe '#vanity?' do
     it 'returns true if so' do
-      expect(countries.vanity?('1800HELLOES')).to eq true
+      expect(countries.vanity?('1800HELLOES')).to be true
     end
 
     it 'returns false if not' do
-      expect(countries.vanity?('18001234567')).to eq false
+      expect(countries.vanity?('18001234567')).to be false
     end
   end
 
