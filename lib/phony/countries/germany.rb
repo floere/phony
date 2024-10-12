@@ -12,7 +12,7 @@ ndcs2 = [
   '32',  # Non Geographical Numbers
   '40',  # Hamburg
   '69',  # Frankfurt am Main
-  '89'  # München
+  '89' # München
 ]
 ndcs3 = [
   '201', # Essen

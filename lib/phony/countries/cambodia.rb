@@ -91,7 +91,7 @@ six_digit_total_single_digit_fixed_line_prefixes = [
   '3',  # Mobitel
   '7',  # Telecom Cambodia
   '8',  # Telecom Cambodia
-  '9'  # Camintel
+  '9' # Camintel
 ]
 
 six_digit_total_double_digit_fixed_line_prefixes = [

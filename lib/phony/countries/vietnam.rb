@@ -77,7 +77,7 @@ ndcs_with_8_subscriber_digits = [
   '4',  # Hà Nội Province
   '24', # Hà Nội Province
   '28', # Hồ Chí Minh Province
-  '8'  # Hồ Chí Minh Province
+  '8' # Hồ Chí Minh Province
 ]
 
 mobile = [

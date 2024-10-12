@@ -40,7 +40,7 @@ two_digit_ndc = [
   '55',   # Corporate
   '56',   # LIECS/VoIP
   '70',   # Personal numbers
-  '76'   # Pagers (not 7624, Mobile, Isle of Man)
+  '76' # Pagers (not 7624, Mobile, Isle of Man)
 ]
 
 # three_digit_ndc_with_nine_digits

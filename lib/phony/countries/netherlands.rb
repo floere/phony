@@ -45,7 +45,7 @@ service = [
   '85',  # Plaatsonafhankelijk netnummer
   '87',  # Both of the above.
   '88',  # Bedrijfsnummers
-  '91'  # Plaatsonafhankelijk netnummer
+  '91' # Plaatsonafhankelijk netnummer
 ]
 
 service3 = [
