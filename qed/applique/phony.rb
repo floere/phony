@@ -4,7 +4,7 @@ require 'phony/config'
 
 # A helper which expresses the test more succinctly.
 #
-def plausible? examples
+def plausible?(examples)
   # Succeeding expectations.
   #
   succeeding = [*examples[:true]]
@@ -49,7 +49,7 @@ begin
 rescue LoadError
   Phony::PerformanceRatio = 0 # Ignore speed tests by default.
 end
-def performance_of &block
+def performance_of(&block)
   GC.disable
   result = Benchmark.realtime(&block)
   GC.enable

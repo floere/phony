@@ -20,7 +20,7 @@ module Phony
     # Add the given country to the mapping under the
     # given country code.
     #
-    def add country_code, country
+    def add(country_code, country)
       country_code = country_code.to_s
       optimized_country_code_access = country_code.size
 
@@ -31,7 +31,7 @@ module Phony
 
     # Get the Country object for the given CC.
     #
-    def [] cc
+    def [](cc)
       countries[cc.size][cc]
     end
 
@@ -40,12 +40,12 @@ module Phony
     @@basic_cleaning_pattern = /\A00?|\(0|\D/
     # Clean number of all non-numeric characters, initial zeros or (0 and return it.
     #
-    def clean number
+    def clean(number)
       clean! number && number.dup
     end
     # Clean number of all non-numeric characters, initial zeros or (0 and return a copy.
     #
-    def clean! number
+    def clean!(number)
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
 
@@ -60,7 +60,7 @@ module Phony
     #  * (0) anywhere.
     #  * Non-digits.
     #
-    def normalize number, options = {}
+    def normalize(number, options = {})
       country = if cc = options[:cc]
         self[cc]
       else
@@ -74,7 +74,7 @@ module Phony
 
     # Splits this number into cc, ndc and locally split number parts.
     #
-    def split number
+    def split(number)
       # Split the number into country, cc, and national part.
       country, cc, national_number = partial_split number
 
@@ -86,7 +86,7 @@ module Phony
 
     # Format the number.
     #
-    def format number, options = {}
+    def format(number, options = {})
       country, _, national_number = partial_split number
       country.format national_number, options
     end
@@ -94,7 +94,7 @@ module Phony
 
     # Is this number plausible?
     #
-    def plausible? number, hints = {}
+    def plausible?(number, hints = {})
       normalized = clean number
 
       # False if it fails the basic check.
@@ -130,13 +130,13 @@ module Phony
 
     # Is the given number a vanity number?
     #
-    def vanity? number
+    def vanity?(number)
       country, _, national = partial_split number
       country.vanity? national
     end
     # Converts a vanity number into a normalized E164 number.
     #
-    def vanity_to_number vanity_number
+    def vanity_to_number(vanity_number)
       country, cc, national = partial_split vanity_number
       "#{cc}#{country.vanity_to_number(national)}"
     end
@@ -145,14 +145,14 @@ module Phony
 
       # Return a country for the number.
       #
-      def country_for number
+      def country_for(number)
         country, _ = partial_split number
         country
       end
 
       # Split off the country and the cc, and also return the national number part.
       #
-      def partial_split number
+      def partial_split(number)
         cc = +''
         1.upto(3) do |i|
           cc << number.slice!(0..0)
@@ -167,10 +167,10 @@ module Phony
       #
       # Note: This won't be correct in some cases, but it is the best we can do.
       #
-      def countrify number, cc
+      def countrify(number, cc)
         countrify!(number, cc) || number
       end
-      def countrify! number, cc
+      def countrify!(number, cc)
         number.sub!(/\A/, cc) # @countrify_regex, @cc
       end
 

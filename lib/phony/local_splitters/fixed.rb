@@ -20,7 +20,7 @@ module Phony
       #
       # Caches the created splitter for the given format.
       #
-      def self.instance_for format = nil
+      def self.instance_for(format = nil)
         @mapping[format] ||= new(format)
       end
 
@@ -28,7 +28,7 @@ module Phony
       #
       # The format [3, 2, 2] splits a number like '3332222' into ['333', '22', '22'].
       #
-      def initialize format = nil
+      def initialize(format = nil)
         format = format && format.dup || [3, 2, 2]
         @format, @length = extract_params format
         @format << @format.pop + 10
@@ -36,7 +36,7 @@ module Phony
 
       #
       #
-      def extract_params format
+      def extract_params(format)
         if format.last.respond_to? :max
           last = format.pop
           length = format.inject(0) { |total, part| total + part }
@@ -53,7 +53,7 @@ module Phony
       # Examples
       # * split '3643533' # => ['364', '35', '33'] # (Switzerland)
       #
-      def split number
+      def split(number)
         @format.inject([]) do |result, size|
           result << number.slice!(0..size-1)
           return result if number.empty?
@@ -63,7 +63,7 @@ module Phony
 
       #
       #
-      def plausible? rest, hints = {}
+      def plausible?(rest, hints = {})
         return true if hints[:check_length] == false
 
         @length === rest.inject(0) { |total, part| total + part.size }

@@ -12,7 +12,7 @@ module Phony
     #  * split: [true, false (default)] Remove the trunk code when splitting (only use if number scheme is defined unambiguously).
     #  * format: [true (default), false] Add the trunk code when formatting (passing `false` will not add it).
     #
-    def initialize code, options = {}
+    def initialize(code, options = {})
       @code = code
       @trunk_code_replacement = /\A#{code.gsub(%r{%s}, '')}/
       @normalize = options[:normalize] || options[:normalize].nil?
@@ -22,7 +22,7 @@ module Phony
 
     # Prepends itself to the other codes.
     #
-    def | other
+    def |(other)
       other.codes.unshift self
       other
     end
@@ -30,21 +30,21 @@ module Phony
     # Split gets a number without country code and splits it into
     # its parts.
     #
-    def split national_number
+    def split(national_number)
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @split
       return [self, national_number]
     end
 
     # Normalize normalizes the given national number.
     #
-    def normalize national_number, options = {}
+    def normalize(national_number, options = {})
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @normalize && options[:cc]
       return national_number
     end
 
     # Format the trunk code using the spaces given.
     #
-    def format space, force = nil
+    def format(space, force = nil)
       if force || @format
         if @code.size > 1
           (@code % space).gsub(/\D/, ' ')

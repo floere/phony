@@ -19,12 +19,12 @@ module Phony
 
     attr_reader :included_ccs, :excluded_ccs
 
-    def initialize included_ccs, excluded_ccs
+    def initialize(included_ccs, excluded_ccs)
       @included_ccs = included_ccs || []
       @excluded_ccs = excluded_ccs || []
     end
 
-    def load? cc
+    def load?(cc)
       return false if has_excluded? && excluded_ccs.include?(cc)
 
       if has_included?

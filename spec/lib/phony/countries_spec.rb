@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'country descriptions' do
-  def self.it_splits number, expected
+  def self.it_splits(number, expected)
     it { expect(Phony.split(number)).to eq expected }
   end
 

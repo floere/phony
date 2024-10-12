@@ -17,7 +17,7 @@ module Phony
 
     # Replaces (and normalizes) vanity characters of passed number with correct digits.
     #
-    def self.replace number
+    def self.replace(number)
       number.tr(*mapping)
     end
 
@@ -25,14 +25,14 @@ module Phony
     # after the first three numbers.
     #
     @@vanity_regexp = /\A\d{3}[a-zA-Z]{6,12}\Z/
-    def self.vanity? number
+    def self.vanity?(number)
       !(normalized(number) =~ @@vanity_regexp).nil?
     end
 
     # Vanity-Normalized.
     #
     @@vanity_normalizing_regexp = /^0*|[^\w]/
-    def self.normalized number
+    def self.normalized(number)
       number.gsub @@vanity_normalizing_regexp, ''
     end
 

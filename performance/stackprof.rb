@@ -4,7 +4,7 @@
 require 'stackprof'
 require_relative '../lib/phony'
 
-def profile thing, &block
+def profile(thing, &block)
   profile = StackProf.run mode: thing.to_sym, &block
   path = "/tmp/stackprof-#{thing}-phony.dump"
   File.open(path, 'wb'){ |f| f.write Marshal.dump(profile) }

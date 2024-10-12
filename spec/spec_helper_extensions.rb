@@ -16,7 +16,7 @@ module SpecHelperExtensions
     # Ignore speed tests by default.
     Phony::PerformanceRatio = 0 unless Phony.constants.include?(:PerformanceRatio)
   end
-  def performance_of &block
+  def performance_of(&block)
     GC.disable
     result = Benchmark.realtime(&block)
     GC.enable

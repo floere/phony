@@ -21,7 +21,7 @@ module Phony
       # @example Split the national part of a Swiss number.
       #   Phony.split("1234567") # => ["1234567"]
       #
-      def split national_number
+      def split(national_number)
         [nil, national_number]
       end
 
@@ -36,7 +36,7 @@ module Phony
       # @example Split the national part of a Swiss number.
       #   Phony.plausible?("1234567") # => true
       #
-      def plausible? rest, size, hints = {}
+      def plausible?(rest, size, hints = {})
         true
       end
 

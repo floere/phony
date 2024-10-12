@@ -35,7 +35,7 @@ module Phony
       #
       # Note: Decided it stays in. When formatting, it's turned into nil.
       #
-      def split national_number
+      def split(national_number)
         [nil, false, national_number]
       end
 

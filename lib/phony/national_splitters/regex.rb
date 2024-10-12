@@ -19,11 +19,11 @@ module Phony
       #
       # Note: Not cached.
       #
-      def self.instance_for regex, on_fail_take = nil, options = {}
+      def self.instance_for(regex, on_fail_take = nil, options = {})
         new regex, on_fail_take, options
       end
 
-      def initialize regex, on_fail_take = nil, options = {}
+      def initialize(regex, on_fail_take = nil, options = {})
         super on_fail_take, options
 
         @regex = regex
@@ -34,7 +34,7 @@ module Phony
       # Examples
       # * split '3643533' # => ['364', '35', '33'] # (Switzerland)
       #
-      def split national_number
+      def split(national_number)
         # Improve matching.
         #
         return [@zero, national_number.slice!(0..$1.size-1), national_number] if national_number =~ regex

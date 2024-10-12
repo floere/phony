@@ -93,7 +93,7 @@ module Phony
   #   Phony.split("Fnork!") # Raises a Phony::SplittingError.
   #
   class SplittingError < ArgumentError
-    def initialize number
+    def initialize(number)
       super %Q(Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?)
     end
   end
@@ -125,7 +125,7 @@ module Phony
     #   nanp = Phony['1']
     #   normalized_number = nanp.normalize number
     #
-    def [] cc
+    def [](cc)
       @codes[cc]
     end
 
@@ -146,7 +146,7 @@ module Phony
     # @example Normalize a phone number assuming it's a NANP number.
     #   Phony.normalize("301 555 0100", cc: '1') # => "13015550100"
     #
-    def normalize phone_number, options = {}
+    def normalize(phone_number, options = {})
       raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.normalize(number).' unless phone_number
 
       normalize! phone_number.dup, options
@@ -168,7 +168,7 @@ module Phony
     # @example Normalize a phone number assuming it's a NANP number.
     #   Phony.normalize!("301 555 0100", cc: '1') # => "13015550100"
     #
-    def normalize! phone_number, options = {}
+    def normalize!(phone_number, options = {})
       @codes.normalize phone_number, options
     rescue
       raise NormalizationError.new
@@ -188,7 +188,7 @@ module Phony
     # @example Split a NANP number.
     #   Phony.split("13015550100") # => ["1", "301", "555", "0100"]
     #
-    def split phone_number
+    def split(phone_number)
       raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.split(number).' unless phone_number
 
       split! phone_number.dup, phone_number
@@ -207,7 +207,7 @@ module Phony
     # @example Split a NANP number.
     #   Phony.split!("13015550100") # => ["1", "301", "555", "0100"]
     #
-    def split! phone_number, error_number = nil
+    def split!(phone_number, error_number = nil)
       @codes.split phone_number
     rescue
       # NB The error_number (reference) is used because phone_number is destructively handled.
@@ -235,7 +235,7 @@ module Phony
     # @example Format a NANP number in a specific format.
     #   Phony.format("13015550100", :format => '%{cc} (%{trunk}%{ndc}) %{local}') # => "555 0100"
     #
-    def format phone_number, options = {}
+    def format(phone_number, options = {})
       raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.format(number).' unless phone_number
       format! phone_number.dup, options
     end
@@ -261,7 +261,7 @@ module Phony
     # @example Format a NANP number in local format.
     #   Phony.format!("13015550100", :format => :local) # => "555 0100"
     #
-    def format! phone_number, options = {}
+    def format!(phone_number, options = {})
       @codes.format phone_number, options
     rescue
       raise FormattingError.new
@@ -275,14 +275,14 @@ module Phony
     # If it returns true, it is unclear whether it is plausible,
     # leaning towards being plausible.
     #
-    def plausible? number, hints = {}
+    def plausible?(number, hints = {})
       @codes.plausible? number, hints
     end
 
     # Returns true if there is a character in the number
     # after the first four numbers.
     #
-    def vanity? phone_number
+    def vanity?(phone_number)
       @codes.vanity? phone_number.dup
     end
 
@@ -296,7 +296,7 @@ module Phony
     # @example De-vanitize a number.
     #   Phony.vanity_to_number("1-800-HELLOTHERE") # => "1-800-4355684373"
     #
-    def vanity_to_number vanity_number
+    def vanity_to_number(vanity_number)
       @codes.vanity_to_number vanity_number.dup
     end
 

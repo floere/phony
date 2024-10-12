@@ -10,7 +10,7 @@ module Phony
 
     #
     #
-    def initialize national_splitter, local_splitter
+    def initialize(national_splitter, local_splitter)
       @national_splitter = national_splitter
       @local_splitter    = local_splitter
     end
@@ -18,7 +18,7 @@ module Phony
     # Split gets a number without country code and splits it into
     # its parts.
     #
-    def split national_number
+    def split(national_number)
       zero, ndc_or_rest, rest = @national_splitter.split national_number.dup
       return [zero, ndc_or_rest] unless rest
       [zero, ndc_or_rest, *@local_splitter.split(rest)]
@@ -28,7 +28,7 @@ module Phony
     #
     # Note: Some cases, like Italy, don't remove the relative zero.
     #
-    def normalize national_number, options = {}
+    def normalize(national_number, options = {})
       national_number.gsub(/\A0+/, EMPTY_STRING)
     end
 

@@ -8,14 +8,14 @@ module Phony
 
       #
       #
-      def initialize fallback, ndcs, options = {}
+      def initialize(fallback, ndcs, options = {})
         super fallback, options
         @ndcs = optimize ndcs
       end
 
       # Takes a national number and splits it into ndc and rest.
       #
-      def split national_number
+      def split(national_number)
         fallback_number = national_number.dup
 
         # Extract a starting point.
@@ -51,7 +51,7 @@ module Phony
 
         # Optimizes and restructures the given ndcs array.
         #
-        def optimize ndc_ary
+        def optimize(ndc_ary)
           ndcs = {}
           ndc_ary.each do |ndc|
             ndcs[ndc.length] ||= []

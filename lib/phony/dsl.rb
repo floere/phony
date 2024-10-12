@@ -42,7 +42,7 @@ module Phony
     # @example Add a country with country code 27.
     #   country '27', # CC, followed by rules, for example fixed(2) >> ...
     #
-    def country country_code, definition, options = {}
+    def country(country_code, definition, options = {})
       return unless Phony.config.load?(country_code)
 
       definition.with country_code, options
@@ -59,7 +59,7 @@ module Phony
     # @example Designate country code 27 as reserved.
     #   reserved('27')
     #
-    def reserved country_code
+    def reserved(country_code)
       # Does nothing, will just fail with an exception.
     end
 
@@ -90,7 +90,7 @@ module Phony
     # @example Most countries which use a trunk code use 0. E.g. Romania.
     #   country '40', trunk('0') | ...
     #
-    def trunk code, options = {}
+    def trunk(code, options = {})
       TrunkCode.new code, options
     end
 
@@ -109,7 +109,7 @@ module Phony
     # @example France. Uses a fixed NDC of size 1.
     #   country '33', fixed(1) >> split(2,2,2,2)
     #
-    def fixed length, options = {}
+    def fixed(length, options = {})
       options[:zero] = true if options[:zero].nil?
       NationalSplitters::Fixed.instance_for length, options
     end
@@ -159,7 +159,7 @@ module Phony
     #     match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
     #     match(/^(\d{3})\d+$/)    >> split(3,2,2)
     #
-    def match regex, options = {}
+    def match(regex, options = {})
       # Check if regexp has a group in it.
       #
       raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless regex.source =~ /\(/
@@ -201,7 +201,7 @@ module Phony
     #                           /^[489].*$/ => [3,2,3],
     #                           :fallback   => [2,2,2,2])
     #
-    def matched_split options = {}
+    def matched_split(options = {})
       LocalSplitters::Regex.instance_for options
     end
 

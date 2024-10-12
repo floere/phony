@@ -20,13 +20,13 @@ module Phony
       #
       # Note: Not cached.
       #
-      def self.instance_for mapping
+      def self.instance_for(mapping)
         new mapping
       end
 
       # Initialize with a regex => format mapping.
       #
-      def initialize mapping
+      def initialize(mapping)
         @fallback = mapping.delete(:fallback) || [12]
         @mapping  = mapping
       end
@@ -36,7 +36,7 @@ module Phony
       # Examples
       # * split '3643533' # => ['364', '35', '33'] # (Switzerland)
       #
-      def split number
+      def split(number)
         mapping.each do |regex, format|
           next unless number =~ regex
           return split_with(number, format)
@@ -44,7 +44,7 @@ module Phony
         split_with number, fallback
       end
 
-      def plausible? rest, hints = {}
+      def plausible?(rest, hints = {})
         number = rest.inject('', :+)
         mapping.each do |regex, format|
           next unless number =~ regex
@@ -55,7 +55,7 @@ module Phony
 
       private
 
-        def split_with number, format
+        def split_with(number, format)
           format.inject([]) do |result, size|
             result << number.slice!(0..size-1)
             return result if number.empty?
@@ -63,7 +63,7 @@ module Phony
           end << number
         end
 
-        def plausible_with? number, format
+        def plausible_with?(number, format)
           length = format.inject 0, :+
           number.length == length
         end
