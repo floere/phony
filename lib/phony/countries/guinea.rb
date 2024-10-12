@@ -38,9 +38,9 @@ mobile_ndcs_with_3_digits = [
 
 Phony.define do
   country '224',
-    one_of(land_ndcs_with_5_digits)   >> split(2, 2)    | # 2-2-2-2
-    one_of(land_ndcs_with_4_digits)   >> split(2, 2)    | # 2-2-2-2
-    one_of(mobile_ndcs_with_3_digits) >> split(2, 2, 2) | # 3-2-2-2
-    match(/^(7\d{2})\d{6}/)           >> split(2, 2, 2) | # voip numbers
-    fixed(3)                          >> split(2, 2, 2)
+          one_of(land_ndcs_with_5_digits)   >> split(2, 2)    | # 2-2-2-2
+          one_of(land_ndcs_with_4_digits)   >> split(2, 2)    | # 2-2-2-2
+          one_of(mobile_ndcs_with_3_digits) >> split(2, 2, 2) | # 3-2-2-2
+          match(/^(7\d{2})\d{6}/)           >> split(2, 2, 2) | # voip numbers
+          fixed(3)                          >> split(2, 2, 2)
 end

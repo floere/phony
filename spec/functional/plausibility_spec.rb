@@ -23,11 +23,11 @@ describe 'plausibility' do
 
           correct.each do |value|
             expect(Phony.plausible?(value)).to be_truthy,
-              "It should validate #{value}, but does not."
+                                               "It should validate #{value}, but does not."
           end
           incorrect.each do |value|
             expect(Phony.plausible?(value)).to be_falsey,
-              "It should not validate #{value}, but does."
+                                               "It should not validate #{value}, but does."
           end
         end
 
@@ -36,7 +36,7 @@ describe 'plausibility' do
 
           invalid.each do |value|
             expect(Phony.plausible?(value)).to be_falsey,
-              "It should not validate #{value}, but does."
+                                               "It should not validate #{value}, but does."
           end
         end
       end

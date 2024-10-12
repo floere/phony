@@ -98,10 +98,10 @@ special_numbers_4 = %w[ 3003 4003 4004 4020 ]
 
 Phony.define do
   country '55',
-    match(/^#{ndcs}9\d{8}$/)     >> split(5, 4) |
-    match(/^#{ndcs}[2-5]\d{7}$/) >> split(4, 4) |
-    one_of(special_numbers_3_4)  >> split(3, 4) |
-    one_of(special_numbers_4)    >> split(4) |
-    one_of(service)              >> split(3) |
-    fixed(3)                     >> split(3)
+          match(/^#{ndcs}9\d{8}$/)     >> split(5, 4) |
+          match(/^#{ndcs}[2-5]\d{7}$/) >> split(4, 4) |
+          one_of(special_numbers_3_4)  >> split(3, 4) |
+          one_of(special_numbers_4)    >> split(4) |
+          one_of(service)              >> split(3) |
+          fixed(3)                     >> split(3)
 end

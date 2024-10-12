@@ -35,12 +35,12 @@ ndcs_eight = [
 
 Phony.define do
   country '60',
-    trunk('0') |
-    one_of(freephone) >> split(2, 4) | # Freephone, Tollfree, Forwarding
-    # one_of(service) >>  none  | # Service
-    one_of(mobile)  >> split(3, 4..5)   | # Mobile
-    one_of(ndcs_two_digits)    >> split(6)     | # 2-digit NDCs
-    one_of(ndcs)    >> split(7)     | # 1-digit NDCs
-    one_of(ndcs_eight)    >> split(8)     | # 1-digit NDCs
-    fixed(2)        >> split(8)       # 2-digit NDCs (Also, fallback)
+          trunk('0') |
+          one_of(freephone) >> split(2, 4) | # Freephone, Tollfree, Forwarding
+          # one_of(service) >>  none  | # Service
+          one_of(mobile)  >> split(3, 4..5)   | # Mobile
+          one_of(ndcs_two_digits)    >> split(6)     | # 2-digit NDCs
+          one_of(ndcs)    >> split(7)     | # 1-digit NDCs
+          one_of(ndcs_eight)    >> split(8)     | # 1-digit NDCs
+          fixed(2)        >> split(8)       # 2-digit NDCs (Also, fallback)
 end

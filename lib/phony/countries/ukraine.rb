@@ -618,13 +618,13 @@ ndcs_with_3_subscriber_numbers = %w[433861]
 
 Phony.define do
   country '380',
-    trunk('0') |
-    one_of(ndcs_with_3_subscriber_numbers) >> split(3) |
-    one_of(ndcs_with_4_subscriber_numbers) >> split(4) |
-    one_of(ndcs_with_5_subscriber_numbers) >> split(3, 2) |
-    one_of(ndcs_with_6_subscriber_numbers) >> split(3, 3) |
-    one_of(seven_digit_mobile_prefixes)    >> split(3, 2, 2) |
-    one_of('800') >> split(3, 3) | # freephone
-    one_of(ndcs_with_7_subscriber_numbers) >> split(4, 3) |
-    fixed(3) >> split(3, 3) # other
+          trunk('0') |
+          one_of(ndcs_with_3_subscriber_numbers) >> split(3) |
+          one_of(ndcs_with_4_subscriber_numbers) >> split(4) |
+          one_of(ndcs_with_5_subscriber_numbers) >> split(3, 2) |
+          one_of(ndcs_with_6_subscriber_numbers) >> split(3, 3) |
+          one_of(seven_digit_mobile_prefixes)    >> split(3, 2, 2) |
+          one_of('800') >> split(3, 3) | # freephone
+          one_of(ndcs_with_7_subscriber_numbers) >> split(4, 3) |
+          fixed(3) >> split(3, 3) # other
 end

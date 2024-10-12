@@ -38,10 +38,10 @@ pagers = %w[ 96 ]
 
 Phony.define do
   country '91',
-    trunk('0') |
-    one_of(sdca_with_3_digits) >> split(3, 2, 2) |
-    one_of(sdca_with_2_digits) >> split(3, 2, 3) |
-    one_of(mobile) >> split(3, 2, 3) |
-    one_of(pagers) >> split(2, 3, 3) |
-    fixed(4) >> split(3, 3) # fallback (4 digit sdca)
+          trunk('0') |
+          one_of(sdca_with_3_digits) >> split(3, 2, 2) |
+          one_of(sdca_with_2_digits) >> split(3, 2, 3) |
+          one_of(mobile) >> split(3, 2, 3) |
+          one_of(pagers) >> split(2, 3, 3) |
+          fixed(4) >> split(3, 3) # fallback (4 digit sdca)
 end

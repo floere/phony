@@ -24,12 +24,12 @@ service = %w[ 110 114 119 120 122 999 ] # Probably not exhaustive. TODO Look at 
 
 Phony.define do
   country '86',
-    trunk('0') |
-    one_of(service) >> split(8)   |
-    one_of(mobile)  >> split(4, 4) |
-    one_of(ndcs)    >> split(4, 4) |
-    fixed(3)        >> matched_split(
-        /\A\d{7}\z/ => [3, 4],
-        /\A\d{8}\z/ => [4, 4]
-    )
+          trunk('0') |
+          one_of(service) >> split(8)   |
+          one_of(mobile)  >> split(4, 4) |
+          one_of(ndcs)    >> split(4, 4) |
+          fixed(3)        >> matched_split(
+              /\A\d{7}\z/ => [3, 4],
+              /\A\d{8}\z/ => [4, 4]
+          )
 end
