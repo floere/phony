@@ -92,7 +92,7 @@ mobile = [
   '52', # Vietnammobile
   '56', # Vietnamobile
   '58', # Vietnamobile (previously known as HT Mobile)
-  '59',  # GTel (traded as Beeline)
+  '59', # GTel (traded as Beeline)
   '70', # MobiFone
   '76', # MobiFone
   '77', # MobiFone
@@ -106,7 +106,7 @@ mobile = [
   '86', # Viettel
   '87', # Itelecom
   '88', # Vinaphone
-  '89',  # MobiFone,
+  '89', # MobiFone,
   '90', # MobiFone
   '91', # Vinaphone
   '92', # Vietnamobile (previously known as HT Mobile)
@@ -131,6 +131,6 @@ Phony.define do
             /\A\d{4}\z/ => [4],
             /\A\d{6}\z/ => [6]) | # Premium rate
           # Govt reserved
-          fixed(80)                             >> split(5)   |
+          fixed(80)                             >> split(5) |
           fixed(69)                             >> split(1, 5)
 end

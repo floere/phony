@@ -20,10 +20,10 @@ Phony.define do
           one_of(%w[71 73 74 75 76 77]) >> matched_split(
               /\A\d{6}\z/ => [3, 3],
               /\A\d+\z/ => [3, 4]) |
-          one_of('13') >> matched_split(  # pager
+          one_of('13') >> matched_split( # pager
               /\A\d{3}\z/ => [3],
               /\A\d+\z/ => [3, 3]) |
-          one_of(%w[174 175]) >> matched_split(  # satellite
+          one_of(%w[174 175]) >> matched_split( # satellite
               /\A\d{2}\z/ => [2],
               /\A\d+\z/ => [2, 3]) |
           one_of('177') >> matched_split(  # satellite
@@ -33,7 +33,7 @@ Phony.define do
               /\A\d{3}\z/ => [3],
               /\A\d+\z/ => [3, 2]) |
           one_of(%w[870]) >> split(3, 2) | # satellite
-          match(/\A(81\d|82\d|83\d|84\d|85\d|86\d|87\d|88\d|89\d)\d+\z/) >> matched_split(  # mobile
+          match(/\A(81\d|82\d|83\d|84\d|85\d|86\d|87\d|88\d|89\d)\d+\z/) >> matched_split( # mobile
               /\A\d{6}\z/ => [3, 3],
               /\A\d{7}\z/ => [3, 4],
               /\A\d{8}\z/ => [4, 4],

@@ -76,7 +76,7 @@ module Phony
     def format(national_number, options = {})
       type         = options[:format]       || @format
       space        = options[:spaces]       || @space       || @@default_space
-      local_space  = options[:local_spaces] || @local_space || space           || @@default_local_space
+      local_space  = options[:local_spaces] || @local_space || space || @@default_local_space
       parentheses  = options[:parentheses]
       parentheses  = @parentheses || @@default_parentheses if parentheses.nil?
       use_trunk    = options[:trunk]
@@ -120,7 +120,7 @@ module Phony
         if ndc && !ndc.empty?
           @@national_format % [trunk, format_ndc(ndc, parentheses), space, local]
         else
-          @@national_format % [trunk, nil, nil,   local]
+          @@national_format % [trunk, nil, nil, local]
         end
       when :local
         local

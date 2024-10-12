@@ -14,7 +14,7 @@ def profile
 
   profiler.stop
 
-  profiler.show  # takes on IO object, defaults to STDOUT
+  profiler.show # takes on IO object, defaults to STDOUT
 end
 
 profile { 10_000.times { Phony.normalize '+81-3-9999-9999' } }

@@ -674,8 +674,8 @@ describe 'plausibility' do
 
       it 'is correct for Malaysia' do
         Phony.plausible?('+60 5 123 1234').should be_truthy     # Non Selangor Landline
-        Phony.plausible?('+60 3 1234 1234').should be_truthy     # Selangor Landline
-        Phony.plausible?('+60 88 123 123').should be_truthy     #  Landline Sabah – Kota Kinabalu and Kudat
+        Phony.plausible?('+60 3 1234 1234').should be_truthy # Selangor Landline
+        Phony.plausible?('+60 88 123 123').should be_truthy #  Landline Sabah – Kota Kinabalu and Kudat
       end
 
       it 'is correct for Japan' do

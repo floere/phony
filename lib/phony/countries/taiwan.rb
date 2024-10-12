@@ -23,6 +23,6 @@ Phony.define do
           match(/\A(6)\d{7}\z/)   >> split(3, 4) | # 臺南 澎湖, start with 06, plus 7 digits
           match(/\A(7)\d{7}\z/)   >> split(3, 4) | # 高雄, start with 07, plus 7 digits
           match(/\A(2)\d{8}\z/)   >> split(4, 4) | # 臺北, start with 02, plus 8 digits
-          match(/\A(9\d\d)\d{6}\z/)   >> split(3, 3) | # mobile phone, start with 09, plus 8 digits, but local usually show 4-3-3.
-          fixed(2)                >> split(4, 4)   # fallback unknown
+          match(/\A(9\d\d)\d{6}\z/) >> split(3, 3) | # mobile phone, start with 09, plus 8 digits, but local usually show 4-3-3.
+          fixed(2) >> split(4, 4) # fallback unknown
 end

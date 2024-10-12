@@ -292,15 +292,15 @@ describe 'country descriptions' do
       it_splits '37281231234', %w[372 8123 1234]  # Mobile
       it_splits '37282231234', %w[372 8223 1234]  # Mobile
       it_splits '37252212345', %w[372 5221 2345]  # Mobile
-      it_splits '3725221234', %w[372 5221 234]  # Mobile
-      it_splits '37270121234', %w[372 7012 1234]  # Premium
+      it_splits '3725221234', %w[372 5221 234] # Mobile
+      it_splits '37270121234', %w[372 7012 1234] # Premium
     end
 
     describe 'Finland' do
       it_splits '3589123123', %w[358 9 123 123] # Helsinki
       it_splits '3581912312', %w[358 19 123 12] # Nylandia
       it_splits '3585012312', %w[358 50 123 12] # Mobile
-      it_splits '35860012345',  %w[358 6001 23 45]      # Service
+      it_splits '35860012345', %w[358 6001 23 45] # Service
     end
 
     describe 'France' do
@@ -370,8 +370,8 @@ describe 'country descriptions' do
     end
 
     describe 'Hong Kong' do
-      it_splits '85212341234', ['852', false, '1234', '1234']    # Other Numbers
-      it_splits '852800121234', %w[852 800 12 1234]     # Toll Free
+      it_splits '85212341234', ['852', false, '1234', '1234'] # Other Numbers
+      it_splits '852800121234', %w[852 800 12 1234] # Toll Free
     end
 
     describe 'Hungary' do
@@ -431,7 +431,7 @@ describe 'country descriptions' do
       it_splits '919911182111', %w[91 99 111 82 111] # mobile
       it_splits '912212345678', %w[91 22 123 45 678] # New Delhi
       it_splits '911411234567', %w[91 141 123 45 67] # Jaipur
-      it_splits '913525123456', %w[91 3525 123 456]     # DALKHOLA
+      it_splits '913525123456', %w[91 3525 123 456] # DALKHOLA
       it_splits '914433993939', %w[91 44 339 93 939] #
     end
 
@@ -443,9 +443,9 @@ describe 'country descriptions' do
     describe 'Ireland' do
       it_splits '35311234567',  %w[353 1 123 4567]  # Dublin, 7 digit subscriber #
       it_splits '353539233333', %w[353 53 923 3333] # Wexford, 7 digit subscriber
-      it_splits '3532212345',   %w[353 22 12345]       # Mallow, 5 digit subscriber #
+      it_splits '3532212345',   %w[353 22 12345] # Mallow, 5 digit subscriber #
       it_splits '353441234567', %w[353 44 123 4567] # Mullingar, Castlepollard, Tyrellspass 7 digit subscriber #
-      it_splits '35345123456',  %w[353 45 123456]      # Naas, 6 digit subscriber #
+      it_splits '35345123456',  %w[353 45 123456] # Naas, 6 digit subscriber #
       it_splits '353801234567', %w[353 80 123 4567] # Mobile
       it_splits '353761234567', %w[353 76 123 4567] # VoIP
       it_splits '353800123456', %w[353 800 123456]     # Freefone
@@ -453,14 +453,14 @@ describe 'country descriptions' do
     end
 
     describe 'Israel (972)' do
-      it_splits '972100',       %w[972 1 00]                  # Police
+      it_splits '972100',       %w[972 1 00] # Police
       it_splits '97221231234',  %w[972 2 123 1234]         # Jerusalem Area
       it_splits '97282411234',  %w[972 8 241 1234]         # Gaza Strip (Palestine)
       it_splits '97291231234',  %w[972 9 123 1234]         # Sharon Area
       it_splits '972501231234', %w[972 50 123 1234]        # Mobile (Pelephone)
       it_splits '972591231234', %w[972 59 123 1234]        # Mobile Jawwal (Palestine)
       it_splits '972771231234', %w[972 77 123 1234]        # Cable Phone Services
-      it_splits '9721700123123', %w[972 1 700 123 123]  # Cable Phone Services
+      it_splits '9721700123123', %w[972 1 700 123 123] # Cable Phone Services
       it_splits '972511234567', %w[972 51 123 4567]        # Mobile (We4G)
       it_splits '972791111111', %w[972 79 111 1111]        # Landline (Hallo, Cellact, Telzar)
     end
@@ -472,16 +472,16 @@ describe 'country descriptions' do
       it_splits '970501231234', %w[970 50 123 1234]  # Mobile (Pelephone)
       it_splits '970591231234', %w[970 59 123 1234]  # Mobile Jawwal (Palestine)
       it_splits '970771231234', %w[970 77 123 1234]  # Cable Phone Services
-      it_splits '9701700123123', %w[970 1 700 123 123]  # Cable Phone Services
+      it_splits '9701700123123', %w[970 1 700 123 123] # Cable Phone Services
     end
 
     describe 'Italy' do
       it_splits '39348695281',  %w[39 348 695 281]        # Mobile (6-digit subscriber no. - rare, but still used)
       it_splits '393486952812', %w[39 348 695 2812]       # Mobile (7-digit subscriber no. - common)
-      it_splits '3934869528123', %w[39 348 695 2812 3]  # Mobile (8-digit subscriber no - new)
+      it_splits '3934869528123', %w[39 348 695 2812 3] # Mobile (8-digit subscriber no - new)
       it_splits '393357210488', %w[39 335 721 0488] # Mobile
       it_splits '393248644272', %w[39 324 864 4272] # Mobile
-      it_splits '390612341',    %w[39 06 12341]        # Roma 5 digit
+      it_splits '390612341',    %w[39 06 12341] # Roma 5 digit
       it_splits '3906123412',   %w[39 06 1234 12]   # Roma 6 digit
       it_splits '39061234123',  %w[39 06 1234 123]  # Roma 7 digit
       it_splits '390612341234', %w[39 06 1234 1234] # Roma 8 digit
@@ -574,7 +574,7 @@ describe 'country descriptions' do
     end
 
     describe 'Malaysia' do
-      it_splits '6082123456',   %w[60 82 123456]   # Kuching
+      it_splits '6082123456',   %w[60 82 123456] # Kuching
       it_splits '60312345678',  %w[60 3 12345678] # Kuala Lumpur
       it_splits '60212345678',  %w[60 2 12345678] # Singapore
       it_splits '60111231234', %w[60 11 123 1234] # Mobile
@@ -591,11 +591,11 @@ describe 'country descriptions' do
     end
 
     describe 'Mexico' do
-      it_splits '525512121212',  %w[52 55 1212 1212]         # Mexico City
-      it_splits '5215512121212', %w[52 1 55 1212 1212]    # Mexico City cell phone from abroad
-      it_splits '526641231212',  %w[52 664 123 1212]         # Tijuana
-      it_splits '5216641231212', %w[52 1 664 123 1212]    # Tijuana cell phone from abroad
-      it_splits '520446641231212', %w[52 044 664 123 1212]   # Tijuana cell phone local from landline
+      it_splits '525512121212',  %w[52 55 1212 1212] # Mexico City
+      it_splits '5215512121212', %w[52 1 55 1212 1212] # Mexico City cell phone from abroad
+      it_splits '526641231212',  %w[52 664 123 1212] # Tijuana
+      it_splits '5216641231212', %w[52 1 664 123 1212] # Tijuana cell phone from abroad
+      it_splits '520446641231212', %w[52 044 664 123 1212] # Tijuana cell phone local from landline
     end
 
     describe 'Monaco' do
@@ -728,8 +728,8 @@ describe 'country descriptions' do
       it_splits '79991234567',   %w[7 999 123 45 67] # Russia 3-digit
       it_splits '7840121212',    %w[7 840 12 1212]  # Abhasia
       it_splits '7799121212',    %w[7 799 12 1212]  # Kazachstan
-      it_splits '7995344121212', %w[7 995 344 12 1212]  # South Osetia
-      it_splits '7209175276',    %w[7 209 17 5276]  # Fantasy number
+      it_splits '7995344121212', %w[7 995 344 12 1212] # South Osetia
+      it_splits '7209175276',    %w[7 209 17 5276] # Fantasy number
     end
 
     describe 'Rwanda' do
@@ -828,7 +828,7 @@ describe 'country descriptions' do
 
     describe 'Switzerland' do
       it_splits '41443643532', %w[41 44 364 35 32] # Zurich (usually)
-      it_splits '41800334455', %w[41 800 334 455]     # Service number
+      it_splits '41800334455', %w[41 800 334 455] # Service number
       it_splits '41860443643532', %w[41 860 44 364 35 32] # Voicemail access
       it_splits '41900123456', %w[41 900 123 456]     # Business Number
       it_splits '41901123456', %w[41 901 123 456]     # Business Number Entertainment
@@ -885,7 +885,7 @@ describe 'country descriptions' do
       it_splits '443452273512', %w[44 345 227 3512] # Non-geographic (NTS)
       it_splits '443707774444', %w[44 370 777 4444] # Non-geographic (NTS)
       it_splits '443725247722', %w[44 372 524 7722] # Non-geographic (NTS)
-      it_splits '44500557788',  %w[44 500 557788]      # Freefone (500 + 6)
+      it_splits '44500557788',  %w[44 500 557788] # Freefone (500 + 6)
       it_splits '445575671113', %w[44 55 7567 1113] # Corporate numbers
       it_splits '445644775533', %w[44 56 4477 5533] # LIECS/VoIP
       it_splits '447020229901', %w[44 70 2022 9901] # Personal numbers
@@ -927,7 +927,7 @@ describe 'country descriptions' do
     end
 
     describe 'Zambia' do
-      it_splits '260211123456', %w[260 211 123456]     # Fixed
+      it_splits '260211123456', %w[260 211 123456] # Fixed
       it_splits '260955123456', %w[260 95 512 3456] # Mobile
       it_splits '260967123456', %w[260 96 712 3456] # Mobile
       it_splits '260978123456', %w[260 97 812 3456] # Mobile
