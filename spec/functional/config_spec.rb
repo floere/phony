@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 #
 describe 'Phony::Config' do
   describe 'load' do
