@@ -7,7 +7,6 @@
 # https://en.wikipedia.org/wiki/Telephone_numbers_in_Argentina
 # Area codes collected from https://www.enacom.gob.ar/indicativos-interurbanos_p366 (06/27/19)
 
-
 # Landline
 area_codes_2digits = [
   '11',
@@ -323,8 +322,6 @@ area_codes_4digits = %w[
 # according to the subscriber's choice or residence, and can be 6, 7 or 8 digits long, just as
 # landline numbers are. The difference with landline numbers is that a prefix 15, never used for
 # landlines, must be dialed.
-
-
 
 # International: +54 + 9 + area code + subscriber number (without '15' prefix)
 # Domestic: area code + 15 + subscriber number

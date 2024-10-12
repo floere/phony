@@ -64,7 +64,6 @@ mobile_2digit = %w[
  69
 ]
 
-
 service = %w[
   710
  711

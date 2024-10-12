@@ -38,7 +38,6 @@ ndcs_with_5_subscriber_numbers = %w[
 473
 ]
 
-
 Phony.define do
   country '598',
           one_of('800') >> split(3, 2) | # freephone

@@ -304,7 +304,6 @@ describe 'plausibility' do
                                           '+964 21 113 456',
                                           '+964 71 1234 5678']
 
-
       it_is_correct_for 'Kiribati (Republic of)', samples: '+686  34814527'
       it_is_correct_for "Democratic People's Republic of Korea", samples: ['+850 2 123 45',
                                                                            '+850 2 123 456 789',

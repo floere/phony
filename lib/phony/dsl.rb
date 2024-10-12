@@ -222,6 +222,5 @@ module Phony
       Validators::NDC.new invalid: ndc
     end
 
-
   end
 end
