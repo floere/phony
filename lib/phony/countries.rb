@@ -59,7 +59,7 @@ Phony.define do
 
   # Kazakhstan (Republic of) & Russsian Federation.
   # also Abhasia and South Osetia autonomous regions / recognized by some states as independent countries
-  #country '7', fixed(3) >> split(3,2,2)
+  # country '7', fixed(3) >> split(3,2,2)
   # see special file
 
   # Egypt.
@@ -320,7 +320,7 @@ Phony.define do
   country '94', # TODO: Sri Lanka (Democratic Socialist Republic of)
     fixed(2) >> split(3, 2, 2)
 
-  #country '95' # Myanmar, see special file.
+  # country '95' # Myanmar, see special file.
 
   country '98', #  Iran (Islamic Republic of)
     one_of('21') >> split(4, 4) | # Teheran
@@ -621,8 +621,8 @@ Phony.define do
           one_of(%w[31 32 33 34 35 36 61 64 66 68 81 84 85 86 87 89 91 92 94 95 96 97 98 99]) >> split(4) | # geographic
           one_of(%w[22 23 24 25 26 27 28 29 42 43 44 45 46 47 48 49 52 53 54 55 56 57 58 59]) >> split(4) | # mobile: Tele Greenland A/S
           one_of(%w[38 39]) >> split(4) | # VoIP telephony
-          match(/\A(50)\d{4}\z/) >> split(4) |   #| voicemail (mobile) Tele Greenland A/S
-          match(/\A(50)\d{6}\z/) >> split(3, 3) | #|
+          match(/\A(50)\d{4}\z/) >> split(4) |   # | voicemail (mobile) Tele Greenland A/S
+          match(/\A(50)\d{6}\z/) >> split(3, 3) | # |
           fixed(2) >> split(4)
 
   # Gibraltar
@@ -1047,7 +1047,7 @@ Phony.define do
           one_of('2') >> matched_split(
               /\A\d{5}\z/ => [3, 2],
               /\A\d{7}\z/ => [3, 4],
-              #/\A(880|881|882|883|885)\d+\z/ => [4,4,4,4],
+              # /\A(880|881|882|883|885)\d+\z/ => [4,4,4,4],
               /\A\d+\z/ => [3, 3, 3]) |
           one_of(%w[31 39 41 45 53 57 61 67 73 79])  >> split(3, 3) |
           fixed(2) >> split(3, 3)

@@ -309,7 +309,7 @@ describe 'plausibility' do
       it_is_correct_for "Democratic People's Republic of Korea", samples: ['+850 2 123 45',
                                                                            '+850 2 123 456 789',
                                                                            '+850 2 381 2356',
-                                                                              #'+850 2 8801 1234 5678 1256',
+                                                                              # '+850 2 8801 1234 5678 1256',
                                                                            '+850 191 123 4567']
       it_is_correct_for 'Kuwait (State of)', samples: ['+965 2345 6789', '+965 181 2345' ]
       it_is_correct_for 'Kenya', samples: [

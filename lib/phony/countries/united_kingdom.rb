@@ -209,11 +209,11 @@ four_digit_ndc = [
   # range sub-allocated as 5-5 and one also has some 5-4.
   '1200', # Clitheroe
   '1202', # Bournemouth
-  #1204     Bolton (see [4+6]/[4+5] areas)
+  # 1204     Bolton (see [4+6]/[4+5] areas)
   '1205', # Boston
   '1206', # Colchester
   '1207', # Consett
-  #1208     Bodmin (see [4+6]/[4+5] areas)
+  # 1208     Bodmin (see [4+6]/[4+5] areas)
   '1209', # Redruth, Cornwall
   '1223', # Cambridge
   '1224', # Aberdeen
@@ -239,7 +239,7 @@ four_digit_ndc = [
   '1250', # Blairgowrie
   '1252', # Aldershot
   '1253', # Blackpool
-  #1254     Blackburn (see [4+6]/[4+5] areas)
+  # 1254     Blackburn (see [4+6]/[4+5] areas)
   '1255', # Clacton-on-Sea
   '1256', # Basingstoke
   '1257', # Coppull, Chorley
@@ -258,7 +258,7 @@ four_digit_ndc = [
   '1273', # Brighton
   '1274', # Bradford
   '1275', # Clevedon, Bristol
-  #1276     Camberley (see [4+6]/[4+5] areas)
+  # 1276     Camberley (see [4+6]/[4+5] areas)
   '1277', # Brentwood
   '1278', # Bridgwater
   '1279', # Bishop's Stortford
@@ -278,8 +278,8 @@ four_digit_ndc = [
   '1294', # Ardrossan, Ayrshire
   '1295', # Banbury
   '1296', # Aylesbury
-  #1297     Axminster (see [4+6]/[4+5] areas)
-  #1298     Buxton (see [4+6]/[4+5] areas)
+  # 1297     Axminster (see [4+6]/[4+5] areas)
+  # 1298     Buxton (see [4+6]/[4+5] areas)
   '1299', # Bewdley
   '1300', # Cerne Abbas, Dorset
   '1301', # Arrochar
@@ -328,8 +328,8 @@ four_digit_ndc = [
   '1360', # Killearn, Drymen
   '1361', # Duns
   '1362', # Dereham
-  #1363     Crediton (see [4+6]/[4+5] areas)
-  #1364     Ashburton, Devon (see [4+6]/[4+5] areas)
+  # 1363     Crediton (see [4+6]/[4+5] areas)
+  # 1364     Ashburton, Devon (see [4+6]/[4+5] areas)
   '1366', # Downham Market
   '1367', # Faringdon
   '1368', # Dunbar
@@ -345,8 +345,8 @@ four_digit_ndc = [
   '1381', # Fortrose
   '1382', # Dundee
   '1383', # Dunfermline
-  #1384     Dudley (see [4+6]/[4+5] areas)
-  #1386     Evesham (see [4+6]/[4+5] areas)
+  # 1384     Dudley (see [4+6]/[4+5] areas)
+  # 1386     Evesham (see [4+6]/[4+5] areas)
   '1387', # Dumfries (Mixed area)
   '1388', # Bishop Auckland, Durham and Stanhope (Eastgate) (ELNS area)
   '1389', # Dumbarton
@@ -357,13 +357,13 @@ four_digit_ndc = [
   '1398', # Dulverton, Exmoor
   '1400', # Honington
   '1403', # Horsham
-  #1404     Honiton (see [4+6]/[4+5] areas)
+  # 1404     Honiton (see [4+6]/[4+5] areas)
   '1405', # Goole
   '1406', # Holbeach
   '1407', # Holyhead
   '1408', # Golspie
   '1409', # Holsworthy
-  #1420     Alton (see [4+6]/[4+5] areas)
+  # 1420     Alton (see [4+6]/[4+5] areas)
   '1422', # Halifax
   '1423', # Boroughbridge and Harrogate (ELNS area)
   '1424', # Hastings
@@ -397,8 +397,8 @@ four_digit_ndc = [
   '1456', # Glenurquhart
   '1457', # Glossop
   '1458', # Glastonbury
-  #1460     Chard, Ilminster (see [4+6]/[4+5] areas)
-  #1461     Gretna (see [4+6]/[4+5] areas)
+  # 1460     Chard, Ilminster (see [4+6]/[4+5] areas)
+  # 1461     Gretna (see [4+6]/[4+5] areas)
   '1462', # Hitchin
   '1463', # Inverness
   '1464', # Insch
@@ -416,14 +416,14 @@ four_digit_ndc = [
   '1477', # Holmes Chapel
   '1478', # Portree, Isle of Skye
   '1479', # Grantown-on-Spey
-  #1480     Huntingdon (see [4+6]/[4+5] areas)
+  # 1480     Huntingdon (see [4+6]/[4+5] areas)
   '1481', # Guernsey
   '1482', # Kingston-upon-Hull
   '1483', # Guildford
   '1484', # Huddersfield
   '1485', # Hunstanton
   '1487', # Warboys, Huntingdon
-  #1488     Hungerford (see [4+6]/[4+5] areas)
+  # 1488     Hungerford (see [4+6]/[4+5] areas)
   '1489', # Bishops Waltham, Hamble Valley
   '1490', # Corwen, Gwynedd
   '1491', # Henley-on-Thames
@@ -444,10 +444,10 @@ four_digit_ndc = [
   '1509', # Loughborough
   '1520', # Lochcarron
   '1522', # Lincoln
-  #1524     Lancaster (Mixed area) (see [4+6]/[4+5] areas)
+  # 1524     Lancaster (Mixed area) (see [4+6]/[4+5] areas)
   '1525', # Leighton Buzzard
   '1526', # Martin, Lincolnshire
-  #1527     Redditch (see [4+6]/[4+5] areas)
+  # 1527     Redditch (see [4+6]/[4+5] areas)
   '1528', # Laggan, Badenoch
   '1529', # Sleaford, Lincolnshire
   '1530', # Coalville, Ashby-de-la-Zouch, Leicestershire
@@ -476,11 +476,11 @@ four_digit_ndc = [
   '1559', # Llandysul
   '1560', # Moscow
   '1561', # Laurencekirk
-  #1562     Kidderminster (see [4+6]/[4+5] areas)
+  # 1562     Kidderminster (see [4+6]/[4+5] areas)
   '1563', # Kilmarnock
   '1564', # Lapworth, Knowle
   '1565', # Knutsford
-  #1566     Launceston (see [4+6]/[4+5] areas)
+  # 1566     Launceston (see [4+6]/[4+5] areas)
   '1567', # Killin
   '1568', # Leominster
   '1569', # Stonehaven, Laurencekirk
@@ -512,7 +512,7 @@ four_digit_ndc = [
   '1600', # Monmouth
   '1603', # Norwich
   '1604', # Northampton
-  #1606     Northwich (see [4+6]/[4+5] areas)
+  # 1606     Northwich (see [4+6]/[4+5] areas)
   '1608', # Chipping Norton
   '1609', # Northallerton
   '1620', # North Berwick
@@ -523,13 +523,13 @@ four_digit_ndc = [
   '1625', # Macclesfield
   '1626', # Newton Abbot
   '1628', # Maidenhead
-  #1629     Matlock (see [4+6]/[4+5] areas)
+  # 1629     Matlock (see [4+6]/[4+5] areas)
   '1630', # Market Drayton
   '1631', # Oban
-  #1632     Numbers for Drama
+  # 1632     Numbers for Drama
   '1633', # Newport
   '1634', # Medway
-  #1635     Newbury (see [4+6]/[4+5] areas)
+  # 1635     Newbury (see [4+6]/[4+5] areas)
   '1636', # Newark-on-Trent
   '1637', # Newquay
   '1638', # Newmarket
@@ -539,7 +539,7 @@ four_digit_ndc = [
   '1643', # Minehead
   '1644', # New Galloway
   '1646', # Milford Haven
-  #1647     Moretonhampstead (see [4+6]/[4+5] areas)
+  # 1647     Moretonhampstead (see [4+6]/[4+5] areas)
   '1650', # Cemmaes Road, Machynlleth
   '1651', # Oldmeldrum
   '1652', # Brigg, North Kelsey
@@ -547,7 +547,7 @@ four_digit_ndc = [
   '1654', # Machynlleth
   '1655', # Maybole
   '1656', # Bridgend
-  #1659     Sanquhar, Nithsdale (see [4+6]/[4+5] areas)
+  # 1659     Sanquhar, Nithsdale (see [4+6]/[4+5] areas)
   '1661', # Prudhoe, Northumberland
   '1663', # New Mills
   '1664', # Melton Mowbray
@@ -578,7 +578,7 @@ four_digit_ndc = [
   '1691', # Oswestry
   '1692', # North Walsham
   '1694', # Church Stretton
-  #1695     Skelmersdale (see [4+6]/[4+5] areas)
+  # 1695     Skelmersdale (see [4+6]/[4+5] areas)
   '1697', # Brampton (Mixed area)
   '1698', # Motherwell
   '1700', # Rothesay
@@ -594,7 +594,7 @@ four_digit_ndc = [
   '1723', # Scarborough
   '1724', # Scunthorpe
   '1725', # Rockbourne
-  #1726     St Austell (see [4+6]/[4+5] areas)
+  # 1726     St Austell (see [4+6]/[4+5] areas)
   '1727', # St Albans
   '1728', # Saxmundham
   '1729', # Settle, Ribblesdale
@@ -606,13 +606,13 @@ four_digit_ndc = [
   '1738', # Perth
   '1740', # Sedgefield
   '1743', # Shrewsbury
-  #1744     St Helens (see [4+6]/[4+5] areas)
+  # 1744     St Helens (see [4+6]/[4+5] areas)
   '1745', # Rhyl
   '1746', # Bridgnorth, Shropshire
   '1747', # Shaftesbury
   '1748', # Richmond
   '1749', # Shepton Mallet
-  #1750     Selkirk (see [4+6]/[4+5] areas)
+  # 1750     Selkirk (see [4+6]/[4+5] areas)
   '1751', # Pickering
   '1752', # Plymouth
   '1753', # Slough
@@ -628,7 +628,7 @@ four_digit_ndc = [
   '1765', # Ripon
   '1766', # Porthmadog
   '1767', # Sandy
-  #1768     Penrith (Mixed area) (see [4+6]/[4+5] areas)
+  # 1768     Penrith (Mixed area) (see [4+6]/[4+5] areas)
   '1769', # South Molton
   '1770', # Isle of Arran
   '1771', # Maud
@@ -667,7 +667,7 @@ four_digit_ndc = [
   '1823', # Taunton
   '1824', # Ruthin, Vale of Clwyd
   '1825', # Uckfield
-  #1827     Tamworth (see [4+6]/[4+5] areas)
+  # 1827     Tamworth (see [4+6]/[4+5] areas)
   '1828', # Coupar Angus, Tayside
   '1829', # Tarporley
   '1830', # Kirkwhelpington
@@ -675,7 +675,7 @@ four_digit_ndc = [
   '1833', # Barnard Castle, Teesdale
   '1834', # Narberth, Tenby
   '1835', # St Boswells
-  #1837     Okehampton (see [4+6]/[4+5] areas)
+  # 1837     Okehampton (see [4+6]/[4+5] areas)
   '1838', # Dalmally, Tyndrum
   '1840', # Camelford, Tintagel
   '1841', # Padstow, Newquay
@@ -712,7 +712,7 @@ four_digit_ndc = [
   '1880', # Tarbert
   '1882', # Kinloch Rannoch, Tummel Bridge
   '1883', # Caterham
-  #1884     Tiverton (see [4+6]/[4+5] areas)
+  # 1884     Tiverton (see [4+6]/[4+5] areas)
   '1885', # Pencombe
   '1886', # Bromyard, Teme Valley
   '1887', # Aberfeldy, Tay Valley
@@ -723,11 +723,11 @@ four_digit_ndc = [
   '1895', # Uxbridge
   '1896', # Galashiels, Tweed
   '1899', # Biggar, Tweed
-  #1900     Workington (see [4+6]/[4+5] areas)
+  # 1900     Workington (see [4+6]/[4+5] areas)
   '1902', # Wolverhampton
   '1903', # Worthing
   '1904', # York
-  #1905     Worcester (see [4+6]/[4+5] areas)
+  # 1905     Worcester (see [4+6]/[4+5] areas)
   '1908', # Milton Keynes, Wolverton
   '1909', # Worksop
   '1920', # Ware
@@ -742,7 +742,7 @@ four_digit_ndc = [
   '1932', # Weybridge
   '1933', # Wellingborough
   '1934', # Weston-super-Mare
-  #1935     Yeovil (see [4+6]/[4+5] areas)
+  # 1935     Yeovil (see [4+6]/[4+5] areas)
   '1937', # Wetherby
   '1938', # Welshpool
   '1939', # Wem
@@ -750,10 +750,10 @@ four_digit_ndc = [
   '1943', # Guiseley, Wharfedale
   '1944', # West Heslerton
   '1945', # Wisbech
-  #1946     Whitehaven (Mixed area) (see [4+6]/[4+5] areas)
+  # 1946     Whitehaven (Mixed area) (see [4+6]/[4+5] areas)
   '1947', # Whitby
   '1948', # Whitchurch
-  #1949     Whatton (see [4+6]/[4+5] areas)
+  # 1949     Whatton (see [4+6]/[4+5] areas)
   '1950', # Sandwick, Yell
   '1951', # Colonsay
   '1952', # Telford, Wellington
@@ -763,7 +763,7 @@ four_digit_ndc = [
   '1957', # Mid Yell, Yell
   '1959', # Westerham, West Kent
   '1962', # Winchester
-  #1963     Wincanton (see [4+6]/[4+5] areas)
+  # 1963     Wincanton (see [4+6]/[4+5] areas)
   '1964', # Hornsea and Patrington, Withernsea (ELNS area)
   '1967', # Strontian
   '1968', # Penicuik, West Linton
@@ -788,7 +788,7 @@ four_digit_ndc = [
   '1992', # Lea Valley, Waltham Cross
   '1993', # Witney
   '1994', # St Clears, West Wales
-  #1995     Garstang, Wyre (see [4+6]/[4+5] areas)
+  # 1995     Garstang, Wyre (see [4+6]/[4+5] areas)
   '1997', # Strathpeffer, Wyvis
 ]
 

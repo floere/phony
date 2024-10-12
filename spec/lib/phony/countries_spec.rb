@@ -372,8 +372,8 @@ describe 'country descriptions' do
     end
 
     describe 'Hong Kong' do
-      it_splits '85212341234', ['852', false, '1234', '1234']    #Other Numbers
-      it_splits '852800121234', %w[852 800 12 1234]     #Toll Free
+      it_splits '85212341234', ['852', false, '1234', '1234']    # Other Numbers
+      it_splits '852800121234', %w[852 800 12 1234]     # Toll Free
     end
 
     describe 'Hungary' do
@@ -1134,7 +1134,7 @@ describe 'country descriptions' do
       it_splits '850212345', %w[850 2 123 45]
       it_splits '8502123456789', %w[850 2 123 456 789]
       it_splits '85023812356', %w[850 2 381 2356]
-      #it_splits '85028801123456781256', %w(850 2 8801 1234 5678 1256)
+      # it_splits '85028801123456781256', %w(850 2 8801 1234 5678 1256)
       it_splits '8501911234567', %w[850 191 123 4567]
     end
 
