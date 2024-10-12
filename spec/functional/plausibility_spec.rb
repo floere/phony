@@ -18,7 +18,7 @@ describe 'plausibility' do
         samples.each do |sample|
           correct = [*sample]
 
-          shortest = correct.min_by{|x| x.scan(/\d/).length}
+          shortest = correct.min_by{ |x| x.scan(/\d/).length }
           incorrect = [shortest.sub(/\d\s*\z/, '')] # , longest + '0']
 
           correct.each do |value|
