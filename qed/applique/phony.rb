@@ -45,7 +45,7 @@ require 'benchmark'
 #   Phony::PerformanceRatio = 0.8 # for 80% of my MacBook speed.
 #
 begin
-  require File.expand_path '../performance_ratio', __FILE__
+  require File.expand_path 'performance_ratio', __dir__
 rescue LoadError
   Phony::PerformanceRatio = 0 # Ignore speed tests by default.
 end

@@ -18,4 +18,4 @@ require 'coveralls'
 Coveralls.wear!
 
 # NOTE: We use Kernel.load here, as we do have specs which test Phony::Config.
-load File.expand_path('../../lib/phony.rb', __FILE__)
+load File.expand_path('../lib/phony.rb', __dir__)

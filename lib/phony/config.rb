@@ -81,7 +81,7 @@ module Phony
       Phony.config = new(only, except)
 
       # Load phony.
-      Kernel.load File.expand_path('../../phony.rb', __FILE__)
+      Kernel.load File.expand_path('../phony.rb', __dir__)
 
       # Return the stored config data.
       Phony.config
