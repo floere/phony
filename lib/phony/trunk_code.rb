@@ -12,7 +12,7 @@ module Phony
     #
     def initialize(code, options = {})
       @code = code
-      @trunk_code_replacement = /\A#{code.gsub(%r{%s}, '')}/
+      @trunk_code_replacement = /\A#{code.gsub(/%s/, '')}/
       @normalize = options[:normalize] || options[:normalize].nil?
       @split     = options[:split]
       @format    = options[:format] || options[:format].nil?
