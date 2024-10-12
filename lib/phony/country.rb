@@ -167,12 +167,12 @@ module Phony
     #
     def normalize(national_number, options = {})
       clean! national_number
-      normalized = @codes.each_with_object national_number do |code, number|
+      @codes.each_with_object national_number do |code, number|
         result = code.normalize number, options
         break result if result
 
       end
-      normalized
+      
     end
 
     # Tests for plausibility of this national number.
