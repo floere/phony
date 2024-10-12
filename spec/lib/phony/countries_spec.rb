@@ -40,24 +40,24 @@ describe 'country descriptions' do
     end
 
     describe 'Austria' do
-      it_splits '43198110',        %w[ 43 1 98110 ]        # Vienna
-      it_splits '4310000000',      %w[ 43 1 0000000 ]      # Vienna
-      it_splits '43800123456789',  %w[ 43 800 123456789 ]  # Free
-      it_splits '436780000000',    %w[ 43 678 0000 000 ]   # Mobile
-      it_splits '4368100000000',   %w[ 43 681 0000 0000 ]  # Mobile
-      it_splits '436880000000',    %w[ 43 688 0000 000 ]   # Mobile
-      it_splits '4366900000000',   %w[ 43 669 0000 0000 ]  # Mobile
-      it_splits '4367000000000',   %w[ 43 670 0000 0000 ]  # Mobile
-      it_splits '4369000000000',   %w[ 43 690 0000 0000 ]  # Mobile
-      it_splits '433161234567891', %w[ 43 316 1234567891 ] # Graz
-      it_splits '432164123456789', %w[ 43 2164 123456789 ] # Rohrau
-      it_splits '43720116987',     %w[ 43 720 116987 ]     # VoIP
+      it_splits '43198110',        %w[43 1 98110]        # Vienna
+      it_splits '4310000000',      %w[43 1 0000000]      # Vienna
+      it_splits '43800123456789',  %w[43 800 123456789]  # Free
+      it_splits '436780000000',    %w[43 678 0000 000]   # Mobile
+      it_splits '4368100000000',   %w[43 681 0000 0000]  # Mobile
+      it_splits '436880000000',    %w[43 688 0000 000]   # Mobile
+      it_splits '4366900000000',   %w[43 669 0000 0000]  # Mobile
+      it_splits '4367000000000',   %w[43 670 0000 0000]  # Mobile
+      it_splits '4369000000000',   %w[43 690 0000 0000]  # Mobile
+      it_splits '433161234567891', %w[43 316 1234567891] # Graz
+      it_splits '432164123456789', %w[43 2164 123456789] # Rohrau
+      it_splits '43720116987',     %w[43 720 116987]     # VoIP
 
       # mobile numbers can have from 7 to 10 digits in the subscriber number
-      it_splits '436641234567',    %w[ 43 664 1234 567 ]
-      it_splits '4366412345678',   %w[ 43 664 1234 5678 ]
-      it_splits '43664123456789',  %w[ 43 664 1234 56789 ]
-      it_splits '436641234567890', %w[ 43 664 1234 567890 ]
+      it_splits '436641234567',    %w[43 664 1234 567]
+      it_splits '4366412345678',   %w[43 664 1234 5678]
+      it_splits '43664123456789',  %w[43 664 1234 56789]
+      it_splits '436641234567890', %w[43 664 1234 567890]
     end
 
     describe 'Australia' do
@@ -247,14 +247,14 @@ describe 'country descriptions' do
     end
 
     describe 'Croatia' do
-      it_splits '38521695900',  %w[ 385 21 695 900 ]  # Landline
-      it_splits '38514566666',  %w[ 385 1 4566 666 ]  # Landline (Zagreb)
-      it_splits '38599444999',  %w[ 385 99 444 999 ]  # Mobile
-      it_splits '385918967509', %w[ 385 91 896 7509 ] # Mobile
-      it_splits '3858001234',   %w[ 385 800 1234 ]    # Toll free
-      it_splits '385800123456', %w[ 385 800 123 456 ] # Toll free
-      it_splits '3856012345',   %w[ 385 60 12 345 ]   # Premium rate
-      it_splits '38562123456',  %w[ 385 62 123 456 ]  # Premium, personal and UAN
+      it_splits '38521695900',  %w[385 21 695 900]  # Landline
+      it_splits '38514566666',  %w[385 1 4566 666]  # Landline (Zagreb)
+      it_splits '38599444999',  %w[385 99 444 999]  # Mobile
+      it_splits '385918967509', %w[385 91 896 7509] # Mobile
+      it_splits '3858001234',   %w[385 800 1234]    # Toll free
+      it_splits '385800123456', %w[385 800 123 456] # Toll free
+      it_splits '3856012345',   %w[385 60 12 345]   # Premium rate
+      it_splits '38562123456',  %w[385 62 123 456]  # Premium, personal and UAN
     end
 
     describe 'Cuba' do

@@ -26,9 +26,9 @@ ndcs_two_digits = [
   '89', # Sabah – Lahad Datu, Sandakan and Tawau
 ]
 
-mobile = %w[ 10 11 12 13 14 153 154 156 158 16 17 18 19 ]
+mobile = %w[10 11 12 13 14 153 154 156 158 16 17 18 19]
 # service = %w{ 100 101 102 103 104 108 991 994 995 999 }  # Emergeny and Service numbers, only 3 digits long
-freephone = %w[ 300 700 800 ]
+freephone = %w[300 700 800]
 ndcs_eight = [
   '3' # Selangor & Federal Territories of Kuala Lumpur & Putrajaya & also Genting Highlands, Pahang
 ]

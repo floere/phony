@@ -27,7 +27,7 @@ Phony.define do
           one_of(%w[20]) >>
               matched_split(/\A\d{6}\z/ => [3, 3],
                             /\A\d+\z/ => [3, 2] ) | # geographic [XXX] XXXXX(X)
-          one_of(%w[25 33 39 51 52 53 54 56 61 62 67 68 ]) >>
+          one_of(%w[25 33 39 51 52 53 54 56 61 62 67 68]) >>
               matched_split(/\A\d{6}\z/ => [3, 3],
                             /\A\d+\z/ => [2, 2] ) | # geographic [XXX] XXXX(XX)
           one_of(%w[86]) >> split(4, 4) | # VoIP telephony
