@@ -6,6 +6,7 @@ describe 'Phony::Config' do
 
       load 'phony/config.rb'
     end
+
     after(:all) do
       # After running this suite, we load all of Phony for the following tests.
       load 'phony/config.rb'

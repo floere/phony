@@ -20,6 +20,7 @@ describe Phony::LocalSplitters::Fixed do
       before do
         @splitter = described_class.new
       end
+
       it 'splits correctly' do
         @splitter.split('3643532').should == %w[364 35 32]
       end
@@ -37,6 +38,7 @@ describe Phony::LocalSplitters::Fixed do
       before do
         @splitter = described_class.new [3, 2, 2]
       end
+
       it 'splits correctly' do
         @splitter.split('3643532').should == %w[364 35 32]
       end
@@ -54,6 +56,7 @@ describe Phony::LocalSplitters::Fixed do
       before do
         @splitter = described_class.new [3, 4]
       end
+
       it 'splits correctly' do
         @splitter.split('112').should == ['112']
       end
