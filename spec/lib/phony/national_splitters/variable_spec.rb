@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Phony::NationalSplitters::Variable do
   describe 'split' do
     context 'normal' do
-      let(:splitter) { Phony::NationalSplitters::Variable.new 4, ['1', '316', '67', '68', '669', '711'] }
+      let(:splitter) { Phony::NationalSplitters::Variable.new 4, %w[1 316 67 68 669 711] }
       it 'handles Vienna' do
         expect(splitter.split('198110')).to eq [nil, '1', '98110']
       end

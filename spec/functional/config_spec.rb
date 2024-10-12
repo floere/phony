@@ -18,7 +18,7 @@ describe 'Phony::Config' do
     it 'does not fail when loading all' do
       Phony::Config.load
 
-      expect(Phony.split('15551115511')).to eq ['1', '555', '111', '5511']
+      expect(Phony.split('15551115511')).to eq %w[1 555 111 5511]
     end
 
     it 'raises when a CC is used that has not been loaded.' do
@@ -42,7 +42,7 @@ describe 'Phony::Config' do
     it 'does not raise when a CC is used that has been loaded.' do
       Phony::Config.load(except: ['41'])
 
-      expect(Phony.split('15551115511')).to eq ['1', '555', '111', '5511']
+      expect(Phony.split('15551115511')).to eq %w[1 555 111 5511]
     end
   end
 end
