@@ -3,7 +3,7 @@
 module Phony
 
   module NationalSplitters
-    
+
     # TODO Default = Fixed.new(...)?
     #
     class Default < DSL
@@ -11,7 +11,7 @@ module Phony
       def self.instance_for
         @instance ||= new
       end
-      
+
       # "Splits" the national part of a phone number into a single piece.
       #
       # @param [String] national_number An national part of a number.
@@ -24,7 +24,7 @@ module Phony
       def split national_number
         [nil, national_number]
       end
-      
+
       # By default, the national part of a number is always plausible.
       #
       # @param [String] rest An national part of a number (ignored).
@@ -39,7 +39,7 @@ module Phony
       def plausible? rest, size, hints = {}
         true
       end
-      
+
       # A valid length (at least 3).
       #
       def length

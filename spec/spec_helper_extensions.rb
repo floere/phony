@@ -1,5 +1,5 @@
 module SpecHelperExtensions
-  
+
   # performance_of { do something here }.should < 0.0001
   #
   require 'benchmark'
@@ -22,5 +22,5 @@ module SpecHelperExtensions
     GC.enable
     result * Phony::PerformanceRatio
   end
-  
+
 end

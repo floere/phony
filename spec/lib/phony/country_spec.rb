@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Phony::Country do
-  
+
   describe 'general' do
     let(:country) do
       national_splitter = Phony::NationalSplitters::Variable.new 4, ['44']
       local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
-      
+
       Phony::Country.new national_code
     end
     describe '#clean' do
@@ -22,7 +22,7 @@ describe Phony::Country do
       end
     end
   end
-  
+
   context 'regression' do
     describe 'Iceland' do
       let(:country) do
@@ -62,16 +62,16 @@ describe Phony::Country do
       end
     end
   end
-  
+
   context "without special cases (with switzerland)" do
     let(:country) do
       national_splitter = Phony::NationalSplitters::Variable.new 4, ['44']
       local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
-      
+
       Phony::Country.new national_code
     end
-    
+
     describe "split" do
       it "should handle ZH" do
         expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
@@ -84,20 +84,20 @@ describe Phony::Country do
       end
     end
   end
-  
+
   context "without special cases" do
     let(:country) do
       special_national_splitter = Phony::NationalSplitters::Variable.new nil, ['800']
       special_local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 3]
       special_code              = Phony::NationalCode.new special_national_splitter, special_local_splitter
-      
+
       national_splitter         = Phony::NationalSplitters::Variable.new 4, ['44']
       local_splitter            = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
       national_code             = Phony::NationalCode.new national_splitter, local_splitter
-      
+
       Phony::Country.new special_code, national_code
     end
-    
+
     describe "split" do
       it "should handle ZH" do
         expect(country.split('443643532')).to eq [nil, '44', '364', '35', '32']
@@ -108,5 +108,5 @@ describe Phony::Country do
       end
     end
   end
-  
+
 end

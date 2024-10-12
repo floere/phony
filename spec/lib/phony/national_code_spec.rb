@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Phony::NationalCode do
-  
+
   describe 'split' do
     context 'regression' do
       describe 'iceland' do
@@ -21,7 +21,7 @@ describe Phony::NationalCode do
       let(:national) do
         national_splitter = Phony::NationalSplitters::Fixed.instance_for 2
         local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
-        
+
         Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
@@ -45,7 +45,7 @@ describe Phony::NationalCode do
       let(:national) do
         national_splitter = Phony::NationalSplitters::Fixed.instance_for 1
         local_splitter    = Phony::LocalSplitters::Fixed.instance_for [2, 2, 2, 2]
-        
+
         Phony::NationalCode.new national_splitter, local_splitter
       end
       it 'splits correctly' do
@@ -65,5 +65,5 @@ describe Phony::NationalCode do
       end
     end
   end
-  
+
 end

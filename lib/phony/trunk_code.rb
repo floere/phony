@@ -3,7 +3,7 @@
 module Phony
 
   class TrunkCode
-  
+
     # Parameters:
     #  * code: The trunk code, e.g. 0.
     #
@@ -19,7 +19,7 @@ module Phony
       @split     = options[:split]
       @format    = options[:format] || options[:format].nil?
     end
-    
+
     # Prepends itself to the other codes.
     #
     def | other
@@ -34,14 +34,14 @@ module Phony
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @split
       return [self, national_number]
     end
-    
+
     # Normalize normalizes the given national number.
     #
     def normalize national_number, options = {}
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @normalize && options[:cc]
       return national_number
     end
-    
+
     # Format the trunk code using the spaces given.
     #
     def format space, force = nil
@@ -53,7 +53,7 @@ module Phony
         end
       end
     end
-  
+
   end
 
 end

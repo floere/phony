@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Phony::TrunkCode do
-  
+
   describe '#format' do
     it 'is correct' do
       code = described_class.new('0')
@@ -33,7 +33,7 @@ describe Phony::TrunkCode do
       expect(code.format('%s %s')).to eq nil
     end
   end
-  
+
   describe '#normalize' do
     it 'is correct' do
       code = described_class.new('0')
@@ -65,7 +65,7 @@ describe Phony::TrunkCode do
       expect(code.normalize('0123')).to eq '0123'
     end
   end
-  
+
   describe '#split' do
     it 'is correct' do
       code = described_class.new('0')

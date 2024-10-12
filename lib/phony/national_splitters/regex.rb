@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Phony
-  
+
   module NationalSplitters
-    
+
     # National splitter class to split the ndc-local part of a number.
     #
     # Countries can create new instances according to their needs.
@@ -12,9 +12,9 @@ module Phony
     #       to avoid getting new local splitter instances.
     #
     class Regex < Fixed
-      
+
       attr_reader :on_fail_take, :regex
-      
+
       # Get a splitter for the given format.
       #
       # Note: Not cached.
@@ -28,7 +28,7 @@ module Phony
 
         @regex = regex
       end
-    
+
       # Split a local number according to an assumed country specific format.
       #
       # Examples
@@ -38,20 +38,20 @@ module Phony
         # Improve matching.
         #
         return [@zero, national_number.slice!(0..$1.size-1), national_number] if national_number =~ regex
-        
+
         # Not found.
         #
         super national_number
       end
-      
+
       # A valid length.
       #
       def length
         # raise "#{self.class.name} has no length that can be automatically extracted."
       end
-      
+
     end
-    
+
   end
-  
+
 end

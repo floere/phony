@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Phony::NationalSplitters::Regex do
-  
+
   describe 'instance_for' do
     it 'caches correctly (not)' do
       described_class.instance_for(//).should_not equal(described_class.instance_for(//))
     end
   end
-  
+
   describe 'split' do
     context 'without on_fail' do
       let(:splitter) { described_class.instance_for(/^(123)\d+$/) }
@@ -20,5 +20,5 @@ describe Phony::NationalSplitters::Regex do
       end
     end
   end
-  
+
 end

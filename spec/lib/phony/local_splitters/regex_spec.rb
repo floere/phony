@@ -3,18 +3,18 @@ require 'spec_helper'
 main = self
 
 describe Phony::LocalSplitters::Regex do
-  
+
   before do
     load 'spec_helper_extensions.rb'
     main.send :include, SpecHelperExtensions
   end
-  
+
   describe 'instance_for' do
     it 'does not cache' do
       described_class.instance_for({}).should_not equal(described_class.instance_for({}))
     end
   end
-  
+
   describe 'split' do
     # Norway.
     let(:splitter) { described_class.instance_for(/^[489].*$/ => [3,2,3], :fallback => [2,2,2,2]) }
@@ -99,5 +99,5 @@ describe Phony::LocalSplitters::Regex do
     end
 
   end
-  
+
 end

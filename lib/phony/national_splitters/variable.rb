@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
 module Phony
-  
+
   module NationalSplitters
-    
+
     class Variable < Fixed
-      
+
       #
       #
       def initialize fallback, ndcs, options = {}
         super fallback, options
         @ndcs = optimize ndcs
       end
-      
+
       # Takes a national number and splits it into ndc and rest.
       #
       def split national_number
         fallback_number = national_number.dup
-        
+
         # Extract a starting point.
         #
         # This if can possibly be removed.
@@ -27,7 +27,7 @@ module Phony
         else
           ''
         end
-        
+
         # Try for all possible mapped.
         #
         @mapped_ndc_min_length.upto @mapped_ndc_max_length do |i|
@@ -35,20 +35,20 @@ module Phony
           return [@zero, presumed_code, national_number] unless ndcs_of_size_i && !ndcs_of_size_i.include?(presumed_code)
           presumed_code << national_number.slice!(0..0)
         end
-        
+
         # Not found.
         #
         super fallback_number
       end
-      
+
       # A valid length.
       #
       def length
         (@mapped_ndc_min_length..@mapped_ndc_max_length)
       end
-      
+
       private
-        
+
         # Optimizes and restructures the given ndcs array.
         #
         def optimize ndc_ary
@@ -62,9 +62,9 @@ module Phony
           @mapped_ndc_max_length = keys.max
           ndcs
         end
-      
+
     end
-    
+
   end
-  
+
 end

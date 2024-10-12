@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 module Phony
-  
+
   module NationalSplitters
-    
+
     # This is a national splitter for countries
     # which have no NDC / Area Code.
     #
     class None < Default
-      
+
       # Get a splitter. Caches.
       #
       def self.instance_for(*)
         @instance ||= new
       end
-      
+
       # On false:
       #
       # This is a hack to make phony's
@@ -38,15 +38,15 @@ module Phony
       def split national_number
         [nil, false, national_number]
       end
-      
+
       # A valid length.
       #
       def length
         0
       end
-      
+
     end
-    
+
   end
-  
+
 end

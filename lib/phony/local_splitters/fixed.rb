@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Phony
-  
+
   module LocalSplitters
-    
+
     # Local splitter class to split the last part of
     # a number, i.e. minus cc or ndc.
     #
@@ -13,9 +13,9 @@ module Phony
     #       to avoid getting new local splitter instances.
     #
     class Fixed
-    
+
       @mapping = {}
-    
+
       # Get a splitter for the given format.
       #
       # Caches the created splitter for the given format.
@@ -23,7 +23,7 @@ module Phony
       def self.instance_for format = nil
         @mapping[format] ||= new(format)
       end
-    
+
       # Initialize with a local format, like [3, 2, 2] (also the default).
       #
       # The format [3, 2, 2] splits a number like '3332222' into ['333', '22', '22'].
@@ -33,7 +33,7 @@ module Phony
         @format, @length = extract_params format
         @format << @format.pop + 10
       end
-      
+
       #
       #
       def extract_params format
@@ -47,7 +47,7 @@ module Phony
         end
         [format, length]
       end
-    
+
       # Split a local number according to an assumed country specific format.
       #
       # Examples
@@ -60,17 +60,17 @@ module Phony
           result
         end
       end
-      
+
       #
       #
       def plausible? rest, hints = {}
         return true if hints[:check_length] == false
-        
+
         @length === rest.inject(0) { |total, part| total + part.size }
       end
-      
+
     end
-    
+
   end
-  
+
 end

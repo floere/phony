@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Phony::NationalSplitters::Variable do
-  
+
   describe 'split' do
     context 'normal' do
       let(:splitter) { Phony::NationalSplitters::Variable.new 4, ['1', '316', '67', '68', '669', '711'] }
@@ -37,5 +37,5 @@ describe Phony::NationalSplitters::Variable do
       end
     end
   end
-  
+
 end

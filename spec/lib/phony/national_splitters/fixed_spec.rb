@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Phony::NationalSplitters::Fixed do
-  
+
   describe 'instance_for' do
     it 'caches' do
       expect(Phony::NationalSplitters::Fixed.instance_for(3)).to eq Phony::NationalSplitters::Fixed.instance_for(3)
@@ -11,7 +11,7 @@ describe Phony::NationalSplitters::Fixed do
       expect(Phony::NationalSplitters::Fixed.instance_for(1)).to_not eq Phony::NationalSplitters::Fixed.instance_for(2)
     end
   end
-  
+
   describe 'split' do
     let(:splitter) { Phony::NationalSplitters::Fixed.new(2) }
     it 'splits correctly' do
@@ -49,5 +49,5 @@ describe Phony::NationalSplitters::Fixed do
       expect(splitter.length).to eq nil
     end
   end
-  
+
 end

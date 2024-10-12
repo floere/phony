@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 module Phony
-  
+
   module NationalSplitters
-    
+
     # TODO
     #
     class DSL
-      
+
       #
       #
       def >> local_splitter
         country_for local_splitter
       end
-      
+
       #
       #
       def country_for local_splitter
@@ -25,9 +25,9 @@ module Phony
       def reserved
 
       end
-      
+
     end
-    
+
   end
-  
+
 end

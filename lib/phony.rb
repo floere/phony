@@ -86,7 +86,7 @@ module Phony
       super %Q(Phony could not normalize the given number. Is it a phone number?)
     end
   end
-  
+
   # Raised in case Phony can't split a given number.
   #
   # @example
@@ -97,7 +97,7 @@ module Phony
       super %Q(Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?)
     end
   end
-  
+
   # Raised in case Phony can't format a given number.
   #
   # @example
@@ -148,7 +148,7 @@ module Phony
     #
     def normalize phone_number, options = {}
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
-      
+
       normalize! phone_number.dup, options
     end
     # A destructive version of {#normalize}.
@@ -190,7 +190,7 @@ module Phony
     #
     def split phone_number
       raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number)." unless phone_number
-      
+
       split! phone_number.dup, phone_number
     end
     # A destructive version of {#split}.

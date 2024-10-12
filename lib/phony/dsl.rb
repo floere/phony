@@ -44,11 +44,11 @@ module Phony
     #
     def country country_code, definition, options = {}
       return unless Phony.config.load?(country_code)
-      
+
       definition.with country_code, options
       Phony::CountryCodes.instance.add country_code, definition
     end
-    
+
     # Designates a country code as reserved.
     # A reserved country will result in an exception when trying to be used.
     #
@@ -62,7 +62,7 @@ module Phony
     def reserved country_code
       # Does nothing, will just fail with an exception.
     end
-    
+
     # Define a country to use default rules (and to be done at some point).
     #
     # @return Rules for a country.
@@ -73,7 +73,7 @@ module Phony
     def todo
       none >> split(10)
     end
-    
+
     # This country uses a trunk code.
     #
     # @param [String] code The trunk code.
@@ -113,7 +113,7 @@ module Phony
       options[:zero] = true if options[:zero].nil?
       NationalSplitters::Fixed.instance_for length, options
     end
-    
+
     # Marks the country as not using an NDC. This rule will always match.
     #
     # @return NationalSplitters::None A no-ndc national splitter.
@@ -123,7 +123,7 @@ module Phony
     def none
       NationalSplitters::None.instance_for
     end
-    
+
     # If you have a number of (possibly) variable length NDCs
     # that cannot be well expressed via regexp, use this.
     #
@@ -145,7 +145,7 @@ module Phony
 
       NationalSplitters::Variable.new options[:max_length], ndcs.map(&:freeze)
     end
-    
+
     # If you have a number of (possibly) variable length NDCs
     # that can be well expressed via regexp, use this.
     #
@@ -163,7 +163,7 @@ module Phony
       # Check if regexp has a group in it.
       #
       raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless regex.source =~ /\(/
-      
+
       NationalSplitters::Regex.instance_for regex, options[:on_fail_take], options
     end
 
@@ -185,7 +185,7 @@ module Phony
       # local << local.pop + 10 # Allow for call-through numbers with an arbitrary size.
       LocalSplitters::Fixed.instance_for local
     end
-    
+
     # Matches on the rest of the number and splits according
     # to the given value for the regexp key.
     #
@@ -204,15 +204,15 @@ module Phony
     def matched_split options = {}
       LocalSplitters::Regex.instance_for options
     end
-    
+
     # Validators
     #
-    
+
     # Which NDCs are explicitly invalid?
     #
     # @param [Regexp, String] ndc A regexp or a string of invalid NDCs.
     #
-    # @return Validators::NDC An NDC validator 
+    # @return Validators::NDC An NDC validator
     #
     # @example NANP
     #   country '1',

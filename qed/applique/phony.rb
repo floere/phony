@@ -13,7 +13,7 @@ def plausible? examples
       Phony.assert.plausible?(number)
     end
   end
-  
+
   # Generate failing examples.
   #
   fabricated_failing = succeeding.map do |s|
@@ -24,7 +24,7 @@ def plausible? examples
     end
     s.sub(/\d\s*\z/, '')
   end
-  
+
   # Explicitly failing expectations + fabricated.
   #
   ([*examples[:false]] + fabricated_failing).each do |number|

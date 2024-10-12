@@ -5,13 +5,13 @@ module Phony
   #
   #
   class Country
-    
+
     attr_accessor :codes
 
     @@international_absolute_format = '+%s%s%s%s%s'
     @@international_relative_format = '00%s%s%s%s%s'
     @@national_format               = '%s%s%s%s'
-  
+
     @@default_space = ' '
     @@default_local_space = ' '
     @@default_parentheses = false
@@ -37,9 +37,9 @@ module Phony
     #
     def with cc, options = {}
       @cc           = cc
-      
+
       @invalid_ndcs = options[:invalid_ndcs]
-      
+
       @format       = options[:format]
       @space        = options[:space]
       @local_space  = options[:local_space]
@@ -67,11 +67,11 @@ module Phony
         trunk ||= new_trunk
         return [national_splitter.local_splitter, trunk, ndc, *rest] if rest && !rest.empty?
       end
-      
+
       # Best effort.
       [nil, trunk, national_number, []]
     end
-    
+
     # Format the number, given the national part of it.
     #
     def format national_number, options = {}
@@ -81,11 +81,11 @@ module Phony
       parentheses  = options[:parentheses]
       parentheses  = @parentheses || @@default_parentheses if parentheses.nil?
       use_trunk    = options[:trunk]
-      
+
       trunk, ndc, *local_pieces = split national_number
-      
+
       local = format_local local_pieces, local_space
-      
+
       format_cc_ndc trunk, ndc, local, type, space, parentheses, use_trunk
     end
     def format_local local, local_space
@@ -176,7 +176,7 @@ module Phony
     #
     def plausible? rest, hints = {}
       local, _, ndc, *rest = internal_split rest
-      
+
       # Element based checking.
       #
       # Note: ndc == false means the country has none.
@@ -193,7 +193,7 @@ module Phony
       #
       ndc_needed = hints[:ndc]
       return false if ndc_needed && !(ndc_needed === ndc)
-      
+
       # If there is no local part, we can assume it's not a plausible number.
       # (Or, not defined correctly in Phony yet)
       return false unless local

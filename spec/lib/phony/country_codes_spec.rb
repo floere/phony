@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Phony::CountryCodes do
-  
+
   let(:countries) { Phony::CountryCodes.instance }
-  
+
   describe '#plausible?' do
     it 'raises an error on a too long ccc' do
       expect do
@@ -11,35 +11,35 @@ describe Phony::CountryCodes do
       end.to raise_error(ArgumentError, %Q{The provided ccc option is too long and includes more than a cc ('1') and ndc ('868'). It also includes '123'.})
     end
   end
-  
+
   describe 'ccc handling' do
     it 'splits a ccc correctly' do
       cc, ndc, *local = countries.split('1868')
-      
+
       expect(cc).to eq '1'
       expect(ndc).to eq '868'
     end
 
     it 'splits a ccc correctly' do
       cc, ndc, *local = countries.split('1868')
-      
+
       expect(cc).to eq '1'
       expect(ndc).to eq '868'
     end
   end
-  
+
   describe '#[]' do
     it 'returns a country' do
       expect(countries['41'].class).to eq Phony::Country
     end
   end
-  
+
   describe '#country_for' do
     it 'returns a country' do
       expect(countries.send(:country_for, '41').class).to eq Phony::Country
     end
   end
-  
+
   describe '#countrify' do
     it 'returns a country' do
       expect(countries.send(:countrify, '441231212', '41')).to eq '41441231212'
@@ -50,11 +50,11 @@ describe Phony::CountryCodes do
     it 'in-place replaces the number' do
       number = '441231212'
       expect(countries.send(:countrify!, number, '41')).to eq number
-      
+
       expect(number).to eq '41441231212'
     end
   end
-  
+
   describe '#vanity?' do
     it 'returns true if so' do
       expect(countries.vanity?('1800HELLOES')).to eq true

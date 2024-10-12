@@ -5,9 +5,9 @@ module Phony
   # NationalCodes have a special numbers splitter, a national code splitter and a local code splitter.
   #
   class NationalCode
-    
+
     attr_reader :local_splitter
-    
+
     #
     #
     def initialize national_splitter, local_splitter
