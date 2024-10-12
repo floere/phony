@@ -56,7 +56,7 @@ module Phony
 
       def split_with(number, format)
         format.inject([]) do |result, size|
-          result << number.slice!(0..size-1)
+          result << number.slice!(0..size - 1)
           return result if number.empty?
 
           result

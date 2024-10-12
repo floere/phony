@@ -102,7 +102,7 @@ Phony.define do
                 match(/^(46[056789])\d{6}$/) >> split(2, 2, 2) | # Mobile (Lycamobile, Telenet, Join Experience, Proximus 0460)
                 match(/^(4[789]\d)\d{6}$/)   >> split(2, 2, 2) | # Mobile
                 match(/^(45[56])\d{6}$/)     >> split(2, 2, 2) | # Mobile Vikings and Voo
-                one_of('2', '3', '4', '9')      >> split(3, 2, 2) | # Short NDCs
+                one_of('2', '3', '4', '9') >> split(3, 2, 2) | # Short NDCs
                 fixed(2) >> split(2, 2, 2) # 2-digit NDCs
 
   # France.
@@ -120,7 +120,7 @@ Phony.define do
           match(/^([89]0\d)\d+$/)   >> split(3, 3)   | # Special 80X & 90X numbers
           one_of(%w[91 93])         >> split(3, 2, 2) | # Landline large regions
           match(/^(9\d{2})\d+$/)    >> split(2, 2, 2) | # Landline
-          fixed(3, zero: false)  >> split(3, 3)
+          fixed(3, zero: false) >> split(3, 3)
 
   # Hungary.
   #
@@ -697,7 +697,7 @@ Phony.define do
           match(/^([235]9)\d{6,8}$/)        >> split(3, 3, 0..2) | # national subscriber numbers, 2-digit NDCs
           match(/^(4[0124678]|50)\d{4,8}$/) >> split(3, 1..5) | # mobile numbers, 2-digit NDCs
           one_of('2', '3', '5', '6', '8', '9') >> split(3, 1..5) | # Short NDCs
-          fixed(2)                        >> split(3, 0..4) # 2-digit NDCs
+          fixed(2) >> split(3, 0..4) # 2-digit NDCs
 
   # Bulgaria
   #
@@ -801,7 +801,7 @@ Phony.define do
   # The Former Yugoslav Republic of Macedonia
   country '389',
           trunk('0') |
-          one_of('2', '3', '4', '5', '6', '7', '8')  >> split(3, 4)
+          one_of('2', '3', '4', '5', '6', '7', '8') >> split(3, 4)
 
   country '420', fixed(3) >> split(3, 3) # Czech Republic
 
