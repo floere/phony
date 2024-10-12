@@ -9,6 +9,9 @@ Bundler/OrderedGems:
 Layout/LineLength:
   Max: 120
 
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
+
 Style/ArgumentsForwarding:
   Enabled: false
 
