@@ -19,3 +19,7 @@ end
 #   gem 'json'
 #   gem 'rubinius-developer_tools'
 # end
+
+gem 'rubocop', '~> 1.66'
+gem 'rubocop-performance'
+gem 'rubocop-rspec'

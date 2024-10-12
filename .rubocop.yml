@@ -1,0 +1,148 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Style/ArgumentsForwarding:
+  Enabled: false
+
+Style/DateTime:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+Style/NonNilCheck:
+  IncludeSemanticChanges: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashSyntax:
+  Enabled: true
+  EnforcedShorthandSyntax: either
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/HashAsLastArrayItem:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'config/environments/**/*.rb'
+    - 'config/routes.rb'
+    - "config/initializers/simple_form_bootstrap.rb"
+    - 'db/**/*'
+
+Metrics/AbcSize:
+  Max: 20
+  Exclude:
+    - 'db/**/*'
+
+Metrics/MethodLength:
+  Max: 20
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+  Exclude:
+    - 'db/migrate/*'
+
+Metrics/ModuleLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+
+Metrics/ClassLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+  Exclude:
+    - 'db/**/*'
+
+Metrics/ParameterLists:
+  Max: 7
+  MaxOptionalParameters: 5
+  Exclude:
+    - "spec/components/**/*.rb"
+    - "app/components/**/*.rb"
+
+Naming/InclusiveLanguage:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/routing/**/*'
+    - 'spec/system/**/*'
+    - 'spec/views/**/*'
+
+RSpec/DescribedClass:
+  SkipBlocks: true
+
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/jobs/**/*'
+    - 'spec/system/**/*'
+    - 'spec/requests/**/*'
+    - 'spec/views/**/*'
+
+RSpec/InstanceVariable:
+  Exclude:
+    - 'spec/views/**/*'
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/SortMetadata:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'script/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'

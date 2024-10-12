@@ -16,7 +16,7 @@ module Phony
     def self.instance
       @instance ||= new
     end
-    
+
     # Add the given country to the mapping under the
     # given country code.
     #
@@ -77,10 +77,10 @@ module Phony
     def split number
       # Split the number into country, cc, and national part.
       country, cc, national_number = partial_split number
-      
+
       # Split the national number into ndc and local part.
       _, ndc, *local = country.split national_number
-      
+
       [cc, ndc, *local]
     end
 
@@ -102,14 +102,14 @@ module Phony
       return false unless (4..16) === normalized.size # unless hints[:check_length] == false
 
       country, cc, rest = partial_split normalized
-      
+
       # Was a country calling code given?
       #
       if ccc = hints[:ccc]
         cc, ndc, *local = split ccc
-        
+
         raise ArgumentError.new("The provided ccc option is too long and includes more than a cc ('#{cc}') and ndc ('#{ndc}'). It also includes '#{local.join}'.") unless local.size == 1 && local[0].empty?
-        
+
         hints[:cc] = cc
         hints[:ndc] = ndc
       end
@@ -127,7 +127,7 @@ module Phony
     rescue StandardError
       return false
     end
-    
+
     # Is the given number a vanity number?
     #
     def vanity? number
@@ -142,14 +142,14 @@ module Phony
     end
 
     private
-    
+
       # Return a country for the number.
       #
       def country_for number
         country, _ = partial_split number
         country
       end
-          
+
       # Split off the country and the cc, and also return the national number part.
       #
       def partial_split number
@@ -161,7 +161,7 @@ module Phony
         end
         # This line is never reached as CCs are in prefix code.
       end
-      
+
       # Adds the country code to the front
       # if it does not already start with it.
       #
