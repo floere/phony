@@ -67,7 +67,7 @@ describe Phony::LocalSplitters::Regex do
       let(:local_splitter) { described_class.instance_for({}) }
 
       it 'returns false' do
-        result.should be_falsey
+        expect(result).to be_falsey
       end
     end
 
@@ -75,7 +75,7 @@ describe Phony::LocalSplitters::Regex do
       let(:local_splitter) { described_class.instance_for(/\A5/ => [1, 2, 3]) }
 
       it 'returns false' do
-        result.should be_falsey
+        expect(result).to be_falsey
       end
     end
 
@@ -83,7 +83,7 @@ describe Phony::LocalSplitters::Regex do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2]) }
 
       it 'returns false' do
-        result.should be_falsey
+        expect(result).to be_falsey
       end
     end
 
@@ -91,7 +91,7 @@ describe Phony::LocalSplitters::Regex do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2, 3]) }
 
       it 'returns false' do
-        result.should be_falsey
+        expect(result).to be_falsey
       end
     end
 
@@ -99,7 +99,7 @@ describe Phony::LocalSplitters::Regex do
       let(:local_splitter) { described_class.instance_for(/\A123/ => [2, 2, 2]) }
 
       it 'returns true' do
-        result.should be_truthy
+        expect(result).to be_truthy
       end
     end
   end
