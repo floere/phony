@@ -283,7 +283,7 @@ Phony.define do
   country '65',
     none >> matched_split(
         /^(800)\d{7}$/ => [3,3,4], # International Toll Free Service (ITFS) and Home Country Direct Service (HCDS) Numbers
-        /^\d{8}$/ => [4,4]         # TODO Short Codes
+        /^\d{8}$/ => [4,4]         # TODO: Short Codes
     )
 
   # Thailand.
@@ -316,9 +316,9 @@ Phony.define do
   #
   # From http://www.wtng.info/wtng-93-af.html
   #
-  country '93', fixed(2) >> split(7) # Note: the document says 6, but the examples use 7.
+  country '93', fixed(2) >> split(7) # NOTE: the document says 6, but the examples use 7.
 
-  country '94', # TODO Sri Lanka (Democratic Socialist Republic of)
+  country '94', # TODO: Sri Lanka (Democratic Socialist Republic of)
     fixed(2) >> split(3,2,2)
 
   #country '95' # Myanmar, see special file.

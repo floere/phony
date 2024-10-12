@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# NOTE We use Kernel.load here, as it's possible to redefine Phony via Phony::Config.
+# NOTE: We use Kernel.load here, as it's possible to redefine Phony via Phony::Config.
 
 # Framework.
 #

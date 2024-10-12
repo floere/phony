@@ -4,7 +4,7 @@ module Phony
 
   module NationalSplitters
 
-    # TODO Default = Fixed.new(...)?
+    # TODO: Default = Fixed.new(...)?
     #
     class Default < DSL
 

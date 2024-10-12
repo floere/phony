@@ -276,7 +276,7 @@ free_of_charge_services = [
 ]
 
 Phony.define do
-  # Note: The 0 does not count towards NDC number length.
+  # NOTE: The 0 does not count towards NDC number length.
   country '39', trunk('', normalize: false) |
                 one_of(*service)     >> split(3,3) |
                 one_of(*mobile)      >> split(3,4,-1..1) |

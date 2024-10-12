@@ -4075,10 +4075,9 @@ service = [
 '9009',
 ]
 
-# Note:
-# http://en.wikipedia.org/wiki/Telephone_numbers_in_Germany
-# http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510001PDFE.pdf
-# "Numbers assigned in the past, which are generally grandfathered, may be as short as five digits."
+# NOTE: http://en.wikipedia.org/wiki/Telephone_numbers_in_Germany
+#       http://www.itu.int/dms_pub/itu-t/oth/02/02/T02020000510001PDFE.pdf
+#       "Numbers assigned in the past, which are generally grandfathered, may be as short as five digits."
 #
 # http://www.bundesnetzagentur.de/cln_1422/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/Rufnummern_node.html
 #

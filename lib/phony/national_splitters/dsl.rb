@@ -20,7 +20,7 @@ module Phony
         Phony::Country.new Phony::NationalCode.new(self, local_splitter)
       end
 
-      # TODO Remove?
+      # TODO: Remove?
       #
       def reserved
 

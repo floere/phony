@@ -27,7 +27,7 @@ land_ndcs_with_5_digits = [
   '30613' # Télimélé
 ]
 
-# NOTE We're not using *('660'..'669') since it does not freeze easily.
+# NOTE: We're not using *('660'..'669') since it does not freeze easily.
 mobile_ndcs_with_3_digits = [
   '600', '601', '602', '603', '604', '605', '606', '607', '608', '609', # Sotelgui
   '620', '621', '622', '623', '624', '625', '626', '627', '628', '629', # Orange

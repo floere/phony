@@ -16,7 +16,7 @@ module Phony
     @@default_local_space = ' '
     @@default_parentheses = false
 
-    # TODO Doc.
+    # TODO: Doc.
     #
     def initialize *codes
       @codes = codes
@@ -97,7 +97,7 @@ module Phony
       end
     end
     def format_cc_ndc trunk, ndc, local, type, space, parentheses, use_trunk
-      # Note: We mark NDCs that are of type "none" with false (nil trips plausible?). This would result in false being printed.
+      # NOTE: We mark NDCs that are of type "none" with false (nil trips plausible?). This would result in false being printed.
       #       Therefore we set NDC to nil when formatting.
       ndc = nil if ndc == false
       case type

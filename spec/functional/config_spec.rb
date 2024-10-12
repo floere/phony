@@ -3,7 +3,7 @@
 describe 'Phony::Config' do
   describe 'load' do
     before do
-      # NOTE We redefine Phony as if it was not loaded for this set of tests.
+      # NOTE: We redefine Phony as if it was not loaded for this set of tests.
       Object.__send__(:remove_const, :Phony) if Object.constants.include?(:Phony)
 
       load 'phony/config.rb'
