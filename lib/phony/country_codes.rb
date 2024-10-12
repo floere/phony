@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Phony
 
   EMPTY_STRING = '' unless defined?(EMPTY_STRING)
@@ -151,7 +153,7 @@ module Phony
       # Split off the country and the cc, and also return the national number part.
       #
       def partial_split number
-        cc = ''
+        cc = +''
         1.upto(3) do |i|
           cc << number.slice!(0..0)
           country = countries[i][cc]
