@@ -40,7 +40,7 @@ two_digit_ndc = [
   '55',   # Corporate
   '56',   # LIECS/VoIP
   '70',   # Personal numbers
-  '76',   # Pagers (not 7624, Mobile, Isle of Man)
+  '76'   # Pagers (not 7624, Mobile, Isle of Man)
 ]
 
 # three_digit_ndc_with_nine_digits
@@ -127,7 +127,7 @@ three_digit_ndc = [
   '982',
   '983',
   '984',
-  '989',
+  '989'
 ]
 
 # five_digit_ndc_with_nine_digits
@@ -152,7 +152,7 @@ five_digit_ndc = [
   '17683', # Appleby
   '17684', # Pooley Bridge
   '17687', # Keswick
-  '19467', # Gosforth
+  '19467' # Gosforth
 ]
 
 variable_length_number = [
@@ -200,7 +200,7 @@ variable_length_number = [
   '1946', # Whitehaven (Mixed area)
   '1949', # Whatton
   '1963', # Wincanton
-  '1995', # Garstang
+  '1995' # Garstang
 ]
 
 four_digit_ndc = [
@@ -791,7 +791,7 @@ four_digit_ndc = [
   '1993', # Witney
   '1994', # St Clears, West Wales
   # 1995     Garstang, Wyre (see [4+6]/[4+5] areas)
-  '1997', # Strathpeffer, Wyvis
+  '1997' # Strathpeffer, Wyvis
 ]
 
 Phony.define do

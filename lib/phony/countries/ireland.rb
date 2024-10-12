@@ -39,7 +39,7 @@ ndcs_with_6_subscriber_digits = [
   '45',  # Naas, Kildare, Curragh
   '51',  # Waterford, Carrick-on-Suir, New Ross, Kilmacthomas
   '61',  # Limerick, Scariff
-  '91',  # Galway, GOrt, Loughrea
+  '91'  # Galway, GOrt, Loughrea
 ]
 
 ndcs_with_7_subscriber_digits = [

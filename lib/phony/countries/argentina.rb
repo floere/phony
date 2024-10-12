@@ -9,7 +9,7 @@
 
 # Landline
 area_codes_2digits = [
-  '11',
+  '11'
 ]
 
 area_codes_3digits = %w[
@@ -337,7 +337,7 @@ special_numbers = [
   '600', # premium-rate telephone numbers
   '609', # premium, fixed-rate gaming numbers
   '610', # dial-up Internet access numbers, usually cheaper than a local call, less frequently used as dial-up Internet access decreased
-  '605', # premium-rate telephone numbers for charity donations
+  '605' # premium-rate telephone numbers for charity donations
 ]
 
 Phony.define do

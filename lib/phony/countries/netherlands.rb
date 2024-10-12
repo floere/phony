@@ -37,7 +37,7 @@ ndcs = [
   '76', # Breda
   '77', # Venlo
   '78', # Dordrecht
-  '79', # Zoetermeer
+  '79' # Zoetermeer
 ]
 
 service = [
@@ -45,7 +45,7 @@ service = [
   '85',  # Plaatsonafhankelijk netnummer
   '87',  # Both of the above.
   '88',  # Bedrijfsnummers
-  '91',  # Plaatsonafhankelijk netnummer
+  '91'  # Plaatsonafhankelijk netnummer
 ]
 
 service3 = [
@@ -53,7 +53,7 @@ service3 = [
   '800', # Gratis informatienummers
   '900', # Betaalde informatienummers
   '906', # Betaalde informatienummers
-  '909', # Betaalde informatienummers
+  '909' # Betaalde informatienummers
 ]
 
 Phony.define do

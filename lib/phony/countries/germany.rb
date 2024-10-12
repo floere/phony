@@ -12,7 +12,7 @@ ndcs2 = [
   '32',  # Non Geographical Numbers
   '40',  # Hamburg
   '69',  # Frankfurt am Main
-  '89',  # München
+  '89'  # München
 ]
 ndcs3 = [
   '201', # Essen
@@ -100,7 +100,7 @@ ndcs3 = [
   '961', # Weiden
   '971', # Bad Kissingen
   '981', # Ansbach
-  '991', # Deggendorf
+  '991' # Deggendorf
 ]
 # 4-digit NDCs from now on.
 #
@@ -4014,7 +4014,7 @@ mobile_3digits = [
   '176', # O2 Germany
   '177', # E-Plus
   '178', # E-Plus
-  '179', # O2 Germany
+  '179' # O2 Germany
 ]
 
 mobile_4digits = [
@@ -4024,7 +4024,7 @@ mobile_4digits = [
   '1523', # Vodafone
   '1570', # vistream
   '1577', # E-Plus
-  '1672', # Dolphin Telecom
+  '1672' # Dolphin Telecom
 ]
 
 service = [
@@ -4072,7 +4072,7 @@ service = [
   '9001',
   '9003',
   '9005',
-  '9009',
+  '9009'
 ]
 
 # NOTE: http://en.wikipedia.org/wiki/Telephone_numbers_in_Germany

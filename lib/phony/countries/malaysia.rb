@@ -10,7 +10,7 @@ ndcs = [
   '5', # Perak & Cameron Highlands (Pahang)
   '6', # Melaka, Negeri Sembilan & Muar (Johor)
   '7', # Johor (except Muar)
-  '9', # Kelantan, Pahang (except Cameron Highlands & Genting Highlands) & Terengganu
+  '9' # Kelantan, Pahang (except Cameron Highlands & Genting Highlands) & Terengganu
 ]
 
 ndcs_two_digits = [
@@ -23,7 +23,7 @@ ndcs_two_digits = [
   '86', # Sarawak – Bintulu and Belaga
   '87', # Labuan Interior Division,  Sabah
   '88', # Sabah – Kota Kinabalu and Kudat
-  '89', # Sabah – Lahad Datu, Sandakan and Tawau
+  '89' # Sabah – Lahad Datu, Sandakan and Tawau
 ]
 
 mobile = %w[10 11 12 13 14 153 154 156 158 16 17 18 19]

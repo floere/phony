@@ -34,7 +34,7 @@ ndcs = [
   '60', # Sundsvall-Timrå
   '63', # Östersund
   '90', # Umeå
-  '77', # Dalarna
+  '77' # Dalarna
 ]
 mobile = [
   '70', # Mobile
@@ -43,22 +43,22 @@ mobile = [
   '73', # Mobile
   '74', # Pagers
   '76', # Mobile
-  '79', # Mobile
+  '79' # Mobile
 ]
 services = [
   '112', # Emergency Service
   '1177', # Health Care Advice
-  '11414', # Police
+  '11414' # Police
 ]
 service_ndcs = [
   '99',  # Premium Rate
   '900', # Premium Rate
   '939', # Premium Rate
-  '944', # Premium Rate
+  '944' # Premium Rate
 ]
 three_digit_service = [
   '116', # Psychological Help (116 xxx)
-  '118', # Number enquiries (118 xxx)
+  '118' # Number enquiries (118 xxx)
 ]
 
 Phony.define do

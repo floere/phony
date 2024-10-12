@@ -7,7 +7,7 @@
 
 ndcs_1digit = [
   '02', # Milan
-  '06', # Rome (including State of Vatican City) and Aprilia
+  '06' # Rome (including State of Vatican City) and Aprilia
 ]
 
 ndcs_2digit = [
@@ -39,7 +39,7 @@ ndcs_2digit = [
   '091', # Palermo
   '092', # Agrigento
   '095', # Catania
-  '099', # Taranto
+  '099' # Taranto
 ]
 
 ndcs_3digit = [
@@ -246,7 +246,7 @@ ndcs_3digit = [
   '0982', # Paola
   '0983', # Rossano
   '0984', # Cosenza
-  '0985', # Scalea
+  '0985' # Scalea
 ]
 
 # All 3-- numbers are reserved for mobile phones according to

@@ -20,7 +20,7 @@ ndcs_with_7_subscriber_digits = [
   '56', # Mobile: Mobily
   '57', # Mobile
   '58', # Mobile: Zain
-  '59', # Mobile: Zain
+  '59' # Mobile: Zain
 ]
 
 toll_free = [

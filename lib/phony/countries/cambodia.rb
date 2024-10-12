@@ -31,7 +31,7 @@ ndcs = [
   '72', # Kratie
   '73', # Mondulkiri
   '74', # Stung Treng
-  '75', # Ratanakiri
+  '75' # Ratanakiri
 ]
 
 six_digit_mobile_prefixes = [
@@ -63,7 +63,7 @@ six_digit_mobile_prefixes = [
   '93', # Smart
   '95', # Mobitel
   '98', # Smart
-  '99', # Mobitel
+  '99' # Mobitel
 ]
 
 six_digit_extended_range_mobile_prefixes = [
@@ -79,7 +79,7 @@ seven_digit_mobile_prefixes = [
   '76', # Mobitel
   '88', # Metfone
   '96', # Smart
-  '97', # Metfone
+  '97' # Metfone
 ]
 
 variable_length_extended_range_mobile_prefixes = [
@@ -91,7 +91,7 @@ six_digit_total_single_digit_fixed_line_prefixes = [
   '3',  # Mobitel
   '7',  # Telecom Cambodia
   '8',  # Telecom Cambodia
-  '9',  # Camintel
+  '9'  # Camintel
 ]
 
 six_digit_total_double_digit_fixed_line_prefixes = [
@@ -99,11 +99,11 @@ six_digit_total_double_digit_fixed_line_prefixes = [
   '41', # Telecom Cambodia
   '42', # Telecom Cambodia
   '43', # Telecom Cambodia
-  '44', # Telecom Cambodia
+  '44' # Telecom Cambodia
 ]
 
 seven_digit_total_single_digit_fixed_line_prefixes = [
-  '6',  # Metfone
+  '6'  # Metfone
 ]
 
 seven_digit_total_double_digit_fixed_line_prefixes = [
@@ -118,7 +118,7 @@ seven_digit_total_double_digit_fixed_line_prefixes = [
   '53', # Mobitel
   '54', # Mobitel
   '55', # Mobitel
-  '56', # Smart
+  '56' # Smart
 ]
 
 Phony.define do

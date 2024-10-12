@@ -70,14 +70,14 @@ ndcs_with_7_subscriber_digits = [
   '294', # Trà Vinh Province
   '296', # An Giang Province
   '297', # Kiên Giang Province
-  '299', # Sóc Trăng Province
+  '299' # Sóc Trăng Province
 ]
 
 ndcs_with_8_subscriber_digits = [
   '4',  # Hà Nội Province
   '24', # Hà Nội Province
   '28', # Hồ Chí Minh Province
-  '8',  # Hồ Chí Minh Province
+  '8'  # Hồ Chí Minh Province
 ]
 
 mobile = [
@@ -115,7 +115,7 @@ mobile = [
   '96', # previously EVN Telecom, now Viettel Mobile
   '97', # Viettel Mobile
   '98', # Viettel Mobile
-  '99', # Gmobile (traded as Beeline)
+  '99' # Gmobile (traded as Beeline)
 ]
 
 mobile_with_trunk = (mobile).map{ |num| "0#{num}" }
