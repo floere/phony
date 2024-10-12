@@ -436,7 +436,7 @@ describe 'plausibility' do
                                             '+250 25 1234567',
                                             '+250 06 123456']
       it_is_correct_for 'Saint Helena', samples: '+290  5134'
-      it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)', 
+      it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)',
 samples: '+508  474 714'
       it_is_correct_for 'Salvador (El)', samples: [
         '+503 2112 1234',
