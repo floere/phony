@@ -30,14 +30,14 @@ module Phony
     #
     def split(national_number)
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @split
-      return [self, national_number]
+      [self, national_number]
     end
 
     # Normalize normalizes the given national number.
     #
     def normalize(national_number, options = {})
       national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @normalize && options[:cc]
-      return national_number
+      national_number
     end
 
     # Format the trunk code using the spaces given.

@@ -124,7 +124,7 @@ module Phony
     rescue ArgumentError
       raise
     rescue StandardError
-      return false
+      false
     end
 
     # Is the given number a vanity number?

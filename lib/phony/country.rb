@@ -204,7 +204,7 @@ module Phony
 
       # Local code specific checks.
       #
-      return local.plausible? rest, hints
+      local.plausible? rest, hints
     end
 
     # Is this national number a vanity number?
