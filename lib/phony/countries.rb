@@ -1047,7 +1047,8 @@ Phony.define do
             /\A\d{5}\z/ => [3, 2],
             /\A\d{7}\z/ => [3, 4],
             # /\A(880|881|882|883|885)\d+\z/ => [4,4,4,4],
-            /\A\d+\z/ => [3, 3, 3]) |
+            /\A\d+\z/ => [3, 3, 3]
+) |
           one_of(%w[31 39 41 45 53 57 61 67 73 79]) >> split(3, 3) |
           fixed(2) >> split(3, 3)
 
@@ -1183,7 +1184,8 @@ Phony.define do
           one_of('58') >> split(4) | # pager
           one_of('1') >> matched_split(
             /\A\d{6}\z/ => [3, 3],
-            /\A\d+\z/ => [3, 4]) |
+            /\A\d+\z/ => [3, 4]
+) |
           one_of(%w[2 3 4 5 6 7]) >> split(3, 3) |
           fixed(1) >> split(3, 3)
 
@@ -1207,7 +1209,8 @@ Phony.define do
           one_of('800') >> matched_split(
             /\A\d{2}\z/ => [2],
             /\A\d{7}\z/ => [2, 3, 2],
-            /\A\d+\z/ => [2, 3, 4]) | # freephone
+            /\A\d+\z/ => [2, 3, 4]
+) | # freephone
           one_of(%w[50 52 54 55 56 58]) >> split(3, 4) | # mobile
           one_of(%w[2 3 4 6 7 9]) >> split(3, 4) |
           fixed(1) >> split(3, 4)
@@ -1237,7 +1240,8 @@ Phony.define do
   country '976',
           one_of(%w[121 122 123 221 222 223]) >> matched_split(
             /\A\d{4}\z/ => [2, 2],
-            /\A\d+\z/ => [2, 3]) |
+            /\A\d+\z/ => [2, 3]
+) |
           one_of(%w[11 12 13 14 15 21 22 23 24 25]) >> split(3, 2) |
           one_of(%w[70 75 76 77 78 79]) >> split(3, 3) | # VoIP telephony
           one_of(%w[88 89 90 91 94 95 96 99]) >> split(3, 3) | # mobile
