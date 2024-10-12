@@ -32,8 +32,6 @@ module Phony
         @format << @format.pop + 10
       end
 
-      #
-      #
       def extract_params(format)
         if format.last.respond_to? :max
           last = format.pop
@@ -59,8 +57,6 @@ module Phony
         end
       end
 
-      #
-      #
       def plausible?(rest, hints = {})
         return true if hints[:check_length] == false
 

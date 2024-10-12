@@ -7,8 +7,6 @@ module Phony
 
     attr_reader :local_splitter
 
-    #
-    #
     def initialize(national_splitter, local_splitter)
       @national_splitter = national_splitter
       @local_splitter    = local_splitter

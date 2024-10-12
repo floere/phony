@@ -42,7 +42,6 @@ Phony.define do
           match(/\A(#{ndcs_with_3_subscriber_numbers.join('|')})\d{3}\z/) >> split(3) |
           match(/\A(#{ndcs_with_4_subscriber_numbers.join('|')})\d{4}\z/) >> split(4) |
           match(/\A(#{ndcs_with_5_subscriber_numbers[4].join('|')})\d{5}\z/) >> split(5) |
-          #
           one_of(ndcs_with_3_subscriber_numbers) >> split(3) |
           one_of(ndcs_with_4_subscriber_numbers) >> split(4) |
           one_of(ndcs_with_5_subscriber_numbers[2]) >> split(5) |

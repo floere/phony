@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module Phony
-  #
-  #
   class Country
 
     attr_accessor :codes
@@ -215,8 +213,6 @@ module Phony
       Vanity.vanity? national_number
     end
 
-    #
-    #
     def vanity_to_number(vanity_number)
       _, ndc, *rest = split vanity_number
       "#{ndc}#{Vanity.replace(rest.join)}"

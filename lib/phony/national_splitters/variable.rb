@@ -4,8 +4,6 @@ module Phony
   module NationalSplitters
     class Variable < Fixed
 
-      #
-      #
       def initialize(fallback, ndcs, options = {})
         super(fallback, options)
         @ndcs = optimize ndcs

@@ -263,7 +263,6 @@ Phony.define do
           # mobile
           match(/\A([89]\d\d)\d{7}\z/) >> split(7) |
           match(/\A(9\d\d)\d+\z/) >> split(6) |
-          #
           fixed(2) >> split(7)
 
   # New Zealand.

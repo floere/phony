@@ -1,4 +1,3 @@
-#
 describe 'Phony::Config' do
   describe 'load' do
     before do

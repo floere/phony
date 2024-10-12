@@ -1,4 +1,3 @@
-#
 require 'spec_helper'
 
 describe 'country descriptions' do
@@ -432,7 +431,7 @@ describe 'country descriptions' do
       it_splits '912212345678', %w[91 22 123 45 678] # New Delhi
       it_splits '911411234567', %w[91 141 123 45 67] # Jaipur
       it_splits '913525123456', %w[91 3525 123 456] # DALKHOLA
-      it_splits '914433993939', %w[91 44 339 93 939] #
+      it_splits '914433993939', %w[91 44 339 93 939]
     end
 
     describe 'Iran' do
