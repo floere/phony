@@ -26,6 +26,7 @@ module Phony
       #
       def split(national_number)
         return [@zero, national_number] unless @size
+
         [@zero, national_number.slice!(0...@size), national_number]
       end
 

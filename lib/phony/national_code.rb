@@ -17,6 +17,7 @@ module Phony
     def split(national_number)
       zero, ndc_or_rest, rest = @national_splitter.split national_number.dup
       return [zero, ndc_or_rest] unless rest
+
       [zero, ndc_or_rest, *@local_splitter.split(rest)]
     end
 

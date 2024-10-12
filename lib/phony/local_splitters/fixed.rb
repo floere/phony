@@ -52,6 +52,7 @@ module Phony
         @format.inject([]) do |result, size|
           result << number.slice!(0..size-1)
           return result if number.empty?
+
           result
         end
       end

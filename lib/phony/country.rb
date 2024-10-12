@@ -170,6 +170,7 @@ module Phony
       normalized = @codes.reduce national_number do |number, code|
         result = code.normalize number, options
         break result if result
+
         number
       end
       normalized

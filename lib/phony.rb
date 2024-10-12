@@ -237,6 +237,7 @@ module Phony
     #
     def format(phone_number, options = {})
       raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.format(number).' unless phone_number
+
       format! phone_number.dup, options
     end
 
