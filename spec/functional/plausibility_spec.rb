@@ -22,11 +22,11 @@ describe 'plausibility' do
 
           correct.each do |value|
             expect(Phony).to be_plausible(value),
-                                               "It should validate #{value}, but does not."
+                             "It should validate #{value}, but does not."
           end
           incorrect.each do |value|
             expect(Phony).not_to be_plausible(value),
-                                               "It should not validate #{value}, but does."
+                                 "It should not validate #{value}, but does."
           end
         end
 
@@ -35,7 +35,7 @@ describe 'plausibility' do
 
           invalid.each do |value|
             expect(Phony).not_to be_plausible(value),
-                                               "It should not validate #{value}, but does."
+                                 "It should not validate #{value}, but does."
           end
         end
       end
@@ -437,7 +437,7 @@ describe 'plausibility' do
                                             '+250 06 123456']
       it_is_correct_for 'Saint Helena', samples: '+290  5134'
       it_is_correct_for 'Saint Pierre and Miquelon (Collectivité territoriale de la République française)',
-samples: '+508  474 714'
+                        samples: '+508  474 714'
       it_is_correct_for 'Salvador (El)', samples: [
         '+503 2112 1234',
         '+503 6112 1234'
