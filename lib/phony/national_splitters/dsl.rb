@@ -15,8 +15,7 @@ module Phony
 
       # TODO: Remove?
       #
-      def reserved
-      end
+      def reserved; end
     end
   end
 end
