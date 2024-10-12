@@ -58,7 +58,6 @@ module Phony
         format.each_with_object([]) do |size, result|
           result << number.slice!(0..size - 1)
           return result if number.empty?
-
         end << number
       end
 
