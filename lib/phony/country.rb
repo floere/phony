@@ -171,7 +171,6 @@ module Phony
         result = code.normalize number, options
         break result if result
       end
-
     end
 
     # Tests for plausibility of this national number.
