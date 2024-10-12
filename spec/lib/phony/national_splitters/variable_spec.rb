@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Phony::NationalSplitters::Variable do
   describe 'split' do
-    context 'normal' do
+    context 'when normal' do
       let(:splitter) { Phony::NationalSplitters::Variable.new 4, %w[1 316 67 68 669 711] }
       it 'handles Vienna' do
         expect(splitter.split('198110')).to eq [nil, '1', '98110']
@@ -25,7 +25,7 @@ describe Phony::NationalSplitters::Variable do
       end
     end
 
-    context 'special handling for using the variable size splitter for Swiss service numbers' do
+    context 'with special handling for using the variable size splitter for Swiss service numbers' do
       let(:splitter) { Phony::NationalSplitters::Variable.new 2, ['800'] }
       it 'handles swiss service numbers' do
         expect(splitter.split('800223344')).to eq [nil, '800', '223344']

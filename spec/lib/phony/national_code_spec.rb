@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Phony::NationalCode do
   describe 'split' do
-    context 'regression' do
+    context 'with regression' do
       describe 'iceland' do
         let(:national) do
           national_splitter = Phony::NationalSplitters::None.instance_for

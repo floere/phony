@@ -22,7 +22,7 @@ describe Phony::Country do
     end
   end
 
-  context 'regression' do
+  context 'with regression' do
     describe 'Iceland' do
       let(:country) do
         national_splitter = Phony::NationalSplitters::None.instance_for

@@ -74,7 +74,7 @@ describe Phony::CountryCodes do
       expect(countries.normalize('044-364-35-32', cc: '41')).to eq '41443643532'
     end
 
-    context 'specific countries' do
+    context 'with specific countries' do
       it 'handles Congo correctly' do
         expect(countries.normalize('+242 0571 73992')).to eq '242057173992'
         expect(countries.normalize('+242 2221 15932')).to eq '242222115932'
@@ -95,7 +95,7 @@ describe Phony::CountryCodes do
       expect(countries.formatted('41443643532', format: :national, spaces: :-)).to eq '044-364-35-32'
     end
 
-    context 'specific' do
+    context 'with specific' do
       it 'formats Ireland correctly' do
         expect(countries.formatted('3533451234', format: :national)).to eq '0345 1234'
       end
@@ -121,7 +121,7 @@ describe Phony::CountryCodes do
       end
     end
 
-    context 'default' do
+    context 'with default' do
       it 'formats swiss numbers' do
         expect(countries.formatted('41443643532')).to eq '+41 44 364 35 32'
       end

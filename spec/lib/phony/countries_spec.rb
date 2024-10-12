@@ -155,7 +155,7 @@ describe 'country descriptions' do
       it_splits '5541991311234', %w[55 41 99131 1234] # Parana's 9th digit
       it_splits '556734212121', %w[55 67 3421 2121]
 
-      context 'mobile numbers' do
+      context 'with mobile numbers' do
         %w[
           11 12 13 14 15 16 17 18 19
           21 22 24 27 28
@@ -172,7 +172,7 @@ describe 'country descriptions' do
         end
       end
 
-      context 'special numbers' do
+      context 'with special numbers' do
         it_splits '5508002221234', %w[55 0800 222 1234]
         it_splits '5530032221', %w[55 3003 2221]
         it_splits '5540209999', %w[55 4020 9999]
@@ -180,7 +180,7 @@ describe 'country descriptions' do
         it_splits '5540048999', %w[55 4004 8999]
       end
 
-      context 'service numbers' do
+      context 'with service numbers' do
         it_splits '55100', ['55', '100', '']
         it_splits '55199', ['55', '199', '']
       end
@@ -226,7 +226,7 @@ describe 'country descriptions' do
       it_splits '8675582193447', %w[86 755 8219 3447] # Shenzhen
       it_splits '869511234567', %w[86 951 123 4567]   # Yinchuan
 
-      context 'mobile numbers' do
+      context 'with mobile numbers' do
         %w[
           130 131 132 133 134 135 136 137 138 139
           145 146 147 148 149
