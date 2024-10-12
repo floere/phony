@@ -26,7 +26,7 @@ module Phony
       # The format [3, 2, 2] splits a number like '3332222' into ['333', '22', '22'].
       #
       def initialize(format = nil)
-        format = format && format.dup || [3, 2, 2]
+        format = format&.dup || [3, 2, 2]
         @format, @length = extract_params format
         @format << @format.pop + 10
       end
