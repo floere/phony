@@ -135,11 +135,11 @@ module Phony
     #     one_of('103', '105') >> split(3,3)
     #
     def one_of *ndcs
-      options = Hash === ndcs.last ? ndcs.pop : {}
+      options = ndcs.last.is_a?(Hash) ? ndcs.pop : {}
 
       # Ruby 1.8 compatibility mode.
       #
-      ndcs = ndcs.first if Array === ndcs.first
+      ndcs = ndcs.first if ndcs.first.is_a?(Array)
 
       NationalSplitters::Variable.new options[:max_length], ndcs.map(&:freeze)
     end
