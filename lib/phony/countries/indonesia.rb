@@ -52,4 +52,3 @@ Phony.define do
         /\A\d+\z/ => [4,5]) |
     fixed(2) >> split(4,4)
 end
-

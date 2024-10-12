@@ -130,4 +130,3 @@ Phony.define do
           match(/\A(800)\d{4}\z/) >> split(4) |
           match(/\A(800)\d{7}\z/) >> split(7)
 end
-

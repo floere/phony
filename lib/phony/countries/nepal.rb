@@ -69,5 +69,3 @@ Phony.define do
           one_of(ndcs_with_7_subscriber_digits) >> split(3,4) |
           fixed(2) >> split(3,3)
 end
-
-
