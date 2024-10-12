@@ -6,7 +6,7 @@
 land_ndcs_with_4_digits = [
   '3031', # Boké
   '3046', # Boussoura
-  *%w[3041 3043 3045 3047], # Conakry
+  '3041', '3043', '3045', '3047', # Conakry
   '3069', # Delaba
   '3081', # Faranah
   '3024', # Fria
