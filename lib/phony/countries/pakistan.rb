@@ -3,7 +3,9 @@
 # Pakistan (Islamic Republic of)
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PK
 
-ndcs_with_8_subscriber_numbers = %w[21 42 58]
+ndcs_mobile_plan = %w[30 31 32 33 34 35 36]
+
+ndcs_with_8_subscriber_numbers = %w[21 42]
 
 ndcs_with_7_subscriber_numbers = %w[
   22
@@ -106,14 +108,38 @@ ndcs_with_6_subscriber_numbers = %w[
   996
   997
   998
+  5811
+  5812
+  5813
+  5814
+  5815
+  5816
+  5817
+  5821
+  5822
+  5823
+  5824
+  5825
+  5826
+  2827
+  5828
 ]
 
 Phony.define do
   country '92',
-          one_of(ndcs_with_6_subscriber_numbers) >> split(3, 3) |
-          one_of('111') >> split(3, 3) | # universal access number
-          one_of(ndcs_with_7_subscriber_numbers) >> split(4, 3) |
-          one_of(ndcs_with_8_subscriber_numbers) >> split(4, 4) |
-          one_of(%w[30 31 32 33 34 35 36]) >> split(4, 4) | # mobile
+          one_of('111') >> split(3, 3) | # UAN without NDC |
+          one_of(ndcs_with_6_subscriber_numbers) >> matched_split(
+            /^(111)\d{6}$/ => [3, 3, 3], # UAN - always 6 digits
+            /^\d{6}$/ => [3, 3]
+          ) |
+          one_of(ndcs_with_7_subscriber_numbers) >> matched_split(
+            /^(111)\d{6}$/ => [3, 3, 3], # UAN - always 6 digits
+            /^\d{7}$/ => [4, 3]
+          ) |
+          one_of(ndcs_with_8_subscriber_numbers) >> matched_split(
+            /^(111)\d{6}$/ => [3, 3, 3], # UAN - always 6 digits
+            /^\d{8}$/ => [4, 4]
+          ) |
+          one_of(ndcs_mobile_plan) >> split(4, 4) | # mobile
           fixed(2) >> split(4, 4)
 end

@@ -120,4 +120,13 @@ Error from issue #527.
 
     pakistan = Phony["92"]
 
+UAN - no NDC
     pakistan.assert.plausible?('111332211')
+UAN - 2 digits NDC / 7 digits NSN
+    pakistan.assert.plausible?('51111332211')
+UAN - 2 digits NDC / 8 digits NSN
+    pakistan.assert.plausible?('42111332211')    
+UAN - 3 digits NDC
+    pakistan.assert.plausible?('998111332211')
+UAN - 4 digits NDC
+    pakistan.assert.plausible?('5828111332211')
