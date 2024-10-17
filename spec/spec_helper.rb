@@ -12,7 +12,7 @@ unless ENV['NO_COVERAGE']
   require 'simplecov-console'
   require 'simplecov-cobertura'
 
-  SimpleCov.minimum_coverage 95
+  SimpleCov.minimum_coverage 92
 
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
     [

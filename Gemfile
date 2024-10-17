@@ -1,10 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rake', require: false
-gem 'rubocop', '~> 1.66'
-gem 'rubocop-performance'
-gem 'rubocop-rake'
-gem 'rubocop-rspec'
 
 group :test do
   gem 'ae'
@@ -19,6 +15,13 @@ end
 
 group :release do
   gem 'gem-release'
+end
+
+platforms :ruby do
+  gem 'rubocop', '~> 1.66'
+  gem 'rubocop-performance'
+  gem 'rubocop-rake'
+  gem 'rubocop-rspec'
 end
 
 # platforms :rbx do
