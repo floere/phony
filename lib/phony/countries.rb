@@ -371,7 +371,7 @@ Phony.define do
 
   country '227', none >> split(4, 4) # Niger http://www.wtng.info/wtng-227-ne.html
   country '228', none >> split(4, 4) # Togolese Republic http://www.wtng.info/wtng-228-tg.html
-  country '229', none >> split(4, 4) # Benin http://www.itu.int/oth/T0202000017/en
+  country '229', none >> split(6, 4) # Benin http://www.itu.int/oth/T0202000017/en
 
   # Mauritius
   # http://www.wtng.info/wtng-230-mu.html
