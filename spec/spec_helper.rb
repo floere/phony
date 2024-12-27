@@ -1,3 +1,5 @@
+Warning[:deprecated] = true
+
 begin
   require 'bundler'
 rescue LoadError
