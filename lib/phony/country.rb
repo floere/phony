@@ -62,7 +62,7 @@ module Phony
       @codes.each do |national_splitter|
         new_trunk, ndc, *rest = national_splitter.split national_number
         trunk ||= new_trunk
-        national_number.replace(ndc) if new_trunk
+        national_number = ndc if new_trunk
         return [national_splitter.local_splitter, trunk, ndc, *rest] if rest && !rest.empty?
       end
 
@@ -167,6 +167,7 @@ module Phony
     # Note: Options such as CC
     #
     def normalize(national_number, options = {})
+      national_number = national_number.dup
       clean! national_number
       @codes.each_with_object national_number do |code, number|
         result = code.normalize number, options

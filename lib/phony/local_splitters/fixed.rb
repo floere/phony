@@ -49,9 +49,11 @@ module Phony
       # * split '3643533' # => ['364', '35', '33'] # (Switzerland)
       #
       def split(number)
+        cursor = 0
         @format.each_with_object([]) do |size, result|
-          result << number.slice!(0..size - 1)
-          return result if number.empty?
+          result << number.slice(cursor...cursor + size)
+          cursor += size
+          return result if cursor >= number.size
         end
       end
 

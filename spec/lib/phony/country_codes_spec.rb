@@ -48,7 +48,7 @@ describe Phony::CountryCodes do
 
   describe '#countrify!' do
     it 'in-place replaces the number' do
-      number = '441231212'
+      number = +'441231212'
       expect(countries.send(:countrify!, number, '41')).to eq number
 
       expect(number).to eq '41441231212'
