@@ -29,8 +29,10 @@ module Phony
     # its parts.
     #
     def split(national_number)
-      national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @split
-      [self, national_number]
+      return [self, national_number] unless @split
+
+      without_trunk = national_number.gsub @trunk_code_replacement, EMPTY_STRING
+      [self, without_trunk]
     end
 
     # Normalize normalizes the given national number.
