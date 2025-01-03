@@ -108,7 +108,7 @@ Mildly unmaintained list: Abhas, Afghan, Algerian, Argentina, Austrian, Australi
 
 h2. Proud Sponsors
 
-* Renuo AG (July 22 –): "Github":https://github.com/renuo, "Homepage":https://www.renuo.ch
+* Renuo AG (July 2022 – January 2025): "Github":https://github.com/renuo, "Homepage":https://www.renuo.ch. Much appreciated!
 
 h2. License
 
