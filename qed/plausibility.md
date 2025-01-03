@@ -41,6 +41,10 @@ The number is not considered plausible if it does not contain given `ccc`.
     Phony.refute.plausible?('+1 868 7620266', ccc: '1869')
     Phony.refute.plausible?('+1 869 7620266', ccc: '1868')
 
+### duplicated cc
+
+    Phony.refute.plausible?('+49+491505632832')
+
 ### Example countries
 
 Some of the examples use `plausible? true: [some numbers]`.

@@ -94,6 +94,11 @@ module Phony
     # Is this number plausible?
     #
     def plausible?(number, hints = {})
+      # Fail if it contains too many of certain phone specific markers:
+      #   * more than 1 +
+      #
+      return false if number.count('+') > 1
+
       normalized = clean number
 
       # False if it fails the basic check.
