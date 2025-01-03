@@ -62,6 +62,7 @@ module Phony
       @codes.each do |national_splitter|
         new_trunk, ndc, *rest = national_splitter.split national_number
         trunk ||= new_trunk
+        national_number.replace(ndc) if new_trunk
         return [national_splitter.local_splitter, trunk, ndc, *rest] if rest && !rest.empty?
       end
 
