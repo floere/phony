@@ -122,7 +122,8 @@ describe 'country descriptions' do
     end
 
     describe 'Benin' do
-      it_splits '22912345678', ['229', false, '1234', '5678']
+      it_splits '22912345678', ['229', false, '12', '34', '56', '78']
+      it_splits '2290112345678', ['229', false, '01', '12', '34', '56', '78']
     end
 
     describe 'Bolivia' do

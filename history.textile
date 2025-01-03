@@ -1,3 +1,7 @@
+h1. Version 2.21.1
+
+* Benin (#535)
+
 h2. Version 2.21.0
 
 * Fail plausible? if more than 1 + exists in a number.

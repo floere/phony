@@ -377,7 +377,10 @@ Phony.define do
   # There is no trunk code for this country and prefixes start with 0
   country '229',
           trunk('', normalize: false) |
-          none >> split(6, 4)
+          none >> matched_split(
+            # Old empty and new 01 prefix.
+            /\A(01)?\d+\z/ => [2, 2, 2, 2, 2]
+          )
 
   # Mauritius
   # http://www.wtng.info/wtng-230-mu.html

@@ -223,7 +223,7 @@ NDC with several subscriber number length.
 
 #### Benin
 
-    plausible? true: '+229 1234 5678'
+    plausible? true: '+229 01 65 11 11 10'
 
 #### Bhutan
 
