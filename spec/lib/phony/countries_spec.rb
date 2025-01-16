@@ -1143,6 +1143,7 @@ describe 'country descriptions' do
     describe 'Kuwait (State of)' do
       it_splits '96523456789', ['965', false, '2345', '6789']
       it_splits '9651812345', ['965', false, '181', '2345']
+      it_splits '96541234567', ['965', false, '4123', '4567']
     end
 
     describe "Lao People's Democratic Republic" do

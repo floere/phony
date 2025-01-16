@@ -1176,6 +1176,7 @@ Phony.define do
             /\A65816\d+\z/ => [4, 4, 4], # voicemail (mobile), Wataniya Telecom
             /\A1\d+\z/ => [3, 4], # geographic
             /\A2\d+\z/ => [4, 4], # geographic
+            /\A41\d+\z/ => [4, 4], # mobile (Virgin Mobile)
             /\A[569]\d+\z/ => [4, 4], # mobile
             /\A8\d+\z/ => [3, 3] # geographic
           )
