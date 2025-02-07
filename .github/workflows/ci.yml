@@ -40,3 +40,6 @@ jobs:
 
       - name: RSpec
         run: bundle exec rspec
+
+      - name: QED
+        run: bundle exec qed
