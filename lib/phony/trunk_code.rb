@@ -38,8 +38,9 @@ module Phony
     # Normalize normalizes the given national number.
     #
     def normalize(national_number, options = {})
-      national_number.gsub! @trunk_code_replacement, EMPTY_STRING if @normalize && options[:cc]
-      national_number
+      return national_number unless @normalize && options[:cc]
+
+      national_number.gsub @trunk_code_replacement, EMPTY_STRING
     end
 
     # Format the trunk code using the spaces given.
@@ -51,7 +52,6 @@ module Phony
         else
           @code
         end
-      
     end
   end
 end

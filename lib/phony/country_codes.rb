@@ -60,6 +60,7 @@ module Phony
     #  * Non-digits.
     #
     def normalize(number, options = {})
+      number = number.dup
       country = if (cc = options[:cc])
                   self[cc]
                 else
@@ -158,11 +159,11 @@ module Phony
     # Split off the country and the cc, and also return the national number part.
     #
     def partial_split(number)
-      cc = +''
       1.upto(3) do |i|
-        cc << number.slice!(0..0)
+        cc = number.slice(...i)
+        national_number = number.slice(i..)
         country = countries[i][cc]
-        return [country, cc, number] if country
+        return [country, cc, national_number] if country
       end
       # This line is never reached as CCs are in prefix code.
     end
@@ -173,7 +174,7 @@ module Phony
     # Note: This won't be correct in some cases, but it is the best we can do.
     #
     def countrify(number, cc)
-      countrify!(number, cc) || number
+      countrify!(number.dup, cc) || number
     end
 
     def countrify!(number, cc)

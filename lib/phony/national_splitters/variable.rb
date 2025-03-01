@@ -11,6 +11,7 @@ module Phony
       # Takes a national number and splits it into ndc and rest.
       #
       def split(national_number)
+        national_number = national_number.dup
         fallback_number = national_number.dup
 
         # Extract a starting point.

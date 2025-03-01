@@ -19,6 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
+          - '3.4'
           - '3.3'
           - '3.2'
           - '3.1'
@@ -39,3 +40,6 @@ jobs:
 
       - name: RSpec
         run: bundle exec rspec
+
+      - name: QED
+        run: bundle exec qed
