@@ -46,7 +46,10 @@ describe 'plausibility' do
                                              '+43 463 12345'] # Klagenfurt
       it_is_correct_for 'Bosnia and Herzegovina', samples: ['+387 66 666 666',
                                                             '+387 37 123 456',
-                                                            '+387 33 222 111']
+                                                            '+387 33 222 111',
+                                                            '+387 60 3456789',
+                                                            '+387 64 4123456',
+                                                            '+387 67 1234567']
       it 'is correct for Brasil' do
         expect(Phony).to be_plausible('+55 67 998280912')
         expect(Phony).not_to be_plausible('+55 67 98280912')
