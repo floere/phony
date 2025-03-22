@@ -142,6 +142,9 @@ describe 'country descriptions' do
     describe 'Bosnia and Herzegovina' do
       it_splits '38766666666', %w[387 66 666 666]
       it_splits '38733123456', %w[387 33 123 456]
+      it_splits '387603456789', %w[387 60 3456789]
+      it_splits '387644123456', %w[387 64 4123456]
+      it_splits '387671234567', %w[387 67 1234567]
     end
 
     describe 'Brazil' do

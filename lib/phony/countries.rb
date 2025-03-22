@@ -800,7 +800,14 @@ Phony.define do
           one_of('1', '2', '3', '4', '5', '7') >> split(3, 4) | # Ljubljana, Maribor, Celje, Kranj, Nova Gorica, Novo mesto
           fixed(3) >> split(2, 3) # catchall
 
-  country '387', trunk('0') | fixed(2) >> split(3, 3) # Bosnia and Herzegovina
+  # Bosnia and Herzegovina
+  country '387',
+          trunk('0') |
+          match(/^(60)(?:31|32|33|34|38|39)/) >> split(7) | # BH Mobile
+          match(/^(64)(?:40|41|42|43|44|45)/) >> split(7) | # Haloo
+          match(/^(67)(?:11|12)/) >> split(7) | # Novotel
+          fixed(2) >> split(3, 3) # catchall
+
   country '388', trunk('0') | fixed(2) >> split(3, 2, 2) # Group of countries, shared code
 
   # The Former Yugoslav Republic of Macedonia
