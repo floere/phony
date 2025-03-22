@@ -1,3 +1,7 @@
+h1. Version 2.22.1
+
+* Bosnia and Herzegovina (#540)
+
 h1. Version 2.22.0
 
 * Resolve deprecation warnings in Ruby 3.4 (#538)
