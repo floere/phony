@@ -602,6 +602,11 @@ describe 'plausibility' do
                                              '+84 23 61234567',
                                              '+84 1900 1212',
                                              '+84 1900 541234']
+
+      it 'is correct for 55 Vietnam mobile code' do
+        expect(Phony).to be_plausible('+84 55 9905599') # Wintel (Previously Reddi)
+      end
+
       it_is_correct_for 'Yemen', samples: [['+967 1 234 567', '+967 1 234 5678'],
                                            '+967 7 234 567',
                                            '+967 77 123 4567',
