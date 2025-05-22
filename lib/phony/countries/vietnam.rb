@@ -90,6 +90,7 @@ mobile = [
   '38', # Viettel Mobile
   '39', # Viettel Mobile
   '52', # Vietnammobile
+  '55', # Wintel (previously known as Reddi)
   '56', # Vietnamobile
   '58', # Vietnamobile (previously known as HT Mobile)
   '59', # GTel (traded as Beeline)
