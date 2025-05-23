@@ -1,3 +1,7 @@
+h1. Version 2.22.2
+
+* Vietnam (#542)
+
 h1. Version 2.22.1
 
 * Bosnia and Herzegovina (#540)
