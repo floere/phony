@@ -342,7 +342,7 @@ Phony.define do
   country '46',
           trunk('0') |
           match(/^(#{services.join('|')})$/) >> split(0) |
-          one_of(three_digit_service_ndcs) >> split(3) |
+          match(/^(#{three_digit_service_ndcs.join('|')})\d{3}$/) >> split(3) |
           one_of(service_ndcs) >> matched_split( # NB: Must be *before* the regional NDCs due to ambiguity of 0900
             /^\d{4}$/ => [4],
             /^\d{5}$/ => [3, 2],
