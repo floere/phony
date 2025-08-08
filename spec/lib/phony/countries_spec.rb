@@ -100,6 +100,7 @@ describe 'country descriptions' do
       it_splits '3295551914', %w[32 9 555 19 14]   # Gent
       it_splits '3245551414', %w[32 4 555 14 14]   # Liège
       it_splits '3216473200', %w[32 16 47 32 00]   # Leuven
+      it_splits '32451035208', %w[32 451 03 52 08] # mobile (Digi)
       it_splits '32455123456', %w[32 455 12 34 56] # mobile (Voo)
       it_splits '32456123456', %w[32 456 12 34 56] # mobile (MobileViking)
       it_splits '32460123456', %w[32 460 12 34 56] # mobile (Proximus)

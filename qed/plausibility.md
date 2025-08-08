@@ -202,6 +202,7 @@ NDC with several subscriber number length.
     Phony.assert.plausible?('+32 3 241 11 32')
     Phony.assert.plausible?('0032 3 241 11 32')
     Phony.assert.plausible?('0032 (0) 3 241 11 32')
+    Phony.assert.plausible?('+32 451 03 52 08')
     Phony.assert.plausible?('+32 455 12 34 56')
     Phony.assert.plausible?('+32 456 12 34 56')
     Phony.assert.plausible?('+32 460 12 34 56')
