@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Lybia, https://www.numberingplans.com/?page=dialling&sub=areacodes
+# Libya, https://www.numberingplans.com/?page=dialling&sub=areacodes
 # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LY
 
 ndcs_with_7_subscriber_numbers = %w[21]
@@ -106,11 +106,13 @@ ndcs_with_5_subscriber_numbers = %w[
   884
 ]
 
+mobile_with_7_subscriber_numbers = %w[91 92 93 94 95]
+
 Phony.define do
   country '218',
           one_of(ndcs_with_5_subscriber_numbers) >> split(3, 2) |
           one_of(ndcs_with_6_subscriber_numbers) >> split(3, 3) |
           one_of(ndcs_with_7_subscriber_numbers) >> split(4, 3) |
-          one_of(%w[91 92 94 95]) >> split(4, 3) | # mobile
+          one_of(mobile_with_7_subscriber_numbers) >> split(4, 3) |
           fixed(2) >> split(3, 3)
 end

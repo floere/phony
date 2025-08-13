@@ -692,6 +692,17 @@ Mobile.
       '+996 800 123 456'
     ]
 
+#### Libya
+
+    Phony.refute.plausible?('+218 22 123 45') # Too short for landline
+    Phony.assert.plausible?('+218 22 123 456')
+    Phony.assert.plausible?('+218 205 123 45')
+    Phony.refute.plausible?('+218 205 123 4567') # Too long for landline
+
+    Phony.refute.plausible?('+218 91 123 456') # Too short for mobile
+    Phony.assert.plausible?('+218 91 1234 567')
+    Phony.refute.plausible?('+218 91 1234 5678') # Too long for mobile
+
 #### Malaysia
 
     Phony.assert.plausible?('+60 14 123 1234')
