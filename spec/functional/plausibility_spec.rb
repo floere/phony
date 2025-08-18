@@ -341,6 +341,13 @@ describe 'plausibility' do
         expect(Phony).to be_plausible('+231 77 123 4567')
       end
 
+      it 'is correct for Libya' do
+        expect(Phony).to be_plausible('+218 22 123 456')
+        expect(Phony).to be_plausible('+218 205 123 45')
+        expect(Phony).to be_plausible('+218 91 1234 567')
+        expect(Phony).to be_plausible('+218 93 1234 567')
+      end
+
       it_is_correct_for 'Macao', samples: ['+853 28 12 3456',
                                            '+853 8 123 4567',
                                            '+853 6 123 4567']
