@@ -229,6 +229,7 @@ Phony.define do
   # Colombia.
   # http://www.itu.int/oth/T020200002C/en
   country '57',
+          match(/\A(1800)\d+\z/) >> split(3, 4) | # toll free 1800 numbers
           match(/\A(3\d\d)\d+\z/) >> split(3, 4) | # mobile (300 310 311 312 313 315 316)
           match(/\A(60\d)\d+\z/) >> split(3, 4) |
           fixed(1) >> split(3, 4)
@@ -899,6 +900,7 @@ Phony.define do
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=EC&current_page=1
   # https://en.wikipedia.org/wiki/Telephone_numbers_in_Ecuador
   country '593',
+          match(/\A(1800)\d+\z/) >> split(3, 4) | # toll free 1800 numbers
           one_of('9') >> split(4, 4) |
           match(/\A([\d]{2})\d{7}\z/) >> split(3, 4) |
           fixed(1) >> split(3, 4)

@@ -188,14 +188,16 @@ describe 'plausibility' do
         expect(Phony).to be_plausible('+359 999 123456')
       end
 
-      it_is_correct_for 'Colombia', samples: ['+57 601 411 1899',
+      it_is_correct_for 'Colombia', samples: ['+57 300 111 2222',
+                                              '+57 601 411 1899',
                                               '+57 602 111 2222',
                                               '+57 603 111 2222',
                                               '+57 604 111 2222',
                                               '+57 605 111 2222',
                                               '+57 606 111 2222',
                                               '+57 607 111 2222',
-                                              '+57 608 111 2222']
+                                              '+57 608 111 2222',
+                                              '+57 1800 111 2222']
       it_is_correct_for 'Congo', samples: '+242 1234 56789'
       it_is_correct_for 'Cook Islands', samples: '+682  71928'
       it_is_correct_for 'Costa Rica', samples: '+506 2 234 5678'
@@ -240,6 +242,7 @@ describe 'plausibility' do
         expect(Phony).to be_plausible('+593 7 400 0000')
         expect(Phony).to be_plausible('+593 7 600 0000')
         expect(Phony).to be_plausible('+593 9 0000 0000') # mobile
+        expect(Phony).to be_plausible('+593 1800 000 0000') # toll free
       end
 
       it_is_correct_for 'Equatorial Guinea', samples: ['+240 222 201 123',
