@@ -1,3 +1,7 @@
+h1. Version 2.22.6
+
+* Colombia and Equador (#554)
+
 h1. Version 2.22.5
 
 * Libya (#550)
