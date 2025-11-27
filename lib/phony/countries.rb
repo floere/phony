@@ -279,7 +279,9 @@ Phony.define do
 
   # Singapore (Republic of).
   #
+  # There is no trunk code for this country and some numbers start with 0.
   country '65',
+          trunk('', normalize: false) |
           none >> matched_split(
             /^(800)\d{7}$/ => [3, 3, 4], # International Toll Free Service (ITFS) and Home Country Direct Service (HCDS) Numbers
             /^\d{8}$/ => [4, 4] # TODO: Short Codes
@@ -375,7 +377,7 @@ Phony.define do
 
   # Benin http://www.itu.int/oth/T0202000017/en
   #
-  # There is no trunk code for this country and prefixes start with 0
+  # There is no trunk code for this country and prefixes start with 0.
   country '229',
           trunk('', normalize: false) |
           none >> matched_split(
