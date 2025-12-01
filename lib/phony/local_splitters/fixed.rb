@@ -35,7 +35,7 @@ module Phony
         if format.last.respond_to? :max
           last = format.pop
           length = format.sum
-          length = (length + last.min..length + last.max)
+          length = ((length + last.min)..(length + last.max))
           format << last.min
         else
           length = format.sum
@@ -51,7 +51,7 @@ module Phony
       def split(number)
         cursor = 0
         @format.each_with_object([]) do |size, result|
-          result << number.slice(cursor...cursor + size)
+          result << number.slice(cursor...(cursor + size))
           cursor += size
           return result if cursor >= number.size
         end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'Phony::Config' do
   describe 'load' do
     before do

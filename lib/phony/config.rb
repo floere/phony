@@ -69,9 +69,11 @@ module Phony
                      end
 
       # Set defaults.
-      only, except = [only || [], except || []]
+      only ||= []
+      except ||= []
       # Convert to expected format if possible.
-      only, except = [only.map(&:to_s), except.map(&:to_s)]
+      only = only.map(&:to_s)
+      except = except.map(&:to_s)
 
       # Check params.
       raise "Params given to Phony::Config.load must be Array-like. The one given was: #{only}" unless only.respond_to?(:to_ary)

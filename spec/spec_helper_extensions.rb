@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SpecHelperExtensions
   # performance_of { do something here }.should < 0.0001
   #
@@ -15,9 +17,9 @@ module SpecHelperExtensions
     # Ignore speed tests by default.
     Phony::PERFORMANCE_RATIO = 0 unless Phony.constants.include?(:PERFORMANCE_RATIO)
   end
-  def performance_of(&block)
+  def performance_of(&)
     GC.disable
-    result = Benchmark.realtime(&block)
+    result = Benchmark.realtime(&)
     GC.enable
     result * Phony::PERFORMANCE_RATIO
   end

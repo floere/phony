@@ -103,7 +103,7 @@ module Phony
       case type
       when String
         trunk &&= trunk.format(space, use_trunk)
-        type % { trunk: trunk, cc: @cc, ndc: ndc, local: local }
+        format(type, trunk: trunk, cc: @cc, ndc: ndc, local: local)
       when nil, :international_absolute, :international, :+
         if ndc
           format_with_ndc(@@international_absolute_format, @cc, format_ndc(ndc, parentheses), local, space)
@@ -119,9 +119,9 @@ module Phony
       when :national
         trunk &&= trunk.format(space, use_trunk)
         if ndc && !ndc.empty?
-          @@national_format % [trunk, format_ndc(ndc, parentheses), space, local]
+          format(@@national_format, trunk, format_ndc(ndc, parentheses), space, local)
         else
-          @@national_format % [trunk, nil, nil, local]
+          format(@@national_format, trunk, nil, nil, local)
         end
       when :local
         local
@@ -134,11 +134,11 @@ module Phony
     end
 
     def format_with_ndc(format, cc, ndc, local, space)
-      format % [cc, space, ndc, space, local]
+      format(format, cc, space, ndc, space, local)
     end
 
     def format_without_ndc(format, cc, local, space)
-      format % [cc, space, local, nil, nil]
+      format(format, cc, space, local, nil, nil)
     end
 
     # Cleans all non-numeric characters.

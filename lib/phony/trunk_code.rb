@@ -12,7 +12,7 @@ module Phony
     #
     def initialize(code, options = {})
       @code = code
-      @trunk_code_replacement = /\A#{code.gsub(/%s/, '')}/
+      @trunk_code_replacement = /\A#{code.gsub('%s', '')}/
       @normalize = options[:normalize] || options[:normalize].nil?
       @split     = options[:split]
       @format    = options[:format] || options[:format].nil?
@@ -47,11 +47,12 @@ module Phony
     #
     def format(space, force = nil)
       return unless force || @format
-        if @code.size > 1
-          (@code % space).gsub(/\D/, ' ')
-        else
-          @code
-        end
+
+      if @code.size > 1
+        (@code % space).gsub(/\D/, ' ')
+      else
+        @code
+      end
     end
   end
 end

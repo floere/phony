@@ -5,8 +5,8 @@ module Phony
     # TODO
     #
     class DSL
-      def >>(local_splitter)
-        country_for local_splitter
+      def >>(other)
+        country_for other
       end
 
       def country_for(local_splitter)
