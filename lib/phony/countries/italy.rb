@@ -271,10 +271,6 @@ service = %w[
 ]
 
 # Not exhaustive. Unused below - just for info purposes.
-free_of_charge_services = %w[
-  800
-  803
-]
 
 Phony.define do
   # NOTE: The 0 does not count towards NDC number length.

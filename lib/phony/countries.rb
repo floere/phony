@@ -101,7 +101,7 @@ Phony.define do
                 match(/^(800|90\d)\d+$/)     >> split(2, 3)   | # Toll free service and premium numbers
                 match(/^(46[056789])\d{6}$/) >> split(2, 2, 2) | # Mobile (Lycamobile, Telenet, Join Experience, Proximus 0460)
                 match(/^(4[789]\d)\d{6}$/)   >> split(2, 2, 2) | # Mobile
-                match(/^(45[156])\d{6}$/)     >> split(2, 2, 2) | # Mobile Vikings, Digi and Voo
+                match(/^(45[156])\d{6}$/) >> split(2, 2, 2) | # Mobile Vikings, Digi and Voo
                 one_of('2', '3', '4', '9') >> split(3, 2, 2) | # Short NDCs
                 fixed(2) >> split(2, 2, 2) # 2-digit NDCs
 
@@ -171,7 +171,7 @@ Phony.define do
   # Norway.
   #
   country '47',
-          none >> matched_split(/^[1].*$/ => [3],
+          none >> matched_split(/^1.*$/ => [3],
                                 /^[489].*$/ => [3, 2, 3],
                                 :fallback => [2, 2, 2, 2])
 
@@ -251,7 +251,7 @@ Phony.define do
           match(/^(13)\d+$/)    >> split(2, 2) | # 13 local rate
           fixed(1)              >> split(4, 4)   # Rest
 
-   # country '62' # Indonesia (Republic of), see special file
+  # country '62' # Indonesia (Republic of), see special file
 
   # Philippines (Republic of the)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
@@ -902,7 +902,7 @@ Phony.define do
   country '593',
           match(/\A(1800)\d+\z/) >> split(3, 3) | # toll free 1800 numbers
           one_of('9') >> split(4, 4) |
-          match(/\A([\d]{2})\d{7}\z/) >> split(3, 4) |
+          match(/\A(\d{2})\d{7}\z/) >> split(3, 4) |
           fixed(1) >> split(3, 4)
 
   country '594', fixed(3) >> split(3, 3) # French Guiana (French Department of) http://www.wtng.info/wtng-594-fr.html

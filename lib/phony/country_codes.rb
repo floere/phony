@@ -104,7 +104,7 @@ module Phony
 
       # False if it fails the basic check.
       #
-      return false unless (4..16).include?(normalized.size) # unless hints[:check_length] == false
+      return false unless (4..16).cover?(normalized.size) # unless hints[:check_length] == false
 
       country, cc, rest = partial_split normalized
 
@@ -113,7 +113,10 @@ module Phony
       if (ccc = hints[:ccc])
         cc, ndc, *local = split ccc
 
-        raise ArgumentError.new("The provided ccc option is too long and includes more than a cc ('#{cc}') and ndc ('#{ndc}'). It also includes '#{local.join}'.") unless local.size == 1 && local[0].empty?
+        unless local.size == 1 && local[0].empty?
+          raise ArgumentError,
+                "The provided ccc option is too long and includes more than a cc ('#{cc}') and ndc ('#{ndc}'). It also includes '#{local.join}'."
+        end
 
         hints[:cc] = cc
         hints[:ndc] = ndc
