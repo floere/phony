@@ -146,6 +146,7 @@ RSpec/VerifiedDoubles:
 
 AllCops:
   NewCops: enable
+  TargetRubyVersion: 3.2
   Exclude:
     - 'bin/**/*'
     - 'tmp/**/*'
