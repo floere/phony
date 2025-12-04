@@ -1177,6 +1177,8 @@ describe 'country descriptions' do
       it_splits '23121234567', ['231', false, '2123', '4567']
       it_splits '2314123456', ['231', false, '4123', '456']
       it_splits '231771234567', ['231', false, '77', '123', '4567']
+      it_splits '231886721596', ['231', false, '88', '672', '1596']
+      it_splits '231886334605', ['231', false, '88', '633', '4605']
     end
 
     describe 'Libya' do
