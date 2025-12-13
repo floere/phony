@@ -1,3 +1,7 @@
+# Version 3.0.1
+
+* Singapore (#556)
+
 # Version 3.0.0
 
 * EOL rubies dropped (#557). Thanks @weppos !
