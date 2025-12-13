@@ -400,6 +400,7 @@ Phony.define do
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=LR
   country '231',
           none >> matched_split(
+            /\A88\d{7}\z/ => [2, 3, 4], # mobile Lonestar Cell MTN
             /\A[23]\d+\z/ => [4, 4], # LIBTELCO, TEMAS
             /\A[4568]\d+\z/ => [4, 3], # mobile Lonestar, Libercell, Comium Liberia Inc.
             /\A77\d+\z/ => [2, 3, 4], # http://monrovia.usembassy.gov/contact.html
