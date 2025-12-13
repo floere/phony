@@ -1,3 +1,7 @@
+# Version 3.0.0
+
+* EOL rubies dropped (#557). Thanks @weppos !
+
 # Version 2.22.7
 
 * Bump rexml from 3.4.1 to 3.4.4 (#551)
@@ -1206,4 +1210,3 @@
 ## Version 1.0.0
 
 * First release! Lots of countries.
-
