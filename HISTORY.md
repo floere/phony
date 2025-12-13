@@ -1,3 +1,7 @@
+# Version 3.0.2
+
+* Liberia (#560)
+
 # Version 3.0.1
 
 * Singapore (#556)
