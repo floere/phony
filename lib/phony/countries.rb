@@ -101,7 +101,7 @@ Phony.define do
                 match(/^(800|90\d)\d+$/)     >> split(2, 3)   | # Toll free service and premium numbers
                 match(/^(46[056789])\d{6}$/) >> split(2, 2, 2) | # Mobile (Lycamobile, Telenet, Join Experience, Proximus 0460)
                 match(/^(4[789]\d)\d{6}$/)   >> split(2, 2, 2) | # Mobile
-                match(/^(45[156])\d{6}$/)     >> split(2, 2, 2) | # Mobile Vikings, Digi and Voo
+                match(/^(45[156])\d{6}$/)    >> split(2, 2, 2) | # Mobile Vikings, Digi and Voo
                 one_of('2', '3', '4', '9') >> split(3, 2, 2) | # Short NDCs
                 fixed(2) >> split(2, 2, 2) # 2-digit NDCs
 
@@ -251,7 +251,7 @@ Phony.define do
           match(/^(13)\d+$/)    >> split(2, 2) | # 13 local rate
           fixed(1)              >> split(4, 4)   # Rest
 
-   # country '62' # Indonesia (Republic of), see special file
+  # country '62' # Indonesia (Republic of), see special file
 
   # Philippines (Republic of the)
   # https://www.numberingplans.com/?page=plans&sub=phonenr&alpha_2_input=PH
@@ -279,7 +279,9 @@ Phony.define do
 
   # Singapore (Republic of).
   #
+  # There is no trunk code for this country and some numbers start with 0.
   country '65',
+          trunk('', normalize: false) |
           none >> matched_split(
             /^(800)\d{7}$/ => [3, 3, 4], # International Toll Free Service (ITFS) and Home Country Direct Service (HCDS) Numbers
             /^\d{8}$/ => [4, 4] # TODO: Short Codes
@@ -375,7 +377,7 @@ Phony.define do
 
   # Benin http://www.itu.int/oth/T0202000017/en
   #
-  # There is no trunk code for this country and prefixes start with 0
+  # There is no trunk code for this country and prefixes start with 0.
   country '229',
           trunk('', normalize: false) |
           none >> matched_split(
