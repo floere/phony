@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'phony'
-  s.version = '3.0.0'
+  s.version = '3.0.1'
   s.authors = ['Florian Hanke']
   s.email = 'florian.hanke+phony@gmail.com'
   s.homepage = 'https://github.com/floere/phony'
