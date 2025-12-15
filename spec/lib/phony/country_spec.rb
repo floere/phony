@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Phony::Country do
@@ -7,7 +9,7 @@ describe Phony::Country do
       local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
 
-      Phony::Country.new national_code
+      described_class.new national_code
     end
 
     describe '#clean' do
@@ -70,7 +72,7 @@ describe Phony::Country do
       local_splitter    = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
       national_code     = Phony::NationalCode.new national_splitter, local_splitter
 
-      Phony::Country.new national_code
+      described_class.new national_code
     end
 
     describe 'split' do
@@ -96,7 +98,7 @@ describe Phony::Country do
       local_splitter            = Phony::LocalSplitters::Fixed.instance_for [3, 2, 2]
       national_code             = Phony::NationalCode.new national_splitter, local_splitter
 
-      Phony::Country.new special_code, national_code
+      described_class.new special_code, national_code
     end
 
     describe 'split' do

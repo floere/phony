@@ -171,7 +171,7 @@ Phony.define do
   # Norway.
   #
   country '47',
-          none >> matched_split(/^[1].*$/ => [3],
+          none >> matched_split(/^1.*$/ => [3],
                                 /^[489].*$/ => [3, 2, 3],
                                 :fallback => [2, 2, 2, 2])
 
@@ -905,7 +905,7 @@ Phony.define do
   country '593',
           match(/\A(1800)\d+\z/) >> split(3, 3) | # toll free 1800 numbers
           one_of('9') >> split(4, 4) |
-          match(/\A([\d]{2})\d{7}\z/) >> split(3, 4) |
+          match(/\A(\d{2})\d{7}\z/) >> split(3, 4) |
           fixed(1) >> split(3, 4)
 
   country '594', fixed(3) >> split(3, 3) # French Guiana (French Department of) http://www.wtng.info/wtng-594-fr.html

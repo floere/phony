@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Phony::NationalSplitters::Fixed do
   describe 'instance_for' do
     it 'caches' do
-      expect(Phony::NationalSplitters::Fixed.instance_for(3)).to eq Phony::NationalSplitters::Fixed.instance_for(3)
+      expect(described_class.instance_for(3)).to eq described_class.instance_for(3)
     end
 
     it 'caches correctly' do
-      expect(Phony::NationalSplitters::Fixed.instance_for(1)).to_not eq Phony::NationalSplitters::Fixed.instance_for(2)
+      expect(described_class.instance_for(1)).not_to eq described_class.instance_for(2)
     end
   end
 
   describe 'split' do
-    let(:splitter) { Phony::NationalSplitters::Fixed.new(2) }
+    let(:splitter) { described_class.new(2) }
 
     it 'splits correctly' do
       expect(splitter.split('443643532')).to eq [nil, '44', '3643532']
@@ -32,7 +34,7 @@ describe Phony::NationalSplitters::Fixed do
   end
 
   describe 'split' do
-    let(:splitter) { Phony::NationalSplitters::Fixed.new(nil) }
+    let(:splitter) { described_class.new(nil) }
 
     it 'splits correctly' do
       expect(splitter.split('443643532')).to eq [nil, '443643532']

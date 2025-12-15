@@ -19,7 +19,7 @@ module Phony
         # This if can possibly be removed.
         #
         presumed_code = if @mapped_ndc_min_length.positive?
-                          presumed_code = national_number.slice!(0..@mapped_ndc_min_length - 1)
+                          presumed_code = national_number.slice!(0..(@mapped_ndc_min_length - 1))
                         else
                           ''
                         end

@@ -19,7 +19,7 @@ mobile = %w[10 11 12 13 14 15 16 17 18 19]
 Phony.define do
   country '82',
           trunk('0') |
-          match(/^(#{special.join("|")})$/) >> split(3, 3) | # Special actually don't need to be split – but better err.
+          match(/^(#{special.join('|')})$/) >> split(3, 3) | # Special actually don't need to be split – but better err.
           one_of(*mobile) >> split(4, 4) |
           one_of('2') >> matched_split(
             /\A\d{7}\z/ => [3, 4],

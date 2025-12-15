@@ -1,7 +1,21 @@
-require:
+inherit_from:
+  - .rubocop_todo.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+plugins:
   - rubocop-performance
   - rubocop-rspec
   - rubocop-rake
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  Exclude:
+    - 'bin/**/*'
+    - 'tmp/**/*'
 
 Bundler/OrderedGems:
   Enabled: false
@@ -54,28 +68,12 @@ Style/TrailingCommaInHashLiteral:
 Style/FormatStringToken:
   Enabled: false
 
-Metrics/BlockLength:
-  Max: 30
-  Exclude:
-    - 'spec/**/*.rb'
-    - 'config/environments/**/*.rb'
-    - 'config/routes.rb'
-    - "config/initializers/simple_form_bootstrap.rb"
-    - 'db/**/*'
-
-Metrics/AbcSize:
-  Max: 20
-  Exclude:
-    - 'db/**/*'
-
 Metrics/MethodLength:
   Max: 20
   CountAsOne:
     - array
     - hash
     - heredoc
-  Exclude:
-    - 'db/migrate/*'
 
 Metrics/ModuleLength:
   CountAsOne:
@@ -88,27 +86,12 @@ Metrics/ClassLength:
     - array
     - hash
     - heredoc
-  Exclude:
-    - 'db/**/*'
-
-Metrics/ParameterLists:
-  Max: 7
-  MaxOptionalParameters: 5
-  Exclude:
-    - "spec/components/**/*.rb"
-    - "app/components/**/*.rb"
 
 Naming/InclusiveLanguage:
   Enabled: false
 
 RSpec/MultipleExpectations:
   Enabled: false
-
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/routing/**/*'
-    - 'spec/system/**/*'
-    - 'spec/views/**/*'
 
 RSpec/DescribedClass:
   SkipBlocks: true
@@ -118,10 +101,6 @@ RSpec/EmptyExampleGroup:
 
 RSpec/ExampleLength:
   Enabled: false
-
-RSpec/InstanceVariable:
-  Exclude:
-    - 'spec/views/**/*'
 
 RSpec/NestedGroups:
   Max: 6
@@ -143,10 +122,3 @@ RSpec/AnyInstance:
 
 RSpec/VerifiedDoubles:
   Enabled: false
-
-AllCops:
-  NewCops: enable
-  TargetRubyVersion: 3.2
-  Exclude:
-    - 'bin/**/*'
-    - 'tmp/**/*'

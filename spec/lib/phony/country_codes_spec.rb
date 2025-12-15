@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Phony::CountryCodes do
-  let(:countries) { Phony::CountryCodes.instance }
+  let(:countries) { described_class.instance }
 
   describe '#plausible?' do
     it 'raises an error on a too long ccc' do
@@ -14,14 +16,14 @@ describe Phony::CountryCodes do
 
   describe 'ccc handling' do
     it 'splits a ccc correctly' do
-      cc, ndc, *local = countries.split('1868')
+      cc, ndc, = countries.split('1868')
 
       expect(cc).to eq '1'
       expect(ndc).to eq '868'
     end
 
     it 'splits a ccc correctly' do
-      cc, ndc, *local = countries.split('1868')
+      cc, ndc, = countries.split('1868')
 
       expect(cc).to eq '1'
       expect(ndc).to eq '868'
