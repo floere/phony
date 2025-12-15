@@ -797,6 +797,7 @@ describe 'country descriptions' do
 
     describe 'Singapore' do
       it_splits '6561231234',   ['65', false, '6123', '1234'] # Fixed line
+      it_splits '6501234567',   ['65', false, '0123', '4567'] # Fixed line starting with 0
       it_splits '658008521234', ['65', false, '800', '852', '1234'] # International Toll Free Service (ITFS) and Home Country Direct Service (HCDS) Numbers
     end
 
@@ -1179,6 +1180,8 @@ describe 'country descriptions' do
       it_splits '23121234567', ['231', false, '2123', '4567']
       it_splits '2314123456', ['231', false, '4123', '456']
       it_splits '231771234567', ['231', false, '77', '123', '4567']
+      it_splits '231886721596', ['231', false, '88', '672', '1596']
+      it_splits '231886334605', ['231', false, '88', '633', '4605']
     end
 
     describe 'Libya' do
