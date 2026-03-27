@@ -13,9 +13,9 @@ module Phony
   #
   # Phony.define.country ...
   #
-  def self.define(&block)
+  def self.define(&)
     dsl = DSL.new
-    dsl.instance_eval(&block) if block_given?
+    dsl.instance_eval(&) if block_given?
     dsl
   end
 
@@ -160,7 +160,7 @@ module Phony
     def match(regex, options = {})
       # Check if regexp has a group in it.
       #
-      raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless /\(/.match?(regex.source)
+      raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless regex.source.include?('(')
 
       NationalSplitters::Regex.instance_for regex, options[:on_fail_take], options
     end

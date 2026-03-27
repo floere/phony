@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Phony::NormalizationError do
   it 'is correctly raised on normalize' do
     expect do
       Phony.normalize('000')
-    end.to raise_error(Phony::NormalizationError)
+    end.to raise_error(described_class)
   end
 
   it 'is correctly raised on normalize' do
@@ -16,7 +18,7 @@ describe Phony::NormalizationError do
   it 'is correctly raised on normalize!' do
     expect do
       Phony.normalize!('000')
-    end.to raise_error(Phony::NormalizationError)
+    end.to raise_error(described_class)
   end
 
   it 'is correctly raised on normalize!' do
@@ -30,7 +32,7 @@ describe Phony::SplittingError do
   it 'is correctly raised on split' do
     expect do
       Phony.split('000')
-    end.to raise_error(Phony::SplittingError)
+    end.to raise_error(described_class)
   end
 
   it 'is correctly raised on split' do
@@ -42,7 +44,7 @@ describe Phony::SplittingError do
   it 'is correctly raised on split!' do
     expect do
       Phony.split!('000')
-    end.to raise_error(Phony::SplittingError)
+    end.to raise_error(described_class)
   end
 
   it 'is correctly raised on split!' do
@@ -56,7 +58,7 @@ describe Phony::FormattingError do
   it 'is correctly raised on format' do
     expect do
       Phony.format('000')
-    end.to raise_error(Phony::FormattingError)
+    end.to raise_error(described_class)
   end
 
   it 'is correctly raised on format' do
@@ -68,7 +70,7 @@ describe Phony::FormattingError do
   it 'is correctly raised on format!' do
     expect do
       Phony.format!('000')
-    end.to raise_error(Phony::FormattingError)
+    end.to raise_error(described_class)
   end
 
   it 'is correctly raised on format!' do

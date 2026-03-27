@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'phony'
 
 numbers = %w[
@@ -9,7 +11,7 @@ numbers = %w[
 ]
 
 result = numbers.map do |number|
-  number = number.sub(/^[0\+]*(64+|\b)/, '64')
+  number = number.sub(/^[0+]*(64+|\b)/, '64')
   Phony.normalize(number)
 end
 

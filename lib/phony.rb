@@ -93,7 +93,7 @@ module Phony
   #
   class SplittingError < ArgumentError
     def initialize(number)
-      super(%(Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?))
+      super(%(Phony could not split the given number. Is #{number.nil? || number == '' ? 'it' : number.inspect} a phone number?))
     end
   end
 
@@ -169,8 +169,8 @@ module Phony
     #
     def normalize!(phone_number, options = {})
       @codes.normalize phone_number, options
-    rescue
-      raise NormalizationError.new
+    rescue StandardError
+      raise NormalizationError
     end
 
     # Splits the phone number into pieces according to the country codes.
@@ -209,9 +209,9 @@ module Phony
     #
     def split!(phone_number, error_number = nil)
       @codes.split phone_number
-    rescue
+    rescue StandardError
       # NB The error_number (reference) is used because phone_number is destructively handled.
-      raise SplittingError.new(error_number)
+      raise SplittingError, error_number
     end
 
     # Formats a normalized E164 number according to a country's formatting scheme.
@@ -265,8 +265,8 @@ module Phony
     #
     def format!(phone_number, options = {})
       @codes.format phone_number, options
-    rescue
-      raise FormattingError.new
+    rescue StandardError
+      raise FormattingError
     end
     alias formatted  format
     alias formatted! format!

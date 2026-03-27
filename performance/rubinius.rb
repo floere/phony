@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Rubinius profiling.
 # Run with:
 #   ruby -Xprofiler.full_report -Xprofiler.graph performance/rubinius.rb

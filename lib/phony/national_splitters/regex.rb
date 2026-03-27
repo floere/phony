@@ -34,11 +34,11 @@ module Phony
       def split(national_number)
         # Improve matching.
         #
-        return [@zero, national_number.slice!(0..::Regexp.last_match(1).size - 1), national_number] if national_number =~ regex
+        return [@zero, national_number.slice!(0..(::Regexp.last_match(1).size - 1)), national_number] if national_number =~ regex
 
         # Not found.
         #
-        super(national_number)
+        super
       end
 
       # A valid length.

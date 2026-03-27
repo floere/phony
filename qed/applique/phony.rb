@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'phony/config'
 
 # Plausibility Helpers
@@ -7,7 +9,7 @@ require 'phony/config'
 def plausible?(examples)
   # Succeeding expectations.
   #
-  succeeding = [*examples[:true]]
+  succeeding = [*examples[true]]
   succeeding.each do |numbers|
     [*numbers].each do |number|
       Phony.assert.plausible?(number)
@@ -23,7 +25,7 @@ def plausible?(examples)
 
   # Explicitly failing expectations + fabricated.
   #
-  ([*examples[:false]] + fabricated_failing).each do |number|
+  ([*examples[false]] + fabricated_failing).each do |number|
     Phony.refute.plausible?(number)
   end
 end
@@ -45,9 +47,9 @@ begin
 rescue LoadError
   Phony::PERFORMANCE_RATIO = 0 # Ignore speed tests by default.
 end
-def performance_of(&block)
+def performance_of(&)
   GC.disable
-  result = Benchmark.realtime(&block)
+  result = Benchmark.realtime(&)
   GC.enable
   result * Phony::PERFORMANCE_RATIO
 end
