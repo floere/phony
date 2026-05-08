@@ -432,6 +432,7 @@ Phony.define do
           match(/^([7-9]0\d)\d+$/)            >> split(3, 4)    | # Mobile
           match(/^(81\d)\d+$/)                >> split(3, 4)    | # Mobile
           match(/^(91\d)\d+$/)                >> split(3, 4)    | # Mobile
+          one_of('20')                        >> split(3, 3..5) | # 2-digit NDC (area code 20) - must come before 1-digit '2'
           one_of('1', '2')                    >> split(3, 3..4) | # Lagos, Ibadan
           one_of('9')                         >> split(3, 4)    | # Abuja
           one_of((30..79).map(&:to_s))        >> split(3, 2..3) | # 2-digit NDC

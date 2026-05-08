@@ -1296,6 +1296,9 @@ describe 'country descriptions' do
     describe 'Nigeria' do
       it_splits '23411231234', %w[234 1 123 1234] # Lagos
 
+      it_splits '23420123456', %w[234 20 123 456] # Area code 20 (7 digits)
+      it_splits '2342013438806', %w[234 20 134 38806] # Area code 20 (8 digits, from Z2 ticket #14715836)
+
       it_splits '23445123456', %w[234 45 123 456] # Ogoja
 
       # mobile numbers

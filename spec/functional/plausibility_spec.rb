@@ -411,7 +411,8 @@ describe 'plausibility' do
                                              '+234 811 234 5678',
                                              '+234 64 830 00',
                                              '+234 1 280 444',
-                                             '+234 85 123 456']
+                                             '+234 85 123 456',
+                                             '+234 20 123 456']
       it_is_correct_for 'Niue', samples: '+683  3791'
       it_is_correct_for 'Oman', samples: ['+968 24 423 123',
                                           '+968 25 423 123']
