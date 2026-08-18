@@ -536,6 +536,7 @@ Phony.define do
           match(/\A(32)\d+\z/) >> split(2, 3, 2) | # mobile Orange Madagascar
           match(/\A(33)\d+\z/) >> split(2, 3, 2) | # mobile Airtel Madagascar
           match(/\A(34)\d+\z/) >> split(2, 3, 2) | # mobile Telecom Malagasy (Telma)
+          match(/\A(35)\d+\z/) >> split(2, 3, 2) | # mobile Airtel Madagascar
           match(/\A(37)\d+\z/) >> split(2, 3, 2) | # mobile Orange Madagascar
           match(/\A(38)\d+\z/) >> split(2, 3, 2) | # mobile Telecom Malagasy (Telma)
           match(/\A(39)\d+\z/) >> split(2, 3, 2)   # mobile Blueline Madagascar
