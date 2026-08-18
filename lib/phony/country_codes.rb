@@ -1,11 +1,11 @@
-module Phony
+# frozen_string_literal: true
 
+module Phony
   EMPTY_STRING = '' unless defined?(EMPTY_STRING)
 
   # Handles determining the correct national code handler.
   #
   class CountryCodes
-
     attr_reader   :countries
     attr_accessor :international_absolute_format, :international_relative_format, :national_format
 
@@ -14,11 +14,11 @@ module Phony
     def self.instance
       @instance ||= new
     end
-    
+
     # Add the given country to the mapping under the
     # given country code.
     #
-    def add country_code, country
+    def add(country_code, country)
       country_code = country_code.to_s
       optimized_country_code_access = country_code.size
 
@@ -29,7 +29,7 @@ module Phony
 
     # Get the Country object for the given CC.
     #
-    def [] cc
+    def [](cc)
       countries[cc.size][cc]
     end
 
@@ -38,12 +38,13 @@ module Phony
     @@basic_cleaning_pattern = /\A00?|\(0|\D/
     # Clean number of all non-numeric characters, initial zeros or (0 and return it.
     #
-    def clean number
+    def clean(number)
       clean! number && number.dup
     end
+
     # Clean number of all non-numeric characters, initial zeros or (0 and return a copy.
     #
-    def clean! number
+    def clean!(number)
       number.gsub!(@@basic_cleaning_pattern, EMPTY_STRING) || number
     end
 
@@ -58,33 +59,34 @@ module Phony
     #  * (0) anywhere.
     #  * Non-digits.
     #
-    def normalize number, options = {}
-      country = if cc = options[:cc]
-        self[cc]
-      else
-        clean! number
-        country, cc, number = partial_split number
-        country
-      end
+    def normalize(number, options = {})
+      number = number.dup
+      country = if (cc = options[:cc])
+                  self[cc]
+                else
+                  clean! number
+                  country, cc, number = partial_split number
+                  country
+                end
       number = country.normalize number, cc: cc
       countrify! number, cc
     end
 
     # Splits this number into cc, ndc and locally split number parts.
     #
-    def split number
+    def split(number)
       # Split the number into country, cc, and national part.
       country, cc, national_number = partial_split number
-      
+
       # Split the national number into ndc and local part.
       _, ndc, *local = country.split national_number
-      
+
       [cc, ndc, *local]
     end
 
     # Format the number.
     #
-    def format number, options = {}
+    def format(number, options = {})
       country, _, national_number = partial_split number
       country.format national_number, options
     end
@@ -92,22 +94,27 @@ module Phony
 
     # Is this number plausible?
     #
-    def plausible? number, hints = {}
+    def plausible?(number, hints = {})
+      # Fail if it contains too many of certain phone specific markers:
+      #   * more than 1 +
+      #
+      return false if number.count('+') > 1
+
       normalized = clean number
 
       # False if it fails the basic check.
       #
-      return false unless (4..16) === normalized.size # unless hints[:check_length] == false
+      return false unless (4..16).include?(normalized.size) # unless hints[:check_length] == false
 
       country, cc, rest = partial_split normalized
-      
+
       # Was a country calling code given?
       #
-      if ccc = hints[:ccc]
+      if (ccc = hints[:ccc])
         cc, ndc, *local = split ccc
-        
+
         raise ArgumentError.new("The provided ccc option is too long and includes more than a cc ('#{cc}') and ndc ('#{ndc}'). It also includes '#{local.join}'.") unless local.size == 1 && local[0].empty?
-        
+
         hints[:cc] = cc
         hints[:ndc] = ndc
       end
@@ -123,55 +130,55 @@ module Phony
     rescue ArgumentError
       raise
     rescue StandardError
-      return false
+      false
     end
-    
+
     # Is the given number a vanity number?
     #
-    def vanity? number
+    def vanity?(number)
       country, _, national = partial_split number
       country.vanity? national
     end
+
     # Converts a vanity number into a normalized E164 number.
     #
-    def vanity_to_number vanity_number
+    def vanity_to_number(vanity_number)
       country, cc, national = partial_split vanity_number
       "#{cc}#{country.vanity_to_number(national)}"
     end
 
     private
-    
-      # Return a country for the number.
-      #
-      def country_for number
-        country, _ = partial_split number
-        country
-      end
-          
-      # Split off the country and the cc, and also return the national number part.
-      #
-      def partial_split number
-        cc = ''
-        1.upto(3) do |i|
-          cc << number.slice!(0..0)
-          country = countries[i][cc]
-          return [country, cc, number] if country
-        end
-        # This line is never reached as CCs are in prefix code.
-      end
-      
-      # Adds the country code to the front
-      # if it does not already start with it.
-      #
-      # Note: This won't be correct in some cases, but it is the best we can do.
-      #
-      def countrify number, cc
-        countrify!(number, cc) || number
-      end
-      def countrify! number, cc
-        number.sub!(/\A/, cc) # @countrify_regex, @cc
-      end
 
+    # Return a country for the number.
+    #
+    def country_for(number)
+      country, = partial_split number
+      country
+    end
+
+    # Split off the country and the cc, and also return the national number part.
+    #
+    def partial_split(number)
+      1.upto(3) do |i|
+        cc = number.slice(...i)
+        national_number = number.slice(i..)
+        country = countries[i][cc]
+        return [country, cc, national_number] if country
+      end
+      # This line is never reached as CCs are in prefix code.
+    end
+
+    # Adds the country code to the front
+    # if it does not already start with it.
+    #
+    # Note: This won't be correct in some cases, but it is the best we can do.
+    #
+    def countrify(number, cc)
+      countrify!(number.dup, cc) || number
+    end
+
+    def countrify!(number, cc)
+      number.sub!(/\A/, cc) # @countrify_regex, @cc
+    end
   end
-
 end

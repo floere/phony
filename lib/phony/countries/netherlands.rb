@@ -37,15 +37,15 @@ ndcs = [
   '76', # Breda
   '77', # Venlo
   '78', # Dordrecht
-  '79', # Zoetermeer
- ]
+  '79' # Zoetermeer
+]
 
 service = [
   '84',  # Persoonlijke-assistentdiensten, zoals voicemail en faxmail
   '85',  # Plaatsonafhankelijk netnummer
   '87',  # Both of the above.
   '88',  # Bedrijfsnummers
-  '91',  # Plaatsonafhankelijk netnummer
+  '91' # Plaatsonafhankelijk netnummer
 ]
 
 service3 = [
@@ -53,17 +53,17 @@ service3 = [
   '800', # Gratis informatienummers
   '900', # Betaalde informatienummers
   '906', # Betaalde informatienummers
-  '909', # Betaalde informatienummers
- ]
+  '909' # Betaalde informatienummers
+]
 
 Phony.define do
   country '31',
-    trunk('0', :normalize => true)                |
-    match(/\A(97[0,9])\d{8}\z/) >> split(4,4)     | # machine-to-machine
-    one_of(service)             >> split(4,3)     |
-    match(/\A(800|900)\d{4}\z/) >> split(4)       |
-    one_of(service3)            >> split(4,3)     |
-    one_of('6')                 >> split(2,2,2,2) | # mobile
-    one_of(ndcs)                >> split(3,4)     | # landline (geographic region)
-    fixed(3)                    >> split(3,3)       # 3 digit ndc
+          trunk('0', normalize: true) |
+          match(/\A(97[0,9])\d{8}\z/) >> split(4, 4)     | # machine-to-machine
+          one_of(service)             >> split(4, 3)     |
+          match(/\A(800|900)\d{4}\z/) >> split(4) |
+          one_of(service3)            >> split(4, 3) |
+          one_of('6')                 >> split(2, 2, 2, 2) | # mobile
+          one_of(ndcs)                >> split(3, 4) | # landline (geographic region)
+          fixed(3)                    >> split(3, 3) # 3 digit ndc
 end

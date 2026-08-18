@@ -70,14 +70,14 @@ ndcs_with_7_subscriber_digits = [
   '294', # Trà Vinh Province
   '296', # An Giang Province
   '297', # Kiên Giang Province
-  '299', # Sóc Trăng Province
+  '299' # Sóc Trăng Province
 ]
 
 ndcs_with_8_subscriber_digits = [
   '4',  # Hà Nội Province
   '24', # Hà Nội Province
   '28', # Hồ Chí Minh Province
-  '8',  # Hồ Chí Minh Province
+  '8' # Hồ Chí Minh Province
 ]
 
 mobile = [
@@ -90,9 +90,10 @@ mobile = [
   '38', # Viettel Mobile
   '39', # Viettel Mobile
   '52', # Vietnammobile
+  '55', # Wintel (previously known as Reddi)
   '56', # Vietnamobile
   '58', # Vietnamobile (previously known as HT Mobile)
-  '59',  # GTel (traded as Beeline)
+  '59', # GTel (traded as Beeline)
   '70', # MobiFone
   '76', # MobiFone
   '77', # MobiFone
@@ -106,7 +107,7 @@ mobile = [
   '86', # Viettel
   '87', # Itelecom
   '88', # Vinaphone
-  '89',  # MobiFone,
+  '89', # MobiFone,
   '90', # MobiFone
   '91', # Vinaphone
   '92', # Vietnamobile (previously known as HT Mobile)
@@ -115,22 +116,23 @@ mobile = [
   '96', # previously EVN Telecom, now Viettel Mobile
   '97', # Viettel Mobile
   '98', # Viettel Mobile
-  '99', # Gmobile (traded as Beeline)
+  '99' # Gmobile (traded as Beeline)
 ]
 
-mobile_with_trunk = (mobile).map{ |num| "0#{num}" }
+mobile_with_trunk = mobile.map { |num| "0#{num}" }
 
 Phony.define do
   country '84',
-    trunk('0') |
-    one_of(mobile)                        >> split(4..8)|
-    one_of(ndcs_with_7_subscriber_digits) >> split(3,4) |
-    one_of(ndcs_with_8_subscriber_digits) >> split(4,4) |
-    one_of(mobile_with_trunk)             >> split(5..8)|
-    one_of('1900')                        >> matched_split(
-      /\A\d{4}\z/ => [4],
-      /\A\d{6}\z/ => [6]) | # Premium rate
-    # Govt reserved
-    fixed(80)                             >> split(5)   |
-    fixed(69)                             >> split(1,5)
+          trunk('0') |
+          one_of(mobile)                        >> split(4..8) |
+          one_of(ndcs_with_7_subscriber_digits) >> split(3, 4) |
+          one_of(ndcs_with_8_subscriber_digits) >> split(4, 4) |
+          one_of(mobile_with_trunk)             >> split(5..8) |
+          one_of('1900')                        >> matched_split(
+            /\A\d{4}\z/ => [4],
+            /\A\d{6}\z/ => [6]
+          ) | # Premium rate
+          # Govt reserved
+          fixed(80)                             >> split(5) |
+          fixed(69)                             >> split(1, 5)
 end

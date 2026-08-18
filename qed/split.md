@@ -9,14 +9,14 @@ You really need to give it a *normalized* phone number WITH a country code, so:
 
 Phony is happy with these:
 
-    Phony.split('43198110').should == ['43', '1', '98110']
-    Phony.split('33112345678').should == ['33', '1', '12','34','56','78']
-    Phony.split('4976112345').should == ['49', '761', '123', '45']
-    Phony.split('3928061371').should == ['39', '2', '806', '1371']
-    Phony.split('41443643532').should == ['41', '44', '364', '35', '32']
-    Phony.split('15551115511').should == ['1', '555', '111', '5511']
-    Phony.split('6491234567').should == ['64', '9', '123', '4567']
-    Phony.split('41800334455').should == ['41', '800', '33', '44', '55']
+    Phony.split('43198110').assert == ['43', '1', '98110']
+    Phony.split('33112345678').assert == ['33', '1', '12','34','56','78']
+    Phony.split('4976112345').assert == ['49', '761', '123', '45']
+    Phony.split('3928061371').assert == ['39', '2', '806', '1371']
+    Phony.split('41443643532').assert == ['41', '44', '364', '35', '32']
+    Phony.split('15551115511').assert == ['1', '555', '111', '5511']
+    Phony.split('6491234567').assert == ['64', '9', '123', '4567']
+    Phony.split('41800334455').assert == ['41', '800', '33', '44', '55']
 
 It handles missing pieces gracefully.
 

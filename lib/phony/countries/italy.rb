@@ -7,39 +7,39 @@
 
 ndcs_1digit = [
   '02', # Milan
-  '06', # Rome (including State of Vatican City) and Aprilia
+  '06' # Rome (including State of Vatican City) and Aprilia
 ]
 
 ndcs_2digit = [
- '010', # Genoa
- '011', # Turin
- '015', # Biella
- '019', # Savona
- '030', # Brescia
- '031', # Como
- '035', # Bergamo
- '039', # Monza
- '040', # Trieste
- '041', # Venice
- '045', # Verona
- '049', # Padua
- '050', # Pisa
- '051', # Bologna
- '055', # Florence
- '059', # Modena
- '070', # Cagliari
- '071', # Ancona
- '075', # Perugia
- '079', # Sassari
- '080', # Bari
- '081', # Naples
- '085', # Pescara
- '089', # Salerno
- '090', # Messina
- '091', # Palermo
- '092', # Agrigento
- '095', # Catania
- '099', # Taranto
+  '010', # Genoa
+  '011', # Turin
+  '015', # Biella
+  '019', # Savona
+  '030', # Brescia
+  '031', # Como
+  '035', # Bergamo
+  '039', # Monza
+  '040', # Trieste
+  '041', # Venice
+  '045', # Verona
+  '049', # Padua
+  '050', # Pisa
+  '051', # Bologna
+  '055', # Florence
+  '059', # Modena
+  '070', # Cagliari
+  '071', # Ancona
+  '075', # Perugia
+  '079', # Sassari
+  '080', # Bari
+  '081', # Naples
+  '085', # Pescara
+  '089', # Salerno
+  '090', # Messina
+  '091', # Palermo
+  '092', # Agrigento
+  '095', # Catania
+  '099' # Taranto
 ]
 
 ndcs_3digit = [
@@ -246,7 +246,7 @@ ndcs_3digit = [
   '0982', # Paola
   '0983', # Rossano
   '0984', # Cosenza
-  '0985', # Scalea
+  '0985' # Scalea
 ]
 
 # All 3-- numbers are reserved for mobile phones according to
@@ -254,40 +254,41 @@ ndcs_3digit = [
 # NOTE was:
 #   mobile = ('300'..'399').to_a
 # but this was not frozen so easily.
-mobile = %w(300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399)
+mobile = %w[300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326
+            327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 399]
 
 # Not exhaustive.
-service = [
- '112',
- '113',
- '115',
- '116',
- '117',
- '118',
- '1515',
- '1518',
- '1530'
+service = %w[
+  112
+  113
+  115
+  116
+  117
+  118
+  1515
+  1518
+  1530
 ]
 
 # Not exhaustive. Unused below - just for info purposes.
-free_of_charge_services = [
-  '800',
-  '803'
+free_of_charge_services = %w[
+  800
+  803
 ]
 
 Phony.define do
-  # Note: The 0 does not count towards NDC number length.
+  # NOTE: The 0 does not count towards NDC number length.
   country '39', trunk('', normalize: false) |
-                one_of(*service)     >> split(3,3) |
-                one_of(*mobile)      >> split(3,4,-1..1) |
+                one_of(*service)     >> split(3, 3) |
+                one_of(*mobile)      >> split(3, 4, -1..1) |
                 match(/^(800)\d{6}$/) >> split(6) | # 3-6, Special handling for 800 numbers.
                 match(/^(803)\d{3}$/) >> split(3) | # 3-3, Special handling for 803 numbers.
                 one_of(*ndcs_1digit) >> matched_split(
                   /\A\d{5}\z/ => [5],
-                  /\A\d{6}\z/ => [4,2],
-                  /\A\d{7}\z/ => [4,3],
-                  /\A\d{8}\z/ => [4,4],
-                  /\A\d{9}\z/ => [4,5]
+                  /\A\d{6}\z/ => [4, 2],
+                  /\A\d{7}\z/ => [4, 3],
+                  /\A\d{8}\z/ => [4, 4],
+                  /\A\d{9}\z/ => [4, 5]
                 ) |
                 one_of(*ndcs_2digit) >> matched_split(
                   /\A\d{4}\z/ => [4],
@@ -301,6 +302,6 @@ Phony.define do
                   /\A1\d{5}\z/ => [6],
                   /\A1\d{6}\z/ => [7],
                   /\A[^1]\d{4}\z/ => [5],
-                  /\A[^1]\d{5}\z/ => [3,3]
+                  /\A[^1]\d{5}\z/ => [3, 3]
                 )
 end

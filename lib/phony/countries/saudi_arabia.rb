@@ -20,7 +20,7 @@ ndcs_with_7_subscriber_digits = [
   '56', # Mobile: Mobily
   '57', # Mobile
   '58', # Mobile: Zain
-  '59', # Mobile: Zain
+  '59' # Mobile: Zain
 ]
 
 toll_free = [
@@ -33,8 +33,8 @@ universal_access = [
 
 Phony.define do
   country '966', trunk('0') |
-                 one_of(ndcs_with_7_subscriber_digits)   >> split(3,4) |
-                 one_of(toll_free)                       >> split(3,4) |
-                 one_of(universal_access)                >> split(5)   |
-                 fixed(3)                                >> split(3,4)
+                 one_of(ndcs_with_7_subscriber_digits)   >> split(3, 4) |
+                 one_of(toll_free)                       >> split(3, 4) |
+                 one_of(universal_access)                >> split(5) |
+                 fixed(3)                                >> split(3, 4)
 end

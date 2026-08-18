@@ -1,81 +1,80 @@
 # frozen_string_literal: true
 
-# NOTE We use Kernel.load here, as it's possible to redefine Phony via Phony::Config.
+# NOTE: We use Kernel.load here, as it's possible to redefine Phony via Phony::Config.
 
 # Framework.
 #
-load File.expand_path '../phony/config.rb', __FILE__
-load File.expand_path '../phony/vanity.rb', __FILE__
-load File.expand_path '../phony/local_splitters/fixed.rb', __FILE__
-load File.expand_path '../phony/local_splitters/regex.rb', __FILE__
-load File.expand_path '../phony/national_splitters/dsl.rb', __FILE__
-load File.expand_path '../phony/national_splitters/fixed.rb', __FILE__
-load File.expand_path '../phony/national_splitters/variable.rb', __FILE__
-load File.expand_path '../phony/national_splitters/regex.rb', __FILE__
-load File.expand_path '../phony/national_splitters/default.rb', __FILE__
-load File.expand_path '../phony/national_splitters/none.rb', __FILE__
-load File.expand_path '../phony/national_code.rb', __FILE__
-load File.expand_path '../phony/country.rb', __FILE__
-load File.expand_path '../phony/trunk_code.rb', __FILE__
-load File.expand_path '../phony/country_codes.rb', __FILE__
-load File.expand_path '../phony/dsl.rb', __FILE__
+load File.expand_path 'phony/config.rb', __dir__
+load File.expand_path 'phony/vanity.rb', __dir__
+load File.expand_path 'phony/local_splitters/fixed.rb', __dir__
+load File.expand_path 'phony/local_splitters/regex.rb', __dir__
+load File.expand_path 'phony/national_splitters/dsl.rb', __dir__
+load File.expand_path 'phony/national_splitters/fixed.rb', __dir__
+load File.expand_path 'phony/national_splitters/variable.rb', __dir__
+load File.expand_path 'phony/national_splitters/regex.rb', __dir__
+load File.expand_path 'phony/national_splitters/default.rb', __dir__
+load File.expand_path 'phony/national_splitters/none.rb', __dir__
+load File.expand_path 'phony/national_code.rb', __dir__
+load File.expand_path 'phony/country.rb', __dir__
+load File.expand_path 'phony/trunk_code.rb', __dir__
+load File.expand_path 'phony/country_codes.rb', __dir__
+load File.expand_path 'phony/dsl.rb', __dir__
 
 # Countries.
 #
 # The ones that need more space to define.
 #
-load File.expand_path '../phony/countries/argentina.rb', __FILE__
-load File.expand_path '../phony/countries/austria.rb', __FILE__
-load File.expand_path '../phony/countries/bangladesh.rb', __FILE__
-load File.expand_path '../phony/countries/belarus.rb', __FILE__
-load File.expand_path '../phony/countries/brazil.rb', __FILE__
-load File.expand_path '../phony/countries/cambodia.rb', __FILE__
-load File.expand_path '../phony/countries/croatia.rb', __FILE__
-load File.expand_path '../phony/countries/china.rb', __FILE__
-load File.expand_path '../phony/countries/georgia.rb', __FILE__
-load File.expand_path '../phony/countries/germany.rb', __FILE__
-load File.expand_path '../phony/countries/guinea.rb', __FILE__
-load File.expand_path '../phony/countries/india.rb', __FILE__
-load File.expand_path '../phony/countries/indonesia.rb', __FILE__
-load File.expand_path '../phony/countries/ireland.rb', __FILE__
-load File.expand_path '../phony/countries/italy.rb', __FILE__
-load File.expand_path '../phony/countries/japan.rb', __FILE__
-load File.expand_path '../phony/countries/kyrgyzstan.rb', __FILE__
-load File.expand_path '../phony/countries/latvia.rb', __FILE__
-load File.expand_path '../phony/countries/libya.rb', __FILE__
-load File.expand_path '../phony/countries/malaysia.rb', __FILE__
-load File.expand_path '../phony/countries/moldova.rb', __FILE__
-load File.expand_path '../phony/countries/montenegro.rb', __FILE__
-load File.expand_path '../phony/countries/myanmar.rb', __FILE__
-load File.expand_path '../phony/countries/namibia.rb', __FILE__
-load File.expand_path '../phony/countries/nepal.rb', __FILE__
-load File.expand_path '../phony/countries/netherlands.rb', __FILE__
-load File.expand_path '../phony/countries/pakistan.rb', __FILE__
-load File.expand_path '../phony/countries/paraguay.rb', __FILE__
-load File.expand_path '../phony/countries/russia_kazakhstan_abkhasia_south_ossetia.rb', __FILE__
-load File.expand_path '../phony/countries/saudi_arabia.rb', __FILE__
-load File.expand_path '../phony/countries/serbia.rb', __FILE__
-load File.expand_path '../phony/countries/somalia.rb', __FILE__
-load File.expand_path '../phony/countries/south_korea.rb', __FILE__
-load File.expand_path '../phony/countries/sweden.rb', __FILE__
-load File.expand_path '../phony/countries/taiwan.rb', __FILE__
-load File.expand_path '../phony/countries/tajikistan.rb', __FILE__
-load File.expand_path '../phony/countries/turkmenistan.rb', __FILE__
-load File.expand_path '../phony/countries/vietnam.rb', __FILE__
-load File.expand_path '../phony/countries/ukraine.rb', __FILE__
-load File.expand_path '../phony/countries/united_kingdom.rb', __FILE__
-load File.expand_path '../phony/countries/uruguay.rb', __FILE__
-load File.expand_path '../phony/countries/zimbabwe.rb', __FILE__
+load File.expand_path 'phony/countries/argentina.rb', __dir__
+load File.expand_path 'phony/countries/austria.rb', __dir__
+load File.expand_path 'phony/countries/bangladesh.rb', __dir__
+load File.expand_path 'phony/countries/belarus.rb', __dir__
+load File.expand_path 'phony/countries/brazil.rb', __dir__
+load File.expand_path 'phony/countries/cambodia.rb', __dir__
+load File.expand_path 'phony/countries/croatia.rb', __dir__
+load File.expand_path 'phony/countries/china.rb', __dir__
+load File.expand_path 'phony/countries/georgia.rb', __dir__
+load File.expand_path 'phony/countries/germany.rb', __dir__
+load File.expand_path 'phony/countries/guinea.rb', __dir__
+load File.expand_path 'phony/countries/india.rb', __dir__
+load File.expand_path 'phony/countries/indonesia.rb', __dir__
+load File.expand_path 'phony/countries/ireland.rb', __dir__
+load File.expand_path 'phony/countries/italy.rb', __dir__
+load File.expand_path 'phony/countries/japan.rb', __dir__
+load File.expand_path 'phony/countries/kyrgyzstan.rb', __dir__
+load File.expand_path 'phony/countries/latvia.rb', __dir__
+load File.expand_path 'phony/countries/libya.rb', __dir__
+load File.expand_path 'phony/countries/malaysia.rb', __dir__
+load File.expand_path 'phony/countries/moldova.rb', __dir__
+load File.expand_path 'phony/countries/montenegro.rb', __dir__
+load File.expand_path 'phony/countries/myanmar.rb', __dir__
+load File.expand_path 'phony/countries/namibia.rb', __dir__
+load File.expand_path 'phony/countries/nepal.rb', __dir__
+load File.expand_path 'phony/countries/netherlands.rb', __dir__
+load File.expand_path 'phony/countries/pakistan.rb', __dir__
+load File.expand_path 'phony/countries/paraguay.rb', __dir__
+load File.expand_path 'phony/countries/russia_kazakhstan_abkhasia_south_ossetia.rb', __dir__
+load File.expand_path 'phony/countries/saudi_arabia.rb', __dir__
+load File.expand_path 'phony/countries/serbia.rb', __dir__
+load File.expand_path 'phony/countries/somalia.rb', __dir__
+load File.expand_path 'phony/countries/south_korea.rb', __dir__
+load File.expand_path 'phony/countries/sweden.rb', __dir__
+load File.expand_path 'phony/countries/taiwan.rb', __dir__
+load File.expand_path 'phony/countries/tajikistan.rb', __dir__
+load File.expand_path 'phony/countries/turkmenistan.rb', __dir__
+load File.expand_path 'phony/countries/vietnam.rb', __dir__
+load File.expand_path 'phony/countries/ukraine.rb', __dir__
+load File.expand_path 'phony/countries/united_kingdom.rb', __dir__
+load File.expand_path 'phony/countries/uruguay.rb', __dir__
+load File.expand_path 'phony/countries/zimbabwe.rb', __dir__
 
 # All other countries.
 #
-load File.expand_path '../phony/countries.rb', __FILE__
+load File.expand_path 'phony/countries.rb', __dir__
 
 # Phony is the main module and is generally used to process
 # E164 phone numbers directly.
 #
 module Phony
-
   # Raised in case Phony can't normalize a given number.
   #
   # @example
@@ -83,21 +82,21 @@ module Phony
   #
   class NormalizationError < ArgumentError
     def initialize
-      super %Q{Phony could not normalize the given number. Is it a phone number?}
+      super(%(Phony could not normalize the given number. Is it a phone number?))
     end
   end
-  
+
   # Raised in case Phony can't split a given number.
   #
   # @example
   #   Phony.split("Fnork!") # Raises a Phony::SplittingError.
   #
   class SplittingError < ArgumentError
-    def initialize number
-      super %Q{Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?}
+    def initialize(number)
+      super(%(Phony could not split the given number. Is #{(number.nil? || number == '') ? 'it' : number.inspect} a phone number?))
     end
   end
-  
+
   # Raised in case Phony can't format a given number.
   #
   # @example
@@ -105,7 +104,7 @@ module Phony
   #
   class FormattingError < ArgumentError
     def initialize
-      super %Q{Phony could not format the given number. Is it a phone number?}
+      super(%(Phony could not format the given number. Is it a phone number?))
     end
   end
 
@@ -114,7 +113,6 @@ module Phony
   @codes = CountryCodes.instance
 
   class << self
-
     # Get the Country for the given CC.
     #
     # @param [String] cc A valid country code.
@@ -125,7 +123,7 @@ module Phony
     #   nanp = Phony['1']
     #   normalized_number = nanp.normalize number
     #
-    def [] cc
+    def [](cc)
       @codes[cc]
     end
 
@@ -146,11 +144,12 @@ module Phony
     # @example Normalize a phone number assuming it's a NANP number.
     #   Phony.normalize("301 555 0100", cc: '1') # => "13015550100"
     #
-    def normalize phone_number, options = {}
-      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.normalize(number)." unless phone_number
-      
+    def normalize(phone_number, options = {})
+      raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.normalize(number).' unless phone_number
+
       normalize! phone_number.dup, options
     end
+
     # A destructive version of {#normalize}.
     #
     # @see #normalize
@@ -168,7 +167,7 @@ module Phony
     # @example Normalize a phone number assuming it's a NANP number.
     #   Phony.normalize!("301 555 0100", cc: '1') # => "13015550100"
     #
-    def normalize! phone_number, options = {}
+    def normalize!(phone_number, options = {})
       @codes.normalize phone_number, options
     rescue
       raise NormalizationError.new
@@ -188,11 +187,12 @@ module Phony
     # @example Split a NANP number.
     #   Phony.split("13015550100") # => ["1", "301", "555", "0100"]
     #
-    def split phone_number
-      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.split(number)." unless phone_number
-      
+    def split(phone_number)
+      raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.split(number).' unless phone_number
+
       split! phone_number.dup, phone_number
     end
+
     # A destructive version of {#split}.
     #
     # @see #split
@@ -207,7 +207,7 @@ module Phony
     # @example Split a NANP number.
     #   Phony.split!("13015550100") # => ["1", "301", "555", "0100"]
     #
-    def split! phone_number, error_number = nil
+    def split!(phone_number, error_number = nil)
       @codes.split phone_number
     rescue
       # NB The error_number (reference) is used because phone_number is destructively handled.
@@ -235,10 +235,12 @@ module Phony
     # @example Format a NANP number in a specific format.
     #   Phony.format("13015550100", :format => '%{cc} (%{trunk}%{ndc}) %{local}') # => "555 0100"
     #
-    def format phone_number, options = {}
-      raise ArgumentError, "Phone number cannot be nil. Use e.g. number && Phony.format(number)." unless phone_number
+    def format(phone_number, options = {})
+      raise ArgumentError, 'Phone number cannot be nil. Use e.g. number && Phony.format(number).' unless phone_number
+
       format! phone_number.dup, options
     end
+
     # A destructive version of {#format}.
     #
     # @see #format
@@ -261,7 +263,7 @@ module Phony
     # @example Format a NANP number in local format.
     #   Phony.format!("13015550100", :format => :local) # => "555 0100"
     #
-    def format! phone_number, options = {}
+    def format!(phone_number, options = {})
       @codes.format phone_number, options
     rescue
       raise FormattingError.new
@@ -275,14 +277,14 @@ module Phony
     # If it returns true, it is unclear whether it is plausible,
     # leaning towards being plausible.
     #
-    def plausible? number, hints = {}
+    def plausible?(number, hints = {})
       @codes.plausible? number, hints
     end
 
     # Returns true if there is a character in the number
     # after the first four numbers.
     #
-    def vanity? phone_number
+    def vanity?(phone_number)
       @codes.vanity? phone_number.dup
     end
 
@@ -296,10 +298,8 @@ module Phony
     # @example De-vanitize a number.
     #   Phony.vanity_to_number("1-800-HELLOTHERE") # => "1-800-4355684373"
     #
-    def vanity_to_number vanity_number
+    def vanity_to_number(vanity_number)
       @codes.vanity_to_number vanity_number.dup
     end
-
   end
-
 end

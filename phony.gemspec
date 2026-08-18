@@ -1,14 +1,15 @@
 Gem::Specification.new do |s|
   s.name = 'phony'
-  s.version = '2.20.12'
+  s.version = '3.0.6'
   s.authors = ['Florian Hanke']
   s.email = 'florian.hanke+phony@gmail.com'
   s.homepage = 'https://github.com/floere/phony'
   s.license = 'MIT'
   s.platform = Gem::Platform::RUBY
+  s.required_ruby_version = '>= 3.2'
   s.summary = 'Fast international phone number (E164 standard) normalizing, splitting and formatting.'
-  s.description = "Fast international phone number (E164 standard) normalizing, splitting and formatting. Lots of formatting options: International (+.., 00..), national (0..), and local."
-  s.files = Dir["lib/**/*.rb"]
-  s.test_files = Dir["spec/**/*spec.rb"]
-  s.extra_rdoc_files = ["README.textile"]
+  s.description = 'Fast international phone number (E164 standard) normalizing, splitting and formatting. Lots of formatting options: International (+.., 00..), national (0..), and local.'
+  s.files = Dir['lib/**/*.rb']
+  s.extra_rdoc_files = ['README.md']
+  s.metadata['rubygems_mfa_required'] = 'true'
 end

@@ -41,6 +41,10 @@ The number is not considered plausible if it does not contain given `ccc`.
     Phony.refute.plausible?('+1 868 7620266', ccc: '1869')
     Phony.refute.plausible?('+1 869 7620266', ccc: '1868')
 
+### duplicated cc
+
+    Phony.refute.plausible?('+49+491505632832')
+
 ### Example countries
 
 Some of the examples use `plausible? true: [some numbers]`.
@@ -198,6 +202,7 @@ NDC with several subscriber number length.
     Phony.assert.plausible?('+32 3 241 11 32')
     Phony.assert.plausible?('0032 3 241 11 32')
     Phony.assert.plausible?('0032 (0) 3 241 11 32')
+    Phony.assert.plausible?('+32 451 03 52 08')
     Phony.assert.plausible?('+32 455 12 34 56')
     Phony.assert.plausible?('+32 456 12 34 56')
     Phony.assert.plausible?('+32 460 12 34 56')
@@ -219,11 +224,22 @@ NDC with several subscriber number length.
 
 #### Benin
 
-    plausible? true: '+229 1234 5678'
+    plausible? true: '+229 01 65 11 11 10'
 
 #### Bhutan
 
-    plausible? true: '+975 2 889 648'
+https://en.wikipedia.org/wiki/Telephone_numbers_in_Bhutan
+
+    Phony.assert.plausible?("+975 2 889 648") # Landline
+    Phony.assert.plausible?("+975 17 889 648") # B-Mobile
+    Phony.assert.plausible?("+975 16 889 648") # B-Mobile
+    Phony.assert.plausible?("+975 77 889 648") # TashiCell
+
+    Phony.refute.plausible?("+975 77 889 6489") # B-Mobile (too long)
+    Phony.refute.plausible?("+975 77 889 64") # B-Mobile (too short)
+    Phony.refute.plausible?("+975 3 889 648") # Not a landline
+    Phony.refute.plausible?("+975 2 889 64") # Landline too short
+    Phony.refute.plausible?("+975 2 889 6489") # Landline too long
 
 #### Bolivia
 
@@ -239,6 +255,11 @@ NDC with several subscriber number length.
       '+267 7 6712 345',
       '+267 8 1234 567'
     ]
+
+#### Brazil
+
+    plausible? true: '+55 0800 123 4567'
+    plausible? true: '+55 800 123 4567'
 
 #### Brunei
 
@@ -686,6 +707,17 @@ Mobile.
       '+996 58 123 4567',
       '+996 800 123 456'
     ]
+
+#### Libya
+
+    Phony.refute.plausible?('+218 22 123 45') # Too short for landline
+    Phony.assert.plausible?('+218 22 123 456')
+    Phony.assert.plausible?('+218 205 123 45')
+    Phony.refute.plausible?('+218 205 123 4567') # Too long for landline
+
+    Phony.refute.plausible?('+218 91 123 456') # Too short for mobile
+    Phony.assert.plausible?('+218 91 1234 567')
+    Phony.refute.plausible?('+218 91 1234 5678') # Too long for mobile
 
 #### Malaysia
 

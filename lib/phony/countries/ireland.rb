@@ -39,7 +39,7 @@ ndcs_with_6_subscriber_digits = [
   '45',  # Naas, Kildare, Curragh
   '51',  # Waterford, Carrick-on-Suir, New Ross, Kilmacthomas
   '61',  # Limerick, Scariff
-  '91',  # Galway, GOrt, Loughrea
+  '91'  # Galway, GOrt, Loughrea
 ]
 
 ndcs_with_7_subscriber_digits = [
@@ -73,11 +73,10 @@ freefone = [
 
 Phony.define do
   country '353', trunk('0') |
-                 one_of(ndcs_with_7_subscriber_digits)   >> split(3,4) |
+                 one_of(ndcs_with_7_subscriber_digits)   >> split(3, 4) |
                  one_of(ndcs_with_5_subscriber_digits)   >> split(5)   |
                  one_of(ndcs_with_6_subscriber_digits)   >> split(6)   |
                  one_of(freefone)                        >> split(6)   |
-                 match(/^(8\d).+$/)                      >> split(3,4) | # mobile
-                 fixed(3)                                >> split(6)     # Fallback
-
+                 match(/^(8\d).+$/)                      >> split(3, 4) | # mobile
+                 fixed(3)                                >> split(6) # Fallback
 end

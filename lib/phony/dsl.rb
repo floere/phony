@@ -1,5 +1,6 @@
-module Phony
+# frozen_string_literal: true
 
+module Phony
   # For country definitions.
   #
   # There are two styles: With or without block.
@@ -27,7 +28,6 @@ module Phony
   #   Phony.define { ... }
   #
   class DSL
-
     # Define a country's rules.
     #
     # Use the other DSL methods to define the country's rules.
@@ -40,13 +40,13 @@ module Phony
     # @example Add a country with country code 27.
     #   country '27', # CC, followed by rules, for example fixed(2) >> ...
     #
-    def country country_code, definition, options = {}
+    def country(country_code, definition, options = {})
       return unless Phony.config.load?(country_code)
-      
+
       definition.with country_code, options
       Phony::CountryCodes.instance.add country_code, definition
     end
-    
+
     # Designates a country code as reserved.
     # A reserved country will result in an exception when trying to be used.
     #
@@ -57,10 +57,10 @@ module Phony
     # @example Designate country code 27 as reserved.
     #   reserved('27')
     #
-    def reserved country_code
+    def reserved(country_code)
       # Does nothing, will just fail with an exception.
     end
-    
+
     # Define a country to use default rules (and to be done at some point).
     #
     # @return Rules for a country.
@@ -71,7 +71,7 @@ module Phony
     def todo
       none >> split(10)
     end
-    
+
     # This country uses a trunk code.
     #
     # @param [String] code The trunk code.
@@ -88,7 +88,7 @@ module Phony
     # @example Most countries which use a trunk code use 0. E.g. Romania.
     #   country '40', trunk('0') | ...
     #
-    def trunk code, options = {}
+    def trunk(code, options = {})
       TrunkCode.new code, options
     end
 
@@ -107,11 +107,11 @@ module Phony
     # @example France. Uses a fixed NDC of size 1.
     #   country '33', fixed(1) >> split(2,2,2,2)
     #
-    def fixed length, options = {}
+    def fixed(length, options = {})
       options[:zero] = true if options[:zero].nil?
       NationalSplitters::Fixed.instance_for length, options
     end
-    
+
     # Marks the country as not using an NDC. This rule will always match.
     #
     # @return NationalSplitters::None A no-ndc national splitter.
@@ -121,7 +121,7 @@ module Phony
     def none
       NationalSplitters::None.instance_for
     end
-    
+
     # If you have a number of (possibly) variable length NDCs
     # that cannot be well expressed via regexp, use this.
     #
@@ -135,15 +135,15 @@ module Phony
     #     one_of('103', '105') >> split(3,3)
     #
     def one_of *ndcs
-      options = Hash === ndcs.last ? ndcs.pop : {}
+      options = ndcs.last.is_a?(Hash) ? ndcs.pop : {}
 
       # Ruby 1.8 compatibility mode.
       #
-      ndcs = ndcs.first if Array === ndcs.first
+      ndcs = ndcs.first if ndcs.first.is_a?(Array)
 
       NationalSplitters::Variable.new options[:max_length], ndcs.map(&:freeze)
     end
-    
+
     # If you have a number of (possibly) variable length NDCs
     # that can be well expressed via regexp, use this.
     #
@@ -157,11 +157,11 @@ module Phony
     #     match(/^(33|55|81)\d+$/) >> split(2,2,2,2) |
     #     match(/^(\d{3})\d+$/)    >> split(3,2,2)
     #
-    def match regex, options = {}
+    def match(regex, options = {})
       # Check if regexp has a group in it.
       #
-      raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless regex.source =~ /\(/
-      
+      raise "Regexp /#{regex.source}/ needs a group in it that defines which digits belong to the NDC." unless /\(/.match?(regex.source)
+
       NationalSplitters::Regex.instance_for regex, options[:on_fail_take], options
     end
 
@@ -183,7 +183,7 @@ module Phony
       # local << local.pop + 10 # Allow for call-through numbers with an arbitrary size.
       LocalSplitters::Fixed.instance_for local
     end
-    
+
     # Matches on the rest of the number and splits according
     # to the given value for the regexp key.
     #
@@ -199,18 +199,18 @@ module Phony
     #                           /^[489].*$/ => [3,2,3],
     #                           :fallback   => [2,2,2,2])
     #
-    def matched_split options = {}
+    def matched_split(options = {})
       LocalSplitters::Regex.instance_for options
     end
-    
+
     # Validators
     #
-    
+
     # Which NDCs are explicitly invalid?
     #
     # @param [Regexp, String] ndc A regexp or a string of invalid NDCs.
     #
-    # @return Validators::NDC An NDC validator 
+    # @return Validators::NDC An NDC validator
     #
     # @example NANP
     #   country '1',
@@ -220,8 +220,5 @@ module Phony
     def invalid_ndcs *ndc
       Validators::NDC.new invalid: ndc
     end
-
-
   end
-
 end
