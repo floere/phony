@@ -69,7 +69,10 @@ ndcs_with_3_subscriber_digits = %w[331700]
 
 Phony.define do
   country '992',
-          trunk('8') |
+          # The trunk code '8' is also the leading digit of the MegaFon mobile
+          # NDCs (88x), so the scheme is ambiguous. Do not strip it on normalize
+          # (same as Russia and Latvia, which share this '8' ambiguity).
+          trunk('8', normalize: false) |
           one_of(ndcs_with_3_subscriber_digits) >> split(3) |
           one_of(ndcs_with_5_subscriber_digits) >> split(3, 2) |
           one_of(ndcs_with_6_subscriber_digits) >> split(3, 3) |
