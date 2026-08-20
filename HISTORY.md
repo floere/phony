@@ -1,3 +1,8 @@
+# Version 3.0.7
+
+* Tajikistan (#570)
+* Madagascar (#571)
+
 # Version 3.0.6
 
 * Nigeria (#567)
