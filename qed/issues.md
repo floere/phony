@@ -39,3 +39,10 @@ Italy numbers needed a 0 to be splittable (officially needed). Now they at least
 
     Phony.split("4512121212").assert == ['45', false, '12', '12', '12', '12']
     Phony.split("4234760987").assert == ['423', false, '476', '09', '87']
+
+### #522
+
+For Tajikistan (+992), the trunk code `8` is also the leading digit of the MegaFon mobile NDCs (`88x`), so normalizing must not strip it.
+
+    Phony.normalize('+992 88 123 4567').assert == '992881234567'
+    Phony.normalize('992881234567').assert     == '992881234567'
