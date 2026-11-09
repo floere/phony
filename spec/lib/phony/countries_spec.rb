@@ -1273,6 +1273,10 @@ describe 'country descriptions' do
       it_splits '26467175890', %w[264 67 175 890]
       it_splits '26463088612345', %w[264 63 088 612 345]
       it_splits '264851234567', %w[264 85 1234 567]
+      it_splits '264612993300', %w[264 61 2993 300]
+      it_splits '264672993300', %w[264 67 2993 300]
+      it_splits '26462123456', %w[264 62 123 456]
+      it_splits '264622993300', %w[264 62 2993 300]
     end
 
     describe 'Nauru (Republic of)' do

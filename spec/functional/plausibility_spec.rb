@@ -395,6 +395,14 @@ describe 'plausibility' do
                                              '+264 67 175 890',
                                              '+264 63 088 612 345',
                                              '+264 85 1234 567']
+      # 61, 62, 63, 64, 65 and 67 have subscriber numbers with 7 digits.
+      # (Not part of it_is_correct_for, as removing a digit from a
+      # valid 7-digit subscriber number yields another valid number.)
+      it 'is correct for 7-digit subscriber numbers in the 61 to 67 ranges' do
+        expect(Phony).to be_plausible('+264 61 2993 300')
+        expect(Phony).to be_plausible('+264 62 2993 300')
+        expect(Phony).to be_plausible('+264 67 2993 300')
+      end
       it_is_correct_for 'Nauru (Republic of)', samples: '+674  239 8387'
       it_is_correct_for 'Norway', samples: ['+47 51 23 45 67',
                                             '+47 41 23 45 67']

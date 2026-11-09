@@ -24,19 +24,14 @@ Phony.define do
             /\A\d{5}\z/ => [3, 2],
             /\A\d+\z/ => [3, 3]
           ) |
-          one_of(%w[61 63 64 65 67]) >> matched_split(
+          one_of(%w[61 62 63 64 65 67]) >> matched_split(
             /\A\d{6}\z/ => [3, 3],
+            /\A\d{7}\z/ => [4, 3],
             /\A\d+\z/ => [3, 3, 3]
           ) |
           one_of(%w[66]) >> matched_split(
             /\A\d{4}\z/ => [4],
             /\A\d+\z/ => [3, 3]
-          ) |
-          one_of(%w[62]) >> split(3, 3) |
-          one_of(%w[67]) >> matched_split(
-            /\A\d{6}\z/ => [3, 3],
-            /\A\d{7}\z/ => [4, 3],
-            /\A\d+\z/ => [3, 3, 3]
           ) |
           one_of(%w[60 81 82 83 85]) >> split(4, 3) |
           fixed(2) >> split(3, 3)
