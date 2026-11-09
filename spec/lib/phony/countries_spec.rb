@@ -498,6 +498,8 @@ describe 'country descriptions' do
       it_splits '390909709511', %w[39 090 9709511] # Barcellona
       it_splits '390471811353', %w[39 0471 811 353] # Bolzano
       it_splits '3905745730', %w[39 0574 5730] # Prato
+      it_splits '3901852678610', %w[39 0185 2678610] # Rapallo/Chiavari (7-digit subscriber)
+      it_splits '3901856678610', %w[39 0185 6678610] # Rapallo/Chiavari (7-digit subscriber)
     end
 
     describe 'Japan' do

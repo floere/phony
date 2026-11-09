@@ -985,6 +985,9 @@ describe 'plausibility' do
 
         expect(Phony).not_to be_plausible('+39 06 8323074181')
         expect(Phony).to be_plausible('+39 06 832307418')
+
+        expect(Phony).to be_plausible('+39 0185 2678 610') # 7-digit subscriber not starting with 1
+        expect(Phony).to be_plausible('+39 0185 6678 610') # 7-digit subscriber starting with 6
       end
 
       it 'is correct for Russia' do
