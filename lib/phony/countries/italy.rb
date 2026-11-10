@@ -300,7 +300,7 @@ Phony.define do
                 one_of(*ndcs_3digit) >> matched_split(
                   /\A\d{4}\z/ => [4],
                   /\A1\d{5}\z/ => [6],
-                  /\A1\d{6}\z/ => [7],
+                  /\A\d{7}\z/ => [7],
                   /\A[^1]\d{4}\z/ => [5],
                   /\A[^1]\d{5}\z/ => [3, 3]
                 )
