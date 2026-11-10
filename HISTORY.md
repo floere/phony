@@ -1,3 +1,7 @@
+# Version 3.0.8
+
+* Italy and Namibia (#572)
+
 # Version 3.0.7
 
 * Tajikistan (#570)
