@@ -52,10 +52,12 @@ Phony.define do
           ) |
           one_of(%w[4 5]) >> matched_split(
             /\A\d{6}\z/ => [3, 3],
+            /\A\d{9}\z/ => [4, 5],
             /\A\d+\z/ => [4, 4]
           ) |
           one_of('6') >> matched_split(
             /\A\d{7}\z/ => [3, 4],
+            /\A\d{9}\z/ => [4, 5],
             /\A\d+\z/ => [4, 4]
           ) |
           one_of('9') >> matched_split(
