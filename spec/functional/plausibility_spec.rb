@@ -962,6 +962,7 @@ describe 'plausibility' do
         expect(Phony).to be_plausible('+62 22 000 0000')
         expect(Phony).to be_plausible('+62 22 0000 0000')
         expect(Phony).to be_plausible('+62 22 000 000 000')
+        expect(Phony).to be_plausible('+62 512 123 4567')
       end
 
       it 'is correct for Italy' do
